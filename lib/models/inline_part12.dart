@@ -6,24 +6,36 @@ part of 'inline.dart';
 // Inline operation models (part 12)
 /// The cardinality of the relationship: `one` or `many`.
 final class CreateConversationAttributeRelationshipRequestVariant1ReferenceType {
-
   final String value;
 
-  const CreateConversationAttributeRelationshipRequestVariant1ReferenceType._(this.value);
+  const CreateConversationAttributeRelationshipRequestVariant1ReferenceType._(
+      this.value);
 
-  factory CreateConversationAttributeRelationshipRequestVariant1ReferenceType.fromJson(String value) => CreateConversationAttributeRelationshipRequestVariant1ReferenceType._(value);
+  factory CreateConversationAttributeRelationshipRequestVariant1ReferenceType.fromJson(
+          String value) =>
+      CreateConversationAttributeRelationshipRequestVariant1ReferenceType._(
+          value);
 
-  static const one = CreateConversationAttributeRelationshipRequestVariant1ReferenceType._('one');
-  static const many = CreateConversationAttributeRelationshipRequestVariant1ReferenceType._('many');
+  static const one =
+      CreateConversationAttributeRelationshipRequestVariant1ReferenceType._(
+          'one');
+  static const many =
+      CreateConversationAttributeRelationshipRequestVariant1ReferenceType._(
+          'many');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateConversationAttributeRelationshipRequestVariant1ReferenceType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other
+          is CreateConversationAttributeRelationshipRequestVariant1ReferenceType &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The data type of the attribute. Allowed types: string, integer, list, decimal, boolean, datetime, relationship, files.
@@ -39,28 +51,46 @@ enum CreateConversationAttributeRequestBaseDataType {
 
   static CreateConversationAttributeRequestBaseDataType fromJson(String value) {
     switch (value) {
-      case 'string': return CreateConversationAttributeRequestBaseDataType.string;
-      case 'integer': return CreateConversationAttributeRequestBaseDataType.integer;
-      case 'list': return CreateConversationAttributeRequestBaseDataType.list;
-      case 'decimal': return CreateConversationAttributeRequestBaseDataType.decimal;
-      case 'boolean': return CreateConversationAttributeRequestBaseDataType.boolean;
-      case 'datetime': return CreateConversationAttributeRequestBaseDataType.datetime;
-      case 'relationship': return CreateConversationAttributeRequestBaseDataType.relationship;
-      case 'files': return CreateConversationAttributeRequestBaseDataType.files;
-      default: throw ArgumentError('Unknown CreateConversationAttributeRequestBaseDataType: $value');
+      case 'string':
+        return CreateConversationAttributeRequestBaseDataType.string;
+      case 'integer':
+        return CreateConversationAttributeRequestBaseDataType.integer;
+      case 'list':
+        return CreateConversationAttributeRequestBaseDataType.list;
+      case 'decimal':
+        return CreateConversationAttributeRequestBaseDataType.decimal;
+      case 'boolean':
+        return CreateConversationAttributeRequestBaseDataType.boolean;
+      case 'datetime':
+        return CreateConversationAttributeRequestBaseDataType.datetime;
+      case 'relationship':
+        return CreateConversationAttributeRequestBaseDataType.relationship;
+      case 'files':
+        return CreateConversationAttributeRequestBaseDataType.files;
+      default:
+        throw ArgumentError(
+            'Unknown CreateConversationAttributeRequestBaseDataType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CreateConversationAttributeRequestBaseDataType.string: return 'string';
-      case CreateConversationAttributeRequestBaseDataType.integer: return 'integer';
-      case CreateConversationAttributeRequestBaseDataType.list: return 'list';
-      case CreateConversationAttributeRequestBaseDataType.decimal: return 'decimal';
-      case CreateConversationAttributeRequestBaseDataType.boolean: return 'boolean';
-      case CreateConversationAttributeRequestBaseDataType.datetime: return 'datetime';
-      case CreateConversationAttributeRequestBaseDataType.relationship: return 'relationship';
-      case CreateConversationAttributeRequestBaseDataType.files: return 'files';
+      case CreateConversationAttributeRequestBaseDataType.string:
+        return 'string';
+      case CreateConversationAttributeRequestBaseDataType.integer:
+        return 'integer';
+      case CreateConversationAttributeRequestBaseDataType.list:
+        return 'list';
+      case CreateConversationAttributeRequestBaseDataType.decimal:
+        return 'decimal';
+      case CreateConversationAttributeRequestBaseDataType.boolean:
+        return 'boolean';
+      case CreateConversationAttributeRequestBaseDataType.datetime:
+        return 'datetime';
+      case CreateConversationAttributeRequestBaseDataType.relationship:
+        return 'relationship';
+      case CreateConversationAttributeRequestBaseDataType.files:
+        return 'files';
     }
   }
 
@@ -71,16 +101,21 @@ enum CreateConversationAttributeRequestBaseDataType {
 enum CreateConversationAttributeStringRequestVariant1DataType {
   string;
 
-  static CreateConversationAttributeStringRequestVariant1DataType fromJson(String value) {
+  static CreateConversationAttributeStringRequestVariant1DataType fromJson(
+      String value) {
     switch (value) {
-      case 'string': return CreateConversationAttributeStringRequestVariant1DataType.string;
-      default: throw ArgumentError('Unknown CreateConversationAttributeStringRequestVariant1DataType: $value');
+      case 'string':
+        return CreateConversationAttributeStringRequestVariant1DataType.string;
+      default:
+        throw ArgumentError(
+            'Unknown CreateConversationAttributeStringRequestVariant1DataType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CreateConversationAttributeStringRequestVariant1DataType.string: return 'string';
+      case CreateConversationAttributeStringRequestVariant1DataType.string:
+        return 'string';
     }
   }
 
@@ -90,12 +125,12 @@ enum CreateConversationAttributeStringRequestVariant1DataType {
 
 /// The role associated to the contact - user or lead.
 final class CreateConversationRequestFromType {
-
   final String value;
 
   const CreateConversationRequestFromType._(this.value);
 
-  factory CreateConversationRequestFromType.fromJson(String value) => CreateConversationRequestFromType._(value);
+  factory CreateConversationRequestFromType.fromJson(String value) =>
+      CreateConversationRequestFromType._(value);
 
   static const lead = CreateConversationRequestFromType._('lead');
   static const user = CreateConversationRequestFromType._('user');
@@ -103,89 +138,107 @@ final class CreateConversationRequestFromType {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateConversationRequestFromType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateConversationRequestFromType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class CreateDataAttributeRequestVariant0DataType {
-
   final String value;
 
   const CreateDataAttributeRequestVariant0DataType._(this.value);
 
-  factory CreateDataAttributeRequestVariant0DataType.fromJson(String value) => CreateDataAttributeRequestVariant0DataType._(value);
+  factory CreateDataAttributeRequestVariant0DataType.fromJson(String value) =>
+      CreateDataAttributeRequestVariant0DataType._(value);
 
-  static const options = CreateDataAttributeRequestVariant0DataType._('options');
+  static const options =
+      CreateDataAttributeRequestVariant0DataType._('options');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateDataAttributeRequestVariant0DataType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateDataAttributeRequestVariant0DataType &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class CreateDataAttributeRequestVariant1DataType {
-
   final String value;
 
   const CreateDataAttributeRequestVariant1DataType._(this.value);
 
-  factory CreateDataAttributeRequestVariant1DataType.fromJson(String value) => CreateDataAttributeRequestVariant1DataType._(value);
+  factory CreateDataAttributeRequestVariant1DataType.fromJson(String value) =>
+      CreateDataAttributeRequestVariant1DataType._(value);
 
   static const string = CreateDataAttributeRequestVariant1DataType._('string');
-  static const integer = CreateDataAttributeRequestVariant1DataType._('integer');
+  static const integer =
+      CreateDataAttributeRequestVariant1DataType._('integer');
   static const float = CreateDataAttributeRequestVariant1DataType._('float');
-  static const boolean = CreateDataAttributeRequestVariant1DataType._('boolean');
-  static const datetime = CreateDataAttributeRequestVariant1DataType._('datetime');
+  static const boolean =
+      CreateDataAttributeRequestVariant1DataType._('boolean');
+  static const datetime =
+      CreateDataAttributeRequestVariant1DataType._('datetime');
   static const date = CreateDataAttributeRequestVariant1DataType._('date');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateDataAttributeRequestVariant1DataType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateDataAttributeRequestVariant1DataType &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The model that the data attribute belongs to.
 final class CreateDataAttributeRequestModel {
-
   final String value;
 
   const CreateDataAttributeRequestModel._(this.value);
 
-  factory CreateDataAttributeRequestModel.fromJson(String value) => CreateDataAttributeRequestModel._(value);
+  factory CreateDataAttributeRequestModel.fromJson(String value) =>
+      CreateDataAttributeRequestModel._(value);
 
   static const contact = CreateDataAttributeRequestModel._('contact');
   static const company = CreateDataAttributeRequestModel._('company');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateDataAttributeRequestModel && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateDataAttributeRequestModel && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `audiences[]` wire field.
 final class CreateDataConnectorRequestAudiencesItem {
-
   final String value;
 
   const CreateDataConnectorRequestAudiencesItem._(this.value);
 
-  factory CreateDataConnectorRequestAudiencesItem.fromJson(String value) => CreateDataConnectorRequestAudiencesItem._(value);
+  factory CreateDataConnectorRequestAudiencesItem.fromJson(String value) =>
+      CreateDataConnectorRequestAudiencesItem._(value);
 
   static const leads = CreateDataConnectorRequestAudiencesItem._('leads');
   static const users = CreateDataConnectorRequestAudiencesItem._('users');
@@ -193,46 +246,57 @@ final class CreateDataConnectorRequestAudiencesItem {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateDataConnectorRequestAudiencesItem && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateDataConnectorRequestAudiencesItem && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The parameter type.
 final class CreateDataConnectorRequestDataInputsItemType {
-
   final String value;
 
   const CreateDataConnectorRequestDataInputsItemType._(this.value);
 
-  factory CreateDataConnectorRequestDataInputsItemType.fromJson(String value) => CreateDataConnectorRequestDataInputsItemType._(value);
+  factory CreateDataConnectorRequestDataInputsItemType.fromJson(String value) =>
+      CreateDataConnectorRequestDataInputsItemType._(value);
 
-  static const string = CreateDataConnectorRequestDataInputsItemType._('string');
-  static const integer = CreateDataConnectorRequestDataInputsItemType._('integer');
-  static const decimal = CreateDataConnectorRequestDataInputsItemType._('decimal');
-  static const boolean = CreateDataConnectorRequestDataInputsItemType._('boolean');
+  static const string =
+      CreateDataConnectorRequestDataInputsItemType._('string');
+  static const integer =
+      CreateDataConnectorRequestDataInputsItemType._('integer');
+  static const decimal =
+      CreateDataConnectorRequestDataInputsItemType._('decimal');
+  static const boolean =
+      CreateDataConnectorRequestDataInputsItemType._('boolean');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateDataConnectorRequestDataInputsItemType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateDataConnectorRequestDataInputsItemType &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The HTTP method used when calling the external API.
 final class CreateDataConnectorRequestHttpMethod {
-
   final String value;
 
   const CreateDataConnectorRequestHttpMethod._(this.value);
 
-  factory CreateDataConnectorRequestHttpMethod.fromJson(String value) => CreateDataConnectorRequestHttpMethod._(value);
+  factory CreateDataConnectorRequestHttpMethod.fromJson(String value) =>
+      CreateDataConnectorRequestHttpMethod._(value);
 
   static const get_ = CreateDataConnectorRequestHttpMethod._('get');
   static const post = CreateDataConnectorRequestHttpMethod._('post');
@@ -242,53 +306,64 @@ final class CreateDataConnectorRequestHttpMethod {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateDataConnectorRequestHttpMethod && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateDataConnectorRequestHttpMethod && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Always en
 final class CreateExternalPageRequestLocale {
-
   final String value;
 
   const CreateExternalPageRequestLocale._(this.value);
 
-  factory CreateExternalPageRequestLocale.fromJson(String value) => CreateExternalPageRequestLocale._(value);
+  factory CreateExternalPageRequestLocale.fromJson(String value) =>
+      CreateExternalPageRequestLocale._(value);
 
   static const en = CreateExternalPageRequestLocale._('en');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateExternalPageRequestLocale && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateExternalPageRequestLocale && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the redirect target.
 final class CreateHelpCenterRedirectRequestTargetType {
-
   final String value;
 
   const CreateHelpCenterRedirectRequestTargetType._(this.value);
 
-  factory CreateHelpCenterRedirectRequestTargetType.fromJson(String value) => CreateHelpCenterRedirectRequestTargetType._(value);
+  factory CreateHelpCenterRedirectRequestTargetType.fromJson(String value) =>
+      CreateHelpCenterRedirectRequestTargetType._(value);
 
   static const article = CreateHelpCenterRedirectRequestTargetType._('article');
-  static const collection = CreateHelpCenterRedirectRequestTargetType._('collection');
+  static const collection =
+      CreateHelpCenterRedirectRequestTargetType._('collection');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateHelpCenterRedirectRequestTargetType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateHelpCenterRedirectRequestTargetType &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

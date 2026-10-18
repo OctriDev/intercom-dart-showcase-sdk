@@ -8,33 +8,54 @@ part of 'banners.dart';
 class BannerList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// String representing the object's type. Always has the value `list`.
   final SdkOptional<String> type_;
+
   /// An array of banners.
   final SdkOptional<List<Banner>> data;
 
-  const BannerList({this.type_ = const SdkOmitted(), this.data = const SdkOmitted()});
+  const BannerList(
+      {this.type_ = const SdkOmitted(), this.data = const SdkOmitted()});
 
-  BannerList Function({SdkOptional<String> type_, SdkOptional<List<Banner>> data}) get copyWith => _copyWith;
+  BannerList Function(
+      {SdkOptional<String> type_,
+      SdkOptional<List<Banner>> data}) get copyWith => _copyWith;
 
-  BannerList _copyWith({Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) => BannerList(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<Banner>>,
-  );
+  BannerList _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
+      BannerList(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<String>,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<List<Banner>>,
+      );
 
   factory BannerList.fromJson(Map<String, dynamic> json) => BannerList(
-    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
-    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => Banner.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] as String?)!)
+            : const SdkOmitted(),
+        data: json['data'] != null
+            ? SdkPresent(((json['data'] as List?)
+                ?.map((e) => Banner.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<String>(value: final value) => {'type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (data) {
-      SdkPresent<List<Banner>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<String>(value: final value) => {
+              'type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (data) {
+          SdkPresent<List<Banner>>(value: final value) => {
+              'data': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,274 +8,566 @@ part of 'conversations_attributes.dart';
 class ConversationAttributeFilesType {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Value is `conversation_attribute`.
   final SdkOptional<ConversationAttributeBaseType> type_;
+
   /// The unique identifier for the conversation attribute.
   final SdkOptional<int> id;
+
   /// Name of the attribute.
   final SdkOptional<String> name;
+
   /// Readable description of the attribute.
   final SdkOptional<String> description;
+
   /// Optional enumerated value serialized in the `data_type` wire field.
   final SdkOptional<ConversationAttributeFilesTypeVariant1DataType> dataType;
+
   /// Whether this attribute is required.
   final SdkOptional<bool> required_;
+
   /// Team IDs that can see this attribute. Empty array means all teams.
   final SdkOptional<List<String>> visibleToTeamIds;
+
   /// Whether this attribute is archived.
   final SdkOptional<bool> archived;
+
   /// The time the attribute was created as a UTC Unix timestamp.
   final SdkOptional<int> createdAt;
+
   /// The time the attribute was last updated as a UTC Unix timestamp.
   final SdkOptional<int> updatedAt;
+
   /// ID of the admin who created the attribute.
   final SdkOptional<String> adminId;
 
-  const ConversationAttributeFilesType({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.name = const SdkOmitted(), this.description = const SdkOmitted(), this.dataType = const SdkOmitted(), this.required_ = const SdkOmitted(), this.visibleToTeamIds = const SdkOmitted(), this.archived = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.adminId = const SdkOmitted()});
+  const ConversationAttributeFilesType(
+      {this.type_ = const SdkOmitted(),
+      this.id = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.description = const SdkOmitted(),
+      this.dataType = const SdkOmitted(),
+      this.required_ = const SdkOmitted(),
+      this.visibleToTeamIds = const SdkOmitted(),
+      this.archived = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.updatedAt = const SdkOmitted(),
+      this.adminId = const SdkOmitted()});
 
-  ConversationAttributeFilesType Function({SdkOptional<ConversationAttributeBaseType> type_, SdkOptional<int> id, SdkOptional<String> name, SdkOptional<String> description, SdkOptional<ConversationAttributeFilesTypeVariant1DataType> dataType, SdkOptional<bool> required_, SdkOptional<List<String>> visibleToTeamIds, SdkOptional<bool> archived, SdkOptional<int> createdAt, SdkOptional<int> updatedAt, SdkOptional<String> adminId}) get copyWith => _copyWith;
+  ConversationAttributeFilesType Function(
+      {SdkOptional<ConversationAttributeBaseType> type_,
+      SdkOptional<int> id,
+      SdkOptional<String> name,
+      SdkOptional<String> description,
+      SdkOptional<ConversationAttributeFilesTypeVariant1DataType> dataType,
+      SdkOptional<bool> required_,
+      SdkOptional<List<String>> visibleToTeamIds,
+      SdkOptional<bool> archived,
+      SdkOptional<int> createdAt,
+      SdkOptional<int> updatedAt,
+      SdkOptional<String> adminId}) get copyWith => _copyWith;
 
-  ConversationAttributeFilesType _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? dataType = sdkOmittedValue, Object? required_ = sdkOmittedValue, Object? visibleToTeamIds = sdkOmittedValue, Object? archived = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? adminId = sdkOmittedValue}) => ConversationAttributeFilesType(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ConversationAttributeBaseType>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<int>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
-    dataType: identical(dataType, sdkOmittedValue) ? this.dataType : dataType as SdkOptional<ConversationAttributeFilesTypeVariant1DataType>,
-    required_: identical(required_, sdkOmittedValue) ? this.required_ : required_ as SdkOptional<bool>,
-    visibleToTeamIds: identical(visibleToTeamIds, sdkOmittedValue) ? this.visibleToTeamIds : visibleToTeamIds as SdkOptional<List<String>>,
-    archived: identical(archived, sdkOmittedValue) ? this.archived : archived as SdkOptional<bool>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<int>,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<int>,
-    adminId: identical(adminId, sdkOmittedValue) ? this.adminId : adminId as SdkOptional<String>,
-  );
+  ConversationAttributeFilesType _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? dataType = sdkOmittedValue,
+          Object? required_ = sdkOmittedValue,
+          Object? visibleToTeamIds = sdkOmittedValue,
+          Object? archived = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue,
+          Object? adminId = sdkOmittedValue}) =>
+      ConversationAttributeFilesType(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<ConversationAttributeBaseType>,
+        id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<int>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String>,
+        dataType: identical(dataType, sdkOmittedValue)
+            ? this.dataType
+            : dataType
+                as SdkOptional<ConversationAttributeFilesTypeVariant1DataType>,
+        required_: identical(required_, sdkOmittedValue)
+            ? this.required_
+            : required_ as SdkOptional<bool>,
+        visibleToTeamIds: identical(visibleToTeamIds, sdkOmittedValue)
+            ? this.visibleToTeamIds
+            : visibleToTeamIds as SdkOptional<List<String>>,
+        archived: identical(archived, sdkOmittedValue)
+            ? this.archived
+            : archived as SdkOptional<bool>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<int>,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as SdkOptional<int>,
+        adminId: identical(adminId, sdkOmittedValue)
+            ? this.adminId
+            : adminId as SdkOptional<String>,
+      );
 
-  factory ConversationAttributeFilesType.fromJson(Map<String, dynamic> json) => ConversationAttributeFilesType(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ConversationAttributeBaseType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent(((json['id'] as num?)?.toInt())!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
-    dataType: json['data_type'] != null ? SdkPresent((json['data_type'] != null ? ConversationAttributeFilesTypeVariant1DataType.fromJson(json['data_type'] as String) : null)!) : const SdkOmitted(),
-    required_: json['required'] != null ? SdkPresent((json['required'] as bool?)!) : const SdkOmitted(),
-    visibleToTeamIds: json['visible_to_team_ids'] != null ? SdkPresent(((json['visible_to_team_ids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    archived: json['archived'] != null ? SdkPresent((json['archived'] as bool?)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent(((json['created_at'] as num?)?.toInt())!) : const SdkOmitted(),
-    updatedAt: json['updated_at'] != null ? SdkPresent(((json['updated_at'] as num?)?.toInt())!) : const SdkOmitted(),
-    adminId: json['admin_id'] != null ? SdkPresent((json['admin_id'] as String?)!) : const SdkOmitted(),
-  );
+  factory ConversationAttributeFilesType.fromJson(Map<String, dynamic> json) =>
+      ConversationAttributeFilesType(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? ConversationAttributeBaseType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent(((json['id'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        description: json['description'] != null
+            ? SdkPresent((json['description'] as String?)!)
+            : const SdkOmitted(),
+        dataType: json['data_type'] != null
+            ? SdkPresent((json['data_type'] != null
+                ? ConversationAttributeFilesTypeVariant1DataType.fromJson(
+                    json['data_type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        required_: json['required'] != null
+            ? SdkPresent((json['required'] as bool?)!)
+            : const SdkOmitted(),
+        visibleToTeamIds: json['visible_to_team_ids'] != null
+            ? SdkPresent(((json['visible_to_team_ids'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        archived: json['archived'] != null
+            ? SdkPresent((json['archived'] as bool?)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent(((json['created_at'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        updatedAt: json['updated_at'] != null
+            ? SdkPresent(((json['updated_at'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        adminId: json['admin_id'] != null
+            ? SdkPresent((json['admin_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<ConversationAttributeBaseType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<int>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (description) {
-      SdkPresent<String>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (dataType) {
-      SdkPresent<ConversationAttributeFilesTypeVariant1DataType>(value: final value) => {'data_type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (required_) {
-      SdkPresent<bool>(value: final value) => {'required': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (visibleToTeamIds) {
-      SdkPresent<List<String>>(value: final value) => {'visible_to_team_ids': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (archived) {
-      SdkPresent<bool>(value: final value) => {'archived': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<int>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (updatedAt) {
-      SdkPresent<int>(value: final value) => {'updated_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (adminId) {
-      SdkPresent<String>(value: final value) => {'admin_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<ConversationAttributeBaseType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<int>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (description) {
+          SdkPresent<String>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (dataType) {
+          SdkPresent<ConversationAttributeFilesTypeVariant1DataType>(
+            value: final value
+          ) =>
+            {
+              'data_type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (required_) {
+          SdkPresent<bool>(value: final value) => {
+              'required': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (visibleToTeamIds) {
+          SdkPresent<List<String>>(value: final value) => {
+              'visible_to_team_ids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (archived) {
+          SdkPresent<bool>(value: final value) => {
+              'archived': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<int>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (updatedAt) {
+          SdkPresent<int>(value: final value) => {
+              'updated_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (adminId) {
+          SdkPresent<String>(value: final value) => {
+              'admin_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Required object value serialized in the `data[]` wire field.
 class ConversationAttributeIntegerTypeVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional enumerated value serialized in the `data_type` wire field.
   final SdkOptional<ConversationAttributeIntegerTypeVariant1DataType> dataType;
 
-  const ConversationAttributeIntegerTypeVariant1({this.dataType = const SdkOmitted()});
+  const ConversationAttributeIntegerTypeVariant1(
+      {this.dataType = const SdkOmitted()});
 
-  ConversationAttributeIntegerTypeVariant1 Function({SdkOptional<ConversationAttributeIntegerTypeVariant1DataType> dataType}) get copyWith => _copyWith;
+  ConversationAttributeIntegerTypeVariant1 Function(
+      {SdkOptional<ConversationAttributeIntegerTypeVariant1DataType>
+          dataType}) get copyWith => _copyWith;
 
-  ConversationAttributeIntegerTypeVariant1 _copyWith({Object? dataType = sdkOmittedValue}) => ConversationAttributeIntegerTypeVariant1(
-    dataType: identical(dataType, sdkOmittedValue) ? this.dataType : dataType as SdkOptional<ConversationAttributeIntegerTypeVariant1DataType>,
-  );
+  ConversationAttributeIntegerTypeVariant1 _copyWith(
+          {Object? dataType = sdkOmittedValue}) =>
+      ConversationAttributeIntegerTypeVariant1(
+        dataType: identical(dataType, sdkOmittedValue)
+            ? this.dataType
+            : dataType as SdkOptional<
+                ConversationAttributeIntegerTypeVariant1DataType>,
+      );
 
-  factory ConversationAttributeIntegerTypeVariant1.fromJson(Map<String, dynamic> json) => ConversationAttributeIntegerTypeVariant1(
-    dataType: json['data_type'] != null ? SdkPresent((json['data_type'] != null ? ConversationAttributeIntegerTypeVariant1DataType.fromJson(json['data_type'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory ConversationAttributeIntegerTypeVariant1.fromJson(
+          Map<String, dynamic> json) =>
+      ConversationAttributeIntegerTypeVariant1(
+        dataType: json['data_type'] != null
+            ? SdkPresent((json['data_type'] != null
+                ? ConversationAttributeIntegerTypeVariant1DataType.fromJson(
+                    json['data_type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (dataType) {
-      SdkPresent<ConversationAttributeIntegerTypeVariant1DataType>(value: final value) => {'data_type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (dataType) {
+          SdkPresent<ConversationAttributeIntegerTypeVariant1DataType>(
+            value: final value
+          ) =>
+            {
+              'data_type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ConversationAttributeIntegerType` API schema.
 class ConversationAttributeIntegerType {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Value is `conversation_attribute`.
   final SdkOptional<ConversationAttributeBaseType> type_;
+
   /// The unique identifier for the conversation attribute.
   final SdkOptional<int> id;
+
   /// Name of the attribute.
   final SdkOptional<String> name;
+
   /// Readable description of the attribute.
   final SdkOptional<String> description;
+
   /// Optional enumerated value serialized in the `data_type` wire field.
   final SdkOptional<ConversationAttributeIntegerTypeVariant1DataType> dataType;
+
   /// Whether this attribute is required.
   final SdkOptional<bool> required_;
+
   /// Team IDs that can see this attribute. Empty array means all teams.
   final SdkOptional<List<String>> visibleToTeamIds;
+
   /// Whether this attribute is archived.
   final SdkOptional<bool> archived;
+
   /// The time the attribute was created as a UTC Unix timestamp.
   final SdkOptional<int> createdAt;
+
   /// The time the attribute was last updated as a UTC Unix timestamp.
   final SdkOptional<int> updatedAt;
+
   /// ID of the admin who created the attribute.
   final SdkOptional<String> adminId;
 
-  const ConversationAttributeIntegerType({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.name = const SdkOmitted(), this.description = const SdkOmitted(), this.dataType = const SdkOmitted(), this.required_ = const SdkOmitted(), this.visibleToTeamIds = const SdkOmitted(), this.archived = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.adminId = const SdkOmitted()});
+  const ConversationAttributeIntegerType(
+      {this.type_ = const SdkOmitted(),
+      this.id = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.description = const SdkOmitted(),
+      this.dataType = const SdkOmitted(),
+      this.required_ = const SdkOmitted(),
+      this.visibleToTeamIds = const SdkOmitted(),
+      this.archived = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.updatedAt = const SdkOmitted(),
+      this.adminId = const SdkOmitted()});
 
-  ConversationAttributeIntegerType Function({SdkOptional<ConversationAttributeBaseType> type_, SdkOptional<int> id, SdkOptional<String> name, SdkOptional<String> description, SdkOptional<ConversationAttributeIntegerTypeVariant1DataType> dataType, SdkOptional<bool> required_, SdkOptional<List<String>> visibleToTeamIds, SdkOptional<bool> archived, SdkOptional<int> createdAt, SdkOptional<int> updatedAt, SdkOptional<String> adminId}) get copyWith => _copyWith;
+  ConversationAttributeIntegerType Function(
+      {SdkOptional<ConversationAttributeBaseType> type_,
+      SdkOptional<int> id,
+      SdkOptional<String> name,
+      SdkOptional<String> description,
+      SdkOptional<ConversationAttributeIntegerTypeVariant1DataType> dataType,
+      SdkOptional<bool> required_,
+      SdkOptional<List<String>> visibleToTeamIds,
+      SdkOptional<bool> archived,
+      SdkOptional<int> createdAt,
+      SdkOptional<int> updatedAt,
+      SdkOptional<String> adminId}) get copyWith => _copyWith;
 
-  ConversationAttributeIntegerType _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? dataType = sdkOmittedValue, Object? required_ = sdkOmittedValue, Object? visibleToTeamIds = sdkOmittedValue, Object? archived = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? adminId = sdkOmittedValue}) => ConversationAttributeIntegerType(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ConversationAttributeBaseType>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<int>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
-    dataType: identical(dataType, sdkOmittedValue) ? this.dataType : dataType as SdkOptional<ConversationAttributeIntegerTypeVariant1DataType>,
-    required_: identical(required_, sdkOmittedValue) ? this.required_ : required_ as SdkOptional<bool>,
-    visibleToTeamIds: identical(visibleToTeamIds, sdkOmittedValue) ? this.visibleToTeamIds : visibleToTeamIds as SdkOptional<List<String>>,
-    archived: identical(archived, sdkOmittedValue) ? this.archived : archived as SdkOptional<bool>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<int>,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<int>,
-    adminId: identical(adminId, sdkOmittedValue) ? this.adminId : adminId as SdkOptional<String>,
-  );
+  ConversationAttributeIntegerType _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? dataType = sdkOmittedValue,
+          Object? required_ = sdkOmittedValue,
+          Object? visibleToTeamIds = sdkOmittedValue,
+          Object? archived = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue,
+          Object? adminId = sdkOmittedValue}) =>
+      ConversationAttributeIntegerType(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<ConversationAttributeBaseType>,
+        id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<int>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String>,
+        dataType: identical(dataType, sdkOmittedValue)
+            ? this.dataType
+            : dataType as SdkOptional<
+                ConversationAttributeIntegerTypeVariant1DataType>,
+        required_: identical(required_, sdkOmittedValue)
+            ? this.required_
+            : required_ as SdkOptional<bool>,
+        visibleToTeamIds: identical(visibleToTeamIds, sdkOmittedValue)
+            ? this.visibleToTeamIds
+            : visibleToTeamIds as SdkOptional<List<String>>,
+        archived: identical(archived, sdkOmittedValue)
+            ? this.archived
+            : archived as SdkOptional<bool>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<int>,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as SdkOptional<int>,
+        adminId: identical(adminId, sdkOmittedValue)
+            ? this.adminId
+            : adminId as SdkOptional<String>,
+      );
 
-  factory ConversationAttributeIntegerType.fromJson(Map<String, dynamic> json) => ConversationAttributeIntegerType(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ConversationAttributeBaseType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent(((json['id'] as num?)?.toInt())!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
-    dataType: json['data_type'] != null ? SdkPresent((json['data_type'] != null ? ConversationAttributeIntegerTypeVariant1DataType.fromJson(json['data_type'] as String) : null)!) : const SdkOmitted(),
-    required_: json['required'] != null ? SdkPresent((json['required'] as bool?)!) : const SdkOmitted(),
-    visibleToTeamIds: json['visible_to_team_ids'] != null ? SdkPresent(((json['visible_to_team_ids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    archived: json['archived'] != null ? SdkPresent((json['archived'] as bool?)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent(((json['created_at'] as num?)?.toInt())!) : const SdkOmitted(),
-    updatedAt: json['updated_at'] != null ? SdkPresent(((json['updated_at'] as num?)?.toInt())!) : const SdkOmitted(),
-    adminId: json['admin_id'] != null ? SdkPresent((json['admin_id'] as String?)!) : const SdkOmitted(),
-  );
+  factory ConversationAttributeIntegerType.fromJson(
+          Map<String, dynamic> json) =>
+      ConversationAttributeIntegerType(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? ConversationAttributeBaseType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent(((json['id'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        description: json['description'] != null
+            ? SdkPresent((json['description'] as String?)!)
+            : const SdkOmitted(),
+        dataType: json['data_type'] != null
+            ? SdkPresent((json['data_type'] != null
+                ? ConversationAttributeIntegerTypeVariant1DataType.fromJson(
+                    json['data_type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        required_: json['required'] != null
+            ? SdkPresent((json['required'] as bool?)!)
+            : const SdkOmitted(),
+        visibleToTeamIds: json['visible_to_team_ids'] != null
+            ? SdkPresent(((json['visible_to_team_ids'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        archived: json['archived'] != null
+            ? SdkPresent((json['archived'] as bool?)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent(((json['created_at'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        updatedAt: json['updated_at'] != null
+            ? SdkPresent(((json['updated_at'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        adminId: json['admin_id'] != null
+            ? SdkPresent((json['admin_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<ConversationAttributeBaseType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<int>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (description) {
-      SdkPresent<String>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (dataType) {
-      SdkPresent<ConversationAttributeIntegerTypeVariant1DataType>(value: final value) => {'data_type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (required_) {
-      SdkPresent<bool>(value: final value) => {'required': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (visibleToTeamIds) {
-      SdkPresent<List<String>>(value: final value) => {'visible_to_team_ids': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (archived) {
-      SdkPresent<bool>(value: final value) => {'archived': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<int>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (updatedAt) {
-      SdkPresent<int>(value: final value) => {'updated_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (adminId) {
-      SdkPresent<String>(value: final value) => {'admin_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<ConversationAttributeBaseType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<int>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (description) {
+          SdkPresent<String>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (dataType) {
+          SdkPresent<ConversationAttributeIntegerTypeVariant1DataType>(
+            value: final value
+          ) =>
+            {
+              'data_type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (required_) {
+          SdkPresent<bool>(value: final value) => {
+              'required': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (visibleToTeamIds) {
+          SdkPresent<List<String>>(value: final value) => {
+              'visible_to_team_ids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (archived) {
+          SdkPresent<bool>(value: final value) => {
+              'archived': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<int>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (updatedAt) {
+          SdkPresent<int>(value: final value) => {
+              'updated_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (adminId) {
+          SdkPresent<String>(value: final value) => {
+              'admin_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A list of all conversation attributes belonging to a workspace.
 class ConversationAttributeList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object.
   final SdkOptional<ConversationAttributeListTypeb488f16f> type_;
+
   /// A list of conversation attributes.
   final SdkOptional<List<ConversationAttribute>> data;
 
-  const ConversationAttributeList({this.type_ = const SdkOmitted(), this.data = const SdkOmitted()});
+  const ConversationAttributeList(
+      {this.type_ = const SdkOmitted(), this.data = const SdkOmitted()});
 
-  ConversationAttributeList Function({SdkOptional<ConversationAttributeListTypeb488f16f> type_, SdkOptional<List<ConversationAttribute>> data}) get copyWith => _copyWith;
+  ConversationAttributeList Function(
+      {SdkOptional<ConversationAttributeListTypeb488f16f> type_,
+      SdkOptional<List<ConversationAttribute>> data}) get copyWith => _copyWith;
 
-  ConversationAttributeList _copyWith({Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) => ConversationAttributeList(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ConversationAttributeListTypeb488f16f>,
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<ConversationAttribute>>,
-  );
+  ConversationAttributeList _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
+      ConversationAttributeList(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<ConversationAttributeListTypeb488f16f>,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<List<ConversationAttribute>>,
+      );
 
-  factory ConversationAttributeList.fromJson(Map<String, dynamic> json) => ConversationAttributeList(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ConversationAttributeListTypeb488f16f.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => ConversationAttribute.fromJson(e)).toList())!) : const SdkOmitted(),
-  );
+  factory ConversationAttributeList.fromJson(Map<String, dynamic> json) =>
+      ConversationAttributeList(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? ConversationAttributeListTypeb488f16f.fromJson(
+                    json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        data: json['data'] != null
+            ? SdkPresent(((json['data'] as List?)
+                ?.map((e) => ConversationAttribute.fromJson(e))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<ConversationAttributeListTypeb488f16f>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (data) {
-      SdkPresent<List<ConversationAttribute>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<ConversationAttributeListTypeb488f16f>(
+            value: final value
+          ) =>
+            {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (data) {
+          SdkPresent<List<ConversationAttribute>>(value: final value) => {
+              'data': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

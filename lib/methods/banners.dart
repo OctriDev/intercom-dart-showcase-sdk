@@ -19,14 +19,17 @@ Future<BannerList> listContactBanners(ClientConfig config,
           'GET', '/contacts/${Uri.encodeComponent(id.toString())}/banners',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listContactBanners',
-          fromJsonRaw: (value) => BannerList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              BannerList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Records that a contact has dismissed a banner, with dismissals shared across surfaces for that contact. Supply the banner's `view_id` from the list banners response. Dismissing a banner that is already dismissed succeeds and returns the same response.
 ///
@@ -48,6 +51,8 @@ Future<BannerDismiss> dismissContactBanner(ClientConfig config,
           operationId: 'dismissContactBanner',
           fromJsonRaw: (value) => BannerDismiss.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

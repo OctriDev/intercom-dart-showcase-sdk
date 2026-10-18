@@ -8,276 +8,564 @@ part of 'contacts.dart';
 class BulkUpdateContactsRequestContactsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique identifier for the contact.
   final String id;
+
   /// A unique identifier for the contact which you have defined.
   final SdkOptional<String> externalId;
+
   /// The contact's email address.
   final SdkOptional<String> email;
+
   /// Whether the contact has proved they own this email address, for example through a confirmation link or one-time code you sent. Send it together with `email`. `email_verified` without `email` is rejected. Changing a contact's email resets it to not verified. Intercom reuses leads with a verified email when an inbound email, conversation or ticket matches the address.
   final SdkOptional<bool?> emailVerified;
+
   /// The contact's name.
   final SdkOptional<String> name;
+
   /// The contact's phone number.
   final SdkOptional<String> phone;
+
   /// An image URL containing the avatar of the contact.
   final SdkOptional<String> avatar;
+
   /// The ID of an admin that has been assigned account ownership of the contact.
   final SdkOptional<String> ownerId;
+
   /// Whether the contact is unsubscribed from emails.
   final SdkOptional<bool> unsubscribedFromEmails;
+
   /// A preferred language setting for the contact, used by the Intercom Messenger.
   final SdkOptional<String> languageOverride;
+
   /// Custom attributes to update on the contact.
   final SdkOptional<Map<String, dynamic>> customAttributes;
+
   /// A list of companies to associate with the contact. Each company is identified by the `company_id` you have defined. A company that does not exist is created, and one that already exists has the supplied attributes applied to it.
-  final SdkOptional<List<BulkUpdateContactsRequestContactsItemCompaniesItem>> companies;
+  final SdkOptional<List<BulkUpdateContactsRequestContactsItemCompaniesItem>>
+      companies;
+
   /// Tags to add to or remove from the contact. Each tag is identified by its `id`, which must be a positive integer for a tag that already exists in your workspace. Tag application is best-effort: unknown tag IDs are skipped while the rest of the contact update still applies. Per-tag results are not yet returned in the job status.
   final SdkOptional<BulkUpdateContactsRequestContactsItemTags> tags;
 
-  const BulkUpdateContactsRequestContactsItem({required this.id, this.externalId = const SdkOmitted(), this.email = const SdkOmitted(), this.emailVerified = const SdkOmitted(), this.name = const SdkOmitted(), this.phone = const SdkOmitted(), this.avatar = const SdkOmitted(), this.ownerId = const SdkOmitted(), this.unsubscribedFromEmails = const SdkOmitted(), this.languageOverride = const SdkOmitted(), this.customAttributes = const SdkOmitted(), this.companies = const SdkOmitted(), this.tags = const SdkOmitted()});
+  const BulkUpdateContactsRequestContactsItem(
+      {required this.id,
+      this.externalId = const SdkOmitted(),
+      this.email = const SdkOmitted(),
+      this.emailVerified = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.phone = const SdkOmitted(),
+      this.avatar = const SdkOmitted(),
+      this.ownerId = const SdkOmitted(),
+      this.unsubscribedFromEmails = const SdkOmitted(),
+      this.languageOverride = const SdkOmitted(),
+      this.customAttributes = const SdkOmitted(),
+      this.companies = const SdkOmitted(),
+      this.tags = const SdkOmitted()});
 
-  BulkUpdateContactsRequestContactsItem Function({String id, SdkOptional<String> externalId, SdkOptional<String> email, SdkOptional<bool?> emailVerified, SdkOptional<String> name, SdkOptional<String> phone, SdkOptional<String> avatar, SdkOptional<String> ownerId, SdkOptional<bool> unsubscribedFromEmails, SdkOptional<String> languageOverride, SdkOptional<Map<String, dynamic>> customAttributes, SdkOptional<List<BulkUpdateContactsRequestContactsItemCompaniesItem>> companies, SdkOptional<BulkUpdateContactsRequestContactsItemTags> tags}) get copyWith => _copyWith;
+  BulkUpdateContactsRequestContactsItem Function(
+          {String id,
+          SdkOptional<String> externalId,
+          SdkOptional<String> email,
+          SdkOptional<bool?> emailVerified,
+          SdkOptional<String> name,
+          SdkOptional<String> phone,
+          SdkOptional<String> avatar,
+          SdkOptional<String> ownerId,
+          SdkOptional<bool> unsubscribedFromEmails,
+          SdkOptional<String> languageOverride,
+          SdkOptional<Map<String, dynamic>> customAttributes,
+          SdkOptional<List<BulkUpdateContactsRequestContactsItemCompaniesItem>>
+              companies,
+          SdkOptional<BulkUpdateContactsRequestContactsItemTags> tags})
+      get copyWith => _copyWith;
 
-  BulkUpdateContactsRequestContactsItem _copyWith({Object? id = sdkOmittedValue, Object? externalId = sdkOmittedValue, Object? email = sdkOmittedValue, Object? emailVerified = sdkOmittedValue, Object? name = sdkOmittedValue, Object? phone = sdkOmittedValue, Object? avatar = sdkOmittedValue, Object? ownerId = sdkOmittedValue, Object? unsubscribedFromEmails = sdkOmittedValue, Object? languageOverride = sdkOmittedValue, Object? customAttributes = sdkOmittedValue, Object? companies = sdkOmittedValue, Object? tags = sdkOmittedValue}) => BulkUpdateContactsRequestContactsItem(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    externalId: identical(externalId, sdkOmittedValue) ? this.externalId : externalId as SdkOptional<String>,
-    email: identical(email, sdkOmittedValue) ? this.email : email as SdkOptional<String>,
-    emailVerified: identical(emailVerified, sdkOmittedValue) ? this.emailVerified : emailVerified as SdkOptional<bool?>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    phone: identical(phone, sdkOmittedValue) ? this.phone : phone as SdkOptional<String>,
-    avatar: identical(avatar, sdkOmittedValue) ? this.avatar : avatar as SdkOptional<String>,
-    ownerId: identical(ownerId, sdkOmittedValue) ? this.ownerId : ownerId as SdkOptional<String>,
-    unsubscribedFromEmails: identical(unsubscribedFromEmails, sdkOmittedValue) ? this.unsubscribedFromEmails : unsubscribedFromEmails as SdkOptional<bool>,
-    languageOverride: identical(languageOverride, sdkOmittedValue) ? this.languageOverride : languageOverride as SdkOptional<String>,
-    customAttributes: identical(customAttributes, sdkOmittedValue) ? this.customAttributes : customAttributes as SdkOptional<Map<String, dynamic>>,
-    companies: identical(companies, sdkOmittedValue) ? this.companies : companies as SdkOptional<List<BulkUpdateContactsRequestContactsItemCompaniesItem>>,
-    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<BulkUpdateContactsRequestContactsItemTags>,
-  );
+  BulkUpdateContactsRequestContactsItem _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? externalId = sdkOmittedValue,
+          Object? email = sdkOmittedValue,
+          Object? emailVerified = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? phone = sdkOmittedValue,
+          Object? avatar = sdkOmittedValue,
+          Object? ownerId = sdkOmittedValue,
+          Object? unsubscribedFromEmails = sdkOmittedValue,
+          Object? languageOverride = sdkOmittedValue,
+          Object? customAttributes = sdkOmittedValue,
+          Object? companies = sdkOmittedValue,
+          Object? tags = sdkOmittedValue}) =>
+      BulkUpdateContactsRequestContactsItem(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        externalId: identical(externalId, sdkOmittedValue)
+            ? this.externalId
+            : externalId as SdkOptional<String>,
+        email: identical(email, sdkOmittedValue)
+            ? this.email
+            : email as SdkOptional<String>,
+        emailVerified: identical(emailVerified, sdkOmittedValue)
+            ? this.emailVerified
+            : emailVerified as SdkOptional<bool?>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        phone: identical(phone, sdkOmittedValue)
+            ? this.phone
+            : phone as SdkOptional<String>,
+        avatar: identical(avatar, sdkOmittedValue)
+            ? this.avatar
+            : avatar as SdkOptional<String>,
+        ownerId: identical(ownerId, sdkOmittedValue)
+            ? this.ownerId
+            : ownerId as SdkOptional<String>,
+        unsubscribedFromEmails:
+            identical(unsubscribedFromEmails, sdkOmittedValue)
+                ? this.unsubscribedFromEmails
+                : unsubscribedFromEmails as SdkOptional<bool>,
+        languageOverride: identical(languageOverride, sdkOmittedValue)
+            ? this.languageOverride
+            : languageOverride as SdkOptional<String>,
+        customAttributes: identical(customAttributes, sdkOmittedValue)
+            ? this.customAttributes
+            : customAttributes as SdkOptional<Map<String, dynamic>>,
+        companies: identical(companies, sdkOmittedValue)
+            ? this.companies
+            : companies as SdkOptional<
+                List<BulkUpdateContactsRequestContactsItemCompaniesItem>>,
+        tags: identical(tags, sdkOmittedValue)
+            ? this.tags
+            : tags as SdkOptional<BulkUpdateContactsRequestContactsItemTags>,
+      );
 
-  factory BulkUpdateContactsRequestContactsItem.fromJson(Map<String, dynamic> json) => BulkUpdateContactsRequestContactsItem(
-    id: (json['id'] as String?)!,
-    externalId: json['external_id'] != null ? SdkPresent((json['external_id'] as String?)!) : const SdkOmitted(),
-    email: json['email'] != null ? SdkPresent((json['email'] as String?)!) : const SdkOmitted(),
-    emailVerified: json.containsKey('email_verified') ? SdkPresent(json['email_verified'] as bool?) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    phone: json['phone'] != null ? SdkPresent((json['phone'] as String?)!) : const SdkOmitted(),
-    avatar: json['avatar'] != null ? SdkPresent((json['avatar'] as String?)!) : const SdkOmitted(),
-    ownerId: json['owner_id'] != null ? SdkPresent((json['owner_id'] as String?)!) : const SdkOmitted(),
-    unsubscribedFromEmails: json['unsubscribed_from_emails'] != null ? SdkPresent((json['unsubscribed_from_emails'] as bool?)!) : const SdkOmitted(),
-    languageOverride: json['language_override'] != null ? SdkPresent((json['language_override'] as String?)!) : const SdkOmitted(),
-    customAttributes: json['custom_attributes'] != null ? SdkPresent((json['custom_attributes'] == null ? null : json['custom_attributes'] as Map<String, dynamic>)!) : const SdkOmitted(),
-    companies: json['companies'] != null ? SdkPresent(((json['companies'] as List?)?.map((e) => BulkUpdateContactsRequestContactsItemCompaniesItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    tags: json['tags'] != null ? SdkPresent((json['tags'] != null ? BulkUpdateContactsRequestContactsItemTags.fromJson(json['tags'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory BulkUpdateContactsRequestContactsItem.fromJson(
+          Map<String, dynamic> json) =>
+      BulkUpdateContactsRequestContactsItem(
+        id: (json['id'] as String?)!,
+        externalId: json['external_id'] != null
+            ? SdkPresent((json['external_id'] as String?)!)
+            : const SdkOmitted(),
+        email: json['email'] != null
+            ? SdkPresent((json['email'] as String?)!)
+            : const SdkOmitted(),
+        emailVerified: json.containsKey('email_verified')
+            ? SdkPresent(json['email_verified'] as bool?)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        phone: json['phone'] != null
+            ? SdkPresent((json['phone'] as String?)!)
+            : const SdkOmitted(),
+        avatar: json['avatar'] != null
+            ? SdkPresent((json['avatar'] as String?)!)
+            : const SdkOmitted(),
+        ownerId: json['owner_id'] != null
+            ? SdkPresent((json['owner_id'] as String?)!)
+            : const SdkOmitted(),
+        unsubscribedFromEmails: json['unsubscribed_from_emails'] != null
+            ? SdkPresent((json['unsubscribed_from_emails'] as bool?)!)
+            : const SdkOmitted(),
+        languageOverride: json['language_override'] != null
+            ? SdkPresent((json['language_override'] as String?)!)
+            : const SdkOmitted(),
+        customAttributes: json['custom_attributes'] != null
+            ? SdkPresent((json['custom_attributes'] == null
+                ? null
+                : json['custom_attributes'] as Map<String, dynamic>)!)
+            : const SdkOmitted(),
+        companies: json['companies'] != null
+            ? SdkPresent(((json['companies'] as List?)
+                ?.map((e) =>
+                    BulkUpdateContactsRequestContactsItemCompaniesItem.fromJson(
+                        e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        tags: json['tags'] != null
+            ? SdkPresent((json['tags'] != null
+                ? BulkUpdateContactsRequestContactsItemTags.fromJson(
+                    json['tags'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    ...switch (externalId) {
-      SdkPresent<String>(value: final value) => {'external_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (email) {
-      SdkPresent<String>(value: final value) => {'email': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (emailVerified) {
-      SdkPresent<bool?>(value: final value) => {'email_verified': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (phone) {
-      SdkPresent<String>(value: final value) => {'phone': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (avatar) {
-      SdkPresent<String>(value: final value) => {'avatar': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (ownerId) {
-      SdkPresent<String>(value: final value) => {'owner_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (unsubscribedFromEmails) {
-      SdkPresent<bool>(value: final value) => {'unsubscribed_from_emails': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (languageOverride) {
-      SdkPresent<String>(value: final value) => {'language_override': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (customAttributes) {
-      SdkPresent<Map<String, dynamic>>(value: final value) => {'custom_attributes': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (companies) {
-      SdkPresent<List<BulkUpdateContactsRequestContactsItemCompaniesItem>>(value: final value) => {'companies': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tags) {
-      SdkPresent<BulkUpdateContactsRequestContactsItemTags>(value: final value) => {'tags': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'id': id,
+        ...switch (externalId) {
+          SdkPresent<String>(value: final value) => {
+              'external_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (email) {
+          SdkPresent<String>(value: final value) => {
+              'email': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (emailVerified) {
+          SdkPresent<bool?>(value: final value) => {
+              'email_verified': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (phone) {
+          SdkPresent<String>(value: final value) => {
+              'phone': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (avatar) {
+          SdkPresent<String>(value: final value) => {
+              'avatar': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (ownerId) {
+          SdkPresent<String>(value: final value) => {
+              'owner_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (unsubscribedFromEmails) {
+          SdkPresent<bool>(value: final value) => {
+              'unsubscribed_from_emails': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (languageOverride) {
+          SdkPresent<String>(value: final value) => {
+              'language_override': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (customAttributes) {
+          SdkPresent<Map<String, dynamic>>(value: final value) => {
+              'custom_attributes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (companies) {
+          SdkPresent<List<BulkUpdateContactsRequestContactsItemCompaniesItem>>(
+            value: final value
+          ) =>
+            {
+              'companies': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tags) {
+          SdkPresent<BulkUpdateContactsRequestContactsItemTags>(
+            value: final value
+          ) =>
+            {
+              'tags': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Request body for bulk updating contacts.
 class BulkUpdateContactsRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An array of contact objects to update. Each must include an `id` and the fields to update. Maximum 100 contacts per request.
   final List<BulkUpdateContactsRequestContactsItem> contacts;
+
   /// Optional. Include to append tasks to an existing job.
   final SdkOptional<BulkUpdateContactsRequestJob> job;
 
-  const BulkUpdateContactsRequest({required this.contacts, this.job = const SdkOmitted()});
+  const BulkUpdateContactsRequest(
+      {required this.contacts, this.job = const SdkOmitted()});
 
-  BulkUpdateContactsRequest Function({List<BulkUpdateContactsRequestContactsItem> contacts, SdkOptional<BulkUpdateContactsRequestJob> job}) get copyWith => _copyWith;
+  BulkUpdateContactsRequest Function(
+      {List<BulkUpdateContactsRequestContactsItem> contacts,
+      SdkOptional<BulkUpdateContactsRequestJob> job}) get copyWith => _copyWith;
 
-  BulkUpdateContactsRequest _copyWith({Object? contacts = sdkOmittedValue, Object? job = sdkOmittedValue}) => BulkUpdateContactsRequest(
-    contacts: identical(contacts, sdkOmittedValue) ? this.contacts : contacts as List<BulkUpdateContactsRequestContactsItem>,
-    job: identical(job, sdkOmittedValue) ? this.job : job as SdkOptional<BulkUpdateContactsRequestJob>,
-  );
+  BulkUpdateContactsRequest _copyWith(
+          {Object? contacts = sdkOmittedValue,
+          Object? job = sdkOmittedValue}) =>
+      BulkUpdateContactsRequest(
+        contacts: identical(contacts, sdkOmittedValue)
+            ? this.contacts
+            : contacts as List<BulkUpdateContactsRequestContactsItem>,
+        job: identical(job, sdkOmittedValue)
+            ? this.job
+            : job as SdkOptional<BulkUpdateContactsRequestJob>,
+      );
 
-  factory BulkUpdateContactsRequest.fromJson(Map<String, dynamic> json) => BulkUpdateContactsRequest(
-    contacts: ((json['contacts'] as List?)?.map((e) => BulkUpdateContactsRequestContactsItem.fromJson(e as Map<String, dynamic>)).toList())!,
-    job: json['job'] != null ? SdkPresent((json['job'] != null ? BulkUpdateContactsRequestJob.fromJson(json['job'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory BulkUpdateContactsRequest.fromJson(Map<String, dynamic> json) =>
+      BulkUpdateContactsRequest(
+        contacts: ((json['contacts'] as List?)
+            ?.map((e) => BulkUpdateContactsRequestContactsItem.fromJson(
+                e as Map<String, dynamic>))
+            .toList())!,
+        job: json['job'] != null
+            ? SdkPresent((json['job'] != null
+                ? BulkUpdateContactsRequestJob.fromJson(
+                    json['job'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'contacts': contacts.map((item) => item.toJson()).toList(),
-    ...switch (job) {
-      SdkPresent<BulkUpdateContactsRequestJob>(value: final value) => {'job': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'contacts': contacts.map((item) => item.toJson()).toList(),
+        ...switch (job) {
+          SdkPresent<BulkUpdateContactsRequestJob>(value: final value) => {
+              'job': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// An activity event that occurred for a contact, such as creation, merge, or deletion.
 class ContactActivity {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Always contact_activity
   final SdkOptional<ContactActivityType> type_;
+
   /// The unique identifier for the activity event.
   final SdkOptional<String> id;
+
   /// The type of activity event.
   final SdkOptional<ContactActivityEventType> eventType;
+
   /// The unique identifier for the contact the event relates to.
   final SdkOptional<String> contactId;
+
   /// The external identifier of the contact, if one is set.
   final SdkOptional<String?> externalId;
+
   /// The role of the contact at the time of the event, either user, lead, or visitor.
   final SdkOptional<String?> role;
+
   /// For merge events, the identifier of the contact that was merged away.
   final SdkOptional<String?> mergeSourceId;
+
   /// For merge events, the identifier of the contact that was merged into.
   final SdkOptional<String?> mergeTargetId;
+
   /// For failed events, the reason the activity did not succeed.
   final SdkOptional<String?> failureReason;
+
   /// The time the activity event occurred, as a Unix timestamp in seconds.
   final SdkOptional<int> createdAt;
 
-  const ContactActivity({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.eventType = const SdkOmitted(), this.contactId = const SdkOmitted(), this.externalId = const SdkOmitted(), this.role = const SdkOmitted(), this.mergeSourceId = const SdkOmitted(), this.mergeTargetId = const SdkOmitted(), this.failureReason = const SdkOmitted(), this.createdAt = const SdkOmitted()});
+  const ContactActivity(
+      {this.type_ = const SdkOmitted(),
+      this.id = const SdkOmitted(),
+      this.eventType = const SdkOmitted(),
+      this.contactId = const SdkOmitted(),
+      this.externalId = const SdkOmitted(),
+      this.role = const SdkOmitted(),
+      this.mergeSourceId = const SdkOmitted(),
+      this.mergeTargetId = const SdkOmitted(),
+      this.failureReason = const SdkOmitted(),
+      this.createdAt = const SdkOmitted()});
 
-  ContactActivity Function({SdkOptional<ContactActivityType> type_, SdkOptional<String> id, SdkOptional<ContactActivityEventType> eventType, SdkOptional<String> contactId, SdkOptional<String?> externalId, SdkOptional<String?> role, SdkOptional<String?> mergeSourceId, SdkOptional<String?> mergeTargetId, SdkOptional<String?> failureReason, SdkOptional<int> createdAt}) get copyWith => _copyWith;
+  ContactActivity Function(
+      {SdkOptional<ContactActivityType> type_,
+      SdkOptional<String> id,
+      SdkOptional<ContactActivityEventType> eventType,
+      SdkOptional<String> contactId,
+      SdkOptional<String?> externalId,
+      SdkOptional<String?> role,
+      SdkOptional<String?> mergeSourceId,
+      SdkOptional<String?> mergeTargetId,
+      SdkOptional<String?> failureReason,
+      SdkOptional<int> createdAt}) get copyWith => _copyWith;
 
-  ContactActivity _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? eventType = sdkOmittedValue, Object? contactId = sdkOmittedValue, Object? externalId = sdkOmittedValue, Object? role = sdkOmittedValue, Object? mergeSourceId = sdkOmittedValue, Object? mergeTargetId = sdkOmittedValue, Object? failureReason = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => ContactActivity(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ContactActivityType>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    eventType: identical(eventType, sdkOmittedValue) ? this.eventType : eventType as SdkOptional<ContactActivityEventType>,
-    contactId: identical(contactId, sdkOmittedValue) ? this.contactId : contactId as SdkOptional<String>,
-    externalId: identical(externalId, sdkOmittedValue) ? this.externalId : externalId as SdkOptional<String?>,
-    role: identical(role, sdkOmittedValue) ? this.role : role as SdkOptional<String?>,
-    mergeSourceId: identical(mergeSourceId, sdkOmittedValue) ? this.mergeSourceId : mergeSourceId as SdkOptional<String?>,
-    mergeTargetId: identical(mergeTargetId, sdkOmittedValue) ? this.mergeTargetId : mergeTargetId as SdkOptional<String?>,
-    failureReason: identical(failureReason, sdkOmittedValue) ? this.failureReason : failureReason as SdkOptional<String?>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<int>,
-  );
+  ContactActivity _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? eventType = sdkOmittedValue,
+          Object? contactId = sdkOmittedValue,
+          Object? externalId = sdkOmittedValue,
+          Object? role = sdkOmittedValue,
+          Object? mergeSourceId = sdkOmittedValue,
+          Object? mergeTargetId = sdkOmittedValue,
+          Object? failureReason = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue}) =>
+      ContactActivity(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<ContactActivityType>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        eventType: identical(eventType, sdkOmittedValue)
+            ? this.eventType
+            : eventType as SdkOptional<ContactActivityEventType>,
+        contactId: identical(contactId, sdkOmittedValue)
+            ? this.contactId
+            : contactId as SdkOptional<String>,
+        externalId: identical(externalId, sdkOmittedValue)
+            ? this.externalId
+            : externalId as SdkOptional<String?>,
+        role: identical(role, sdkOmittedValue)
+            ? this.role
+            : role as SdkOptional<String?>,
+        mergeSourceId: identical(mergeSourceId, sdkOmittedValue)
+            ? this.mergeSourceId
+            : mergeSourceId as SdkOptional<String?>,
+        mergeTargetId: identical(mergeTargetId, sdkOmittedValue)
+            ? this.mergeTargetId
+            : mergeTargetId as SdkOptional<String?>,
+        failureReason: identical(failureReason, sdkOmittedValue)
+            ? this.failureReason
+            : failureReason as SdkOptional<String?>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<int>,
+      );
 
-  factory ContactActivity.fromJson(Map<String, dynamic> json) => ContactActivity(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ContactActivityType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    eventType: json['event_type'] != null ? SdkPresent((json['event_type'] != null ? ContactActivityEventType.fromJson(json['event_type'] as String) : null)!) : const SdkOmitted(),
-    contactId: json['contact_id'] != null ? SdkPresent((json['contact_id'] as String?)!) : const SdkOmitted(),
-    externalId: json.containsKey('external_id') ? SdkPresent(json['external_id'] as String?) : const SdkOmitted(),
-    role: json.containsKey('role') ? SdkPresent(json['role'] as String?) : const SdkOmitted(),
-    mergeSourceId: json.containsKey('merge_source_id') ? SdkPresent(json['merge_source_id'] as String?) : const SdkOmitted(),
-    mergeTargetId: json.containsKey('merge_target_id') ? SdkPresent(json['merge_target_id'] as String?) : const SdkOmitted(),
-    failureReason: json.containsKey('failure_reason') ? SdkPresent(json['failure_reason'] as String?) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent(((json['created_at'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory ContactActivity.fromJson(Map<String, dynamic> json) =>
+      ContactActivity(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? ContactActivityType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        eventType: json['event_type'] != null
+            ? SdkPresent((json['event_type'] != null
+                ? ContactActivityEventType.fromJson(
+                    json['event_type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        contactId: json['contact_id'] != null
+            ? SdkPresent((json['contact_id'] as String?)!)
+            : const SdkOmitted(),
+        externalId: json.containsKey('external_id')
+            ? SdkPresent(json['external_id'] as String?)
+            : const SdkOmitted(),
+        role: json.containsKey('role')
+            ? SdkPresent(json['role'] as String?)
+            : const SdkOmitted(),
+        mergeSourceId: json.containsKey('merge_source_id')
+            ? SdkPresent(json['merge_source_id'] as String?)
+            : const SdkOmitted(),
+        mergeTargetId: json.containsKey('merge_target_id')
+            ? SdkPresent(json['merge_target_id'] as String?)
+            : const SdkOmitted(),
+        failureReason: json.containsKey('failure_reason')
+            ? SdkPresent(json['failure_reason'] as String?)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent(((json['created_at'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<ContactActivityType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (eventType) {
-      SdkPresent<ContactActivityEventType>(value: final value) => {'event_type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (contactId) {
-      SdkPresent<String>(value: final value) => {'contact_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (externalId) {
-      SdkPresent<String?>(value: final value) => {'external_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (role) {
-      SdkPresent<String?>(value: final value) => {'role': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (mergeSourceId) {
-      SdkPresent<String?>(value: final value) => {'merge_source_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (mergeTargetId) {
-      SdkPresent<String?>(value: final value) => {'merge_target_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (failureReason) {
-      SdkPresent<String?>(value: final value) => {'failure_reason': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<int>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<ContactActivityType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (eventType) {
+          SdkPresent<ContactActivityEventType>(value: final value) => {
+              'event_type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (contactId) {
+          SdkPresent<String>(value: final value) => {
+              'contact_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (externalId) {
+          SdkPresent<String?>(value: final value) => {
+              'external_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (role) {
+          SdkPresent<String?>(value: final value) => {
+              'role': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (mergeSourceId) {
+          SdkPresent<String?>(value: final value) => {
+              'merge_source_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (mergeTargetId) {
+          SdkPresent<String?>(value: final value) => {
+              'merge_target_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (failureReason) {
+          SdkPresent<String?>(value: final value) => {
+              'failure_reason': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<int>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Cursor for the next page of results.
 class ContactActivityListPagesNext {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The cursor value to use for the next page.
   final SdkOptional<String> startingAfter;
 
   const ContactActivityListPagesNext({this.startingAfter = const SdkOmitted()});
 
-  ContactActivityListPagesNext Function({SdkOptional<String> startingAfter}) get copyWith => _copyWith;
+  ContactActivityListPagesNext Function({SdkOptional<String> startingAfter})
+      get copyWith => _copyWith;
 
-  ContactActivityListPagesNext _copyWith({Object? startingAfter = sdkOmittedValue}) => ContactActivityListPagesNext(
-    startingAfter: identical(startingAfter, sdkOmittedValue) ? this.startingAfter : startingAfter as SdkOptional<String>,
-  );
+  ContactActivityListPagesNext _copyWith(
+          {Object? startingAfter = sdkOmittedValue}) =>
+      ContactActivityListPagesNext(
+        startingAfter: identical(startingAfter, sdkOmittedValue)
+            ? this.startingAfter
+            : startingAfter as SdkOptional<String>,
+      );
 
-  factory ContactActivityListPagesNext.fromJson(Map<String, dynamic> json) => ContactActivityListPagesNext(
-    startingAfter: json['starting_after'] != null ? SdkPresent((json['starting_after'] as String?)!) : const SdkOmitted(),
-  );
+  factory ContactActivityListPagesNext.fromJson(Map<String, dynamic> json) =>
+      ContactActivityListPagesNext(
+        startingAfter: json['starting_after'] != null
+            ? SdkPresent((json['starting_after'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (startingAfter) {
-      SdkPresent<String>(value: final value) => {'starting_after': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (startingAfter) {
+          SdkPresent<String>(value: final value) => {
+              'starting_after': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

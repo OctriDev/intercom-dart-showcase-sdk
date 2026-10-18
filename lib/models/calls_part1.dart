@@ -8,201 +8,400 @@ part of 'calls.dart';
 class AiCallResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique identifier for the external reference
   final SdkOptional<int> id;
+
   /// The workspace identifier
   final SdkOptional<int> appId;
+
   /// Phone number in E.164 format for the call
   final SdkOptional<String> userPhoneNumber;
+
   /// Status of the call. Can be "registered", "in-progress", or a resolution state
   final SdkOptional<String> status;
+
   /// The Intercom call identifier, if the call has been matched
   final SdkOptional<String?> intercomCallId;
+
   /// The external call identifier from the call provider
   final SdkOptional<String> externalCallId;
+
   /// The Intercom conversation identifier, if a conversation has been created
   final SdkOptional<String?> intercomConversationId;
+
   /// Array of transcript entries for the call
   final SdkOptional<List<Map<String, dynamic>>> callTranscript;
+
   /// Summary of the call conversation, truncated to 256 characters. Empty string if no summary available.
   final SdkOptional<String> callSummary;
+
   /// Array of intent classifications for the call
   final SdkOptional<List<Map<String, dynamic>>> intent;
+
   /// The metadata object supplied when the call was registered, returned verbatim. Empty object when none was supplied.
   final SdkOptional<Map<String, dynamic>> data;
 
-  const AiCallResponse({this.id = const SdkOmitted(), this.appId = const SdkOmitted(), this.userPhoneNumber = const SdkOmitted(), this.status = const SdkOmitted(), this.intercomCallId = const SdkOmitted(), this.externalCallId = const SdkOmitted(), this.intercomConversationId = const SdkOmitted(), this.callTranscript = const SdkOmitted(), this.callSummary = const SdkOmitted(), this.intent = const SdkOmitted(), this.data = const SdkOmitted()});
+  const AiCallResponse(
+      {this.id = const SdkOmitted(),
+      this.appId = const SdkOmitted(),
+      this.userPhoneNumber = const SdkOmitted(),
+      this.status = const SdkOmitted(),
+      this.intercomCallId = const SdkOmitted(),
+      this.externalCallId = const SdkOmitted(),
+      this.intercomConversationId = const SdkOmitted(),
+      this.callTranscript = const SdkOmitted(),
+      this.callSummary = const SdkOmitted(),
+      this.intent = const SdkOmitted(),
+      this.data = const SdkOmitted()});
 
-  AiCallResponse Function({SdkOptional<int> id, SdkOptional<int> appId, SdkOptional<String> userPhoneNumber, SdkOptional<String> status, SdkOptional<String?> intercomCallId, SdkOptional<String> externalCallId, SdkOptional<String?> intercomConversationId, SdkOptional<List<Map<String, dynamic>>> callTranscript, SdkOptional<String> callSummary, SdkOptional<List<Map<String, dynamic>>> intent, SdkOptional<Map<String, dynamic>> data}) get copyWith => _copyWith;
+  AiCallResponse Function(
+      {SdkOptional<int> id,
+      SdkOptional<int> appId,
+      SdkOptional<String> userPhoneNumber,
+      SdkOptional<String> status,
+      SdkOptional<String?> intercomCallId,
+      SdkOptional<String> externalCallId,
+      SdkOptional<String?> intercomConversationId,
+      SdkOptional<List<Map<String, dynamic>>> callTranscript,
+      SdkOptional<String> callSummary,
+      SdkOptional<List<Map<String, dynamic>>> intent,
+      SdkOptional<Map<String, dynamic>> data}) get copyWith => _copyWith;
 
-  AiCallResponse _copyWith({Object? id = sdkOmittedValue, Object? appId = sdkOmittedValue, Object? userPhoneNumber = sdkOmittedValue, Object? status = sdkOmittedValue, Object? intercomCallId = sdkOmittedValue, Object? externalCallId = sdkOmittedValue, Object? intercomConversationId = sdkOmittedValue, Object? callTranscript = sdkOmittedValue, Object? callSummary = sdkOmittedValue, Object? intent = sdkOmittedValue, Object? data = sdkOmittedValue}) => AiCallResponse(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<int>,
-    appId: identical(appId, sdkOmittedValue) ? this.appId : appId as SdkOptional<int>,
-    userPhoneNumber: identical(userPhoneNumber, sdkOmittedValue) ? this.userPhoneNumber : userPhoneNumber as SdkOptional<String>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<String>,
-    intercomCallId: identical(intercomCallId, sdkOmittedValue) ? this.intercomCallId : intercomCallId as SdkOptional<String?>,
-    externalCallId: identical(externalCallId, sdkOmittedValue) ? this.externalCallId : externalCallId as SdkOptional<String>,
-    intercomConversationId: identical(intercomConversationId, sdkOmittedValue) ? this.intercomConversationId : intercomConversationId as SdkOptional<String?>,
-    callTranscript: identical(callTranscript, sdkOmittedValue) ? this.callTranscript : callTranscript as SdkOptional<List<Map<String, dynamic>>>,
-    callSummary: identical(callSummary, sdkOmittedValue) ? this.callSummary : callSummary as SdkOptional<String>,
-    intent: identical(intent, sdkOmittedValue) ? this.intent : intent as SdkOptional<List<Map<String, dynamic>>>,
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<Map<String, dynamic>>,
-  );
+  AiCallResponse _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? appId = sdkOmittedValue,
+          Object? userPhoneNumber = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? intercomCallId = sdkOmittedValue,
+          Object? externalCallId = sdkOmittedValue,
+          Object? intercomConversationId = sdkOmittedValue,
+          Object? callTranscript = sdkOmittedValue,
+          Object? callSummary = sdkOmittedValue,
+          Object? intent = sdkOmittedValue,
+          Object? data = sdkOmittedValue}) =>
+      AiCallResponse(
+        id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<int>,
+        appId: identical(appId, sdkOmittedValue)
+            ? this.appId
+            : appId as SdkOptional<int>,
+        userPhoneNumber: identical(userPhoneNumber, sdkOmittedValue)
+            ? this.userPhoneNumber
+            : userPhoneNumber as SdkOptional<String>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<String>,
+        intercomCallId: identical(intercomCallId, sdkOmittedValue)
+            ? this.intercomCallId
+            : intercomCallId as SdkOptional<String?>,
+        externalCallId: identical(externalCallId, sdkOmittedValue)
+            ? this.externalCallId
+            : externalCallId as SdkOptional<String>,
+        intercomConversationId:
+            identical(intercomConversationId, sdkOmittedValue)
+                ? this.intercomConversationId
+                : intercomConversationId as SdkOptional<String?>,
+        callTranscript: identical(callTranscript, sdkOmittedValue)
+            ? this.callTranscript
+            : callTranscript as SdkOptional<List<Map<String, dynamic>>>,
+        callSummary: identical(callSummary, sdkOmittedValue)
+            ? this.callSummary
+            : callSummary as SdkOptional<String>,
+        intent: identical(intent, sdkOmittedValue)
+            ? this.intent
+            : intent as SdkOptional<List<Map<String, dynamic>>>,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<Map<String, dynamic>>,
+      );
 
   factory AiCallResponse.fromJson(Map<String, dynamic> json) => AiCallResponse(
-    id: json['id'] != null ? SdkPresent(((json['id'] as num?)?.toInt())!) : const SdkOmitted(),
-    appId: json['app_id'] != null ? SdkPresent(((json['app_id'] as num?)?.toInt())!) : const SdkOmitted(),
-    userPhoneNumber: json['user_phone_number'] != null ? SdkPresent((json['user_phone_number'] as String?)!) : const SdkOmitted(),
-    status: json['status'] != null ? SdkPresent((json['status'] as String?)!) : const SdkOmitted(),
-    intercomCallId: json.containsKey('intercom_call_id') ? SdkPresent(json['intercom_call_id'] as String?) : const SdkOmitted(),
-    externalCallId: json['external_call_id'] != null ? SdkPresent((json['external_call_id'] as String?)!) : const SdkOmitted(),
-    intercomConversationId: json.containsKey('intercom_conversation_id') ? SdkPresent(json['intercom_conversation_id'] as String?) : const SdkOmitted(),
-    callTranscript: json['call_transcript'] != null ? SdkPresent(((json['call_transcript'] as List?)?.map((e) => e as Map<String, dynamic>).toList())!) : const SdkOmitted(),
-    callSummary: json['call_summary'] != null ? SdkPresent((json['call_summary'] as String?)!) : const SdkOmitted(),
-    intent: json['intent'] != null ? SdkPresent(((json['intent'] as List?)?.map((e) => e as Map<String, dynamic>).toList())!) : const SdkOmitted(),
-    data: json['data'] != null ? SdkPresent((json['data'] == null ? null : json['data'] as Map<String, dynamic>)!) : const SdkOmitted(),
-  );
+        id: json['id'] != null
+            ? SdkPresent(((json['id'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        appId: json['app_id'] != null
+            ? SdkPresent(((json['app_id'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        userPhoneNumber: json['user_phone_number'] != null
+            ? SdkPresent((json['user_phone_number'] as String?)!)
+            : const SdkOmitted(),
+        status: json['status'] != null
+            ? SdkPresent((json['status'] as String?)!)
+            : const SdkOmitted(),
+        intercomCallId: json.containsKey('intercom_call_id')
+            ? SdkPresent(json['intercom_call_id'] as String?)
+            : const SdkOmitted(),
+        externalCallId: json['external_call_id'] != null
+            ? SdkPresent((json['external_call_id'] as String?)!)
+            : const SdkOmitted(),
+        intercomConversationId: json.containsKey('intercom_conversation_id')
+            ? SdkPresent(json['intercom_conversation_id'] as String?)
+            : const SdkOmitted(),
+        callTranscript: json['call_transcript'] != null
+            ? SdkPresent(((json['call_transcript'] as List?)
+                ?.map((e) => e as Map<String, dynamic>)
+                .toList())!)
+            : const SdkOmitted(),
+        callSummary: json['call_summary'] != null
+            ? SdkPresent((json['call_summary'] as String?)!)
+            : const SdkOmitted(),
+        intent: json['intent'] != null
+            ? SdkPresent(((json['intent'] as List?)
+                ?.map((e) => e as Map<String, dynamic>)
+                .toList())!)
+            : const SdkOmitted(),
+        data: json['data'] != null
+            ? SdkPresent((json['data'] == null
+                ? null
+                : json['data'] as Map<String, dynamic>)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<int>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (appId) {
-      SdkPresent<int>(value: final value) => {'app_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (userPhoneNumber) {
-      SdkPresent<String>(value: final value) => {'user_phone_number': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (status) {
-      SdkPresent<String>(value: final value) => {'status': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (intercomCallId) {
-      SdkPresent<String?>(value: final value) => {'intercom_call_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (externalCallId) {
-      SdkPresent<String>(value: final value) => {'external_call_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (intercomConversationId) {
-      SdkPresent<String?>(value: final value) => {'intercom_conversation_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (callTranscript) {
-      SdkPresent<List<Map<String, dynamic>>>(value: final value) => {'call_transcript': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (callSummary) {
-      SdkPresent<String>(value: final value) => {'call_summary': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (intent) {
-      SdkPresent<List<Map<String, dynamic>>>(value: final value) => {'intent': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (data) {
-      SdkPresent<Map<String, dynamic>>(value: final value) => {'data': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<int>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (appId) {
+          SdkPresent<int>(value: final value) => {
+              'app_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (userPhoneNumber) {
+          SdkPresent<String>(value: final value) => {
+              'user_phone_number': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (status) {
+          SdkPresent<String>(value: final value) => {
+              'status': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (intercomCallId) {
+          SdkPresent<String?>(value: final value) => {
+              'intercom_call_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (externalCallId) {
+          SdkPresent<String>(value: final value) => {
+              'external_call_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (intercomConversationId) {
+          SdkPresent<String?>(value: final value) => {
+              'intercom_conversation_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (callTranscript) {
+          SdkPresent<List<Map<String, dynamic>>>(value: final value) => {
+              'call_transcript': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (callSummary) {
+          SdkPresent<String>(value: final value) => {
+              'call_summary': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (intent) {
+          SdkPresent<List<Map<String, dynamic>>>(value: final value) => {
+              'intent': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (data) {
+          SdkPresent<Map<String, dynamic>>(value: final value) => {
+              'data': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A paginated list of calls.
 class CallList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// String representing the object's type. Always has the value `list`.
   final SdkOptional<String> type_;
+
   /// A list of calls.
   final SdkOptional<List<Call>> data;
+
   /// Total number of items available.
   final SdkOptional<int> totalCount;
+
   /// Cursor-based pagination is a technique used in the Intercom API to navigate through large amounts of data. A "cursor" or pointer is used to keep track of the current position in the result set, allowing the API to return the data in small chunks or "pages" as needed.
   final SdkOptional<CursorPages?> pages;
 
-  const CallList({this.type_ = const SdkOmitted(), this.data = const SdkOmitted(), this.totalCount = const SdkOmitted(), this.pages = const SdkOmitted()});
+  const CallList(
+      {this.type_ = const SdkOmitted(),
+      this.data = const SdkOmitted(),
+      this.totalCount = const SdkOmitted(),
+      this.pages = const SdkOmitted()});
 
-  CallList Function({SdkOptional<String> type_, SdkOptional<List<Call>> data, SdkOptional<int> totalCount, SdkOptional<CursorPages?> pages}) get copyWith => _copyWith;
+  CallList Function(
+      {SdkOptional<String> type_,
+      SdkOptional<List<Call>> data,
+      SdkOptional<int> totalCount,
+      SdkOptional<CursorPages?> pages}) get copyWith => _copyWith;
 
-  CallList _copyWith({Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue, Object? totalCount = sdkOmittedValue, Object? pages = sdkOmittedValue}) => CallList(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<Call>>,
-    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as SdkOptional<int>,
-    pages: identical(pages, sdkOmittedValue) ? this.pages : pages as SdkOptional<CursorPages?>,
-  );
+  CallList _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? data = sdkOmittedValue,
+          Object? totalCount = sdkOmittedValue,
+          Object? pages = sdkOmittedValue}) =>
+      CallList(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<String>,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<List<Call>>,
+        totalCount: identical(totalCount, sdkOmittedValue)
+            ? this.totalCount
+            : totalCount as SdkOptional<int>,
+        pages: identical(pages, sdkOmittedValue)
+            ? this.pages
+            : pages as SdkOptional<CursorPages?>,
+      );
 
   factory CallList.fromJson(Map<String, dynamic> json) => CallList(
-    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
-    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => Call.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    totalCount: json['total_count'] != null ? SdkPresent(((json['total_count'] as num?)?.toInt())!) : const SdkOmitted(),
-    pages: json.containsKey('pages') ? SdkPresent(json['pages'] != null ? CursorPages.fromJson(json['pages'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-  );
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] as String?)!)
+            : const SdkOmitted(),
+        data: json['data'] != null
+            ? SdkPresent(((json['data'] as List?)
+                ?.map((e) => Call.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        totalCount: json['total_count'] != null
+            ? SdkPresent(((json['total_count'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        pages: json.containsKey('pages')
+            ? SdkPresent(json['pages'] != null
+                ? CursorPages.fromJson(json['pages'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<String>(value: final value) => {'type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (data) {
-      SdkPresent<List<Call>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (totalCount) {
-      SdkPresent<int>(value: final value) => {'total_count': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (pages) {
-      SdkPresent<CursorPages?>(value: final value) => {'pages': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<String>(value: final value) => {
+              'type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (data) {
+          SdkPresent<List<Call>>(value: final value) => {
+              'data': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (totalCount) {
+          SdkPresent<int>(value: final value) => {
+              'total_count': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pages) {
+          SdkPresent<CursorPages?>(value: final value) => {
+              'pages': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Register a Fin Voice call with Intercom
 class RegisterFinVoiceCallRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Phone number in E.164 format for the call
   final String phoneNumber;
+
   /// External call identifier from the call provider
   final String callId;
+
   /// Source of the call. Can be "five9", "zoom_phone", or defaults to "aws_connect"
   final SdkOptional<RegisterFinVoiceCallRequestSource> source;
+
   /// Additional metadata about the call
   final SdkOptional<Map<String, dynamic>?> data;
 
-  const RegisterFinVoiceCallRequest({required this.phoneNumber, required this.callId, this.source = const SdkOmitted(), this.data = const SdkOmitted()});
+  const RegisterFinVoiceCallRequest(
+      {required this.phoneNumber,
+      required this.callId,
+      this.source = const SdkOmitted(),
+      this.data = const SdkOmitted()});
 
-  RegisterFinVoiceCallRequest Function({String phoneNumber, String callId, SdkOptional<RegisterFinVoiceCallRequestSource> source, SdkOptional<Map<String, dynamic>?> data}) get copyWith => _copyWith;
+  RegisterFinVoiceCallRequest Function(
+      {String phoneNumber,
+      String callId,
+      SdkOptional<RegisterFinVoiceCallRequestSource> source,
+      SdkOptional<Map<String, dynamic>?> data}) get copyWith => _copyWith;
 
-  RegisterFinVoiceCallRequest _copyWith({Object? phoneNumber = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? source = sdkOmittedValue, Object? data = sdkOmittedValue}) => RegisterFinVoiceCallRequest(
-    phoneNumber: identical(phoneNumber, sdkOmittedValue) ? this.phoneNumber : phoneNumber as String,
-    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-    source: identical(source, sdkOmittedValue) ? this.source : source as SdkOptional<RegisterFinVoiceCallRequestSource>,
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<Map<String, dynamic>?>,
-  );
+  RegisterFinVoiceCallRequest _copyWith(
+          {Object? phoneNumber = sdkOmittedValue,
+          Object? callId = sdkOmittedValue,
+          Object? source = sdkOmittedValue,
+          Object? data = sdkOmittedValue}) =>
+      RegisterFinVoiceCallRequest(
+        phoneNumber: identical(phoneNumber, sdkOmittedValue)
+            ? this.phoneNumber
+            : phoneNumber as String,
+        callId:
+            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+        source: identical(source, sdkOmittedValue)
+            ? this.source
+            : source as SdkOptional<RegisterFinVoiceCallRequestSource>,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<Map<String, dynamic>?>,
+      );
 
-  factory RegisterFinVoiceCallRequest.fromJson(Map<String, dynamic> json) => RegisterFinVoiceCallRequest(
-    phoneNumber: (json['phone_number'] as String?)!,
-    callId: (json['call_id'] as String?)!,
-    source: json['source'] != null ? SdkPresent((json['source'] != null ? RegisterFinVoiceCallRequestSource.fromJson(json['source'] as String) : null)!) : const SdkOmitted(),
-    data: json.containsKey('data') ? SdkPresent(json['data'] == null ? null : json['data'] as Map<String, dynamic>) : const SdkOmitted(),
-  );
+  factory RegisterFinVoiceCallRequest.fromJson(Map<String, dynamic> json) =>
+      RegisterFinVoiceCallRequest(
+        phoneNumber: (json['phone_number'] as String?)!,
+        callId: (json['call_id'] as String?)!,
+        source: json['source'] != null
+            ? SdkPresent((json['source'] != null
+                ? RegisterFinVoiceCallRequestSource.fromJson(
+                    json['source'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        data: json.containsKey('data')
+            ? SdkPresent(json['data'] == null
+                ? null
+                : json['data'] as Map<String, dynamic>)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'phone_number': phoneNumber,
-    'call_id': callId,
-    ...switch (source) {
-      SdkPresent<RegisterFinVoiceCallRequestSource>(value: final value) => {'source': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (data) {
-      SdkPresent<Map<String, dynamic>?>(value: final value) => {'data': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'phone_number': phoneNumber,
+        'call_id': callId,
+        ...switch (source) {
+          SdkPresent<RegisterFinVoiceCallRequestSource>(value: final value) => {
+              'source': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (data) {
+          SdkPresent<Map<String, dynamic>?>(value: final value) => {
+              'data': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

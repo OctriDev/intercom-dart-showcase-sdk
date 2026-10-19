@@ -4,30 +4,6 @@
 part of 'ai_content.dart';
 
 // ai_content domain models
-sealed class CreateContentImportSourceRequestAudienceIds {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  const CreateContentImportSourceRequestAudienceIds();
-  factory CreateContentImportSourceRequestAudienceIds.fromJson(Object? json) {
-    if (json is num) { return CreateContentImportSourceRequestAudienceIdsInt(json.toInt()); }
-    if (json is List) { return CreateContentImportSourceRequestAudienceIdsListint(json.map((e) => (e as num).toInt()).toList().cast<int>()); }
-    throw FormatException("No variant matched for CreateContentImportSourceRequestAudienceIds");
-  }
-  Object? toJson();
-}
-
-final class CreateContentImportSourceRequestAudienceIdsInt extends CreateContentImportSourceRequestAudienceIds {
-  final int value;
-  const CreateContentImportSourceRequestAudienceIdsInt(this.value);
-  @override Object? toJson() => value;
-}
-
-final class CreateContentImportSourceRequestAudienceIdsListint extends CreateContentImportSourceRequestAudienceIds {
-  final List<int> value;
-  const CreateContentImportSourceRequestAudienceIdsListint(this.value);
-  @override Object? toJson() => value;
-}
-
 /// You can add an Content Import Source to your Fin Content Library.
 class CreateContentImportSourceRequest {
   /// This model is constructed from named fields in one call.
@@ -39,24 +15,24 @@ class CreateContentImportSourceRequest {
   /// The URL of the content import source.
   final String url;
   /// The unique identifiers for the audiences to associate with this content import source. Can be a single integer or an array of integers.
-  final SdkOptional<dynamic> audienceIds;
+  final SdkOptional<List<int>?> audienceIds;
 
   const CreateContentImportSourceRequest({required this.syncBehavior, this.status = const SdkOmitted(), required this.url, this.audienceIds = const SdkOmitted()});
 
-  CreateContentImportSourceRequest Function({CreateContentImportSourceRequestSyncBehavior syncBehavior, SdkOptional<CreateContentImportSourceRequestStatus> status, String url, SdkOptional<dynamic> audienceIds}) get copyWith => _copyWith;
+  CreateContentImportSourceRequest Function({CreateContentImportSourceRequestSyncBehavior syncBehavior, SdkOptional<CreateContentImportSourceRequestStatus> status, String url, SdkOptional<List<int>?> audienceIds}) get copyWith => _copyWith;
 
   CreateContentImportSourceRequest _copyWith({Object? syncBehavior = sdkOmittedValue, Object? status = sdkOmittedValue, Object? url = sdkOmittedValue, Object? audienceIds = sdkOmittedValue}) => CreateContentImportSourceRequest(
     syncBehavior: identical(syncBehavior, sdkOmittedValue) ? this.syncBehavior : syncBehavior as CreateContentImportSourceRequestSyncBehavior,
     status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<CreateContentImportSourceRequestStatus>,
     url: identical(url, sdkOmittedValue) ? this.url : url as String,
-    audienceIds: identical(audienceIds, sdkOmittedValue) ? this.audienceIds : audienceIds as SdkOptional<dynamic>,
+    audienceIds: identical(audienceIds, sdkOmittedValue) ? this.audienceIds : audienceIds as SdkOptional<List<int>?>,
   );
 
   factory CreateContentImportSourceRequest.fromJson(Map<String, dynamic> json) => CreateContentImportSourceRequest(
     syncBehavior: (json['sync_behavior'] != null ? CreateContentImportSourceRequestSyncBehavior.fromJson(json['sync_behavior'] as String) : null)!,
     status: json['status'] != null ? SdkPresent((json['status'] != null ? CreateContentImportSourceRequestStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
     url: (json['url'] as String?)!,
-    audienceIds: json.containsKey('audience_ids') ? SdkPresent(json['audience_ids']) : const SdkOmitted(),
+    audienceIds: json.containsKey('audience_ids') ? SdkPresent((json['audience_ids'] as List?)?.map((e) => (e as num).toInt()).toList()) : const SdkOmitted(),
   );
 
   Map<String, dynamic> toJson() => {
@@ -67,7 +43,7 @@ class CreateContentImportSourceRequest {
     },
     'url': url,
     ...switch (audienceIds) {
-      SdkPresent<dynamic>(value: final value) => {'audience_ids': value,},
+      SdkPresent<List<int>?>(value: final value) => {'audience_ids': value,},
       _ => const <String, dynamic>{},
     },
   };
@@ -149,30 +125,6 @@ class CreateExternalPageRequest {
   };
 }
 
-sealed class UpdateContentImportSourceRequestAudienceIds {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  const UpdateContentImportSourceRequestAudienceIds();
-  factory UpdateContentImportSourceRequestAudienceIds.fromJson(Object? json) {
-    if (json is num) { return UpdateContentImportSourceRequestAudienceIdsInt(json.toInt()); }
-    if (json is List) { return UpdateContentImportSourceRequestAudienceIdsListint(json.map((e) => (e as num).toInt()).toList().cast<int>()); }
-    throw FormatException("No variant matched for UpdateContentImportSourceRequestAudienceIds");
-  }
-  Object? toJson();
-}
-
-final class UpdateContentImportSourceRequestAudienceIdsInt extends UpdateContentImportSourceRequestAudienceIds {
-  final int value;
-  const UpdateContentImportSourceRequestAudienceIdsInt(this.value);
-  @override Object? toJson() => value;
-}
-
-final class UpdateContentImportSourceRequestAudienceIdsListint extends UpdateContentImportSourceRequestAudienceIds {
-  final List<int> value;
-  const UpdateContentImportSourceRequestAudienceIdsListint(this.value);
-  @override Object? toJson() => value;
-}
-
 /// You can modify a Content Import Source of your Fin Content Library.
 class UpdateContentImportSourceRequest {
   /// This model is constructed from named fields in one call.
@@ -184,19 +136,19 @@ class UpdateContentImportSourceRequest {
   /// The URL of the content import source. This may only be different from the existing value if the sync behavior is API.
   final String url;
   /// The unique identifiers for the audiences to associate with this content import source. Can be a single integer or an array of integers. Set to null or an empty array to remove all audiences.
-  final SdkOptional<dynamic> audienceIds;
+  final SdkOptional<List<int>?> audienceIds;
   /// When true, the audience will be applied to all existing external pages belonging to this content import source.
   final SdkOptional<bool> applyAudienceToExistingContent;
 
   const UpdateContentImportSourceRequest({required this.syncBehavior, this.status = const SdkOmitted(), required this.url, this.audienceIds = const SdkOmitted(), this.applyAudienceToExistingContent = const SdkOmitted()});
 
-  UpdateContentImportSourceRequest Function({UpdateContentImportSourceRequestSyncBehavior syncBehavior, SdkOptional<UpdateContentImportSourceRequestStatus> status, String url, SdkOptional<dynamic> audienceIds, SdkOptional<bool> applyAudienceToExistingContent}) get copyWith => _copyWith;
+  UpdateContentImportSourceRequest Function({UpdateContentImportSourceRequestSyncBehavior syncBehavior, SdkOptional<UpdateContentImportSourceRequestStatus> status, String url, SdkOptional<List<int>?> audienceIds, SdkOptional<bool> applyAudienceToExistingContent}) get copyWith => _copyWith;
 
   UpdateContentImportSourceRequest _copyWith({Object? syncBehavior = sdkOmittedValue, Object? status = sdkOmittedValue, Object? url = sdkOmittedValue, Object? audienceIds = sdkOmittedValue, Object? applyAudienceToExistingContent = sdkOmittedValue}) => UpdateContentImportSourceRequest(
     syncBehavior: identical(syncBehavior, sdkOmittedValue) ? this.syncBehavior : syncBehavior as UpdateContentImportSourceRequestSyncBehavior,
     status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<UpdateContentImportSourceRequestStatus>,
     url: identical(url, sdkOmittedValue) ? this.url : url as String,
-    audienceIds: identical(audienceIds, sdkOmittedValue) ? this.audienceIds : audienceIds as SdkOptional<dynamic>,
+    audienceIds: identical(audienceIds, sdkOmittedValue) ? this.audienceIds : audienceIds as SdkOptional<List<int>?>,
     applyAudienceToExistingContent: identical(applyAudienceToExistingContent, sdkOmittedValue) ? this.applyAudienceToExistingContent : applyAudienceToExistingContent as SdkOptional<bool>,
   );
 
@@ -204,7 +156,7 @@ class UpdateContentImportSourceRequest {
     syncBehavior: (json['sync_behavior'] != null ? UpdateContentImportSourceRequestSyncBehavior.fromJson(json['sync_behavior'] as String) : null)!,
     status: json['status'] != null ? SdkPresent((json['status'] != null ? UpdateContentImportSourceRequestStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
     url: (json['url'] as String?)!,
-    audienceIds: json.containsKey('audience_ids') ? SdkPresent(json['audience_ids']) : const SdkOmitted(),
+    audienceIds: json.containsKey('audience_ids') ? SdkPresent((json['audience_ids'] as List?)?.map((e) => (e as num).toInt()).toList()) : const SdkOmitted(),
     applyAudienceToExistingContent: json['apply_audience_to_existing_content'] != null ? SdkPresent((json['apply_audience_to_existing_content'] as bool?)!) : const SdkOmitted(),
   );
 
@@ -216,7 +168,7 @@ class UpdateContentImportSourceRequest {
     },
     'url': url,
     ...switch (audienceIds) {
-      SdkPresent<dynamic>(value: final value) => {'audience_ids': value,},
+      SdkPresent<List<int>?>(value: final value) => {'audience_ids': value,},
       _ => const <String, dynamic>{},
     },
     ...switch (applyAudienceToExistingContent) {

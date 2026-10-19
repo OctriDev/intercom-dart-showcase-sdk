@@ -299,7 +299,7 @@ class AiContentNamespace {
       required String url,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<CreateContentImportSourceRequestStatus> status = const SdkOmitted(),
-      SdkOptional<dynamic> audienceIds = const SdkOmitted(),
+      SdkOptional<List<int>?> audienceIds = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
     return ai_content_methods.createContentImportSource(_config, syncBehavior: syncBehavior, url: url, intercomVersion: intercomVersion, status: status, audienceIds: audienceIds, requestOptions: requestOptions);
   }
@@ -331,7 +331,7 @@ class AiContentNamespace {
       required String url,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<UpdateContentImportSourceRequestStatus> status = const SdkOmitted(),
-      SdkOptional<dynamic> audienceIds = const SdkOmitted(),
+      SdkOptional<List<int>?> audienceIds = const SdkOmitted(),
       SdkOptional<bool> applyAudienceToExistingContent = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
     return ai_content_methods.updateContentImportSource(_config, sourceId: sourceId, syncBehavior: syncBehavior, url: url, intercomVersion: intercomVersion, status: status, audienceIds: audienceIds, applyAudienceToExistingContent: applyAudienceToExistingContent, requestOptions: requestOptions);

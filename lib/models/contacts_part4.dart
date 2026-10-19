@@ -8,288 +8,544 @@ part of 'contacts.dart';
 class ContactActivityListPages {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional enumerated value serialized in the `type` wire field.
   final SdkOptional<ContactActivityListPagesType> type_;
+
   /// The number of results per page.
   final SdkOptional<int> perPage;
+
   /// Cursor for the next page of results.
   final SdkOptional<ContactActivityListPagesNext?> next;
 
-  const ContactActivityListPages({this.type_ = const SdkOmitted(), this.perPage = const SdkOmitted(), this.next = const SdkOmitted()});
+  const ContactActivityListPages(
+      {this.type_ = const SdkOmitted(),
+      this.perPage = const SdkOmitted(),
+      this.next = const SdkOmitted()});
 
-  ContactActivityListPages Function({SdkOptional<ContactActivityListPagesType> type_, SdkOptional<int> perPage, SdkOptional<ContactActivityListPagesNext?> next}) get copyWith => _copyWith;
+  ContactActivityListPages Function(
+          {SdkOptional<ContactActivityListPagesType> type_,
+          SdkOptional<int> perPage,
+          SdkOptional<ContactActivityListPagesNext?> next})
+      get copyWith => _copyWith;
 
-  ContactActivityListPages _copyWith({Object? type_ = sdkOmittedValue, Object? perPage = sdkOmittedValue, Object? next = sdkOmittedValue}) => ContactActivityListPages(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ContactActivityListPagesType>,
-    perPage: identical(perPage, sdkOmittedValue) ? this.perPage : perPage as SdkOptional<int>,
-    next: identical(next, sdkOmittedValue) ? this.next : next as SdkOptional<ContactActivityListPagesNext?>,
-  );
+  ContactActivityListPages _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? perPage = sdkOmittedValue,
+          Object? next = sdkOmittedValue}) =>
+      ContactActivityListPages(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<ContactActivityListPagesType>,
+        perPage: identical(perPage, sdkOmittedValue)
+            ? this.perPage
+            : perPage as SdkOptional<int>,
+        next: identical(next, sdkOmittedValue)
+            ? this.next
+            : next as SdkOptional<ContactActivityListPagesNext?>,
+      );
 
-  factory ContactActivityListPages.fromJson(Map<String, dynamic> json) => ContactActivityListPages(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ContactActivityListPagesType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    perPage: json['per_page'] != null ? SdkPresent(((json['per_page'] as num?)?.toInt())!) : const SdkOmitted(),
-    next: json.containsKey('next') ? SdkPresent(json['next'] != null ? ContactActivityListPagesNext.fromJson(json['next'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-  );
+  factory ContactActivityListPages.fromJson(Map<String, dynamic> json) =>
+      ContactActivityListPages(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? ContactActivityListPagesType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        perPage: json['per_page'] != null
+            ? SdkPresent(((json['per_page'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        next: json.containsKey('next')
+            ? SdkPresent(json['next'] != null
+                ? ContactActivityListPagesNext.fromJson(
+                    json['next'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<ContactActivityListPagesType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (perPage) {
-      SdkPresent<int>(value: final value) => {'per_page': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (next) {
-      SdkPresent<ContactActivityListPagesNext?>(value: final value) => {'next': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<ContactActivityListPagesType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (perPage) {
+          SdkPresent<int>(value: final value) => {
+              'per_page': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (next) {
+          SdkPresent<ContactActivityListPagesNext?>(value: final value) => {
+              'next': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A paginated list of contact activity events.
 class ContactActivityList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Always list
   final SdkOptional<ContactActivityListType> type_;
+
   /// The list of contact activity objects.
   final SdkOptional<List<ContactActivity>> data;
+
   /// Pagination information.
   final SdkOptional<ContactActivityListPages> pages;
 
-  const ContactActivityList({this.type_ = const SdkOmitted(), this.data = const SdkOmitted(), this.pages = const SdkOmitted()});
+  const ContactActivityList(
+      {this.type_ = const SdkOmitted(),
+      this.data = const SdkOmitted(),
+      this.pages = const SdkOmitted()});
 
-  ContactActivityList Function({SdkOptional<ContactActivityListType> type_, SdkOptional<List<ContactActivity>> data, SdkOptional<ContactActivityListPages> pages}) get copyWith => _copyWith;
+  ContactActivityList Function(
+      {SdkOptional<ContactActivityListType> type_,
+      SdkOptional<List<ContactActivity>> data,
+      SdkOptional<ContactActivityListPages> pages}) get copyWith => _copyWith;
 
-  ContactActivityList _copyWith({Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue, Object? pages = sdkOmittedValue}) => ContactActivityList(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ContactActivityListType>,
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<ContactActivity>>,
-    pages: identical(pages, sdkOmittedValue) ? this.pages : pages as SdkOptional<ContactActivityListPages>,
-  );
+  ContactActivityList _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? data = sdkOmittedValue,
+          Object? pages = sdkOmittedValue}) =>
+      ContactActivityList(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<ContactActivityListType>,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<List<ContactActivity>>,
+        pages: identical(pages, sdkOmittedValue)
+            ? this.pages
+            : pages as SdkOptional<ContactActivityListPages>,
+      );
 
-  factory ContactActivityList.fromJson(Map<String, dynamic> json) => ContactActivityList(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ContactActivityListType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => ContactActivity.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    pages: json['pages'] != null ? SdkPresent((json['pages'] != null ? ContactActivityListPages.fromJson(json['pages'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ContactActivityList.fromJson(Map<String, dynamic> json) =>
+      ContactActivityList(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? ContactActivityListType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        data: json['data'] != null
+            ? SdkPresent(((json['data'] as List?)
+                ?.map(
+                    (e) => ContactActivity.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        pages: json['pages'] != null
+            ? SdkPresent((json['pages'] != null
+                ? ContactActivityListPages.fromJson(
+                    json['pages'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<ContactActivityListType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (data) {
-      SdkPresent<List<ContactActivity>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (pages) {
-      SdkPresent<ContactActivityListPages>(value: final value) => {'pages': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<ContactActivityListType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (data) {
+          SdkPresent<List<ContactActivity>>(value: final value) => {
+              'data': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pages) {
+          SdkPresent<ContactActivityListPages>(value: final value) => {
+              'pages': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// archived contact object
 class ContactArchived {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// always contact
   final SdkOptional<ContactArchivedType> type_;
+
   /// The unique identifier for the contact which is given by Intercom.
   final SdkOptional<String> id;
+
   /// The unique identifier for the contact which is provided by the Client.
   final SdkOptional<String?> externalId;
+
   /// Whether the contact is archived or not.
   final SdkOptional<bool> archived;
 
-  const ContactArchived({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.externalId = const SdkOmitted(), this.archived = const SdkOmitted()});
+  const ContactArchived(
+      {this.type_ = const SdkOmitted(),
+      this.id = const SdkOmitted(),
+      this.externalId = const SdkOmitted(),
+      this.archived = const SdkOmitted()});
 
-  ContactArchived Function({SdkOptional<ContactArchivedType> type_, SdkOptional<String> id, SdkOptional<String?> externalId, SdkOptional<bool> archived}) get copyWith => _copyWith;
+  ContactArchived Function(
+      {SdkOptional<ContactArchivedType> type_,
+      SdkOptional<String> id,
+      SdkOptional<String?> externalId,
+      SdkOptional<bool> archived}) get copyWith => _copyWith;
 
-  ContactArchived _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? externalId = sdkOmittedValue, Object? archived = sdkOmittedValue}) => ContactArchived(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ContactArchivedType>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    externalId: identical(externalId, sdkOmittedValue) ? this.externalId : externalId as SdkOptional<String?>,
-    archived: identical(archived, sdkOmittedValue) ? this.archived : archived as SdkOptional<bool>,
-  );
+  ContactArchived _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? externalId = sdkOmittedValue,
+          Object? archived = sdkOmittedValue}) =>
+      ContactArchived(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<ContactArchivedType>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        externalId: identical(externalId, sdkOmittedValue)
+            ? this.externalId
+            : externalId as SdkOptional<String?>,
+        archived: identical(archived, sdkOmittedValue)
+            ? this.archived
+            : archived as SdkOptional<bool>,
+      );
 
-  factory ContactArchived.fromJson(Map<String, dynamic> json) => ContactArchived(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ContactArchivedType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    externalId: json.containsKey('external_id') ? SdkPresent(json['external_id'] as String?) : const SdkOmitted(),
-    archived: json['archived'] != null ? SdkPresent((json['archived'] as bool?)!) : const SdkOmitted(),
-  );
+  factory ContactArchived.fromJson(Map<String, dynamic> json) =>
+      ContactArchived(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? ContactArchivedType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        externalId: json.containsKey('external_id')
+            ? SdkPresent(json['external_id'] as String?)
+            : const SdkOmitted(),
+        archived: json['archived'] != null
+            ? SdkPresent((json['archived'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<ContactArchivedType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (externalId) {
-      SdkPresent<String?>(value: final value) => {'external_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (archived) {
-      SdkPresent<bool>(value: final value) => {'archived': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<ContactArchivedType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (externalId) {
+          SdkPresent<String?>(value: final value) => {
+              'external_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (archived) {
+          SdkPresent<bool>(value: final value) => {
+              'archived': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A list of Company Objects
 class ContactAttachedCompanies {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of object
   final SdkOptional<ContactAttachedCompaniesType> type_;
+
   /// An array containing Company Objects
   final SdkOptional<List<Company>> companies;
+
   /// The total number of companies associated to this contact
   final SdkOptional<int> totalCount;
+
   /// The majority of list resources in the API are paginated to allow clients to traverse data over multiple requests. Their responses are likely to contain a pages object that hosts pagination links which a client can use to paginate through the data without having to construct a query. The link relations for the pages field are as follows.
   final SdkOptional<PagesLink> pages;
 
-  const ContactAttachedCompanies({this.type_ = const SdkOmitted(), this.companies = const SdkOmitted(), this.totalCount = const SdkOmitted(), this.pages = const SdkOmitted()});
+  const ContactAttachedCompanies(
+      {this.type_ = const SdkOmitted(),
+      this.companies = const SdkOmitted(),
+      this.totalCount = const SdkOmitted(),
+      this.pages = const SdkOmitted()});
 
-  ContactAttachedCompanies Function({SdkOptional<ContactAttachedCompaniesType> type_, SdkOptional<List<Company>> companies, SdkOptional<int> totalCount, SdkOptional<PagesLink> pages}) get copyWith => _copyWith;
+  ContactAttachedCompanies Function(
+      {SdkOptional<ContactAttachedCompaniesType> type_,
+      SdkOptional<List<Company>> companies,
+      SdkOptional<int> totalCount,
+      SdkOptional<PagesLink> pages}) get copyWith => _copyWith;
 
-  ContactAttachedCompanies _copyWith({Object? type_ = sdkOmittedValue, Object? companies = sdkOmittedValue, Object? totalCount = sdkOmittedValue, Object? pages = sdkOmittedValue}) => ContactAttachedCompanies(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ContactAttachedCompaniesType>,
-    companies: identical(companies, sdkOmittedValue) ? this.companies : companies as SdkOptional<List<Company>>,
-    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as SdkOptional<int>,
-    pages: identical(pages, sdkOmittedValue) ? this.pages : pages as SdkOptional<PagesLink>,
-  );
+  ContactAttachedCompanies _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? companies = sdkOmittedValue,
+          Object? totalCount = sdkOmittedValue,
+          Object? pages = sdkOmittedValue}) =>
+      ContactAttachedCompanies(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<ContactAttachedCompaniesType>,
+        companies: identical(companies, sdkOmittedValue)
+            ? this.companies
+            : companies as SdkOptional<List<Company>>,
+        totalCount: identical(totalCount, sdkOmittedValue)
+            ? this.totalCount
+            : totalCount as SdkOptional<int>,
+        pages: identical(pages, sdkOmittedValue)
+            ? this.pages
+            : pages as SdkOptional<PagesLink>,
+      );
 
-  factory ContactAttachedCompanies.fromJson(Map<String, dynamic> json) => ContactAttachedCompanies(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ContactAttachedCompaniesType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    companies: json['companies'] != null ? SdkPresent(((json['companies'] as List?)?.map((e) => Company.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    totalCount: json['total_count'] != null ? SdkPresent(((json['total_count'] as num?)?.toInt())!) : const SdkOmitted(),
-    pages: json['pages'] != null ? SdkPresent((json['pages'] != null ? PagesLink.fromJson(json['pages'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ContactAttachedCompanies.fromJson(Map<String, dynamic> json) =>
+      ContactAttachedCompanies(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? ContactAttachedCompaniesType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        companies: json['companies'] != null
+            ? SdkPresent(((json['companies'] as List?)
+                ?.map((e) => Company.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        totalCount: json['total_count'] != null
+            ? SdkPresent(((json['total_count'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        pages: json['pages'] != null
+            ? SdkPresent((json['pages'] != null
+                ? PagesLink.fromJson(json['pages'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<ContactAttachedCompaniesType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (companies) {
-      SdkPresent<List<Company>>(value: final value) => {'companies': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (totalCount) {
-      SdkPresent<int>(value: final value) => {'total_count': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (pages) {
-      SdkPresent<PagesLink>(value: final value) => {'pages': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<ContactAttachedCompaniesType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (companies) {
+          SdkPresent<List<Company>>(value: final value) => {
+              'companies': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (totalCount) {
+          SdkPresent<int>(value: final value) => {
+              'total_count': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pages) {
+          SdkPresent<PagesLink>(value: final value) => {
+              'pages': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// blocked contact object
 class ContactBlocked {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// always contact
   final SdkOptional<ContactBlockedType> type_;
+
   /// The unique identifier for the contact which is given by Intercom.
   final SdkOptional<String> id;
+
   /// The unique identifier for the contact which is provided by the Client.
   final SdkOptional<String?> externalId;
+
   /// Always true.
   final SdkOptional<bool> blocked;
 
-  const ContactBlocked({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.externalId = const SdkOmitted(), this.blocked = const SdkOmitted()});
+  const ContactBlocked(
+      {this.type_ = const SdkOmitted(),
+      this.id = const SdkOmitted(),
+      this.externalId = const SdkOmitted(),
+      this.blocked = const SdkOmitted()});
 
-  ContactBlocked Function({SdkOptional<ContactBlockedType> type_, SdkOptional<String> id, SdkOptional<String?> externalId, SdkOptional<bool> blocked}) get copyWith => _copyWith;
+  ContactBlocked Function(
+      {SdkOptional<ContactBlockedType> type_,
+      SdkOptional<String> id,
+      SdkOptional<String?> externalId,
+      SdkOptional<bool> blocked}) get copyWith => _copyWith;
 
-  ContactBlocked _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? externalId = sdkOmittedValue, Object? blocked = sdkOmittedValue}) => ContactBlocked(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ContactBlockedType>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    externalId: identical(externalId, sdkOmittedValue) ? this.externalId : externalId as SdkOptional<String?>,
-    blocked: identical(blocked, sdkOmittedValue) ? this.blocked : blocked as SdkOptional<bool>,
-  );
+  ContactBlocked _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? externalId = sdkOmittedValue,
+          Object? blocked = sdkOmittedValue}) =>
+      ContactBlocked(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<ContactBlockedType>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        externalId: identical(externalId, sdkOmittedValue)
+            ? this.externalId
+            : externalId as SdkOptional<String?>,
+        blocked: identical(blocked, sdkOmittedValue)
+            ? this.blocked
+            : blocked as SdkOptional<bool>,
+      );
 
   factory ContactBlocked.fromJson(Map<String, dynamic> json) => ContactBlocked(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ContactBlockedType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    externalId: json.containsKey('external_id') ? SdkPresent(json['external_id'] as String?) : const SdkOmitted(),
-    blocked: json['blocked'] != null ? SdkPresent((json['blocked'] as bool?)!) : const SdkOmitted(),
-  );
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? ContactBlockedType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        externalId: json.containsKey('external_id')
+            ? SdkPresent(json['external_id'] as String?)
+            : const SdkOmitted(),
+        blocked: json['blocked'] != null
+            ? SdkPresent((json['blocked'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<ContactBlockedType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (externalId) {
-      SdkPresent<String?>(value: final value) => {'external_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (blocked) {
-      SdkPresent<bool>(value: final value) => {'blocked': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<ContactBlockedType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (externalId) {
+          SdkPresent<String?>(value: final value) => {
+              'external_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (blocked) {
+          SdkPresent<bool>(value: final value) => {
+              'blocked': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// deleted contact object
 class ContactDeleted {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// always contact
   final SdkOptional<ContactDeletedType> type_;
+
   /// The unique identifier for the contact which is given by Intercom.
   final SdkOptional<String> id;
+
   /// The unique identifier for the contact which is provided by the Client.
   final SdkOptional<String?> externalId;
+
   /// Whether the contact is deleted or not.
   final SdkOptional<bool> deleted;
 
-  const ContactDeleted({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.externalId = const SdkOmitted(), this.deleted = const SdkOmitted()});
+  const ContactDeleted(
+      {this.type_ = const SdkOmitted(),
+      this.id = const SdkOmitted(),
+      this.externalId = const SdkOmitted(),
+      this.deleted = const SdkOmitted()});
 
-  ContactDeleted Function({SdkOptional<ContactDeletedType> type_, SdkOptional<String> id, SdkOptional<String?> externalId, SdkOptional<bool> deleted}) get copyWith => _copyWith;
+  ContactDeleted Function(
+      {SdkOptional<ContactDeletedType> type_,
+      SdkOptional<String> id,
+      SdkOptional<String?> externalId,
+      SdkOptional<bool> deleted}) get copyWith => _copyWith;
 
-  ContactDeleted _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? externalId = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => ContactDeleted(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ContactDeletedType>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    externalId: identical(externalId, sdkOmittedValue) ? this.externalId : externalId as SdkOptional<String?>,
-    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as SdkOptional<bool>,
-  );
+  ContactDeleted _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? externalId = sdkOmittedValue,
+          Object? deleted = sdkOmittedValue}) =>
+      ContactDeleted(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<ContactDeletedType>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        externalId: identical(externalId, sdkOmittedValue)
+            ? this.externalId
+            : externalId as SdkOptional<String?>,
+        deleted: identical(deleted, sdkOmittedValue)
+            ? this.deleted
+            : deleted as SdkOptional<bool>,
+      );
 
   factory ContactDeleted.fromJson(Map<String, dynamic> json) => ContactDeleted(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ContactDeletedType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    externalId: json.containsKey('external_id') ? SdkPresent(json['external_id'] as String?) : const SdkOmitted(),
-    deleted: json['deleted'] != null ? SdkPresent((json['deleted'] as bool?)!) : const SdkOmitted(),
-  );
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? ContactDeletedType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        externalId: json.containsKey('external_id')
+            ? SdkPresent(json['external_id'] as String?)
+            : const SdkOmitted(),
+        deleted: json['deleted'] != null
+            ? SdkPresent((json['deleted'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<ContactDeletedType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (externalId) {
-      SdkPresent<String?>(value: final value) => {'external_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (deleted) {
-      SdkPresent<bool>(value: final value) => {'deleted': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<ContactDeletedType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (externalId) {
+          SdkPresent<String?>(value: final value) => {
+              'external_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (deleted) {
+          SdkPresent<bool>(value: final value) => {
+              'deleted': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

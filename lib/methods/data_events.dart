@@ -41,13 +41,15 @@ Future<void> createDataEvent(ClientConfig config,
             'metadata': SdkUtils.unwrapOptional(metadata)
           },
           decoder: SdkResponseDecoder.empty,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'createDataEvent',
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Lists data events associated with a user or lead, identified by `user_id`, `email`, or `intercom_user_id`. Set `type` to `user` and use `summary` to request a summary response. You can list individual events only when they are less than 90 days old; summaries can include older events.
 ///
@@ -66,17 +68,21 @@ Future<DataEventSummary> listDataEvents(ClientConfig config,
           query: {
             'filter': SdkQueryValue(filter, style: 'form', explode: true),
             'type': SdkQueryValue(type_, style: 'form', explode: true),
-            'summary': SdkQueryValue(SdkUtils.unwrapOptional(summary), style: 'form', explode: true)
+            'summary': SdkQueryValue(SdkUtils.unwrapOptional(summary),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listDataEvents',
-          fromJsonRaw: (value) => DataEventSummary.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DataEventSummary.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Creates event summaries that track how often an event occurred and when it first and last occurred for a user. Supply the user's `user_id` and an `event_summaries` object containing event names, counts, and timestamps. Use past-tense verb-noun event names, such as `updated-plan`.
 ///
@@ -90,7 +96,8 @@ Future<DataEventSummary> listDataEvents(ClientConfig config,
 Future<void> dataEventSummaries(ClientConfig config,
     {SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
     SdkOptional<String> userId = const SdkOmitted(),
-    SdkOptional<CreateDataEventSummariesRequestEventSummaries> eventSummaries = const SdkOmitted(),
+    SdkOptional<CreateDataEventSummariesRequestEventSummaries> eventSummaries =
+        const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<void>('POST', '/events/summaries',
           config: config,
@@ -99,9 +106,12 @@ Future<void> dataEventSummaries(ClientConfig config,
             'event_summaries': SdkUtils.unwrapOptional(eventSummaries)
           },
           decoder: SdkResponseDecoder.empty,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'dataEventSummaries',
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }

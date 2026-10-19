@@ -11,40 +11,53 @@ class ListDataEventsFilterVariant2 {
 
   const ListDataEventsFilterVariant2({required this.email});
 
-  ListDataEventsFilterVariant2 Function({String email}) get copyWith => _copyWith;
+  ListDataEventsFilterVariant2 Function({String email}) get copyWith =>
+      _copyWith;
 
-  ListDataEventsFilterVariant2 _copyWith({Object? email = sdkOmittedValue}) => ListDataEventsFilterVariant2(
-    email: identical(email, sdkOmittedValue) ? this.email : email as String,
-  );
+  ListDataEventsFilterVariant2 _copyWith({Object? email = sdkOmittedValue}) =>
+      ListDataEventsFilterVariant2(
+        email: identical(email, sdkOmittedValue) ? this.email : email as String,
+      );
 
-  factory ListDataEventsFilterVariant2.fromJson(Map<String, dynamic> json) => ListDataEventsFilterVariant2(
-    email: (json['email'] as String?)!,
-  );
+  factory ListDataEventsFilterVariant2.fromJson(Map<String, dynamic> json) =>
+      ListDataEventsFilterVariant2(
+        email: (json['email'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'email': email,
-  };
+        'email': email,
+      };
 }
 
 class ListCallsWithTranscriptsRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A list of conversation ids to fetch calls for. Maximum 20.
   final List<String> conversationIds;
 
   const ListCallsWithTranscriptsRequestBody({required this.conversationIds});
 
-  ListCallsWithTranscriptsRequestBody Function({List<String> conversationIds}) get copyWith => _copyWith;
+  ListCallsWithTranscriptsRequestBody Function({List<String> conversationIds})
+      get copyWith => _copyWith;
 
-  ListCallsWithTranscriptsRequestBody _copyWith({Object? conversationIds = sdkOmittedValue}) => ListCallsWithTranscriptsRequestBody(
-    conversationIds: identical(conversationIds, sdkOmittedValue) ? this.conversationIds : conversationIds as List<String>,
-  );
+  ListCallsWithTranscriptsRequestBody _copyWith(
+          {Object? conversationIds = sdkOmittedValue}) =>
+      ListCallsWithTranscriptsRequestBody(
+        conversationIds: identical(conversationIds, sdkOmittedValue)
+            ? this.conversationIds
+            : conversationIds as List<String>,
+      );
 
-  factory ListCallsWithTranscriptsRequestBody.fromJson(Map<String, dynamic> json) => ListCallsWithTranscriptsRequestBody(
-    conversationIds: ((json['conversation_ids'] as List?)?.map((e) => e as String).toList())!,
-  );
+  factory ListCallsWithTranscriptsRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      ListCallsWithTranscriptsRequestBody(
+        conversationIds: ((json['conversation_ids'] as List?)
+            ?.map((e) => e as String)
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'conversation_ids': conversationIds,
-  };
+        'conversation_ids': conversationIds,
+      };
 }

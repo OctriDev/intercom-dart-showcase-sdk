@@ -8,210 +8,405 @@ part of 'models.dart';
 class Macro {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// String representing the object's type. Always has the value `macro`.
   final SdkOptional<MacroType> type_;
+
   /// The unique identifier for the macro.
   final SdkOptional<String> id;
+
   /// The name of the macro.
   final SdkOptional<String> name;
+
   /// The body of the macro in HTML format with placeholders transformed to XML-like format.
   final SdkOptional<String> body;
+
   /// The plain text version of the macro body with original Intercom placeholder format.
   final SdkOptional<String> bodyText;
+
   /// The time the macro was created in ISO 8601 format.
   final SdkOptional<String> createdAt;
+
   /// The time the macro was last updated in ISO 8601 format.
   final SdkOptional<String> updatedAt;
+
   /// Who can view this macro.
   final SdkOptional<MacroVisibleTo> visibleTo;
+
   /// The team IDs that can view this macro when visible_to is set to specific_teams.
   final SdkOptional<List<String>> visibleToTeamIds;
+
   /// Where the macro is available for use.
   final SdkOptional<List<MacroAvailableOnItem>> availableOn;
 
-  const Macro({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.name = const SdkOmitted(), this.body = const SdkOmitted(), this.bodyText = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.visibleTo = const SdkOmitted(), this.visibleToTeamIds = const SdkOmitted(), this.availableOn = const SdkOmitted()});
+  const Macro(
+      {this.type_ = const SdkOmitted(),
+      this.id = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.body = const SdkOmitted(),
+      this.bodyText = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.updatedAt = const SdkOmitted(),
+      this.visibleTo = const SdkOmitted(),
+      this.visibleToTeamIds = const SdkOmitted(),
+      this.availableOn = const SdkOmitted()});
 
-  Macro Function({SdkOptional<MacroType> type_, SdkOptional<String> id, SdkOptional<String> name, SdkOptional<String> body, SdkOptional<String> bodyText, SdkOptional<String> createdAt, SdkOptional<String> updatedAt, SdkOptional<MacroVisibleTo> visibleTo, SdkOptional<List<String>> visibleToTeamIds, SdkOptional<List<MacroAvailableOnItem>> availableOn}) get copyWith => _copyWith;
+  Macro Function(
+          {SdkOptional<MacroType> type_,
+          SdkOptional<String> id,
+          SdkOptional<String> name,
+          SdkOptional<String> body,
+          SdkOptional<String> bodyText,
+          SdkOptional<String> createdAt,
+          SdkOptional<String> updatedAt,
+          SdkOptional<MacroVisibleTo> visibleTo,
+          SdkOptional<List<String>> visibleToTeamIds,
+          SdkOptional<List<MacroAvailableOnItem>> availableOn})
+      get copyWith => _copyWith;
 
-  Macro _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? body = sdkOmittedValue, Object? bodyText = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? visibleTo = sdkOmittedValue, Object? visibleToTeamIds = sdkOmittedValue, Object? availableOn = sdkOmittedValue}) => Macro(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<MacroType>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    body: identical(body, sdkOmittedValue) ? this.body : body as SdkOptional<String>,
-    bodyText: identical(bodyText, sdkOmittedValue) ? this.bodyText : bodyText as SdkOptional<String>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String>,
-    visibleTo: identical(visibleTo, sdkOmittedValue) ? this.visibleTo : visibleTo as SdkOptional<MacroVisibleTo>,
-    visibleToTeamIds: identical(visibleToTeamIds, sdkOmittedValue) ? this.visibleToTeamIds : visibleToTeamIds as SdkOptional<List<String>>,
-    availableOn: identical(availableOn, sdkOmittedValue) ? this.availableOn : availableOn as SdkOptional<List<MacroAvailableOnItem>>,
-  );
+  Macro _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? body = sdkOmittedValue,
+          Object? bodyText = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue,
+          Object? visibleTo = sdkOmittedValue,
+          Object? visibleToTeamIds = sdkOmittedValue,
+          Object? availableOn = sdkOmittedValue}) =>
+      Macro(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<MacroType>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        body: identical(body, sdkOmittedValue)
+            ? this.body
+            : body as SdkOptional<String>,
+        bodyText: identical(bodyText, sdkOmittedValue)
+            ? this.bodyText
+            : bodyText as SdkOptional<String>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as SdkOptional<String>,
+        visibleTo: identical(visibleTo, sdkOmittedValue)
+            ? this.visibleTo
+            : visibleTo as SdkOptional<MacroVisibleTo>,
+        visibleToTeamIds: identical(visibleToTeamIds, sdkOmittedValue)
+            ? this.visibleToTeamIds
+            : visibleToTeamIds as SdkOptional<List<String>>,
+        availableOn: identical(availableOn, sdkOmittedValue)
+            ? this.availableOn
+            : availableOn as SdkOptional<List<MacroAvailableOnItem>>,
+      );
 
   factory Macro.fromJson(Map<String, dynamic> json) => Macro(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? MacroType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    body: json['body'] != null ? SdkPresent((json['body'] as String?)!) : const SdkOmitted(),
-    bodyText: json['body_text'] != null ? SdkPresent((json['body_text'] as String?)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-    updatedAt: json['updated_at'] != null ? SdkPresent((json['updated_at'] as String?)!) : const SdkOmitted(),
-    visibleTo: json['visible_to'] != null ? SdkPresent((json['visible_to'] != null ? MacroVisibleTo.fromJson(json['visible_to'] as String) : null)!) : const SdkOmitted(),
-    visibleToTeamIds: json['visible_to_team_ids'] != null ? SdkPresent(((json['visible_to_team_ids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    availableOn: json['available_on'] != null ? SdkPresent(((json['available_on'] as List?)?.map((e) => MacroAvailableOnItem.fromJson(e as String)).toList())!) : const SdkOmitted(),
-  );
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? MacroType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        body: json['body'] != null
+            ? SdkPresent((json['body'] as String?)!)
+            : const SdkOmitted(),
+        bodyText: json['body_text'] != null
+            ? SdkPresent((json['body_text'] as String?)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+        updatedAt: json['updated_at'] != null
+            ? SdkPresent((json['updated_at'] as String?)!)
+            : const SdkOmitted(),
+        visibleTo: json['visible_to'] != null
+            ? SdkPresent((json['visible_to'] != null
+                ? MacroVisibleTo.fromJson(json['visible_to'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        visibleToTeamIds: json['visible_to_team_ids'] != null
+            ? SdkPresent(((json['visible_to_team_ids'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        availableOn: json['available_on'] != null
+            ? SdkPresent(((json['available_on'] as List?)
+                ?.map((e) => MacroAvailableOnItem.fromJson(e as String))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<MacroType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (body) {
-      SdkPresent<String>(value: final value) => {'body': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (bodyText) {
-      SdkPresent<String>(value: final value) => {'body_text': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (updatedAt) {
-      SdkPresent<String>(value: final value) => {'updated_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (visibleTo) {
-      SdkPresent<MacroVisibleTo>(value: final value) => {'visible_to': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (visibleToTeamIds) {
-      SdkPresent<List<String>>(value: final value) => {'visible_to_team_ids': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (availableOn) {
-      SdkPresent<List<MacroAvailableOnItem>>(value: final value) => {'available_on': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<MacroType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (body) {
+          SdkPresent<String>(value: final value) => {
+              'body': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (bodyText) {
+          SdkPresent<String>(value: final value) => {
+              'body_text': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (updatedAt) {
+          SdkPresent<String>(value: final value) => {
+              'updated_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (visibleTo) {
+          SdkPresent<MacroVisibleTo>(value: final value) => {
+              'visible_to': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (visibleToTeamIds) {
+          SdkPresent<List<String>>(value: final value) => {
+              'visible_to_team_ids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (availableOn) {
+          SdkPresent<List<MacroAvailableOnItem>>(value: final value) => {
+              'available_on': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Cursor for the next page
 class MacroListPagesNext {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Base64-encoded cursor containing [updated_at, id] for pagination
   final SdkOptional<String> startingAfter;
 
   const MacroListPagesNext({this.startingAfter = const SdkOmitted()});
 
-  MacroListPagesNext Function({SdkOptional<String> startingAfter}) get copyWith => _copyWith;
+  MacroListPagesNext Function({SdkOptional<String> startingAfter})
+      get copyWith => _copyWith;
 
-  MacroListPagesNext _copyWith({Object? startingAfter = sdkOmittedValue}) => MacroListPagesNext(
-    startingAfter: identical(startingAfter, sdkOmittedValue) ? this.startingAfter : startingAfter as SdkOptional<String>,
-  );
+  MacroListPagesNext _copyWith({Object? startingAfter = sdkOmittedValue}) =>
+      MacroListPagesNext(
+        startingAfter: identical(startingAfter, sdkOmittedValue)
+            ? this.startingAfter
+            : startingAfter as SdkOptional<String>,
+      );
 
-  factory MacroListPagesNext.fromJson(Map<String, dynamic> json) => MacroListPagesNext(
-    startingAfter: json['starting_after'] != null ? SdkPresent((json['starting_after'] as String?)!) : const SdkOmitted(),
-  );
+  factory MacroListPagesNext.fromJson(Map<String, dynamic> json) =>
+      MacroListPagesNext(
+        startingAfter: json['starting_after'] != null
+            ? SdkPresent((json['starting_after'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (startingAfter) {
-      SdkPresent<String>(value: final value) => {'starting_after': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (startingAfter) {
+          SdkPresent<String>(value: final value) => {
+              'starting_after': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Pagination information
 class MacroListPages {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of pagination
   final SdkOptional<MacroListPagesType> type_;
+
   /// Number of results per page
   final SdkOptional<int> perPage;
+
   /// Cursor for the next page
   final SdkOptional<MacroListPagesNext?> next;
 
-  const MacroListPages({this.type_ = const SdkOmitted(), this.perPage = const SdkOmitted(), this.next = const SdkOmitted()});
+  const MacroListPages(
+      {this.type_ = const SdkOmitted(),
+      this.perPage = const SdkOmitted(),
+      this.next = const SdkOmitted()});
 
-  MacroListPages Function({SdkOptional<MacroListPagesType> type_, SdkOptional<int> perPage, SdkOptional<MacroListPagesNext?> next}) get copyWith => _copyWith;
+  MacroListPages Function(
+      {SdkOptional<MacroListPagesType> type_,
+      SdkOptional<int> perPage,
+      SdkOptional<MacroListPagesNext?> next}) get copyWith => _copyWith;
 
-  MacroListPages _copyWith({Object? type_ = sdkOmittedValue, Object? perPage = sdkOmittedValue, Object? next = sdkOmittedValue}) => MacroListPages(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<MacroListPagesType>,
-    perPage: identical(perPage, sdkOmittedValue) ? this.perPage : perPage as SdkOptional<int>,
-    next: identical(next, sdkOmittedValue) ? this.next : next as SdkOptional<MacroListPagesNext?>,
-  );
+  MacroListPages _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? perPage = sdkOmittedValue,
+          Object? next = sdkOmittedValue}) =>
+      MacroListPages(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<MacroListPagesType>,
+        perPage: identical(perPage, sdkOmittedValue)
+            ? this.perPage
+            : perPage as SdkOptional<int>,
+        next: identical(next, sdkOmittedValue)
+            ? this.next
+            : next as SdkOptional<MacroListPagesNext?>,
+      );
 
   factory MacroListPages.fromJson(Map<String, dynamic> json) => MacroListPages(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? MacroListPagesType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    perPage: json['per_page'] != null ? SdkPresent(((json['per_page'] as num?)?.toInt())!) : const SdkOmitted(),
-    next: json.containsKey('next') ? SdkPresent(json['next'] != null ? MacroListPagesNext.fromJson(json['next'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-  );
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? MacroListPagesType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        perPage: json['per_page'] != null
+            ? SdkPresent(((json['per_page'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        next: json.containsKey('next')
+            ? SdkPresent(json['next'] != null
+                ? MacroListPagesNext.fromJson(
+                    json['next'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<MacroListPagesType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (perPage) {
-      SdkPresent<int>(value: final value) => {'per_page': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (next) {
-      SdkPresent<MacroListPagesNext?>(value: final value) => {'next': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<MacroListPagesType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (perPage) {
+          SdkPresent<int>(value: final value) => {
+              'per_page': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (next) {
+          SdkPresent<MacroListPagesNext?>(value: final value) => {
+              'next': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A paginated list of macros (saved replies) in the workspace.
 class MacroList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Always list
   final SdkOptional<MacroListType> type_;
+
   /// The list of macro objects
   final SdkOptional<List<Macro?>> data;
+
   /// Pagination information
   final SdkOptional<MacroListPages> pages;
 
-  const MacroList({this.type_ = const SdkOmitted(), this.data = const SdkOmitted(), this.pages = const SdkOmitted()});
+  const MacroList(
+      {this.type_ = const SdkOmitted(),
+      this.data = const SdkOmitted(),
+      this.pages = const SdkOmitted()});
 
-  MacroList Function({SdkOptional<MacroListType> type_, SdkOptional<List<Macro?>> data, SdkOptional<MacroListPages> pages}) get copyWith => _copyWith;
+  MacroList Function(
+      {SdkOptional<MacroListType> type_,
+      SdkOptional<List<Macro?>> data,
+      SdkOptional<MacroListPages> pages}) get copyWith => _copyWith;
 
-  MacroList _copyWith({Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue, Object? pages = sdkOmittedValue}) => MacroList(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<MacroListType>,
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<Macro?>>,
-    pages: identical(pages, sdkOmittedValue) ? this.pages : pages as SdkOptional<MacroListPages>,
-  );
+  MacroList _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? data = sdkOmittedValue,
+          Object? pages = sdkOmittedValue}) =>
+      MacroList(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<MacroListType>,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<List<Macro?>>,
+        pages: identical(pages, sdkOmittedValue)
+            ? this.pages
+            : pages as SdkOptional<MacroListPages>,
+      );
 
   factory MacroList.fromJson(Map<String, dynamic> json) => MacroList(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? MacroListType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => e == null ? null : Macro.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    pages: json['pages'] != null ? SdkPresent((json['pages'] != null ? MacroListPages.fromJson(json['pages'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? MacroListType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        data: json['data'] != null
+            ? SdkPresent(((json['data'] as List?)
+                ?.map((e) => e == null
+                    ? null
+                    : Macro.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        pages: json['pages'] != null
+            ? SdkPresent((json['pages'] != null
+                ? MacroListPages.fromJson(json['pages'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<MacroListType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (data) {
-      SdkPresent<List<Macro?>>(value: final value) => {'data': value.map((item) => item?.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (pages) {
-      SdkPresent<MacroListPages>(value: final value) => {'pages': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<MacroListType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (data) {
+          SdkPresent<List<Macro?>>(value: final value) => {
+              'data': value.map((item) => item?.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pages) {
+          SdkPresent<MacroListPages>(value: final value) => {
+              'pages': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

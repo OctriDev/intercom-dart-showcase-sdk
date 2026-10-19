@@ -8,92 +8,171 @@ part of 'notes.dart';
 class DeletedNoteObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique identifier for the note which you provided in the URL.
   final SdkOptional<String> id;
+
   /// The type of object which was deleted. - `note`
   final SdkOptional<DeletedNoteObjectType> type_;
+
   /// Whether the note was deleted successfully or not.
   final SdkOptional<bool> deleted;
 
-  const DeletedNoteObject({this.id = const SdkOmitted(), this.type_ = const SdkOmitted(), this.deleted = const SdkOmitted()});
+  const DeletedNoteObject(
+      {this.id = const SdkOmitted(),
+      this.type_ = const SdkOmitted(),
+      this.deleted = const SdkOmitted()});
 
-  DeletedNoteObject Function({SdkOptional<String> id, SdkOptional<DeletedNoteObjectType> type_, SdkOptional<bool> deleted}) get copyWith => _copyWith;
+  DeletedNoteObject Function(
+      {SdkOptional<String> id,
+      SdkOptional<DeletedNoteObjectType> type_,
+      SdkOptional<bool> deleted}) get copyWith => _copyWith;
 
-  DeletedNoteObject _copyWith({Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => DeletedNoteObject(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<DeletedNoteObjectType>,
-    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as SdkOptional<bool>,
-  );
+  DeletedNoteObject _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? deleted = sdkOmittedValue}) =>
+      DeletedNoteObject(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<DeletedNoteObjectType>,
+        deleted: identical(deleted, sdkOmittedValue)
+            ? this.deleted
+            : deleted as SdkOptional<bool>,
+      );
 
-  factory DeletedNoteObject.fromJson(Map<String, dynamic> json) => DeletedNoteObject(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? DeletedNoteObjectType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    deleted: json['deleted'] != null ? SdkPresent((json['deleted'] as bool?)!) : const SdkOmitted(),
-  );
+  factory DeletedNoteObject.fromJson(Map<String, dynamic> json) =>
+      DeletedNoteObject(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? DeletedNoteObjectType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        deleted: json['deleted'] != null
+            ? SdkPresent((json['deleted'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (type_) {
-      SdkPresent<DeletedNoteObjectType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (deleted) {
-      SdkPresent<bool>(value: final value) => {'deleted': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (type_) {
+          SdkPresent<DeletedNoteObjectType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (deleted) {
+          SdkPresent<bool>(value: final value) => {
+              'deleted': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A paginated list of notes associated with a contact or a company.
 class NoteList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// String representing the object's type. Always has the value `list`.
   final SdkOptional<String> type_;
+
   /// An array of notes.
   final SdkOptional<List<Note>> data;
+
   /// A count of the total number of notes.
   final SdkOptional<int> totalCount;
+
   /// Cursor-based pagination is a technique used in the Intercom API to navigate through large amounts of data. A "cursor" or pointer is used to keep track of the current position in the result set, allowing the API to return the data in small chunks or "pages" as needed.
   final SdkOptional<CursorPages?> pages;
 
-  const NoteList({this.type_ = const SdkOmitted(), this.data = const SdkOmitted(), this.totalCount = const SdkOmitted(), this.pages = const SdkOmitted()});
+  const NoteList(
+      {this.type_ = const SdkOmitted(),
+      this.data = const SdkOmitted(),
+      this.totalCount = const SdkOmitted(),
+      this.pages = const SdkOmitted()});
 
-  NoteList Function({SdkOptional<String> type_, SdkOptional<List<Note>> data, SdkOptional<int> totalCount, SdkOptional<CursorPages?> pages}) get copyWith => _copyWith;
+  NoteList Function(
+      {SdkOptional<String> type_,
+      SdkOptional<List<Note>> data,
+      SdkOptional<int> totalCount,
+      SdkOptional<CursorPages?> pages}) get copyWith => _copyWith;
 
-  NoteList _copyWith({Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue, Object? totalCount = sdkOmittedValue, Object? pages = sdkOmittedValue}) => NoteList(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<Note>>,
-    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as SdkOptional<int>,
-    pages: identical(pages, sdkOmittedValue) ? this.pages : pages as SdkOptional<CursorPages?>,
-  );
+  NoteList _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? data = sdkOmittedValue,
+          Object? totalCount = sdkOmittedValue,
+          Object? pages = sdkOmittedValue}) =>
+      NoteList(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<String>,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<List<Note>>,
+        totalCount: identical(totalCount, sdkOmittedValue)
+            ? this.totalCount
+            : totalCount as SdkOptional<int>,
+        pages: identical(pages, sdkOmittedValue)
+            ? this.pages
+            : pages as SdkOptional<CursorPages?>,
+      );
 
   factory NoteList.fromJson(Map<String, dynamic> json) => NoteList(
-    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
-    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => Note.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    totalCount: json['total_count'] != null ? SdkPresent(((json['total_count'] as num?)?.toInt())!) : const SdkOmitted(),
-    pages: json.containsKey('pages') ? SdkPresent(json['pages'] != null ? CursorPages.fromJson(json['pages'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-  );
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] as String?)!)
+            : const SdkOmitted(),
+        data: json['data'] != null
+            ? SdkPresent(((json['data'] as List?)
+                ?.map((e) => Note.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        totalCount: json['total_count'] != null
+            ? SdkPresent(((json['total_count'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        pages: json.containsKey('pages')
+            ? SdkPresent(json['pages'] != null
+                ? CursorPages.fromJson(json['pages'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<String>(value: final value) => {'type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (data) {
-      SdkPresent<List<Note>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (totalCount) {
-      SdkPresent<int>(value: final value) => {'total_count': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (pages) {
-      SdkPresent<CursorPages?>(value: final value) => {'pages': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<String>(value: final value) => {
+              'type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (data) {
+          SdkPresent<List<Note>>(value: final value) => {
+              'data': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (totalCount) {
+          SdkPresent<int>(value: final value) => {
+              'total_count': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pages) {
+          SdkPresent<CursorPages?>(value: final value) => {
+              'pages': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

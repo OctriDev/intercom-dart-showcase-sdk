@@ -8,166 +8,298 @@ part of 'shared_ai.dart';
 class AiAgentEventOtpEmailVerificationFailedEventDataOtpEmailVerificationFailed {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Why the one-time passcode email could not verify the contact. Treat this as a free-form string and fall back to &lt;code&gt;value&lt;/code&gt; for a reason you do not recognise. &lt;code&gt;no_email&lt;/code&gt; means the contact has no email address on record.
   final SdkOptional<String> reason;
 
-  const AiAgentEventOtpEmailVerificationFailedEventDataOtpEmailVerificationFailed({this.reason = const SdkOmitted()});
+  const AiAgentEventOtpEmailVerificationFailedEventDataOtpEmailVerificationFailed(
+      {this.reason = const SdkOmitted()});
 
-  AiAgentEventOtpEmailVerificationFailedEventDataOtpEmailVerificationFailed Function({SdkOptional<String> reason}) get copyWith => _copyWith;
+  AiAgentEventOtpEmailVerificationFailedEventDataOtpEmailVerificationFailed
+      Function({SdkOptional<String> reason}) get copyWith => _copyWith;
 
-  AiAgentEventOtpEmailVerificationFailedEventDataOtpEmailVerificationFailed _copyWith({Object? reason = sdkOmittedValue}) => AiAgentEventOtpEmailVerificationFailedEventDataOtpEmailVerificationFailed(
-    reason: identical(reason, sdkOmittedValue) ? this.reason : reason as SdkOptional<String>,
-  );
+  AiAgentEventOtpEmailVerificationFailedEventDataOtpEmailVerificationFailed
+      _copyWith({Object? reason = sdkOmittedValue}) =>
+          AiAgentEventOtpEmailVerificationFailedEventDataOtpEmailVerificationFailed(
+            reason: identical(reason, sdkOmittedValue)
+                ? this.reason
+                : reason as SdkOptional<String>,
+          );
 
-  factory AiAgentEventOtpEmailVerificationFailedEventDataOtpEmailVerificationFailed.fromJson(Map<String, dynamic> json) => AiAgentEventOtpEmailVerificationFailedEventDataOtpEmailVerificationFailed(
-    reason: json['reason'] != null ? SdkPresent((json['reason'] as String?)!) : const SdkOmitted(),
-  );
+  factory AiAgentEventOtpEmailVerificationFailedEventDataOtpEmailVerificationFailed.fromJson(
+          Map<String, dynamic> json) =>
+      AiAgentEventOtpEmailVerificationFailedEventDataOtpEmailVerificationFailed(
+        reason: json['reason'] != null
+            ? SdkPresent((json['reason'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (reason) {
-      SdkPresent<String>(value: final value) => {'reason': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (reason) {
+          SdkPresent<String>(value: final value) => {
+              'reason': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Data recorded with the event. Empty when the failure was recorded without a reason.
 class AiAgentEventOtpEmailVerificationFailedEventData {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Details of the failed verification
-  final SdkOptional<AiAgentEventOtpEmailVerificationFailedEventDataOtpEmailVerificationFailed> otpEmailVerificationFailed;
+  final SdkOptional<
+          AiAgentEventOtpEmailVerificationFailedEventDataOtpEmailVerificationFailed>
+      otpEmailVerificationFailed;
 
-  const AiAgentEventOtpEmailVerificationFailedEventData({this.otpEmailVerificationFailed = const SdkOmitted()});
+  const AiAgentEventOtpEmailVerificationFailedEventData(
+      {this.otpEmailVerificationFailed = const SdkOmitted()});
 
-  AiAgentEventOtpEmailVerificationFailedEventData Function({SdkOptional<AiAgentEventOtpEmailVerificationFailedEventDataOtpEmailVerificationFailed> otpEmailVerificationFailed}) get copyWith => _copyWith;
+  AiAgentEventOtpEmailVerificationFailedEventData Function(
+      {SdkOptional<
+              AiAgentEventOtpEmailVerificationFailedEventDataOtpEmailVerificationFailed>
+          otpEmailVerificationFailed}) get copyWith => _copyWith;
 
-  AiAgentEventOtpEmailVerificationFailedEventData _copyWith({Object? otpEmailVerificationFailed = sdkOmittedValue}) => AiAgentEventOtpEmailVerificationFailedEventData(
-    otpEmailVerificationFailed: identical(otpEmailVerificationFailed, sdkOmittedValue) ? this.otpEmailVerificationFailed : otpEmailVerificationFailed as SdkOptional<AiAgentEventOtpEmailVerificationFailedEventDataOtpEmailVerificationFailed>,
-  );
+  AiAgentEventOtpEmailVerificationFailedEventData _copyWith(
+          {Object? otpEmailVerificationFailed = sdkOmittedValue}) =>
+      AiAgentEventOtpEmailVerificationFailedEventData(
+        otpEmailVerificationFailed: identical(
+                otpEmailVerificationFailed, sdkOmittedValue)
+            ? this.otpEmailVerificationFailed
+            : otpEmailVerificationFailed as SdkOptional<
+                AiAgentEventOtpEmailVerificationFailedEventDataOtpEmailVerificationFailed>,
+      );
 
-  factory AiAgentEventOtpEmailVerificationFailedEventData.fromJson(Map<String, dynamic> json) => AiAgentEventOtpEmailVerificationFailedEventData(
-    otpEmailVerificationFailed: json['otp_email_verification_failed'] != null ? SdkPresent((json['otp_email_verification_failed'] != null ? AiAgentEventOtpEmailVerificationFailedEventDataOtpEmailVerificationFailed.fromJson(json['otp_email_verification_failed'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory AiAgentEventOtpEmailVerificationFailedEventData.fromJson(
+          Map<String, dynamic> json) =>
+      AiAgentEventOtpEmailVerificationFailedEventData(
+        otpEmailVerificationFailed: json['otp_email_verification_failed'] !=
+                null
+            ? SdkPresent((json['otp_email_verification_failed'] != null
+                ? AiAgentEventOtpEmailVerificationFailedEventDataOtpEmailVerificationFailed
+                    .fromJson(json['otp_email_verification_failed']
+                        as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (otpEmailVerificationFailed) {
-      SdkPresent<AiAgentEventOtpEmailVerificationFailedEventDataOtpEmailVerificationFailed>(value: final value) => {'otp_email_verification_failed': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (otpEmailVerificationFailed) {
+          SdkPresent<
+                AiAgentEventOtpEmailVerificationFailedEventDataOtpEmailVerificationFailed>(
+            value: final value
+          ) =>
+            {
+              'otp_email_verification_failed': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// The event the part records
 class AiAgentEventOtpEmailVerificationFailedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The event type
   final SdkOptional<String> type_;
+
   /// A readable label for the event
   final SdkOptional<String> value;
+
   /// Data recorded with the event. Empty when the failure was recorded without a reason.
   final SdkOptional<AiAgentEventOtpEmailVerificationFailedEventData> data;
 
-  const AiAgentEventOtpEmailVerificationFailedEvent({this.type_ = const SdkOmitted(), this.value = const SdkOmitted(), this.data = const SdkOmitted()});
+  const AiAgentEventOtpEmailVerificationFailedEvent(
+      {this.type_ = const SdkOmitted(),
+      this.value = const SdkOmitted(),
+      this.data = const SdkOmitted()});
 
-  AiAgentEventOtpEmailVerificationFailedEvent Function({SdkOptional<String> type_, SdkOptional<String> value, SdkOptional<AiAgentEventOtpEmailVerificationFailedEventData> data}) get copyWith => _copyWith;
+  AiAgentEventOtpEmailVerificationFailedEvent Function(
+          {SdkOptional<String> type_,
+          SdkOptional<String> value,
+          SdkOptional<AiAgentEventOtpEmailVerificationFailedEventData> data})
+      get copyWith => _copyWith;
 
-  AiAgentEventOtpEmailVerificationFailedEvent _copyWith({Object? type_ = sdkOmittedValue, Object? value = sdkOmittedValue, Object? data = sdkOmittedValue}) => AiAgentEventOtpEmailVerificationFailedEvent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
-    value: identical(value, sdkOmittedValue) ? this.value : value as SdkOptional<String>,
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<AiAgentEventOtpEmailVerificationFailedEventData>,
-  );
+  AiAgentEventOtpEmailVerificationFailedEvent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? value = sdkOmittedValue,
+          Object? data = sdkOmittedValue}) =>
+      AiAgentEventOtpEmailVerificationFailedEvent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<String>,
+        value: identical(value, sdkOmittedValue)
+            ? this.value
+            : value as SdkOptional<String>,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data
+                as SdkOptional<AiAgentEventOtpEmailVerificationFailedEventData>,
+      );
 
-  factory AiAgentEventOtpEmailVerificationFailedEvent.fromJson(Map<String, dynamic> json) => AiAgentEventOtpEmailVerificationFailedEvent(
-    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
-    value: json['value'] != null ? SdkPresent((json['value'] as String?)!) : const SdkOmitted(),
-    data: json['data'] != null ? SdkPresent((json['data'] != null ? AiAgentEventOtpEmailVerificationFailedEventData.fromJson(json['data'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory AiAgentEventOtpEmailVerificationFailedEvent.fromJson(
+          Map<String, dynamic> json) =>
+      AiAgentEventOtpEmailVerificationFailedEvent(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] as String?)!)
+            : const SdkOmitted(),
+        value: json['value'] != null
+            ? SdkPresent((json['value'] as String?)!)
+            : const SdkOmitted(),
+        data: json['data'] != null
+            ? SdkPresent((json['data'] != null
+                ? AiAgentEventOtpEmailVerificationFailedEventData.fromJson(
+                    json['data'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<String>(value: final value) => {'type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (value) {
-      SdkPresent<String>(value: final value) => {'value': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (data) {
-      SdkPresent<AiAgentEventOtpEmailVerificationFailedEventData>(value: final value) => {'data': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<String>(value: final value) => {
+              'type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (value) {
+          SdkPresent<String>(value: final value) => {
+              'value': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (data) {
+          SdkPresent<AiAgentEventOtpEmailVerificationFailedEventData>(
+            value: final value
+          ) =>
+            {
+              'data': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Contains the reason Fin could not verify a contact by one-time passcode email, for conversation part type &lt;code&gt;ai_agent_event&lt;/code&gt; when the event type is &lt;code&gt;otp_email_verification_failed&lt;/code&gt;. Other &lt;code&gt;ai_agent_event&lt;/code&gt; event types are not described here.
 class AiAgentEventOtpEmailVerificationFailed {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The event the part records
   final SdkOptional<AiAgentEventOtpEmailVerificationFailedEvent> event;
 
-  const AiAgentEventOtpEmailVerificationFailed({this.event = const SdkOmitted()});
+  const AiAgentEventOtpEmailVerificationFailed(
+      {this.event = const SdkOmitted()});
 
-  AiAgentEventOtpEmailVerificationFailed Function({SdkOptional<AiAgentEventOtpEmailVerificationFailedEvent> event}) get copyWith => _copyWith;
+  AiAgentEventOtpEmailVerificationFailed Function(
+          {SdkOptional<AiAgentEventOtpEmailVerificationFailedEvent> event})
+      get copyWith => _copyWith;
 
-  AiAgentEventOtpEmailVerificationFailed _copyWith({Object? event = sdkOmittedValue}) => AiAgentEventOtpEmailVerificationFailed(
-    event: identical(event, sdkOmittedValue) ? this.event : event as SdkOptional<AiAgentEventOtpEmailVerificationFailedEvent>,
-  );
+  AiAgentEventOtpEmailVerificationFailed _copyWith(
+          {Object? event = sdkOmittedValue}) =>
+      AiAgentEventOtpEmailVerificationFailed(
+        event: identical(event, sdkOmittedValue)
+            ? this.event
+            : event as SdkOptional<AiAgentEventOtpEmailVerificationFailedEvent>,
+      );
 
-  factory AiAgentEventOtpEmailVerificationFailed.fromJson(Map<String, dynamic> json) => AiAgentEventOtpEmailVerificationFailed(
-    event: json['event'] != null ? SdkPresent((json['event'] != null ? AiAgentEventOtpEmailVerificationFailedEvent.fromJson(json['event'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory AiAgentEventOtpEmailVerificationFailed.fromJson(
+          Map<String, dynamic> json) =>
+      AiAgentEventOtpEmailVerificationFailed(
+        event: json['event'] != null
+            ? SdkPresent((json['event'] != null
+                ? AiAgentEventOtpEmailVerificationFailedEvent.fromJson(
+                    json['event'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (event) {
-      SdkPresent<AiAgentEventOtpEmailVerificationFailedEvent>(value: final value) => {'event': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (event) {
+          SdkPresent<AiAgentEventOtpEmailVerificationFailedEvent>(
+            value: final value
+          ) =>
+            {
+              'event': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class AiTopicSubtopicListItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the topic.
   final SdkOptional<String> topicName;
+
   /// The name of the subtopic, where the topic has one.
   final SdkOptional<String?> subtopicName;
+
   /// The unique identifier for the subtopic.
   final SdkOptional<int?> id;
 
-  const AiTopicSubtopicListItem({this.topicName = const SdkOmitted(), this.subtopicName = const SdkOmitted(), this.id = const SdkOmitted()});
+  const AiTopicSubtopicListItem(
+      {this.topicName = const SdkOmitted(),
+      this.subtopicName = const SdkOmitted(),
+      this.id = const SdkOmitted()});
 
-  AiTopicSubtopicListItem Function({SdkOptional<String> topicName, SdkOptional<String?> subtopicName, SdkOptional<int?> id}) get copyWith => _copyWith;
+  AiTopicSubtopicListItem Function(
+      {SdkOptional<String> topicName,
+      SdkOptional<String?> subtopicName,
+      SdkOptional<int?> id}) get copyWith => _copyWith;
 
-  AiTopicSubtopicListItem _copyWith({Object? topicName = sdkOmittedValue, Object? subtopicName = sdkOmittedValue, Object? id = sdkOmittedValue}) => AiTopicSubtopicListItem(
-    topicName: identical(topicName, sdkOmittedValue) ? this.topicName : topicName as SdkOptional<String>,
-    subtopicName: identical(subtopicName, sdkOmittedValue) ? this.subtopicName : subtopicName as SdkOptional<String?>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<int?>,
-  );
+  AiTopicSubtopicListItem _copyWith(
+          {Object? topicName = sdkOmittedValue,
+          Object? subtopicName = sdkOmittedValue,
+          Object? id = sdkOmittedValue}) =>
+      AiTopicSubtopicListItem(
+        topicName: identical(topicName, sdkOmittedValue)
+            ? this.topicName
+            : topicName as SdkOptional<String>,
+        subtopicName: identical(subtopicName, sdkOmittedValue)
+            ? this.subtopicName
+            : subtopicName as SdkOptional<String?>,
+        id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<int?>,
+      );
 
-  factory AiTopicSubtopicListItem.fromJson(Map<String, dynamic> json) => AiTopicSubtopicListItem(
-    topicName: json['topic_name'] != null ? SdkPresent((json['topic_name'] as String?)!) : const SdkOmitted(),
-    subtopicName: json.containsKey('subtopic_name') ? SdkPresent(json['subtopic_name'] as String?) : const SdkOmitted(),
-    id: json.containsKey('id') ? SdkPresent((json['id'] as num?)?.toInt()) : const SdkOmitted(),
-  );
+  factory AiTopicSubtopicListItem.fromJson(Map<String, dynamic> json) =>
+      AiTopicSubtopicListItem(
+        topicName: json['topic_name'] != null
+            ? SdkPresent((json['topic_name'] as String?)!)
+            : const SdkOmitted(),
+        subtopicName: json.containsKey('subtopic_name')
+            ? SdkPresent(json['subtopic_name'] as String?)
+            : const SdkOmitted(),
+        id: json.containsKey('id')
+            ? SdkPresent((json['id'] as num?)?.toInt())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (topicName) {
-      SdkPresent<String>(value: final value) => {'topic_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (subtopicName) {
-      SdkPresent<String?>(value: final value) => {'subtopic_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<int?>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (topicName) {
+          SdkPresent<String>(value: final value) => {
+              'topic_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (subtopicName) {
+          SdkPresent<String?>(value: final value) => {
+              'subtopic_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<int?>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 // AiTopicSubtopicList = List<AiTopicSubtopicListItem>

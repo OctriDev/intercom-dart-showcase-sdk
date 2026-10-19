@@ -8,171 +8,335 @@ part of 'news.dart';
 class DeletedObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique identifier for the news item which you provided in the URL.
   final SdkOptional<String> id;
+
   /// The type of object which was deleted - news-item.
   final SdkOptional<DeletedObjectObject> object;
+
   /// Whether the news item was deleted successfully or not.
   final SdkOptional<bool> deleted;
 
-  const DeletedObject({this.id = const SdkOmitted(), this.object = const SdkOmitted(), this.deleted = const SdkOmitted()});
+  const DeletedObject(
+      {this.id = const SdkOmitted(),
+      this.object = const SdkOmitted(),
+      this.deleted = const SdkOmitted()});
 
-  DeletedObject Function({SdkOptional<String> id, SdkOptional<DeletedObjectObject> object, SdkOptional<bool> deleted}) get copyWith => _copyWith;
+  DeletedObject Function(
+      {SdkOptional<String> id,
+      SdkOptional<DeletedObjectObject> object,
+      SdkOptional<bool> deleted}) get copyWith => _copyWith;
 
-  DeletedObject _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => DeletedObject(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<DeletedObjectObject>,
-    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as SdkOptional<bool>,
-  );
+  DeletedObject _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? deleted = sdkOmittedValue}) =>
+      DeletedObject(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<DeletedObjectObject>,
+        deleted: identical(deleted, sdkOmittedValue)
+            ? this.deleted
+            : deleted as SdkOptional<bool>,
+      );
 
   factory DeletedObject.fromJson(Map<String, dynamic> json) => DeletedObject(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    object: json['object'] != null ? SdkPresent((json['object'] != null ? DeletedObjectObject.fromJson(json['object'] as String) : null)!) : const SdkOmitted(),
-    deleted: json['deleted'] != null ? SdkPresent((json['deleted'] as bool?)!) : const SdkOmitted(),
-  );
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        object: json['object'] != null
+            ? SdkPresent((json['object'] != null
+                ? DeletedObjectObject.fromJson(json['object'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        deleted: json['deleted'] != null
+            ? SdkPresent((json['deleted'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (object) {
-      SdkPresent<DeletedObjectObject>(value: final value) => {'object': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (deleted) {
-      SdkPresent<bool>(value: final value) => {'deleted': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (object) {
+          SdkPresent<DeletedObjectObject>(value: final value) => {
+              'object': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (deleted) {
+          SdkPresent<bool>(value: final value) => {
+              'deleted': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A News Item is a content type in Intercom enabling you to announce product updates, company news, promotions, events and more with your customers.
 class NewsItemRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The title of the news item.
   final String title;
+
   /// The news item body, which may contain HTML.
   final SdkOptional<String> body;
+
   /// The id of the sender of the news item. Must be a teammate on the workspace.
   final int senderId;
+
   /// News items will not be visible to your users in the assigned newsfeeds until they are set live.
   final SdkOptional<NewsItemRequestState> state;
+
   /// When set to `true`, the news item will appear in the messenger newsfeed without showing a notification badge.
   final SdkOptional<bool> deliverSilently;
+
   /// Label names displayed to users to categorize the news item.
   final SdkOptional<List<String>> labels;
+
   /// Ordered list of emoji reactions to the news item. When empty, reactions are disabled.
   final SdkOptional<List<String?>> reactions;
+
   /// A list of newsfeed_assignments to assign to the specified newsfeed.
   final SdkOptional<List<NewsfeedAssignment>> newsfeedAssignments;
 
-  const NewsItemRequest({required this.title, this.body = const SdkOmitted(), required this.senderId, this.state = const SdkOmitted(), this.deliverSilently = const SdkOmitted(), this.labels = const SdkOmitted(), this.reactions = const SdkOmitted(), this.newsfeedAssignments = const SdkOmitted()});
+  const NewsItemRequest(
+      {required this.title,
+      this.body = const SdkOmitted(),
+      required this.senderId,
+      this.state = const SdkOmitted(),
+      this.deliverSilently = const SdkOmitted(),
+      this.labels = const SdkOmitted(),
+      this.reactions = const SdkOmitted(),
+      this.newsfeedAssignments = const SdkOmitted()});
 
-  NewsItemRequest Function({String title, SdkOptional<String> body, int senderId, SdkOptional<NewsItemRequestState> state, SdkOptional<bool> deliverSilently, SdkOptional<List<String>> labels, SdkOptional<List<String?>> reactions, SdkOptional<List<NewsfeedAssignment>> newsfeedAssignments}) get copyWith => _copyWith;
+  NewsItemRequest Function(
+          {String title,
+          SdkOptional<String> body,
+          int senderId,
+          SdkOptional<NewsItemRequestState> state,
+          SdkOptional<bool> deliverSilently,
+          SdkOptional<List<String>> labels,
+          SdkOptional<List<String?>> reactions,
+          SdkOptional<List<NewsfeedAssignment>> newsfeedAssignments})
+      get copyWith => _copyWith;
 
-  NewsItemRequest _copyWith({Object? title = sdkOmittedValue, Object? body = sdkOmittedValue, Object? senderId = sdkOmittedValue, Object? state = sdkOmittedValue, Object? deliverSilently = sdkOmittedValue, Object? labels = sdkOmittedValue, Object? reactions = sdkOmittedValue, Object? newsfeedAssignments = sdkOmittedValue}) => NewsItemRequest(
-    title: identical(title, sdkOmittedValue) ? this.title : title as String,
-    body: identical(body, sdkOmittedValue) ? this.body : body as SdkOptional<String>,
-    senderId: identical(senderId, sdkOmittedValue) ? this.senderId : senderId as int,
-    state: identical(state, sdkOmittedValue) ? this.state : state as SdkOptional<NewsItemRequestState>,
-    deliverSilently: identical(deliverSilently, sdkOmittedValue) ? this.deliverSilently : deliverSilently as SdkOptional<bool>,
-    labels: identical(labels, sdkOmittedValue) ? this.labels : labels as SdkOptional<List<String>>,
-    reactions: identical(reactions, sdkOmittedValue) ? this.reactions : reactions as SdkOptional<List<String?>>,
-    newsfeedAssignments: identical(newsfeedAssignments, sdkOmittedValue) ? this.newsfeedAssignments : newsfeedAssignments as SdkOptional<List<NewsfeedAssignment>>,
-  );
+  NewsItemRequest _copyWith(
+          {Object? title = sdkOmittedValue,
+          Object? body = sdkOmittedValue,
+          Object? senderId = sdkOmittedValue,
+          Object? state = sdkOmittedValue,
+          Object? deliverSilently = sdkOmittedValue,
+          Object? labels = sdkOmittedValue,
+          Object? reactions = sdkOmittedValue,
+          Object? newsfeedAssignments = sdkOmittedValue}) =>
+      NewsItemRequest(
+        title: identical(title, sdkOmittedValue) ? this.title : title as String,
+        body: identical(body, sdkOmittedValue)
+            ? this.body
+            : body as SdkOptional<String>,
+        senderId: identical(senderId, sdkOmittedValue)
+            ? this.senderId
+            : senderId as int,
+        state: identical(state, sdkOmittedValue)
+            ? this.state
+            : state as SdkOptional<NewsItemRequestState>,
+        deliverSilently: identical(deliverSilently, sdkOmittedValue)
+            ? this.deliverSilently
+            : deliverSilently as SdkOptional<bool>,
+        labels: identical(labels, sdkOmittedValue)
+            ? this.labels
+            : labels as SdkOptional<List<String>>,
+        reactions: identical(reactions, sdkOmittedValue)
+            ? this.reactions
+            : reactions as SdkOptional<List<String?>>,
+        newsfeedAssignments: identical(newsfeedAssignments, sdkOmittedValue)
+            ? this.newsfeedAssignments
+            : newsfeedAssignments as SdkOptional<List<NewsfeedAssignment>>,
+      );
 
-  factory NewsItemRequest.fromJson(Map<String, dynamic> json) => NewsItemRequest(
-    title: (json['title'] as String?)!,
-    body: json['body'] != null ? SdkPresent((json['body'] as String?)!) : const SdkOmitted(),
-    senderId: ((json['sender_id'] as num?)?.toInt())!,
-    state: json['state'] != null ? SdkPresent((json['state'] != null ? NewsItemRequestState.fromJson(json['state'] as String) : null)!) : const SdkOmitted(),
-    deliverSilently: json['deliver_silently'] != null ? SdkPresent((json['deliver_silently'] as bool?)!) : const SdkOmitted(),
-    labels: json['labels'] != null ? SdkPresent(((json['labels'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    reactions: json['reactions'] != null ? SdkPresent(((json['reactions'] as List?)?.map((e) => e == null ? null : e as String).toList())!) : const SdkOmitted(),
-    newsfeedAssignments: json['newsfeed_assignments'] != null ? SdkPresent(((json['newsfeed_assignments'] as List?)?.map((e) => NewsfeedAssignment.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory NewsItemRequest.fromJson(Map<String, dynamic> json) =>
+      NewsItemRequest(
+        title: (json['title'] as String?)!,
+        body: json['body'] != null
+            ? SdkPresent((json['body'] as String?)!)
+            : const SdkOmitted(),
+        senderId: ((json['sender_id'] as num?)?.toInt())!,
+        state: json['state'] != null
+            ? SdkPresent((json['state'] != null
+                ? NewsItemRequestState.fromJson(json['state'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        deliverSilently: json['deliver_silently'] != null
+            ? SdkPresent((json['deliver_silently'] as bool?)!)
+            : const SdkOmitted(),
+        labels: json['labels'] != null
+            ? SdkPresent(
+                ((json['labels'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        reactions: json['reactions'] != null
+            ? SdkPresent(((json['reactions'] as List?)
+                ?.map((e) => e == null ? null : e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        newsfeedAssignments: json['newsfeed_assignments'] != null
+            ? SdkPresent(((json['newsfeed_assignments'] as List?)
+                ?.map((e) =>
+                    NewsfeedAssignment.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'title': title,
-    ...switch (body) {
-      SdkPresent<String>(value: final value) => {'body': value,},
-      _ => const <String, dynamic>{},
-    },
-    'sender_id': senderId,
-    ...switch (state) {
-      SdkPresent<NewsItemRequestState>(value: final value) => {'state': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (deliverSilently) {
-      SdkPresent<bool>(value: final value) => {'deliver_silently': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (labels) {
-      SdkPresent<List<String>>(value: final value) => {'labels': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (reactions) {
-      SdkPresent<List<String?>>(value: final value) => {'reactions': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (newsfeedAssignments) {
-      SdkPresent<List<NewsfeedAssignment>>(value: final value) => {'newsfeed_assignments': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'title': title,
+        ...switch (body) {
+          SdkPresent<String>(value: final value) => {
+              'body': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'sender_id': senderId,
+        ...switch (state) {
+          SdkPresent<NewsItemRequestState>(value: final value) => {
+              'state': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (deliverSilently) {
+          SdkPresent<bool>(value: final value) => {
+              'deliver_silently': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (labels) {
+          SdkPresent<List<String>>(value: final value) => {
+              'labels': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (reactions) {
+          SdkPresent<List<String?>>(value: final value) => {
+              'reactions': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (newsfeedAssignments) {
+          SdkPresent<List<NewsfeedAssignment>>(value: final value) => {
+              'newsfeed_assignments':
+                  value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Paginated Response
 class PaginatedResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of object
   final SdkOptional<PaginatedResponseType> type_;
+
   /// Cursor-based pagination is a technique used in the Intercom API to navigate through large amounts of data. A "cursor" or pointer is used to keep track of the current position in the result set, allowing the API to return the data in small chunks or "pages" as needed.
   final SdkOptional<CursorPages?> pages;
+
   /// A count of the total number of objects.
   final SdkOptional<int> totalCount;
+
   /// An array of Objects
   final SdkOptional<List<PaginatedResponseDataItem>> data;
 
-  const PaginatedResponse({this.type_ = const SdkOmitted(), this.pages = const SdkOmitted(), this.totalCount = const SdkOmitted(), this.data = const SdkOmitted()});
+  const PaginatedResponse(
+      {this.type_ = const SdkOmitted(),
+      this.pages = const SdkOmitted(),
+      this.totalCount = const SdkOmitted(),
+      this.data = const SdkOmitted()});
 
-  PaginatedResponse Function({SdkOptional<PaginatedResponseType> type_, SdkOptional<CursorPages?> pages, SdkOptional<int> totalCount, SdkOptional<List<PaginatedResponseDataItem>> data}) get copyWith => _copyWith;
+  PaginatedResponse Function(
+          {SdkOptional<PaginatedResponseType> type_,
+          SdkOptional<CursorPages?> pages,
+          SdkOptional<int> totalCount,
+          SdkOptional<List<PaginatedResponseDataItem>> data})
+      get copyWith => _copyWith;
 
-  PaginatedResponse _copyWith({Object? type_ = sdkOmittedValue, Object? pages = sdkOmittedValue, Object? totalCount = sdkOmittedValue, Object? data = sdkOmittedValue}) => PaginatedResponse(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<PaginatedResponseType>,
-    pages: identical(pages, sdkOmittedValue) ? this.pages : pages as SdkOptional<CursorPages?>,
-    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as SdkOptional<int>,
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<PaginatedResponseDataItem>>,
-  );
+  PaginatedResponse _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? pages = sdkOmittedValue,
+          Object? totalCount = sdkOmittedValue,
+          Object? data = sdkOmittedValue}) =>
+      PaginatedResponse(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<PaginatedResponseType>,
+        pages: identical(pages, sdkOmittedValue)
+            ? this.pages
+            : pages as SdkOptional<CursorPages?>,
+        totalCount: identical(totalCount, sdkOmittedValue)
+            ? this.totalCount
+            : totalCount as SdkOptional<int>,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<List<PaginatedResponseDataItem>>,
+      );
 
-  factory PaginatedResponse.fromJson(Map<String, dynamic> json) => PaginatedResponse(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? PaginatedResponseType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    pages: json.containsKey('pages') ? SdkPresent(json['pages'] != null ? CursorPages.fromJson(json['pages'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    totalCount: json['total_count'] != null ? SdkPresent(((json['total_count'] as num?)?.toInt())!) : const SdkOmitted(),
-    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => PaginatedResponseDataItem.fromJson(e)).toList())!) : const SdkOmitted(),
-  );
+  factory PaginatedResponse.fromJson(Map<String, dynamic> json) =>
+      PaginatedResponse(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? PaginatedResponseType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        pages: json.containsKey('pages')
+            ? SdkPresent(json['pages'] != null
+                ? CursorPages.fromJson(json['pages'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        totalCount: json['total_count'] != null
+            ? SdkPresent(((json['total_count'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        data: json['data'] != null
+            ? SdkPresent(((json['data'] as List?)
+                ?.map((e) => PaginatedResponseDataItem.fromJson(e))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<PaginatedResponseType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (pages) {
-      SdkPresent<CursorPages?>(value: final value) => {'pages': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (totalCount) {
-      SdkPresent<int>(value: final value) => {'total_count': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (data) {
-      SdkPresent<List<PaginatedResponseDataItem>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<PaginatedResponseType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pages) {
+          SdkPresent<CursorPages?>(value: final value) => {
+              'pages': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (totalCount) {
+          SdkPresent<int>(value: final value) => {
+              'total_count': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (data) {
+          SdkPresent<List<PaginatedResponseDataItem>>(value: final value) => {
+              'data': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class PaginatedResponseDataItem {
@@ -181,24 +345,44 @@ sealed class PaginatedResponseDataItem {
   const PaginatedResponseDataItem();
   factory PaginatedResponseDataItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = NewsItem.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return PaginatedResponseDataItemNewsItem(value); } } catch (_) {}
-      try { final value = Newsfeed.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return PaginatedResponseDataItemNewsfeed(value); } } catch (_) {}
+      try {
+        final value = NewsItem.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return PaginatedResponseDataItemNewsItem(value);
+        }
+      } catch (_) {}
+      try {
+        final value = Newsfeed.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return PaginatedResponseDataItemNewsfeed(value);
+        }
+      } catch (_) {}
     }
-    try { return PaginatedResponseDataItemNewsItem(NewsItem.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return PaginatedResponseDataItemNewsfeed(Newsfeed.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try {
+      return PaginatedResponseDataItemNewsItem(
+          NewsItem.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return PaginatedResponseDataItemNewsfeed(
+          Newsfeed.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
     throw FormatException("No variant matched for PaginatedResponseDataItem");
   }
   Object? toJson();
 }
 
-final class PaginatedResponseDataItemNewsItem extends PaginatedResponseDataItem {
+final class PaginatedResponseDataItemNewsItem
+    extends PaginatedResponseDataItem {
   final NewsItem value;
   const PaginatedResponseDataItemNewsItem(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class PaginatedResponseDataItemNewsfeed extends PaginatedResponseDataItem {
+final class PaginatedResponseDataItemNewsfeed
+    extends PaginatedResponseDataItem {
   final Newsfeed value;
   const PaginatedResponseDataItemNewsfeed(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }

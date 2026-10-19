@@ -6,240 +6,280 @@ part of 'inline.dart';
 // Inline operation models (part 7)
 /// Required enumerated value serialized in the `type` wire field.
 final class ContactReplyUserIdRequestType {
-
   final String value;
 
   const ContactReplyUserIdRequestType._(this.value);
 
-  factory ContactReplyUserIdRequestType.fromJson(String value) => ContactReplyUserIdRequestType._(value);
+  factory ContactReplyUserIdRequestType.fromJson(String value) =>
+      ContactReplyUserIdRequestType._(value);
 
   static const user = ContactReplyUserIdRequestType._('user');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ContactReplyUserIdRequestType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ContactReplyUserIdRequestType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The current state of the job.
 final class ContactsBulkJobState {
-
   final String value;
 
   const ContactsBulkJobState._(this.value);
 
-  factory ContactsBulkJobState.fromJson(String value) => ContactsBulkJobState._(value);
+  factory ContactsBulkJobState.fromJson(String value) =>
+      ContactsBulkJobState._(value);
 
   static const pending = ContactsBulkJobState._('pending');
   static const running = ContactsBulkJobState._('running');
   static const completed = ContactsBulkJobState._('completed');
-  static const completedWithErrors = ContactsBulkJobState._('completed_with_errors');
+  static const completedWithErrors =
+      ContactsBulkJobState._('completed_with_errors');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ContactsBulkJobState && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ContactsBulkJobState && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The current state of the task.
 final class ContactsBulkJobTasksItemState {
-
   final String value;
 
   const ContactsBulkJobTasksItemState._(this.value);
 
-  factory ContactsBulkJobTasksItemState.fromJson(String value) => ContactsBulkJobTasksItemState._(value);
+  factory ContactsBulkJobTasksItemState.fromJson(String value) =>
+      ContactsBulkJobTasksItemState._(value);
 
   static const pending = ContactsBulkJobTasksItemState._('pending');
   static const running = ContactsBulkJobTasksItemState._('running');
   static const completed = ContactsBulkJobTasksItemState._('completed');
-  static const completedWithErrors = ContactsBulkJobTasksItemState._('completed_with_errors');
+  static const completedWithErrors =
+      ContactsBulkJobTasksItemState._('completed_with_errors');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ContactsBulkJobTasksItemState && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ContactsBulkJobTasksItemState && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the object.
 final class ContactsBulkJobType {
-
   final String value;
 
   const ContactsBulkJobType._(this.value);
 
-  factory ContactsBulkJobType.fromJson(String value) => ContactsBulkJobType._(value);
+  factory ContactsBulkJobType.fromJson(String value) =>
+      ContactsBulkJobType._(value);
 
   static const contactsBulkJob = ContactsBulkJobType._('contacts.bulk.job');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ContactsBulkJobType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ContactsBulkJobType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The order to sort the results in. Defaults to `descending` when omitted. Values other than `ascending` or `descending` return a `400` error with code `invalid_sort_order`.
 final class ContactSearchRequestSortOrder {
-
   final String value;
 
   const ContactSearchRequestSortOrder._(this.value);
 
-  factory ContactSearchRequestSortOrder.fromJson(String value) => ContactSearchRequestSortOrder._(value);
+  factory ContactSearchRequestSortOrder.fromJson(String value) =>
+      ContactSearchRequestSortOrder._(value);
 
   static const ascending = ContactSearchRequestSortOrder._('ascending');
   static const descending = ContactSearchRequestSortOrder._('descending');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ContactSearchRequestSortOrder && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ContactSearchRequestSortOrder && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the object
 final class ContactSegmentsType {
-
   final String value;
 
   const ContactSegmentsType._(this.value);
 
-  factory ContactSegmentsType.fromJson(String value) => ContactSegmentsType._(value);
+  factory ContactSegmentsType.fromJson(String value) =>
+      ContactSegmentsType._(value);
 
   static const list = ContactSegmentsType._('list');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ContactSegmentsType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ContactSegmentsType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// always contact
 final class ContactUnarchivedType {
-
   final String value;
 
   const ContactUnarchivedType._(this.value);
 
-  factory ContactUnarchivedType.fromJson(String value) => ContactUnarchivedType._(value);
+  factory ContactUnarchivedType.fromJson(String value) =>
+      ContactUnarchivedType._(value);
 
   static const contact = ContactUnarchivedType._('contact');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ContactUnarchivedType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ContactUnarchivedType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The bulk action to perform. Allowed `content_ids[].type` values vary per action: * `publish`, `unpublish`: `article_content` * `delete`: `article_content`, `content_snippet`, `file_source_content`, `internal_article` * `set_availability`, `set_audience`: `article_content`, `content_snippet`, `external_content`, `file_source_content`, `internal_article` * `update_tags`: `article` (the parent Article id, not `article_content`), `content_snippet`, `external_content`, `file_source_content`, `internal_article`
 final class ContentBulkActionRequestAction {
-
   final String value;
 
   const ContentBulkActionRequestAction._(this.value);
 
-  factory ContentBulkActionRequestAction.fromJson(String value) => ContentBulkActionRequestAction._(value);
+  factory ContentBulkActionRequestAction.fromJson(String value) =>
+      ContentBulkActionRequestAction._(value);
 
   static const publish = ContentBulkActionRequestAction._('publish');
   static const unpublish = ContentBulkActionRequestAction._('unpublish');
   static const delete = ContentBulkActionRequestAction._('delete');
-  static const setAvailability = ContentBulkActionRequestAction._('set_availability');
+  static const setAvailability =
+      ContentBulkActionRequestAction._('set_availability');
   static const setAudience = ContentBulkActionRequestAction._('set_audience');
   static const updateTags = ContentBulkActionRequestAction._('update_tags');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ContentBulkActionRequestAction && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ContentBulkActionRequestAction && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `type` wire field.
 final class ContentBulkActionRequestContentIdsItemType {
-
   final String value;
 
   const ContentBulkActionRequestContentIdsItemType._(this.value);
 
-  factory ContentBulkActionRequestContentIdsItemType.fromJson(String value) => ContentBulkActionRequestContentIdsItemType._(value);
+  factory ContentBulkActionRequestContentIdsItemType.fromJson(String value) =>
+      ContentBulkActionRequestContentIdsItemType._(value);
 
-  static const article = ContentBulkActionRequestContentIdsItemType._('article');
-  static const articleContent = ContentBulkActionRequestContentIdsItemType._('article_content');
-  static const contentSnippet = ContentBulkActionRequestContentIdsItemType._('content_snippet');
-  static const externalContent = ContentBulkActionRequestContentIdsItemType._('external_content');
-  static const fileSourceContent = ContentBulkActionRequestContentIdsItemType._('file_source_content');
-  static const internalArticle = ContentBulkActionRequestContentIdsItemType._('internal_article');
+  static const article =
+      ContentBulkActionRequestContentIdsItemType._('article');
+  static const articleContent =
+      ContentBulkActionRequestContentIdsItemType._('article_content');
+  static const contentSnippet =
+      ContentBulkActionRequestContentIdsItemType._('content_snippet');
+  static const externalContent =
+      ContentBulkActionRequestContentIdsItemType._('external_content');
+  static const fileSourceContent =
+      ContentBulkActionRequestContentIdsItemType._('file_source_content');
+  static const internalArticle =
+      ContentBulkActionRequestContentIdsItemType._('internal_article');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ContentBulkActionRequestContentIdsItemType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ContentBulkActionRequestContentIdsItemType &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The status of the content import source.
 final class ContentImportSourceStatus {
-
   final String value;
 
   const ContentImportSourceStatus._(this.value);
 
-  factory ContentImportSourceStatus.fromJson(String value) => ContentImportSourceStatus._(value);
+  factory ContentImportSourceStatus.fromJson(String value) =>
+      ContentImportSourceStatus._(value);
 
   static const active = ContentImportSourceStatus._('active');
   static const deactivated = ContentImportSourceStatus._('deactivated');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ContentImportSourceStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ContentImportSourceStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// If you intend to create or update External Pages via the API, this should be set to `api`.
 final class ContentImportSourceSyncBehavior {
-
   final String value;
 
   const ContentImportSourceSyncBehavior._(this.value);
 
-  factory ContentImportSourceSyncBehavior.fromJson(String value) => ContentImportSourceSyncBehavior._(value);
+  factory ContentImportSourceSyncBehavior.fromJson(String value) =>
+      ContentImportSourceSyncBehavior._(value);
 
   static const api = ContentImportSourceSyncBehavior._('api');
   static const automatic = ContentImportSourceSyncBehavior._('automatic');
@@ -247,31 +287,38 @@ final class ContentImportSourceSyncBehavior {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ContentImportSourceSyncBehavior && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ContentImportSourceSyncBehavior && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Always external_page
 final class ContentImportSourceType {
-
   final String value;
 
   const ContentImportSourceType._(this.value);
 
-  factory ContentImportSourceType.fromJson(String value) => ContentImportSourceType._(value);
+  factory ContentImportSourceType.fromJson(String value) =>
+      ContentImportSourceType._(value);
 
-  static const contentImportSource = ContentImportSourceType._('content_import_source');
+  static const contentImportSource =
+      ContentImportSourceType._('content_import_source');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ContentImportSourceType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ContentImportSourceType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

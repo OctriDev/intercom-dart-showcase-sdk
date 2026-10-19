@@ -8,236 +8,404 @@ part of 'conversations.dart';
 class HitlEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Identifies the consultation this event belongs to. The same on every event of one consultation, so it is not unique per event.
   final SdkOptional<String> hitlCycleId;
+
   /// What happened.
   final SdkOptional<HitlEventEventType> eventType;
+
   /// The conversation part this event relates to, where one exists.
   final SdkOptional<String?> conversationPartId;
+
   /// The escalation rule that triggered the consultation, as recorded when it began. Null if no rule triggered it.
   final SdkOptional<String?> ruleId;
+
   /// The rule's name as recorded when the consultation began, which may differ from its current name.
   final SdkOptional<String?> ruleName;
+
   /// Unix timestamp for when the event occurred. Approximate on `fin_draft_proposed`.
   final SdkOptional<int> createdAt;
+
   /// Fields specific to this event. Which are present depends on `event_type` — see the endpoint description for the full mapping.
   final SdkOptional<HitlEventData> data;
 
-  const HitlEvent({this.hitlCycleId = const SdkOmitted(), this.eventType = const SdkOmitted(), this.conversationPartId = const SdkOmitted(), this.ruleId = const SdkOmitted(), this.ruleName = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.data = const SdkOmitted()});
+  const HitlEvent(
+      {this.hitlCycleId = const SdkOmitted(),
+      this.eventType = const SdkOmitted(),
+      this.conversationPartId = const SdkOmitted(),
+      this.ruleId = const SdkOmitted(),
+      this.ruleName = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.data = const SdkOmitted()});
 
-  HitlEvent Function({SdkOptional<String> hitlCycleId, SdkOptional<HitlEventEventType> eventType, SdkOptional<String?> conversationPartId, SdkOptional<String?> ruleId, SdkOptional<String?> ruleName, SdkOptional<int> createdAt, SdkOptional<HitlEventData> data}) get copyWith => _copyWith;
+  HitlEvent Function(
+      {SdkOptional<String> hitlCycleId,
+      SdkOptional<HitlEventEventType> eventType,
+      SdkOptional<String?> conversationPartId,
+      SdkOptional<String?> ruleId,
+      SdkOptional<String?> ruleName,
+      SdkOptional<int> createdAt,
+      SdkOptional<HitlEventData> data}) get copyWith => _copyWith;
 
-  HitlEvent _copyWith({Object? hitlCycleId = sdkOmittedValue, Object? eventType = sdkOmittedValue, Object? conversationPartId = sdkOmittedValue, Object? ruleId = sdkOmittedValue, Object? ruleName = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? data = sdkOmittedValue}) => HitlEvent(
-    hitlCycleId: identical(hitlCycleId, sdkOmittedValue) ? this.hitlCycleId : hitlCycleId as SdkOptional<String>,
-    eventType: identical(eventType, sdkOmittedValue) ? this.eventType : eventType as SdkOptional<HitlEventEventType>,
-    conversationPartId: identical(conversationPartId, sdkOmittedValue) ? this.conversationPartId : conversationPartId as SdkOptional<String?>,
-    ruleId: identical(ruleId, sdkOmittedValue) ? this.ruleId : ruleId as SdkOptional<String?>,
-    ruleName: identical(ruleName, sdkOmittedValue) ? this.ruleName : ruleName as SdkOptional<String?>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<int>,
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<HitlEventData>,
-  );
+  HitlEvent _copyWith(
+          {Object? hitlCycleId = sdkOmittedValue,
+          Object? eventType = sdkOmittedValue,
+          Object? conversationPartId = sdkOmittedValue,
+          Object? ruleId = sdkOmittedValue,
+          Object? ruleName = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? data = sdkOmittedValue}) =>
+      HitlEvent(
+        hitlCycleId: identical(hitlCycleId, sdkOmittedValue)
+            ? this.hitlCycleId
+            : hitlCycleId as SdkOptional<String>,
+        eventType: identical(eventType, sdkOmittedValue)
+            ? this.eventType
+            : eventType as SdkOptional<HitlEventEventType>,
+        conversationPartId: identical(conversationPartId, sdkOmittedValue)
+            ? this.conversationPartId
+            : conversationPartId as SdkOptional<String?>,
+        ruleId: identical(ruleId, sdkOmittedValue)
+            ? this.ruleId
+            : ruleId as SdkOptional<String?>,
+        ruleName: identical(ruleName, sdkOmittedValue)
+            ? this.ruleName
+            : ruleName as SdkOptional<String?>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<int>,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<HitlEventData>,
+      );
 
   factory HitlEvent.fromJson(Map<String, dynamic> json) => HitlEvent(
-    hitlCycleId: json['hitl_cycle_id'] != null ? SdkPresent((json['hitl_cycle_id'] as String?)!) : const SdkOmitted(),
-    eventType: json['event_type'] != null ? SdkPresent((json['event_type'] != null ? HitlEventEventType.fromJson(json['event_type'] as String) : null)!) : const SdkOmitted(),
-    conversationPartId: json.containsKey('conversation_part_id') ? SdkPresent(json['conversation_part_id'] as String?) : const SdkOmitted(),
-    ruleId: json.containsKey('rule_id') ? SdkPresent(json['rule_id'] as String?) : const SdkOmitted(),
-    ruleName: json.containsKey('rule_name') ? SdkPresent(json['rule_name'] as String?) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent(((json['created_at'] as num?)?.toInt())!) : const SdkOmitted(),
-    data: json['data'] != null ? SdkPresent((json['data'] != null ? HitlEventData.fromJson(json['data'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+        hitlCycleId: json['hitl_cycle_id'] != null
+            ? SdkPresent((json['hitl_cycle_id'] as String?)!)
+            : const SdkOmitted(),
+        eventType: json['event_type'] != null
+            ? SdkPresent((json['event_type'] != null
+                ? HitlEventEventType.fromJson(json['event_type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        conversationPartId: json.containsKey('conversation_part_id')
+            ? SdkPresent(json['conversation_part_id'] as String?)
+            : const SdkOmitted(),
+        ruleId: json.containsKey('rule_id')
+            ? SdkPresent(json['rule_id'] as String?)
+            : const SdkOmitted(),
+        ruleName: json.containsKey('rule_name')
+            ? SdkPresent(json['rule_name'] as String?)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent(((json['created_at'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        data: json['data'] != null
+            ? SdkPresent((json['data'] != null
+                ? HitlEventData.fromJson(json['data'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (hitlCycleId) {
-      SdkPresent<String>(value: final value) => {'hitl_cycle_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (eventType) {
-      SdkPresent<HitlEventEventType>(value: final value) => {'event_type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (conversationPartId) {
-      SdkPresent<String?>(value: final value) => {'conversation_part_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (ruleId) {
-      SdkPresent<String?>(value: final value) => {'rule_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (ruleName) {
-      SdkPresent<String?>(value: final value) => {'rule_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<int>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (data) {
-      SdkPresent<HitlEventData>(value: final value) => {'data': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (hitlCycleId) {
+          SdkPresent<String>(value: final value) => {
+              'hitl_cycle_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (eventType) {
+          SdkPresent<HitlEventEventType>(value: final value) => {
+              'event_type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (conversationPartId) {
+          SdkPresent<String?>(value: final value) => {
+              'conversation_part_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (ruleId) {
+          SdkPresent<String?>(value: final value) => {
+              'rule_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (ruleName) {
+          SdkPresent<String?>(value: final value) => {
+              'rule_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<int>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (data) {
+          SdkPresent<HitlEventData>(value: final value) => {
+              'data': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A list of human-in-the-loop events for a conversation, oldest first.
 class HitlEventList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object.
   final SdkOptional<HitlEventListType> type_;
+
   /// An array of HITL event objects.
   final SdkOptional<List<HitlEvent>> data;
 
-  const HitlEventList({this.type_ = const SdkOmitted(), this.data = const SdkOmitted()});
+  const HitlEventList(
+      {this.type_ = const SdkOmitted(), this.data = const SdkOmitted()});
 
-  HitlEventList Function({SdkOptional<HitlEventListType> type_, SdkOptional<List<HitlEvent>> data}) get copyWith => _copyWith;
+  HitlEventList Function(
+      {SdkOptional<HitlEventListType> type_,
+      SdkOptional<List<HitlEvent>> data}) get copyWith => _copyWith;
 
-  HitlEventList _copyWith({Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) => HitlEventList(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<HitlEventListType>,
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<HitlEvent>>,
-  );
+  HitlEventList _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
+      HitlEventList(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<HitlEventListType>,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<List<HitlEvent>>,
+      );
 
   factory HitlEventList.fromJson(Map<String, dynamic> json) => HitlEventList(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? HitlEventListType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => HitlEvent.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? HitlEventListType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        data: json['data'] != null
+            ? SdkPresent(((json['data'] as List?)
+                ?.map((e) => HitlEvent.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<HitlEventListType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (data) {
-      SdkPresent<List<HitlEvent>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<HitlEventListType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (data) {
+          SdkPresent<List<HitlEvent>>(value: final value) => {
+              'data': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Payload of the request to open a conversation
 class OpenConversationRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `message_type` wire field.
   final OpenConversationRequestMessageType messageType;
+
   /// The id of the admin who is performing the action.
   final String adminId;
 
-  const OpenConversationRequest({required this.messageType, required this.adminId});
+  const OpenConversationRequest(
+      {required this.messageType, required this.adminId});
 
-  OpenConversationRequest Function({OpenConversationRequestMessageType messageType, String adminId}) get copyWith => _copyWith;
+  OpenConversationRequest Function(
+      {OpenConversationRequestMessageType messageType,
+      String adminId}) get copyWith => _copyWith;
 
-  OpenConversationRequest _copyWith({Object? messageType = sdkOmittedValue, Object? adminId = sdkOmittedValue}) => OpenConversationRequest(
-    messageType: identical(messageType, sdkOmittedValue) ? this.messageType : messageType as OpenConversationRequestMessageType,
-    adminId: identical(adminId, sdkOmittedValue) ? this.adminId : adminId as String,
-  );
+  OpenConversationRequest _copyWith(
+          {Object? messageType = sdkOmittedValue,
+          Object? adminId = sdkOmittedValue}) =>
+      OpenConversationRequest(
+        messageType: identical(messageType, sdkOmittedValue)
+            ? this.messageType
+            : messageType as OpenConversationRequestMessageType,
+        adminId: identical(adminId, sdkOmittedValue)
+            ? this.adminId
+            : adminId as String,
+      );
 
-  factory OpenConversationRequest.fromJson(Map<String, dynamic> json) => OpenConversationRequest(
-    messageType: (json['message_type'] != null ? OpenConversationRequestMessageType.fromJson(json['message_type'] as String) : null)!,
-    adminId: (json['admin_id'] as String?)!,
-  );
+  factory OpenConversationRequest.fromJson(Map<String, dynamic> json) =>
+      OpenConversationRequest(
+        messageType: (json['message_type'] != null
+            ? OpenConversationRequestMessageType.fromJson(
+                json['message_type'] as String)
+            : null)!,
+        adminId: (json['admin_id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'message_type': messageType.toJson(),
-    'admin_id': adminId,
-  };
+        'message_type': messageType.toJson(),
+        'admin_id': adminId,
+      };
 }
 
 /// Typed representation of the `QuickReplyOption` API schema.
 class QuickReplyOption {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The text to display in this quick reply option.
   final String text;
+
   /// A unique identifier for this quick reply option. This value will be available within the metadata of the comment conversation part that is created when a user clicks on this reply option.
   final String uuid;
 
   const QuickReplyOption({required this.text, required this.uuid});
 
-  QuickReplyOption Function({String text, String uuid}) get copyWith => _copyWith;
+  QuickReplyOption Function({String text, String uuid}) get copyWith =>
+      _copyWith;
 
-  QuickReplyOption _copyWith({Object? text = sdkOmittedValue, Object? uuid = sdkOmittedValue}) => QuickReplyOption(
-    text: identical(text, sdkOmittedValue) ? this.text : text as String,
-    uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as String,
-  );
+  QuickReplyOption _copyWith(
+          {Object? text = sdkOmittedValue, Object? uuid = sdkOmittedValue}) =>
+      QuickReplyOption(
+        text: identical(text, sdkOmittedValue) ? this.text : text as String,
+        uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as String,
+      );
 
-  factory QuickReplyOption.fromJson(Map<String, dynamic> json) => QuickReplyOption(
-    text: (json['text'] as String?)!,
-    uuid: (json['uuid'] as String?)!,
-  );
+  factory QuickReplyOption.fromJson(Map<String, dynamic> json) =>
+      QuickReplyOption(
+        text: (json['text'] as String?)!,
+        uuid: (json['uuid'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'text': text,
-    'uuid': uuid,
-  };
+        'text': text,
+        'uuid': uuid,
+      };
 }
 
 /// Payload of the request to redact a conversation part
 class RedactConversationRequestVariant0 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of resource being redacted.
   final RedactConversationRequestVariant0Type type_;
+
   /// The id of the conversation.
   final String conversationId;
+
   /// The id of the conversation_part.
   final String conversationPartId;
 
-  const RedactConversationRequestVariant0({required this.type_, required this.conversationId, required this.conversationPartId});
+  const RedactConversationRequestVariant0(
+      {required this.type_,
+      required this.conversationId,
+      required this.conversationPartId});
 
-  RedactConversationRequestVariant0 Function({RedactConversationRequestVariant0Type type_, String conversationId, String conversationPartId}) get copyWith => _copyWith;
+  RedactConversationRequestVariant0 Function(
+      {RedactConversationRequestVariant0Type type_,
+      String conversationId,
+      String conversationPartId}) get copyWith => _copyWith;
 
-  RedactConversationRequestVariant0 _copyWith({Object? type_ = sdkOmittedValue, Object? conversationId = sdkOmittedValue, Object? conversationPartId = sdkOmittedValue}) => RedactConversationRequestVariant0(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RedactConversationRequestVariant0Type,
-    conversationId: identical(conversationId, sdkOmittedValue) ? this.conversationId : conversationId as String,
-    conversationPartId: identical(conversationPartId, sdkOmittedValue) ? this.conversationPartId : conversationPartId as String,
-  );
+  RedactConversationRequestVariant0 _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? conversationId = sdkOmittedValue,
+          Object? conversationPartId = sdkOmittedValue}) =>
+      RedactConversationRequestVariant0(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RedactConversationRequestVariant0Type,
+        conversationId: identical(conversationId, sdkOmittedValue)
+            ? this.conversationId
+            : conversationId as String,
+        conversationPartId: identical(conversationPartId, sdkOmittedValue)
+            ? this.conversationPartId
+            : conversationPartId as String,
+      );
 
-  factory RedactConversationRequestVariant0.fromJson(Map<String, dynamic> json) => RedactConversationRequestVariant0(
-    type_: (json['type'] != null ? RedactConversationRequestVariant0Type.fromJson(json['type'] as String) : null)!,
-    conversationId: (json['conversation_id'] as String?)!,
-    conversationPartId: (json['conversation_part_id'] as String?)!,
-  );
+  factory RedactConversationRequestVariant0.fromJson(
+          Map<String, dynamic> json) =>
+      RedactConversationRequestVariant0(
+        type_: (json['type'] != null
+            ? RedactConversationRequestVariant0Type.fromJson(
+                json['type'] as String)
+            : null)!,
+        conversationId: (json['conversation_id'] as String?)!,
+        conversationPartId: (json['conversation_part_id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'conversation_id': conversationId,
-    'conversation_part_id': conversationPartId,
-  };
+        'type': type_.toJson(),
+        'conversation_id': conversationId,
+        'conversation_part_id': conversationPartId,
+      };
 }
 
 /// Payload of the request to redact a conversation source
 class RedactConversationRequestVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of resource being redacted.
   final RedactConversationRequestVariant1Type type_;
+
   /// The id of the conversation.
   final String conversationId;
+
   /// The id of the source.
   final String sourceId;
 
-  const RedactConversationRequestVariant1({required this.type_, required this.conversationId, required this.sourceId});
+  const RedactConversationRequestVariant1(
+      {required this.type_,
+      required this.conversationId,
+      required this.sourceId});
 
-  RedactConversationRequestVariant1 Function({RedactConversationRequestVariant1Type type_, String conversationId, String sourceId}) get copyWith => _copyWith;
+  RedactConversationRequestVariant1 Function(
+      {RedactConversationRequestVariant1Type type_,
+      String conversationId,
+      String sourceId}) get copyWith => _copyWith;
 
-  RedactConversationRequestVariant1 _copyWith({Object? type_ = sdkOmittedValue, Object? conversationId = sdkOmittedValue, Object? sourceId = sdkOmittedValue}) => RedactConversationRequestVariant1(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RedactConversationRequestVariant1Type,
-    conversationId: identical(conversationId, sdkOmittedValue) ? this.conversationId : conversationId as String,
-    sourceId: identical(sourceId, sdkOmittedValue) ? this.sourceId : sourceId as String,
-  );
+  RedactConversationRequestVariant1 _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? conversationId = sdkOmittedValue,
+          Object? sourceId = sdkOmittedValue}) =>
+      RedactConversationRequestVariant1(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RedactConversationRequestVariant1Type,
+        conversationId: identical(conversationId, sdkOmittedValue)
+            ? this.conversationId
+            : conversationId as String,
+        sourceId: identical(sourceId, sdkOmittedValue)
+            ? this.sourceId
+            : sourceId as String,
+      );
 
-  factory RedactConversationRequestVariant1.fromJson(Map<String, dynamic> json) => RedactConversationRequestVariant1(
-    type_: (json['type'] != null ? RedactConversationRequestVariant1Type.fromJson(json['type'] as String) : null)!,
-    conversationId: (json['conversation_id'] as String?)!,
-    sourceId: (json['source_id'] as String?)!,
-  );
+  factory RedactConversationRequestVariant1.fromJson(
+          Map<String, dynamic> json) =>
+      RedactConversationRequestVariant1(
+        type_: (json['type'] != null
+            ? RedactConversationRequestVariant1Type.fromJson(
+                json['type'] as String)
+            : null)!,
+        conversationId: (json['conversation_id'] as String?)!,
+        sourceId: (json['source_id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'conversation_id': conversationId,
-    'source_id': sourceId,
-  };
+        'type': type_.toJson(),
+        'conversation_id': conversationId,
+        'source_id': sourceId,
+      };
 }
 
 sealed class RedactConversationRequest {
@@ -246,26 +414,50 @@ sealed class RedactConversationRequest {
   const RedactConversationRequest();
   factory RedactConversationRequest.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = RedactConversationRequestVariant0.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RedactConversationRequestRedactConversationRequestVariant0(value); } } catch (_) {}
-      try { final value = RedactConversationRequestVariant1.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RedactConversationRequestRedactConversationRequestVariant1(value); } } catch (_) {}
+      try {
+        final value = RedactConversationRequestVariant0.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RedactConversationRequestRedactConversationRequestVariant0(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = RedactConversationRequestVariant1.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RedactConversationRequestRedactConversationRequestVariant1(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return RedactConversationRequestRedactConversationRequestVariant0(RedactConversationRequestVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RedactConversationRequestRedactConversationRequestVariant1(RedactConversationRequestVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try {
+      return RedactConversationRequestRedactConversationRequestVariant0(
+          RedactConversationRequestVariant0.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RedactConversationRequestRedactConversationRequestVariant1(
+          RedactConversationRequestVariant1.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
     throw FormatException("No variant matched for RedactConversationRequest");
   }
   Object? toJson();
 }
 
-final class RedactConversationRequestRedactConversationRequestVariant0 extends RedactConversationRequest {
+final class RedactConversationRequestRedactConversationRequestVariant0
+    extends RedactConversationRequest {
   final RedactConversationRequestVariant0 value;
   const RedactConversationRequestRedactConversationRequestVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RedactConversationRequestRedactConversationRequestVariant1 extends RedactConversationRequest {
+final class RedactConversationRequestRedactConversationRequestVariant1
+    extends RedactConversationRequest {
   final RedactConversationRequestVariant1 value;
   const RedactConversationRequestRedactConversationRequestVariant1(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 sealed class ReplyConversationRequest {
@@ -273,21 +465,31 @@ sealed class ReplyConversationRequest {
   static const String constructionSurface = 'named';
   const ReplyConversationRequest();
   factory ReplyConversationRequest.fromJson(Object? json) {
-    try { return ReplyConversationRequestContactReplyConversationRequest(ContactReplyConversationRequest.fromJson(json)); } catch (_) {}
-    try { return ReplyConversationRequestAdminReplyConversationRequest(AdminReplyConversationRequest.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try {
+      return ReplyConversationRequestContactReplyConversationRequest(
+          ContactReplyConversationRequest.fromJson(json));
+    } catch (_) {}
+    try {
+      return ReplyConversationRequestAdminReplyConversationRequest(
+          AdminReplyConversationRequest.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
     throw FormatException("No variant matched for ReplyConversationRequest");
   }
   Object? toJson();
 }
 
-final class ReplyConversationRequestContactReplyConversationRequest extends ReplyConversationRequest {
+final class ReplyConversationRequestContactReplyConversationRequest
+    extends ReplyConversationRequest {
   final ContactReplyConversationRequest value;
   const ReplyConversationRequestContactReplyConversationRequest(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ReplyConversationRequestAdminReplyConversationRequest extends ReplyConversationRequest {
+final class ReplyConversationRequestAdminReplyConversationRequest
+    extends ReplyConversationRequest {
   final AdminReplyConversationRequest value;
   const ReplyConversationRequestAdminReplyConversationRequest(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }

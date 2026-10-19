@@ -16,14 +16,13 @@ Future<AdminWithApp> identifyAdmin(ClientConfig config,
   return (await sdkRequest<AdminWithApp>('GET', '/me',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'identifyAdmin',
-          fromJsonRaw: (value) =>
-              AdminWithApp.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AdminWithApp.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Sets an admin's away status for the Inbox and controls whether new conversation replies are reassigned. Supply `away_mode_enabled` and `away_mode_reassign` in the request body; their defaults are `true` and `false`, respectively. You can also provide an away status reason identifier.
 ///
@@ -50,17 +49,14 @@ Future<Admin> setAwayAdmin(ClientConfig config,
             'away_status_reason_id': SdkUtils.unwrapOptional(awayStatusReasonId)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'setAwayAdmin',
           fromJsonRaw: (value) => Admin.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Lists activity logs for admins in the app within a requested time range. Provide `created_at_after` as the start of the range and optionally use `created_at_before` to set its end. Results are paginated.
 ///
@@ -78,25 +74,18 @@ Future<ActivityLogList> listActivityLogs(ClientConfig config,
   return (await sdkRequest<ActivityLogList>('GET', '/admins/activity_logs',
           config: config,
           query: {
-            'created_at_after':
-                SdkQueryValue(createdAtAfter, style: 'form', explode: true),
-            'created_at_before': SdkQueryValue(
-                SdkUtils.unwrapOptional(createdAtBefore),
-                style: 'form',
-                explode: true)
+            'created_at_after': SdkQueryValue(createdAtAfter, style: 'form', explode: true),
+            'created_at_before': SdkQueryValue(SdkUtils.unwrapOptional(createdAtBefore), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listActivityLogs',
-          fromJsonRaw: (value) =>
-              ActivityLogList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ActivityLogList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Searches admin activity logs by time range and optional event type filters. Supply `created_at_after` and use `event_types` to restrict results to selected event types; retrieve valid event types from the activity log event types endpoint. Use `page` and `per_page` to paginate the results.
 ///
@@ -133,17 +122,14 @@ Future<ActivityLogList> searchActivityLogs(ClientConfig config,
             'per_page': SdkUtils.unwrapOptional(perPage)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'searchActivityLogs',
-          fromJsonRaw: (value) =>
-              ActivityLogList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ActivityLogList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Lists the event type values available for filtering admin activity logs. Use the returned values with the `event_types` filter when searching activity logs.
 ///
@@ -155,17 +141,14 @@ Future<ActivityLogEventTypeList> listActivityLogEventTypes(ClientConfig config,
           'GET', '/admins/activity_log_event_types',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listActivityLogEventTypes',
-          fromJsonRaw: (value) =>
-              ActivityLogEventTypeList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ActivityLogEventTypeList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Lists the admins associated with the workspace. Set `display_avatar` to `true` to include each admin's avatar object and image URL; it defaults to `false` when omitted.
 ///
@@ -180,23 +163,17 @@ Future<AdminList> listAdmins(ClientConfig config,
   return (await sdkRequest<AdminList>('GET', '/admins',
           config: config,
           query: {
-            'display_avatar': SdkQueryValue(
-                SdkUtils.unwrapOptional(displayAvatar),
-                style: 'form',
-                explode: true)
+            'display_avatar': SdkQueryValue(SdkUtils.unwrapOptional(displayAvatar), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listAdmins',
-          fromJsonRaw: (value) =>
-              AdminList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AdminList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves the details of a specific admin account. Use the admin identifier to view the admin's profile, away settings, team assignments, and role information when present.
 ///
@@ -211,14 +188,10 @@ Future<Admin> retrieveAdmin(ClientConfig config,
           'GET', '/admins/${Uri.encodeComponent(adminId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'retrieveAdmin',
           fromJsonRaw: (value) => Admin.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

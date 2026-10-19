@@ -11,110 +11,67 @@ class DeleteOfficeHoursScheduleResponse {
   final SdkOptional<String> object;
   final SdkOptional<bool> deleted;
 
-  const DeleteOfficeHoursScheduleResponse(
-      {this.id = const SdkOmitted(),
-      this.object = const SdkOmitted(),
-      this.deleted = const SdkOmitted()});
+  const DeleteOfficeHoursScheduleResponse({this.id = const SdkOmitted(), this.object = const SdkOmitted(), this.deleted = const SdkOmitted()});
 
-  DeleteOfficeHoursScheduleResponse Function(
-      {SdkOptional<String> id,
-      SdkOptional<String> object,
-      SdkOptional<bool> deleted}) get copyWith => _copyWith;
+  DeleteOfficeHoursScheduleResponse Function({SdkOptional<String> id, SdkOptional<String> object, SdkOptional<bool> deleted}) get copyWith => _copyWith;
 
-  DeleteOfficeHoursScheduleResponse _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? object = sdkOmittedValue,
-          Object? deleted = sdkOmittedValue}) =>
-      DeleteOfficeHoursScheduleResponse(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<String>,
-        deleted: identical(deleted, sdkOmittedValue)
-            ? this.deleted
-            : deleted as SdkOptional<bool>,
-      );
+  DeleteOfficeHoursScheduleResponse _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => DeleteOfficeHoursScheduleResponse(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
+    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as SdkOptional<bool>,
+  );
 
-  factory DeleteOfficeHoursScheduleResponse.fromJson(
-          Map<String, dynamic> json) =>
-      DeleteOfficeHoursScheduleResponse(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        object: json['object'] != null
-            ? SdkPresent((json['object'] as String?)!)
-            : const SdkOmitted(),
-        deleted: json['deleted'] != null
-            ? SdkPresent((json['deleted'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory DeleteOfficeHoursScheduleResponse.fromJson(Map<String, dynamic> json) => DeleteOfficeHoursScheduleResponse(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
+    deleted: json['deleted'] != null ? SdkPresent((json['deleted'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (object) {
-          SdkPresent<String>(value: final value) => {
-              'object': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (deleted) {
-          SdkPresent<bool>(value: final value) => {
-              'deleted': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (object) {
+      SdkPresent<String>(value: final value) => {'object': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (deleted) {
+      SdkPresent<bool>(value: final value) => {'deleted': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class AttachArticlesTagRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique identifier of the tag to apply, as given by Intercom.
   final String id;
-
   /// Optional id of the teammate to attribute the tagging to. Defaults to the authenticating teammate. Does not affect authorization.
   final SdkOptional<String?> adminId;
 
-  const AttachArticlesTagRequestBody(
-      {required this.id, this.adminId = const SdkOmitted()});
+  const AttachArticlesTagRequestBody({required this.id, this.adminId = const SdkOmitted()});
 
-  AttachArticlesTagRequestBody Function(
-      {String id, SdkOptional<String?> adminId}) get copyWith => _copyWith;
+  AttachArticlesTagRequestBody Function({String id, SdkOptional<String?> adminId}) get copyWith => _copyWith;
 
-  AttachArticlesTagRequestBody _copyWith(
-          {Object? id = sdkOmittedValue, Object? adminId = sdkOmittedValue}) =>
-      AttachArticlesTagRequestBody(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        adminId: identical(adminId, sdkOmittedValue)
-            ? this.adminId
-            : adminId as SdkOptional<String?>,
-      );
+  AttachArticlesTagRequestBody _copyWith({Object? id = sdkOmittedValue, Object? adminId = sdkOmittedValue}) => AttachArticlesTagRequestBody(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    adminId: identical(adminId, sdkOmittedValue) ? this.adminId : adminId as SdkOptional<String?>,
+  );
 
-  factory AttachArticlesTagRequestBody.fromJson(Map<String, dynamic> json) =>
-      AttachArticlesTagRequestBody(
-        id: (json['id'] as String?)!,
-        adminId: json.containsKey('admin_id')
-            ? SdkPresent(json['admin_id'] as String?)
-            : const SdkOmitted(),
-      );
+  factory AttachArticlesTagRequestBody.fromJson(Map<String, dynamic> json) => AttachArticlesTagRequestBody(
+    id: (json['id'] as String?)!,
+    adminId: json.containsKey('admin_id') ? SdkPresent(json['admin_id'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        ...switch (adminId) {
-          SdkPresent<String?>(value: final value) => {
-              'admin_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'id': id,
+    ...switch (adminId) {
+      SdkPresent<String?>(value: final value) => {'admin_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class CreateEnqueueRequestBody {
@@ -125,53 +82,30 @@ class CreateEnqueueRequestBody {
   final int startTime;
   final int endTime;
 
-  const CreateEnqueueRequestBody(
-      {required this.datasetId,
-      required this.attributeIds,
-      required this.startTime,
-      required this.endTime});
+  const CreateEnqueueRequestBody({required this.datasetId, required this.attributeIds, required this.startTime, required this.endTime});
 
-  CreateEnqueueRequestBody Function(
-      {String datasetId,
-      List<String> attributeIds,
-      int startTime,
-      int endTime}) get copyWith => _copyWith;
+  CreateEnqueueRequestBody Function({String datasetId, List<String> attributeIds, int startTime, int endTime}) get copyWith => _copyWith;
 
-  CreateEnqueueRequestBody _copyWith(
-          {Object? datasetId = sdkOmittedValue,
-          Object? attributeIds = sdkOmittedValue,
-          Object? startTime = sdkOmittedValue,
-          Object? endTime = sdkOmittedValue}) =>
-      CreateEnqueueRequestBody(
-        datasetId: identical(datasetId, sdkOmittedValue)
-            ? this.datasetId
-            : datasetId as String,
-        attributeIds: identical(attributeIds, sdkOmittedValue)
-            ? this.attributeIds
-            : attributeIds as List<String>,
-        startTime: identical(startTime, sdkOmittedValue)
-            ? this.startTime
-            : startTime as int,
-        endTime:
-            identical(endTime, sdkOmittedValue) ? this.endTime : endTime as int,
-      );
+  CreateEnqueueRequestBody _copyWith({Object? datasetId = sdkOmittedValue, Object? attributeIds = sdkOmittedValue, Object? startTime = sdkOmittedValue, Object? endTime = sdkOmittedValue}) => CreateEnqueueRequestBody(
+    datasetId: identical(datasetId, sdkOmittedValue) ? this.datasetId : datasetId as String,
+    attributeIds: identical(attributeIds, sdkOmittedValue) ? this.attributeIds : attributeIds as List<String>,
+    startTime: identical(startTime, sdkOmittedValue) ? this.startTime : startTime as int,
+    endTime: identical(endTime, sdkOmittedValue) ? this.endTime : endTime as int,
+  );
 
-  factory CreateEnqueueRequestBody.fromJson(Map<String, dynamic> json) =>
-      CreateEnqueueRequestBody(
-        datasetId: (json['dataset_id'] as String?)!,
-        attributeIds: ((json['attribute_ids'] as List?)
-            ?.map((e) => e as String)
-            .toList())!,
-        startTime: ((json['start_time'] as num?)?.toInt())!,
-        endTime: ((json['end_time'] as num?)?.toInt())!,
-      );
+  factory CreateEnqueueRequestBody.fromJson(Map<String, dynamic> json) => CreateEnqueueRequestBody(
+    datasetId: (json['dataset_id'] as String?)!,
+    attributeIds: ((json['attribute_ids'] as List?)?.map((e) => e as String).toList())!,
+    startTime: ((json['start_time'] as num?)?.toInt())!,
+    endTime: ((json['end_time'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'dataset_id': datasetId,
-        'attribute_ids': attributeIds,
-        'start_time': startTime,
-        'end_time': endTime,
-      };
+    'dataset_id': datasetId,
+    'attribute_ids': attributeIds,
+    'start_time': startTime,
+    'end_time': endTime,
+  };
 }
 
 class CreateEnqueueResponse {
@@ -182,80 +116,42 @@ class CreateEnqueueResponse {
   final SdkOptional<String> downloadUrl;
   final SdkOptional<String> downloadExpiresAt;
 
-  const CreateEnqueueResponse(
-      {this.jobIdentifier = const SdkOmitted(),
-      this.status = const SdkOmitted(),
-      this.downloadUrl = const SdkOmitted(),
-      this.downloadExpiresAt = const SdkOmitted()});
+  const CreateEnqueueResponse({this.jobIdentifier = const SdkOmitted(), this.status = const SdkOmitted(), this.downloadUrl = const SdkOmitted(), this.downloadExpiresAt = const SdkOmitted()});
 
-  CreateEnqueueResponse Function(
-      {SdkOptional<String> jobIdentifier,
-      SdkOptional<String> status,
-      SdkOptional<String> downloadUrl,
-      SdkOptional<String> downloadExpiresAt}) get copyWith => _copyWith;
+  CreateEnqueueResponse Function({SdkOptional<String> jobIdentifier, SdkOptional<String> status, SdkOptional<String> downloadUrl, SdkOptional<String> downloadExpiresAt}) get copyWith => _copyWith;
 
-  CreateEnqueueResponse _copyWith(
-          {Object? jobIdentifier = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? downloadUrl = sdkOmittedValue,
-          Object? downloadExpiresAt = sdkOmittedValue}) =>
-      CreateEnqueueResponse(
-        jobIdentifier: identical(jobIdentifier, sdkOmittedValue)
-            ? this.jobIdentifier
-            : jobIdentifier as SdkOptional<String>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<String>,
-        downloadUrl: identical(downloadUrl, sdkOmittedValue)
-            ? this.downloadUrl
-            : downloadUrl as SdkOptional<String>,
-        downloadExpiresAt: identical(downloadExpiresAt, sdkOmittedValue)
-            ? this.downloadExpiresAt
-            : downloadExpiresAt as SdkOptional<String>,
-      );
+  CreateEnqueueResponse _copyWith({Object? jobIdentifier = sdkOmittedValue, Object? status = sdkOmittedValue, Object? downloadUrl = sdkOmittedValue, Object? downloadExpiresAt = sdkOmittedValue}) => CreateEnqueueResponse(
+    jobIdentifier: identical(jobIdentifier, sdkOmittedValue) ? this.jobIdentifier : jobIdentifier as SdkOptional<String>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<String>,
+    downloadUrl: identical(downloadUrl, sdkOmittedValue) ? this.downloadUrl : downloadUrl as SdkOptional<String>,
+    downloadExpiresAt: identical(downloadExpiresAt, sdkOmittedValue) ? this.downloadExpiresAt : downloadExpiresAt as SdkOptional<String>,
+  );
 
-  factory CreateEnqueueResponse.fromJson(Map<String, dynamic> json) =>
-      CreateEnqueueResponse(
-        jobIdentifier: json['job_identifier'] != null
-            ? SdkPresent((json['job_identifier'] as String?)!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] as String?)!)
-            : const SdkOmitted(),
-        downloadUrl: json['download_url'] != null
-            ? SdkPresent((json['download_url'] as String?)!)
-            : const SdkOmitted(),
-        downloadExpiresAt: json['download_expires_at'] != null
-            ? SdkPresent((json['download_expires_at'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory CreateEnqueueResponse.fromJson(Map<String, dynamic> json) => CreateEnqueueResponse(
+    jobIdentifier: json['job_identifier'] != null ? SdkPresent((json['job_identifier'] as String?)!) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] as String?)!) : const SdkOmitted(),
+    downloadUrl: json['download_url'] != null ? SdkPresent((json['download_url'] as String?)!) : const SdkOmitted(),
+    downloadExpiresAt: json['download_expires_at'] != null ? SdkPresent((json['download_expires_at'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (jobIdentifier) {
-          SdkPresent<String>(value: final value) => {
-              'job_identifier': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<String>(value: final value) => {
-              'status': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (downloadUrl) {
-          SdkPresent<String>(value: final value) => {
-              'download_url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (downloadExpiresAt) {
-          SdkPresent<String>(value: final value) => {
-              'download_expires_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (jobIdentifier) {
+      SdkPresent<String>(value: final value) => {'job_identifier': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<String>(value: final value) => {'status': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (downloadUrl) {
+      SdkPresent<String>(value: final value) => {'download_url': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (downloadExpiresAt) {
+      SdkPresent<String>(value: final value) => {'download_expires_at': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class GetReportingDataResponse {
@@ -266,153 +162,83 @@ class GetReportingDataResponse {
   final SdkOptional<String> downloadUrl;
   final SdkOptional<String> downloadExpiresAt;
 
-  const GetReportingDataResponse(
-      {this.jobIdentifier = const SdkOmitted(),
-      this.status = const SdkOmitted(),
-      this.downloadUrl = const SdkOmitted(),
-      this.downloadExpiresAt = const SdkOmitted()});
+  const GetReportingDataResponse({this.jobIdentifier = const SdkOmitted(), this.status = const SdkOmitted(), this.downloadUrl = const SdkOmitted(), this.downloadExpiresAt = const SdkOmitted()});
 
-  GetReportingDataResponse Function(
-      {SdkOptional<String> jobIdentifier,
-      SdkOptional<String> status,
-      SdkOptional<String> downloadUrl,
-      SdkOptional<String> downloadExpiresAt}) get copyWith => _copyWith;
+  GetReportingDataResponse Function({SdkOptional<String> jobIdentifier, SdkOptional<String> status, SdkOptional<String> downloadUrl, SdkOptional<String> downloadExpiresAt}) get copyWith => _copyWith;
 
-  GetReportingDataResponse _copyWith(
-          {Object? jobIdentifier = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? downloadUrl = sdkOmittedValue,
-          Object? downloadExpiresAt = sdkOmittedValue}) =>
-      GetReportingDataResponse(
-        jobIdentifier: identical(jobIdentifier, sdkOmittedValue)
-            ? this.jobIdentifier
-            : jobIdentifier as SdkOptional<String>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<String>,
-        downloadUrl: identical(downloadUrl, sdkOmittedValue)
-            ? this.downloadUrl
-            : downloadUrl as SdkOptional<String>,
-        downloadExpiresAt: identical(downloadExpiresAt, sdkOmittedValue)
-            ? this.downloadExpiresAt
-            : downloadExpiresAt as SdkOptional<String>,
-      );
+  GetReportingDataResponse _copyWith({Object? jobIdentifier = sdkOmittedValue, Object? status = sdkOmittedValue, Object? downloadUrl = sdkOmittedValue, Object? downloadExpiresAt = sdkOmittedValue}) => GetReportingDataResponse(
+    jobIdentifier: identical(jobIdentifier, sdkOmittedValue) ? this.jobIdentifier : jobIdentifier as SdkOptional<String>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<String>,
+    downloadUrl: identical(downloadUrl, sdkOmittedValue) ? this.downloadUrl : downloadUrl as SdkOptional<String>,
+    downloadExpiresAt: identical(downloadExpiresAt, sdkOmittedValue) ? this.downloadExpiresAt : downloadExpiresAt as SdkOptional<String>,
+  );
 
-  factory GetReportingDataResponse.fromJson(Map<String, dynamic> json) =>
-      GetReportingDataResponse(
-        jobIdentifier: json['job_identifier'] != null
-            ? SdkPresent((json['job_identifier'] as String?)!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] as String?)!)
-            : const SdkOmitted(),
-        downloadUrl: json['download_url'] != null
-            ? SdkPresent((json['download_url'] as String?)!)
-            : const SdkOmitted(),
-        downloadExpiresAt: json['download_expires_at'] != null
-            ? SdkPresent((json['download_expires_at'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory GetReportingDataResponse.fromJson(Map<String, dynamic> json) => GetReportingDataResponse(
+    jobIdentifier: json['job_identifier'] != null ? SdkPresent((json['job_identifier'] as String?)!) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] as String?)!) : const SdkOmitted(),
+    downloadUrl: json['download_url'] != null ? SdkPresent((json['download_url'] as String?)!) : const SdkOmitted(),
+    downloadExpiresAt: json['download_expires_at'] != null ? SdkPresent((json['download_expires_at'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (jobIdentifier) {
-          SdkPresent<String>(value: final value) => {
-              'job_identifier': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<String>(value: final value) => {
-              'status': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (downloadUrl) {
-          SdkPresent<String>(value: final value) => {
-              'download_url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (downloadExpiresAt) {
-          SdkPresent<String>(value: final value) => {
-              'download_expires_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (jobIdentifier) {
+      SdkPresent<String>(value: final value) => {'job_identifier': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<String>(value: final value) => {'status': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (downloadUrl) {
+      SdkPresent<String>(value: final value) => {'download_url': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (downloadExpiresAt) {
+      SdkPresent<String>(value: final value) => {'download_expires_at': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class ListGetDatasetsResponseDataItemAttributesItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The simple attribute identifier. Note that this may be ambiguous if the same name exists across different attribute types. Use qualified_id when calling the enqueue endpoint.
   final SdkOptional<String> id;
-
   /// A namespaced identifier that uniquely identifies the attribute across all types. Format is "prefix.name" (e.g., "people.Brand", "conversation.Brand"). Required when calling the enqueue endpoint.
   final SdkOptional<String> qualifiedId;
   final SdkOptional<String> name;
 
-  const ListGetDatasetsResponseDataItemAttributesItem(
-      {this.id = const SdkOmitted(),
-      this.qualifiedId = const SdkOmitted(),
-      this.name = const SdkOmitted()});
+  const ListGetDatasetsResponseDataItemAttributesItem({this.id = const SdkOmitted(), this.qualifiedId = const SdkOmitted(), this.name = const SdkOmitted()});
 
-  ListGetDatasetsResponseDataItemAttributesItem Function(
-      {SdkOptional<String> id,
-      SdkOptional<String> qualifiedId,
-      SdkOptional<String> name}) get copyWith => _copyWith;
+  ListGetDatasetsResponseDataItemAttributesItem Function({SdkOptional<String> id, SdkOptional<String> qualifiedId, SdkOptional<String> name}) get copyWith => _copyWith;
 
-  ListGetDatasetsResponseDataItemAttributesItem _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? qualifiedId = sdkOmittedValue,
-          Object? name = sdkOmittedValue}) =>
-      ListGetDatasetsResponseDataItemAttributesItem(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        qualifiedId: identical(qualifiedId, sdkOmittedValue)
-            ? this.qualifiedId
-            : qualifiedId as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-      );
+  ListGetDatasetsResponseDataItemAttributesItem _copyWith({Object? id = sdkOmittedValue, Object? qualifiedId = sdkOmittedValue, Object? name = sdkOmittedValue}) => ListGetDatasetsResponseDataItemAttributesItem(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    qualifiedId: identical(qualifiedId, sdkOmittedValue) ? this.qualifiedId : qualifiedId as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+  );
 
-  factory ListGetDatasetsResponseDataItemAttributesItem.fromJson(
-          Map<String, dynamic> json) =>
-      ListGetDatasetsResponseDataItemAttributesItem(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        qualifiedId: json['qualified_id'] != null
-            ? SdkPresent((json['qualified_id'] as String?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ListGetDatasetsResponseDataItemAttributesItem.fromJson(Map<String, dynamic> json) => ListGetDatasetsResponseDataItemAttributesItem(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    qualifiedId: json['qualified_id'] != null ? SdkPresent((json['qualified_id'] as String?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (qualifiedId) {
-          SdkPresent<String>(value: final value) => {
-              'qualified_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (qualifiedId) {
+      SdkPresent<String>(value: final value) => {'qualified_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class ListGetDatasetsResponseDataItem {
@@ -422,106 +248,48 @@ class ListGetDatasetsResponseDataItem {
   final SdkOptional<String> name;
   final SdkOptional<String> description;
   final SdkOptional<String> defaultTimeAttributeId;
-  final SdkOptional<List<ListGetDatasetsResponseDataItemAttributesItem>>
-      attributes;
+  final SdkOptional<List<ListGetDatasetsResponseDataItemAttributesItem>> attributes;
 
-  const ListGetDatasetsResponseDataItem(
-      {this.id = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.description = const SdkOmitted(),
-      this.defaultTimeAttributeId = const SdkOmitted(),
-      this.attributes = const SdkOmitted()});
+  const ListGetDatasetsResponseDataItem({this.id = const SdkOmitted(), this.name = const SdkOmitted(), this.description = const SdkOmitted(), this.defaultTimeAttributeId = const SdkOmitted(), this.attributes = const SdkOmitted()});
 
-  ListGetDatasetsResponseDataItem Function(
-      {SdkOptional<String> id,
-      SdkOptional<String> name,
-      SdkOptional<String> description,
-      SdkOptional<String> defaultTimeAttributeId,
-      SdkOptional<List<ListGetDatasetsResponseDataItemAttributesItem>>
-          attributes}) get copyWith => _copyWith;
+  ListGetDatasetsResponseDataItem Function({SdkOptional<String> id, SdkOptional<String> name, SdkOptional<String> description, SdkOptional<String> defaultTimeAttributeId, SdkOptional<List<ListGetDatasetsResponseDataItemAttributesItem>> attributes}) get copyWith => _copyWith;
 
-  ListGetDatasetsResponseDataItem _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? defaultTimeAttributeId = sdkOmittedValue,
-          Object? attributes = sdkOmittedValue}) =>
-      ListGetDatasetsResponseDataItem(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        defaultTimeAttributeId:
-            identical(defaultTimeAttributeId, sdkOmittedValue)
-                ? this.defaultTimeAttributeId
-                : defaultTimeAttributeId as SdkOptional<String>,
-        attributes: identical(attributes, sdkOmittedValue)
-            ? this.attributes
-            : attributes as SdkOptional<
-                List<ListGetDatasetsResponseDataItemAttributesItem>>,
-      );
+  ListGetDatasetsResponseDataItem _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? defaultTimeAttributeId = sdkOmittedValue, Object? attributes = sdkOmittedValue}) => ListGetDatasetsResponseDataItem(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    defaultTimeAttributeId: identical(defaultTimeAttributeId, sdkOmittedValue) ? this.defaultTimeAttributeId : defaultTimeAttributeId as SdkOptional<String>,
+    attributes: identical(attributes, sdkOmittedValue) ? this.attributes : attributes as SdkOptional<List<ListGetDatasetsResponseDataItemAttributesItem>>,
+  );
 
-  factory ListGetDatasetsResponseDataItem.fromJson(Map<String, dynamic> json) =>
-      ListGetDatasetsResponseDataItem(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        defaultTimeAttributeId: json['default_time_attribute_id'] != null
-            ? SdkPresent((json['default_time_attribute_id'] as String?)!)
-            : const SdkOmitted(),
-        attributes: json['attributes'] != null
-            ? SdkPresent(((json['attributes'] as List?)
-                ?.map((e) =>
-                    ListGetDatasetsResponseDataItemAttributesItem.fromJson(
-                        e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ListGetDatasetsResponseDataItem.fromJson(Map<String, dynamic> json) => ListGetDatasetsResponseDataItem(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    defaultTimeAttributeId: json['default_time_attribute_id'] != null ? SdkPresent((json['default_time_attribute_id'] as String?)!) : const SdkOmitted(),
+    attributes: json['attributes'] != null ? SdkPresent(((json['attributes'] as List?)?.map((e) => ListGetDatasetsResponseDataItemAttributesItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (defaultTimeAttributeId) {
-          SdkPresent<String>(value: final value) => {
-              'default_time_attribute_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (attributes) {
-          SdkPresent<List<ListGetDatasetsResponseDataItemAttributesItem>>(
-            value: final value
-          ) =>
-            {
-              'attributes': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (defaultTimeAttributeId) {
+      SdkPresent<String>(value: final value) => {'default_time_attribute_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (attributes) {
+      SdkPresent<List<ListGetDatasetsResponseDataItemAttributesItem>>(value: final value) => {'attributes': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

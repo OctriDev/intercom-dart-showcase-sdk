@@ -6,15 +6,14 @@ part of 'inline.dart';
 // Inline operation models (part 2)
 /// The type of the source that triggered AI Agent involvement in the conversation.
 final class AiAgentSourceType {
+
   final String value;
 
   const AiAgentSourceType._(this.value);
 
-  factory AiAgentSourceType.fromJson(String value) =>
-      AiAgentSourceType._(value);
+  factory AiAgentSourceType.fromJson(String value) => AiAgentSourceType._(value);
 
-  static const essentialsPlanSetup =
-      AiAgentSourceType._('essentials_plan_setup');
+  static const essentialsPlanSetup = AiAgentSourceType._('essentials_plan_setup');
   static const profile = AiAgentSourceType._('profile');
   static const workflow = AiAgentSourceType._('workflow');
   static const workflowPreview = AiAgentSourceType._('workflow_preview');
@@ -22,49 +21,43 @@ final class AiAgentSourceType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AiAgentSourceType && other.value == value;
+  @override bool operator ==(Object other) => other is AiAgentSourceType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The audience that can view this article in the Help Center. `everyone` means all users and visitors can view it; `restricted` indicates a custom audience ruleset. For multilingual articles, this is the article-level audience.
 final class ArticleHelpCenterAudience {
+
   final String value;
 
   const ArticleHelpCenterAudience._(this.value);
 
-  factory ArticleHelpCenterAudience.fromJson(String value) =>
-      ArticleHelpCenterAudience._(value);
+  factory ArticleHelpCenterAudience.fromJson(String value) => ArticleHelpCenterAudience._(value);
 
   static const everyone = ArticleHelpCenterAudience._('everyone');
   static const allUsers = ArticleHelpCenterAudience._('all_users');
   static const allVisitors = ArticleHelpCenterAudience._('all_visitors');
   static const allLeads = ArticleHelpCenterAudience._('all_leads');
-  static const allVisitorsAndLeads =
-      ArticleHelpCenterAudience._('all_visitors_and_leads');
+  static const allVisitorsAndLeads = ArticleHelpCenterAudience._('all_visitors_and_leads');
   static const restricted = ArticleHelpCenterAudience._('restricted');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ArticleHelpCenterAudience && other.value == value;
+  @override bool operator ==(Object other) => other is ArticleHelpCenterAudience && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Whether the article is `published` or is a `draft`. For multilingual articles, this will be the state of the default language's content.
 final class ArticleState {
+
   final String value;
 
   const ArticleState._(this.value);
@@ -76,19 +69,17 @@ final class ArticleState {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ArticleState && other.value == value;
+  @override bool operator ==(Object other) => other is ArticleState && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of object - `article`.
 final class ArticleType {
+
   final String value;
 
   const ArticleType._(this.value);
@@ -99,117 +90,103 @@ final class ArticleType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ArticleType && other.value == value;
+  @override bool operator ==(Object other) => other is ArticleType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Whether the article is `published` or is a `draft` .
 final class ArticleContentState {
+
   final String value;
 
   const ArticleContentState._(this.value);
 
-  factory ArticleContentState.fromJson(String value) =>
-      ArticleContentState._(value);
+  factory ArticleContentState.fromJson(String value) => ArticleContentState._(value);
 
   static const published = ArticleContentState._('published');
   static const draft = ArticleContentState._('draft');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ArticleContentState && other.value == value;
+  @override bool operator ==(Object other) => other is ArticleContentState && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of object - `article_content` .
 final class ArticleContentType {
+
   final String value;
 
   const ArticleContentType._(this.value);
 
-  factory ArticleContentType.fromJson(String value) =>
-      ArticleContentType._(value);
+  factory ArticleContentType.fromJson(String value) => ArticleContentType._(value);
 
   static const articleContent = ArticleContentType._('article_content');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ArticleContentType && other.value == value;
+  @override bool operator ==(Object other) => other is ArticleContentType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Whether the article is `published` or is a `draft` .
 final class ArticleContentRequestState {
+
   final String value;
 
   const ArticleContentRequestState._(this.value);
 
-  factory ArticleContentRequestState.fromJson(String value) =>
-      ArticleContentRequestState._(value);
+  factory ArticleContentRequestState.fromJson(String value) => ArticleContentRequestState._(value);
 
   static const published = ArticleContentRequestState._('published');
   static const draft = ArticleContentRequestState._('draft');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ArticleContentRequestState && other.value == value;
+  @override bool operator ==(Object other) => other is ArticleContentRequestState && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of object - `article_content` .
 final class ArticleContentRequestType {
+
   final String value;
 
   const ArticleContentRequestType._(this.value);
 
-  factory ArticleContentRequestType.fromJson(String value) =>
-      ArticleContentRequestType._(value);
+  factory ArticleContentRequestType.fromJson(String value) => ArticleContentRequestType._(value);
 
   static const articleContent = ArticleContentRequestType._('article_content');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ArticleContentRequestType && other.value == value;
+  @override bool operator ==(Object other) => other is ArticleContentRequestType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the object - `list`.
 final class ArticleListType {
+
   final String value;
 
   const ArticleListType._(this.value);
@@ -220,93 +197,79 @@ final class ArticleListType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ArticleListType && other.value == value;
+  @override bool operator ==(Object other) => other is ArticleListType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The audience that can view this article in the Help Center. `everyone` means all users and visitors can view it; `restricted` indicates a custom audience ruleset. For multilingual articles, this is the article-level audience.
 final class ArticleListItemHelpCenterAudience {
+
   final String value;
 
   const ArticleListItemHelpCenterAudience._(this.value);
 
-  factory ArticleListItemHelpCenterAudience.fromJson(String value) =>
-      ArticleListItemHelpCenterAudience._(value);
+  factory ArticleListItemHelpCenterAudience.fromJson(String value) => ArticleListItemHelpCenterAudience._(value);
 
   static const everyone = ArticleListItemHelpCenterAudience._('everyone');
   static const allUsers = ArticleListItemHelpCenterAudience._('all_users');
-  static const allVisitors =
-      ArticleListItemHelpCenterAudience._('all_visitors');
+  static const allVisitors = ArticleListItemHelpCenterAudience._('all_visitors');
   static const allLeads = ArticleListItemHelpCenterAudience._('all_leads');
-  static const allVisitorsAndLeads =
-      ArticleListItemHelpCenterAudience._('all_visitors_and_leads');
+  static const allVisitorsAndLeads = ArticleListItemHelpCenterAudience._('all_visitors_and_leads');
   static const restricted = ArticleListItemHelpCenterAudience._('restricted');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ArticleListItemHelpCenterAudience && other.value == value;
+  @override bool operator ==(Object other) => other is ArticleListItemHelpCenterAudience && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Whether the article is `published` or is a `draft`. For multilingual articles, this will be the state of the default language's content.
 final class ArticleListItemState {
+
   final String value;
 
   const ArticleListItemState._(this.value);
 
-  factory ArticleListItemState.fromJson(String value) =>
-      ArticleListItemState._(value);
+  factory ArticleListItemState.fromJson(String value) => ArticleListItemState._(value);
 
   static const published = ArticleListItemState._('published');
   static const draft = ArticleListItemState._('draft');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ArticleListItemState && other.value == value;
+  @override bool operator ==(Object other) => other is ArticleListItemState && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of object - `article`.
 final class ArticleListItemType {
+
   final String value;
 
   const ArticleListItemType._(this.value);
 
-  factory ArticleListItemType.fromJson(String value) =>
-      ArticleListItemType._(value);
+  factory ArticleListItemType.fromJson(String value) => ArticleListItemType._(value);
 
   static const article = ArticleListItemType._('article');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ArticleListItemType && other.value == value;
+  @override bool operator ==(Object other) => other is ArticleListItemType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

@@ -6,36 +6,33 @@ part of 'inline.dart';
 // Inline operation models (part 13)
 /// Always `admin`.
 final class CreateMessageRequestFromType {
+
   final String value;
 
   const CreateMessageRequestFromType._(this.value);
 
-  factory CreateMessageRequestFromType.fromJson(String value) =>
-      CreateMessageRequestFromType._(value);
+  factory CreateMessageRequestFromType.fromJson(String value) => CreateMessageRequestFromType._(value);
 
   static const admin = CreateMessageRequestFromType._('admin');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is CreateMessageRequestFromType && other.value == value;
+  @override bool operator ==(Object other) => other is CreateMessageRequestFromType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The kind of message being created. Values: `in_app`, `email` or `whatsapp`.
 final class CreateMessageRequestMessageType {
+
   final String value;
 
   const CreateMessageRequestMessageType._(this.value);
 
-  factory CreateMessageRequestMessageType.fromJson(String value) =>
-      CreateMessageRequestMessageType._(value);
+  factory CreateMessageRequestMessageType.fromJson(String value) => CreateMessageRequestMessageType._(value);
 
   static const inApp = CreateMessageRequestMessageType._('in_app');
   static const email = CreateMessageRequestMessageType._('email');
@@ -43,138 +40,114 @@ final class CreateMessageRequestMessageType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is CreateMessageRequestMessageType && other.value == value;
+  @override bool operator ==(Object other) => other is CreateMessageRequestMessageType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of exception.
 final class CreateOfficeHoursExceptionRequestExceptionType {
+
   final String value;
 
   const CreateOfficeHoursExceptionRequestExceptionType._(this.value);
 
-  factory CreateOfficeHoursExceptionRequestExceptionType.fromJson(
-          String value) =>
-      CreateOfficeHoursExceptionRequestExceptionType._(value);
+  factory CreateOfficeHoursExceptionRequestExceptionType.fromJson(String value) => CreateOfficeHoursExceptionRequestExceptionType._(value);
 
-  static const closed =
-      CreateOfficeHoursExceptionRequestExceptionType._('closed');
-  static const customHours =
-      CreateOfficeHoursExceptionRequestExceptionType._('custom_hours');
+  static const closed = CreateOfficeHoursExceptionRequestExceptionType._('closed');
+  static const customHours = CreateOfficeHoursExceptionRequestExceptionType._('custom_hours');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is CreateOfficeHoursExceptionRequestExceptionType &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is CreateOfficeHoursExceptionRequestExceptionType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of exception.
 final class CreateOfficeHoursExceptionRequestRequestExceptionType {
+
   final String value;
 
   const CreateOfficeHoursExceptionRequestRequestExceptionType._(this.value);
 
-  factory CreateOfficeHoursExceptionRequestRequestExceptionType.fromJson(
-          String value) =>
-      CreateOfficeHoursExceptionRequestRequestExceptionType._(value);
+  factory CreateOfficeHoursExceptionRequestRequestExceptionType.fromJson(String value) => CreateOfficeHoursExceptionRequestRequestExceptionType._(value);
 
-  static const closed =
-      CreateOfficeHoursExceptionRequestRequestExceptionType._('closed');
-  static const customHours =
-      CreateOfficeHoursExceptionRequestRequestExceptionType._('custom_hours');
+  static const closed = CreateOfficeHoursExceptionRequestRequestExceptionType._('closed');
+  static const customHours = CreateOfficeHoursExceptionRequestRequestExceptionType._('custom_hours');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is CreateOfficeHoursExceptionRequestRequestExceptionType &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is CreateOfficeHoursExceptionRequestRequestExceptionType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The channel for the ticket. Only supported for customer ticket types. Defaults to messenger if not provided.
 final class CreateTicketRequestChannel {
+
   final String value;
 
   const CreateTicketRequestChannel._(this.value);
 
-  factory CreateTicketRequestChannel.fromJson(String value) =>
-      CreateTicketRequestChannel._(value);
+  factory CreateTicketRequestChannel.fromJson(String value) => CreateTicketRequestChannel._(value);
 
   static const email = CreateTicketRequestChannel._('email');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is CreateTicketRequestChannel && other.value == value;
+  @override bool operator ==(Object other) => other is CreateTicketRequestChannel && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The data type of the attribute
 final class CreateTicketTypeAttributeRequestDataType {
+
   final String value;
 
   const CreateTicketTypeAttributeRequestDataType._(this.value);
 
-  factory CreateTicketTypeAttributeRequestDataType.fromJson(String value) =>
-      CreateTicketTypeAttributeRequestDataType._(value);
+  factory CreateTicketTypeAttributeRequestDataType.fromJson(String value) => CreateTicketTypeAttributeRequestDataType._(value);
 
   static const string = CreateTicketTypeAttributeRequestDataType._('string');
   static const list = CreateTicketTypeAttributeRequestDataType._('list');
   static const integer = CreateTicketTypeAttributeRequestDataType._('integer');
   static const decimal = CreateTicketTypeAttributeRequestDataType._('decimal');
   static const boolean = CreateTicketTypeAttributeRequestDataType._('boolean');
-  static const datetime =
-      CreateTicketTypeAttributeRequestDataType._('datetime');
+  static const datetime = CreateTicketTypeAttributeRequestDataType._('datetime');
   static const files = CreateTicketTypeAttributeRequestDataType._('files');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is CreateTicketTypeAttributeRequestDataType && other.value == value;
+  @override bool operator ==(Object other) => other is CreateTicketTypeAttributeRequestDataType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Category of the Ticket Type.
 final class CreateTicketTypeRequestCategory {
+
   final String value;
 
   const CreateTicketTypeRequestCategory._(this.value);
 
-  factory CreateTicketTypeRequestCategory.fromJson(String value) =>
-      CreateTicketTypeRequestCategory._(value);
+  factory CreateTicketTypeRequestCategory.fromJson(String value) => CreateTicketTypeRequestCategory._(value);
 
   static const customer = CreateTicketTypeRequestCategory._('Customer');
   static const backOffice = CreateTicketTypeRequestCategory._('Back-office');
@@ -182,19 +155,17 @@ final class CreateTicketTypeRequestCategory {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is CreateTicketTypeRequestCategory && other.value == value;
+  @override bool operator ==(Object other) => other is CreateTicketTypeRequestCategory && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// the type of object `pages`.
 final class CursorPagesType {
+
   final String value;
 
   const CursorPagesType._(this.value);
@@ -205,74 +176,65 @@ final class CursorPagesType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is CursorPagesType && other.value == value;
+  @override bool operator ==(Object other) => other is CursorPagesType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Status of the action
 final class CustomActionFinishedActionResult {
+
   final String value;
 
   const CustomActionFinishedActionResult._(this.value);
 
-  factory CustomActionFinishedActionResult.fromJson(String value) =>
-      CustomActionFinishedActionResult._(value);
+  factory CustomActionFinishedActionResult.fromJson(String value) => CustomActionFinishedActionResult._(value);
 
   static const success = CustomActionFinishedActionResult._('success');
   static const failed = CustomActionFinishedActionResult._('failed');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is CustomActionFinishedActionResult && other.value == value;
+  @override bool operator ==(Object other) => other is CustomActionFinishedActionResult && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the object - `list`.
 final class CustomObjectInstancesPaginatedListType {
+
   final String value;
 
   const CustomObjectInstancesPaginatedListType._(this.value);
 
-  factory CustomObjectInstancesPaginatedListType.fromJson(String value) =>
-      CustomObjectInstancesPaginatedListType._(value);
+  factory CustomObjectInstancesPaginatedListType.fromJson(String value) => CustomObjectInstancesPaginatedListType._(value);
 
   static const list = CustomObjectInstancesPaginatedListType._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is CustomObjectInstancesPaginatedListType && other.value == value;
+  @override bool operator ==(Object other) => other is CustomObjectInstancesPaginatedListType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The data type of the attribute.
 final class DataAttributeDataType {
+
   final String value;
 
   const DataAttributeDataType._(this.value);
 
-  factory DataAttributeDataType.fromJson(String value) =>
-      DataAttributeDataType._(value);
+  factory DataAttributeDataType.fromJson(String value) => DataAttributeDataType._(value);
 
   static const string = DataAttributeDataType._('string');
   static const integer = DataAttributeDataType._('integer');
@@ -282,38 +244,32 @@ final class DataAttributeDataType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DataAttributeDataType && other.value == value;
+  @override bool operator ==(Object other) => other is DataAttributeDataType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Value is `contact` for user/lead attributes and `company` for company attributes.
 final class DataAttributeModel {
+
   final String value;
 
   const DataAttributeModel._(this.value);
 
-  factory DataAttributeModel.fromJson(String value) =>
-      DataAttributeModel._(value);
+  factory DataAttributeModel.fromJson(String value) => DataAttributeModel._(value);
 
   static const contact = DataAttributeModel._('contact');
   static const company = DataAttributeModel._('company');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DataAttributeModel && other.value == value;
+  @override bool operator ==(Object other) => other is DataAttributeModel && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

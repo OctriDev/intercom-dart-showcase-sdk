@@ -6,44 +6,36 @@ part of 'inline.dart';
 // Inline operation models (part 26)
 /// The data type of the input.
 final class UpdateDataConnectorRequestDataInputsItemType {
+
   final String value;
 
   const UpdateDataConnectorRequestDataInputsItemType._(this.value);
 
-  factory UpdateDataConnectorRequestDataInputsItemType.fromJson(String value) =>
-      UpdateDataConnectorRequestDataInputsItemType._(value);
+  factory UpdateDataConnectorRequestDataInputsItemType.fromJson(String value) => UpdateDataConnectorRequestDataInputsItemType._(value);
 
-  static const string =
-      UpdateDataConnectorRequestDataInputsItemType._('string');
-  static const integer =
-      UpdateDataConnectorRequestDataInputsItemType._('integer');
-  static const decimal =
-      UpdateDataConnectorRequestDataInputsItemType._('decimal');
-  static const boolean =
-      UpdateDataConnectorRequestDataInputsItemType._('boolean');
+  static const string = UpdateDataConnectorRequestDataInputsItemType._('string');
+  static const integer = UpdateDataConnectorRequestDataInputsItemType._('integer');
+  static const decimal = UpdateDataConnectorRequestDataInputsItemType._('decimal');
+  static const boolean = UpdateDataConnectorRequestDataInputsItemType._('boolean');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is UpdateDataConnectorRequestDataInputsItemType &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is UpdateDataConnectorRequestDataInputsItemType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The HTTP method used by the data connector.
 final class UpdateDataConnectorRequestHttpMethod {
+
   final String value;
 
   const UpdateDataConnectorRequestHttpMethod._(this.value);
 
-  factory UpdateDataConnectorRequestHttpMethod.fromJson(String value) =>
-      UpdateDataConnectorRequestHttpMethod._(value);
+  factory UpdateDataConnectorRequestHttpMethod.fromJson(String value) => UpdateDataConnectorRequestHttpMethod._(value);
 
   static const get_ = UpdateDataConnectorRequestHttpMethod._('get');
   static const post = UpdateDataConnectorRequestHttpMethod._('post');
@@ -53,132 +45,109 @@ final class UpdateDataConnectorRequestHttpMethod {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is UpdateDataConnectorRequestHttpMethod && other.value == value;
+  @override bool operator ==(Object other) => other is UpdateDataConnectorRequestHttpMethod && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The desired state of the connector.
 final class UpdateDataConnectorRequestState {
+
   final String value;
 
   const UpdateDataConnectorRequestState._(this.value);
 
-  factory UpdateDataConnectorRequestState.fromJson(String value) =>
-      UpdateDataConnectorRequestState._(value);
+  factory UpdateDataConnectorRequestState.fromJson(String value) => UpdateDataConnectorRequestState._(value);
 
   static const draft = UpdateDataConnectorRequestState._('draft');
   static const live = UpdateDataConnectorRequestState._('live');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is UpdateDataConnectorRequestState && other.value == value;
+  @override bool operator ==(Object other) => other is UpdateDataConnectorRequestState && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Always en
 final class UpdateExternalPageRequestLocale {
+
   final String value;
 
   const UpdateExternalPageRequestLocale._(this.value);
 
-  factory UpdateExternalPageRequestLocale.fromJson(String value) =>
-      UpdateExternalPageRequestLocale._(value);
+  factory UpdateExternalPageRequestLocale.fromJson(String value) => UpdateExternalPageRequestLocale._(value);
 
   static const en = UpdateExternalPageRequestLocale._('en');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is UpdateExternalPageRequestLocale && other.value == value;
+  @override bool operator ==(Object other) => other is UpdateExternalPageRequestLocale && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of exception.
 final class UpdateOfficeHoursExceptionRequestExceptionType {
+
   final String value;
 
   const UpdateOfficeHoursExceptionRequestExceptionType._(this.value);
 
-  factory UpdateOfficeHoursExceptionRequestExceptionType.fromJson(
-          String value) =>
-      UpdateOfficeHoursExceptionRequestExceptionType._(value);
+  factory UpdateOfficeHoursExceptionRequestExceptionType.fromJson(String value) => UpdateOfficeHoursExceptionRequestExceptionType._(value);
 
-  static const closed =
-      UpdateOfficeHoursExceptionRequestExceptionType._('closed');
-  static const customHours =
-      UpdateOfficeHoursExceptionRequestExceptionType._('custom_hours');
+  static const closed = UpdateOfficeHoursExceptionRequestExceptionType._('closed');
+  static const customHours = UpdateOfficeHoursExceptionRequestExceptionType._('custom_hours');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is UpdateOfficeHoursExceptionRequestExceptionType &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is UpdateOfficeHoursExceptionRequestExceptionType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of exception.
 final class UpdateOfficeHoursExceptionRequestRequestExceptionType {
+
   final String value;
 
   const UpdateOfficeHoursExceptionRequestRequestExceptionType._(this.value);
 
-  factory UpdateOfficeHoursExceptionRequestRequestExceptionType.fromJson(
-          String value) =>
-      UpdateOfficeHoursExceptionRequestRequestExceptionType._(value);
+  factory UpdateOfficeHoursExceptionRequestRequestExceptionType.fromJson(String value) => UpdateOfficeHoursExceptionRequestRequestExceptionType._(value);
 
-  static const closed =
-      UpdateOfficeHoursExceptionRequestRequestExceptionType._('closed');
-  static const customHours =
-      UpdateOfficeHoursExceptionRequestRequestExceptionType._('custom_hours');
+  static const closed = UpdateOfficeHoursExceptionRequestRequestExceptionType._('closed');
+  static const customHours = UpdateOfficeHoursExceptionRequestRequestExceptionType._('custom_hours');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is UpdateOfficeHoursExceptionRequestRequestExceptionType &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is UpdateOfficeHoursExceptionRequestRequestExceptionType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Category of the Ticket Type.
 final class UpdateTicketTypeRequestCategory {
+
   final String value;
 
   const UpdateTicketTypeRequestCategory._(this.value);
 
-  factory UpdateTicketTypeRequestCategory.fromJson(String value) =>
-      UpdateTicketTypeRequestCategory._(value);
+  factory UpdateTicketTypeRequestCategory.fromJson(String value) => UpdateTicketTypeRequestCategory._(value);
 
   static const customer = UpdateTicketTypeRequestCategory._('Customer');
   static const backOffice = UpdateTicketTypeRequestCategory._('Back-office');
@@ -186,116 +155,101 @@ final class UpdateTicketTypeRequestCategory {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is UpdateTicketTypeRequestCategory && other.value == value;
+  @override bool operator ==(Object other) => other is UpdateTicketTypeRequestCategory && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the object
 final class VisitorCompaniesType {
+
   final String value;
 
   const VisitorCompaniesType._(this.value);
 
-  factory VisitorCompaniesType.fromJson(String value) =>
-      VisitorCompaniesType._(value);
+  factory VisitorCompaniesType.fromJson(String value) => VisitorCompaniesType._(value);
 
   static const companyList = VisitorCompaniesType._('company.list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VisitorCompaniesType && other.value == value;
+  @override bool operator ==(Object other) => other is VisitorCompaniesType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the object
 final class VisitorSegmentsType {
+
   final String value;
 
   const VisitorSegmentsType._(this.value);
 
-  factory VisitorSegmentsType.fromJson(String value) =>
-      VisitorSegmentsType._(value);
+  factory VisitorSegmentsType.fromJson(String value) => VisitorSegmentsType._(value);
 
   static const segmentList = VisitorSegmentsType._('segment.list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VisitorSegmentsType && other.value == value;
+  @override bool operator ==(Object other) => other is VisitorSegmentsType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the object
 final class VisitorSocialProfilesType {
+
   final String value;
 
   const VisitorSocialProfilesType._(this.value);
 
-  factory VisitorSocialProfilesType.fromJson(String value) =>
-      VisitorSocialProfilesType._(value);
+  factory VisitorSocialProfilesType.fromJson(String value) => VisitorSocialProfilesType._(value);
 
-  static const socialProfileList =
-      VisitorSocialProfilesType._('social_profile.list');
+  static const socialProfileList = VisitorSocialProfilesType._('social_profile.list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VisitorSocialProfilesType && other.value == value;
+  @override bool operator ==(Object other) => other is VisitorSocialProfilesType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the object
 final class VisitorTagsTagsItemType {
+
   final String value;
 
   const VisitorTagsTagsItemType._(this.value);
 
-  factory VisitorTagsTagsItemType.fromJson(String value) =>
-      VisitorTagsTagsItemType._(value);
+  factory VisitorTagsTagsItemType.fromJson(String value) => VisitorTagsTagsItemType._(value);
 
   static const tag = VisitorTagsTagsItemType._('tag');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VisitorTagsTagsItemType && other.value == value;
+  @override bool operator ==(Object other) => other is VisitorTagsTagsItemType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the object
 final class VisitorTagsType {
+
   final String value;
 
   const VisitorTagsType._(this.value);
@@ -306,37 +260,31 @@ final class VisitorTagsType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VisitorTagsType && other.value == value;
+  @override bool operator ==(Object other) => other is VisitorTagsType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of object which was deleted
 final class VisitorDeletedObjectType {
+
   final String value;
 
   const VisitorDeletedObjectType._(this.value);
 
-  factory VisitorDeletedObjectType.fromJson(String value) =>
-      VisitorDeletedObjectType._(value);
+  factory VisitorDeletedObjectType.fromJson(String value) => VisitorDeletedObjectType._(value);
 
   static const visitor = VisitorDeletedObjectType._('visitor');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VisitorDeletedObjectType && other.value == value;
+  @override bool operator ==(Object other) => other is VisitorDeletedObjectType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

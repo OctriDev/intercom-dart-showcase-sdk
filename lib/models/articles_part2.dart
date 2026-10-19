@@ -8,621 +8,295 @@ part of 'articles.dart';
 class ArticleContentRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of object - `article_content` .
   final SdkOptional<ArticleContentRequestType?> type_;
-
   /// The title of the article.
   final SdkOptional<String> title;
-
   /// The description of the article.
   final SdkOptional<String> description;
-
   /// The body of the article in HTML.
   final SdkOptional<String> body;
-
   /// The body of the article in markdown.
   final SdkOptional<String?> bodyMarkdown;
-
   /// The ID of the author of the article.
   final SdkOptional<int> authorId;
-
   /// Whether the article is `published` or is a `draft` .
   final SdkOptional<ArticleContentRequestState> state;
-
   /// The time when the article was created (seconds).
   final SdkOptional<int> createdAt;
-
   /// The time when the article was last updated (seconds).
   final SdkOptional<int> updatedAt;
-
   /// Whether this locale's published content has unpublished changes staged as a draft on top of its live content.
   final SdkOptional<bool> hasUnpublishedChanges;
-
   /// The time, in seconds, when this locale's staged draft was last edited, or `null` when there is no staged draft.
   final SdkOptional<int?> draftUpdatedAt;
-
   /// The URL of the article.
   final SdkOptional<String> url;
-
   /// The list of audience IDs this article content is targeted to for Fin AI Agent. On multilingual help centers this field appears per-locale inside `translated_content`. On single-language help centers it appears at the article root level. Empty array means no audience targeting is set.
   final SdkOptional<List<int>?> audienceIds;
-
   /// Whether the article is available for AI Chatbot.
   final SdkOptional<bool> aiChatbotAvailability;
-
   /// Whether the article is available for AI Copilot.
   final SdkOptional<bool> aiCopilotAvailability;
-
   /// Whether the article is available for AI Sales Agent.
   final SdkOptional<bool> aiSalesAgentAvailability;
 
-  const ArticleContentRequest(
-      {this.type_ = const SdkOmitted(),
-      this.title = const SdkOmitted(),
-      this.description = const SdkOmitted(),
-      this.body = const SdkOmitted(),
-      this.bodyMarkdown = const SdkOmitted(),
-      this.authorId = const SdkOmitted(),
-      this.state = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.updatedAt = const SdkOmitted(),
-      this.hasUnpublishedChanges = const SdkOmitted(),
-      this.draftUpdatedAt = const SdkOmitted(),
-      this.url = const SdkOmitted(),
-      this.audienceIds = const SdkOmitted(),
-      this.aiChatbotAvailability = const SdkOmitted(),
-      this.aiCopilotAvailability = const SdkOmitted(),
-      this.aiSalesAgentAvailability = const SdkOmitted()});
+  const ArticleContentRequest({this.type_ = const SdkOmitted(), this.title = const SdkOmitted(), this.description = const SdkOmitted(), this.body = const SdkOmitted(), this.bodyMarkdown = const SdkOmitted(), this.authorId = const SdkOmitted(), this.state = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.hasUnpublishedChanges = const SdkOmitted(), this.draftUpdatedAt = const SdkOmitted(), this.url = const SdkOmitted(), this.audienceIds = const SdkOmitted(), this.aiChatbotAvailability = const SdkOmitted(), this.aiCopilotAvailability = const SdkOmitted(), this.aiSalesAgentAvailability = const SdkOmitted()});
 
-  ArticleContentRequest Function(
-      {SdkOptional<ArticleContentRequestType?> type_,
-      SdkOptional<String> title,
-      SdkOptional<String> description,
-      SdkOptional<String> body,
-      SdkOptional<String?> bodyMarkdown,
-      SdkOptional<int> authorId,
-      SdkOptional<ArticleContentRequestState> state,
-      SdkOptional<int> createdAt,
-      SdkOptional<int> updatedAt,
-      SdkOptional<bool> hasUnpublishedChanges,
-      SdkOptional<int?> draftUpdatedAt,
-      SdkOptional<String> url,
-      SdkOptional<List<int>?> audienceIds,
-      SdkOptional<bool> aiChatbotAvailability,
-      SdkOptional<bool> aiCopilotAvailability,
-      SdkOptional<bool> aiSalesAgentAvailability}) get copyWith => _copyWith;
+  ArticleContentRequest Function({SdkOptional<ArticleContentRequestType?> type_, SdkOptional<String> title, SdkOptional<String> description, SdkOptional<String> body, SdkOptional<String?> bodyMarkdown, SdkOptional<int> authorId, SdkOptional<ArticleContentRequestState> state, SdkOptional<int> createdAt, SdkOptional<int> updatedAt, SdkOptional<bool> hasUnpublishedChanges, SdkOptional<int?> draftUpdatedAt, SdkOptional<String> url, SdkOptional<List<int>?> audienceIds, SdkOptional<bool> aiChatbotAvailability, SdkOptional<bool> aiCopilotAvailability, SdkOptional<bool> aiSalesAgentAvailability}) get copyWith => _copyWith;
 
-  ArticleContentRequest _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? title = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? body = sdkOmittedValue,
-          Object? bodyMarkdown = sdkOmittedValue,
-          Object? authorId = sdkOmittedValue,
-          Object? state = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue,
-          Object? hasUnpublishedChanges = sdkOmittedValue,
-          Object? draftUpdatedAt = sdkOmittedValue,
-          Object? url = sdkOmittedValue,
-          Object? audienceIds = sdkOmittedValue,
-          Object? aiChatbotAvailability = sdkOmittedValue,
-          Object? aiCopilotAvailability = sdkOmittedValue,
-          Object? aiSalesAgentAvailability = sdkOmittedValue}) =>
-      ArticleContentRequest(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<ArticleContentRequestType?>,
-        title: identical(title, sdkOmittedValue)
-            ? this.title
-            : title as SdkOptional<String>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        body: identical(body, sdkOmittedValue)
-            ? this.body
-            : body as SdkOptional<String>,
-        bodyMarkdown: identical(bodyMarkdown, sdkOmittedValue)
-            ? this.bodyMarkdown
-            : bodyMarkdown as SdkOptional<String?>,
-        authorId: identical(authorId, sdkOmittedValue)
-            ? this.authorId
-            : authorId as SdkOptional<int>,
-        state: identical(state, sdkOmittedValue)
-            ? this.state
-            : state as SdkOptional<ArticleContentRequestState>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<int>,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as SdkOptional<int>,
-        hasUnpublishedChanges: identical(hasUnpublishedChanges, sdkOmittedValue)
-            ? this.hasUnpublishedChanges
-            : hasUnpublishedChanges as SdkOptional<bool>,
-        draftUpdatedAt: identical(draftUpdatedAt, sdkOmittedValue)
-            ? this.draftUpdatedAt
-            : draftUpdatedAt as SdkOptional<int?>,
-        url: identical(url, sdkOmittedValue)
-            ? this.url
-            : url as SdkOptional<String>,
-        audienceIds: identical(audienceIds, sdkOmittedValue)
-            ? this.audienceIds
-            : audienceIds as SdkOptional<List<int>?>,
-        aiChatbotAvailability: identical(aiChatbotAvailability, sdkOmittedValue)
-            ? this.aiChatbotAvailability
-            : aiChatbotAvailability as SdkOptional<bool>,
-        aiCopilotAvailability: identical(aiCopilotAvailability, sdkOmittedValue)
-            ? this.aiCopilotAvailability
-            : aiCopilotAvailability as SdkOptional<bool>,
-        aiSalesAgentAvailability:
-            identical(aiSalesAgentAvailability, sdkOmittedValue)
-                ? this.aiSalesAgentAvailability
-                : aiSalesAgentAvailability as SdkOptional<bool>,
-      );
+  ArticleContentRequest _copyWith({Object? type_ = sdkOmittedValue, Object? title = sdkOmittedValue, Object? description = sdkOmittedValue, Object? body = sdkOmittedValue, Object? bodyMarkdown = sdkOmittedValue, Object? authorId = sdkOmittedValue, Object? state = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? hasUnpublishedChanges = sdkOmittedValue, Object? draftUpdatedAt = sdkOmittedValue, Object? url = sdkOmittedValue, Object? audienceIds = sdkOmittedValue, Object? aiChatbotAvailability = sdkOmittedValue, Object? aiCopilotAvailability = sdkOmittedValue, Object? aiSalesAgentAvailability = sdkOmittedValue}) => ArticleContentRequest(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ArticleContentRequestType?>,
+    title: identical(title, sdkOmittedValue) ? this.title : title as SdkOptional<String>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    body: identical(body, sdkOmittedValue) ? this.body : body as SdkOptional<String>,
+    bodyMarkdown: identical(bodyMarkdown, sdkOmittedValue) ? this.bodyMarkdown : bodyMarkdown as SdkOptional<String?>,
+    authorId: identical(authorId, sdkOmittedValue) ? this.authorId : authorId as SdkOptional<int>,
+    state: identical(state, sdkOmittedValue) ? this.state : state as SdkOptional<ArticleContentRequestState>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<int>,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<int>,
+    hasUnpublishedChanges: identical(hasUnpublishedChanges, sdkOmittedValue) ? this.hasUnpublishedChanges : hasUnpublishedChanges as SdkOptional<bool>,
+    draftUpdatedAt: identical(draftUpdatedAt, sdkOmittedValue) ? this.draftUpdatedAt : draftUpdatedAt as SdkOptional<int?>,
+    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String>,
+    audienceIds: identical(audienceIds, sdkOmittedValue) ? this.audienceIds : audienceIds as SdkOptional<List<int>?>,
+    aiChatbotAvailability: identical(aiChatbotAvailability, sdkOmittedValue) ? this.aiChatbotAvailability : aiChatbotAvailability as SdkOptional<bool>,
+    aiCopilotAvailability: identical(aiCopilotAvailability, sdkOmittedValue) ? this.aiCopilotAvailability : aiCopilotAvailability as SdkOptional<bool>,
+    aiSalesAgentAvailability: identical(aiSalesAgentAvailability, sdkOmittedValue) ? this.aiSalesAgentAvailability : aiSalesAgentAvailability as SdkOptional<bool>,
+  );
 
-  factory ArticleContentRequest.fromJson(Map<String, dynamic> json) =>
-      ArticleContentRequest(
-        type_: json.containsKey('type')
-            ? SdkPresent(json['type'] != null
-                ? ArticleContentRequestType.fromJson(json['type'] as String)
-                : null)
-            : const SdkOmitted(),
-        title: json['title'] != null
-            ? SdkPresent((json['title'] as String?)!)
-            : const SdkOmitted(),
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        body: json['body'] != null
-            ? SdkPresent((json['body'] as String?)!)
-            : const SdkOmitted(),
-        bodyMarkdown: json.containsKey('body_markdown')
-            ? SdkPresent(json['body_markdown'] as String?)
-            : const SdkOmitted(),
-        authorId: json['author_id'] != null
-            ? SdkPresent(((json['author_id'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        state: json['state'] != null
-            ? SdkPresent((json['state'] != null
-                ? ArticleContentRequestState.fromJson(json['state'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent(((json['created_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        updatedAt: json['updated_at'] != null
-            ? SdkPresent(((json['updated_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        hasUnpublishedChanges: json['has_unpublished_changes'] != null
-            ? SdkPresent((json['has_unpublished_changes'] as bool?)!)
-            : const SdkOmitted(),
-        draftUpdatedAt: json.containsKey('draft_updated_at')
-            ? SdkPresent((json['draft_updated_at'] as num?)?.toInt())
-            : const SdkOmitted(),
-        url: json['url'] != null
-            ? SdkPresent((json['url'] as String?)!)
-            : const SdkOmitted(),
-        audienceIds: json.containsKey('audience_ids')
-            ? SdkPresent((json['audience_ids'] as List?)
-                ?.map((e) => (e as num).toInt())
-                .toList())
-            : const SdkOmitted(),
-        aiChatbotAvailability: json['ai_chatbot_availability'] != null
-            ? SdkPresent((json['ai_chatbot_availability'] as bool?)!)
-            : const SdkOmitted(),
-        aiCopilotAvailability: json['ai_copilot_availability'] != null
-            ? SdkPresent((json['ai_copilot_availability'] as bool?)!)
-            : const SdkOmitted(),
-        aiSalesAgentAvailability: json['ai_sales_agent_availability'] != null
-            ? SdkPresent((json['ai_sales_agent_availability'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory ArticleContentRequest.fromJson(Map<String, dynamic> json) => ArticleContentRequest(
+    type_: json.containsKey('type') ? SdkPresent(json['type'] != null ? ArticleContentRequestType.fromJson(json['type'] as String) : null) : const SdkOmitted(),
+    title: json['title'] != null ? SdkPresent((json['title'] as String?)!) : const SdkOmitted(),
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    body: json['body'] != null ? SdkPresent((json['body'] as String?)!) : const SdkOmitted(),
+    bodyMarkdown: json.containsKey('body_markdown') ? SdkPresent(json['body_markdown'] as String?) : const SdkOmitted(),
+    authorId: json['author_id'] != null ? SdkPresent(((json['author_id'] as num?)?.toInt())!) : const SdkOmitted(),
+    state: json['state'] != null ? SdkPresent((json['state'] != null ? ArticleContentRequestState.fromJson(json['state'] as String) : null)!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent(((json['created_at'] as num?)?.toInt())!) : const SdkOmitted(),
+    updatedAt: json['updated_at'] != null ? SdkPresent(((json['updated_at'] as num?)?.toInt())!) : const SdkOmitted(),
+    hasUnpublishedChanges: json['has_unpublished_changes'] != null ? SdkPresent((json['has_unpublished_changes'] as bool?)!) : const SdkOmitted(),
+    draftUpdatedAt: json.containsKey('draft_updated_at') ? SdkPresent((json['draft_updated_at'] as num?)?.toInt()) : const SdkOmitted(),
+    url: json['url'] != null ? SdkPresent((json['url'] as String?)!) : const SdkOmitted(),
+    audienceIds: json.containsKey('audience_ids') ? SdkPresent((json['audience_ids'] as List?)?.map((e) => (e as num).toInt()).toList()) : const SdkOmitted(),
+    aiChatbotAvailability: json['ai_chatbot_availability'] != null ? SdkPresent((json['ai_chatbot_availability'] as bool?)!) : const SdkOmitted(),
+    aiCopilotAvailability: json['ai_copilot_availability'] != null ? SdkPresent((json['ai_copilot_availability'] as bool?)!) : const SdkOmitted(),
+    aiSalesAgentAvailability: json['ai_sales_agent_availability'] != null ? SdkPresent((json['ai_sales_agent_availability'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<ArticleContentRequestType?>(value: final value) => {
-              'type': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (title) {
-          SdkPresent<String>(value: final value) => {
-              'title': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (body) {
-          SdkPresent<String>(value: final value) => {
-              'body': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (bodyMarkdown) {
-          SdkPresent<String?>(value: final value) => {
-              'body_markdown': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (authorId) {
-          SdkPresent<int>(value: final value) => {
-              'author_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (state) {
-          SdkPresent<ArticleContentRequestState>(value: final value) => {
-              'state': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<int>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (updatedAt) {
-          SdkPresent<int>(value: final value) => {
-              'updated_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (hasUnpublishedChanges) {
-          SdkPresent<bool>(value: final value) => {
-              'has_unpublished_changes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (draftUpdatedAt) {
-          SdkPresent<int?>(value: final value) => {
-              'draft_updated_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (url) {
-          SdkPresent<String>(value: final value) => {
-              'url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (audienceIds) {
-          SdkPresent<List<int>?>(value: final value) => {
-              'audience_ids': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (aiChatbotAvailability) {
-          SdkPresent<bool>(value: final value) => {
-              'ai_chatbot_availability': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (aiCopilotAvailability) {
-          SdkPresent<bool>(value: final value) => {
-              'ai_copilot_availability': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (aiSalesAgentAvailability) {
-          SdkPresent<bool>(value: final value) => {
-              'ai_sales_agent_availability': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<ArticleContentRequestType?>(value: final value) => {'type': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (title) {
+      SdkPresent<String>(value: final value) => {'title': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (body) {
+      SdkPresent<String>(value: final value) => {'body': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (bodyMarkdown) {
+      SdkPresent<String?>(value: final value) => {'body_markdown': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (authorId) {
+      SdkPresent<int>(value: final value) => {'author_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (state) {
+      SdkPresent<ArticleContentRequestState>(value: final value) => {'state': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<int>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (updatedAt) {
+      SdkPresent<int>(value: final value) => {'updated_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (hasUnpublishedChanges) {
+      SdkPresent<bool>(value: final value) => {'has_unpublished_changes': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (draftUpdatedAt) {
+      SdkPresent<int?>(value: final value) => {'draft_updated_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (url) {
+      SdkPresent<String>(value: final value) => {'url': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (audienceIds) {
+      SdkPresent<List<int>?>(value: final value) => {'audience_ids': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (aiChatbotAvailability) {
+      SdkPresent<bool>(value: final value) => {'ai_chatbot_availability': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (aiCopilotAvailability) {
+      SdkPresent<bool>(value: final value) => {'ai_copilot_availability': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (aiSalesAgentAvailability) {
+      SdkPresent<bool>(value: final value) => {'ai_sales_agent_availability': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// This will return a list of articles for the App.
 class ArticleList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object - `list`.
   final SdkOptional<ArticleListType> type_;
-
   /// Cursor-based pagination is a technique used in the Intercom API to navigate through large amounts of data. A "cursor" or pointer is used to keep track of the current position in the result set, allowing the API to return the data in small chunks or "pages" as needed.
   final SdkOptional<CursorPages?> pages;
-
   /// A count of the total number of articles.
   final SdkOptional<int> totalCount;
-
   /// An array of Article objects
   final SdkOptional<List<ArticleListItem>> data;
 
-  const ArticleList(
-      {this.type_ = const SdkOmitted(),
-      this.pages = const SdkOmitted(),
-      this.totalCount = const SdkOmitted(),
-      this.data = const SdkOmitted()});
+  const ArticleList({this.type_ = const SdkOmitted(), this.pages = const SdkOmitted(), this.totalCount = const SdkOmitted(), this.data = const SdkOmitted()});
 
-  ArticleList Function(
-      {SdkOptional<ArticleListType> type_,
-      SdkOptional<CursorPages?> pages,
-      SdkOptional<int> totalCount,
-      SdkOptional<List<ArticleListItem>> data}) get copyWith => _copyWith;
+  ArticleList Function({SdkOptional<ArticleListType> type_, SdkOptional<CursorPages?> pages, SdkOptional<int> totalCount, SdkOptional<List<ArticleListItem>> data}) get copyWith => _copyWith;
 
-  ArticleList _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? pages = sdkOmittedValue,
-          Object? totalCount = sdkOmittedValue,
-          Object? data = sdkOmittedValue}) =>
-      ArticleList(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<ArticleListType>,
-        pages: identical(pages, sdkOmittedValue)
-            ? this.pages
-            : pages as SdkOptional<CursorPages?>,
-        totalCount: identical(totalCount, sdkOmittedValue)
-            ? this.totalCount
-            : totalCount as SdkOptional<int>,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as SdkOptional<List<ArticleListItem>>,
-      );
+  ArticleList _copyWith({Object? type_ = sdkOmittedValue, Object? pages = sdkOmittedValue, Object? totalCount = sdkOmittedValue, Object? data = sdkOmittedValue}) => ArticleList(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ArticleListType>,
+    pages: identical(pages, sdkOmittedValue) ? this.pages : pages as SdkOptional<CursorPages?>,
+    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as SdkOptional<int>,
+    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<ArticleListItem>>,
+  );
 
   factory ArticleList.fromJson(Map<String, dynamic> json) => ArticleList(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? ArticleListType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        pages: json.containsKey('pages')
-            ? SdkPresent(json['pages'] != null
-                ? CursorPages.fromJson(json['pages'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        totalCount: json['total_count'] != null
-            ? SdkPresent(((json['total_count'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        data: json['data'] != null
-            ? SdkPresent(((json['data'] as List?)
-                ?.map(
-                    (e) => ArticleListItem.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ArticleListType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    pages: json.containsKey('pages') ? SdkPresent(json['pages'] != null ? CursorPages.fromJson(json['pages'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    totalCount: json['total_count'] != null ? SdkPresent(((json['total_count'] as num?)?.toInt())!) : const SdkOmitted(),
+    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => ArticleListItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<ArticleListType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (pages) {
-          SdkPresent<CursorPages?>(value: final value) => {
-              'pages': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (totalCount) {
-          SdkPresent<int>(value: final value) => {
-              'total_count': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (data) {
-          SdkPresent<List<ArticleListItem>>(value: final value) => {
-              'data': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<ArticleListType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (pages) {
+      SdkPresent<CursorPages?>(value: final value) => {'pages': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (totalCount) {
+      SdkPresent<int>(value: final value) => {'total_count': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (data) {
+      SdkPresent<List<ArticleListItem>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// The statistics of an article.
 class ArticleStatistics {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of object - `article_statistics`.
   final SdkOptional<ArticleStatisticsType> type_;
-
   /// The number of total views the article has received.
   final SdkOptional<int> views;
-
   /// The number of conversations started from the article.
   final SdkOptional<int> conversions;
-
   /// The number of total reactions the article has received.
   final SdkOptional<int> reactions;
-
   /// The percentage of happy reactions the article has received against other types of reaction.
   final SdkOptional<double> happyReactionPercentage;
-
   /// The percentage of neutral reactions the article has received against other types of reaction.
   final SdkOptional<double> neutralReactionPercentage;
-
   /// The percentage of sad reactions the article has received against
   final SdkOptional<double> sadReactionPercentage;
-
   /// The number of conversations in which Fin AI Agent used this article, summed across all of the article's locales.
   final SdkOptional<int> finInvolvements;
-
   /// The number of conversations Fin AI Agent resolved using this article, summed across all of the article's locales.
   final SdkOptional<int> finResolutions;
-
   /// The percentage of Fin AI Agent involvements that resulted in a resolution (fin_resolutions / fin_involvements * 100).
   final SdkOptional<double> finResolutionRate;
 
-  const ArticleStatistics(
-      {this.type_ = const SdkOmitted(),
-      this.views = const SdkOmitted(),
-      this.conversions = const SdkOmitted(),
-      this.reactions = const SdkOmitted(),
-      this.happyReactionPercentage = const SdkOmitted(),
-      this.neutralReactionPercentage = const SdkOmitted(),
-      this.sadReactionPercentage = const SdkOmitted(),
-      this.finInvolvements = const SdkOmitted(),
-      this.finResolutions = const SdkOmitted(),
-      this.finResolutionRate = const SdkOmitted()});
+  const ArticleStatistics({this.type_ = const SdkOmitted(), this.views = const SdkOmitted(), this.conversions = const SdkOmitted(), this.reactions = const SdkOmitted(), this.happyReactionPercentage = const SdkOmitted(), this.neutralReactionPercentage = const SdkOmitted(), this.sadReactionPercentage = const SdkOmitted(), this.finInvolvements = const SdkOmitted(), this.finResolutions = const SdkOmitted(), this.finResolutionRate = const SdkOmitted()});
 
-  ArticleStatistics Function(
-      {SdkOptional<ArticleStatisticsType> type_,
-      SdkOptional<int> views,
-      SdkOptional<int> conversions,
-      SdkOptional<int> reactions,
-      SdkOptional<double> happyReactionPercentage,
-      SdkOptional<double> neutralReactionPercentage,
-      SdkOptional<double> sadReactionPercentage,
-      SdkOptional<int> finInvolvements,
-      SdkOptional<int> finResolutions,
-      SdkOptional<double> finResolutionRate}) get copyWith => _copyWith;
+  ArticleStatistics Function({SdkOptional<ArticleStatisticsType> type_, SdkOptional<int> views, SdkOptional<int> conversions, SdkOptional<int> reactions, SdkOptional<double> happyReactionPercentage, SdkOptional<double> neutralReactionPercentage, SdkOptional<double> sadReactionPercentage, SdkOptional<int> finInvolvements, SdkOptional<int> finResolutions, SdkOptional<double> finResolutionRate}) get copyWith => _copyWith;
 
-  ArticleStatistics _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? views = sdkOmittedValue,
-          Object? conversions = sdkOmittedValue,
-          Object? reactions = sdkOmittedValue,
-          Object? happyReactionPercentage = sdkOmittedValue,
-          Object? neutralReactionPercentage = sdkOmittedValue,
-          Object? sadReactionPercentage = sdkOmittedValue,
-          Object? finInvolvements = sdkOmittedValue,
-          Object? finResolutions = sdkOmittedValue,
-          Object? finResolutionRate = sdkOmittedValue}) =>
-      ArticleStatistics(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<ArticleStatisticsType>,
-        views: identical(views, sdkOmittedValue)
-            ? this.views
-            : views as SdkOptional<int>,
-        conversions: identical(conversions, sdkOmittedValue)
-            ? this.conversions
-            : conversions as SdkOptional<int>,
-        reactions: identical(reactions, sdkOmittedValue)
-            ? this.reactions
-            : reactions as SdkOptional<int>,
-        happyReactionPercentage:
-            identical(happyReactionPercentage, sdkOmittedValue)
-                ? this.happyReactionPercentage
-                : happyReactionPercentage as SdkOptional<double>,
-        neutralReactionPercentage:
-            identical(neutralReactionPercentage, sdkOmittedValue)
-                ? this.neutralReactionPercentage
-                : neutralReactionPercentage as SdkOptional<double>,
-        sadReactionPercentage: identical(sadReactionPercentage, sdkOmittedValue)
-            ? this.sadReactionPercentage
-            : sadReactionPercentage as SdkOptional<double>,
-        finInvolvements: identical(finInvolvements, sdkOmittedValue)
-            ? this.finInvolvements
-            : finInvolvements as SdkOptional<int>,
-        finResolutions: identical(finResolutions, sdkOmittedValue)
-            ? this.finResolutions
-            : finResolutions as SdkOptional<int>,
-        finResolutionRate: identical(finResolutionRate, sdkOmittedValue)
-            ? this.finResolutionRate
-            : finResolutionRate as SdkOptional<double>,
-      );
+  ArticleStatistics _copyWith({Object? type_ = sdkOmittedValue, Object? views = sdkOmittedValue, Object? conversions = sdkOmittedValue, Object? reactions = sdkOmittedValue, Object? happyReactionPercentage = sdkOmittedValue, Object? neutralReactionPercentage = sdkOmittedValue, Object? sadReactionPercentage = sdkOmittedValue, Object? finInvolvements = sdkOmittedValue, Object? finResolutions = sdkOmittedValue, Object? finResolutionRate = sdkOmittedValue}) => ArticleStatistics(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ArticleStatisticsType>,
+    views: identical(views, sdkOmittedValue) ? this.views : views as SdkOptional<int>,
+    conversions: identical(conversions, sdkOmittedValue) ? this.conversions : conversions as SdkOptional<int>,
+    reactions: identical(reactions, sdkOmittedValue) ? this.reactions : reactions as SdkOptional<int>,
+    happyReactionPercentage: identical(happyReactionPercentage, sdkOmittedValue) ? this.happyReactionPercentage : happyReactionPercentage as SdkOptional<double>,
+    neutralReactionPercentage: identical(neutralReactionPercentage, sdkOmittedValue) ? this.neutralReactionPercentage : neutralReactionPercentage as SdkOptional<double>,
+    sadReactionPercentage: identical(sadReactionPercentage, sdkOmittedValue) ? this.sadReactionPercentage : sadReactionPercentage as SdkOptional<double>,
+    finInvolvements: identical(finInvolvements, sdkOmittedValue) ? this.finInvolvements : finInvolvements as SdkOptional<int>,
+    finResolutions: identical(finResolutions, sdkOmittedValue) ? this.finResolutions : finResolutions as SdkOptional<int>,
+    finResolutionRate: identical(finResolutionRate, sdkOmittedValue) ? this.finResolutionRate : finResolutionRate as SdkOptional<double>,
+  );
 
-  factory ArticleStatistics.fromJson(Map<String, dynamic> json) =>
-      ArticleStatistics(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? ArticleStatisticsType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        views: json['views'] != null
-            ? SdkPresent(((json['views'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        conversions: json['conversions'] != null
-            ? SdkPresent(((json['conversions'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        reactions: json['reactions'] != null
-            ? SdkPresent(((json['reactions'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        happyReactionPercentage: json['happy_reaction_percentage'] != null
-            ? SdkPresent(
-                ((json['happy_reaction_percentage'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-        neutralReactionPercentage: json['neutral_reaction_percentage'] != null
-            ? SdkPresent(
-                ((json['neutral_reaction_percentage'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-        sadReactionPercentage: json['sad_reaction_percentage'] != null
-            ? SdkPresent(
-                ((json['sad_reaction_percentage'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-        finInvolvements: json['fin_involvements'] != null
-            ? SdkPresent(((json['fin_involvements'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        finResolutions: json['fin_resolutions'] != null
-            ? SdkPresent(((json['fin_resolutions'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        finResolutionRate: json['fin_resolution_rate'] != null
-            ? SdkPresent(((json['fin_resolution_rate'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-      );
+  factory ArticleStatistics.fromJson(Map<String, dynamic> json) => ArticleStatistics(
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ArticleStatisticsType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    views: json['views'] != null ? SdkPresent(((json['views'] as num?)?.toInt())!) : const SdkOmitted(),
+    conversions: json['conversions'] != null ? SdkPresent(((json['conversions'] as num?)?.toInt())!) : const SdkOmitted(),
+    reactions: json['reactions'] != null ? SdkPresent(((json['reactions'] as num?)?.toInt())!) : const SdkOmitted(),
+    happyReactionPercentage: json['happy_reaction_percentage'] != null ? SdkPresent(((json['happy_reaction_percentage'] as num?)?.toDouble())!) : const SdkOmitted(),
+    neutralReactionPercentage: json['neutral_reaction_percentage'] != null ? SdkPresent(((json['neutral_reaction_percentage'] as num?)?.toDouble())!) : const SdkOmitted(),
+    sadReactionPercentage: json['sad_reaction_percentage'] != null ? SdkPresent(((json['sad_reaction_percentage'] as num?)?.toDouble())!) : const SdkOmitted(),
+    finInvolvements: json['fin_involvements'] != null ? SdkPresent(((json['fin_involvements'] as num?)?.toInt())!) : const SdkOmitted(),
+    finResolutions: json['fin_resolutions'] != null ? SdkPresent(((json['fin_resolutions'] as num?)?.toInt())!) : const SdkOmitted(),
+    finResolutionRate: json['fin_resolution_rate'] != null ? SdkPresent(((json['fin_resolution_rate'] as num?)?.toDouble())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<ArticleStatisticsType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (views) {
-          SdkPresent<int>(value: final value) => {
-              'views': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (conversions) {
-          SdkPresent<int>(value: final value) => {
-              'conversions': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (reactions) {
-          SdkPresent<int>(value: final value) => {
-              'reactions': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (happyReactionPercentage) {
-          SdkPresent<double>(value: final value) => {
-              'happy_reaction_percentage': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (neutralReactionPercentage) {
-          SdkPresent<double>(value: final value) => {
-              'neutral_reaction_percentage': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (sadReactionPercentage) {
-          SdkPresent<double>(value: final value) => {
-              'sad_reaction_percentage': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (finInvolvements) {
-          SdkPresent<int>(value: final value) => {
-              'fin_involvements': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (finResolutions) {
-          SdkPresent<int>(value: final value) => {
-              'fin_resolutions': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (finResolutionRate) {
-          SdkPresent<double>(value: final value) => {
-              'fin_resolution_rate': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<ArticleStatisticsType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (views) {
+      SdkPresent<int>(value: final value) => {'views': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (conversions) {
+      SdkPresent<int>(value: final value) => {'conversions': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (reactions) {
+      SdkPresent<int>(value: final value) => {'reactions': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (happyReactionPercentage) {
+      SdkPresent<double>(value: final value) => {'happy_reaction_percentage': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (neutralReactionPercentage) {
+      SdkPresent<double>(value: final value) => {'neutral_reaction_percentage': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (sadReactionPercentage) {
+      SdkPresent<double>(value: final value) => {'sad_reaction_percentage': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (finInvolvements) {
+      SdkPresent<int>(value: final value) => {'fin_involvements': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (finResolutions) {
+      SdkPresent<int>(value: final value) => {'fin_resolutions': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (finResolutionRate) {
+      SdkPresent<double>(value: final value) => {'fin_resolution_rate': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

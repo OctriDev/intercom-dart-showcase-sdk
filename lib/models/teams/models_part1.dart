@@ -8,149 +8,73 @@ part of 'models.dart';
 class Team {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Value is always "team"
   final SdkOptional<String> type_;
-
   /// The id of the team
   final SdkOptional<String> id;
-
   /// The name of the team
   final SdkOptional<String> name;
-
   /// The list of admin IDs that are a part of the team.
   final SdkOptional<List<int>> adminIds;
-
   /// Admin priority levels for the team
   final SdkOptional<AdminPriorityLevel?> adminPriorityLevel;
-
   /// The assignment limit for the team. This field is only present when the team's distribution type is load balanced.
   final SdkOptional<int?> assignmentLimit;
-
   /// Describes how assignments are distributed among the team members
   final SdkOptional<String?> distributionMethod;
 
-  const Team(
-      {this.type_ = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.adminIds = const SdkOmitted(),
-      this.adminPriorityLevel = const SdkOmitted(),
-      this.assignmentLimit = const SdkOmitted(),
-      this.distributionMethod = const SdkOmitted()});
+  const Team({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.name = const SdkOmitted(), this.adminIds = const SdkOmitted(), this.adminPriorityLevel = const SdkOmitted(), this.assignmentLimit = const SdkOmitted(), this.distributionMethod = const SdkOmitted()});
 
-  Team Function(
-      {SdkOptional<String> type_,
-      SdkOptional<String> id,
-      SdkOptional<String> name,
-      SdkOptional<List<int>> adminIds,
-      SdkOptional<AdminPriorityLevel?> adminPriorityLevel,
-      SdkOptional<int?> assignmentLimit,
-      SdkOptional<String?> distributionMethod}) get copyWith => _copyWith;
+  Team Function({SdkOptional<String> type_, SdkOptional<String> id, SdkOptional<String> name, SdkOptional<List<int>> adminIds, SdkOptional<AdminPriorityLevel?> adminPriorityLevel, SdkOptional<int?> assignmentLimit, SdkOptional<String?> distributionMethod}) get copyWith => _copyWith;
 
-  Team _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? adminIds = sdkOmittedValue,
-          Object? adminPriorityLevel = sdkOmittedValue,
-          Object? assignmentLimit = sdkOmittedValue,
-          Object? distributionMethod = sdkOmittedValue}) =>
-      Team(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        adminIds: identical(adminIds, sdkOmittedValue)
-            ? this.adminIds
-            : adminIds as SdkOptional<List<int>>,
-        adminPriorityLevel: identical(adminPriorityLevel, sdkOmittedValue)
-            ? this.adminPriorityLevel
-            : adminPriorityLevel as SdkOptional<AdminPriorityLevel?>,
-        assignmentLimit: identical(assignmentLimit, sdkOmittedValue)
-            ? this.assignmentLimit
-            : assignmentLimit as SdkOptional<int?>,
-        distributionMethod: identical(distributionMethod, sdkOmittedValue)
-            ? this.distributionMethod
-            : distributionMethod as SdkOptional<String?>,
-      );
+  Team _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? adminIds = sdkOmittedValue, Object? adminPriorityLevel = sdkOmittedValue, Object? assignmentLimit = sdkOmittedValue, Object? distributionMethod = sdkOmittedValue}) => Team(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    adminIds: identical(adminIds, sdkOmittedValue) ? this.adminIds : adminIds as SdkOptional<List<int>>,
+    adminPriorityLevel: identical(adminPriorityLevel, sdkOmittedValue) ? this.adminPriorityLevel : adminPriorityLevel as SdkOptional<AdminPriorityLevel?>,
+    assignmentLimit: identical(assignmentLimit, sdkOmittedValue) ? this.assignmentLimit : assignmentLimit as SdkOptional<int?>,
+    distributionMethod: identical(distributionMethod, sdkOmittedValue) ? this.distributionMethod : distributionMethod as SdkOptional<String?>,
+  );
 
   factory Team.fromJson(Map<String, dynamic> json) => Team(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        adminIds: json['admin_ids'] != null
-            ? SdkPresent(((json['admin_ids'] as List?)
-                ?.map((e) => (e as num).toInt())
-                .toList())!)
-            : const SdkOmitted(),
-        adminPriorityLevel: json.containsKey('admin_priority_level')
-            ? SdkPresent(json['admin_priority_level'] != null
-                ? AdminPriorityLevel.fromJson(
-                    json['admin_priority_level'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        assignmentLimit: json.containsKey('assignment_limit')
-            ? SdkPresent((json['assignment_limit'] as num?)?.toInt())
-            : const SdkOmitted(),
-        distributionMethod: json.containsKey('distribution_method')
-            ? SdkPresent(json['distribution_method'] as String?)
-            : const SdkOmitted(),
-      );
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    adminIds: json['admin_ids'] != null ? SdkPresent(((json['admin_ids'] as List?)?.map((e) => (e as num).toInt()).toList())!) : const SdkOmitted(),
+    adminPriorityLevel: json.containsKey('admin_priority_level') ? SdkPresent(json['admin_priority_level'] != null ? AdminPriorityLevel.fromJson(json['admin_priority_level'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    assignmentLimit: json.containsKey('assignment_limit') ? SdkPresent((json['assignment_limit'] as num?)?.toInt()) : const SdkOmitted(),
+    distributionMethod: json.containsKey('distribution_method') ? SdkPresent(json['distribution_method'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (adminIds) {
-          SdkPresent<List<int>>(value: final value) => {
-              'admin_ids': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (adminPriorityLevel) {
-          SdkPresent<AdminPriorityLevel?>(value: final value) => {
-              'admin_priority_level': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (assignmentLimit) {
-          SdkPresent<int?>(value: final value) => {
-              'assignment_limit': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (distributionMethod) {
-          SdkPresent<String?>(value: final value) => {
-              'distribution_method': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (adminIds) {
+      SdkPresent<List<int>>(value: final value) => {'admin_ids': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (adminPriorityLevel) {
+      SdkPresent<AdminPriorityLevel?>(value: final value) => {'admin_priority_level': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (assignmentLimit) {
+      SdkPresent<int?>(value: final value) => {'assignment_limit': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (distributionMethod) {
+      SdkPresent<String?>(value: final value) => {'distribution_method': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

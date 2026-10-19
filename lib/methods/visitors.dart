@@ -30,18 +30,14 @@ Future<Visitor> updateVisitor(ClientConfig config,
             'custom_attributes': SdkUtils.unwrapOptional(customAttributes)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'updateVisitor',
-          fromJsonRaw: (value) =>
-              Visitor.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => Visitor.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves a visitor using the visitor's `user_id`. Use this operation when you need the details associated with a specific visitor identifier. The response includes visitor identity and profile information.
 ///
@@ -58,18 +54,14 @@ Future<Visitor> retrieveVisitorWithUserId(ClientConfig config,
             'user_id': SdkQueryValue(userId, style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'retrieveVisitorWithUserId',
-          fromJsonRaw: (value) =>
-              Visitor.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => Visitor.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Converts a visitor into a contact with the specified `lead` or `user` role, merging the visitor into an existing contact when one matches. If no matching contact exists, the visitor's identifiers are replaced with the supplied contact identifiers. The response contains the resulting contact.
 ///
@@ -88,14 +80,10 @@ Future<Contact> convertVisitor(ClientConfig config,
           config: config,
           body: {'type': type_, 'user': user, 'visitor': visitor},
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'convertVisitor',
-          fromJsonRaw: (value) =>
-              Contact.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => Contact.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

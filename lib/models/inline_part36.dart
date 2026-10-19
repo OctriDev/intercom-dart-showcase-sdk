@@ -7,905 +7,401 @@ part of 'inline.dart';
 class UpdateContactResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of object.
   final SdkOptional<String> type_;
-
   /// The unique identifier for the contact which is given by Intercom.
   final SdkOptional<String> id;
-
   /// The unique identifier for the contact which is provided by the Client.
   final SdkOptional<String?> externalId;
-
   /// The id of the workspace which the contact belongs to.
   final SdkOptional<String> workspaceId;
-
   /// The role of the contact.
   final SdkOptional<String> role;
-
   /// The contact's email.
   final SdkOptional<String> email;
-
   /// The contact's email domain.
   final SdkOptional<String> emailDomain;
-
   /// Whether the contact has proved they own their current email address. `true` only when this address was marked verified through the Contacts API (`email_verified: true` on create or update) and has not changed since; it becomes `false` again if the contact's email changes, until the new address is verified. Intercom reuses a lead with a verified email when it later matches an inbound email, or an outbound conversation or ticket, to that address, instead of creating a new lead.
   final SdkOptional<bool> emailVerified;
-
   /// The contacts phone.
   final SdkOptional<String?> phone;
-
   /// The contacts name.
   final SdkOptional<String?> name;
-
   /// The id of an admin that has been assigned account ownership of the contact.
   final SdkOptional<String?> ownerId;
-
   /// Whether the contact has had an email sent to them hard bounce.
   final SdkOptional<bool> hasHardBounced;
-
   /// Whether the contact has marked an email sent to them as spam.
   final SdkOptional<bool> markedEmailAsSpam;
-
   /// Whether the contact is unsubscribed from emails.
   final SdkOptional<bool> unsubscribedFromEmails;
-
   /// (Unix timestamp in seconds) The time when the contact was created.
   final SdkOptional<int> createdAt;
-
   /// (Unix timestamp in seconds) The time when the contact was last updated.
   final SdkOptional<int> updatedAt;
-
   /// (Unix timestamp in seconds) The time specified for when a contact signed up.
   final SdkOptional<int?> signedUpAt;
-
   /// (Unix timestamp in seconds) The time when the contact was last seen (either where the Intercom Messenger was installed or when specified manually).
   final SdkOptional<int?> lastSeenAt;
-
   /// (Unix timestamp in seconds) The time when the contact last messaged in.
   final SdkOptional<int?> lastRepliedAt;
-
   /// (Unix timestamp in seconds) The time when the contact was last messaged.
   final SdkOptional<int?> lastContactedAt;
-
   /// (Unix timestamp in seconds) The time when the contact last opened an email.
   final SdkOptional<int?> lastEmailOpenedAt;
-
   /// (Unix timestamp in seconds) The time when the contact last clicked a link in an email.
   final SdkOptional<int?> lastEmailClickedAt;
-
   /// A preferred language setting for the contact, used by the Intercom Messenger even if their browser settings change.
   final SdkOptional<String?> languageOverride;
-
   /// The name of the browser which the contact is using.
   final SdkOptional<String?> browser;
-
   /// The version of the browser which the contact is using.
   final SdkOptional<String?> browserVersion;
-
   /// The language set by the browser which the contact is using.
   final SdkOptional<String?> browserLanguage;
-
   /// The operating system which the contact is using.
   final SdkOptional<String?> os;
-
   /// The name of the Android app which the contact is using.
   final SdkOptional<String?> androidAppName;
-
   /// The version of the Android app which the contact is using.
   final SdkOptional<String?> androidAppVersion;
-
   /// The Android device which the contact is using.
   final SdkOptional<String?> androidDevice;
-
   /// The version of the Android OS which the contact is using.
   final SdkOptional<String?> androidOsVersion;
-
   /// The version of the Android SDK which the contact is using.
   final SdkOptional<String?> androidSdkVersion;
-
   /// (Unix timestamp in seconds) The time when the contact was last seen on an Android device.
   final SdkOptional<int?> androidLastSeenAt;
-
   /// The name of the iOS app which the contact is using.
   final SdkOptional<String?> iosAppName;
-
   /// The version of the iOS app which the contact is using.
   final SdkOptional<String?> iosAppVersion;
-
   /// The iOS device which the contact is using.
   final SdkOptional<String?> iosDevice;
-
   /// The version of iOS which the contact is using.
   final SdkOptional<String?> iosOsVersion;
-
   /// The version of the iOS SDK which the contact is using.
   final SdkOptional<String?> iosSdkVersion;
-
   /// (Unix timestamp in seconds) The last time the contact used the iOS app.
   final SdkOptional<int?> iosLastSeenAt;
-
   /// The custom attributes which are set for the contact.
   final SdkOptional<Map<String, dynamic>> customAttributes;
-
   /// Optional object value serialized in the `avatar` wire field.
   final SdkOptional<UpdateContactResponseAvatar?> avatar;
-
   /// An object containing tags meta data about the tags that a contact has. Up to 10 will be displayed here. Use the url to get more.
   final SdkOptional<ContactTags?> tags;
-
   /// An object containing notes meta data about the notes that a contact has. Up to 10 will be displayed here. Use the url to get more.
   final SdkOptional<ContactNotes> notes;
-
   /// An object with metadata about companies attached to a contact . Up to 10 will be displayed here. Use the url to get more.
   final SdkOptional<ContactCompanies> companies;
-
   /// An object containing location meta data about a Intercom contact.
   final SdkOptional<ContactLocation> location;
-
   /// An object containing social profiles that a contact has.
   final SdkOptional<ContactSocialProfiles> socialProfiles;
-
   /// A list of contacts that were merged into this contact. Only included in the response when `include_merge_history=true` is passed as a query parameter. Only available for contacts with a `user` role.
   final SdkOptional<List<MergeHistoryItem>?> mergeHistory;
-
   /// If the user has enabled push messaging.
   final SdkOptional<bool?> enabledPushMessaging;
 
-  const UpdateContactResponse(
-      {this.type_ = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.externalId = const SdkOmitted(),
-      this.workspaceId = const SdkOmitted(),
-      this.role = const SdkOmitted(),
-      this.email = const SdkOmitted(),
-      this.emailDomain = const SdkOmitted(),
-      this.emailVerified = const SdkOmitted(),
-      this.phone = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.ownerId = const SdkOmitted(),
-      this.hasHardBounced = const SdkOmitted(),
-      this.markedEmailAsSpam = const SdkOmitted(),
-      this.unsubscribedFromEmails = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.updatedAt = const SdkOmitted(),
-      this.signedUpAt = const SdkOmitted(),
-      this.lastSeenAt = const SdkOmitted(),
-      this.lastRepliedAt = const SdkOmitted(),
-      this.lastContactedAt = const SdkOmitted(),
-      this.lastEmailOpenedAt = const SdkOmitted(),
-      this.lastEmailClickedAt = const SdkOmitted(),
-      this.languageOverride = const SdkOmitted(),
-      this.browser = const SdkOmitted(),
-      this.browserVersion = const SdkOmitted(),
-      this.browserLanguage = const SdkOmitted(),
-      this.os = const SdkOmitted(),
-      this.androidAppName = const SdkOmitted(),
-      this.androidAppVersion = const SdkOmitted(),
-      this.androidDevice = const SdkOmitted(),
-      this.androidOsVersion = const SdkOmitted(),
-      this.androidSdkVersion = const SdkOmitted(),
-      this.androidLastSeenAt = const SdkOmitted(),
-      this.iosAppName = const SdkOmitted(),
-      this.iosAppVersion = const SdkOmitted(),
-      this.iosDevice = const SdkOmitted(),
-      this.iosOsVersion = const SdkOmitted(),
-      this.iosSdkVersion = const SdkOmitted(),
-      this.iosLastSeenAt = const SdkOmitted(),
-      this.customAttributes = const SdkOmitted(),
-      this.avatar = const SdkOmitted(),
-      this.tags = const SdkOmitted(),
-      this.notes = const SdkOmitted(),
-      this.companies = const SdkOmitted(),
-      this.location = const SdkOmitted(),
-      this.socialProfiles = const SdkOmitted(),
-      this.mergeHistory = const SdkOmitted(),
-      this.enabledPushMessaging = const SdkOmitted()});
+  const UpdateContactResponse({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.externalId = const SdkOmitted(), this.workspaceId = const SdkOmitted(), this.role = const SdkOmitted(), this.email = const SdkOmitted(), this.emailDomain = const SdkOmitted(), this.emailVerified = const SdkOmitted(), this.phone = const SdkOmitted(), this.name = const SdkOmitted(), this.ownerId = const SdkOmitted(), this.hasHardBounced = const SdkOmitted(), this.markedEmailAsSpam = const SdkOmitted(), this.unsubscribedFromEmails = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.signedUpAt = const SdkOmitted(), this.lastSeenAt = const SdkOmitted(), this.lastRepliedAt = const SdkOmitted(), this.lastContactedAt = const SdkOmitted(), this.lastEmailOpenedAt = const SdkOmitted(), this.lastEmailClickedAt = const SdkOmitted(), this.languageOverride = const SdkOmitted(), this.browser = const SdkOmitted(), this.browserVersion = const SdkOmitted(), this.browserLanguage = const SdkOmitted(), this.os = const SdkOmitted(), this.androidAppName = const SdkOmitted(), this.androidAppVersion = const SdkOmitted(), this.androidDevice = const SdkOmitted(), this.androidOsVersion = const SdkOmitted(), this.androidSdkVersion = const SdkOmitted(), this.androidLastSeenAt = const SdkOmitted(), this.iosAppName = const SdkOmitted(), this.iosAppVersion = const SdkOmitted(), this.iosDevice = const SdkOmitted(), this.iosOsVersion = const SdkOmitted(), this.iosSdkVersion = const SdkOmitted(), this.iosLastSeenAt = const SdkOmitted(), this.customAttributes = const SdkOmitted(), this.avatar = const SdkOmitted(), this.tags = const SdkOmitted(), this.notes = const SdkOmitted(), this.companies = const SdkOmitted(), this.location = const SdkOmitted(), this.socialProfiles = const SdkOmitted(), this.mergeHistory = const SdkOmitted(), this.enabledPushMessaging = const SdkOmitted()});
 
-  UpdateContactResponse Function(
-      {SdkOptional<String> type_,
-      SdkOptional<String> id,
-      SdkOptional<String?> externalId,
-      SdkOptional<String> workspaceId,
-      SdkOptional<String> role,
-      SdkOptional<String> email,
-      SdkOptional<String> emailDomain,
-      SdkOptional<bool> emailVerified,
-      SdkOptional<String?> phone,
-      SdkOptional<String?> name,
-      SdkOptional<String?> ownerId,
-      SdkOptional<bool> hasHardBounced,
-      SdkOptional<bool> markedEmailAsSpam,
-      SdkOptional<bool> unsubscribedFromEmails,
-      SdkOptional<int> createdAt,
-      SdkOptional<int> updatedAt,
-      SdkOptional<int?> signedUpAt,
-      SdkOptional<int?> lastSeenAt,
-      SdkOptional<int?> lastRepliedAt,
-      SdkOptional<int?> lastContactedAt,
-      SdkOptional<int?> lastEmailOpenedAt,
-      SdkOptional<int?> lastEmailClickedAt,
-      SdkOptional<String?> languageOverride,
-      SdkOptional<String?> browser,
-      SdkOptional<String?> browserVersion,
-      SdkOptional<String?> browserLanguage,
-      SdkOptional<String?> os,
-      SdkOptional<String?> androidAppName,
-      SdkOptional<String?> androidAppVersion,
-      SdkOptional<String?> androidDevice,
-      SdkOptional<String?> androidOsVersion,
-      SdkOptional<String?> androidSdkVersion,
-      SdkOptional<int?> androidLastSeenAt,
-      SdkOptional<String?> iosAppName,
-      SdkOptional<String?> iosAppVersion,
-      SdkOptional<String?> iosDevice,
-      SdkOptional<String?> iosOsVersion,
-      SdkOptional<String?> iosSdkVersion,
-      SdkOptional<int?> iosLastSeenAt,
-      SdkOptional<Map<String, dynamic>> customAttributes,
-      SdkOptional<UpdateContactResponseAvatar?> avatar,
-      SdkOptional<ContactTags?> tags,
-      SdkOptional<ContactNotes> notes,
-      SdkOptional<ContactCompanies> companies,
-      SdkOptional<ContactLocation> location,
-      SdkOptional<ContactSocialProfiles> socialProfiles,
-      SdkOptional<List<MergeHistoryItem>?> mergeHistory,
-      SdkOptional<bool?> enabledPushMessaging}) get copyWith => _copyWith;
+  UpdateContactResponse Function({SdkOptional<String> type_, SdkOptional<String> id, SdkOptional<String?> externalId, SdkOptional<String> workspaceId, SdkOptional<String> role, SdkOptional<String> email, SdkOptional<String> emailDomain, SdkOptional<bool> emailVerified, SdkOptional<String?> phone, SdkOptional<String?> name, SdkOptional<String?> ownerId, SdkOptional<bool> hasHardBounced, SdkOptional<bool> markedEmailAsSpam, SdkOptional<bool> unsubscribedFromEmails, SdkOptional<int> createdAt, SdkOptional<int> updatedAt, SdkOptional<int?> signedUpAt, SdkOptional<int?> lastSeenAt, SdkOptional<int?> lastRepliedAt, SdkOptional<int?> lastContactedAt, SdkOptional<int?> lastEmailOpenedAt, SdkOptional<int?> lastEmailClickedAt, SdkOptional<String?> languageOverride, SdkOptional<String?> browser, SdkOptional<String?> browserVersion, SdkOptional<String?> browserLanguage, SdkOptional<String?> os, SdkOptional<String?> androidAppName, SdkOptional<String?> androidAppVersion, SdkOptional<String?> androidDevice, SdkOptional<String?> androidOsVersion, SdkOptional<String?> androidSdkVersion, SdkOptional<int?> androidLastSeenAt, SdkOptional<String?> iosAppName, SdkOptional<String?> iosAppVersion, SdkOptional<String?> iosDevice, SdkOptional<String?> iosOsVersion, SdkOptional<String?> iosSdkVersion, SdkOptional<int?> iosLastSeenAt, SdkOptional<Map<String, dynamic>> customAttributes, SdkOptional<UpdateContactResponseAvatar?> avatar, SdkOptional<ContactTags?> tags, SdkOptional<ContactNotes> notes, SdkOptional<ContactCompanies> companies, SdkOptional<ContactLocation> location, SdkOptional<ContactSocialProfiles> socialProfiles, SdkOptional<List<MergeHistoryItem>?> mergeHistory, SdkOptional<bool?> enabledPushMessaging}) get copyWith => _copyWith;
 
-  UpdateContactResponse _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? externalId = sdkOmittedValue,
-          Object? workspaceId = sdkOmittedValue,
-          Object? role = sdkOmittedValue,
-          Object? email = sdkOmittedValue,
-          Object? emailDomain = sdkOmittedValue,
-          Object? emailVerified = sdkOmittedValue,
-          Object? phone = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? ownerId = sdkOmittedValue,
-          Object? hasHardBounced = sdkOmittedValue,
-          Object? markedEmailAsSpam = sdkOmittedValue,
-          Object? unsubscribedFromEmails = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue,
-          Object? signedUpAt = sdkOmittedValue,
-          Object? lastSeenAt = sdkOmittedValue,
-          Object? lastRepliedAt = sdkOmittedValue,
-          Object? lastContactedAt = sdkOmittedValue,
-          Object? lastEmailOpenedAt = sdkOmittedValue,
-          Object? lastEmailClickedAt = sdkOmittedValue,
-          Object? languageOverride = sdkOmittedValue,
-          Object? browser = sdkOmittedValue,
-          Object? browserVersion = sdkOmittedValue,
-          Object? browserLanguage = sdkOmittedValue,
-          Object? os = sdkOmittedValue,
-          Object? androidAppName = sdkOmittedValue,
-          Object? androidAppVersion = sdkOmittedValue,
-          Object? androidDevice = sdkOmittedValue,
-          Object? androidOsVersion = sdkOmittedValue,
-          Object? androidSdkVersion = sdkOmittedValue,
-          Object? androidLastSeenAt = sdkOmittedValue,
-          Object? iosAppName = sdkOmittedValue,
-          Object? iosAppVersion = sdkOmittedValue,
-          Object? iosDevice = sdkOmittedValue,
-          Object? iosOsVersion = sdkOmittedValue,
-          Object? iosSdkVersion = sdkOmittedValue,
-          Object? iosLastSeenAt = sdkOmittedValue,
-          Object? customAttributes = sdkOmittedValue,
-          Object? avatar = sdkOmittedValue,
-          Object? tags = sdkOmittedValue,
-          Object? notes = sdkOmittedValue,
-          Object? companies = sdkOmittedValue,
-          Object? location = sdkOmittedValue,
-          Object? socialProfiles = sdkOmittedValue,
-          Object? mergeHistory = sdkOmittedValue,
-          Object? enabledPushMessaging = sdkOmittedValue}) =>
-      UpdateContactResponse(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        externalId: identical(externalId, sdkOmittedValue)
-            ? this.externalId
-            : externalId as SdkOptional<String?>,
-        workspaceId: identical(workspaceId, sdkOmittedValue)
-            ? this.workspaceId
-            : workspaceId as SdkOptional<String>,
-        role: identical(role, sdkOmittedValue)
-            ? this.role
-            : role as SdkOptional<String>,
-        email: identical(email, sdkOmittedValue)
-            ? this.email
-            : email as SdkOptional<String>,
-        emailDomain: identical(emailDomain, sdkOmittedValue)
-            ? this.emailDomain
-            : emailDomain as SdkOptional<String>,
-        emailVerified: identical(emailVerified, sdkOmittedValue)
-            ? this.emailVerified
-            : emailVerified as SdkOptional<bool>,
-        phone: identical(phone, sdkOmittedValue)
-            ? this.phone
-            : phone as SdkOptional<String?>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String?>,
-        ownerId: identical(ownerId, sdkOmittedValue)
-            ? this.ownerId
-            : ownerId as SdkOptional<String?>,
-        hasHardBounced: identical(hasHardBounced, sdkOmittedValue)
-            ? this.hasHardBounced
-            : hasHardBounced as SdkOptional<bool>,
-        markedEmailAsSpam: identical(markedEmailAsSpam, sdkOmittedValue)
-            ? this.markedEmailAsSpam
-            : markedEmailAsSpam as SdkOptional<bool>,
-        unsubscribedFromEmails:
-            identical(unsubscribedFromEmails, sdkOmittedValue)
-                ? this.unsubscribedFromEmails
-                : unsubscribedFromEmails as SdkOptional<bool>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<int>,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as SdkOptional<int>,
-        signedUpAt: identical(signedUpAt, sdkOmittedValue)
-            ? this.signedUpAt
-            : signedUpAt as SdkOptional<int?>,
-        lastSeenAt: identical(lastSeenAt, sdkOmittedValue)
-            ? this.lastSeenAt
-            : lastSeenAt as SdkOptional<int?>,
-        lastRepliedAt: identical(lastRepliedAt, sdkOmittedValue)
-            ? this.lastRepliedAt
-            : lastRepliedAt as SdkOptional<int?>,
-        lastContactedAt: identical(lastContactedAt, sdkOmittedValue)
-            ? this.lastContactedAt
-            : lastContactedAt as SdkOptional<int?>,
-        lastEmailOpenedAt: identical(lastEmailOpenedAt, sdkOmittedValue)
-            ? this.lastEmailOpenedAt
-            : lastEmailOpenedAt as SdkOptional<int?>,
-        lastEmailClickedAt: identical(lastEmailClickedAt, sdkOmittedValue)
-            ? this.lastEmailClickedAt
-            : lastEmailClickedAt as SdkOptional<int?>,
-        languageOverride: identical(languageOverride, sdkOmittedValue)
-            ? this.languageOverride
-            : languageOverride as SdkOptional<String?>,
-        browser: identical(browser, sdkOmittedValue)
-            ? this.browser
-            : browser as SdkOptional<String?>,
-        browserVersion: identical(browserVersion, sdkOmittedValue)
-            ? this.browserVersion
-            : browserVersion as SdkOptional<String?>,
-        browserLanguage: identical(browserLanguage, sdkOmittedValue)
-            ? this.browserLanguage
-            : browserLanguage as SdkOptional<String?>,
-        os: identical(os, sdkOmittedValue)
-            ? this.os
-            : os as SdkOptional<String?>,
-        androidAppName: identical(androidAppName, sdkOmittedValue)
-            ? this.androidAppName
-            : androidAppName as SdkOptional<String?>,
-        androidAppVersion: identical(androidAppVersion, sdkOmittedValue)
-            ? this.androidAppVersion
-            : androidAppVersion as SdkOptional<String?>,
-        androidDevice: identical(androidDevice, sdkOmittedValue)
-            ? this.androidDevice
-            : androidDevice as SdkOptional<String?>,
-        androidOsVersion: identical(androidOsVersion, sdkOmittedValue)
-            ? this.androidOsVersion
-            : androidOsVersion as SdkOptional<String?>,
-        androidSdkVersion: identical(androidSdkVersion, sdkOmittedValue)
-            ? this.androidSdkVersion
-            : androidSdkVersion as SdkOptional<String?>,
-        androidLastSeenAt: identical(androidLastSeenAt, sdkOmittedValue)
-            ? this.androidLastSeenAt
-            : androidLastSeenAt as SdkOptional<int?>,
-        iosAppName: identical(iosAppName, sdkOmittedValue)
-            ? this.iosAppName
-            : iosAppName as SdkOptional<String?>,
-        iosAppVersion: identical(iosAppVersion, sdkOmittedValue)
-            ? this.iosAppVersion
-            : iosAppVersion as SdkOptional<String?>,
-        iosDevice: identical(iosDevice, sdkOmittedValue)
-            ? this.iosDevice
-            : iosDevice as SdkOptional<String?>,
-        iosOsVersion: identical(iosOsVersion, sdkOmittedValue)
-            ? this.iosOsVersion
-            : iosOsVersion as SdkOptional<String?>,
-        iosSdkVersion: identical(iosSdkVersion, sdkOmittedValue)
-            ? this.iosSdkVersion
-            : iosSdkVersion as SdkOptional<String?>,
-        iosLastSeenAt: identical(iosLastSeenAt, sdkOmittedValue)
-            ? this.iosLastSeenAt
-            : iosLastSeenAt as SdkOptional<int?>,
-        customAttributes: identical(customAttributes, sdkOmittedValue)
-            ? this.customAttributes
-            : customAttributes as SdkOptional<Map<String, dynamic>>,
-        avatar: identical(avatar, sdkOmittedValue)
-            ? this.avatar
-            : avatar as SdkOptional<UpdateContactResponseAvatar?>,
-        tags: identical(tags, sdkOmittedValue)
-            ? this.tags
-            : tags as SdkOptional<ContactTags?>,
-        notes: identical(notes, sdkOmittedValue)
-            ? this.notes
-            : notes as SdkOptional<ContactNotes>,
-        companies: identical(companies, sdkOmittedValue)
-            ? this.companies
-            : companies as SdkOptional<ContactCompanies>,
-        location: identical(location, sdkOmittedValue)
-            ? this.location
-            : location as SdkOptional<ContactLocation>,
-        socialProfiles: identical(socialProfiles, sdkOmittedValue)
-            ? this.socialProfiles
-            : socialProfiles as SdkOptional<ContactSocialProfiles>,
-        mergeHistory: identical(mergeHistory, sdkOmittedValue)
-            ? this.mergeHistory
-            : mergeHistory as SdkOptional<List<MergeHistoryItem>?>,
-        enabledPushMessaging: identical(enabledPushMessaging, sdkOmittedValue)
-            ? this.enabledPushMessaging
-            : enabledPushMessaging as SdkOptional<bool?>,
-      );
+  UpdateContactResponse _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? externalId = sdkOmittedValue, Object? workspaceId = sdkOmittedValue, Object? role = sdkOmittedValue, Object? email = sdkOmittedValue, Object? emailDomain = sdkOmittedValue, Object? emailVerified = sdkOmittedValue, Object? phone = sdkOmittedValue, Object? name = sdkOmittedValue, Object? ownerId = sdkOmittedValue, Object? hasHardBounced = sdkOmittedValue, Object? markedEmailAsSpam = sdkOmittedValue, Object? unsubscribedFromEmails = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? signedUpAt = sdkOmittedValue, Object? lastSeenAt = sdkOmittedValue, Object? lastRepliedAt = sdkOmittedValue, Object? lastContactedAt = sdkOmittedValue, Object? lastEmailOpenedAt = sdkOmittedValue, Object? lastEmailClickedAt = sdkOmittedValue, Object? languageOverride = sdkOmittedValue, Object? browser = sdkOmittedValue, Object? browserVersion = sdkOmittedValue, Object? browserLanguage = sdkOmittedValue, Object? os = sdkOmittedValue, Object? androidAppName = sdkOmittedValue, Object? androidAppVersion = sdkOmittedValue, Object? androidDevice = sdkOmittedValue, Object? androidOsVersion = sdkOmittedValue, Object? androidSdkVersion = sdkOmittedValue, Object? androidLastSeenAt = sdkOmittedValue, Object? iosAppName = sdkOmittedValue, Object? iosAppVersion = sdkOmittedValue, Object? iosDevice = sdkOmittedValue, Object? iosOsVersion = sdkOmittedValue, Object? iosSdkVersion = sdkOmittedValue, Object? iosLastSeenAt = sdkOmittedValue, Object? customAttributes = sdkOmittedValue, Object? avatar = sdkOmittedValue, Object? tags = sdkOmittedValue, Object? notes = sdkOmittedValue, Object? companies = sdkOmittedValue, Object? location = sdkOmittedValue, Object? socialProfiles = sdkOmittedValue, Object? mergeHistory = sdkOmittedValue, Object? enabledPushMessaging = sdkOmittedValue}) => UpdateContactResponse(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    externalId: identical(externalId, sdkOmittedValue) ? this.externalId : externalId as SdkOptional<String?>,
+    workspaceId: identical(workspaceId, sdkOmittedValue) ? this.workspaceId : workspaceId as SdkOptional<String>,
+    role: identical(role, sdkOmittedValue) ? this.role : role as SdkOptional<String>,
+    email: identical(email, sdkOmittedValue) ? this.email : email as SdkOptional<String>,
+    emailDomain: identical(emailDomain, sdkOmittedValue) ? this.emailDomain : emailDomain as SdkOptional<String>,
+    emailVerified: identical(emailVerified, sdkOmittedValue) ? this.emailVerified : emailVerified as SdkOptional<bool>,
+    phone: identical(phone, sdkOmittedValue) ? this.phone : phone as SdkOptional<String?>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String?>,
+    ownerId: identical(ownerId, sdkOmittedValue) ? this.ownerId : ownerId as SdkOptional<String?>,
+    hasHardBounced: identical(hasHardBounced, sdkOmittedValue) ? this.hasHardBounced : hasHardBounced as SdkOptional<bool>,
+    markedEmailAsSpam: identical(markedEmailAsSpam, sdkOmittedValue) ? this.markedEmailAsSpam : markedEmailAsSpam as SdkOptional<bool>,
+    unsubscribedFromEmails: identical(unsubscribedFromEmails, sdkOmittedValue) ? this.unsubscribedFromEmails : unsubscribedFromEmails as SdkOptional<bool>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<int>,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<int>,
+    signedUpAt: identical(signedUpAt, sdkOmittedValue) ? this.signedUpAt : signedUpAt as SdkOptional<int?>,
+    lastSeenAt: identical(lastSeenAt, sdkOmittedValue) ? this.lastSeenAt : lastSeenAt as SdkOptional<int?>,
+    lastRepliedAt: identical(lastRepliedAt, sdkOmittedValue) ? this.lastRepliedAt : lastRepliedAt as SdkOptional<int?>,
+    lastContactedAt: identical(lastContactedAt, sdkOmittedValue) ? this.lastContactedAt : lastContactedAt as SdkOptional<int?>,
+    lastEmailOpenedAt: identical(lastEmailOpenedAt, sdkOmittedValue) ? this.lastEmailOpenedAt : lastEmailOpenedAt as SdkOptional<int?>,
+    lastEmailClickedAt: identical(lastEmailClickedAt, sdkOmittedValue) ? this.lastEmailClickedAt : lastEmailClickedAt as SdkOptional<int?>,
+    languageOverride: identical(languageOverride, sdkOmittedValue) ? this.languageOverride : languageOverride as SdkOptional<String?>,
+    browser: identical(browser, sdkOmittedValue) ? this.browser : browser as SdkOptional<String?>,
+    browserVersion: identical(browserVersion, sdkOmittedValue) ? this.browserVersion : browserVersion as SdkOptional<String?>,
+    browserLanguage: identical(browserLanguage, sdkOmittedValue) ? this.browserLanguage : browserLanguage as SdkOptional<String?>,
+    os: identical(os, sdkOmittedValue) ? this.os : os as SdkOptional<String?>,
+    androidAppName: identical(androidAppName, sdkOmittedValue) ? this.androidAppName : androidAppName as SdkOptional<String?>,
+    androidAppVersion: identical(androidAppVersion, sdkOmittedValue) ? this.androidAppVersion : androidAppVersion as SdkOptional<String?>,
+    androidDevice: identical(androidDevice, sdkOmittedValue) ? this.androidDevice : androidDevice as SdkOptional<String?>,
+    androidOsVersion: identical(androidOsVersion, sdkOmittedValue) ? this.androidOsVersion : androidOsVersion as SdkOptional<String?>,
+    androidSdkVersion: identical(androidSdkVersion, sdkOmittedValue) ? this.androidSdkVersion : androidSdkVersion as SdkOptional<String?>,
+    androidLastSeenAt: identical(androidLastSeenAt, sdkOmittedValue) ? this.androidLastSeenAt : androidLastSeenAt as SdkOptional<int?>,
+    iosAppName: identical(iosAppName, sdkOmittedValue) ? this.iosAppName : iosAppName as SdkOptional<String?>,
+    iosAppVersion: identical(iosAppVersion, sdkOmittedValue) ? this.iosAppVersion : iosAppVersion as SdkOptional<String?>,
+    iosDevice: identical(iosDevice, sdkOmittedValue) ? this.iosDevice : iosDevice as SdkOptional<String?>,
+    iosOsVersion: identical(iosOsVersion, sdkOmittedValue) ? this.iosOsVersion : iosOsVersion as SdkOptional<String?>,
+    iosSdkVersion: identical(iosSdkVersion, sdkOmittedValue) ? this.iosSdkVersion : iosSdkVersion as SdkOptional<String?>,
+    iosLastSeenAt: identical(iosLastSeenAt, sdkOmittedValue) ? this.iosLastSeenAt : iosLastSeenAt as SdkOptional<int?>,
+    customAttributes: identical(customAttributes, sdkOmittedValue) ? this.customAttributes : customAttributes as SdkOptional<Map<String, dynamic>>,
+    avatar: identical(avatar, sdkOmittedValue) ? this.avatar : avatar as SdkOptional<UpdateContactResponseAvatar?>,
+    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<ContactTags?>,
+    notes: identical(notes, sdkOmittedValue) ? this.notes : notes as SdkOptional<ContactNotes>,
+    companies: identical(companies, sdkOmittedValue) ? this.companies : companies as SdkOptional<ContactCompanies>,
+    location: identical(location, sdkOmittedValue) ? this.location : location as SdkOptional<ContactLocation>,
+    socialProfiles: identical(socialProfiles, sdkOmittedValue) ? this.socialProfiles : socialProfiles as SdkOptional<ContactSocialProfiles>,
+    mergeHistory: identical(mergeHistory, sdkOmittedValue) ? this.mergeHistory : mergeHistory as SdkOptional<List<MergeHistoryItem>?>,
+    enabledPushMessaging: identical(enabledPushMessaging, sdkOmittedValue) ? this.enabledPushMessaging : enabledPushMessaging as SdkOptional<bool?>,
+  );
 
-  factory UpdateContactResponse.fromJson(Map<String, dynamic> json) =>
-      UpdateContactResponse(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        externalId: json.containsKey('external_id')
-            ? SdkPresent(json['external_id'] as String?)
-            : const SdkOmitted(),
-        workspaceId: json['workspace_id'] != null
-            ? SdkPresent((json['workspace_id'] as String?)!)
-            : const SdkOmitted(),
-        role: json['role'] != null
-            ? SdkPresent((json['role'] as String?)!)
-            : const SdkOmitted(),
-        email: json['email'] != null
-            ? SdkPresent((json['email'] as String?)!)
-            : const SdkOmitted(),
-        emailDomain: json['email_domain'] != null
-            ? SdkPresent((json['email_domain'] as String?)!)
-            : const SdkOmitted(),
-        emailVerified: json['email_verified'] != null
-            ? SdkPresent((json['email_verified'] as bool?)!)
-            : const SdkOmitted(),
-        phone: json.containsKey('phone')
-            ? SdkPresent(json['phone'] as String?)
-            : const SdkOmitted(),
-        name: json.containsKey('name')
-            ? SdkPresent(json['name'] as String?)
-            : const SdkOmitted(),
-        ownerId: json.containsKey('owner_id')
-            ? SdkPresent(json['owner_id'] as String?)
-            : const SdkOmitted(),
-        hasHardBounced: json['has_hard_bounced'] != null
-            ? SdkPresent((json['has_hard_bounced'] as bool?)!)
-            : const SdkOmitted(),
-        markedEmailAsSpam: json['marked_email_as_spam'] != null
-            ? SdkPresent((json['marked_email_as_spam'] as bool?)!)
-            : const SdkOmitted(),
-        unsubscribedFromEmails: json['unsubscribed_from_emails'] != null
-            ? SdkPresent((json['unsubscribed_from_emails'] as bool?)!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent(((json['created_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        updatedAt: json['updated_at'] != null
-            ? SdkPresent(((json['updated_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        signedUpAt: json.containsKey('signed_up_at')
-            ? SdkPresent((json['signed_up_at'] as num?)?.toInt())
-            : const SdkOmitted(),
-        lastSeenAt: json.containsKey('last_seen_at')
-            ? SdkPresent((json['last_seen_at'] as num?)?.toInt())
-            : const SdkOmitted(),
-        lastRepliedAt: json.containsKey('last_replied_at')
-            ? SdkPresent((json['last_replied_at'] as num?)?.toInt())
-            : const SdkOmitted(),
-        lastContactedAt: json.containsKey('last_contacted_at')
-            ? SdkPresent((json['last_contacted_at'] as num?)?.toInt())
-            : const SdkOmitted(),
-        lastEmailOpenedAt: json.containsKey('last_email_opened_at')
-            ? SdkPresent((json['last_email_opened_at'] as num?)?.toInt())
-            : const SdkOmitted(),
-        lastEmailClickedAt: json.containsKey('last_email_clicked_at')
-            ? SdkPresent((json['last_email_clicked_at'] as num?)?.toInt())
-            : const SdkOmitted(),
-        languageOverride: json.containsKey('language_override')
-            ? SdkPresent(json['language_override'] as String?)
-            : const SdkOmitted(),
-        browser: json.containsKey('browser')
-            ? SdkPresent(json['browser'] as String?)
-            : const SdkOmitted(),
-        browserVersion: json.containsKey('browser_version')
-            ? SdkPresent(json['browser_version'] as String?)
-            : const SdkOmitted(),
-        browserLanguage: json.containsKey('browser_language')
-            ? SdkPresent(json['browser_language'] as String?)
-            : const SdkOmitted(),
-        os: json.containsKey('os')
-            ? SdkPresent(json['os'] as String?)
-            : const SdkOmitted(),
-        androidAppName: json.containsKey('android_app_name')
-            ? SdkPresent(json['android_app_name'] as String?)
-            : const SdkOmitted(),
-        androidAppVersion: json.containsKey('android_app_version')
-            ? SdkPresent(json['android_app_version'] as String?)
-            : const SdkOmitted(),
-        androidDevice: json.containsKey('android_device')
-            ? SdkPresent(json['android_device'] as String?)
-            : const SdkOmitted(),
-        androidOsVersion: json.containsKey('android_os_version')
-            ? SdkPresent(json['android_os_version'] as String?)
-            : const SdkOmitted(),
-        androidSdkVersion: json.containsKey('android_sdk_version')
-            ? SdkPresent(json['android_sdk_version'] as String?)
-            : const SdkOmitted(),
-        androidLastSeenAt: json.containsKey('android_last_seen_at')
-            ? SdkPresent((json['android_last_seen_at'] as num?)?.toInt())
-            : const SdkOmitted(),
-        iosAppName: json.containsKey('ios_app_name')
-            ? SdkPresent(json['ios_app_name'] as String?)
-            : const SdkOmitted(),
-        iosAppVersion: json.containsKey('ios_app_version')
-            ? SdkPresent(json['ios_app_version'] as String?)
-            : const SdkOmitted(),
-        iosDevice: json.containsKey('ios_device')
-            ? SdkPresent(json['ios_device'] as String?)
-            : const SdkOmitted(),
-        iosOsVersion: json.containsKey('ios_os_version')
-            ? SdkPresent(json['ios_os_version'] as String?)
-            : const SdkOmitted(),
-        iosSdkVersion: json.containsKey('ios_sdk_version')
-            ? SdkPresent(json['ios_sdk_version'] as String?)
-            : const SdkOmitted(),
-        iosLastSeenAt: json.containsKey('ios_last_seen_at')
-            ? SdkPresent((json['ios_last_seen_at'] as num?)?.toInt())
-            : const SdkOmitted(),
-        customAttributes: json['custom_attributes'] != null
-            ? SdkPresent((json['custom_attributes'] == null
-                ? null
-                : json['custom_attributes'] as Map<String, dynamic>)!)
-            : const SdkOmitted(),
-        avatar: json.containsKey('avatar')
-            ? SdkPresent(json['avatar'] != null
-                ? UpdateContactResponseAvatar.fromJson(
-                    json['avatar'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        tags: json.containsKey('tags')
-            ? SdkPresent(json['tags'] != null
-                ? ContactTags.fromJson(json['tags'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        notes: json['notes'] != null
-            ? SdkPresent((json['notes'] != null
-                ? ContactNotes.fromJson(json['notes'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        companies: json['companies'] != null
-            ? SdkPresent((json['companies'] != null
-                ? ContactCompanies.fromJson(
-                    json['companies'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        location: json['location'] != null
-            ? SdkPresent((json['location'] != null
-                ? ContactLocation.fromJson(
-                    json['location'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        socialProfiles: json['social_profiles'] != null
-            ? SdkPresent((json['social_profiles'] != null
-                ? ContactSocialProfiles.fromJson(
-                    json['social_profiles'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        mergeHistory: json.containsKey('merge_history')
-            ? SdkPresent((json['merge_history'] as List?)
-                ?.map(
-                    (e) => MergeHistoryItem.fromJson(e as Map<String, dynamic>))
-                .toList())
-            : const SdkOmitted(),
-        enabledPushMessaging: json.containsKey('enabled_push_messaging')
-            ? SdkPresent(json['enabled_push_messaging'] as bool?)
-            : const SdkOmitted(),
-      );
+  factory UpdateContactResponse.fromJson(Map<String, dynamic> json) => UpdateContactResponse(
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    externalId: json.containsKey('external_id') ? SdkPresent(json['external_id'] as String?) : const SdkOmitted(),
+    workspaceId: json['workspace_id'] != null ? SdkPresent((json['workspace_id'] as String?)!) : const SdkOmitted(),
+    role: json['role'] != null ? SdkPresent((json['role'] as String?)!) : const SdkOmitted(),
+    email: json['email'] != null ? SdkPresent((json['email'] as String?)!) : const SdkOmitted(),
+    emailDomain: json['email_domain'] != null ? SdkPresent((json['email_domain'] as String?)!) : const SdkOmitted(),
+    emailVerified: json['email_verified'] != null ? SdkPresent((json['email_verified'] as bool?)!) : const SdkOmitted(),
+    phone: json.containsKey('phone') ? SdkPresent(json['phone'] as String?) : const SdkOmitted(),
+    name: json.containsKey('name') ? SdkPresent(json['name'] as String?) : const SdkOmitted(),
+    ownerId: json.containsKey('owner_id') ? SdkPresent(json['owner_id'] as String?) : const SdkOmitted(),
+    hasHardBounced: json['has_hard_bounced'] != null ? SdkPresent((json['has_hard_bounced'] as bool?)!) : const SdkOmitted(),
+    markedEmailAsSpam: json['marked_email_as_spam'] != null ? SdkPresent((json['marked_email_as_spam'] as bool?)!) : const SdkOmitted(),
+    unsubscribedFromEmails: json['unsubscribed_from_emails'] != null ? SdkPresent((json['unsubscribed_from_emails'] as bool?)!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent(((json['created_at'] as num?)?.toInt())!) : const SdkOmitted(),
+    updatedAt: json['updated_at'] != null ? SdkPresent(((json['updated_at'] as num?)?.toInt())!) : const SdkOmitted(),
+    signedUpAt: json.containsKey('signed_up_at') ? SdkPresent((json['signed_up_at'] as num?)?.toInt()) : const SdkOmitted(),
+    lastSeenAt: json.containsKey('last_seen_at') ? SdkPresent((json['last_seen_at'] as num?)?.toInt()) : const SdkOmitted(),
+    lastRepliedAt: json.containsKey('last_replied_at') ? SdkPresent((json['last_replied_at'] as num?)?.toInt()) : const SdkOmitted(),
+    lastContactedAt: json.containsKey('last_contacted_at') ? SdkPresent((json['last_contacted_at'] as num?)?.toInt()) : const SdkOmitted(),
+    lastEmailOpenedAt: json.containsKey('last_email_opened_at') ? SdkPresent((json['last_email_opened_at'] as num?)?.toInt()) : const SdkOmitted(),
+    lastEmailClickedAt: json.containsKey('last_email_clicked_at') ? SdkPresent((json['last_email_clicked_at'] as num?)?.toInt()) : const SdkOmitted(),
+    languageOverride: json.containsKey('language_override') ? SdkPresent(json['language_override'] as String?) : const SdkOmitted(),
+    browser: json.containsKey('browser') ? SdkPresent(json['browser'] as String?) : const SdkOmitted(),
+    browserVersion: json.containsKey('browser_version') ? SdkPresent(json['browser_version'] as String?) : const SdkOmitted(),
+    browserLanguage: json.containsKey('browser_language') ? SdkPresent(json['browser_language'] as String?) : const SdkOmitted(),
+    os: json.containsKey('os') ? SdkPresent(json['os'] as String?) : const SdkOmitted(),
+    androidAppName: json.containsKey('android_app_name') ? SdkPresent(json['android_app_name'] as String?) : const SdkOmitted(),
+    androidAppVersion: json.containsKey('android_app_version') ? SdkPresent(json['android_app_version'] as String?) : const SdkOmitted(),
+    androidDevice: json.containsKey('android_device') ? SdkPresent(json['android_device'] as String?) : const SdkOmitted(),
+    androidOsVersion: json.containsKey('android_os_version') ? SdkPresent(json['android_os_version'] as String?) : const SdkOmitted(),
+    androidSdkVersion: json.containsKey('android_sdk_version') ? SdkPresent(json['android_sdk_version'] as String?) : const SdkOmitted(),
+    androidLastSeenAt: json.containsKey('android_last_seen_at') ? SdkPresent((json['android_last_seen_at'] as num?)?.toInt()) : const SdkOmitted(),
+    iosAppName: json.containsKey('ios_app_name') ? SdkPresent(json['ios_app_name'] as String?) : const SdkOmitted(),
+    iosAppVersion: json.containsKey('ios_app_version') ? SdkPresent(json['ios_app_version'] as String?) : const SdkOmitted(),
+    iosDevice: json.containsKey('ios_device') ? SdkPresent(json['ios_device'] as String?) : const SdkOmitted(),
+    iosOsVersion: json.containsKey('ios_os_version') ? SdkPresent(json['ios_os_version'] as String?) : const SdkOmitted(),
+    iosSdkVersion: json.containsKey('ios_sdk_version') ? SdkPresent(json['ios_sdk_version'] as String?) : const SdkOmitted(),
+    iosLastSeenAt: json.containsKey('ios_last_seen_at') ? SdkPresent((json['ios_last_seen_at'] as num?)?.toInt()) : const SdkOmitted(),
+    customAttributes: json['custom_attributes'] != null ? SdkPresent((json['custom_attributes'] == null ? null : json['custom_attributes'] as Map<String, dynamic>)!) : const SdkOmitted(),
+    avatar: json.containsKey('avatar') ? SdkPresent(json['avatar'] != null ? UpdateContactResponseAvatar.fromJson(json['avatar'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    tags: json.containsKey('tags') ? SdkPresent(json['tags'] != null ? ContactTags.fromJson(json['tags'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    notes: json['notes'] != null ? SdkPresent((json['notes'] != null ? ContactNotes.fromJson(json['notes'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    companies: json['companies'] != null ? SdkPresent((json['companies'] != null ? ContactCompanies.fromJson(json['companies'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    location: json['location'] != null ? SdkPresent((json['location'] != null ? ContactLocation.fromJson(json['location'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    socialProfiles: json['social_profiles'] != null ? SdkPresent((json['social_profiles'] != null ? ContactSocialProfiles.fromJson(json['social_profiles'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    mergeHistory: json.containsKey('merge_history') ? SdkPresent((json['merge_history'] as List?)?.map((e) => MergeHistoryItem.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
+    enabledPushMessaging: json.containsKey('enabled_push_messaging') ? SdkPresent(json['enabled_push_messaging'] as bool?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (externalId) {
-          SdkPresent<String?>(value: final value) => {
-              'external_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (workspaceId) {
-          SdkPresent<String>(value: final value) => {
-              'workspace_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (role) {
-          SdkPresent<String>(value: final value) => {
-              'role': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (email) {
-          SdkPresent<String>(value: final value) => {
-              'email': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (emailDomain) {
-          SdkPresent<String>(value: final value) => {
-              'email_domain': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (emailVerified) {
-          SdkPresent<bool>(value: final value) => {
-              'email_verified': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (phone) {
-          SdkPresent<String?>(value: final value) => {
-              'phone': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String?>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ownerId) {
-          SdkPresent<String?>(value: final value) => {
-              'owner_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (hasHardBounced) {
-          SdkPresent<bool>(value: final value) => {
-              'has_hard_bounced': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (markedEmailAsSpam) {
-          SdkPresent<bool>(value: final value) => {
-              'marked_email_as_spam': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (unsubscribedFromEmails) {
-          SdkPresent<bool>(value: final value) => {
-              'unsubscribed_from_emails': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<int>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (updatedAt) {
-          SdkPresent<int>(value: final value) => {
-              'updated_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (signedUpAt) {
-          SdkPresent<int?>(value: final value) => {
-              'signed_up_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (lastSeenAt) {
-          SdkPresent<int?>(value: final value) => {
-              'last_seen_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (lastRepliedAt) {
-          SdkPresent<int?>(value: final value) => {
-              'last_replied_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (lastContactedAt) {
-          SdkPresent<int?>(value: final value) => {
-              'last_contacted_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (lastEmailOpenedAt) {
-          SdkPresent<int?>(value: final value) => {
-              'last_email_opened_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (lastEmailClickedAt) {
-          SdkPresent<int?>(value: final value) => {
-              'last_email_clicked_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (languageOverride) {
-          SdkPresent<String?>(value: final value) => {
-              'language_override': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (browser) {
-          SdkPresent<String?>(value: final value) => {
-              'browser': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (browserVersion) {
-          SdkPresent<String?>(value: final value) => {
-              'browser_version': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (browserLanguage) {
-          SdkPresent<String?>(value: final value) => {
-              'browser_language': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (os) {
-          SdkPresent<String?>(value: final value) => {
-              'os': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (androidAppName) {
-          SdkPresent<String?>(value: final value) => {
-              'android_app_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (androidAppVersion) {
-          SdkPresent<String?>(value: final value) => {
-              'android_app_version': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (androidDevice) {
-          SdkPresent<String?>(value: final value) => {
-              'android_device': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (androidOsVersion) {
-          SdkPresent<String?>(value: final value) => {
-              'android_os_version': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (androidSdkVersion) {
-          SdkPresent<String?>(value: final value) => {
-              'android_sdk_version': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (androidLastSeenAt) {
-          SdkPresent<int?>(value: final value) => {
-              'android_last_seen_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (iosAppName) {
-          SdkPresent<String?>(value: final value) => {
-              'ios_app_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (iosAppVersion) {
-          SdkPresent<String?>(value: final value) => {
-              'ios_app_version': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (iosDevice) {
-          SdkPresent<String?>(value: final value) => {
-              'ios_device': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (iosOsVersion) {
-          SdkPresent<String?>(value: final value) => {
-              'ios_os_version': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (iosSdkVersion) {
-          SdkPresent<String?>(value: final value) => {
-              'ios_sdk_version': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (iosLastSeenAt) {
-          SdkPresent<int?>(value: final value) => {
-              'ios_last_seen_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (customAttributes) {
-          SdkPresent<Map<String, dynamic>>(value: final value) => {
-              'custom_attributes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (avatar) {
-          SdkPresent<UpdateContactResponseAvatar?>(value: final value) => {
-              'avatar': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tags) {
-          SdkPresent<ContactTags?>(value: final value) => {
-              'tags': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (notes) {
-          SdkPresent<ContactNotes>(value: final value) => {
-              'notes': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (companies) {
-          SdkPresent<ContactCompanies>(value: final value) => {
-              'companies': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (location) {
-          SdkPresent<ContactLocation>(value: final value) => {
-              'location': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (socialProfiles) {
-          SdkPresent<ContactSocialProfiles>(value: final value) => {
-              'social_profiles': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (mergeHistory) {
-          SdkPresent<List<MergeHistoryItem>?>(value: final value) => {
-              'merge_history': value?.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (enabledPushMessaging) {
-          SdkPresent<bool?>(value: final value) => {
-              'enabled_push_messaging': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (externalId) {
+      SdkPresent<String?>(value: final value) => {'external_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (workspaceId) {
+      SdkPresent<String>(value: final value) => {'workspace_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (role) {
+      SdkPresent<String>(value: final value) => {'role': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (email) {
+      SdkPresent<String>(value: final value) => {'email': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (emailDomain) {
+      SdkPresent<String>(value: final value) => {'email_domain': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (emailVerified) {
+      SdkPresent<bool>(value: final value) => {'email_verified': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (phone) {
+      SdkPresent<String?>(value: final value) => {'phone': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String?>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ownerId) {
+      SdkPresent<String?>(value: final value) => {'owner_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (hasHardBounced) {
+      SdkPresent<bool>(value: final value) => {'has_hard_bounced': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (markedEmailAsSpam) {
+      SdkPresent<bool>(value: final value) => {'marked_email_as_spam': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (unsubscribedFromEmails) {
+      SdkPresent<bool>(value: final value) => {'unsubscribed_from_emails': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<int>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (updatedAt) {
+      SdkPresent<int>(value: final value) => {'updated_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (signedUpAt) {
+      SdkPresent<int?>(value: final value) => {'signed_up_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (lastSeenAt) {
+      SdkPresent<int?>(value: final value) => {'last_seen_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (lastRepliedAt) {
+      SdkPresent<int?>(value: final value) => {'last_replied_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (lastContactedAt) {
+      SdkPresent<int?>(value: final value) => {'last_contacted_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (lastEmailOpenedAt) {
+      SdkPresent<int?>(value: final value) => {'last_email_opened_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (lastEmailClickedAt) {
+      SdkPresent<int?>(value: final value) => {'last_email_clicked_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (languageOverride) {
+      SdkPresent<String?>(value: final value) => {'language_override': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (browser) {
+      SdkPresent<String?>(value: final value) => {'browser': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (browserVersion) {
+      SdkPresent<String?>(value: final value) => {'browser_version': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (browserLanguage) {
+      SdkPresent<String?>(value: final value) => {'browser_language': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (os) {
+      SdkPresent<String?>(value: final value) => {'os': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (androidAppName) {
+      SdkPresent<String?>(value: final value) => {'android_app_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (androidAppVersion) {
+      SdkPresent<String?>(value: final value) => {'android_app_version': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (androidDevice) {
+      SdkPresent<String?>(value: final value) => {'android_device': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (androidOsVersion) {
+      SdkPresent<String?>(value: final value) => {'android_os_version': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (androidSdkVersion) {
+      SdkPresent<String?>(value: final value) => {'android_sdk_version': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (androidLastSeenAt) {
+      SdkPresent<int?>(value: final value) => {'android_last_seen_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (iosAppName) {
+      SdkPresent<String?>(value: final value) => {'ios_app_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (iosAppVersion) {
+      SdkPresent<String?>(value: final value) => {'ios_app_version': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (iosDevice) {
+      SdkPresent<String?>(value: final value) => {'ios_device': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (iosOsVersion) {
+      SdkPresent<String?>(value: final value) => {'ios_os_version': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (iosSdkVersion) {
+      SdkPresent<String?>(value: final value) => {'ios_sdk_version': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (iosLastSeenAt) {
+      SdkPresent<int?>(value: final value) => {'ios_last_seen_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (customAttributes) {
+      SdkPresent<Map<String, dynamic>>(value: final value) => {'custom_attributes': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (avatar) {
+      SdkPresent<UpdateContactResponseAvatar?>(value: final value) => {'avatar': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tags) {
+      SdkPresent<ContactTags?>(value: final value) => {'tags': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (notes) {
+      SdkPresent<ContactNotes>(value: final value) => {'notes': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (companies) {
+      SdkPresent<ContactCompanies>(value: final value) => {'companies': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (location) {
+      SdkPresent<ContactLocation>(value: final value) => {'location': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (socialProfiles) {
+      SdkPresent<ContactSocialProfiles>(value: final value) => {'social_profiles': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (mergeHistory) {
+      SdkPresent<List<MergeHistoryItem>?>(value: final value) => {'merge_history': value?.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (enabledPushMessaging) {
+      SdkPresent<bool?>(value: final value) => {'enabled_push_messaging': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

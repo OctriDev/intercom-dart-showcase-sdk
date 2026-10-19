@@ -8,113 +8,67 @@ part of 'conversations.dart';
 class HandlingEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A reference to a teammate
   final TeammateReference teammate;
-
   /// The type of handling event
   final HandlingEventType type_;
-
   /// ISO8601 timestamp when the event occurred
   final String timestamp;
-
   /// Optional reason for the event (e.g., "Paused", "Away")
   final SdkOptional<String?> reason;
 
-  const HandlingEvent(
-      {required this.teammate,
-      required this.type_,
-      required this.timestamp,
-      this.reason = const SdkOmitted()});
+  const HandlingEvent({required this.teammate, required this.type_, required this.timestamp, this.reason = const SdkOmitted()});
 
-  HandlingEvent Function(
-      {TeammateReference teammate,
-      HandlingEventType type_,
-      String timestamp,
-      SdkOptional<String?> reason}) get copyWith => _copyWith;
+  HandlingEvent Function({TeammateReference teammate, HandlingEventType type_, String timestamp, SdkOptional<String?> reason}) get copyWith => _copyWith;
 
-  HandlingEvent _copyWith(
-          {Object? teammate = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? timestamp = sdkOmittedValue,
-          Object? reason = sdkOmittedValue}) =>
-      HandlingEvent(
-        teammate: identical(teammate, sdkOmittedValue)
-            ? this.teammate
-            : teammate as TeammateReference,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as HandlingEventType,
-        timestamp: identical(timestamp, sdkOmittedValue)
-            ? this.timestamp
-            : timestamp as String,
-        reason: identical(reason, sdkOmittedValue)
-            ? this.reason
-            : reason as SdkOptional<String?>,
-      );
+  HandlingEvent _copyWith({Object? teammate = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? timestamp = sdkOmittedValue, Object? reason = sdkOmittedValue}) => HandlingEvent(
+    teammate: identical(teammate, sdkOmittedValue) ? this.teammate : teammate as TeammateReference,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as HandlingEventType,
+    timestamp: identical(timestamp, sdkOmittedValue) ? this.timestamp : timestamp as String,
+    reason: identical(reason, sdkOmittedValue) ? this.reason : reason as SdkOptional<String?>,
+  );
 
   factory HandlingEvent.fromJson(Map<String, dynamic> json) => HandlingEvent(
-        teammate: (json['teammate'] != null
-            ? TeammateReference.fromJson(
-                json['teammate'] as Map<String, dynamic>)
-            : null)!,
-        type_: (json['type'] != null
-            ? HandlingEventType.fromJson(json['type'] as String)
-            : null)!,
-        timestamp: (json['timestamp'] as String?)!,
-        reason: json.containsKey('reason')
-            ? SdkPresent(json['reason'] as String?)
-            : const SdkOmitted(),
-      );
+    teammate: (json['teammate'] != null ? TeammateReference.fromJson(json['teammate'] as Map<String, dynamic>) : null)!,
+    type_: (json['type'] != null ? HandlingEventType.fromJson(json['type'] as String) : null)!,
+    timestamp: (json['timestamp'] as String?)!,
+    reason: json.containsKey('reason') ? SdkPresent(json['reason'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'teammate': teammate.toJson(),
-        'type': type_.toJson(),
-        'timestamp': timestamp,
-        ...switch (reason) {
-          SdkPresent<String?>(value: final value) => {
-              'reason': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'teammate': teammate.toJson(),
+    'type': type_.toJson(),
+    'timestamp': timestamp,
+    ...switch (reason) {
+      SdkPresent<String?>(value: final value) => {'reason': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// A list of handling events for a conversation
 class HandlingEventList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Array of handling events
   final SdkOptional<List<HandlingEvent>> handlingEvents;
 
   const HandlingEventList({this.handlingEvents = const SdkOmitted()});
 
-  HandlingEventList Function({SdkOptional<List<HandlingEvent>> handlingEvents})
-      get copyWith => _copyWith;
+  HandlingEventList Function({SdkOptional<List<HandlingEvent>> handlingEvents}) get copyWith => _copyWith;
 
-  HandlingEventList _copyWith({Object? handlingEvents = sdkOmittedValue}) =>
-      HandlingEventList(
-        handlingEvents: identical(handlingEvents, sdkOmittedValue)
-            ? this.handlingEvents
-            : handlingEvents as SdkOptional<List<HandlingEvent>>,
-      );
+  HandlingEventList _copyWith({Object? handlingEvents = sdkOmittedValue}) => HandlingEventList(
+    handlingEvents: identical(handlingEvents, sdkOmittedValue) ? this.handlingEvents : handlingEvents as SdkOptional<List<HandlingEvent>>,
+  );
 
-  factory HandlingEventList.fromJson(Map<String, dynamic> json) =>
-      HandlingEventList(
-        handlingEvents: json['handling_events'] != null
-            ? SdkPresent(((json['handling_events'] as List?)
-                ?.map((e) => HandlingEvent.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory HandlingEventList.fromJson(Map<String, dynamic> json) => HandlingEventList(
+    handlingEvents: json['handling_events'] != null ? SdkPresent(((json['handling_events'] as List?)?.map((e) => HandlingEvent.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (handlingEvents) {
-          SdkPresent<List<HandlingEvent>>(value: final value) => {
-              'handling_events': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (handlingEvents) {
+      SdkPresent<List<HandlingEvent>>(value: final value) => {'handling_events': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -8,492 +8,257 @@ part of 'office_hours.dart';
 class CreateOfficeHoursExceptionRequestRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The date the exception applies to, in `YYYY-MM-DD` format.
   final String exceptionDate;
-
   /// The type of exception.
   final CreateOfficeHoursExceptionRequestRequestExceptionType exceptionType;
-
   /// An optional name for the exception.
   final SdkOptional<String> name;
-
   /// The open intervals for the exception date. Required for `custom_hours`; omit for `closed`.
   final SdkOptional<List<OfficeHoursTimeIntervalRequest>?> timeIntervals;
-
   /// Whether the exception repeats every year on the same date.
   final SdkOptional<bool> recurringAnnually;
 
-  const CreateOfficeHoursExceptionRequestRequest(
-      {required this.exceptionDate,
-      required this.exceptionType,
-      this.name = const SdkOmitted(),
-      this.timeIntervals = const SdkOmitted(),
-      this.recurringAnnually = const SdkOmitted()});
+  const CreateOfficeHoursExceptionRequestRequest({required this.exceptionDate, required this.exceptionType, this.name = const SdkOmitted(), this.timeIntervals = const SdkOmitted(), this.recurringAnnually = const SdkOmitted()});
 
-  CreateOfficeHoursExceptionRequestRequest Function(
-      {String exceptionDate,
-      CreateOfficeHoursExceptionRequestRequestExceptionType exceptionType,
-      SdkOptional<String> name,
-      SdkOptional<List<OfficeHoursTimeIntervalRequest>?> timeIntervals,
-      SdkOptional<bool> recurringAnnually}) get copyWith => _copyWith;
+  CreateOfficeHoursExceptionRequestRequest Function({String exceptionDate, CreateOfficeHoursExceptionRequestRequestExceptionType exceptionType, SdkOptional<String> name, SdkOptional<List<OfficeHoursTimeIntervalRequest>?> timeIntervals, SdkOptional<bool> recurringAnnually}) get copyWith => _copyWith;
 
-  CreateOfficeHoursExceptionRequestRequest _copyWith(
-          {Object? exceptionDate = sdkOmittedValue,
-          Object? exceptionType = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? timeIntervals = sdkOmittedValue,
-          Object? recurringAnnually = sdkOmittedValue}) =>
-      CreateOfficeHoursExceptionRequestRequest(
-        exceptionDate: identical(exceptionDate, sdkOmittedValue)
-            ? this.exceptionDate
-            : exceptionDate as String,
-        exceptionType: identical(exceptionType, sdkOmittedValue)
-            ? this.exceptionType
-            : exceptionType
-                as CreateOfficeHoursExceptionRequestRequestExceptionType,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        timeIntervals: identical(timeIntervals, sdkOmittedValue)
-            ? this.timeIntervals
-            : timeIntervals
-                as SdkOptional<List<OfficeHoursTimeIntervalRequest>?>,
-        recurringAnnually: identical(recurringAnnually, sdkOmittedValue)
-            ? this.recurringAnnually
-            : recurringAnnually as SdkOptional<bool>,
-      );
+  CreateOfficeHoursExceptionRequestRequest _copyWith({Object? exceptionDate = sdkOmittedValue, Object? exceptionType = sdkOmittedValue, Object? name = sdkOmittedValue, Object? timeIntervals = sdkOmittedValue, Object? recurringAnnually = sdkOmittedValue}) => CreateOfficeHoursExceptionRequestRequest(
+    exceptionDate: identical(exceptionDate, sdkOmittedValue) ? this.exceptionDate : exceptionDate as String,
+    exceptionType: identical(exceptionType, sdkOmittedValue) ? this.exceptionType : exceptionType as CreateOfficeHoursExceptionRequestRequestExceptionType,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    timeIntervals: identical(timeIntervals, sdkOmittedValue) ? this.timeIntervals : timeIntervals as SdkOptional<List<OfficeHoursTimeIntervalRequest>?>,
+    recurringAnnually: identical(recurringAnnually, sdkOmittedValue) ? this.recurringAnnually : recurringAnnually as SdkOptional<bool>,
+  );
 
-  factory CreateOfficeHoursExceptionRequestRequest.fromJson(
-          Map<String, dynamic> json) =>
-      CreateOfficeHoursExceptionRequestRequest(
-        exceptionDate: (json['exception_date'] as String?)!,
-        exceptionType: (json['exception_type'] != null
-            ? CreateOfficeHoursExceptionRequestRequestExceptionType.fromJson(
-                json['exception_type'] as String)
-            : null)!,
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        timeIntervals: json.containsKey('time_intervals')
-            ? SdkPresent((json['time_intervals'] as List?)
-                ?.map((e) => OfficeHoursTimeIntervalRequest.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())
-            : const SdkOmitted(),
-        recurringAnnually: json['recurring_annually'] != null
-            ? SdkPresent((json['recurring_annually'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory CreateOfficeHoursExceptionRequestRequest.fromJson(Map<String, dynamic> json) => CreateOfficeHoursExceptionRequestRequest(
+    exceptionDate: (json['exception_date'] as String?)!,
+    exceptionType: (json['exception_type'] != null ? CreateOfficeHoursExceptionRequestRequestExceptionType.fromJson(json['exception_type'] as String) : null)!,
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    timeIntervals: json.containsKey('time_intervals') ? SdkPresent((json['time_intervals'] as List?)?.map((e) => OfficeHoursTimeIntervalRequest.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
+    recurringAnnually: json['recurring_annually'] != null ? SdkPresent((json['recurring_annually'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'exception_date': exceptionDate,
-        'exception_type': exceptionType.toJson(),
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (timeIntervals) {
-          SdkPresent<List<OfficeHoursTimeIntervalRequest>?>(
-            value: final value
-          ) =>
-            {
-              'time_intervals': value?.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (recurringAnnually) {
-          SdkPresent<bool>(value: final value) => {
-              'recurring_annually': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'exception_date': exceptionDate,
+    'exception_type': exceptionType.toJson(),
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (timeIntervals) {
+      SdkPresent<List<OfficeHoursTimeIntervalRequest>?>(value: final value) => {'time_intervals': value?.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (recurringAnnually) {
+      SdkPresent<bool>(value: final value) => {'recurring_annually': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// The request payload for creating an office hours schedule.
 class CreateOfficeHoursScheduleRequestRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the office hours schedule.
   final String name;
-
   /// The IANA time zone the schedule's hours are evaluated in.
   final String timeZoneName;
-
   /// The open intervals for the schedule. `start_minute` and `end_minute` must be on a 15-minute boundary.
   final List<OfficeHoursTimeIntervalRequest> timeIntervals;
 
-  const CreateOfficeHoursScheduleRequestRequest(
-      {required this.name,
-      required this.timeZoneName,
-      required this.timeIntervals});
+  const CreateOfficeHoursScheduleRequestRequest({required this.name, required this.timeZoneName, required this.timeIntervals});
 
-  CreateOfficeHoursScheduleRequestRequest Function(
-          {String name,
-          String timeZoneName,
-          List<OfficeHoursTimeIntervalRequest> timeIntervals})
-      get copyWith => _copyWith;
+  CreateOfficeHoursScheduleRequestRequest Function({String name, String timeZoneName, List<OfficeHoursTimeIntervalRequest> timeIntervals}) get copyWith => _copyWith;
 
-  CreateOfficeHoursScheduleRequestRequest _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? timeZoneName = sdkOmittedValue,
-          Object? timeIntervals = sdkOmittedValue}) =>
-      CreateOfficeHoursScheduleRequestRequest(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        timeZoneName: identical(timeZoneName, sdkOmittedValue)
-            ? this.timeZoneName
-            : timeZoneName as String,
-        timeIntervals: identical(timeIntervals, sdkOmittedValue)
-            ? this.timeIntervals
-            : timeIntervals as List<OfficeHoursTimeIntervalRequest>,
-      );
+  CreateOfficeHoursScheduleRequestRequest _copyWith({Object? name = sdkOmittedValue, Object? timeZoneName = sdkOmittedValue, Object? timeIntervals = sdkOmittedValue}) => CreateOfficeHoursScheduleRequestRequest(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    timeZoneName: identical(timeZoneName, sdkOmittedValue) ? this.timeZoneName : timeZoneName as String,
+    timeIntervals: identical(timeIntervals, sdkOmittedValue) ? this.timeIntervals : timeIntervals as List<OfficeHoursTimeIntervalRequest>,
+  );
 
-  factory CreateOfficeHoursScheduleRequestRequest.fromJson(
-          Map<String, dynamic> json) =>
-      CreateOfficeHoursScheduleRequestRequest(
-        name: (json['name'] as String?)!,
-        timeZoneName: (json['time_zone_name'] as String?)!,
-        timeIntervals: ((json['time_intervals'] as List?)
-            ?.map((e) => OfficeHoursTimeIntervalRequest.fromJson(
-                e as Map<String, dynamic>))
-            .toList())!,
-      );
+  factory CreateOfficeHoursScheduleRequestRequest.fromJson(Map<String, dynamic> json) => CreateOfficeHoursScheduleRequestRequest(
+    name: (json['name'] as String?)!,
+    timeZoneName: (json['time_zone_name'] as String?)!,
+    timeIntervals: ((json['time_intervals'] as List?)?.map((e) => OfficeHoursTimeIntervalRequest.fromJson(e as Map<String, dynamic>)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        'time_zone_name': timeZoneName,
-        'time_intervals': timeIntervals.map((item) => item.toJson()).toList(),
-      };
+    'name': name,
+    'time_zone_name': timeZoneName,
+    'time_intervals': timeIntervals.map((item) => item.toJson()).toList(),
+  };
 }
 
 /// A list of office hours exceptions.
 class OfficeHoursExceptionList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object - always `office_hours_exception.list`.
   final SdkOptional<String> type_;
-
   /// An array of office hours exceptions.
   final SdkOptional<List<OfficeHoursException>> data;
 
-  const OfficeHoursExceptionList(
-      {this.type_ = const SdkOmitted(), this.data = const SdkOmitted()});
+  const OfficeHoursExceptionList({this.type_ = const SdkOmitted(), this.data = const SdkOmitted()});
 
-  OfficeHoursExceptionList Function(
-      {SdkOptional<String> type_,
-      SdkOptional<List<OfficeHoursException>> data}) get copyWith => _copyWith;
+  OfficeHoursExceptionList Function({SdkOptional<String> type_, SdkOptional<List<OfficeHoursException>> data}) get copyWith => _copyWith;
 
-  OfficeHoursExceptionList _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
-      OfficeHoursExceptionList(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as SdkOptional<List<OfficeHoursException>>,
-      );
+  OfficeHoursExceptionList _copyWith({Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) => OfficeHoursExceptionList(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<OfficeHoursException>>,
+  );
 
-  factory OfficeHoursExceptionList.fromJson(Map<String, dynamic> json) =>
-      OfficeHoursExceptionList(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        data: json['data'] != null
-            ? SdkPresent(((json['data'] as List?)
-                ?.map((e) =>
-                    OfficeHoursException.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory OfficeHoursExceptionList.fromJson(Map<String, dynamic> json) => OfficeHoursExceptionList(
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => OfficeHoursException.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (data) {
-          SdkPresent<List<OfficeHoursException>>(value: final value) => {
-              'data': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (data) {
+      SdkPresent<List<OfficeHoursException>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// A list of office hours schedules.
 class OfficeHoursScheduleList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object - always `office_hours_schedule.list`.
   final SdkOptional<String> type_;
-
   /// An array of office hours schedules.
   final SdkOptional<List<OfficeHoursSchedule>> data;
 
-  const OfficeHoursScheduleList(
-      {this.type_ = const SdkOmitted(), this.data = const SdkOmitted()});
+  const OfficeHoursScheduleList({this.type_ = const SdkOmitted(), this.data = const SdkOmitted()});
 
-  OfficeHoursScheduleList Function(
-      {SdkOptional<String> type_,
-      SdkOptional<List<OfficeHoursSchedule>> data}) get copyWith => _copyWith;
+  OfficeHoursScheduleList Function({SdkOptional<String> type_, SdkOptional<List<OfficeHoursSchedule>> data}) get copyWith => _copyWith;
 
-  OfficeHoursScheduleList _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
-      OfficeHoursScheduleList(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as SdkOptional<List<OfficeHoursSchedule>>,
-      );
+  OfficeHoursScheduleList _copyWith({Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) => OfficeHoursScheduleList(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<OfficeHoursSchedule>>,
+  );
 
-  factory OfficeHoursScheduleList.fromJson(Map<String, dynamic> json) =>
-      OfficeHoursScheduleList(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        data: json['data'] != null
-            ? SdkPresent(((json['data'] as List?)
-                ?.map((e) =>
-                    OfficeHoursSchedule.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory OfficeHoursScheduleList.fromJson(Map<String, dynamic> json) => OfficeHoursScheduleList(
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => OfficeHoursSchedule.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (data) {
-          SdkPresent<List<OfficeHoursSchedule>>(value: final value) => {
-              'data': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (data) {
+      SdkPresent<List<OfficeHoursSchedule>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// The request payload for updating an office hours exception. Only the provided fields are updated.
 class UpdateOfficeHoursExceptionRequestRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The date the exception applies to, in `YYYY-MM-DD` format.
   final SdkOptional<String> exceptionDate;
-
   /// The type of exception.
-  final SdkOptional<UpdateOfficeHoursExceptionRequestRequestExceptionType>
-      exceptionType;
-
+  final SdkOptional<UpdateOfficeHoursExceptionRequestRequestExceptionType> exceptionType;
   /// An optional name for the exception.
   final SdkOptional<String> name;
-
   /// The open intervals for the exception date. Required for `custom_hours`; omit for `closed`.
   final SdkOptional<List<OfficeHoursTimeIntervalRequest>?> timeIntervals;
-
   /// Whether the exception repeats every year on the same date.
   final SdkOptional<bool> recurringAnnually;
 
-  const UpdateOfficeHoursExceptionRequestRequest(
-      {this.exceptionDate = const SdkOmitted(),
-      this.exceptionType = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.timeIntervals = const SdkOmitted(),
-      this.recurringAnnually = const SdkOmitted()});
+  const UpdateOfficeHoursExceptionRequestRequest({this.exceptionDate = const SdkOmitted(), this.exceptionType = const SdkOmitted(), this.name = const SdkOmitted(), this.timeIntervals = const SdkOmitted(), this.recurringAnnually = const SdkOmitted()});
 
-  UpdateOfficeHoursExceptionRequestRequest Function(
-      {SdkOptional<String> exceptionDate,
-      SdkOptional<UpdateOfficeHoursExceptionRequestRequestExceptionType>
-          exceptionType,
-      SdkOptional<String> name,
-      SdkOptional<List<OfficeHoursTimeIntervalRequest>?> timeIntervals,
-      SdkOptional<bool> recurringAnnually}) get copyWith => _copyWith;
+  UpdateOfficeHoursExceptionRequestRequest Function({SdkOptional<String> exceptionDate, SdkOptional<UpdateOfficeHoursExceptionRequestRequestExceptionType> exceptionType, SdkOptional<String> name, SdkOptional<List<OfficeHoursTimeIntervalRequest>?> timeIntervals, SdkOptional<bool> recurringAnnually}) get copyWith => _copyWith;
 
-  UpdateOfficeHoursExceptionRequestRequest _copyWith(
-          {Object? exceptionDate = sdkOmittedValue,
-          Object? exceptionType = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? timeIntervals = sdkOmittedValue,
-          Object? recurringAnnually = sdkOmittedValue}) =>
-      UpdateOfficeHoursExceptionRequestRequest(
-        exceptionDate: identical(exceptionDate, sdkOmittedValue)
-            ? this.exceptionDate
-            : exceptionDate as SdkOptional<String>,
-        exceptionType: identical(exceptionType, sdkOmittedValue)
-            ? this.exceptionType
-            : exceptionType as SdkOptional<
-                UpdateOfficeHoursExceptionRequestRequestExceptionType>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        timeIntervals: identical(timeIntervals, sdkOmittedValue)
-            ? this.timeIntervals
-            : timeIntervals
-                as SdkOptional<List<OfficeHoursTimeIntervalRequest>?>,
-        recurringAnnually: identical(recurringAnnually, sdkOmittedValue)
-            ? this.recurringAnnually
-            : recurringAnnually as SdkOptional<bool>,
-      );
+  UpdateOfficeHoursExceptionRequestRequest _copyWith({Object? exceptionDate = sdkOmittedValue, Object? exceptionType = sdkOmittedValue, Object? name = sdkOmittedValue, Object? timeIntervals = sdkOmittedValue, Object? recurringAnnually = sdkOmittedValue}) => UpdateOfficeHoursExceptionRequestRequest(
+    exceptionDate: identical(exceptionDate, sdkOmittedValue) ? this.exceptionDate : exceptionDate as SdkOptional<String>,
+    exceptionType: identical(exceptionType, sdkOmittedValue) ? this.exceptionType : exceptionType as SdkOptional<UpdateOfficeHoursExceptionRequestRequestExceptionType>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    timeIntervals: identical(timeIntervals, sdkOmittedValue) ? this.timeIntervals : timeIntervals as SdkOptional<List<OfficeHoursTimeIntervalRequest>?>,
+    recurringAnnually: identical(recurringAnnually, sdkOmittedValue) ? this.recurringAnnually : recurringAnnually as SdkOptional<bool>,
+  );
 
-  factory UpdateOfficeHoursExceptionRequestRequest.fromJson(
-          Map<String, dynamic> json) =>
-      UpdateOfficeHoursExceptionRequestRequest(
-        exceptionDate: json['exception_date'] != null
-            ? SdkPresent((json['exception_date'] as String?)!)
-            : const SdkOmitted(),
-        exceptionType: json['exception_type'] != null
-            ? SdkPresent((json['exception_type'] != null
-                ? UpdateOfficeHoursExceptionRequestRequestExceptionType
-                    .fromJson(json['exception_type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        timeIntervals: json.containsKey('time_intervals')
-            ? SdkPresent((json['time_intervals'] as List?)
-                ?.map((e) => OfficeHoursTimeIntervalRequest.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())
-            : const SdkOmitted(),
-        recurringAnnually: json['recurring_annually'] != null
-            ? SdkPresent((json['recurring_annually'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory UpdateOfficeHoursExceptionRequestRequest.fromJson(Map<String, dynamic> json) => UpdateOfficeHoursExceptionRequestRequest(
+    exceptionDate: json['exception_date'] != null ? SdkPresent((json['exception_date'] as String?)!) : const SdkOmitted(),
+    exceptionType: json['exception_type'] != null ? SdkPresent((json['exception_type'] != null ? UpdateOfficeHoursExceptionRequestRequestExceptionType.fromJson(json['exception_type'] as String) : null)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    timeIntervals: json.containsKey('time_intervals') ? SdkPresent((json['time_intervals'] as List?)?.map((e) => OfficeHoursTimeIntervalRequest.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
+    recurringAnnually: json['recurring_annually'] != null ? SdkPresent((json['recurring_annually'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (exceptionDate) {
-          SdkPresent<String>(value: final value) => {
-              'exception_date': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (exceptionType) {
-          SdkPresent<UpdateOfficeHoursExceptionRequestRequestExceptionType>(
-            value: final value
-          ) =>
-            {
-              'exception_type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (timeIntervals) {
-          SdkPresent<List<OfficeHoursTimeIntervalRequest>?>(
-            value: final value
-          ) =>
-            {
-              'time_intervals': value?.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (recurringAnnually) {
-          SdkPresent<bool>(value: final value) => {
-              'recurring_annually': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (exceptionDate) {
+      SdkPresent<String>(value: final value) => {'exception_date': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (exceptionType) {
+      SdkPresent<UpdateOfficeHoursExceptionRequestRequestExceptionType>(value: final value) => {'exception_type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (timeIntervals) {
+      SdkPresent<List<OfficeHoursTimeIntervalRequest>?>(value: final value) => {'time_intervals': value?.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (recurringAnnually) {
+      SdkPresent<bool>(value: final value) => {'recurring_annually': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// The request payload for updating an office hours schedule. Only the provided fields are updated.
 class UpdateOfficeHoursScheduleRequestRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the office hours schedule.
   final SdkOptional<String> name;
-
   /// The IANA time zone the schedule's hours are evaluated in.
   final SdkOptional<String> timeZoneName;
-
   /// The open intervals for the schedule. `start_minute` and `end_minute` must be on a 15-minute boundary.
   final SdkOptional<List<OfficeHoursTimeIntervalRequest>> timeIntervals;
 
-  const UpdateOfficeHoursScheduleRequestRequest(
-      {this.name = const SdkOmitted(),
-      this.timeZoneName = const SdkOmitted(),
-      this.timeIntervals = const SdkOmitted()});
+  const UpdateOfficeHoursScheduleRequestRequest({this.name = const SdkOmitted(), this.timeZoneName = const SdkOmitted(), this.timeIntervals = const SdkOmitted()});
 
-  UpdateOfficeHoursScheduleRequestRequest Function(
-          {SdkOptional<String> name,
-          SdkOptional<String> timeZoneName,
-          SdkOptional<List<OfficeHoursTimeIntervalRequest>> timeIntervals})
-      get copyWith => _copyWith;
+  UpdateOfficeHoursScheduleRequestRequest Function({SdkOptional<String> name, SdkOptional<String> timeZoneName, SdkOptional<List<OfficeHoursTimeIntervalRequest>> timeIntervals}) get copyWith => _copyWith;
 
-  UpdateOfficeHoursScheduleRequestRequest _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? timeZoneName = sdkOmittedValue,
-          Object? timeIntervals = sdkOmittedValue}) =>
-      UpdateOfficeHoursScheduleRequestRequest(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        timeZoneName: identical(timeZoneName, sdkOmittedValue)
-            ? this.timeZoneName
-            : timeZoneName as SdkOptional<String>,
-        timeIntervals: identical(timeIntervals, sdkOmittedValue)
-            ? this.timeIntervals
-            : timeIntervals
-                as SdkOptional<List<OfficeHoursTimeIntervalRequest>>,
-      );
+  UpdateOfficeHoursScheduleRequestRequest _copyWith({Object? name = sdkOmittedValue, Object? timeZoneName = sdkOmittedValue, Object? timeIntervals = sdkOmittedValue}) => UpdateOfficeHoursScheduleRequestRequest(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    timeZoneName: identical(timeZoneName, sdkOmittedValue) ? this.timeZoneName : timeZoneName as SdkOptional<String>,
+    timeIntervals: identical(timeIntervals, sdkOmittedValue) ? this.timeIntervals : timeIntervals as SdkOptional<List<OfficeHoursTimeIntervalRequest>>,
+  );
 
-  factory UpdateOfficeHoursScheduleRequestRequest.fromJson(
-          Map<String, dynamic> json) =>
-      UpdateOfficeHoursScheduleRequestRequest(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        timeZoneName: json['time_zone_name'] != null
-            ? SdkPresent((json['time_zone_name'] as String?)!)
-            : const SdkOmitted(),
-        timeIntervals: json['time_intervals'] != null
-            ? SdkPresent(((json['time_intervals'] as List?)
-                ?.map((e) => OfficeHoursTimeIntervalRequest.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory UpdateOfficeHoursScheduleRequestRequest.fromJson(Map<String, dynamic> json) => UpdateOfficeHoursScheduleRequestRequest(
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    timeZoneName: json['time_zone_name'] != null ? SdkPresent((json['time_zone_name'] as String?)!) : const SdkOmitted(),
+    timeIntervals: json['time_intervals'] != null ? SdkPresent(((json['time_intervals'] as List?)?.map((e) => OfficeHoursTimeIntervalRequest.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (timeZoneName) {
-          SdkPresent<String>(value: final value) => {
-              'time_zone_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (timeIntervals) {
-          SdkPresent<List<OfficeHoursTimeIntervalRequest>>(
-            value: final value
-          ) =>
-            {
-              'time_intervals': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (timeZoneName) {
+      SdkPresent<String>(value: final value) => {'time_zone_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (timeIntervals) {
+      SdkPresent<List<OfficeHoursTimeIntervalRequest>>(value: final value) => {'time_intervals': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

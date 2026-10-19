@@ -8,444 +8,245 @@ part of 'models.dart';
 class CompanyNoteCompany {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// String representing the object's type. Always has the value `company`.
   final SdkOptional<String> type_;
-
   /// The id of the company.
   final SdkOptional<String> id;
 
-  const CompanyNoteCompany(
-      {this.type_ = const SdkOmitted(), this.id = const SdkOmitted()});
+  const CompanyNoteCompany({this.type_ = const SdkOmitted(), this.id = const SdkOmitted()});
 
-  CompanyNoteCompany Function(
-      {SdkOptional<String> type_,
-      SdkOptional<String> id}) get copyWith => _copyWith;
+  CompanyNoteCompany Function({SdkOptional<String> type_, SdkOptional<String> id}) get copyWith => _copyWith;
 
-  CompanyNoteCompany _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue}) =>
-      CompanyNoteCompany(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-      );
+  CompanyNoteCompany _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue}) => CompanyNoteCompany(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+  );
 
-  factory CompanyNoteCompany.fromJson(Map<String, dynamic> json) =>
-      CompanyNoteCompany(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory CompanyNoteCompany.fromJson(Map<String, dynamic> json) => CompanyNoteCompany(
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Notes allow you to annotate and comment on companies.
 class CompanyNote {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// String representing the object's type. Always has the value `note`.
   final SdkOptional<String> type_;
-
   /// The id of the note.
   final SdkOptional<String> id;
-
   /// The time the note was created.
   final SdkOptional<int> createdAt;
-
   /// Represents the company that the note was created about.
   final SdkOptional<CompanyNoteCompany?> company;
-
   /// Optional. Represents the Admin that created the note.
   final SdkOptional<Admin?> author;
-
   /// The body text of the note.
   final SdkOptional<String> body;
 
-  const CompanyNote(
-      {this.type_ = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.company = const SdkOmitted(),
-      this.author = const SdkOmitted(),
-      this.body = const SdkOmitted()});
+  const CompanyNote({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.company = const SdkOmitted(), this.author = const SdkOmitted(), this.body = const SdkOmitted()});
 
-  CompanyNote Function(
-      {SdkOptional<String> type_,
-      SdkOptional<String> id,
-      SdkOptional<int> createdAt,
-      SdkOptional<CompanyNoteCompany?> company,
-      SdkOptional<Admin?> author,
-      SdkOptional<String> body}) get copyWith => _copyWith;
+  CompanyNote Function({SdkOptional<String> type_, SdkOptional<String> id, SdkOptional<int> createdAt, SdkOptional<CompanyNoteCompany?> company, SdkOptional<Admin?> author, SdkOptional<String> body}) get copyWith => _copyWith;
 
-  CompanyNote _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? company = sdkOmittedValue,
-          Object? author = sdkOmittedValue,
-          Object? body = sdkOmittedValue}) =>
-      CompanyNote(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<int>,
-        company: identical(company, sdkOmittedValue)
-            ? this.company
-            : company as SdkOptional<CompanyNoteCompany?>,
-        author: identical(author, sdkOmittedValue)
-            ? this.author
-            : author as SdkOptional<Admin?>,
-        body: identical(body, sdkOmittedValue)
-            ? this.body
-            : body as SdkOptional<String>,
-      );
+  CompanyNote _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? company = sdkOmittedValue, Object? author = sdkOmittedValue, Object? body = sdkOmittedValue}) => CompanyNote(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<int>,
+    company: identical(company, sdkOmittedValue) ? this.company : company as SdkOptional<CompanyNoteCompany?>,
+    author: identical(author, sdkOmittedValue) ? this.author : author as SdkOptional<Admin?>,
+    body: identical(body, sdkOmittedValue) ? this.body : body as SdkOptional<String>,
+  );
 
   factory CompanyNote.fromJson(Map<String, dynamic> json) => CompanyNote(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent(((json['created_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        company: json.containsKey('company')
-            ? SdkPresent(json['company'] != null
-                ? CompanyNoteCompany.fromJson(
-                    json['company'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        author: json.containsKey('author')
-            ? SdkPresent(json['author'] != null
-                ? Admin.fromJson(json['author'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        body: json['body'] != null
-            ? SdkPresent((json['body'] as String?)!)
-            : const SdkOmitted(),
-      );
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent(((json['created_at'] as num?)?.toInt())!) : const SdkOmitted(),
+    company: json.containsKey('company') ? SdkPresent(json['company'] != null ? CompanyNoteCompany.fromJson(json['company'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    author: json.containsKey('author') ? SdkPresent(json['author'] != null ? Admin.fromJson(json['author'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    body: json['body'] != null ? SdkPresent((json['body'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<int>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (company) {
-          SdkPresent<CompanyNoteCompany?>(value: final value) => {
-              'company': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (author) {
-          SdkPresent<Admin?>(value: final value) => {
-              'author': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (body) {
-          SdkPresent<String>(value: final value) => {
-              'body': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<int>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (company) {
+      SdkPresent<CompanyNoteCompany?>(value: final value) => {'company': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (author) {
+      SdkPresent<Admin?>(value: final value) => {'author': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (body) {
+      SdkPresent<String>(value: final value) => {'body': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Represents the contact that the note was created about.
 class NoteContact {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// String representing the object's type. Always has the value `contact`.
   final SdkOptional<String> type_;
-
   /// The id of the contact.
   final SdkOptional<String> id;
 
-  const NoteContact(
-      {this.type_ = const SdkOmitted(), this.id = const SdkOmitted()});
+  const NoteContact({this.type_ = const SdkOmitted(), this.id = const SdkOmitted()});
 
-  NoteContact Function({SdkOptional<String> type_, SdkOptional<String> id})
-      get copyWith => _copyWith;
+  NoteContact Function({SdkOptional<String> type_, SdkOptional<String> id}) get copyWith => _copyWith;
 
-  NoteContact _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue}) =>
-      NoteContact(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-      );
+  NoteContact _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue}) => NoteContact(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+  );
 
   factory NoteContact.fromJson(Map<String, dynamic> json) => NoteContact(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-      );
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Represents the company that the note was created about.
 class NoteCompany {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// String representing the object's type. Always has the value `company`.
   final SdkOptional<String> type_;
-
   /// The id of the company.
   final SdkOptional<String> id;
 
-  const NoteCompany(
-      {this.type_ = const SdkOmitted(), this.id = const SdkOmitted()});
+  const NoteCompany({this.type_ = const SdkOmitted(), this.id = const SdkOmitted()});
 
-  NoteCompany Function({SdkOptional<String> type_, SdkOptional<String> id})
-      get copyWith => _copyWith;
+  NoteCompany Function({SdkOptional<String> type_, SdkOptional<String> id}) get copyWith => _copyWith;
 
-  NoteCompany _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue}) =>
-      NoteCompany(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-      );
+  NoteCompany _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue}) => NoteCompany(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+  );
 
   factory NoteCompany.fromJson(Map<String, dynamic> json) => NoteCompany(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-      );
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Notes allow you to annotate and comment on your contacts and companies. A note is attached to either a contact or a company, never both.
 class Note {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// String representing the object's type. Always has the value `note`.
   final SdkOptional<String> type_;
-
   /// The id of the note.
   final SdkOptional<String> id;
-
   /// The time the note was created.
   final SdkOptional<int> createdAt;
-
   /// Represents the contact that the note was created about.
   final SdkOptional<NoteContact?> contact;
-
   /// Represents the company that the note was created about.
   final SdkOptional<NoteCompany?> company;
-
   /// Optional. Represents the Admin that created the note.
   final SdkOptional<Admin?> author;
-
   /// The body text of the note.
   final SdkOptional<String> body;
 
-  const Note(
-      {this.type_ = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.contact = const SdkOmitted(),
-      this.company = const SdkOmitted(),
-      this.author = const SdkOmitted(),
-      this.body = const SdkOmitted()});
+  const Note({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.contact = const SdkOmitted(), this.company = const SdkOmitted(), this.author = const SdkOmitted(), this.body = const SdkOmitted()});
 
-  Note Function(
-      {SdkOptional<String> type_,
-      SdkOptional<String> id,
-      SdkOptional<int> createdAt,
-      SdkOptional<NoteContact?> contact,
-      SdkOptional<NoteCompany?> company,
-      SdkOptional<Admin?> author,
-      SdkOptional<String> body}) get copyWith => _copyWith;
+  Note Function({SdkOptional<String> type_, SdkOptional<String> id, SdkOptional<int> createdAt, SdkOptional<NoteContact?> contact, SdkOptional<NoteCompany?> company, SdkOptional<Admin?> author, SdkOptional<String> body}) get copyWith => _copyWith;
 
-  Note _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? contact = sdkOmittedValue,
-          Object? company = sdkOmittedValue,
-          Object? author = sdkOmittedValue,
-          Object? body = sdkOmittedValue}) =>
-      Note(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<int>,
-        contact: identical(contact, sdkOmittedValue)
-            ? this.contact
-            : contact as SdkOptional<NoteContact?>,
-        company: identical(company, sdkOmittedValue)
-            ? this.company
-            : company as SdkOptional<NoteCompany?>,
-        author: identical(author, sdkOmittedValue)
-            ? this.author
-            : author as SdkOptional<Admin?>,
-        body: identical(body, sdkOmittedValue)
-            ? this.body
-            : body as SdkOptional<String>,
-      );
+  Note _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? contact = sdkOmittedValue, Object? company = sdkOmittedValue, Object? author = sdkOmittedValue, Object? body = sdkOmittedValue}) => Note(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<int>,
+    contact: identical(contact, sdkOmittedValue) ? this.contact : contact as SdkOptional<NoteContact?>,
+    company: identical(company, sdkOmittedValue) ? this.company : company as SdkOptional<NoteCompany?>,
+    author: identical(author, sdkOmittedValue) ? this.author : author as SdkOptional<Admin?>,
+    body: identical(body, sdkOmittedValue) ? this.body : body as SdkOptional<String>,
+  );
 
   factory Note.fromJson(Map<String, dynamic> json) => Note(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent(((json['created_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        contact: json.containsKey('contact')
-            ? SdkPresent(json['contact'] != null
-                ? NoteContact.fromJson(json['contact'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        company: json.containsKey('company')
-            ? SdkPresent(json['company'] != null
-                ? NoteCompany.fromJson(json['company'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        author: json.containsKey('author')
-            ? SdkPresent(json['author'] != null
-                ? Admin.fromJson(json['author'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        body: json['body'] != null
-            ? SdkPresent((json['body'] as String?)!)
-            : const SdkOmitted(),
-      );
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent(((json['created_at'] as num?)?.toInt())!) : const SdkOmitted(),
+    contact: json.containsKey('contact') ? SdkPresent(json['contact'] != null ? NoteContact.fromJson(json['contact'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    company: json.containsKey('company') ? SdkPresent(json['company'] != null ? NoteCompany.fromJson(json['company'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    author: json.containsKey('author') ? SdkPresent(json['author'] != null ? Admin.fromJson(json['author'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    body: json['body'] != null ? SdkPresent((json['body'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<int>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (contact) {
-          SdkPresent<NoteContact?>(value: final value) => {
-              'contact': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (company) {
-          SdkPresent<NoteCompany?>(value: final value) => {
-              'company': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (author) {
-          SdkPresent<Admin?>(value: final value) => {
-              'author': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (body) {
-          SdkPresent<String>(value: final value) => {
-              'body': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<int>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (contact) {
+      SdkPresent<NoteContact?>(value: final value) => {'contact': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (company) {
+      SdkPresent<NoteCompany?>(value: final value) => {'company': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (author) {
+      SdkPresent<Admin?>(value: final value) => {'author': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (body) {
+      SdkPresent<String>(value: final value) => {'body': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

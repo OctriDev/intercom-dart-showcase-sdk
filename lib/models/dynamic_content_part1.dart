@@ -8,386 +8,203 @@ part of 'dynamic_content.dart';
 class DynamicContentCreateRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the dynamic content. Must be unique in the workspace.
   final String name;
-
   /// Whether the dynamic content is a short inline value (`inline`) or one or more blocks of content (`block`). Can't be changed later.
   final DynamicContentCreateRequestContentType contentType;
-
   /// The locale whose variation is used when there's no variation for the requested locale. `variations` must include a variation for this locale that applies to all brands.
   final String defaultLocale;
-
   /// The variations of the dynamic content, one per locale and optionally per brand. Set `brand_id` on a variation to override the all-brands value for that brand. At least one is required.
   final List<DynamicContentVariationRequest> variations;
 
-  const DynamicContentCreateRequest(
-      {required this.name,
-      required this.contentType,
-      required this.defaultLocale,
-      required this.variations});
+  const DynamicContentCreateRequest({required this.name, required this.contentType, required this.defaultLocale, required this.variations});
 
-  DynamicContentCreateRequest Function(
-          {String name,
-          DynamicContentCreateRequestContentType contentType,
-          String defaultLocale,
-          List<DynamicContentVariationRequest> variations})
-      get copyWith => _copyWith;
+  DynamicContentCreateRequest Function({String name, DynamicContentCreateRequestContentType contentType, String defaultLocale, List<DynamicContentVariationRequest> variations}) get copyWith => _copyWith;
 
-  DynamicContentCreateRequest _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? contentType = sdkOmittedValue,
-          Object? defaultLocale = sdkOmittedValue,
-          Object? variations = sdkOmittedValue}) =>
-      DynamicContentCreateRequest(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        contentType: identical(contentType, sdkOmittedValue)
-            ? this.contentType
-            : contentType as DynamicContentCreateRequestContentType,
-        defaultLocale: identical(defaultLocale, sdkOmittedValue)
-            ? this.defaultLocale
-            : defaultLocale as String,
-        variations: identical(variations, sdkOmittedValue)
-            ? this.variations
-            : variations as List<DynamicContentVariationRequest>,
-      );
+  DynamicContentCreateRequest _copyWith({Object? name = sdkOmittedValue, Object? contentType = sdkOmittedValue, Object? defaultLocale = sdkOmittedValue, Object? variations = sdkOmittedValue}) => DynamicContentCreateRequest(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    contentType: identical(contentType, sdkOmittedValue) ? this.contentType : contentType as DynamicContentCreateRequestContentType,
+    defaultLocale: identical(defaultLocale, sdkOmittedValue) ? this.defaultLocale : defaultLocale as String,
+    variations: identical(variations, sdkOmittedValue) ? this.variations : variations as List<DynamicContentVariationRequest>,
+  );
 
-  factory DynamicContentCreateRequest.fromJson(Map<String, dynamic> json) =>
-      DynamicContentCreateRequest(
-        name: (json['name'] as String?)!,
-        contentType: (json['content_type'] != null
-            ? DynamicContentCreateRequestContentType.fromJson(
-                json['content_type'] as String)
-            : null)!,
-        defaultLocale: (json['default_locale'] as String?)!,
-        variations: ((json['variations'] as List?)
-            ?.map((e) => DynamicContentVariationRequest.fromJson(
-                e as Map<String, dynamic>))
-            .toList())!,
-      );
+  factory DynamicContentCreateRequest.fromJson(Map<String, dynamic> json) => DynamicContentCreateRequest(
+    name: (json['name'] as String?)!,
+    contentType: (json['content_type'] != null ? DynamicContentCreateRequestContentType.fromJson(json['content_type'] as String) : null)!,
+    defaultLocale: (json['default_locale'] as String?)!,
+    variations: ((json['variations'] as List?)?.map((e) => DynamicContentVariationRequest.fromJson(e as Map<String, dynamic>)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        'content_type': contentType.toJson(),
-        'default_locale': defaultLocale,
-        'variations': variations.map((item) => item.toJson()).toList(),
-      };
+    'name': name,
+    'content_type': contentType.toJson(),
+    'default_locale': defaultLocale,
+    'variations': variations.map((item) => item.toJson()).toList(),
+  };
 }
 
 /// A paginated list of dynamic content.
 class DynamicContentList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional enumerated value serialized in the `type` wire field.
   final SdkOptional<DynamicContentListType> type_;
-
   /// An array of dynamic content objects.
   final SdkOptional<List<DynamicContent>> data;
-
   /// The total number of dynamic content.
   final SdkOptional<int> totalCount;
-
   /// The current page number.
   final SdkOptional<int> page;
-
   /// The number of results per page.
   final SdkOptional<int> perPage;
-
   /// The total number of pages.
   final SdkOptional<int> totalPages;
 
-  const DynamicContentList(
-      {this.type_ = const SdkOmitted(),
-      this.data = const SdkOmitted(),
-      this.totalCount = const SdkOmitted(),
-      this.page = const SdkOmitted(),
-      this.perPage = const SdkOmitted(),
-      this.totalPages = const SdkOmitted()});
+  const DynamicContentList({this.type_ = const SdkOmitted(), this.data = const SdkOmitted(), this.totalCount = const SdkOmitted(), this.page = const SdkOmitted(), this.perPage = const SdkOmitted(), this.totalPages = const SdkOmitted()});
 
-  DynamicContentList Function(
-      {SdkOptional<DynamicContentListType> type_,
-      SdkOptional<List<DynamicContent>> data,
-      SdkOptional<int> totalCount,
-      SdkOptional<int> page,
-      SdkOptional<int> perPage,
-      SdkOptional<int> totalPages}) get copyWith => _copyWith;
+  DynamicContentList Function({SdkOptional<DynamicContentListType> type_, SdkOptional<List<DynamicContent>> data, SdkOptional<int> totalCount, SdkOptional<int> page, SdkOptional<int> perPage, SdkOptional<int> totalPages}) get copyWith => _copyWith;
 
-  DynamicContentList _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? data = sdkOmittedValue,
-          Object? totalCount = sdkOmittedValue,
-          Object? page = sdkOmittedValue,
-          Object? perPage = sdkOmittedValue,
-          Object? totalPages = sdkOmittedValue}) =>
-      DynamicContentList(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<DynamicContentListType>,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as SdkOptional<List<DynamicContent>>,
-        totalCount: identical(totalCount, sdkOmittedValue)
-            ? this.totalCount
-            : totalCount as SdkOptional<int>,
-        page: identical(page, sdkOmittedValue)
-            ? this.page
-            : page as SdkOptional<int>,
-        perPage: identical(perPage, sdkOmittedValue)
-            ? this.perPage
-            : perPage as SdkOptional<int>,
-        totalPages: identical(totalPages, sdkOmittedValue)
-            ? this.totalPages
-            : totalPages as SdkOptional<int>,
-      );
+  DynamicContentList _copyWith({Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue, Object? totalCount = sdkOmittedValue, Object? page = sdkOmittedValue, Object? perPage = sdkOmittedValue, Object? totalPages = sdkOmittedValue}) => DynamicContentList(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<DynamicContentListType>,
+    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<DynamicContent>>,
+    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as SdkOptional<int>,
+    page: identical(page, sdkOmittedValue) ? this.page : page as SdkOptional<int>,
+    perPage: identical(perPage, sdkOmittedValue) ? this.perPage : perPage as SdkOptional<int>,
+    totalPages: identical(totalPages, sdkOmittedValue) ? this.totalPages : totalPages as SdkOptional<int>,
+  );
 
-  factory DynamicContentList.fromJson(Map<String, dynamic> json) =>
-      DynamicContentList(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? DynamicContentListType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        data: json['data'] != null
-            ? SdkPresent(((json['data'] as List?)
-                ?.map((e) => DynamicContent.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        totalCount: json['total_count'] != null
-            ? SdkPresent(((json['total_count'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        page: json['page'] != null
-            ? SdkPresent(((json['page'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        perPage: json['per_page'] != null
-            ? SdkPresent(((json['per_page'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        totalPages: json['total_pages'] != null
-            ? SdkPresent(((json['total_pages'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory DynamicContentList.fromJson(Map<String, dynamic> json) => DynamicContentList(
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? DynamicContentListType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => DynamicContent.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    totalCount: json['total_count'] != null ? SdkPresent(((json['total_count'] as num?)?.toInt())!) : const SdkOmitted(),
+    page: json['page'] != null ? SdkPresent(((json['page'] as num?)?.toInt())!) : const SdkOmitted(),
+    perPage: json['per_page'] != null ? SdkPresent(((json['per_page'] as num?)?.toInt())!) : const SdkOmitted(),
+    totalPages: json['total_pages'] != null ? SdkPresent(((json['total_pages'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<DynamicContentListType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (data) {
-          SdkPresent<List<DynamicContent>>(value: final value) => {
-              'data': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (totalCount) {
-          SdkPresent<int>(value: final value) => {
-              'total_count': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (page) {
-          SdkPresent<int>(value: final value) => {
-              'page': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (perPage) {
-          SdkPresent<int>(value: final value) => {
-              'per_page': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (totalPages) {
-          SdkPresent<int>(value: final value) => {
-              'total_pages': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<DynamicContentListType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (data) {
+      SdkPresent<List<DynamicContent>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (totalCount) {
+      SdkPresent<int>(value: final value) => {'total_count': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (page) {
+      SdkPresent<int>(value: final value) => {'page': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (perPage) {
+      SdkPresent<int>(value: final value) => {'per_page': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (totalPages) {
+      SdkPresent<int>(value: final value) => {'total_pages': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// The request payload for updating dynamic content. All fields are optional — only provided fields are updated.
 class DynamicContentUpdateRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the dynamic content. Must be unique in the workspace. Renaming doesn't change the `key`.
   final SdkOptional<String> name;
-
   /// The locale whose variation is used when there's no variation for the requested locale. The dynamic content must have a variation for this locale that applies to all brands.
   final SdkOptional<String> defaultLocale;
-
   /// The full set of variations. Existing variations that aren't included are deleted.
   final SdkOptional<List<DynamicContentVariationRequest>> variations;
 
-  const DynamicContentUpdateRequest(
-      {this.name = const SdkOmitted(),
-      this.defaultLocale = const SdkOmitted(),
-      this.variations = const SdkOmitted()});
+  const DynamicContentUpdateRequest({this.name = const SdkOmitted(), this.defaultLocale = const SdkOmitted(), this.variations = const SdkOmitted()});
 
-  DynamicContentUpdateRequest Function(
-          {SdkOptional<String> name,
-          SdkOptional<String> defaultLocale,
-          SdkOptional<List<DynamicContentVariationRequest>> variations})
-      get copyWith => _copyWith;
+  DynamicContentUpdateRequest Function({SdkOptional<String> name, SdkOptional<String> defaultLocale, SdkOptional<List<DynamicContentVariationRequest>> variations}) get copyWith => _copyWith;
 
-  DynamicContentUpdateRequest _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? defaultLocale = sdkOmittedValue,
-          Object? variations = sdkOmittedValue}) =>
-      DynamicContentUpdateRequest(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        defaultLocale: identical(defaultLocale, sdkOmittedValue)
-            ? this.defaultLocale
-            : defaultLocale as SdkOptional<String>,
-        variations: identical(variations, sdkOmittedValue)
-            ? this.variations
-            : variations as SdkOptional<List<DynamicContentVariationRequest>>,
-      );
+  DynamicContentUpdateRequest _copyWith({Object? name = sdkOmittedValue, Object? defaultLocale = sdkOmittedValue, Object? variations = sdkOmittedValue}) => DynamicContentUpdateRequest(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    defaultLocale: identical(defaultLocale, sdkOmittedValue) ? this.defaultLocale : defaultLocale as SdkOptional<String>,
+    variations: identical(variations, sdkOmittedValue) ? this.variations : variations as SdkOptional<List<DynamicContentVariationRequest>>,
+  );
 
-  factory DynamicContentUpdateRequest.fromJson(Map<String, dynamic> json) =>
-      DynamicContentUpdateRequest(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        defaultLocale: json['default_locale'] != null
-            ? SdkPresent((json['default_locale'] as String?)!)
-            : const SdkOmitted(),
-        variations: json['variations'] != null
-            ? SdkPresent(((json['variations'] as List?)
-                ?.map((e) => DynamicContentVariationRequest.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory DynamicContentUpdateRequest.fromJson(Map<String, dynamic> json) => DynamicContentUpdateRequest(
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    defaultLocale: json['default_locale'] != null ? SdkPresent((json['default_locale'] as String?)!) : const SdkOmitted(),
+    variations: json['variations'] != null ? SdkPresent(((json['variations'] as List?)?.map((e) => DynamicContentVariationRequest.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (defaultLocale) {
-          SdkPresent<String>(value: final value) => {
-              'default_locale': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (variations) {
-          SdkPresent<List<DynamicContentVariationRequest>>(
-            value: final value
-          ) =>
-            {
-              'variations': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (defaultLocale) {
+      SdkPresent<String>(value: final value) => {'default_locale': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (variations) {
+      SdkPresent<List<DynamicContentVariationRequest>>(value: final value) => {'variations': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// A variation of a dynamic content. Provide `text_content` for inline dynamic content, or `body` for block dynamic content.
 class DynamicContentVariationRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The locale of the variation. Each locale can appear once per brand.
   final String locale;
-
   /// The unique identifier for the brand the variation applies to. Omit for a variation that applies to all brands.
   final SdkOptional<String?> brandId;
-
   /// The value of an inline variation.
   final SdkOptional<String> textContent;
-
   /// The content of a block variation in HTML.
   final SdkOptional<String> body;
-
   /// Set to `true` to make the variation show nothing instead of falling back to the default content. Any `text_content` or `body` sent with it is ignored.
   final SdkOptional<bool> intentionallyEmpty;
 
-  const DynamicContentVariationRequest(
-      {required this.locale,
-      this.brandId = const SdkOmitted(),
-      this.textContent = const SdkOmitted(),
-      this.body = const SdkOmitted(),
-      this.intentionallyEmpty = const SdkOmitted()});
+  const DynamicContentVariationRequest({required this.locale, this.brandId = const SdkOmitted(), this.textContent = const SdkOmitted(), this.body = const SdkOmitted(), this.intentionallyEmpty = const SdkOmitted()});
 
-  DynamicContentVariationRequest Function(
-      {String locale,
-      SdkOptional<String?> brandId,
-      SdkOptional<String> textContent,
-      SdkOptional<String> body,
-      SdkOptional<bool> intentionallyEmpty}) get copyWith => _copyWith;
+  DynamicContentVariationRequest Function({String locale, SdkOptional<String?> brandId, SdkOptional<String> textContent, SdkOptional<String> body, SdkOptional<bool> intentionallyEmpty}) get copyWith => _copyWith;
 
-  DynamicContentVariationRequest _copyWith(
-          {Object? locale = sdkOmittedValue,
-          Object? brandId = sdkOmittedValue,
-          Object? textContent = sdkOmittedValue,
-          Object? body = sdkOmittedValue,
-          Object? intentionallyEmpty = sdkOmittedValue}) =>
-      DynamicContentVariationRequest(
-        locale:
-            identical(locale, sdkOmittedValue) ? this.locale : locale as String,
-        brandId: identical(brandId, sdkOmittedValue)
-            ? this.brandId
-            : brandId as SdkOptional<String?>,
-        textContent: identical(textContent, sdkOmittedValue)
-            ? this.textContent
-            : textContent as SdkOptional<String>,
-        body: identical(body, sdkOmittedValue)
-            ? this.body
-            : body as SdkOptional<String>,
-        intentionallyEmpty: identical(intentionallyEmpty, sdkOmittedValue)
-            ? this.intentionallyEmpty
-            : intentionallyEmpty as SdkOptional<bool>,
-      );
+  DynamicContentVariationRequest _copyWith({Object? locale = sdkOmittedValue, Object? brandId = sdkOmittedValue, Object? textContent = sdkOmittedValue, Object? body = sdkOmittedValue, Object? intentionallyEmpty = sdkOmittedValue}) => DynamicContentVariationRequest(
+    locale: identical(locale, sdkOmittedValue) ? this.locale : locale as String,
+    brandId: identical(brandId, sdkOmittedValue) ? this.brandId : brandId as SdkOptional<String?>,
+    textContent: identical(textContent, sdkOmittedValue) ? this.textContent : textContent as SdkOptional<String>,
+    body: identical(body, sdkOmittedValue) ? this.body : body as SdkOptional<String>,
+    intentionallyEmpty: identical(intentionallyEmpty, sdkOmittedValue) ? this.intentionallyEmpty : intentionallyEmpty as SdkOptional<bool>,
+  );
 
-  factory DynamicContentVariationRequest.fromJson(Map<String, dynamic> json) =>
-      DynamicContentVariationRequest(
-        locale: (json['locale'] as String?)!,
-        brandId: json.containsKey('brand_id')
-            ? SdkPresent(json['brand_id'] as String?)
-            : const SdkOmitted(),
-        textContent: json['text_content'] != null
-            ? SdkPresent((json['text_content'] as String?)!)
-            : const SdkOmitted(),
-        body: json['body'] != null
-            ? SdkPresent((json['body'] as String?)!)
-            : const SdkOmitted(),
-        intentionallyEmpty: json['intentionally_empty'] != null
-            ? SdkPresent((json['intentionally_empty'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory DynamicContentVariationRequest.fromJson(Map<String, dynamic> json) => DynamicContentVariationRequest(
+    locale: (json['locale'] as String?)!,
+    brandId: json.containsKey('brand_id') ? SdkPresent(json['brand_id'] as String?) : const SdkOmitted(),
+    textContent: json['text_content'] != null ? SdkPresent((json['text_content'] as String?)!) : const SdkOmitted(),
+    body: json['body'] != null ? SdkPresent((json['body'] as String?)!) : const SdkOmitted(),
+    intentionallyEmpty: json['intentionally_empty'] != null ? SdkPresent((json['intentionally_empty'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'locale': locale,
-        ...switch (brandId) {
-          SdkPresent<String?>(value: final value) => {
-              'brand_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (textContent) {
-          SdkPresent<String>(value: final value) => {
-              'text_content': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (body) {
-          SdkPresent<String>(value: final value) => {
-              'body': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (intentionallyEmpty) {
-          SdkPresent<bool>(value: final value) => {
-              'intentionally_empty': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'locale': locale,
+    ...switch (brandId) {
+      SdkPresent<String?>(value: final value) => {'brand_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (textContent) {
+      SdkPresent<String>(value: final value) => {'text_content': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (body) {
+      SdkPresent<String>(value: final value) => {'body': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (intentionallyEmpty) {
+      SdkPresent<bool>(value: final value) => {'intentionally_empty': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

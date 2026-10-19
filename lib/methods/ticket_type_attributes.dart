@@ -52,27 +52,22 @@ Future<TicketTypeAttribute> createTicketTypeAttribute(ClientConfig config,
             'description': description,
             'data_type': dataType,
             'required_to_create': SdkUtils.unwrapOptional(requiredToCreate),
-            'required_to_create_for_contacts':
-                SdkUtils.unwrapOptional(requiredToCreateForContacts),
+            'required_to_create_for_contacts': SdkUtils.unwrapOptional(requiredToCreateForContacts),
             'visible_on_create': SdkUtils.unwrapOptional(visibleOnCreate),
             'visible_to_contacts': SdkUtils.unwrapOptional(visibleToContacts),
             'multiline': SdkUtils.unwrapOptional(multiline),
             'list_items': SdkUtils.unwrapOptional(listItems),
-            'allow_multiple_values':
-                SdkUtils.unwrapOptional(allowMultipleValues)
+            'allow_multiple_values': SdkUtils.unwrapOptional(allowMultipleValues)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'createTicketTypeAttribute',
-          fromJsonRaw: (value) =>
-              TicketTypeAttribute.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => TicketTypeAttribute.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Updates the configuration of an existing ticket type attribute. Use the `ticket_type_id` and `attribute_id` path parameters to identify the attribute; provide only the fields you want to change.
 ///
@@ -124,25 +119,19 @@ Future<TicketTypeAttribute> updateTicketTypeAttribute(ClientConfig config,
             'name': SdkUtils.unwrapOptional(name),
             'description': SdkUtils.unwrapOptional(description),
             'required_to_create': SdkUtils.unwrapOptional(requiredToCreate),
-            'required_to_create_for_contacts':
-                SdkUtils.unwrapOptional(requiredToCreateForContacts),
+            'required_to_create_for_contacts': SdkUtils.unwrapOptional(requiredToCreateForContacts),
             'visible_on_create': SdkUtils.unwrapOptional(visibleOnCreate),
             'visible_to_contacts': SdkUtils.unwrapOptional(visibleToContacts),
             'multiline': SdkUtils.unwrapOptional(multiline),
             'list_items': SdkUtils.unwrapOptional(listItems),
-            'allow_multiple_values':
-                SdkUtils.unwrapOptional(allowMultipleValues),
+            'allow_multiple_values': SdkUtils.unwrapOptional(allowMultipleValues),
             'archived': SdkUtils.unwrapOptional(archived)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'updateTicketTypeAttribute',
-          fromJsonRaw: (value) =>
-              TicketTypeAttribute.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => TicketTypeAttribute.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

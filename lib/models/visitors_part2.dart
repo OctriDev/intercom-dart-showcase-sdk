@@ -8,420 +8,229 @@ part of 'visitors.dart';
 class VisitorLocationData {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `string` value serialized in the `type` wire field.
   final SdkOptional<String> type_;
-
   /// The city name of the visitor.
   final SdkOptional<String> cityName;
-
   /// The continent code of the visitor.
   final SdkOptional<String> continentCode;
-
   /// The country code of the visitor.
   final SdkOptional<String> countryCode;
-
   /// The country name of the visitor.
   final SdkOptional<String> countryName;
-
   /// The postal code of the visitor.
   final SdkOptional<String> postalCode;
-
   /// The region name of the visitor.
   final SdkOptional<String> regionName;
-
   /// The timezone of the visitor.
   final SdkOptional<String> timezone;
 
-  const VisitorLocationData(
-      {this.type_ = const SdkOmitted(),
-      this.cityName = const SdkOmitted(),
-      this.continentCode = const SdkOmitted(),
-      this.countryCode = const SdkOmitted(),
-      this.countryName = const SdkOmitted(),
-      this.postalCode = const SdkOmitted(),
-      this.regionName = const SdkOmitted(),
-      this.timezone = const SdkOmitted()});
+  const VisitorLocationData({this.type_ = const SdkOmitted(), this.cityName = const SdkOmitted(), this.continentCode = const SdkOmitted(), this.countryCode = const SdkOmitted(), this.countryName = const SdkOmitted(), this.postalCode = const SdkOmitted(), this.regionName = const SdkOmitted(), this.timezone = const SdkOmitted()});
 
-  VisitorLocationData Function(
-      {SdkOptional<String> type_,
-      SdkOptional<String> cityName,
-      SdkOptional<String> continentCode,
-      SdkOptional<String> countryCode,
-      SdkOptional<String> countryName,
-      SdkOptional<String> postalCode,
-      SdkOptional<String> regionName,
-      SdkOptional<String> timezone}) get copyWith => _copyWith;
+  VisitorLocationData Function({SdkOptional<String> type_, SdkOptional<String> cityName, SdkOptional<String> continentCode, SdkOptional<String> countryCode, SdkOptional<String> countryName, SdkOptional<String> postalCode, SdkOptional<String> regionName, SdkOptional<String> timezone}) get copyWith => _copyWith;
 
-  VisitorLocationData _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? cityName = sdkOmittedValue,
-          Object? continentCode = sdkOmittedValue,
-          Object? countryCode = sdkOmittedValue,
-          Object? countryName = sdkOmittedValue,
-          Object? postalCode = sdkOmittedValue,
-          Object? regionName = sdkOmittedValue,
-          Object? timezone = sdkOmittedValue}) =>
-      VisitorLocationData(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        cityName: identical(cityName, sdkOmittedValue)
-            ? this.cityName
-            : cityName as SdkOptional<String>,
-        continentCode: identical(continentCode, sdkOmittedValue)
-            ? this.continentCode
-            : continentCode as SdkOptional<String>,
-        countryCode: identical(countryCode, sdkOmittedValue)
-            ? this.countryCode
-            : countryCode as SdkOptional<String>,
-        countryName: identical(countryName, sdkOmittedValue)
-            ? this.countryName
-            : countryName as SdkOptional<String>,
-        postalCode: identical(postalCode, sdkOmittedValue)
-            ? this.postalCode
-            : postalCode as SdkOptional<String>,
-        regionName: identical(regionName, sdkOmittedValue)
-            ? this.regionName
-            : regionName as SdkOptional<String>,
-        timezone: identical(timezone, sdkOmittedValue)
-            ? this.timezone
-            : timezone as SdkOptional<String>,
-      );
+  VisitorLocationData _copyWith({Object? type_ = sdkOmittedValue, Object? cityName = sdkOmittedValue, Object? continentCode = sdkOmittedValue, Object? countryCode = sdkOmittedValue, Object? countryName = sdkOmittedValue, Object? postalCode = sdkOmittedValue, Object? regionName = sdkOmittedValue, Object? timezone = sdkOmittedValue}) => VisitorLocationData(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    cityName: identical(cityName, sdkOmittedValue) ? this.cityName : cityName as SdkOptional<String>,
+    continentCode: identical(continentCode, sdkOmittedValue) ? this.continentCode : continentCode as SdkOptional<String>,
+    countryCode: identical(countryCode, sdkOmittedValue) ? this.countryCode : countryCode as SdkOptional<String>,
+    countryName: identical(countryName, sdkOmittedValue) ? this.countryName : countryName as SdkOptional<String>,
+    postalCode: identical(postalCode, sdkOmittedValue) ? this.postalCode : postalCode as SdkOptional<String>,
+    regionName: identical(regionName, sdkOmittedValue) ? this.regionName : regionName as SdkOptional<String>,
+    timezone: identical(timezone, sdkOmittedValue) ? this.timezone : timezone as SdkOptional<String>,
+  );
 
-  factory VisitorLocationData.fromJson(Map<String, dynamic> json) =>
-      VisitorLocationData(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        cityName: json['city_name'] != null
-            ? SdkPresent((json['city_name'] as String?)!)
-            : const SdkOmitted(),
-        continentCode: json['continent_code'] != null
-            ? SdkPresent((json['continent_code'] as String?)!)
-            : const SdkOmitted(),
-        countryCode: json['country_code'] != null
-            ? SdkPresent((json['country_code'] as String?)!)
-            : const SdkOmitted(),
-        countryName: json['country_name'] != null
-            ? SdkPresent((json['country_name'] as String?)!)
-            : const SdkOmitted(),
-        postalCode: json['postal_code'] != null
-            ? SdkPresent((json['postal_code'] as String?)!)
-            : const SdkOmitted(),
-        regionName: json['region_name'] != null
-            ? SdkPresent((json['region_name'] as String?)!)
-            : const SdkOmitted(),
-        timezone: json['timezone'] != null
-            ? SdkPresent((json['timezone'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory VisitorLocationData.fromJson(Map<String, dynamic> json) => VisitorLocationData(
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    cityName: json['city_name'] != null ? SdkPresent((json['city_name'] as String?)!) : const SdkOmitted(),
+    continentCode: json['continent_code'] != null ? SdkPresent((json['continent_code'] as String?)!) : const SdkOmitted(),
+    countryCode: json['country_code'] != null ? SdkPresent((json['country_code'] as String?)!) : const SdkOmitted(),
+    countryName: json['country_name'] != null ? SdkPresent((json['country_name'] as String?)!) : const SdkOmitted(),
+    postalCode: json['postal_code'] != null ? SdkPresent((json['postal_code'] as String?)!) : const SdkOmitted(),
+    regionName: json['region_name'] != null ? SdkPresent((json['region_name'] as String?)!) : const SdkOmitted(),
+    timezone: json['timezone'] != null ? SdkPresent((json['timezone'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (cityName) {
-          SdkPresent<String>(value: final value) => {
-              'city_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (continentCode) {
-          SdkPresent<String>(value: final value) => {
-              'continent_code': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (countryCode) {
-          SdkPresent<String>(value: final value) => {
-              'country_code': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (countryName) {
-          SdkPresent<String>(value: final value) => {
-              'country_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (postalCode) {
-          SdkPresent<String>(value: final value) => {
-              'postal_code': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (regionName) {
-          SdkPresent<String>(value: final value) => {
-              'region_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (timezone) {
-          SdkPresent<String>(value: final value) => {
-              'timezone': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (cityName) {
+      SdkPresent<String>(value: final value) => {'city_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (continentCode) {
+      SdkPresent<String>(value: final value) => {'continent_code': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (countryCode) {
+      SdkPresent<String>(value: final value) => {'country_code': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (countryName) {
+      SdkPresent<String>(value: final value) => {'country_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (postalCode) {
+      SdkPresent<String>(value: final value) => {'postal_code': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (regionName) {
+      SdkPresent<String>(value: final value) => {'region_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (timezone) {
+      SdkPresent<String>(value: final value) => {'timezone': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Optional object value serialized in the `social_profiles` wire field.
 class VisitorSocialProfiles {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object
   final SdkOptional<VisitorSocialProfilesType> type_;
-
   /// Optional array value serialized in the `social_profiles` wire field.
   final SdkOptional<List<String>> socialProfiles;
 
-  const VisitorSocialProfiles(
-      {this.type_ = const SdkOmitted(),
-      this.socialProfiles = const SdkOmitted()});
+  const VisitorSocialProfiles({this.type_ = const SdkOmitted(), this.socialProfiles = const SdkOmitted()});
 
-  VisitorSocialProfiles Function(
-      {SdkOptional<VisitorSocialProfilesType> type_,
-      SdkOptional<List<String>> socialProfiles}) get copyWith => _copyWith;
+  VisitorSocialProfiles Function({SdkOptional<VisitorSocialProfilesType> type_, SdkOptional<List<String>> socialProfiles}) get copyWith => _copyWith;
 
-  VisitorSocialProfiles _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? socialProfiles = sdkOmittedValue}) =>
-      VisitorSocialProfiles(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<VisitorSocialProfilesType>,
-        socialProfiles: identical(socialProfiles, sdkOmittedValue)
-            ? this.socialProfiles
-            : socialProfiles as SdkOptional<List<String>>,
-      );
+  VisitorSocialProfiles _copyWith({Object? type_ = sdkOmittedValue, Object? socialProfiles = sdkOmittedValue}) => VisitorSocialProfiles(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<VisitorSocialProfilesType>,
+    socialProfiles: identical(socialProfiles, sdkOmittedValue) ? this.socialProfiles : socialProfiles as SdkOptional<List<String>>,
+  );
 
-  factory VisitorSocialProfiles.fromJson(Map<String, dynamic> json) =>
-      VisitorSocialProfiles(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? VisitorSocialProfilesType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        socialProfiles: json['social_profiles'] != null
-            ? SdkPresent(((json['social_profiles'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory VisitorSocialProfiles.fromJson(Map<String, dynamic> json) => VisitorSocialProfiles(
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? VisitorSocialProfilesType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    socialProfiles: json['social_profiles'] != null ? SdkPresent(((json['social_profiles'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<VisitorSocialProfilesType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (socialProfiles) {
-          SdkPresent<List<String>>(value: final value) => {
-              'social_profiles': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<VisitorSocialProfilesType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (socialProfiles) {
+      SdkPresent<List<String>>(value: final value) => {'social_profiles': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Required object value serialized in the `tags[]` wire field.
 class VisitorTagsTagsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object
   final SdkOptional<VisitorTagsTagsItemType> type_;
-
   /// The id of the tag.
   final SdkOptional<String> id;
-
   /// The name of the tag.
   final SdkOptional<String> name;
 
-  const VisitorTagsTagsItem(
-      {this.type_ = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.name = const SdkOmitted()});
+  const VisitorTagsTagsItem({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.name = const SdkOmitted()});
 
-  VisitorTagsTagsItem Function(
-      {SdkOptional<VisitorTagsTagsItemType> type_,
-      SdkOptional<String> id,
-      SdkOptional<String> name}) get copyWith => _copyWith;
+  VisitorTagsTagsItem Function({SdkOptional<VisitorTagsTagsItemType> type_, SdkOptional<String> id, SdkOptional<String> name}) get copyWith => _copyWith;
 
-  VisitorTagsTagsItem _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue}) =>
-      VisitorTagsTagsItem(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<VisitorTagsTagsItemType>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-      );
+  VisitorTagsTagsItem _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue}) => VisitorTagsTagsItem(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<VisitorTagsTagsItemType>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+  );
 
-  factory VisitorTagsTagsItem.fromJson(Map<String, dynamic> json) =>
-      VisitorTagsTagsItem(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? VisitorTagsTagsItemType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory VisitorTagsTagsItem.fromJson(Map<String, dynamic> json) => VisitorTagsTagsItem(
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? VisitorTagsTagsItemType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<VisitorTagsTagsItemType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<VisitorTagsTagsItemType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Optional object value serialized in the `tags` wire field.
 class VisitorTags {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object
   final SdkOptional<VisitorTagsType> type_;
-
   /// Optional array value serialized in the `tags` wire field.
   final SdkOptional<List<VisitorTagsTagsItem>> tags;
 
-  const VisitorTags(
-      {this.type_ = const SdkOmitted(), this.tags = const SdkOmitted()});
+  const VisitorTags({this.type_ = const SdkOmitted(), this.tags = const SdkOmitted()});
 
-  VisitorTags Function(
-      {SdkOptional<VisitorTagsType> type_,
-      SdkOptional<List<VisitorTagsTagsItem>> tags}) get copyWith => _copyWith;
+  VisitorTags Function({SdkOptional<VisitorTagsType> type_, SdkOptional<List<VisitorTagsTagsItem>> tags}) get copyWith => _copyWith;
 
-  VisitorTags _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? tags = sdkOmittedValue}) =>
-      VisitorTags(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<VisitorTagsType>,
-        tags: identical(tags, sdkOmittedValue)
-            ? this.tags
-            : tags as SdkOptional<List<VisitorTagsTagsItem>>,
-      );
+  VisitorTags _copyWith({Object? type_ = sdkOmittedValue, Object? tags = sdkOmittedValue}) => VisitorTags(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<VisitorTagsType>,
+    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<VisitorTagsTagsItem>>,
+  );
 
   factory VisitorTags.fromJson(Map<String, dynamic> json) => VisitorTags(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? VisitorTagsType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        tags: json['tags'] != null
-            ? SdkPresent(((json['tags'] as List?)
-                ?.map((e) =>
-                    VisitorTagsTagsItem.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? VisitorTagsType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => VisitorTagsTagsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<VisitorTagsType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tags) {
-          SdkPresent<List<VisitorTagsTagsItem>>(value: final value) => {
-              'tags': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<VisitorTagsType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tags) {
+      SdkPresent<List<VisitorTagsTagsItem>>(value: final value) => {'tags': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Optional object value serialized in the `segments` wire field.
 class VisitorSegments {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object
   final SdkOptional<VisitorSegmentsType> type_;
-
   /// Optional array value serialized in the `segments` wire field.
   final SdkOptional<List<String>> segments;
 
-  const VisitorSegments(
-      {this.type_ = const SdkOmitted(), this.segments = const SdkOmitted()});
+  const VisitorSegments({this.type_ = const SdkOmitted(), this.segments = const SdkOmitted()});
 
-  VisitorSegments Function(
-      {SdkOptional<VisitorSegmentsType> type_,
-      SdkOptional<List<String>> segments}) get copyWith => _copyWith;
+  VisitorSegments Function({SdkOptional<VisitorSegmentsType> type_, SdkOptional<List<String>> segments}) get copyWith => _copyWith;
 
-  VisitorSegments _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? segments = sdkOmittedValue}) =>
-      VisitorSegments(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<VisitorSegmentsType>,
-        segments: identical(segments, sdkOmittedValue)
-            ? this.segments
-            : segments as SdkOptional<List<String>>,
-      );
+  VisitorSegments _copyWith({Object? type_ = sdkOmittedValue, Object? segments = sdkOmittedValue}) => VisitorSegments(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<VisitorSegmentsType>,
+    segments: identical(segments, sdkOmittedValue) ? this.segments : segments as SdkOptional<List<String>>,
+  );
 
-  factory VisitorSegments.fromJson(Map<String, dynamic> json) =>
-      VisitorSegments(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? VisitorSegmentsType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        segments: json['segments'] != null
-            ? SdkPresent(((json['segments'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory VisitorSegments.fromJson(Map<String, dynamic> json) => VisitorSegments(
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? VisitorSegmentsType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    segments: json['segments'] != null ? SdkPresent(((json['segments'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<VisitorSegmentsType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (segments) {
-          SdkPresent<List<String>>(value: final value) => {
-              'segments': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<VisitorSegmentsType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (segments) {
+      SdkPresent<List<String>>(value: final value) => {'segments': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

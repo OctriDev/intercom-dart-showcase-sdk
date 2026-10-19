@@ -32,34 +32,20 @@ Future<ConversationList> listConversations(ClientConfig config,
   return (await sdkRequest<ConversationList>('GET', '/conversations',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'starting_after': SdkQueryValue(
-                SdkUtils.unwrapOptional(startingAfter),
-                style: 'form',
-                explode: true),
-            'include_monitors': SdkQueryValue(
-                SdkUtils.unwrapOptional(includeMonitors),
-                style: 'form',
-                explode: true),
-            'include_scorecards': SdkQueryValue(
-                SdkUtils.unwrapOptional(includeScorecards),
-                style: 'form',
-                explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'starting_after': SdkQueryValue(SdkUtils.unwrapOptional(startingAfter), style: 'form', explode: true),
+            'include_monitors': SdkQueryValue(SdkUtils.unwrapOptional(includeMonitors), style: 'form', explode: true),
+            'include_scorecards': SdkQueryValue(SdkUtils.unwrapOptional(includeScorecards), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listConversations',
-          fromJsonRaw: (value) =>
-              ConversationList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ConversationList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '403': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Creates a conversation initiated by a contact and returns the created message. The conversation can be an in-app message only; include the contact in `from` and the message text in `body`. When you identify a visitor in `from`, the visitor is converted to a contact with a lead role.
 ///
@@ -101,19 +87,14 @@ Future<CreateConversationResponse> createConversation(ClientConfig config,
             'brand_id': SdkUtils.unwrapOptional(brandId)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'createConversation',
-          fromJsonRaw: (value) => CreateConversationResponse.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CreateConversationResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves a single conversation with its conversation parts. Use `display_as` to request plain-text messages, `include_translations` to request translated parts, or the QA parameters to include monitor and scorecard results. The response includes at most the 500 most recent conversation parts.
 ///
@@ -143,35 +124,20 @@ Future<Conversation> retrieveConversation(ClientConfig config,
           '/conversations/${Uri.encodeComponent(conversationId.toString())}',
           config: config,
           query: {
-            'display_as': SdkQueryValue(SdkUtils.unwrapOptional(displayAs),
-                style: 'form', explode: true),
-            'include_translations': SdkQueryValue(
-                SdkUtils.unwrapOptional(includeTranslations),
-                style: 'form',
-                explode: true),
-            'include_monitors': SdkQueryValue(
-                SdkUtils.unwrapOptional(includeMonitors),
-                style: 'form',
-                explode: true),
-            'include_scorecards': SdkQueryValue(
-                SdkUtils.unwrapOptional(includeScorecards),
-                style: 'form',
-                explode: true)
+            'display_as': SdkQueryValue(SdkUtils.unwrapOptional(displayAs), style: 'form', explode: true),
+            'include_translations': SdkQueryValue(SdkUtils.unwrapOptional(includeTranslations), style: 'form', explode: true),
+            'include_monitors': SdkQueryValue(SdkUtils.unwrapOptional(includeMonitors), style: 'form', explode: true),
+            'include_scorecards': SdkQueryValue(SdkUtils.unwrapOptional(includeScorecards), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'retrieveConversation',
-          fromJsonRaw: (value) =>
-              Conversation.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => Conversation.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Updates a conversation's read state, title, custom attributes, or associated company. Supply only the fields you want to change; use the reply or manage endpoints for replies and actions such as assignment, opening, closing, or snoozing. The response returns the updated conversation.
 ///
@@ -204,8 +170,7 @@ Future<Conversation> updateConversation(ClientConfig config,
           '/conversations/${Uri.encodeComponent(conversationId.toString())}',
           config: config,
           query: {
-            'display_as': SdkQueryValue(SdkUtils.unwrapOptional(displayAs),
-                style: 'form', explode: true)
+            'display_as': SdkQueryValue(SdkUtils.unwrapOptional(displayAs), style: 'form', explode: true)
           },
           body: {
             'read': SdkUtils.unwrapOptional(read),
@@ -214,19 +179,14 @@ Future<Conversation> updateConversation(ClientConfig config,
             'company_id': SdkUtils.unwrapOptional(companyId)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'updateConversation',
-          fromJsonRaw: (value) =>
-              Conversation.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => Conversation.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Deletes a conversation, with reporting-data retention controlled by `retain_metrics`. The default retains reporting data; set `retain_metrics` to false to remove the conversation's associated reporting data as well, which requires the `delete_conversations_and_metrics` OAuth scope. &lt;Callout type="warning"&gt;Deleting a conversation is permanent and cannot be reversed.&lt;/Callout&gt;
 ///
@@ -246,24 +206,17 @@ Future<ConversationDeleted> deleteConversation(ClientConfig config,
           '/conversations/${Uri.encodeComponent(conversationId.toString())}',
           config: config,
           query: {
-            'retain_metrics': SdkQueryValue(
-                SdkUtils.unwrapOptional(retainMetrics),
-                style: 'form',
-                explode: true)
+            'retain_metrics': SdkQueryValue(SdkUtils.unwrapOptional(retainMetrics), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'deleteConversation',
-          fromJsonRaw: (value) =>
-              ConversationDeleted.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ConversationDeleted.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '403': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Searches conversations using filters on searchable conversation attributes. Provide a `query` filter expression and use pagination to control result size; pages default to 20 results and can contain up to 150. Use the `starting_after` cursor from the response to fetch subsequent pages.
 ///
@@ -287,28 +240,21 @@ Future<ConversationList> searchConversations(ClientConfig config,
   return (await sdkRequest<ConversationList>('POST', '/conversations/search',
           config: config,
           query: {
-            'include_monitors': SdkQueryValue(
-                SdkUtils.unwrapOptional(includeMonitors),
-                style: 'form',
-                explode: true),
-            'include_scorecards': SdkQueryValue(
-                SdkUtils.unwrapOptional(includeScorecards),
-                style: 'form',
-                explode: true)
+            'include_monitors': SdkQueryValue(SdkUtils.unwrapOptional(includeMonitors), style: 'form', explode: true),
+            'include_scorecards': SdkQueryValue(SdkUtils.unwrapOptional(includeScorecards), style: 'form', explode: true)
           },
           body: {
             'query': query,
             'pagination': SdkUtils.unwrapOptional(pagination)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'searchConversations',
-          fromJsonRaw: (value) =>
-              ConversationList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ConversationList.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Replies to a conversation with a message from an admin or on behalf of a contact, or adds an admin note. Choose the appropriate reply payload and supply its required fields; for admin replies, `message_type` selects a comment, note, or quick reply. Bot replies to inbound email conversations are not delivered as outbound email by default.
 ///
@@ -326,19 +272,14 @@ Future<Conversation> replyConversation(ClientConfig config,
           config: config,
           body: SdkUtils.unwrapOptional(body),
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'replyConversation',
-          fromJsonRaw: (value) =>
-              Conversation.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => Conversation.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Changes a conversation's state or assignment by closing, snoozing, opening, or assigning it to an admin or team. Choose the request variant for the action and provide its required fields, such as `snoozed_until` when snoozing. Use the reply operation to send a comment, note, or quick reply instead.
 ///
@@ -355,19 +296,14 @@ Future<Conversation> manageConversation(ClientConfig config,
           config: config,
           body: SdkUtils.unwrapOptional(body),
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'manageConversation',
-          fromJsonRaw: (value) =>
-              Conversation.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => Conversation.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Adds a contact as a participant in a conversation on behalf of an admin or another contact. Identify the contact using an Intercom user ID, a user ID, or an email address in `customer`. If no contact exists for a supplied email address, the API creates a contact with the `lead` role.
 ///
@@ -376,14 +312,13 @@ Future<Conversation> manageConversation(ClientConfig config,
 /// [conversationId] The identifier for the conversation as given by Intercom.
 /// [adminId] The `id` of the admin who is adding the new participant.
 /// [customer] Optional object value serialized in the `customer` wire field.
-Future<ConversationParticipantsResponse> attachConversationsContact(
-    ClientConfig config,
-    {required String conversationId,
-    SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
-    SdkOptional<String> adminId = const SdkOmitted(),
-    SdkOptional<AttachContactToConversationRequestCustomer> customer =
-        const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ConversationParticipantsResponse>
+    attachConversationsContact(ClientConfig config,
+        {required String conversationId,
+        SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
+        SdkOptional<String> adminId = const SdkOmitted(),
+        SdkOptional<AttachContactToConversationRequestCustomer> customer = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ConversationParticipantsResponse>('POST',
           '/conversations/${Uri.encodeComponent(conversationId.toString())}/customers',
           config: config,
@@ -392,19 +327,14 @@ Future<ConversationParticipantsResponse> attachConversationsContact(
             'customer': SdkUtils.unwrapOptional(customer)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'attachConversationsContact',
-          fromJsonRaw: (value) => ConversationParticipantsResponse.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ConversationParticipantsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Removes a contact from a group conversation on behalf of an admin. Supply the conversation and contact identifiers and the performing admin's ID. You cannot remove the last remaining contact from a conversation.
 ///
@@ -413,32 +343,26 @@ Future<ConversationParticipantsResponse> attachConversationsContact(
 /// [conversationId] The identifier for the conversation as given by Intercom.
 /// [contactId] The identifier for the contact as given by Intercom.
 /// [adminId] The `id` of the admin who is performing the action.
-Future<ConversationParticipantsResponse> detachConversationsContact(
-    ClientConfig config,
-    {required String conversationId,
-    required String contactId,
-    required String adminId,
-    SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ConversationParticipantsResponse>
+    detachConversationsContact(ClientConfig config,
+        {required String conversationId,
+        required String contactId,
+        required String adminId,
+        SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ConversationParticipantsResponse>('DELETE',
           '/conversations/${Uri.encodeComponent(conversationId.toString())}/customers/${Uri.encodeComponent(contactId.toString())}',
           config: config,
           body: {'admin_id': adminId},
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'detachConversationsContact',
-          fromJsonRaw: (value) => ConversationParticipantsResponse.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ConversationParticipantsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '422': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Lists pause and resume handling events for a conversation, including the teammate and timestamp for each event. Use this operation when you need to review when teammates paused or resumed handling. Access requires the `read_conversations` OAuth scope.
 ///
@@ -453,18 +377,14 @@ Future<HandlingEventList> listHandlingEvents(ClientConfig config,
           '/conversations/${Uri.encodeComponent(id.toString())}/handling_events',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listHandlingEvents',
-          fromJsonRaw: (value) =>
-              HandlingEventList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => HandlingEventList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Lists human-in-the-loop events from Fin consultations on a conversation, ordered from oldest to newest. Use the events to review consultation steps and their associated data; a consultation appears only after it has ended. Access requires the `read_conversations` OAuth scope and permission to access the conversation.
 ///
@@ -479,18 +399,14 @@ Future<HitlEventList> listHitlEvents(ClientConfig config,
           '/conversations/${Uri.encodeComponent(id.toString())}/hitl_events',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listHitlEvents',
-          fromJsonRaw: (value) =>
-              HitlEventList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => HitlEventList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Lists internal side conversations and their conversation parts for a given conversation. Use `page` and `per_page` to paginate the results. Access requires the `read_conversations` OAuth scope.
 ///
@@ -513,24 +429,18 @@ Future<SideConversationList> listSideConversations(ClientConfig config,
           '/conversations/${Uri.encodeComponent(id.toString())}/side_conversations',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listSideConversations',
-          fromJsonRaw: (value) =>
-              SideConversationList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SideConversationList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Redacts a conversation part or the source message of a conversation. Choose the resource type and provide its identifiers; a conversation part must have a body, and a source message must have been created by a contact. Redacting a conversation also removes the associated HITL event data.
 ///
@@ -543,18 +453,14 @@ Future<Conversation> redactConversation(ClientConfig config,
           config: config,
           body: SdkUtils.unwrapOptional(body),
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'redactConversation',
-          fromJsonRaw: (value) =>
-              Conversation.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => Conversation.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Merges a secondary conversation into a primary conversation, closing the secondary and linking it to the surviving primary thread. Supply the secondary conversation ID in the path and the primary conversation ID in `merge_into_conversation_id`; the merge requires `write_conversations`, and also `write_tickets` when the secondary conversation is a ticket. The response contains the primary conversation.
 ///
@@ -573,20 +479,14 @@ Future<Conversation> mergeConversation(ClientConfig config,
           config: config,
           body: {'merge_into_conversation_id': mergeIntoConversationId},
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'mergeConversation',
-          fromJsonRaw: (value) =>
-              Conversation.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => Conversation.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '422': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Converts an existing conversation into a ticket. Supply `ticket_type_id` to select the ticket type, and optionally provide `ticket_state_id` and `attributes` to set the ticket state and ticket attributes. The response contains the created ticket.
 ///
@@ -621,17 +521,14 @@ Future<Ticket> convertConversationToTicket(ClientConfig config,
             'attributes': SdkUtils.unwrapOptional(attributes)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'convertConversationToTicket',
-          fromJsonRaw: (value) =>
-              Ticket.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => Ticket.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Lists IDs and retained metadata for deleted conversations. Use `page` and `per_page` to paginate the results; each page contains up to 20 results by default. Set `order` to `asc` or `desc` to control the ordering of conversation IDs.
 ///
@@ -655,23 +552,15 @@ Future<DeletedConversationList> listDeletedConversationIds(ClientConfig config,
           'GET', '/conversations/deleted',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
-                style: 'form', explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listDeletedConversationIds',
-          fromJsonRaw: (value) =>
-              DeletedConversationList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeletedConversationList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

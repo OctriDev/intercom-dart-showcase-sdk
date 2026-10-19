@@ -6,59 +6,52 @@ part of 'inline.dart';
 // Inline operation models (part 19)
 /// The name of the event.
 final class FinAgentStatusUpdatedEventEventName {
+
   final String value;
 
   const FinAgentStatusUpdatedEventEventName._(this.value);
 
-  factory FinAgentStatusUpdatedEventEventName.fromJson(String value) =>
-      FinAgentStatusUpdatedEventEventName._(value);
+  factory FinAgentStatusUpdatedEventEventName.fromJson(String value) => FinAgentStatusUpdatedEventEventName._(value);
 
-  static const finStatusUpdated =
-      FinAgentStatusUpdatedEventEventName._('fin_status_updated');
+  static const finStatusUpdated = FinAgentStatusUpdatedEventEventName._('fin_status_updated');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is FinAgentStatusUpdatedEventEventName && other.value == value;
+  @override bool operator ==(Object other) => other is FinAgentStatusUpdatedEventEventName && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Fin's current status. - awaiting_user_reply: Fin has finished replying and is waiting for the user to respond - escalated: The conversation has been escalated to a human - resolved: The user's query has been resolved - complete: Fin has completed its workflow. When CSAT is enabled a csat_requested event may follow, in which case the SSE stream is held open past complete until it is delivered or the token expires
 final class FinAgentStatusUpdatedEventStatus {
+
   final String value;
 
   const FinAgentStatusUpdatedEventStatus._(this.value);
 
-  factory FinAgentStatusUpdatedEventStatus.fromJson(String value) =>
-      FinAgentStatusUpdatedEventStatus._(value);
+  factory FinAgentStatusUpdatedEventStatus.fromJson(String value) => FinAgentStatusUpdatedEventStatus._(value);
 
-  static const awaitingUserReply =
-      FinAgentStatusUpdatedEventStatus._('awaiting_user_reply');
+  static const awaitingUserReply = FinAgentStatusUpdatedEventStatus._('awaiting_user_reply');
   static const escalated = FinAgentStatusUpdatedEventStatus._('escalated');
   static const resolved = FinAgentStatusUpdatedEventStatus._('resolved');
   static const complete = FinAgentStatusUpdatedEventStatus._('complete');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is FinAgentStatusUpdatedEventStatus && other.value == value;
+  @override bool operator ==(Object other) => other is FinAgentStatusUpdatedEventStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of object - `group_content` .
 final class GroupContentType {
+
   final String value;
 
   const GroupContentType._(this.value);
@@ -69,198 +62,172 @@ final class GroupContentType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is GroupContentType && other.value == value;
+  @override bool operator ==(Object other) => other is GroupContentType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of object - group_translated_content.
 final class GroupTranslatedContentType {
+
   final String value;
 
   const GroupTranslatedContentType._(this.value);
 
-  factory GroupTranslatedContentType.fromJson(String value) =>
-      GroupTranslatedContentType._(value);
+  factory GroupTranslatedContentType.fromJson(String value) => GroupTranslatedContentType._(value);
 
-  static const groupTranslatedContent =
-      GroupTranslatedContentType._('group_translated_content');
+  static const groupTranslatedContent = GroupTranslatedContentType._('group_translated_content');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is GroupTranslatedContentType && other.value == value;
+  @override bool operator ==(Object other) => other is GroupTranslatedContentType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of handling event
 final class HandlingEventType {
+
   final String value;
 
   const HandlingEventType._(this.value);
 
-  factory HandlingEventType.fromJson(String value) =>
-      HandlingEventType._(value);
+  factory HandlingEventType.fromJson(String value) => HandlingEventType._(value);
 
   static const paused = HandlingEventType._('paused');
   static const resumed = HandlingEventType._('resumed');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is HandlingEventType && other.value == value;
+  @override bool operator ==(Object other) => other is HandlingEventType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the object - `list`.
 final class HelpCenterListType {
+
   final String value;
 
   const HelpCenterListType._(this.value);
 
-  factory HelpCenterListType.fromJson(String value) =>
-      HelpCenterListType._(value);
+  factory HelpCenterListType.fromJson(String value) => HelpCenterListType._(value);
 
   static const list = HelpCenterListType._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is HelpCenterListType && other.value == value;
+  @override bool operator ==(Object other) => other is HelpCenterListType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the redirect target.
 final class HelpCenterRedirectTargetType {
+
   final String value;
 
   const HelpCenterRedirectTargetType._(this.value);
 
-  factory HelpCenterRedirectTargetType.fromJson(String value) =>
-      HelpCenterRedirectTargetType._(value);
+  factory HelpCenterRedirectTargetType.fromJson(String value) => HelpCenterRedirectTargetType._(value);
 
   static const article = HelpCenterRedirectTargetType._('article');
   static const collection = HelpCenterRedirectTargetType._('collection');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is HelpCenterRedirectTargetType && other.value == value;
+  @override bool operator ==(Object other) => other is HelpCenterRedirectTargetType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the object - `help_center_redirect`.
 final class HelpCenterRedirectType {
+
   final String value;
 
   const HelpCenterRedirectType._(this.value);
 
-  factory HelpCenterRedirectType.fromJson(String value) =>
-      HelpCenterRedirectType._(value);
+  factory HelpCenterRedirectType.fromJson(String value) => HelpCenterRedirectType._(value);
 
-  static const helpCenterRedirect =
-      HelpCenterRedirectType._('help_center_redirect');
+  static const helpCenterRedirect = HelpCenterRedirectType._('help_center_redirect');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is HelpCenterRedirectType && other.value == value;
+  @override bool operator ==(Object other) => other is HelpCenterRedirectType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the object - `list`.
 final class HelpCenterRedirectListType {
+
   final String value;
 
   const HelpCenterRedirectListType._(this.value);
 
-  factory HelpCenterRedirectListType.fromJson(String value) =>
-      HelpCenterRedirectListType._(value);
+  factory HelpCenterRedirectListType.fromJson(String value) => HelpCenterRedirectListType._(value);
 
   static const list = HelpCenterRedirectListType._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is HelpCenterRedirectListType && other.value == value;
+  @override bool operator ==(Object other) => other is HelpCenterRedirectListType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Whether the teammate approved Fin's original draft or the one it revised after their feedback.
 final class HitlEventDataApprovedDraftType {
+
   final String value;
 
   const HitlEventDataApprovedDraftType._(this.value);
 
-  factory HitlEventDataApprovedDraftType.fromJson(String value) =>
-      HitlEventDataApprovedDraftType._(value);
+  factory HitlEventDataApprovedDraftType.fromJson(String value) => HitlEventDataApprovedDraftType._(value);
 
   static const original = HitlEventDataApprovedDraftType._('original');
   static const revised = HitlEventDataApprovedDraftType._('revised');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is HitlEventDataApprovedDraftType && other.value == value;
+  @override bool operator ==(Object other) => other is HitlEventDataApprovedDraftType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The channel the conversation was on when Fin consulted a teammate.
 final class HitlEventDataChannel {
+
   final String value;
 
   const HitlEventDataChannel._(this.value);
 
-  factory HitlEventDataChannel.fromJson(String value) =>
-      HitlEventDataChannel._(value);
+  factory HitlEventDataChannel.fromJson(String value) => HitlEventDataChannel._(value);
 
   static const email = HitlEventDataChannel._('email');
   static const chat = HitlEventDataChannel._('chat');
@@ -269,42 +236,35 @@ final class HitlEventDataChannel {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is HitlEventDataChannel && other.value == value;
+  @override bool operator ==(Object other) => other is HitlEventDataChannel && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// How the consultation ended.
 final class HitlEventDataOutcome {
+
   final String value;
 
   const HitlEventDataOutcome._(this.value);
 
-  factory HitlEventDataOutcome.fromJson(String value) =>
-      HitlEventDataOutcome._(value);
+  factory HitlEventDataOutcome.fromJson(String value) => HitlEventDataOutcome._(value);
 
   static const approved = HitlEventDataOutcome._('approved');
   static const takenOver = HitlEventDataOutcome._('taken_over');
   static const timedOutSent = HitlEventDataOutcome._('timed_out_sent');
-  static const timedOutEscalated =
-      HitlEventDataOutcome._('timed_out_escalated');
+  static const timedOutEscalated = HitlEventDataOutcome._('timed_out_escalated');
   static const superseded = HitlEventDataOutcome._('superseded');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is HitlEventDataOutcome && other.value == value;
+  @override bool operator ==(Object other) => other is HitlEventDataOutcome && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

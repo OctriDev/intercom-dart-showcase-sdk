@@ -8,78 +8,41 @@ part of 'models.dart';
 class SalesAgent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The fixed outcome of the sales agent interaction, used for billing and tracking.
   final SdkOptional<SalesAgentOutcome?> outcome;
-
   /// The identifier of the user-defined routing outcome selected by the sales agent.
   final SdkOptional<String?> routingOutcome;
-
   /// A flat key-value map of memory fields collected by the sales agent during the conversation.
   final SdkOptional<Map<String, String>?> collectedData;
 
-  const SalesAgent(
-      {this.outcome = const SdkOmitted(),
-      this.routingOutcome = const SdkOmitted(),
-      this.collectedData = const SdkOmitted()});
+  const SalesAgent({this.outcome = const SdkOmitted(), this.routingOutcome = const SdkOmitted(), this.collectedData = const SdkOmitted()});
 
-  SalesAgent Function(
-          {SdkOptional<SalesAgentOutcome?> outcome,
-          SdkOptional<String?> routingOutcome,
-          SdkOptional<Map<String, String>?> collectedData})
-      get copyWith => _copyWith;
+  SalesAgent Function({SdkOptional<SalesAgentOutcome?> outcome, SdkOptional<String?> routingOutcome, SdkOptional<Map<String, String>?> collectedData}) get copyWith => _copyWith;
 
-  SalesAgent _copyWith(
-          {Object? outcome = sdkOmittedValue,
-          Object? routingOutcome = sdkOmittedValue,
-          Object? collectedData = sdkOmittedValue}) =>
-      SalesAgent(
-        outcome: identical(outcome, sdkOmittedValue)
-            ? this.outcome
-            : outcome as SdkOptional<SalesAgentOutcome?>,
-        routingOutcome: identical(routingOutcome, sdkOmittedValue)
-            ? this.routingOutcome
-            : routingOutcome as SdkOptional<String?>,
-        collectedData: identical(collectedData, sdkOmittedValue)
-            ? this.collectedData
-            : collectedData as SdkOptional<Map<String, String>?>,
-      );
+  SalesAgent _copyWith({Object? outcome = sdkOmittedValue, Object? routingOutcome = sdkOmittedValue, Object? collectedData = sdkOmittedValue}) => SalesAgent(
+    outcome: identical(outcome, sdkOmittedValue) ? this.outcome : outcome as SdkOptional<SalesAgentOutcome?>,
+    routingOutcome: identical(routingOutcome, sdkOmittedValue) ? this.routingOutcome : routingOutcome as SdkOptional<String?>,
+    collectedData: identical(collectedData, sdkOmittedValue) ? this.collectedData : collectedData as SdkOptional<Map<String, String>?>,
+  );
 
   factory SalesAgent.fromJson(Map<String, dynamic> json) => SalesAgent(
-        outcome: json.containsKey('outcome')
-            ? SdkPresent(json['outcome'] != null
-                ? SalesAgentOutcome.fromJson(json['outcome'] as String)
-                : null)
-            : const SdkOmitted(),
-        routingOutcome: json.containsKey('routing_outcome')
-            ? SdkPresent(json['routing_outcome'] as String?)
-            : const SdkOmitted(),
-        collectedData: json.containsKey('collected_data')
-            ? SdkPresent(json['collected_data'] == null
-                ? null
-                : Map<String, dynamic>.from(json['collected_data'] as Map)
-                    .map((key, value) => MapEntry(key, value as String)))
-            : const SdkOmitted(),
-      );
+    outcome: json.containsKey('outcome') ? SdkPresent(json['outcome'] != null ? SalesAgentOutcome.fromJson(json['outcome'] as String) : null) : const SdkOmitted(),
+    routingOutcome: json.containsKey('routing_outcome') ? SdkPresent(json['routing_outcome'] as String?) : const SdkOmitted(),
+    collectedData: json.containsKey('collected_data') ? SdkPresent(json['collected_data'] == null ? null : Map<String, dynamic>.from(json['collected_data'] as Map).map((key, value) => MapEntry(key, value as String))) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (outcome) {
-          SdkPresent<SalesAgentOutcome?>(value: final value) => {
-              'outcome': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (routingOutcome) {
-          SdkPresent<String?>(value: final value) => {
-              'routing_outcome': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (collectedData) {
-          SdkPresent<Map<String, String>?>(value: final value) => {
-              'collected_data': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (outcome) {
+      SdkPresent<SalesAgentOutcome?>(value: final value) => {'outcome': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (routingOutcome) {
+      SdkPresent<String?>(value: final value) => {'routing_outcome': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (collectedData) {
+      SdkPresent<Map<String, String>?>(value: final value) => {'collected_data': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

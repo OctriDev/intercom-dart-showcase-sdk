@@ -6,51 +6,44 @@ part of 'inline.dart';
 // Inline operation models (part 8)
 /// The type of the object - `list`.
 final class ContentImportSourcesListType {
+
   final String value;
 
   const ContentImportSourcesListType._(this.value);
 
-  factory ContentImportSourcesListType.fromJson(String value) =>
-      ContentImportSourcesListType._(value);
+  factory ContentImportSourcesListType.fromJson(String value) => ContentImportSourcesListType._(value);
 
   static const list = ContentImportSourcesListType._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ContentImportSourcesListType && other.value == value;
+  @override bool operator ==(Object other) => other is ContentImportSourcesListType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Always `article_content`.
 final class ContentSearchArticleContentItemType {
+
   final String value;
 
   const ContentSearchArticleContentItemType._(this.value);
 
-  factory ContentSearchArticleContentItemType.fromJson(String value) =>
-      ContentSearchArticleContentItemType._(value);
+  factory ContentSearchArticleContentItemType.fromJson(String value) => ContentSearchArticleContentItemType._(value);
 
-  static const articleContent =
-      ContentSearchArticleContentItemType._('article_content');
+  static const articleContent = ContentSearchArticleContentItemType._('article_content');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ContentSearchArticleContentItemType && other.value == value;
+  @override bool operator ==(Object other) => other is ContentSearchArticleContentItemType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Always `article`.
@@ -59,17 +52,14 @@ enum ContentSearchArticleItemType {
 
   static ContentSearchArticleItemType fromJson(String value) {
     switch (value) {
-      case 'article':
-        return ContentSearchArticleItemType.article;
-      default:
-        throw ArgumentError('Unknown ContentSearchArticleItemType: $value');
+      case 'article': return ContentSearchArticleItemType.article;
+      default: throw ArgumentError('Unknown ContentSearchArticleItemType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ContentSearchArticleItemType.article:
-        return 'article';
+      case ContentSearchArticleItemType.article: return 'article';
     }
   }
 
@@ -86,29 +76,20 @@ enum ContentSearchDefaultItemType {
 
   static ContentSearchDefaultItemType fromJson(String value) {
     switch (value) {
-      case 'content_snippet':
-        return ContentSearchDefaultItemType.contentSnippet;
-      case 'external_content':
-        return ContentSearchDefaultItemType.externalContent;
-      case 'file_source_content':
-        return ContentSearchDefaultItemType.fileSourceContent;
-      case 'internal_article':
-        return ContentSearchDefaultItemType.internalArticle;
-      default:
-        throw ArgumentError('Unknown ContentSearchDefaultItemType: $value');
+      case 'content_snippet': return ContentSearchDefaultItemType.contentSnippet;
+      case 'external_content': return ContentSearchDefaultItemType.externalContent;
+      case 'file_source_content': return ContentSearchDefaultItemType.fileSourceContent;
+      case 'internal_article': return ContentSearchDefaultItemType.internalArticle;
+      default: throw ArgumentError('Unknown ContentSearchDefaultItemType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ContentSearchDefaultItemType.contentSnippet:
-        return 'content_snippet';
-      case ContentSearchDefaultItemType.externalContent:
-        return 'external_content';
-      case ContentSearchDefaultItemType.fileSourceContent:
-        return 'file_source_content';
-      case ContentSearchDefaultItemType.internalArticle:
-        return 'internal_article';
+      case ContentSearchDefaultItemType.contentSnippet: return 'content_snippet';
+      case ContentSearchDefaultItemType.externalContent: return 'external_content';
+      case ContentSearchDefaultItemType.fileSourceContent: return 'file_source_content';
+      case ContentSearchDefaultItemType.internalArticle: return 'internal_article';
     }
   }
 
@@ -118,139 +99,122 @@ enum ContentSearchDefaultItemType {
 
 /// Optional enumerated value serialized in the `type` wire field.
 final class ContentSearchResponsePagesType {
+
   final String value;
 
   const ContentSearchResponsePagesType._(this.value);
 
-  factory ContentSearchResponsePagesType.fromJson(String value) =>
-      ContentSearchResponsePagesType._(value);
+  factory ContentSearchResponsePagesType.fromJson(String value) => ContentSearchResponsePagesType._(value);
 
   static const pages = ContentSearchResponsePagesType._('pages');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ContentSearchResponsePagesType && other.value == value;
+  @override bool operator ==(Object other) => other is ContentSearchResponsePagesType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Always `list`.
 final class ContentSearchResponseType {
+
   final String value;
 
   const ContentSearchResponseType._(this.value);
 
-  factory ContentSearchResponseType.fromJson(String value) =>
-      ContentSearchResponseType._(value);
+  factory ContentSearchResponseType.fromJson(String value) => ContentSearchResponseType._(value);
 
   static const list = ContentSearchResponseType._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ContentSearchResponseType && other.value == value;
+  @override bool operator ==(Object other) => other is ContentSearchResponseType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Optional enumerated value serialized in the `type` wire field.
 final class ContentSnippetListType {
+
   final String value;
 
   const ContentSnippetListType._(this.value);
 
-  factory ContentSnippetListType.fromJson(String value) =>
-      ContentSnippetListType._(value);
+  factory ContentSnippetListType.fromJson(String value) => ContentSnippetListType._(value);
 
   static const list = ContentSnippetListType._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ContentSnippetListType && other.value == value;
+  @override bool operator ==(Object other) => other is ContentSnippetListType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the content source.
 final class ContentSourceContentType {
+
   final String value;
 
   const ContentSourceContentType._(this.value);
 
-  factory ContentSourceContentType.fromJson(String value) =>
-      ContentSourceContentType._(value);
+  factory ContentSourceContentType.fromJson(String value) => ContentSourceContentType._(value);
 
   static const file = ContentSourceContentType._('file');
   static const article = ContentSourceContentType._('article');
   static const externalContent = ContentSourceContentType._('external_content');
   static const contentSnippet = ContentSourceContentType._('content_snippet');
-  static const workflowConnectorAction =
-      ContentSourceContentType._('workflow_connector_action');
+  static const workflowConnectorAction = ContentSourceContentType._('workflow_connector_action');
   static const internalArticle = ContentSourceContentType._('internal_article');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ContentSourceContentType && other.value == value;
+  @override bool operator ==(Object other) => other is ContentSourceContentType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Optional enumerated value serialized in the `type` wire field.
 final class ContentSourcesListType {
+
   final String value;
 
   const ContentSourcesListType._(this.value);
 
-  factory ContentSourcesListType.fromJson(String value) =>
-      ContentSourcesListType._(value);
+  factory ContentSourcesListType.fromJson(String value) => ContentSourcesListType._(value);
 
-  static const contentSourceList =
-      ContentSourcesListType._('content_source.list');
+  static const contentSourceList = ContentSourcesListType._('content_source.list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ContentSourcesListType && other.value == value;
+  @override bool operator ==(Object other) => other is ContentSourcesListType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The priority level of the conversation. Returns one of none, low, medium, high, or urgent.
 final class ConversationPriority {
+
   final String value;
 
   const ConversationPriority._(this.value);
 
-  factory ConversationPriority.fromJson(String value) =>
-      ConversationPriority._(value);
+  factory ConversationPriority.fromJson(String value) => ConversationPriority._(value);
 
   static const none = ConversationPriority._('none');
   static const low = ConversationPriority._('low');
@@ -260,25 +224,22 @@ final class ConversationPriority {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ConversationPriority && other.value == value;
+  @override bool operator ==(Object other) => other is ConversationPriority && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Can be set to "open", "closed" or "snoozed".
 final class ConversationState {
+
   final String value;
 
   const ConversationState._(this.value);
 
-  factory ConversationState.fromJson(String value) =>
-      ConversationState._(value);
+  factory ConversationState.fromJson(String value) => ConversationState._(value);
 
   static const open = ConversationState._('open');
   static const closed = ConversationState._('closed');
@@ -286,13 +247,10 @@ final class ConversationState {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ConversationState && other.value == value;
+  @override bool operator ==(Object other) => other is ConversationState && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

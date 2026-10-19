@@ -8,218 +8,116 @@ part of 'models.dart';
 class Brand {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of object
   final SdkOptional<String> type_;
-
   /// Unique brand identifier. For default brand, matches the workspace ID
   final SdkOptional<String> id;
-
   /// Display name of the brand
   final SdkOptional<String> name;
-
   /// Whether this is the workspace's default brand
   final SdkOptional<bool> isDefault;
-
   /// Unix timestamp of brand creation
   final SdkOptional<int> createdAt;
-
   /// Unix timestamp of last modification
   final SdkOptional<int> updatedAt;
-
   /// Associated help center identifier
   final SdkOptional<String> helpCenterId;
-
   /// Default email settings ID for this brand
   final SdkOptional<String> defaultAddressSettingsId;
 
-  const Brand(
-      {this.type_ = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.isDefault = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.updatedAt = const SdkOmitted(),
-      this.helpCenterId = const SdkOmitted(),
-      this.defaultAddressSettingsId = const SdkOmitted()});
+  const Brand({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.name = const SdkOmitted(), this.isDefault = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.helpCenterId = const SdkOmitted(), this.defaultAddressSettingsId = const SdkOmitted()});
 
-  Brand Function(
-      {SdkOptional<String> type_,
-      SdkOptional<String> id,
-      SdkOptional<String> name,
-      SdkOptional<bool> isDefault,
-      SdkOptional<int> createdAt,
-      SdkOptional<int> updatedAt,
-      SdkOptional<String> helpCenterId,
-      SdkOptional<String> defaultAddressSettingsId}) get copyWith => _copyWith;
+  Brand Function({SdkOptional<String> type_, SdkOptional<String> id, SdkOptional<String> name, SdkOptional<bool> isDefault, SdkOptional<int> createdAt, SdkOptional<int> updatedAt, SdkOptional<String> helpCenterId, SdkOptional<String> defaultAddressSettingsId}) get copyWith => _copyWith;
 
-  Brand _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? isDefault = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue,
-          Object? helpCenterId = sdkOmittedValue,
-          Object? defaultAddressSettingsId = sdkOmittedValue}) =>
-      Brand(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        isDefault: identical(isDefault, sdkOmittedValue)
-            ? this.isDefault
-            : isDefault as SdkOptional<bool>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<int>,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as SdkOptional<int>,
-        helpCenterId: identical(helpCenterId, sdkOmittedValue)
-            ? this.helpCenterId
-            : helpCenterId as SdkOptional<String>,
-        defaultAddressSettingsId:
-            identical(defaultAddressSettingsId, sdkOmittedValue)
-                ? this.defaultAddressSettingsId
-                : defaultAddressSettingsId as SdkOptional<String>,
-      );
+  Brand _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? isDefault = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? helpCenterId = sdkOmittedValue, Object? defaultAddressSettingsId = sdkOmittedValue}) => Brand(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    isDefault: identical(isDefault, sdkOmittedValue) ? this.isDefault : isDefault as SdkOptional<bool>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<int>,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<int>,
+    helpCenterId: identical(helpCenterId, sdkOmittedValue) ? this.helpCenterId : helpCenterId as SdkOptional<String>,
+    defaultAddressSettingsId: identical(defaultAddressSettingsId, sdkOmittedValue) ? this.defaultAddressSettingsId : defaultAddressSettingsId as SdkOptional<String>,
+  );
 
   factory Brand.fromJson(Map<String, dynamic> json) => Brand(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        isDefault: json['is_default'] != null
-            ? SdkPresent((json['is_default'] as bool?)!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent(((json['created_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        updatedAt: json['updated_at'] != null
-            ? SdkPresent(((json['updated_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        helpCenterId: json['help_center_id'] != null
-            ? SdkPresent((json['help_center_id'] as String?)!)
-            : const SdkOmitted(),
-        defaultAddressSettingsId: json['default_address_settings_id'] != null
-            ? SdkPresent((json['default_address_settings_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    isDefault: json['is_default'] != null ? SdkPresent((json['is_default'] as bool?)!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent(((json['created_at'] as num?)?.toInt())!) : const SdkOmitted(),
+    updatedAt: json['updated_at'] != null ? SdkPresent(((json['updated_at'] as num?)?.toInt())!) : const SdkOmitted(),
+    helpCenterId: json['help_center_id'] != null ? SdkPresent((json['help_center_id'] as String?)!) : const SdkOmitted(),
+    defaultAddressSettingsId: json['default_address_settings_id'] != null ? SdkPresent((json['default_address_settings_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (isDefault) {
-          SdkPresent<bool>(value: final value) => {
-              'is_default': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<int>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (updatedAt) {
-          SdkPresent<int>(value: final value) => {
-              'updated_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (helpCenterId) {
-          SdkPresent<String>(value: final value) => {
-              'help_center_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (defaultAddressSettingsId) {
-          SdkPresent<String>(value: final value) => {
-              'default_address_settings_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (isDefault) {
+      SdkPresent<bool>(value: final value) => {'is_default': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<int>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (updatedAt) {
+      SdkPresent<int>(value: final value) => {'updated_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (helpCenterId) {
+      SdkPresent<String>(value: final value) => {'help_center_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (defaultAddressSettingsId) {
+      SdkPresent<String>(value: final value) => {'default_address_settings_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// A list of brands
 class BrandList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of object
   final SdkOptional<String> type_;
-
   /// Optional array value serialized in the `data` wire field.
   final SdkOptional<List<Brand>> data;
 
-  const BrandList(
-      {this.type_ = const SdkOmitted(), this.data = const SdkOmitted()});
+  const BrandList({this.type_ = const SdkOmitted(), this.data = const SdkOmitted()});
 
-  BrandList Function({SdkOptional<String> type_, SdkOptional<List<Brand>> data})
-      get copyWith => _copyWith;
+  BrandList Function({SdkOptional<String> type_, SdkOptional<List<Brand>> data}) get copyWith => _copyWith;
 
-  BrandList _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
-      BrandList(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as SdkOptional<List<Brand>>,
-      );
+  BrandList _copyWith({Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) => BrandList(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<Brand>>,
+  );
 
   factory BrandList.fromJson(Map<String, dynamic> json) => BrandList(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        data: json['data'] != null
-            ? SdkPresent(((json['data'] as List?)
-                ?.map((e) => Brand.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => Brand.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (data) {
-          SdkPresent<List<Brand>>(value: final value) => {
-              'data': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (data) {
+      SdkPresent<List<Brand>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

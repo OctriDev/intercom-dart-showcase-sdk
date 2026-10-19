@@ -6,134 +6,116 @@ part of 'inline.dart';
 // Inline operation models (part 20)
 /// What happened.
 final class HitlEventEventType {
+
   final String value;
 
   const HitlEventEventType._(this.value);
 
-  factory HitlEventEventType.fromJson(String value) =>
-      HitlEventEventType._(value);
+  factory HitlEventEventType.fromJson(String value) => HitlEventEventType._(value);
 
-  static const finConsultationStarted =
-      HitlEventEventType._('fin_consultation_started');
+  static const finConsultationStarted = HitlEventEventType._('fin_consultation_started');
   static const finDraftProposed = HitlEventEventType._('fin_draft_proposed');
-  static const finTeammateInputReceived =
-      HitlEventEventType._('fin_teammate_input_received');
+  static const finTeammateInputReceived = HitlEventEventType._('fin_teammate_input_received');
   static const finDraftRevised = HitlEventEventType._('fin_draft_revised');
-  static const finConsultationFinished =
-      HitlEventEventType._('fin_consultation_finished');
+  static const finConsultationFinished = HitlEventEventType._('fin_consultation_finished');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is HitlEventEventType && other.value == value;
+  @override bool operator ==(Object other) => other is HitlEventEventType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the object.
 final class HitlEventListType {
+
   final String value;
 
   const HitlEventListType._(this.value);
 
-  factory HitlEventListType.fromJson(String value) =>
-      HitlEventListType._(value);
+  factory HitlEventListType.fromJson(String value) => HitlEventListType._(value);
 
   static const list = HitlEventListType._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is HitlEventListType && other.value == value;
+  @override bool operator ==(Object other) => other is HitlEventListType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the object - `list`.
 final class InternalArticleListType {
+
   final String value;
 
   const InternalArticleListType._(this.value);
 
-  factory InternalArticleListType.fromJson(String value) =>
-      InternalArticleListType._(value);
+  factory InternalArticleListType.fromJson(String value) => InternalArticleListType._(value);
 
   static const list = InternalArticleListType._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is InternalArticleListType && other.value == value;
+  @override bool operator ==(Object other) => other is InternalArticleListType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of object - `internal_article`.
 final class InternalArticleListItemType {
+
   final String value;
 
   const InternalArticleListItemType._(this.value);
 
-  factory InternalArticleListItemType.fromJson(String value) =>
-      InternalArticleListItemType._(value);
+  factory InternalArticleListItemType.fromJson(String value) => InternalArticleListItemType._(value);
 
-  static const internalArticle =
-      InternalArticleListItemType._('internal_article');
+  static const internalArticle = InternalArticleListItemType._('internal_article');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is InternalArticleListItemType && other.value == value;
+  @override bool operator ==(Object other) => other is InternalArticleListItemType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the object - `list`.
 final class InternalArticleSearchResponseType {
+
   final String value;
 
   const InternalArticleSearchResponseType._(this.value);
 
-  factory InternalArticleSearchResponseType.fromJson(String value) =>
-      InternalArticleSearchResponseType._(value);
+  factory InternalArticleSearchResponseType.fromJson(String value) => InternalArticleSearchResponseType._(value);
 
   static const list = InternalArticleSearchResponseType._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is InternalArticleSearchResponseType && other.value == value;
+  @override bool operator ==(Object other) => other is InternalArticleSearchResponseType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The status of the job execution.
 final class JobsStatus {
+
   final String value;
 
   const JobsStatus._(this.value);
@@ -146,18 +128,17 @@ final class JobsStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) => other is JobsStatus && other.value == value;
+  @override bool operator ==(Object other) => other is JobsStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the object
 final class JobsType {
+
   final String value;
 
   const JobsType._(this.value);
@@ -168,24 +149,22 @@ final class JobsType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) => other is JobsType && other.value == value;
+  @override bool operator ==(Object other) => other is JobsType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Category of the Linked Ticket Object.
 final class LinkedObjectCategory {
+
   final String value;
 
   const LinkedObjectCategory._(this.value);
 
-  factory LinkedObjectCategory.fromJson(String value) =>
-      LinkedObjectCategory._(value);
+  factory LinkedObjectCategory.fromJson(String value) => LinkedObjectCategory._(value);
 
   static const customer = LinkedObjectCategory._('Customer');
   static const backOffice = LinkedObjectCategory._('Back-office');
@@ -193,19 +172,17 @@ final class LinkedObjectCategory {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is LinkedObjectCategory && other.value == value;
+  @override bool operator ==(Object other) => other is LinkedObjectCategory && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// ticket or conversation
 final class LinkedObjectType {
+
   final String value;
 
   const LinkedObjectType._(this.value);
@@ -217,68 +194,60 @@ final class LinkedObjectType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is LinkedObjectType && other.value == value;
+  @override bool operator ==(Object other) => other is LinkedObjectType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Always list.
 final class LinkedObjectListType {
+
   final String value;
 
   const LinkedObjectListType._(this.value);
 
-  factory LinkedObjectListType.fromJson(String value) =>
-      LinkedObjectListType._(value);
+  factory LinkedObjectListType.fromJson(String value) => LinkedObjectListType._(value);
 
   static const list = LinkedObjectListType._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is LinkedObjectListType && other.value == value;
+  @override bool operator ==(Object other) => other is LinkedObjectListType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `available_on[]` wire field.
 final class MacroAvailableOnItem {
+
   final String value;
 
   const MacroAvailableOnItem._(this.value);
 
-  factory MacroAvailableOnItem.fromJson(String value) =>
-      MacroAvailableOnItem._(value);
+  factory MacroAvailableOnItem.fromJson(String value) => MacroAvailableOnItem._(value);
 
   static const inbox = MacroAvailableOnItem._('inbox');
   static const messenger = MacroAvailableOnItem._('messenger');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is MacroAvailableOnItem && other.value == value;
+  @override bool operator ==(Object other) => other is MacroAvailableOnItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// String representing the object's type. Always has the value `macro`.
 final class MacroType {
+
   final String value;
 
   const MacroType._(this.value);
@@ -289,18 +258,17 @@ final class MacroType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) => other is MacroType && other.value == value;
+  @override bool operator ==(Object other) => other is MacroType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Who can view this macro.
 final class MacroVisibleTo {
+
   final String value;
 
   const MacroVisibleTo._(this.value);
@@ -312,13 +280,10 @@ final class MacroVisibleTo {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is MacroVisibleTo && other.value == value;
+  @override bool operator ==(Object other) => other is MacroVisibleTo && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

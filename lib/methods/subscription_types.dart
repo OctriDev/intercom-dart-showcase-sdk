@@ -24,18 +24,14 @@ Future<SubscriptionType> attachSubscriptionTypeToContact(ClientConfig config,
           config: config,
           body: {'id': id, 'consent_type': consentType},
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'attachSubscriptionTypeToContact',
-          fromJsonRaw: (value) =>
-              SubscriptionType.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SubscriptionType.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Removes a subscription type from a contact. Identify both the contact and subscription type with their respective path parameters; the response returns the removed subscription type.
 ///
@@ -53,18 +49,14 @@ Future<SubscriptionType> detachSubscriptionTypeToContact(ClientConfig config,
           '/contacts/${Uri.encodeComponent(contactId.toString())}/subscriptions/${Uri.encodeComponent(subscriptionId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'detachSubscriptionTypeToContact',
-          fromJsonRaw: (value) =>
-              SubscriptionType.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SubscriptionType.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Lists subscription types associated with the workspace. Use this endpoint to retrieve the available types customers can use to opt out of non-essential communications.
 ///
@@ -75,14 +67,10 @@ Future<SubscriptionTypeList> listSubscriptionTypes(ClientConfig config,
   return (await sdkRequest<SubscriptionTypeList>('GET', '/subscription_types',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listSubscriptionTypes',
-          fromJsonRaw: (value) =>
-              SubscriptionTypeList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SubscriptionTypeList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

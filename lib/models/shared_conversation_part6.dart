@@ -8,457 +8,201 @@ part of 'shared_conversation.dart';
 class ConversationStatistics {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `string` value serialized in the `type` wire field.
   final SdkOptional<String> type_;
-
   /// Duration until last assignment before first admin reply. In seconds.
   final SdkOptional<int> timeToAssignment;
-
   /// Duration until first admin reply. Subtracts out of business hours. In seconds.
   final SdkOptional<int> timeToAdminReply;
-
   /// Duration until conversation was closed first time. Subtracts out of business hours. In seconds.
   final SdkOptional<int> timeToFirstClose;
-
   /// Duration until conversation was closed last time. Subtracts out of business hours. In seconds.
   final SdkOptional<int> timeToLastClose;
-
   /// Median based on all admin replies after a contact reply. Subtracts out of business hours. In seconds.
   final SdkOptional<int> medianTimeToReply;
-
   /// Time of first text conversation part from a contact.
   final SdkOptional<int> firstContactReplyAt;
-
   /// Time of first assignment after first_contact_reply_at.
   final SdkOptional<int> firstAssignmentAt;
-
   /// Time of first admin reply after first_contact_reply_at.
   final SdkOptional<int> firstAdminReplyAt;
-
   /// Time of first close after first_contact_reply_at.
   final SdkOptional<int> firstCloseAt;
-
   /// Time of last assignment after first_contact_reply_at.
   final SdkOptional<int> lastAssignmentAt;
-
   /// Time of first admin reply since most recent assignment.
   final SdkOptional<int> lastAssignmentAdminReplyAt;
-
   /// Time of the last conversation part from a contact.
   final SdkOptional<int> lastContactReplyAt;
-
   /// Time of the last conversation part from an admin.
   final SdkOptional<int> lastAdminReplyAt;
-
   /// Time of the last conversation close.
   final SdkOptional<int> lastCloseAt;
-
   /// The last admin who closed the conversation. Returns a reference to an Admin object.
   final SdkOptional<String> lastClosedById;
-
   /// Number of reopens after first_contact_reply_at.
   final SdkOptional<int> countReopens;
-
   /// Number of assignments after first_contact_reply_at.
   final SdkOptional<int> countAssignments;
-
   /// Total number of conversation parts.
   final SdkOptional<int> countConversationParts;
-
   /// An array of conversation response time objects
-  final SdkOptional<List<ConversationResponseTime>>
-      assignedTeamFirstResponseTime;
-
+  final SdkOptional<List<ConversationResponseTime>> assignedTeamFirstResponseTime;
   /// An array of conversation response time objects within office hours
-  final SdkOptional<List<ConversationResponseTime>>
-      assignedTeamFirstResponseTimeInOfficeHours;
-
+  final SdkOptional<List<ConversationResponseTime>> assignedTeamFirstResponseTimeInOfficeHours;
   /// Time from conversation assignment to conversation close in seconds.
   final SdkOptional<int> handlingTime;
-
   /// Adjusted handling time for conversation in seconds. This is the active handling time excluding idle periods when teammates are not actively working on the conversation.
   final SdkOptional<int?> adjustedHandlingTime;
 
-  const ConversationStatistics(
-      {this.type_ = const SdkOmitted(),
-      this.timeToAssignment = const SdkOmitted(),
-      this.timeToAdminReply = const SdkOmitted(),
-      this.timeToFirstClose = const SdkOmitted(),
-      this.timeToLastClose = const SdkOmitted(),
-      this.medianTimeToReply = const SdkOmitted(),
-      this.firstContactReplyAt = const SdkOmitted(),
-      this.firstAssignmentAt = const SdkOmitted(),
-      this.firstAdminReplyAt = const SdkOmitted(),
-      this.firstCloseAt = const SdkOmitted(),
-      this.lastAssignmentAt = const SdkOmitted(),
-      this.lastAssignmentAdminReplyAt = const SdkOmitted(),
-      this.lastContactReplyAt = const SdkOmitted(),
-      this.lastAdminReplyAt = const SdkOmitted(),
-      this.lastCloseAt = const SdkOmitted(),
-      this.lastClosedById = const SdkOmitted(),
-      this.countReopens = const SdkOmitted(),
-      this.countAssignments = const SdkOmitted(),
-      this.countConversationParts = const SdkOmitted(),
-      this.assignedTeamFirstResponseTime = const SdkOmitted(),
-      this.assignedTeamFirstResponseTimeInOfficeHours = const SdkOmitted(),
-      this.handlingTime = const SdkOmitted(),
-      this.adjustedHandlingTime = const SdkOmitted()});
+  const ConversationStatistics({this.type_ = const SdkOmitted(), this.timeToAssignment = const SdkOmitted(), this.timeToAdminReply = const SdkOmitted(), this.timeToFirstClose = const SdkOmitted(), this.timeToLastClose = const SdkOmitted(), this.medianTimeToReply = const SdkOmitted(), this.firstContactReplyAt = const SdkOmitted(), this.firstAssignmentAt = const SdkOmitted(), this.firstAdminReplyAt = const SdkOmitted(), this.firstCloseAt = const SdkOmitted(), this.lastAssignmentAt = const SdkOmitted(), this.lastAssignmentAdminReplyAt = const SdkOmitted(), this.lastContactReplyAt = const SdkOmitted(), this.lastAdminReplyAt = const SdkOmitted(), this.lastCloseAt = const SdkOmitted(), this.lastClosedById = const SdkOmitted(), this.countReopens = const SdkOmitted(), this.countAssignments = const SdkOmitted(), this.countConversationParts = const SdkOmitted(), this.assignedTeamFirstResponseTime = const SdkOmitted(), this.assignedTeamFirstResponseTimeInOfficeHours = const SdkOmitted(), this.handlingTime = const SdkOmitted(), this.adjustedHandlingTime = const SdkOmitted()});
 
-  ConversationStatistics Function(
-      {SdkOptional<String> type_,
-      SdkOptional<int> timeToAssignment,
-      SdkOptional<int> timeToAdminReply,
-      SdkOptional<int> timeToFirstClose,
-      SdkOptional<int> timeToLastClose,
-      SdkOptional<int> medianTimeToReply,
-      SdkOptional<int> firstContactReplyAt,
-      SdkOptional<int> firstAssignmentAt,
-      SdkOptional<int> firstAdminReplyAt,
-      SdkOptional<int> firstCloseAt,
-      SdkOptional<int> lastAssignmentAt,
-      SdkOptional<int> lastAssignmentAdminReplyAt,
-      SdkOptional<int> lastContactReplyAt,
-      SdkOptional<int> lastAdminReplyAt,
-      SdkOptional<int> lastCloseAt,
-      SdkOptional<String> lastClosedById,
-      SdkOptional<int> countReopens,
-      SdkOptional<int> countAssignments,
-      SdkOptional<int> countConversationParts,
-      SdkOptional<List<ConversationResponseTime>> assignedTeamFirstResponseTime,
-      SdkOptional<List<ConversationResponseTime>>
-          assignedTeamFirstResponseTimeInOfficeHours,
-      SdkOptional<int> handlingTime,
-      SdkOptional<int?> adjustedHandlingTime}) get copyWith => _copyWith;
+  ConversationStatistics Function({SdkOptional<String> type_, SdkOptional<int> timeToAssignment, SdkOptional<int> timeToAdminReply, SdkOptional<int> timeToFirstClose, SdkOptional<int> timeToLastClose, SdkOptional<int> medianTimeToReply, SdkOptional<int> firstContactReplyAt, SdkOptional<int> firstAssignmentAt, SdkOptional<int> firstAdminReplyAt, SdkOptional<int> firstCloseAt, SdkOptional<int> lastAssignmentAt, SdkOptional<int> lastAssignmentAdminReplyAt, SdkOptional<int> lastContactReplyAt, SdkOptional<int> lastAdminReplyAt, SdkOptional<int> lastCloseAt, SdkOptional<String> lastClosedById, SdkOptional<int> countReopens, SdkOptional<int> countAssignments, SdkOptional<int> countConversationParts, SdkOptional<List<ConversationResponseTime>> assignedTeamFirstResponseTime, SdkOptional<List<ConversationResponseTime>> assignedTeamFirstResponseTimeInOfficeHours, SdkOptional<int> handlingTime, SdkOptional<int?> adjustedHandlingTime}) get copyWith => _copyWith;
 
-  ConversationStatistics _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? timeToAssignment = sdkOmittedValue,
-          Object? timeToAdminReply = sdkOmittedValue,
-          Object? timeToFirstClose = sdkOmittedValue,
-          Object? timeToLastClose = sdkOmittedValue,
-          Object? medianTimeToReply = sdkOmittedValue,
-          Object? firstContactReplyAt = sdkOmittedValue,
-          Object? firstAssignmentAt = sdkOmittedValue,
-          Object? firstAdminReplyAt = sdkOmittedValue,
-          Object? firstCloseAt = sdkOmittedValue,
-          Object? lastAssignmentAt = sdkOmittedValue,
-          Object? lastAssignmentAdminReplyAt = sdkOmittedValue,
-          Object? lastContactReplyAt = sdkOmittedValue,
-          Object? lastAdminReplyAt = sdkOmittedValue,
-          Object? lastCloseAt = sdkOmittedValue,
-          Object? lastClosedById = sdkOmittedValue,
-          Object? countReopens = sdkOmittedValue,
-          Object? countAssignments = sdkOmittedValue,
-          Object? countConversationParts = sdkOmittedValue,
-          Object? assignedTeamFirstResponseTime = sdkOmittedValue,
-          Object? assignedTeamFirstResponseTimeInOfficeHours = sdkOmittedValue,
-          Object? handlingTime = sdkOmittedValue,
-          Object? adjustedHandlingTime = sdkOmittedValue}) =>
-      ConversationStatistics(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        timeToAssignment: identical(timeToAssignment, sdkOmittedValue)
-            ? this.timeToAssignment
-            : timeToAssignment as SdkOptional<int>,
-        timeToAdminReply: identical(timeToAdminReply, sdkOmittedValue)
-            ? this.timeToAdminReply
-            : timeToAdminReply as SdkOptional<int>,
-        timeToFirstClose: identical(timeToFirstClose, sdkOmittedValue)
-            ? this.timeToFirstClose
-            : timeToFirstClose as SdkOptional<int>,
-        timeToLastClose: identical(timeToLastClose, sdkOmittedValue)
-            ? this.timeToLastClose
-            : timeToLastClose as SdkOptional<int>,
-        medianTimeToReply: identical(medianTimeToReply, sdkOmittedValue)
-            ? this.medianTimeToReply
-            : medianTimeToReply as SdkOptional<int>,
-        firstContactReplyAt: identical(firstContactReplyAt, sdkOmittedValue)
-            ? this.firstContactReplyAt
-            : firstContactReplyAt as SdkOptional<int>,
-        firstAssignmentAt: identical(firstAssignmentAt, sdkOmittedValue)
-            ? this.firstAssignmentAt
-            : firstAssignmentAt as SdkOptional<int>,
-        firstAdminReplyAt: identical(firstAdminReplyAt, sdkOmittedValue)
-            ? this.firstAdminReplyAt
-            : firstAdminReplyAt as SdkOptional<int>,
-        firstCloseAt: identical(firstCloseAt, sdkOmittedValue)
-            ? this.firstCloseAt
-            : firstCloseAt as SdkOptional<int>,
-        lastAssignmentAt: identical(lastAssignmentAt, sdkOmittedValue)
-            ? this.lastAssignmentAt
-            : lastAssignmentAt as SdkOptional<int>,
-        lastAssignmentAdminReplyAt:
-            identical(lastAssignmentAdminReplyAt, sdkOmittedValue)
-                ? this.lastAssignmentAdminReplyAt
-                : lastAssignmentAdminReplyAt as SdkOptional<int>,
-        lastContactReplyAt: identical(lastContactReplyAt, sdkOmittedValue)
-            ? this.lastContactReplyAt
-            : lastContactReplyAt as SdkOptional<int>,
-        lastAdminReplyAt: identical(lastAdminReplyAt, sdkOmittedValue)
-            ? this.lastAdminReplyAt
-            : lastAdminReplyAt as SdkOptional<int>,
-        lastCloseAt: identical(lastCloseAt, sdkOmittedValue)
-            ? this.lastCloseAt
-            : lastCloseAt as SdkOptional<int>,
-        lastClosedById: identical(lastClosedById, sdkOmittedValue)
-            ? this.lastClosedById
-            : lastClosedById as SdkOptional<String>,
-        countReopens: identical(countReopens, sdkOmittedValue)
-            ? this.countReopens
-            : countReopens as SdkOptional<int>,
-        countAssignments: identical(countAssignments, sdkOmittedValue)
-            ? this.countAssignments
-            : countAssignments as SdkOptional<int>,
-        countConversationParts:
-            identical(countConversationParts, sdkOmittedValue)
-                ? this.countConversationParts
-                : countConversationParts as SdkOptional<int>,
-        assignedTeamFirstResponseTime:
-            identical(assignedTeamFirstResponseTime, sdkOmittedValue)
-                ? this.assignedTeamFirstResponseTime
-                : assignedTeamFirstResponseTime
-                    as SdkOptional<List<ConversationResponseTime>>,
-        assignedTeamFirstResponseTimeInOfficeHours: identical(
-                assignedTeamFirstResponseTimeInOfficeHours, sdkOmittedValue)
-            ? this.assignedTeamFirstResponseTimeInOfficeHours
-            : assignedTeamFirstResponseTimeInOfficeHours
-                as SdkOptional<List<ConversationResponseTime>>,
-        handlingTime: identical(handlingTime, sdkOmittedValue)
-            ? this.handlingTime
-            : handlingTime as SdkOptional<int>,
-        adjustedHandlingTime: identical(adjustedHandlingTime, sdkOmittedValue)
-            ? this.adjustedHandlingTime
-            : adjustedHandlingTime as SdkOptional<int?>,
-      );
+  ConversationStatistics _copyWith({Object? type_ = sdkOmittedValue, Object? timeToAssignment = sdkOmittedValue, Object? timeToAdminReply = sdkOmittedValue, Object? timeToFirstClose = sdkOmittedValue, Object? timeToLastClose = sdkOmittedValue, Object? medianTimeToReply = sdkOmittedValue, Object? firstContactReplyAt = sdkOmittedValue, Object? firstAssignmentAt = sdkOmittedValue, Object? firstAdminReplyAt = sdkOmittedValue, Object? firstCloseAt = sdkOmittedValue, Object? lastAssignmentAt = sdkOmittedValue, Object? lastAssignmentAdminReplyAt = sdkOmittedValue, Object? lastContactReplyAt = sdkOmittedValue, Object? lastAdminReplyAt = sdkOmittedValue, Object? lastCloseAt = sdkOmittedValue, Object? lastClosedById = sdkOmittedValue, Object? countReopens = sdkOmittedValue, Object? countAssignments = sdkOmittedValue, Object? countConversationParts = sdkOmittedValue, Object? assignedTeamFirstResponseTime = sdkOmittedValue, Object? assignedTeamFirstResponseTimeInOfficeHours = sdkOmittedValue, Object? handlingTime = sdkOmittedValue, Object? adjustedHandlingTime = sdkOmittedValue}) => ConversationStatistics(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    timeToAssignment: identical(timeToAssignment, sdkOmittedValue) ? this.timeToAssignment : timeToAssignment as SdkOptional<int>,
+    timeToAdminReply: identical(timeToAdminReply, sdkOmittedValue) ? this.timeToAdminReply : timeToAdminReply as SdkOptional<int>,
+    timeToFirstClose: identical(timeToFirstClose, sdkOmittedValue) ? this.timeToFirstClose : timeToFirstClose as SdkOptional<int>,
+    timeToLastClose: identical(timeToLastClose, sdkOmittedValue) ? this.timeToLastClose : timeToLastClose as SdkOptional<int>,
+    medianTimeToReply: identical(medianTimeToReply, sdkOmittedValue) ? this.medianTimeToReply : medianTimeToReply as SdkOptional<int>,
+    firstContactReplyAt: identical(firstContactReplyAt, sdkOmittedValue) ? this.firstContactReplyAt : firstContactReplyAt as SdkOptional<int>,
+    firstAssignmentAt: identical(firstAssignmentAt, sdkOmittedValue) ? this.firstAssignmentAt : firstAssignmentAt as SdkOptional<int>,
+    firstAdminReplyAt: identical(firstAdminReplyAt, sdkOmittedValue) ? this.firstAdminReplyAt : firstAdminReplyAt as SdkOptional<int>,
+    firstCloseAt: identical(firstCloseAt, sdkOmittedValue) ? this.firstCloseAt : firstCloseAt as SdkOptional<int>,
+    lastAssignmentAt: identical(lastAssignmentAt, sdkOmittedValue) ? this.lastAssignmentAt : lastAssignmentAt as SdkOptional<int>,
+    lastAssignmentAdminReplyAt: identical(lastAssignmentAdminReplyAt, sdkOmittedValue) ? this.lastAssignmentAdminReplyAt : lastAssignmentAdminReplyAt as SdkOptional<int>,
+    lastContactReplyAt: identical(lastContactReplyAt, sdkOmittedValue) ? this.lastContactReplyAt : lastContactReplyAt as SdkOptional<int>,
+    lastAdminReplyAt: identical(lastAdminReplyAt, sdkOmittedValue) ? this.lastAdminReplyAt : lastAdminReplyAt as SdkOptional<int>,
+    lastCloseAt: identical(lastCloseAt, sdkOmittedValue) ? this.lastCloseAt : lastCloseAt as SdkOptional<int>,
+    lastClosedById: identical(lastClosedById, sdkOmittedValue) ? this.lastClosedById : lastClosedById as SdkOptional<String>,
+    countReopens: identical(countReopens, sdkOmittedValue) ? this.countReopens : countReopens as SdkOptional<int>,
+    countAssignments: identical(countAssignments, sdkOmittedValue) ? this.countAssignments : countAssignments as SdkOptional<int>,
+    countConversationParts: identical(countConversationParts, sdkOmittedValue) ? this.countConversationParts : countConversationParts as SdkOptional<int>,
+    assignedTeamFirstResponseTime: identical(assignedTeamFirstResponseTime, sdkOmittedValue) ? this.assignedTeamFirstResponseTime : assignedTeamFirstResponseTime as SdkOptional<List<ConversationResponseTime>>,
+    assignedTeamFirstResponseTimeInOfficeHours: identical(assignedTeamFirstResponseTimeInOfficeHours, sdkOmittedValue) ? this.assignedTeamFirstResponseTimeInOfficeHours : assignedTeamFirstResponseTimeInOfficeHours as SdkOptional<List<ConversationResponseTime>>,
+    handlingTime: identical(handlingTime, sdkOmittedValue) ? this.handlingTime : handlingTime as SdkOptional<int>,
+    adjustedHandlingTime: identical(adjustedHandlingTime, sdkOmittedValue) ? this.adjustedHandlingTime : adjustedHandlingTime as SdkOptional<int?>,
+  );
 
-  factory ConversationStatistics.fromJson(Map<String, dynamic> json) =>
-      ConversationStatistics(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        timeToAssignment: json['time_to_assignment'] != null
-            ? SdkPresent(((json['time_to_assignment'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        timeToAdminReply: json['time_to_admin_reply'] != null
-            ? SdkPresent(((json['time_to_admin_reply'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        timeToFirstClose: json['time_to_first_close'] != null
-            ? SdkPresent(((json['time_to_first_close'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        timeToLastClose: json['time_to_last_close'] != null
-            ? SdkPresent(((json['time_to_last_close'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        medianTimeToReply: json['median_time_to_reply'] != null
-            ? SdkPresent(((json['median_time_to_reply'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        firstContactReplyAt: json['first_contact_reply_at'] != null
-            ? SdkPresent(((json['first_contact_reply_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        firstAssignmentAt: json['first_assignment_at'] != null
-            ? SdkPresent(((json['first_assignment_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        firstAdminReplyAt: json['first_admin_reply_at'] != null
-            ? SdkPresent(((json['first_admin_reply_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        firstCloseAt: json['first_close_at'] != null
-            ? SdkPresent(((json['first_close_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        lastAssignmentAt: json['last_assignment_at'] != null
-            ? SdkPresent(((json['last_assignment_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        lastAssignmentAdminReplyAt: json['last_assignment_admin_reply_at'] !=
-                null
-            ? SdkPresent(
-                ((json['last_assignment_admin_reply_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        lastContactReplyAt: json['last_contact_reply_at'] != null
-            ? SdkPresent(((json['last_contact_reply_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        lastAdminReplyAt: json['last_admin_reply_at'] != null
-            ? SdkPresent(((json['last_admin_reply_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        lastCloseAt: json['last_close_at'] != null
-            ? SdkPresent(((json['last_close_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        lastClosedById: json['last_closed_by_id'] != null
-            ? SdkPresent((json['last_closed_by_id'] as String?)!)
-            : const SdkOmitted(),
-        countReopens: json['count_reopens'] != null
-            ? SdkPresent(((json['count_reopens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        countAssignments: json['count_assignments'] != null
-            ? SdkPresent(((json['count_assignments'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        countConversationParts: json['count_conversation_parts'] != null
-            ? SdkPresent(((json['count_conversation_parts'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        assignedTeamFirstResponseTime:
-            json['assigned_team_first_response_time'] != null
-                ? SdkPresent(((json['assigned_team_first_response_time']
-                        as List?)
-                    ?.map((e) => ConversationResponseTime.fromJson(
-                        e as Map<String, dynamic>))
-                    .toList())!)
-                : const SdkOmitted(),
-        assignedTeamFirstResponseTimeInOfficeHours:
-            json['assigned_team_first_response_time_in_office_hours'] != null
-                ? SdkPresent(
-                    ((json['assigned_team_first_response_time_in_office_hours']
-                            as List?)
-                        ?.map((e) => ConversationResponseTime.fromJson(
-                            e as Map<String, dynamic>))
-                        .toList())!)
-                : const SdkOmitted(),
-        handlingTime: json['handling_time'] != null
-            ? SdkPresent(((json['handling_time'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        adjustedHandlingTime: json.containsKey('adjusted_handling_time')
-            ? SdkPresent((json['adjusted_handling_time'] as num?)?.toInt())
-            : const SdkOmitted(),
-      );
+  factory ConversationStatistics.fromJson(Map<String, dynamic> json) => ConversationStatistics(
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    timeToAssignment: json['time_to_assignment'] != null ? SdkPresent(((json['time_to_assignment'] as num?)?.toInt())!) : const SdkOmitted(),
+    timeToAdminReply: json['time_to_admin_reply'] != null ? SdkPresent(((json['time_to_admin_reply'] as num?)?.toInt())!) : const SdkOmitted(),
+    timeToFirstClose: json['time_to_first_close'] != null ? SdkPresent(((json['time_to_first_close'] as num?)?.toInt())!) : const SdkOmitted(),
+    timeToLastClose: json['time_to_last_close'] != null ? SdkPresent(((json['time_to_last_close'] as num?)?.toInt())!) : const SdkOmitted(),
+    medianTimeToReply: json['median_time_to_reply'] != null ? SdkPresent(((json['median_time_to_reply'] as num?)?.toInt())!) : const SdkOmitted(),
+    firstContactReplyAt: json['first_contact_reply_at'] != null ? SdkPresent(((json['first_contact_reply_at'] as num?)?.toInt())!) : const SdkOmitted(),
+    firstAssignmentAt: json['first_assignment_at'] != null ? SdkPresent(((json['first_assignment_at'] as num?)?.toInt())!) : const SdkOmitted(),
+    firstAdminReplyAt: json['first_admin_reply_at'] != null ? SdkPresent(((json['first_admin_reply_at'] as num?)?.toInt())!) : const SdkOmitted(),
+    firstCloseAt: json['first_close_at'] != null ? SdkPresent(((json['first_close_at'] as num?)?.toInt())!) : const SdkOmitted(),
+    lastAssignmentAt: json['last_assignment_at'] != null ? SdkPresent(((json['last_assignment_at'] as num?)?.toInt())!) : const SdkOmitted(),
+    lastAssignmentAdminReplyAt: json['last_assignment_admin_reply_at'] != null ? SdkPresent(((json['last_assignment_admin_reply_at'] as num?)?.toInt())!) : const SdkOmitted(),
+    lastContactReplyAt: json['last_contact_reply_at'] != null ? SdkPresent(((json['last_contact_reply_at'] as num?)?.toInt())!) : const SdkOmitted(),
+    lastAdminReplyAt: json['last_admin_reply_at'] != null ? SdkPresent(((json['last_admin_reply_at'] as num?)?.toInt())!) : const SdkOmitted(),
+    lastCloseAt: json['last_close_at'] != null ? SdkPresent(((json['last_close_at'] as num?)?.toInt())!) : const SdkOmitted(),
+    lastClosedById: json['last_closed_by_id'] != null ? SdkPresent((json['last_closed_by_id'] as String?)!) : const SdkOmitted(),
+    countReopens: json['count_reopens'] != null ? SdkPresent(((json['count_reopens'] as num?)?.toInt())!) : const SdkOmitted(),
+    countAssignments: json['count_assignments'] != null ? SdkPresent(((json['count_assignments'] as num?)?.toInt())!) : const SdkOmitted(),
+    countConversationParts: json['count_conversation_parts'] != null ? SdkPresent(((json['count_conversation_parts'] as num?)?.toInt())!) : const SdkOmitted(),
+    assignedTeamFirstResponseTime: json['assigned_team_first_response_time'] != null ? SdkPresent(((json['assigned_team_first_response_time'] as List?)?.map((e) => ConversationResponseTime.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    assignedTeamFirstResponseTimeInOfficeHours: json['assigned_team_first_response_time_in_office_hours'] != null ? SdkPresent(((json['assigned_team_first_response_time_in_office_hours'] as List?)?.map((e) => ConversationResponseTime.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    handlingTime: json['handling_time'] != null ? SdkPresent(((json['handling_time'] as num?)?.toInt())!) : const SdkOmitted(),
+    adjustedHandlingTime: json.containsKey('adjusted_handling_time') ? SdkPresent((json['adjusted_handling_time'] as num?)?.toInt()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (timeToAssignment) {
-          SdkPresent<int>(value: final value) => {
-              'time_to_assignment': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (timeToAdminReply) {
-          SdkPresent<int>(value: final value) => {
-              'time_to_admin_reply': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (timeToFirstClose) {
-          SdkPresent<int>(value: final value) => {
-              'time_to_first_close': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (timeToLastClose) {
-          SdkPresent<int>(value: final value) => {
-              'time_to_last_close': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (medianTimeToReply) {
-          SdkPresent<int>(value: final value) => {
-              'median_time_to_reply': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (firstContactReplyAt) {
-          SdkPresent<int>(value: final value) => {
-              'first_contact_reply_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (firstAssignmentAt) {
-          SdkPresent<int>(value: final value) => {
-              'first_assignment_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (firstAdminReplyAt) {
-          SdkPresent<int>(value: final value) => {
-              'first_admin_reply_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (firstCloseAt) {
-          SdkPresent<int>(value: final value) => {
-              'first_close_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (lastAssignmentAt) {
-          SdkPresent<int>(value: final value) => {
-              'last_assignment_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (lastAssignmentAdminReplyAt) {
-          SdkPresent<int>(value: final value) => {
-              'last_assignment_admin_reply_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (lastContactReplyAt) {
-          SdkPresent<int>(value: final value) => {
-              'last_contact_reply_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (lastAdminReplyAt) {
-          SdkPresent<int>(value: final value) => {
-              'last_admin_reply_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (lastCloseAt) {
-          SdkPresent<int>(value: final value) => {
-              'last_close_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (lastClosedById) {
-          SdkPresent<String>(value: final value) => {
-              'last_closed_by_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (countReopens) {
-          SdkPresent<int>(value: final value) => {
-              'count_reopens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (countAssignments) {
-          SdkPresent<int>(value: final value) => {
-              'count_assignments': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (countConversationParts) {
-          SdkPresent<int>(value: final value) => {
-              'count_conversation_parts': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (assignedTeamFirstResponseTime) {
-          SdkPresent<List<ConversationResponseTime>>(value: final value) => {
-              'assigned_team_first_response_time':
-                  value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (assignedTeamFirstResponseTimeInOfficeHours) {
-          SdkPresent<List<ConversationResponseTime>>(value: final value) => {
-              'assigned_team_first_response_time_in_office_hours':
-                  value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (handlingTime) {
-          SdkPresent<int>(value: final value) => {
-              'handling_time': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (adjustedHandlingTime) {
-          SdkPresent<int?>(value: final value) => {
-              'adjusted_handling_time': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (timeToAssignment) {
+      SdkPresent<int>(value: final value) => {'time_to_assignment': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (timeToAdminReply) {
+      SdkPresent<int>(value: final value) => {'time_to_admin_reply': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (timeToFirstClose) {
+      SdkPresent<int>(value: final value) => {'time_to_first_close': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (timeToLastClose) {
+      SdkPresent<int>(value: final value) => {'time_to_last_close': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (medianTimeToReply) {
+      SdkPresent<int>(value: final value) => {'median_time_to_reply': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (firstContactReplyAt) {
+      SdkPresent<int>(value: final value) => {'first_contact_reply_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (firstAssignmentAt) {
+      SdkPresent<int>(value: final value) => {'first_assignment_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (firstAdminReplyAt) {
+      SdkPresent<int>(value: final value) => {'first_admin_reply_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (firstCloseAt) {
+      SdkPresent<int>(value: final value) => {'first_close_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (lastAssignmentAt) {
+      SdkPresent<int>(value: final value) => {'last_assignment_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (lastAssignmentAdminReplyAt) {
+      SdkPresent<int>(value: final value) => {'last_assignment_admin_reply_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (lastContactReplyAt) {
+      SdkPresent<int>(value: final value) => {'last_contact_reply_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (lastAdminReplyAt) {
+      SdkPresent<int>(value: final value) => {'last_admin_reply_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (lastCloseAt) {
+      SdkPresent<int>(value: final value) => {'last_close_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (lastClosedById) {
+      SdkPresent<String>(value: final value) => {'last_closed_by_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (countReopens) {
+      SdkPresent<int>(value: final value) => {'count_reopens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (countAssignments) {
+      SdkPresent<int>(value: final value) => {'count_assignments': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (countConversationParts) {
+      SdkPresent<int>(value: final value) => {'count_conversation_parts': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (assignedTeamFirstResponseTime) {
+      SdkPresent<List<ConversationResponseTime>>(value: final value) => {'assigned_team_first_response_time': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (assignedTeamFirstResponseTimeInOfficeHours) {
+      SdkPresent<List<ConversationResponseTime>>(value: final value) => {'assigned_team_first_response_time_in_office_hours': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (handlingTime) {
+      SdkPresent<int>(value: final value) => {'handling_time': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (adjustedHandlingTime) {
+      SdkPresent<int?>(value: final value) => {'adjusted_handling_time': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

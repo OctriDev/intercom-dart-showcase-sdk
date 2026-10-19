@@ -8,152 +8,84 @@ part of 'shared_email.dart';
 class EmailAddressHeader {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of email address header
   final SdkOptional<String> type_;
-
   /// The email address
   final SdkOptional<String> emailAddress;
-
   /// The name associated with the email address
   final SdkOptional<String?> name;
 
-  const EmailAddressHeader(
-      {this.type_ = const SdkOmitted(),
-      this.emailAddress = const SdkOmitted(),
-      this.name = const SdkOmitted()});
+  const EmailAddressHeader({this.type_ = const SdkOmitted(), this.emailAddress = const SdkOmitted(), this.name = const SdkOmitted()});
 
-  EmailAddressHeader Function(
-      {SdkOptional<String> type_,
-      SdkOptional<String> emailAddress,
-      SdkOptional<String?> name}) get copyWith => _copyWith;
+  EmailAddressHeader Function({SdkOptional<String> type_, SdkOptional<String> emailAddress, SdkOptional<String?> name}) get copyWith => _copyWith;
 
-  EmailAddressHeader _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? emailAddress = sdkOmittedValue,
-          Object? name = sdkOmittedValue}) =>
-      EmailAddressHeader(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        emailAddress: identical(emailAddress, sdkOmittedValue)
-            ? this.emailAddress
-            : emailAddress as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String?>,
-      );
+  EmailAddressHeader _copyWith({Object? type_ = sdkOmittedValue, Object? emailAddress = sdkOmittedValue, Object? name = sdkOmittedValue}) => EmailAddressHeader(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    emailAddress: identical(emailAddress, sdkOmittedValue) ? this.emailAddress : emailAddress as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String?>,
+  );
 
-  factory EmailAddressHeader.fromJson(Map<String, dynamic> json) =>
-      EmailAddressHeader(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        emailAddress: json['email_address'] != null
-            ? SdkPresent((json['email_address'] as String?)!)
-            : const SdkOmitted(),
-        name: json.containsKey('name')
-            ? SdkPresent(json['name'] as String?)
-            : const SdkOmitted(),
-      );
+  factory EmailAddressHeader.fromJson(Map<String, dynamic> json) => EmailAddressHeader(
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    emailAddress: json['email_address'] != null ? SdkPresent((json['email_address'] as String?)!) : const SdkOmitted(),
+    name: json.containsKey('name') ? SdkPresent(json['name'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (emailAddress) {
-          SdkPresent<String>(value: final value) => {
-              'email_address': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String?>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (emailAddress) {
+      SdkPresent<String>(value: final value) => {'email_address': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String?>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Contains metadata if the message was sent as an email
 class EmailMessageMetadata {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The subject of the email
   final SdkOptional<String> subject;
-
   /// A list of an email address headers.
   final SdkOptional<List<EmailAddressHeader>> emailAddressHeaders;
-
   /// The unique identifier for the email message as specified in the Message-ID header
   final SdkOptional<String?> messageId;
 
-  const EmailMessageMetadata(
-      {this.subject = const SdkOmitted(),
-      this.emailAddressHeaders = const SdkOmitted(),
-      this.messageId = const SdkOmitted()});
+  const EmailMessageMetadata({this.subject = const SdkOmitted(), this.emailAddressHeaders = const SdkOmitted(), this.messageId = const SdkOmitted()});
 
-  EmailMessageMetadata Function(
-      {SdkOptional<String> subject,
-      SdkOptional<List<EmailAddressHeader>> emailAddressHeaders,
-      SdkOptional<String?> messageId}) get copyWith => _copyWith;
+  EmailMessageMetadata Function({SdkOptional<String> subject, SdkOptional<List<EmailAddressHeader>> emailAddressHeaders, SdkOptional<String?> messageId}) get copyWith => _copyWith;
 
-  EmailMessageMetadata _copyWith(
-          {Object? subject = sdkOmittedValue,
-          Object? emailAddressHeaders = sdkOmittedValue,
-          Object? messageId = sdkOmittedValue}) =>
-      EmailMessageMetadata(
-        subject: identical(subject, sdkOmittedValue)
-            ? this.subject
-            : subject as SdkOptional<String>,
-        emailAddressHeaders: identical(emailAddressHeaders, sdkOmittedValue)
-            ? this.emailAddressHeaders
-            : emailAddressHeaders as SdkOptional<List<EmailAddressHeader>>,
-        messageId: identical(messageId, sdkOmittedValue)
-            ? this.messageId
-            : messageId as SdkOptional<String?>,
-      );
+  EmailMessageMetadata _copyWith({Object? subject = sdkOmittedValue, Object? emailAddressHeaders = sdkOmittedValue, Object? messageId = sdkOmittedValue}) => EmailMessageMetadata(
+    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as SdkOptional<String>,
+    emailAddressHeaders: identical(emailAddressHeaders, sdkOmittedValue) ? this.emailAddressHeaders : emailAddressHeaders as SdkOptional<List<EmailAddressHeader>>,
+    messageId: identical(messageId, sdkOmittedValue) ? this.messageId : messageId as SdkOptional<String?>,
+  );
 
-  factory EmailMessageMetadata.fromJson(Map<String, dynamic> json) =>
-      EmailMessageMetadata(
-        subject: json['subject'] != null
-            ? SdkPresent((json['subject'] as String?)!)
-            : const SdkOmitted(),
-        emailAddressHeaders: json['email_address_headers'] != null
-            ? SdkPresent(((json['email_address_headers'] as List?)
-                ?.map((e) =>
-                    EmailAddressHeader.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        messageId: json.containsKey('message_id')
-            ? SdkPresent(json['message_id'] as String?)
-            : const SdkOmitted(),
-      );
+  factory EmailMessageMetadata.fromJson(Map<String, dynamic> json) => EmailMessageMetadata(
+    subject: json['subject'] != null ? SdkPresent((json['subject'] as String?)!) : const SdkOmitted(),
+    emailAddressHeaders: json['email_address_headers'] != null ? SdkPresent(((json['email_address_headers'] as List?)?.map((e) => EmailAddressHeader.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    messageId: json.containsKey('message_id') ? SdkPresent(json['message_id'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (subject) {
-          SdkPresent<String>(value: final value) => {
-              'subject': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (emailAddressHeaders) {
-          SdkPresent<List<EmailAddressHeader>>(value: final value) => {
-              'email_address_headers':
-                  value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (messageId) {
-          SdkPresent<String?>(value: final value) => {
-              'message_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (subject) {
+      SdkPresent<String>(value: final value) => {'subject': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (emailAddressHeaders) {
+      SdkPresent<List<EmailAddressHeader>>(value: final value) => {'email_address_headers': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (messageId) {
+      SdkPresent<String?>(value: final value) => {'message_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

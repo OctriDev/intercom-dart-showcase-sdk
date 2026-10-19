@@ -8,497 +8,267 @@ part of 'data_connectors.dart';
 class DataConnectorExecutionResultList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of object - `list`.
   final SdkOptional<DataConnectorExecutionResultListType> type_;
-
   /// An array of execution result objects.
   final SdkOptional<List<DataConnectorExecutionResult>> data;
-
   /// Pagination information.
   final SdkOptional<DataConnectorExecutionResultListPages> pages;
 
-  const DataConnectorExecutionResultList(
-      {this.type_ = const SdkOmitted(),
-      this.data = const SdkOmitted(),
-      this.pages = const SdkOmitted()});
+  const DataConnectorExecutionResultList({this.type_ = const SdkOmitted(), this.data = const SdkOmitted(), this.pages = const SdkOmitted()});
 
-  DataConnectorExecutionResultList Function(
-          {SdkOptional<DataConnectorExecutionResultListType> type_,
-          SdkOptional<List<DataConnectorExecutionResult>> data,
-          SdkOptional<DataConnectorExecutionResultListPages> pages})
-      get copyWith => _copyWith;
+  DataConnectorExecutionResultList Function({SdkOptional<DataConnectorExecutionResultListType> type_, SdkOptional<List<DataConnectorExecutionResult>> data, SdkOptional<DataConnectorExecutionResultListPages> pages}) get copyWith => _copyWith;
 
-  DataConnectorExecutionResultList _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? data = sdkOmittedValue,
-          Object? pages = sdkOmittedValue}) =>
-      DataConnectorExecutionResultList(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<DataConnectorExecutionResultListType>,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as SdkOptional<List<DataConnectorExecutionResult>>,
-        pages: identical(pages, sdkOmittedValue)
-            ? this.pages
-            : pages as SdkOptional<DataConnectorExecutionResultListPages>,
-      );
+  DataConnectorExecutionResultList _copyWith({Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue, Object? pages = sdkOmittedValue}) => DataConnectorExecutionResultList(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<DataConnectorExecutionResultListType>,
+    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<DataConnectorExecutionResult>>,
+    pages: identical(pages, sdkOmittedValue) ? this.pages : pages as SdkOptional<DataConnectorExecutionResultListPages>,
+  );
 
-  factory DataConnectorExecutionResultList.fromJson(
-          Map<String, dynamic> json) =>
-      DataConnectorExecutionResultList(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? DataConnectorExecutionResultListType.fromJson(
-                    json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        data: json['data'] != null
-            ? SdkPresent(((json['data'] as List?)
-                ?.map((e) => DataConnectorExecutionResult.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        pages: json['pages'] != null
-            ? SdkPresent((json['pages'] != null
-                ? DataConnectorExecutionResultListPages.fromJson(
-                    json['pages'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory DataConnectorExecutionResultList.fromJson(Map<String, dynamic> json) => DataConnectorExecutionResultList(
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? DataConnectorExecutionResultListType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => DataConnectorExecutionResult.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    pages: json['pages'] != null ? SdkPresent((json['pages'] != null ? DataConnectorExecutionResultListPages.fromJson(json['pages'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<DataConnectorExecutionResultListType>(
-            value: final value
-          ) =>
-            {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (data) {
-          SdkPresent<List<DataConnectorExecutionResult>>(value: final value) =>
-            {
-              'data': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (pages) {
-          SdkPresent<DataConnectorExecutionResultListPages>(
-            value: final value
-          ) =>
-            {
-              'pages': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<DataConnectorExecutionResultListType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (data) {
+      SdkPresent<List<DataConnectorExecutionResult>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (pages) {
+      SdkPresent<DataConnectorExecutionResultListPages>(value: final value) => {'pages': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Cursor for the next page of results.
 class DataConnectorListPagesNext {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The cursor value to use for the next page.
   final SdkOptional<String> startingAfter;
 
   const DataConnectorListPagesNext({this.startingAfter = const SdkOmitted()});
 
-  DataConnectorListPagesNext Function({SdkOptional<String> startingAfter})
-      get copyWith => _copyWith;
+  DataConnectorListPagesNext Function({SdkOptional<String> startingAfter}) get copyWith => _copyWith;
 
-  DataConnectorListPagesNext _copyWith(
-          {Object? startingAfter = sdkOmittedValue}) =>
-      DataConnectorListPagesNext(
-        startingAfter: identical(startingAfter, sdkOmittedValue)
-            ? this.startingAfter
-            : startingAfter as SdkOptional<String>,
-      );
+  DataConnectorListPagesNext _copyWith({Object? startingAfter = sdkOmittedValue}) => DataConnectorListPagesNext(
+    startingAfter: identical(startingAfter, sdkOmittedValue) ? this.startingAfter : startingAfter as SdkOptional<String>,
+  );
 
-  factory DataConnectorListPagesNext.fromJson(Map<String, dynamic> json) =>
-      DataConnectorListPagesNext(
-        startingAfter: json['starting_after'] != null
-            ? SdkPresent((json['starting_after'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory DataConnectorListPagesNext.fromJson(Map<String, dynamic> json) => DataConnectorListPagesNext(
+    startingAfter: json['starting_after'] != null ? SdkPresent((json['starting_after'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (startingAfter) {
-          SdkPresent<String>(value: final value) => {
-              'starting_after': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (startingAfter) {
+      SdkPresent<String>(value: final value) => {'starting_after': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Pagination information.
 class DataConnectorListPages {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional enumerated value serialized in the `type` wire field.
   final SdkOptional<DataConnectorListPagesType> type_;
-
   /// The number of results per page.
   final SdkOptional<int> perPage;
-
   /// Cursor for the next page of results.
   final SdkOptional<DataConnectorListPagesNext?> next;
 
-  const DataConnectorListPages(
-      {this.type_ = const SdkOmitted(),
-      this.perPage = const SdkOmitted(),
-      this.next = const SdkOmitted()});
+  const DataConnectorListPages({this.type_ = const SdkOmitted(), this.perPage = const SdkOmitted(), this.next = const SdkOmitted()});
 
-  DataConnectorListPages Function(
-      {SdkOptional<DataConnectorListPagesType> type_,
-      SdkOptional<int> perPage,
-      SdkOptional<DataConnectorListPagesNext?> next}) get copyWith => _copyWith;
+  DataConnectorListPages Function({SdkOptional<DataConnectorListPagesType> type_, SdkOptional<int> perPage, SdkOptional<DataConnectorListPagesNext?> next}) get copyWith => _copyWith;
 
-  DataConnectorListPages _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? perPage = sdkOmittedValue,
-          Object? next = sdkOmittedValue}) =>
-      DataConnectorListPages(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<DataConnectorListPagesType>,
-        perPage: identical(perPage, sdkOmittedValue)
-            ? this.perPage
-            : perPage as SdkOptional<int>,
-        next: identical(next, sdkOmittedValue)
-            ? this.next
-            : next as SdkOptional<DataConnectorListPagesNext?>,
-      );
+  DataConnectorListPages _copyWith({Object? type_ = sdkOmittedValue, Object? perPage = sdkOmittedValue, Object? next = sdkOmittedValue}) => DataConnectorListPages(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<DataConnectorListPagesType>,
+    perPage: identical(perPage, sdkOmittedValue) ? this.perPage : perPage as SdkOptional<int>,
+    next: identical(next, sdkOmittedValue) ? this.next : next as SdkOptional<DataConnectorListPagesNext?>,
+  );
 
-  factory DataConnectorListPages.fromJson(Map<String, dynamic> json) =>
-      DataConnectorListPages(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? DataConnectorListPagesType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        perPage: json['per_page'] != null
-            ? SdkPresent(((json['per_page'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        next: json.containsKey('next')
-            ? SdkPresent(json['next'] != null
-                ? DataConnectorListPagesNext.fromJson(
-                    json['next'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-      );
+  factory DataConnectorListPages.fromJson(Map<String, dynamic> json) => DataConnectorListPages(
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? DataConnectorListPagesType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    perPage: json['per_page'] != null ? SdkPresent(((json['per_page'] as num?)?.toInt())!) : const SdkOmitted(),
+    next: json.containsKey('next') ? SdkPresent(json['next'] != null ? DataConnectorListPagesNext.fromJson(json['next'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<DataConnectorListPagesType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (perPage) {
-          SdkPresent<int>(value: final value) => {
-              'per_page': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (next) {
-          SdkPresent<DataConnectorListPagesNext?>(value: final value) => {
-              'next': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<DataConnectorListPagesType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (perPage) {
+      SdkPresent<int>(value: final value) => {'per_page': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (next) {
+      SdkPresent<DataConnectorListPagesNext?>(value: final value) => {'next': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// A paginated list of data connectors.
 class DataConnectorList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of object - `list`.
   final SdkOptional<DataConnectorListType> type_;
-
   /// An array of data connector objects.
   final SdkOptional<List<DataConnector>> data;
-
   /// Pagination information.
   final SdkOptional<DataConnectorListPages> pages;
 
-  const DataConnectorList(
-      {this.type_ = const SdkOmitted(),
-      this.data = const SdkOmitted(),
-      this.pages = const SdkOmitted()});
+  const DataConnectorList({this.type_ = const SdkOmitted(), this.data = const SdkOmitted(), this.pages = const SdkOmitted()});
 
-  DataConnectorList Function(
-      {SdkOptional<DataConnectorListType> type_,
-      SdkOptional<List<DataConnector>> data,
-      SdkOptional<DataConnectorListPages> pages}) get copyWith => _copyWith;
+  DataConnectorList Function({SdkOptional<DataConnectorListType> type_, SdkOptional<List<DataConnector>> data, SdkOptional<DataConnectorListPages> pages}) get copyWith => _copyWith;
 
-  DataConnectorList _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? data = sdkOmittedValue,
-          Object? pages = sdkOmittedValue}) =>
-      DataConnectorList(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<DataConnectorListType>,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as SdkOptional<List<DataConnector>>,
-        pages: identical(pages, sdkOmittedValue)
-            ? this.pages
-            : pages as SdkOptional<DataConnectorListPages>,
-      );
+  DataConnectorList _copyWith({Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue, Object? pages = sdkOmittedValue}) => DataConnectorList(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<DataConnectorListType>,
+    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<DataConnector>>,
+    pages: identical(pages, sdkOmittedValue) ? this.pages : pages as SdkOptional<DataConnectorListPages>,
+  );
 
-  factory DataConnectorList.fromJson(Map<String, dynamic> json) =>
-      DataConnectorList(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? DataConnectorListType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        data: json['data'] != null
-            ? SdkPresent(((json['data'] as List?)
-                ?.map((e) => DataConnector.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        pages: json['pages'] != null
-            ? SdkPresent((json['pages'] != null
-                ? DataConnectorListPages.fromJson(
-                    json['pages'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory DataConnectorList.fromJson(Map<String, dynamic> json) => DataConnectorList(
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? DataConnectorListType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => DataConnector.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    pages: json['pages'] != null ? SdkPresent((json['pages'] != null ? DataConnectorListPages.fromJson(json['pages'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<DataConnectorListType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (data) {
-          SdkPresent<List<DataConnector>>(value: final value) => {
-              'data': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (pages) {
-          SdkPresent<DataConnectorListPages>(value: final value) => {
-              'pages': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<DataConnectorListType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (data) {
+      SdkPresent<List<DataConnector>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (pages) {
+      SdkPresent<DataConnectorListPages>(value: final value) => {'pages': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Cursor for the next page of results.
 class DataConnectorVersionListPagesNext {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The cursor value to use for the next page.
   final SdkOptional<String> startingAfter;
 
-  const DataConnectorVersionListPagesNext(
-      {this.startingAfter = const SdkOmitted()});
+  const DataConnectorVersionListPagesNext({this.startingAfter = const SdkOmitted()});
 
-  DataConnectorVersionListPagesNext Function(
-      {SdkOptional<String> startingAfter}) get copyWith => _copyWith;
+  DataConnectorVersionListPagesNext Function({SdkOptional<String> startingAfter}) get copyWith => _copyWith;
 
-  DataConnectorVersionListPagesNext _copyWith(
-          {Object? startingAfter = sdkOmittedValue}) =>
-      DataConnectorVersionListPagesNext(
-        startingAfter: identical(startingAfter, sdkOmittedValue)
-            ? this.startingAfter
-            : startingAfter as SdkOptional<String>,
-      );
+  DataConnectorVersionListPagesNext _copyWith({Object? startingAfter = sdkOmittedValue}) => DataConnectorVersionListPagesNext(
+    startingAfter: identical(startingAfter, sdkOmittedValue) ? this.startingAfter : startingAfter as SdkOptional<String>,
+  );
 
-  factory DataConnectorVersionListPagesNext.fromJson(
-          Map<String, dynamic> json) =>
-      DataConnectorVersionListPagesNext(
-        startingAfter: json['starting_after'] != null
-            ? SdkPresent((json['starting_after'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory DataConnectorVersionListPagesNext.fromJson(Map<String, dynamic> json) => DataConnectorVersionListPagesNext(
+    startingAfter: json['starting_after'] != null ? SdkPresent((json['starting_after'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (startingAfter) {
-          SdkPresent<String>(value: final value) => {
-              'starting_after': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (startingAfter) {
+      SdkPresent<String>(value: final value) => {'starting_after': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Pagination information. `next` is omitted on the last page.
 class DataConnectorVersionListPages {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional enumerated value serialized in the `type` wire field.
   final SdkOptional<DataConnectorVersionListPagesType> type_;
-
   /// The number of results per page.
   final SdkOptional<int> perPage;
-
   /// Cursor for the next page of results.
   final SdkOptional<DataConnectorVersionListPagesNext> next;
 
-  const DataConnectorVersionListPages(
-      {this.type_ = const SdkOmitted(),
-      this.perPage = const SdkOmitted(),
-      this.next = const SdkOmitted()});
+  const DataConnectorVersionListPages({this.type_ = const SdkOmitted(), this.perPage = const SdkOmitted(), this.next = const SdkOmitted()});
 
-  DataConnectorVersionListPages Function(
-          {SdkOptional<DataConnectorVersionListPagesType> type_,
-          SdkOptional<int> perPage,
-          SdkOptional<DataConnectorVersionListPagesNext> next})
-      get copyWith => _copyWith;
+  DataConnectorVersionListPages Function({SdkOptional<DataConnectorVersionListPagesType> type_, SdkOptional<int> perPage, SdkOptional<DataConnectorVersionListPagesNext> next}) get copyWith => _copyWith;
 
-  DataConnectorVersionListPages _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? perPage = sdkOmittedValue,
-          Object? next = sdkOmittedValue}) =>
-      DataConnectorVersionListPages(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<DataConnectorVersionListPagesType>,
-        perPage: identical(perPage, sdkOmittedValue)
-            ? this.perPage
-            : perPage as SdkOptional<int>,
-        next: identical(next, sdkOmittedValue)
-            ? this.next
-            : next as SdkOptional<DataConnectorVersionListPagesNext>,
-      );
+  DataConnectorVersionListPages _copyWith({Object? type_ = sdkOmittedValue, Object? perPage = sdkOmittedValue, Object? next = sdkOmittedValue}) => DataConnectorVersionListPages(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<DataConnectorVersionListPagesType>,
+    perPage: identical(perPage, sdkOmittedValue) ? this.perPage : perPage as SdkOptional<int>,
+    next: identical(next, sdkOmittedValue) ? this.next : next as SdkOptional<DataConnectorVersionListPagesNext>,
+  );
 
-  factory DataConnectorVersionListPages.fromJson(Map<String, dynamic> json) =>
-      DataConnectorVersionListPages(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? DataConnectorVersionListPagesType.fromJson(
-                    json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        perPage: json['per_page'] != null
-            ? SdkPresent(((json['per_page'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        next: json['next'] != null
-            ? SdkPresent((json['next'] != null
-                ? DataConnectorVersionListPagesNext.fromJson(
-                    json['next'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory DataConnectorVersionListPages.fromJson(Map<String, dynamic> json) => DataConnectorVersionListPages(
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? DataConnectorVersionListPagesType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    perPage: json['per_page'] != null ? SdkPresent(((json['per_page'] as num?)?.toInt())!) : const SdkOmitted(),
+    next: json['next'] != null ? SdkPresent((json['next'] != null ? DataConnectorVersionListPagesNext.fromJson(json['next'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<DataConnectorVersionListPagesType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (perPage) {
-          SdkPresent<int>(value: final value) => {
-              'per_page': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (next) {
-          SdkPresent<DataConnectorVersionListPagesNext>(value: final value) => {
-              'next': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<DataConnectorVersionListPagesType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (perPage) {
+      SdkPresent<int>(value: final value) => {'per_page': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (next) {
+      SdkPresent<DataConnectorVersionListPagesNext>(value: final value) => {'next': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// A paginated list of data connector versions, newest first.
 class DataConnectorVersionList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of object - `list`.
   final SdkOptional<DataConnectorVersionListType> type_;
-
   /// An array of data connector version objects.
   final SdkOptional<List<DataConnectorVersion>> data;
-
   /// Pagination information. `next` is omitted on the last page.
   final SdkOptional<DataConnectorVersionListPages> pages;
 
-  const DataConnectorVersionList(
-      {this.type_ = const SdkOmitted(),
-      this.data = const SdkOmitted(),
-      this.pages = const SdkOmitted()});
+  const DataConnectorVersionList({this.type_ = const SdkOmitted(), this.data = const SdkOmitted(), this.pages = const SdkOmitted()});
 
-  DataConnectorVersionList Function(
-          {SdkOptional<DataConnectorVersionListType> type_,
-          SdkOptional<List<DataConnectorVersion>> data,
-          SdkOptional<DataConnectorVersionListPages> pages})
-      get copyWith => _copyWith;
+  DataConnectorVersionList Function({SdkOptional<DataConnectorVersionListType> type_, SdkOptional<List<DataConnectorVersion>> data, SdkOptional<DataConnectorVersionListPages> pages}) get copyWith => _copyWith;
 
-  DataConnectorVersionList _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? data = sdkOmittedValue,
-          Object? pages = sdkOmittedValue}) =>
-      DataConnectorVersionList(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<DataConnectorVersionListType>,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as SdkOptional<List<DataConnectorVersion>>,
-        pages: identical(pages, sdkOmittedValue)
-            ? this.pages
-            : pages as SdkOptional<DataConnectorVersionListPages>,
-      );
+  DataConnectorVersionList _copyWith({Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue, Object? pages = sdkOmittedValue}) => DataConnectorVersionList(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<DataConnectorVersionListType>,
+    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<DataConnectorVersion>>,
+    pages: identical(pages, sdkOmittedValue) ? this.pages : pages as SdkOptional<DataConnectorVersionListPages>,
+  );
 
-  factory DataConnectorVersionList.fromJson(Map<String, dynamic> json) =>
-      DataConnectorVersionList(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? DataConnectorVersionListType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        data: json['data'] != null
-            ? SdkPresent(((json['data'] as List?)
-                ?.map((e) =>
-                    DataConnectorVersion.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        pages: json['pages'] != null
-            ? SdkPresent((json['pages'] != null
-                ? DataConnectorVersionListPages.fromJson(
-                    json['pages'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory DataConnectorVersionList.fromJson(Map<String, dynamic> json) => DataConnectorVersionList(
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? DataConnectorVersionListType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => DataConnectorVersion.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    pages: json['pages'] != null ? SdkPresent((json['pages'] != null ? DataConnectorVersionListPages.fromJson(json['pages'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<DataConnectorVersionListType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (data) {
-          SdkPresent<List<DataConnectorVersion>>(value: final value) => {
-              'data': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (pages) {
-          SdkPresent<DataConnectorVersionListPages>(value: final value) => {
-              'pages': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<DataConnectorVersionListType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (data) {
+      SdkPresent<List<DataConnectorVersion>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (pages) {
+      SdkPresent<DataConnectorVersionListPages>(value: final value) => {'pages': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

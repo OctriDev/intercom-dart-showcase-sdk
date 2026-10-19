@@ -8,126 +8,49 @@ part of 'models.dart';
 class DataConnectorVersionDefinitionObjectMappingsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `string` value serialized in the `response_object_path` wire field.
   final SdkOptional<String> responseObjectPath;
-
   /// Optional `string` value serialized in the `intercom_object_type` wire field.
   final SdkOptional<String> intercomObjectType;
-
   /// Optional array value serialized in the `attribute_mappings` wire field.
-  final SdkOptional<
-          List<
-              DataConnectorVersionDefinitionObjectMappingsItemAttributeMappingsItem>>
-      attributeMappings;
-
+  final SdkOptional<List<DataConnectorVersionDefinitionObjectMappingsItemAttributeMappingsItem>> attributeMappings;
   /// Optional array value serialized in the `reference_mappings` wire field.
-  final SdkOptional<
-          List<
-              DataConnectorVersionDefinitionObjectMappingsItemReferenceMappingsItem>>
-      referenceMappings;
+  final SdkOptional<List<DataConnectorVersionDefinitionObjectMappingsItemReferenceMappingsItem>> referenceMappings;
 
-  const DataConnectorVersionDefinitionObjectMappingsItem(
-      {this.responseObjectPath = const SdkOmitted(),
-      this.intercomObjectType = const SdkOmitted(),
-      this.attributeMappings = const SdkOmitted(),
-      this.referenceMappings = const SdkOmitted()});
+  const DataConnectorVersionDefinitionObjectMappingsItem({this.responseObjectPath = const SdkOmitted(), this.intercomObjectType = const SdkOmitted(), this.attributeMappings = const SdkOmitted(), this.referenceMappings = const SdkOmitted()});
 
-  DataConnectorVersionDefinitionObjectMappingsItem Function(
-      {SdkOptional<String> responseObjectPath,
-      SdkOptional<String> intercomObjectType,
-      SdkOptional<
-              List<
-                  DataConnectorVersionDefinitionObjectMappingsItemAttributeMappingsItem>>
-          attributeMappings,
-      SdkOptional<
-              List<
-                  DataConnectorVersionDefinitionObjectMappingsItemReferenceMappingsItem>>
-          referenceMappings}) get copyWith => _copyWith;
+  DataConnectorVersionDefinitionObjectMappingsItem Function({SdkOptional<String> responseObjectPath, SdkOptional<String> intercomObjectType, SdkOptional<List<DataConnectorVersionDefinitionObjectMappingsItemAttributeMappingsItem>> attributeMappings, SdkOptional<List<DataConnectorVersionDefinitionObjectMappingsItemReferenceMappingsItem>> referenceMappings}) get copyWith => _copyWith;
 
-  DataConnectorVersionDefinitionObjectMappingsItem _copyWith(
-          {Object? responseObjectPath = sdkOmittedValue,
-          Object? intercomObjectType = sdkOmittedValue,
-          Object? attributeMappings = sdkOmittedValue,
-          Object? referenceMappings = sdkOmittedValue}) =>
-      DataConnectorVersionDefinitionObjectMappingsItem(
-        responseObjectPath: identical(responseObjectPath, sdkOmittedValue)
-            ? this.responseObjectPath
-            : responseObjectPath as SdkOptional<String>,
-        intercomObjectType: identical(intercomObjectType, sdkOmittedValue)
-            ? this.intercomObjectType
-            : intercomObjectType as SdkOptional<String>,
-        attributeMappings: identical(attributeMappings, sdkOmittedValue)
-            ? this.attributeMappings
-            : attributeMappings as SdkOptional<
-                List<
-                    DataConnectorVersionDefinitionObjectMappingsItemAttributeMappingsItem>>,
-        referenceMappings: identical(referenceMappings, sdkOmittedValue)
-            ? this.referenceMappings
-            : referenceMappings as SdkOptional<
-                List<
-                    DataConnectorVersionDefinitionObjectMappingsItemReferenceMappingsItem>>,
-      );
+  DataConnectorVersionDefinitionObjectMappingsItem _copyWith({Object? responseObjectPath = sdkOmittedValue, Object? intercomObjectType = sdkOmittedValue, Object? attributeMappings = sdkOmittedValue, Object? referenceMappings = sdkOmittedValue}) => DataConnectorVersionDefinitionObjectMappingsItem(
+    responseObjectPath: identical(responseObjectPath, sdkOmittedValue) ? this.responseObjectPath : responseObjectPath as SdkOptional<String>,
+    intercomObjectType: identical(intercomObjectType, sdkOmittedValue) ? this.intercomObjectType : intercomObjectType as SdkOptional<String>,
+    attributeMappings: identical(attributeMappings, sdkOmittedValue) ? this.attributeMappings : attributeMappings as SdkOptional<List<DataConnectorVersionDefinitionObjectMappingsItemAttributeMappingsItem>>,
+    referenceMappings: identical(referenceMappings, sdkOmittedValue) ? this.referenceMappings : referenceMappings as SdkOptional<List<DataConnectorVersionDefinitionObjectMappingsItemReferenceMappingsItem>>,
+  );
 
-  factory DataConnectorVersionDefinitionObjectMappingsItem.fromJson(
-          Map<String, dynamic> json) =>
-      DataConnectorVersionDefinitionObjectMappingsItem(
-        responseObjectPath: json['response_object_path'] != null
-            ? SdkPresent((json['response_object_path'] as String?)!)
-            : const SdkOmitted(),
-        intercomObjectType: json['intercom_object_type'] != null
-            ? SdkPresent((json['intercom_object_type'] as String?)!)
-            : const SdkOmitted(),
-        attributeMappings: json['attribute_mappings'] != null
-            ? SdkPresent(((json['attribute_mappings'] as List?)
-                ?.map((e) =>
-                    DataConnectorVersionDefinitionObjectMappingsItemAttributeMappingsItem
-                        .fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        referenceMappings: json['reference_mappings'] != null
-            ? SdkPresent(((json['reference_mappings'] as List?)
-                ?.map((e) =>
-                    DataConnectorVersionDefinitionObjectMappingsItemReferenceMappingsItem
-                        .fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory DataConnectorVersionDefinitionObjectMappingsItem.fromJson(Map<String, dynamic> json) => DataConnectorVersionDefinitionObjectMappingsItem(
+    responseObjectPath: json['response_object_path'] != null ? SdkPresent((json['response_object_path'] as String?)!) : const SdkOmitted(),
+    intercomObjectType: json['intercom_object_type'] != null ? SdkPresent((json['intercom_object_type'] as String?)!) : const SdkOmitted(),
+    attributeMappings: json['attribute_mappings'] != null ? SdkPresent(((json['attribute_mappings'] as List?)?.map((e) => DataConnectorVersionDefinitionObjectMappingsItemAttributeMappingsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    referenceMappings: json['reference_mappings'] != null ? SdkPresent(((json['reference_mappings'] as List?)?.map((e) => DataConnectorVersionDefinitionObjectMappingsItemReferenceMappingsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (responseObjectPath) {
-          SdkPresent<String>(value: final value) => {
-              'response_object_path': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (intercomObjectType) {
-          SdkPresent<String>(value: final value) => {
-              'intercom_object_type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (attributeMappings) {
-          SdkPresent<
-                List<
-                    DataConnectorVersionDefinitionObjectMappingsItemAttributeMappingsItem>>(
-            value: final value
-          ) =>
-            {
-              'attribute_mappings': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (referenceMappings) {
-          SdkPresent<
-                List<
-                    DataConnectorVersionDefinitionObjectMappingsItemReferenceMappingsItem>>(
-            value: final value
-          ) =>
-            {
-              'reference_mappings': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (responseObjectPath) {
+      SdkPresent<String>(value: final value) => {'response_object_path': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (intercomObjectType) {
+      SdkPresent<String>(value: final value) => {'intercom_object_type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (attributeMappings) {
+      SdkPresent<List<DataConnectorVersionDefinitionObjectMappingsItemAttributeMappingsItem>>(value: final value) => {'attribute_mappings': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (referenceMappings) {
+      SdkPresent<List<DataConnectorVersionDefinitionObjectMappingsItemReferenceMappingsItem>>(value: final value) => {'reference_mappings': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

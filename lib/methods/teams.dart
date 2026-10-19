@@ -15,17 +15,14 @@ Future<TeamList> listTeams(ClientConfig config,
   return (await sdkRequest<TeamList>('GET', '/teams',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listTeams',
-          fromJsonRaw: (value) =>
-              TeamList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => TeamList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves a team and the admins that belong to it. Use the `team_id` path parameter to specify the team whose details you need.
 ///
@@ -40,17 +37,14 @@ Future<Team> retrieveTeam(ClientConfig config,
           'GET', '/teams/${Uri.encodeComponent(teamId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'retrieveTeam',
           fromJsonRaw: (value) => Team.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves real-time activity metrics for admins in a specified team, including counts of open, idle, and snoozed conversations. The `realtime_monitoring` feature must be enabled for the workspace; use `idle_threshold` to set when an open conversation counts as idle.
 ///
@@ -70,22 +64,13 @@ Future<TeamMetricList> getTeamMetrics(ClientConfig config,
           'GET', '/teams/${Uri.encodeComponent(teamId.toString())}/metrics',
           config: config,
           query: {
-            'idle_threshold': SdkQueryValue(
-                SdkUtils.unwrapOptional(idleThreshold),
-                style: 'form',
-                explode: true)
+            'idle_threshold': SdkQueryValue(SdkUtils.unwrapOptional(idleThreshold), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'getTeamMetrics',
-          fromJsonRaw: (value) =>
-              TeamMetricList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => TeamMetricList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

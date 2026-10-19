@@ -28,14 +28,10 @@ Future<PhoneSwitch> createPhoneSwitch(ClientConfig config,
             'custom_attributes': SdkUtils.unwrapOptional(customAttributes)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'createPhoneSwitch',
-          fromJsonRaw: (value) =>
-              PhoneSwitch.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => PhoneSwitch.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

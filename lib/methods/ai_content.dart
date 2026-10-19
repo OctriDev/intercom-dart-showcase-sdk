@@ -44,7 +44,7 @@ Future<ContentImportSource> createContentImportSource(ClientConfig config,
     SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
     SdkOptional<CreateContentImportSourceRequestStatus> status =
         const SdkOmitted(),
-    SdkOptional<dynamic> audienceIds = const SdkOmitted(),
+    SdkOptional<List<int>?> audienceIds = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<ContentImportSource>(
           'POST', '/ai/content_import_sources',
@@ -136,7 +136,7 @@ Future<ContentImportSource> updateContentImportSource(ClientConfig config,
     SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
     SdkOptional<UpdateContentImportSourceRequestStatus> status =
         const SdkOmitted(),
-    SdkOptional<dynamic> audienceIds = const SdkOmitted(),
+    SdkOptional<List<int>?> audienceIds = const SdkOmitted(),
     SdkOptional<bool> applyAudienceToExistingContent = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<ContentImportSource>('PUT',

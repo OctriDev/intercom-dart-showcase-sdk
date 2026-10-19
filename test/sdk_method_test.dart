@@ -1557,7 +1557,7 @@ void main() {
         intercomVersion: SdkPresent<IntercomVersion>(
             IntercomVersion.fromJson(jsonDecode("\"2.17\"") as String)),
         status: const SdkOmitted<CreateContentImportSourceRequestStatus>(),
-        audienceIds: const SdkOmitted<dynamic>(),
+        audienceIds: const SdkOmitted<List<int>?>(),
       );
       expect(
         mismatch(
@@ -1583,7 +1583,7 @@ void main() {
           intercomVersion: SdkPresent<IntercomVersion>(
               IntercomVersion.fromJson(jsonDecode("\"2.17\"") as String)),
           status: const SdkOmitted<CreateContentImportSourceRequestStatus>(),
-          audienceIds: const SdkOmitted<dynamic>(),
+          audienceIds: const SdkOmitted<List<int>?>(),
         );
         fail('did not raise its declared error');
       } on SdkHttpError catch (caught) {
@@ -11499,7 +11499,7 @@ void main() {
         intercomVersion: SdkPresent<IntercomVersion>(
             IntercomVersion.fromJson(jsonDecode("\"2.17\"") as String)),
         status: const SdkOmitted<UpdateContentImportSourceRequestStatus>(),
-        audienceIds: const SdkOmitted<dynamic>(),
+        audienceIds: const SdkOmitted<List<int>?>(),
         applyAudienceToExistingContent: const SdkOmitted<bool>(),
       );
       expect(
@@ -11527,7 +11527,7 @@ void main() {
           intercomVersion: SdkPresent<IntercomVersion>(
               IntercomVersion.fromJson(jsonDecode("\"2.17\"") as String)),
           status: const SdkOmitted<UpdateContentImportSourceRequestStatus>(),
-          audienceIds: const SdkOmitted<dynamic>(),
+          audienceIds: const SdkOmitted<List<int>?>(),
           applyAudienceToExistingContent: const SdkOmitted<bool>(),
         );
         fail('did not raise its declared error');

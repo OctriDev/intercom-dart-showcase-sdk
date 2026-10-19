@@ -8,27 +8,39 @@ part of 'data_export.dart';
 class CreateDataExportsRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The start date that you request data for. It must be formatted as a unix timestamp.
   final int createdAtAfter;
+
   /// The end date that you request data for. It must be formatted as a unix timestamp.
   final int createdAtBefore;
 
-  const CreateDataExportsRequest({required this.createdAtAfter, required this.createdAtBefore});
+  const CreateDataExportsRequest(
+      {required this.createdAtAfter, required this.createdAtBefore});
 
-  CreateDataExportsRequest Function({int createdAtAfter, int createdAtBefore}) get copyWith => _copyWith;
+  CreateDataExportsRequest Function({int createdAtAfter, int createdAtBefore})
+      get copyWith => _copyWith;
 
-  CreateDataExportsRequest _copyWith({Object? createdAtAfter = sdkOmittedValue, Object? createdAtBefore = sdkOmittedValue}) => CreateDataExportsRequest(
-    createdAtAfter: identical(createdAtAfter, sdkOmittedValue) ? this.createdAtAfter : createdAtAfter as int,
-    createdAtBefore: identical(createdAtBefore, sdkOmittedValue) ? this.createdAtBefore : createdAtBefore as int,
-  );
+  CreateDataExportsRequest _copyWith(
+          {Object? createdAtAfter = sdkOmittedValue,
+          Object? createdAtBefore = sdkOmittedValue}) =>
+      CreateDataExportsRequest(
+        createdAtAfter: identical(createdAtAfter, sdkOmittedValue)
+            ? this.createdAtAfter
+            : createdAtAfter as int,
+        createdAtBefore: identical(createdAtBefore, sdkOmittedValue)
+            ? this.createdAtBefore
+            : createdAtBefore as int,
+      );
 
-  factory CreateDataExportsRequest.fromJson(Map<String, dynamic> json) => CreateDataExportsRequest(
-    createdAtAfter: ((json['created_at_after'] as num?)?.toInt())!,
-    createdAtBefore: ((json['created_at_before'] as num?)?.toInt())!,
-  );
+  factory CreateDataExportsRequest.fromJson(Map<String, dynamic> json) =>
+      CreateDataExportsRequest(
+        createdAtAfter: ((json['created_at_after'] as num?)?.toInt())!,
+        createdAtBefore: ((json['created_at_before'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'created_at_after': createdAtAfter,
-    'created_at_before': createdAtBefore,
-  };
+        'created_at_after': createdAtAfter,
+        'created_at_before': createdAtBefore,
+      };
 }

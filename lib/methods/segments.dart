@@ -19,17 +19,23 @@ Future<SegmentList> listSegments(ClientConfig config,
   return (await sdkRequest<SegmentList>('GET', '/segments',
           config: config,
           query: {
-            'include_count': SdkQueryValue(SdkUtils.unwrapOptional(includeCount), style: 'form', explode: true)
+            'include_count': SdkQueryValue(
+                SdkUtils.unwrapOptional(includeCount),
+                style: 'form',
+                explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listSegments',
-          fromJsonRaw: (value) => SegmentList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              SegmentList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves the details of a segment, a group of contacts defined by its rules. Use `segment_id` to identify the segment you want to retrieve.
 ///
@@ -44,10 +50,15 @@ Future<Segment> retrieveSegment(ClientConfig config,
           'GET', '/segments/${Uri.encodeComponent(segmentId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'retrieveSegment',
-          fromJsonRaw: (value) => Segment.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Segment.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

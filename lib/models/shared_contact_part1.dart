@@ -8,272 +8,492 @@ part of 'shared_contact.dart';
 class ContactCompanies {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An array of company data objects attached to the contact.
   final SdkOptional<List<CompanyData>> data;
+
   /// Url to get more company resources for this contact
   final SdkOptional<String> url;
+
   /// Integer representing the total number of companies attached to this contact
   final SdkOptional<int> totalCount;
+
   /// Whether there's more Addressable Objects to be viewed. If true, use the url to view all
   final SdkOptional<bool> hasMore;
 
-  const ContactCompanies({this.data = const SdkOmitted(), this.url = const SdkOmitted(), this.totalCount = const SdkOmitted(), this.hasMore = const SdkOmitted()});
+  const ContactCompanies(
+      {this.data = const SdkOmitted(),
+      this.url = const SdkOmitted(),
+      this.totalCount = const SdkOmitted(),
+      this.hasMore = const SdkOmitted()});
 
-  ContactCompanies Function({SdkOptional<List<CompanyData>> data, SdkOptional<String> url, SdkOptional<int> totalCount, SdkOptional<bool> hasMore}) get copyWith => _copyWith;
+  ContactCompanies Function(
+      {SdkOptional<List<CompanyData>> data,
+      SdkOptional<String> url,
+      SdkOptional<int> totalCount,
+      SdkOptional<bool> hasMore}) get copyWith => _copyWith;
 
-  ContactCompanies _copyWith({Object? data = sdkOmittedValue, Object? url = sdkOmittedValue, Object? totalCount = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => ContactCompanies(
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<CompanyData>>,
-    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String>,
-    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as SdkOptional<int>,
-    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as SdkOptional<bool>,
-  );
+  ContactCompanies _copyWith(
+          {Object? data = sdkOmittedValue,
+          Object? url = sdkOmittedValue,
+          Object? totalCount = sdkOmittedValue,
+          Object? hasMore = sdkOmittedValue}) =>
+      ContactCompanies(
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<List<CompanyData>>,
+        url: identical(url, sdkOmittedValue)
+            ? this.url
+            : url as SdkOptional<String>,
+        totalCount: identical(totalCount, sdkOmittedValue)
+            ? this.totalCount
+            : totalCount as SdkOptional<int>,
+        hasMore: identical(hasMore, sdkOmittedValue)
+            ? this.hasMore
+            : hasMore as SdkOptional<bool>,
+      );
 
-  factory ContactCompanies.fromJson(Map<String, dynamic> json) => ContactCompanies(
-    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => CompanyData.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    url: json['url'] != null ? SdkPresent((json['url'] as String?)!) : const SdkOmitted(),
-    totalCount: json['total_count'] != null ? SdkPresent(((json['total_count'] as num?)?.toInt())!) : const SdkOmitted(),
-    hasMore: json['has_more'] != null ? SdkPresent((json['has_more'] as bool?)!) : const SdkOmitted(),
-  );
+  factory ContactCompanies.fromJson(Map<String, dynamic> json) =>
+      ContactCompanies(
+        data: json['data'] != null
+            ? SdkPresent(((json['data'] as List?)
+                ?.map((e) => CompanyData.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        url: json['url'] != null
+            ? SdkPresent((json['url'] as String?)!)
+            : const SdkOmitted(),
+        totalCount: json['total_count'] != null
+            ? SdkPresent(((json['total_count'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        hasMore: json['has_more'] != null
+            ? SdkPresent((json['has_more'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (data) {
-      SdkPresent<List<CompanyData>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (url) {
-      SdkPresent<String>(value: final value) => {'url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (totalCount) {
-      SdkPresent<int>(value: final value) => {'total_count': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (hasMore) {
-      SdkPresent<bool>(value: final value) => {'has_more': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (data) {
+          SdkPresent<List<CompanyData>>(value: final value) => {
+              'data': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (url) {
+          SdkPresent<String>(value: final value) => {
+              'url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (totalCount) {
+          SdkPresent<int>(value: final value) => {
+              'total_count': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (hasMore) {
+          SdkPresent<bool>(value: final value) => {
+              'has_more': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// An object containing location meta data about a Intercom contact.
 class ContactLocation {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Always location
   final SdkOptional<String?> type_;
+
   /// The country that the contact is located in
   final SdkOptional<String?> country;
+
   /// The overal region that the contact is located in
   final SdkOptional<String?> region;
+
   /// The city that the contact is located in
   final SdkOptional<String?> city;
 
-  const ContactLocation({this.type_ = const SdkOmitted(), this.country = const SdkOmitted(), this.region = const SdkOmitted(), this.city = const SdkOmitted()});
+  const ContactLocation(
+      {this.type_ = const SdkOmitted(),
+      this.country = const SdkOmitted(),
+      this.region = const SdkOmitted(),
+      this.city = const SdkOmitted()});
 
-  ContactLocation Function({SdkOptional<String?> type_, SdkOptional<String?> country, SdkOptional<String?> region, SdkOptional<String?> city}) get copyWith => _copyWith;
+  ContactLocation Function(
+      {SdkOptional<String?> type_,
+      SdkOptional<String?> country,
+      SdkOptional<String?> region,
+      SdkOptional<String?> city}) get copyWith => _copyWith;
 
-  ContactLocation _copyWith({Object? type_ = sdkOmittedValue, Object? country = sdkOmittedValue, Object? region = sdkOmittedValue, Object? city = sdkOmittedValue}) => ContactLocation(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String?>,
-    country: identical(country, sdkOmittedValue) ? this.country : country as SdkOptional<String?>,
-    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<String?>,
-    city: identical(city, sdkOmittedValue) ? this.city : city as SdkOptional<String?>,
-  );
+  ContactLocation _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? country = sdkOmittedValue,
+          Object? region = sdkOmittedValue,
+          Object? city = sdkOmittedValue}) =>
+      ContactLocation(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<String?>,
+        country: identical(country, sdkOmittedValue)
+            ? this.country
+            : country as SdkOptional<String?>,
+        region: identical(region, sdkOmittedValue)
+            ? this.region
+            : region as SdkOptional<String?>,
+        city: identical(city, sdkOmittedValue)
+            ? this.city
+            : city as SdkOptional<String?>,
+      );
 
-  factory ContactLocation.fromJson(Map<String, dynamic> json) => ContactLocation(
-    type_: json.containsKey('type') ? SdkPresent(json['type'] as String?) : const SdkOmitted(),
-    country: json.containsKey('country') ? SdkPresent(json['country'] as String?) : const SdkOmitted(),
-    region: json.containsKey('region') ? SdkPresent(json['region'] as String?) : const SdkOmitted(),
-    city: json.containsKey('city') ? SdkPresent(json['city'] as String?) : const SdkOmitted(),
-  );
+  factory ContactLocation.fromJson(Map<String, dynamic> json) =>
+      ContactLocation(
+        type_: json.containsKey('type')
+            ? SdkPresent(json['type'] as String?)
+            : const SdkOmitted(),
+        country: json.containsKey('country')
+            ? SdkPresent(json['country'] as String?)
+            : const SdkOmitted(),
+        region: json.containsKey('region')
+            ? SdkPresent(json['region'] as String?)
+            : const SdkOmitted(),
+        city: json.containsKey('city')
+            ? SdkPresent(json['city'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<String?>(value: final value) => {'type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (country) {
-      SdkPresent<String?>(value: final value) => {'country': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (region) {
-      SdkPresent<String?>(value: final value) => {'region': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (city) {
-      SdkPresent<String?>(value: final value) => {'city': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<String?>(value: final value) => {
+              'type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (country) {
+          SdkPresent<String?>(value: final value) => {
+              'country': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (region) {
+          SdkPresent<String?>(value: final value) => {
+              'region': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (city) {
+          SdkPresent<String?>(value: final value) => {
+              'city': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// An object containing notes meta data about the notes that a contact has. Up to 10 will be displayed here. Use the url to get more.
 class ContactNotes {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// This object represents the notes attached to a contact.
   final SdkOptional<List<AddressableList>> data;
+
   /// Url to get more company resources for this contact
   final SdkOptional<String> url;
+
   /// Int representing the total number of companyies attached to this contact
   final SdkOptional<int> totalCount;
+
   /// Whether there's more Addressable Objects to be viewed. If true, use the url to view all
   final SdkOptional<bool> hasMore;
 
-  const ContactNotes({this.data = const SdkOmitted(), this.url = const SdkOmitted(), this.totalCount = const SdkOmitted(), this.hasMore = const SdkOmitted()});
+  const ContactNotes(
+      {this.data = const SdkOmitted(),
+      this.url = const SdkOmitted(),
+      this.totalCount = const SdkOmitted(),
+      this.hasMore = const SdkOmitted()});
 
-  ContactNotes Function({SdkOptional<List<AddressableList>> data, SdkOptional<String> url, SdkOptional<int> totalCount, SdkOptional<bool> hasMore}) get copyWith => _copyWith;
+  ContactNotes Function(
+      {SdkOptional<List<AddressableList>> data,
+      SdkOptional<String> url,
+      SdkOptional<int> totalCount,
+      SdkOptional<bool> hasMore}) get copyWith => _copyWith;
 
-  ContactNotes _copyWith({Object? data = sdkOmittedValue, Object? url = sdkOmittedValue, Object? totalCount = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => ContactNotes(
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<AddressableList>>,
-    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String>,
-    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as SdkOptional<int>,
-    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as SdkOptional<bool>,
-  );
+  ContactNotes _copyWith(
+          {Object? data = sdkOmittedValue,
+          Object? url = sdkOmittedValue,
+          Object? totalCount = sdkOmittedValue,
+          Object? hasMore = sdkOmittedValue}) =>
+      ContactNotes(
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<List<AddressableList>>,
+        url: identical(url, sdkOmittedValue)
+            ? this.url
+            : url as SdkOptional<String>,
+        totalCount: identical(totalCount, sdkOmittedValue)
+            ? this.totalCount
+            : totalCount as SdkOptional<int>,
+        hasMore: identical(hasMore, sdkOmittedValue)
+            ? this.hasMore
+            : hasMore as SdkOptional<bool>,
+      );
 
   factory ContactNotes.fromJson(Map<String, dynamic> json) => ContactNotes(
-    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => AddressableList.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    url: json['url'] != null ? SdkPresent((json['url'] as String?)!) : const SdkOmitted(),
-    totalCount: json['total_count'] != null ? SdkPresent(((json['total_count'] as num?)?.toInt())!) : const SdkOmitted(),
-    hasMore: json['has_more'] != null ? SdkPresent((json['has_more'] as bool?)!) : const SdkOmitted(),
-  );
+        data: json['data'] != null
+            ? SdkPresent(((json['data'] as List?)
+                ?.map(
+                    (e) => AddressableList.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        url: json['url'] != null
+            ? SdkPresent((json['url'] as String?)!)
+            : const SdkOmitted(),
+        totalCount: json['total_count'] != null
+            ? SdkPresent(((json['total_count'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        hasMore: json['has_more'] != null
+            ? SdkPresent((json['has_more'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (data) {
-      SdkPresent<List<AddressableList>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (url) {
-      SdkPresent<String>(value: final value) => {'url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (totalCount) {
-      SdkPresent<int>(value: final value) => {'total_count': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (hasMore) {
-      SdkPresent<bool>(value: final value) => {'has_more': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (data) {
+          SdkPresent<List<AddressableList>>(value: final value) => {
+              'data': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (url) {
+          SdkPresent<String>(value: final value) => {
+              'url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (totalCount) {
+          SdkPresent<int>(value: final value) => {
+              'total_count': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (hasMore) {
+          SdkPresent<bool>(value: final value) => {
+              'has_more': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// reference to contact object
 class ContactReference {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// always contact
   final SdkOptional<ContactReferenceType> type_;
+
   /// The unique identifier for the contact which is given by Intercom.
   final SdkOptional<String> id;
+
   /// The unique identifier for the contact which is provided by the Client.
   final SdkOptional<String?> externalId;
 
-  const ContactReference({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.externalId = const SdkOmitted()});
+  const ContactReference(
+      {this.type_ = const SdkOmitted(),
+      this.id = const SdkOmitted(),
+      this.externalId = const SdkOmitted()});
 
-  ContactReference Function({SdkOptional<ContactReferenceType> type_, SdkOptional<String> id, SdkOptional<String?> externalId}) get copyWith => _copyWith;
+  ContactReference Function(
+      {SdkOptional<ContactReferenceType> type_,
+      SdkOptional<String> id,
+      SdkOptional<String?> externalId}) get copyWith => _copyWith;
 
-  ContactReference _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? externalId = sdkOmittedValue}) => ContactReference(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ContactReferenceType>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    externalId: identical(externalId, sdkOmittedValue) ? this.externalId : externalId as SdkOptional<String?>,
-  );
+  ContactReference _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? externalId = sdkOmittedValue}) =>
+      ContactReference(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<ContactReferenceType>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        externalId: identical(externalId, sdkOmittedValue)
+            ? this.externalId
+            : externalId as SdkOptional<String?>,
+      );
 
-  factory ContactReference.fromJson(Map<String, dynamic> json) => ContactReference(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ContactReferenceType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    externalId: json.containsKey('external_id') ? SdkPresent(json['external_id'] as String?) : const SdkOmitted(),
-  );
+  factory ContactReference.fromJson(Map<String, dynamic> json) =>
+      ContactReference(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? ContactReferenceType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        externalId: json.containsKey('external_id')
+            ? SdkPresent(json['external_id'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<ContactReferenceType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (externalId) {
-      SdkPresent<String?>(value: final value) => {'external_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<ContactReferenceType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (externalId) {
+          SdkPresent<String?>(value: final value) => {
+              'external_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// An object containing social profiles that a contact has.
 class ContactSocialProfiles {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A list of social profiles objects associated with the contact.
   final SdkOptional<List<SocialProfile>> data;
 
   const ContactSocialProfiles({this.data = const SdkOmitted()});
 
-  ContactSocialProfiles Function({SdkOptional<List<SocialProfile>> data}) get copyWith => _copyWith;
+  ContactSocialProfiles Function({SdkOptional<List<SocialProfile>> data})
+      get copyWith => _copyWith;
 
-  ContactSocialProfiles _copyWith({Object? data = sdkOmittedValue}) => ContactSocialProfiles(
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<SocialProfile>>,
-  );
+  ContactSocialProfiles _copyWith({Object? data = sdkOmittedValue}) =>
+      ContactSocialProfiles(
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<List<SocialProfile>>,
+      );
 
-  factory ContactSocialProfiles.fromJson(Map<String, dynamic> json) => ContactSocialProfiles(
-    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => SocialProfile.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory ContactSocialProfiles.fromJson(Map<String, dynamic> json) =>
+      ContactSocialProfiles(
+        data: json['data'] != null
+            ? SdkPresent(((json['data'] as List?)
+                ?.map((e) => SocialProfile.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (data) {
-      SdkPresent<List<SocialProfile>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (data) {
+          SdkPresent<List<SocialProfile>>(value: final value) => {
+              'data': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// An object containing tags meta data about the tags that a contact has. Up to 10 will be displayed here. Use the url to get more.
 class ContactTags {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// This object represents the tags attached to a contact.
   final SdkOptional<List<AddressableList>> data;
+
   /// url to get more tag resources for this contact
   final SdkOptional<String> url;
+
   /// Int representing the total number of tags attached to this contact
   final SdkOptional<int> totalCount;
+
   /// Whether there's more Addressable Objects to be viewed. If true, use the url to view all
   final SdkOptional<bool> hasMore;
 
-  const ContactTags({this.data = const SdkOmitted(), this.url = const SdkOmitted(), this.totalCount = const SdkOmitted(), this.hasMore = const SdkOmitted()});
+  const ContactTags(
+      {this.data = const SdkOmitted(),
+      this.url = const SdkOmitted(),
+      this.totalCount = const SdkOmitted(),
+      this.hasMore = const SdkOmitted()});
 
-  ContactTags Function({SdkOptional<List<AddressableList>> data, SdkOptional<String> url, SdkOptional<int> totalCount, SdkOptional<bool> hasMore}) get copyWith => _copyWith;
+  ContactTags Function(
+      {SdkOptional<List<AddressableList>> data,
+      SdkOptional<String> url,
+      SdkOptional<int> totalCount,
+      SdkOptional<bool> hasMore}) get copyWith => _copyWith;
 
-  ContactTags _copyWith({Object? data = sdkOmittedValue, Object? url = sdkOmittedValue, Object? totalCount = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => ContactTags(
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<AddressableList>>,
-    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String>,
-    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as SdkOptional<int>,
-    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as SdkOptional<bool>,
-  );
+  ContactTags _copyWith(
+          {Object? data = sdkOmittedValue,
+          Object? url = sdkOmittedValue,
+          Object? totalCount = sdkOmittedValue,
+          Object? hasMore = sdkOmittedValue}) =>
+      ContactTags(
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<List<AddressableList>>,
+        url: identical(url, sdkOmittedValue)
+            ? this.url
+            : url as SdkOptional<String>,
+        totalCount: identical(totalCount, sdkOmittedValue)
+            ? this.totalCount
+            : totalCount as SdkOptional<int>,
+        hasMore: identical(hasMore, sdkOmittedValue)
+            ? this.hasMore
+            : hasMore as SdkOptional<bool>,
+      );
 
   factory ContactTags.fromJson(Map<String, dynamic> json) => ContactTags(
-    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => AddressableList.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    url: json['url'] != null ? SdkPresent((json['url'] as String?)!) : const SdkOmitted(),
-    totalCount: json['total_count'] != null ? SdkPresent(((json['total_count'] as num?)?.toInt())!) : const SdkOmitted(),
-    hasMore: json['has_more'] != null ? SdkPresent((json['has_more'] as bool?)!) : const SdkOmitted(),
-  );
+        data: json['data'] != null
+            ? SdkPresent(((json['data'] as List?)
+                ?.map(
+                    (e) => AddressableList.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        url: json['url'] != null
+            ? SdkPresent((json['url'] as String?)!)
+            : const SdkOmitted(),
+        totalCount: json['total_count'] != null
+            ? SdkPresent(((json['total_count'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        hasMore: json['has_more'] != null
+            ? SdkPresent((json['has_more'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (data) {
-      SdkPresent<List<AddressableList>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (url) {
-      SdkPresent<String>(value: final value) => {'url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (totalCount) {
-      SdkPresent<int>(value: final value) => {'total_count': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (hasMore) {
-      SdkPresent<bool>(value: final value) => {'has_more': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (data) {
+          SdkPresent<List<AddressableList>>(value: final value) => {
+              'data': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (url) {
+          SdkPresent<String>(value: final value) => {
+              'url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (totalCount) {
+          SdkPresent<int>(value: final value) => {
+              'total_count': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (hasMore) {
+          SdkPresent<bool>(value: final value) => {
+              'has_more': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

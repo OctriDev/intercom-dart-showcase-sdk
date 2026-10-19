@@ -8,110 +8,199 @@ part of 'shared.dart';
 class PartAttachment {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of attachment
   final SdkOptional<String> type_;
+
   /// The name of the attachment
   final SdkOptional<String> name;
+
   /// The URL of the attachment
   final SdkOptional<String> url;
+
   /// The content type of the attachment
   final SdkOptional<String> contentType;
+
   /// The size of the attachment
   final SdkOptional<int> filesize;
+
   /// The width of the attachment
   final SdkOptional<int> width;
+
   /// The height of the attachment
   final SdkOptional<int> height;
 
-  const PartAttachment({this.type_ = const SdkOmitted(), this.name = const SdkOmitted(), this.url = const SdkOmitted(), this.contentType = const SdkOmitted(), this.filesize = const SdkOmitted(), this.width = const SdkOmitted(), this.height = const SdkOmitted()});
+  const PartAttachment(
+      {this.type_ = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.url = const SdkOmitted(),
+      this.contentType = const SdkOmitted(),
+      this.filesize = const SdkOmitted(),
+      this.width = const SdkOmitted(),
+      this.height = const SdkOmitted()});
 
-  PartAttachment Function({SdkOptional<String> type_, SdkOptional<String> name, SdkOptional<String> url, SdkOptional<String> contentType, SdkOptional<int> filesize, SdkOptional<int> width, SdkOptional<int> height}) get copyWith => _copyWith;
+  PartAttachment Function(
+      {SdkOptional<String> type_,
+      SdkOptional<String> name,
+      SdkOptional<String> url,
+      SdkOptional<String> contentType,
+      SdkOptional<int> filesize,
+      SdkOptional<int> width,
+      SdkOptional<int> height}) get copyWith => _copyWith;
 
-  PartAttachment _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? url = sdkOmittedValue, Object? contentType = sdkOmittedValue, Object? filesize = sdkOmittedValue, Object? width = sdkOmittedValue, Object? height = sdkOmittedValue}) => PartAttachment(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String>,
-    contentType: identical(contentType, sdkOmittedValue) ? this.contentType : contentType as SdkOptional<String>,
-    filesize: identical(filesize, sdkOmittedValue) ? this.filesize : filesize as SdkOptional<int>,
-    width: identical(width, sdkOmittedValue) ? this.width : width as SdkOptional<int>,
-    height: identical(height, sdkOmittedValue) ? this.height : height as SdkOptional<int>,
-  );
+  PartAttachment _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? url = sdkOmittedValue,
+          Object? contentType = sdkOmittedValue,
+          Object? filesize = sdkOmittedValue,
+          Object? width = sdkOmittedValue,
+          Object? height = sdkOmittedValue}) =>
+      PartAttachment(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        url: identical(url, sdkOmittedValue)
+            ? this.url
+            : url as SdkOptional<String>,
+        contentType: identical(contentType, sdkOmittedValue)
+            ? this.contentType
+            : contentType as SdkOptional<String>,
+        filesize: identical(filesize, sdkOmittedValue)
+            ? this.filesize
+            : filesize as SdkOptional<int>,
+        width: identical(width, sdkOmittedValue)
+            ? this.width
+            : width as SdkOptional<int>,
+        height: identical(height, sdkOmittedValue)
+            ? this.height
+            : height as SdkOptional<int>,
+      );
 
   factory PartAttachment.fromJson(Map<String, dynamic> json) => PartAttachment(
-    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    url: json['url'] != null ? SdkPresent((json['url'] as String?)!) : const SdkOmitted(),
-    contentType: json['content_type'] != null ? SdkPresent((json['content_type'] as String?)!) : const SdkOmitted(),
-    filesize: json['filesize'] != null ? SdkPresent(((json['filesize'] as num?)?.toInt())!) : const SdkOmitted(),
-    width: json['width'] != null ? SdkPresent(((json['width'] as num?)?.toInt())!) : const SdkOmitted(),
-    height: json['height'] != null ? SdkPresent(((json['height'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        url: json['url'] != null
+            ? SdkPresent((json['url'] as String?)!)
+            : const SdkOmitted(),
+        contentType: json['content_type'] != null
+            ? SdkPresent((json['content_type'] as String?)!)
+            : const SdkOmitted(),
+        filesize: json['filesize'] != null
+            ? SdkPresent(((json['filesize'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        width: json['width'] != null
+            ? SdkPresent(((json['width'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        height: json['height'] != null
+            ? SdkPresent(((json['height'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<String>(value: final value) => {'type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (url) {
-      SdkPresent<String>(value: final value) => {'url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (contentType) {
-      SdkPresent<String>(value: final value) => {'content_type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (filesize) {
-      SdkPresent<int>(value: final value) => {'filesize': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (width) {
-      SdkPresent<int>(value: final value) => {'width': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (height) {
-      SdkPresent<int>(value: final value) => {'height': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<String>(value: final value) => {
+              'type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (url) {
+          SdkPresent<String>(value: final value) => {
+              'url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (contentType) {
+          SdkPresent<String>(value: final value) => {
+              'content_type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (filesize) {
+          SdkPresent<int>(value: final value) => {
+              'filesize': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (width) {
+          SdkPresent<int>(value: final value) => {
+              'width': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (height) {
+          SdkPresent<int>(value: final value) => {
+              'height': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// reference to another object
 class Reference {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional `string` value serialized in the `type` wire field.
   final SdkOptional<String> type_;
+
   /// Optional `string` value serialized in the `id` wire field.
   final SdkOptional<String?> id;
 
-  const Reference({this.type_ = const SdkOmitted(), this.id = const SdkOmitted()});
+  const Reference(
+      {this.type_ = const SdkOmitted(), this.id = const SdkOmitted()});
 
-  Reference Function({SdkOptional<String> type_, SdkOptional<String?> id}) get copyWith => _copyWith;
+  Reference Function({SdkOptional<String> type_, SdkOptional<String?> id})
+      get copyWith => _copyWith;
 
-  Reference _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue}) => Reference(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String?>,
-  );
+  Reference _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue}) =>
+      Reference(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<String>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String?>,
+      );
 
   factory Reference.fromJson(Map<String, dynamic> json) => Reference(
-    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
-    id: json.containsKey('id') ? SdkPresent(json['id'] as String?) : const SdkOmitted(),
-  );
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] as String?)!)
+            : const SdkOmitted(),
+        id: json.containsKey('id')
+            ? SdkPresent(json['id'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<String>(value: final value) => {'type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String?>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<String>(value: final value) => {
+              'type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String?>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class SingleFilterSearchRequestValue {
@@ -119,164 +208,281 @@ sealed class SingleFilterSearchRequestValue {
   static const String constructionSurface = 'named';
   const SingleFilterSearchRequestValue();
   factory SingleFilterSearchRequestValue.fromJson(Object? json) {
-    if (json is String) { return SingleFilterSearchRequestValueString(json); }
-    if (json is num) { return SingleFilterSearchRequestValueInt(json.toInt()); }
-    if (json is bool) { return SingleFilterSearchRequestValueBool(json); }
-    if (json is List) { return SingleFilterSearchRequestValueList(json.map((e) => e).toList().cast<dynamic>()); }
-    throw FormatException("No variant matched for SingleFilterSearchRequestValue");
+    if (json is String) {
+      return SingleFilterSearchRequestValueString(json);
+    }
+    if (json is num) {
+      return SingleFilterSearchRequestValueInt(json.toInt());
+    }
+    if (json is bool) {
+      return SingleFilterSearchRequestValueBool(json);
+    }
+    if (json is List) {
+      return SingleFilterSearchRequestValueList(
+          json.map((e) => e).toList().cast<dynamic>());
+    }
+    throw FormatException(
+        "No variant matched for SingleFilterSearchRequestValue");
   }
   Object? toJson();
 }
 
-final class SingleFilterSearchRequestValueString extends SingleFilterSearchRequestValue {
+final class SingleFilterSearchRequestValueString
+    extends SingleFilterSearchRequestValue {
   final String value;
   const SingleFilterSearchRequestValueString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class SingleFilterSearchRequestValueInt extends SingleFilterSearchRequestValue {
+final class SingleFilterSearchRequestValueInt
+    extends SingleFilterSearchRequestValue {
   final int value;
   const SingleFilterSearchRequestValueInt(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class SingleFilterSearchRequestValueBool extends SingleFilterSearchRequestValue {
+final class SingleFilterSearchRequestValueBool
+    extends SingleFilterSearchRequestValue {
   final bool value;
   const SingleFilterSearchRequestValueBool(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class SingleFilterSearchRequestValueList extends SingleFilterSearchRequestValue {
+final class SingleFilterSearchRequestValueList
+    extends SingleFilterSearchRequestValue {
   final List<dynamic> value;
   const SingleFilterSearchRequestValueList(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 /// Search using Intercoms Search APIs with a single filter.
 class SingleFilterSearchRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The accepted field that you want to search on.
   final SdkOptional<String> field;
+
   /// The accepted operators you can use to define how you want to search for the value. Operator support depends on the field's data type. The breakdown below is for Contacts search; the other search endpoints that share this schema accept a different set per field: - `string` fields: `=`, `!=`, `IN`, `NIN`, `~`, `!~`, `^`, `$` - `tag_id`: `=` and `!=` only. Every other operator returns an error. - `boolean` fields: `=`, `!=`, `IN`, `NIN` - `integer` fields: `=`, `!=`, `IN`, `NIN`, `&lt;`, `&gt;`, `&lt;=`, `&gt;=` - `date` fields (all standard timestamp attributes and date custom attributes): `=`, `&lt;`, `&gt;` only. `!=`, `&lt;=`, `&gt;=`, `IN`, and `NIN` are not supported and return an error.
   final SdkOptional<SingleFilterSearchRequestOperator> operator_;
+
   /// The value that you want to search on.
   final SdkOptional<dynamic> value;
 
-  const SingleFilterSearchRequest({this.field = const SdkOmitted(), this.operator_ = const SdkOmitted(), this.value = const SdkOmitted()});
+  const SingleFilterSearchRequest(
+      {this.field = const SdkOmitted(),
+      this.operator_ = const SdkOmitted(),
+      this.value = const SdkOmitted()});
 
-  SingleFilterSearchRequest Function({SdkOptional<String> field, SdkOptional<SingleFilterSearchRequestOperator> operator_, SdkOptional<dynamic> value}) get copyWith => _copyWith;
+  SingleFilterSearchRequest Function(
+      {SdkOptional<String> field,
+      SdkOptional<SingleFilterSearchRequestOperator> operator_,
+      SdkOptional<dynamic> value}) get copyWith => _copyWith;
 
-  SingleFilterSearchRequest _copyWith({Object? field = sdkOmittedValue, Object? operator_ = sdkOmittedValue, Object? value = sdkOmittedValue}) => SingleFilterSearchRequest(
-    field: identical(field, sdkOmittedValue) ? this.field : field as SdkOptional<String>,
-    operator_: identical(operator_, sdkOmittedValue) ? this.operator_ : operator_ as SdkOptional<SingleFilterSearchRequestOperator>,
-    value: identical(value, sdkOmittedValue) ? this.value : value as SdkOptional<dynamic>,
-  );
+  SingleFilterSearchRequest _copyWith(
+          {Object? field = sdkOmittedValue,
+          Object? operator_ = sdkOmittedValue,
+          Object? value = sdkOmittedValue}) =>
+      SingleFilterSearchRequest(
+        field: identical(field, sdkOmittedValue)
+            ? this.field
+            : field as SdkOptional<String>,
+        operator_: identical(operator_, sdkOmittedValue)
+            ? this.operator_
+            : operator_ as SdkOptional<SingleFilterSearchRequestOperator>,
+        value: identical(value, sdkOmittedValue)
+            ? this.value
+            : value as SdkOptional<dynamic>,
+      );
 
-  factory SingleFilterSearchRequest.fromJson(Map<String, dynamic> json) => SingleFilterSearchRequest(
-    field: json['field'] != null ? SdkPresent((json['field'] as String?)!) : const SdkOmitted(),
-    operator_: json['operator'] != null ? SdkPresent((json['operator'] != null ? SingleFilterSearchRequestOperator.fromJson(json['operator'] as String) : null)!) : const SdkOmitted(),
-    value: json.containsKey('value') ? SdkPresent(json['value']) : const SdkOmitted(),
-  );
+  factory SingleFilterSearchRequest.fromJson(Map<String, dynamic> json) =>
+      SingleFilterSearchRequest(
+        field: json['field'] != null
+            ? SdkPresent((json['field'] as String?)!)
+            : const SdkOmitted(),
+        operator_: json['operator'] != null
+            ? SdkPresent((json['operator'] != null
+                ? SingleFilterSearchRequestOperator.fromJson(
+                    json['operator'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        value: json.containsKey('value')
+            ? SdkPresent(json['value'])
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (field) {
-      SdkPresent<String>(value: final value) => {'field': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (operator_) {
-      SdkPresent<SingleFilterSearchRequestOperator>(value: final value) => {'operator': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (value) {
-      SdkPresent<dynamic>(value: final value) => {'value': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (field) {
+          SdkPresent<String>(value: final value) => {
+              'field': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (operator_) {
+          SdkPresent<SingleFilterSearchRequestOperator>(value: final value) => {
+              'operator': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (value) {
+          SdkPresent<dynamic>(value: final value) => {
+              'value': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// The SLA Applied object contains the details for which SLA has been applied to this conversation. Important: if there are any canceled sla_events for the conversation - meaning an SLA has been manually removed from a conversation, the sla_status will always be returned as null.
 class SlaApplied {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// object type
   final SdkOptional<String> type_;
+
   /// The name of the SLA as given by the teammate when it was created.
   final SdkOptional<String> slaName;
+
   /// SLA statuses: - `hit`: If there’s at least one hit event in the underlying sla_events table, and no “missed” or “canceled” events for the conversation. - `missed`: If there are any missed sla_events for the conversation and no canceled events. If there’s even a single missed sla event, the status will always be missed. A missed status is not applied when the SLA expires, only the next time a teammate replies. - `active`: An SLA has been applied to a conversation, but has not yet been fulfilled. SLA status is active only if there are no “hit, “missed”, or “canceled” events.
   final SdkOptional<SlaAppliedSlaStatus> slaStatus;
 
-  const SlaApplied({this.type_ = const SdkOmitted(), this.slaName = const SdkOmitted(), this.slaStatus = const SdkOmitted()});
+  const SlaApplied(
+      {this.type_ = const SdkOmitted(),
+      this.slaName = const SdkOmitted(),
+      this.slaStatus = const SdkOmitted()});
 
-  SlaApplied Function({SdkOptional<String> type_, SdkOptional<String> slaName, SdkOptional<SlaAppliedSlaStatus> slaStatus}) get copyWith => _copyWith;
+  SlaApplied Function(
+      {SdkOptional<String> type_,
+      SdkOptional<String> slaName,
+      SdkOptional<SlaAppliedSlaStatus> slaStatus}) get copyWith => _copyWith;
 
-  SlaApplied _copyWith({Object? type_ = sdkOmittedValue, Object? slaName = sdkOmittedValue, Object? slaStatus = sdkOmittedValue}) => SlaApplied(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
-    slaName: identical(slaName, sdkOmittedValue) ? this.slaName : slaName as SdkOptional<String>,
-    slaStatus: identical(slaStatus, sdkOmittedValue) ? this.slaStatus : slaStatus as SdkOptional<SlaAppliedSlaStatus>,
-  );
+  SlaApplied _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? slaName = sdkOmittedValue,
+          Object? slaStatus = sdkOmittedValue}) =>
+      SlaApplied(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<String>,
+        slaName: identical(slaName, sdkOmittedValue)
+            ? this.slaName
+            : slaName as SdkOptional<String>,
+        slaStatus: identical(slaStatus, sdkOmittedValue)
+            ? this.slaStatus
+            : slaStatus as SdkOptional<SlaAppliedSlaStatus>,
+      );
 
   factory SlaApplied.fromJson(Map<String, dynamic> json) => SlaApplied(
-    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
-    slaName: json['sla_name'] != null ? SdkPresent((json['sla_name'] as String?)!) : const SdkOmitted(),
-    slaStatus: json['sla_status'] != null ? SdkPresent((json['sla_status'] != null ? SlaAppliedSlaStatus.fromJson(json['sla_status'] as String) : null)!) : const SdkOmitted(),
-  );
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] as String?)!)
+            : const SdkOmitted(),
+        slaName: json['sla_name'] != null
+            ? SdkPresent((json['sla_name'] as String?)!)
+            : const SdkOmitted(),
+        slaStatus: json['sla_status'] != null
+            ? SdkPresent((json['sla_status'] != null
+                ? SlaAppliedSlaStatus.fromJson(json['sla_status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<String>(value: final value) => {'type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (slaName) {
-      SdkPresent<String>(value: final value) => {'sla_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (slaStatus) {
-      SdkPresent<SlaAppliedSlaStatus>(value: final value) => {'sla_status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<String>(value: final value) => {
+              'type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (slaName) {
+          SdkPresent<String>(value: final value) => {
+              'sla_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (slaStatus) {
+          SdkPresent<SlaAppliedSlaStatus>(value: final value) => {
+              'sla_status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A Social Profile allows you to label your contacts, companies, and conversations and list them using that Social Profile.
 class SocialProfile {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// value is "social_profile"
   final SdkOptional<String> type_;
+
   /// The name of the Social media profile
   final SdkOptional<String> name;
+
   /// The name of the Social media profile
   final SdkOptional<String> url;
 
-  const SocialProfile({this.type_ = const SdkOmitted(), this.name = const SdkOmitted(), this.url = const SdkOmitted()});
+  const SocialProfile(
+      {this.type_ = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.url = const SdkOmitted()});
 
-  SocialProfile Function({SdkOptional<String> type_, SdkOptional<String> name, SdkOptional<String> url}) get copyWith => _copyWith;
+  SocialProfile Function(
+      {SdkOptional<String> type_,
+      SdkOptional<String> name,
+      SdkOptional<String> url}) get copyWith => _copyWith;
 
-  SocialProfile _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? url = sdkOmittedValue}) => SocialProfile(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String>,
-  );
+  SocialProfile _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? url = sdkOmittedValue}) =>
+      SocialProfile(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        url: identical(url, sdkOmittedValue)
+            ? this.url
+            : url as SdkOptional<String>,
+      );
 
   factory SocialProfile.fromJson(Map<String, dynamic> json) => SocialProfile(
-    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    url: json['url'] != null ? SdkPresent((json['url'] as String?)!) : const SdkOmitted(),
-  );
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        url: json['url'] != null
+            ? SdkPresent((json['url'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<String>(value: final value) => {'type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (url) {
-      SdkPresent<String>(value: final value) => {'url': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<String>(value: final value) => {
+              'type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (url) {
+          SdkPresent<String>(value: final value) => {
+              'url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

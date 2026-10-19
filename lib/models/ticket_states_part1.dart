@@ -8,33 +8,57 @@ part of 'ticket_states.dart';
 class TicketStateList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// String representing the object's type. Always has the value `list`.
   final SdkOptional<String> type_;
+
   /// A list of ticket states associated with a given ticket type.
   final SdkOptional<List<TicketStateDetailed?>> data;
 
-  const TicketStateList({this.type_ = const SdkOmitted(), this.data = const SdkOmitted()});
+  const TicketStateList(
+      {this.type_ = const SdkOmitted(), this.data = const SdkOmitted()});
 
-  TicketStateList Function({SdkOptional<String> type_, SdkOptional<List<TicketStateDetailed?>> data}) get copyWith => _copyWith;
+  TicketStateList Function(
+      {SdkOptional<String> type_,
+      SdkOptional<List<TicketStateDetailed?>> data}) get copyWith => _copyWith;
 
-  TicketStateList _copyWith({Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) => TicketStateList(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<TicketStateDetailed?>>,
-  );
+  TicketStateList _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
+      TicketStateList(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<String>,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<List<TicketStateDetailed?>>,
+      );
 
-  factory TicketStateList.fromJson(Map<String, dynamic> json) => TicketStateList(
-    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
-    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => e == null ? null : TicketStateDetailed.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory TicketStateList.fromJson(Map<String, dynamic> json) =>
+      TicketStateList(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] as String?)!)
+            : const SdkOmitted(),
+        data: json['data'] != null
+            ? SdkPresent(((json['data'] as List?)
+                ?.map((e) => e == null
+                    ? null
+                    : TicketStateDetailed.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<String>(value: final value) => {'type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (data) {
-      SdkPresent<List<TicketStateDetailed?>>(value: final value) => {'data': value.map((item) => item?.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<String>(value: final value) => {
+              'type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (data) {
+          SdkPresent<List<TicketStateDetailed?>>(value: final value) => {
+              'data': value.map((item) => item?.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

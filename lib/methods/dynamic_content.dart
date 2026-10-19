@@ -21,19 +21,24 @@ Future<DynamicContentList> listDynamicContents(ClientConfig config,
   return (await sdkRequest<DynamicContentList>('GET', '/dynamic_contents',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listDynamicContents',
-          fromJsonRaw: (value) => DynamicContentList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DynamicContentList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '403': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Lists dynamic content for a workspace, ordered from most recently updated to least recently updated. Use `page` and `per_page` to paginate the results; access requires the `read_dynamic_content` scope.
 ///
@@ -41,34 +46,64 @@ Future<DynamicContentList> listDynamicContents(ClientConfig config,
 ///
 /// [page] The page of results to fetch.
 /// [perPage] The number of results to return per page. Max value of 50.
-Stream<DynamicContent> listDynamicContentsPaginated(ClientConfig config, {int? page, int? perPage, IntercomVersion? intercomVersion, RequestOptions? requestOptions}) async* {
+Stream<DynamicContent> listDynamicContentsPaginated(ClientConfig config,
+    {int? page,
+    int? perPage,
+    IntercomVersion? intercomVersion,
+    RequestOptions? requestOptions}) async* {
   var sdkPageNumber = page ?? 1;
   while (true) {
-    final sdkPage = await listDynamicContents(config, page: SdkPresent<int>(sdkPageNumber), perPage: perPage == null ? const SdkOmitted<int>() : SdkPresent<int>(perPage), intercomVersion: intercomVersion == null ? const SdkOmitted<IntercomVersion>() : SdkPresent<IntercomVersion>(intercomVersion), requestOptions: requestOptions);
+    final sdkPage = await listDynamicContents(config,
+        page: SdkPresent<int>(sdkPageNumber),
+        perPage: perPage == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(perPage),
+        intercomVersion: intercomVersion == null
+            ? const SdkOmitted<IntercomVersion>()
+            : SdkPresent<IntercomVersion>(intercomVersion),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
-    if (sdkPage.totalPages.valueOrNull != null && sdkPageNumber >= sdkPage.totalPages.valueOrNull!) {
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
+    if (sdkPage.totalPages.valueOrNull != null &&
+        sdkPageNumber >= sdkPage.totalPages.valueOrNull!) {
       return;
     }
     sdkPageNumber += 1;
   }
 }
 
-Stream<SdkPage<DynamicContentList, DynamicContent>> listDynamicContentsPages(ClientConfig config, {int? page, int? perPage, IntercomVersion? intercomVersion, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<DynamicContentList, DynamicContent>> listDynamicContentsPages(
+    ClientConfig config,
+    {int? page,
+    int? perPage,
+    IntercomVersion? intercomVersion,
+    RequestOptions? requestOptions}) async* {
   var sdkPageNumber = page ?? 1;
   while (true) {
-    final sdkPage = await listDynamicContents(config, page: SdkPresent<int>(sdkPageNumber), perPage: perPage == null ? const SdkOmitted<int>() : SdkPresent<int>(perPage), intercomVersion: intercomVersion == null ? const SdkOmitted<IntercomVersion>() : SdkPresent<IntercomVersion>(intercomVersion), requestOptions: requestOptions);
+    final sdkPage = await listDynamicContents(config,
+        page: SdkPresent<int>(sdkPageNumber),
+        perPage: perPage == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(perPage),
+        intercomVersion: intercomVersion == null
+            ? const SdkOmitted<IntercomVersion>()
+            : SdkPresent<IntercomVersion>(intercomVersion),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPageNumber + 1;
-    final sdkHasMore = true && sdkNext != sdkPageNumber && (sdkPage.totalPages.valueOrNull == null || sdkNext <= sdkPage.totalPages.valueOrNull!);
+    final sdkHasMore = true &&
+        sdkNext != sdkPageNumber &&
+        (sdkPage.totalPages.valueOrNull == null ||
+            sdkNext <= sdkPage.totalPages.valueOrNull!);
     yield SdkPage(data: sdkPage, items: sdkItems, hasMore: sdkHasMore);
     if (!sdkHasMore) return;
     sdkPageNumber = sdkNext;
   }
 }
-
 
 /// Creates reusable dynamic content that you can insert into Help Center articles. Provide a unique `name`, choose `inline` or `block` for `content_type`, and include at least one variation with a default-locale variation that applies to all brands. The authenticated user needs the `read_write_dynamic_content` scope.
 ///
@@ -102,14 +137,19 @@ Future<DynamicContent> createDynamicContent(ClientConfig config,
             'variations': variations
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'createDynamicContent',
-          fromJsonRaw: (value) => DynamicContent.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DynamicContent.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '422': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves a single reusable dynamic content item by its unique identifier. Use the `id` path parameter to select the item and the `Intercom-Version` header to choose an API version. The authenticated user needs the `read_dynamic_content` scope.
 ///
@@ -124,14 +164,19 @@ Future<DynamicContent> getDynamicContent(ClientConfig config,
           'GET', '/dynamic_contents/${Uri.encodeComponent(id.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'getDynamicContent',
-          fromJsonRaw: (value) => DynamicContent.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DynamicContent.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates an existing reusable dynamic content item. Provide only the fields you want to change; if you send `variations`, that array replaces the full set and any omitted existing variations are deleted. The authenticated user needs the `read_write_dynamic_content` scope.
 ///
@@ -150,7 +195,8 @@ Future<DynamicContent> updateDynamicContent(ClientConfig config,
     SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
     SdkOptional<String> name = const SdkOmitted(),
     SdkOptional<String> defaultLocale = const SdkOmitted(),
-    SdkOptional<List<DynamicContentVariationRequest>> variations = const SdkOmitted(),
+    SdkOptional<List<DynamicContentVariationRequest>> variations =
+        const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   if (name is SdkPresent<String>) {
     validateLength('name', name.value, max: 255);
@@ -168,14 +214,20 @@ Future<DynamicContent> updateDynamicContent(ClientConfig config,
             'variations': SdkUtils.unwrapOptional(variations)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'updateDynamicContent',
-          fromJsonRaw: (value) => DynamicContent.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DynamicContent.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '422': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes a reusable dynamic content item by its unique identifier. You cannot delete dynamic content that is still used in an article, so remove its article references before attempting deletion. The authenticated user needs the `read_write_dynamic_content` scope.
 ///
@@ -190,9 +242,15 @@ Future<void> deleteDynamicContent(ClientConfig config,
           'DELETE', '/dynamic_contents/${Uri.encodeComponent(id.toString())}',
           config: config,
           decoder: SdkResponseDecoder.empty,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'deleteDynamicContent',
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '422': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

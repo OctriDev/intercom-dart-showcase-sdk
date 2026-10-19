@@ -34,7 +34,8 @@ Future<ContentBulkActionResponse> bulkContentActions(ClientConfig config,
     {required ContentBulkActionRequestAction action,
     required List<ContentBulkActionRequestContentIdsItem> contentIds,
     SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
-    SdkOptional<ContentBulkActionRequestAvailability> availability = const SdkOmitted(),
+    SdkOptional<ContentBulkActionRequestAvailability> availability =
+        const SdkOmitted(),
     SdkOptional<ContentBulkActionRequestAudience> audience = const SdkOmitted(),
     SdkOptional<ContentBulkActionRequestTags> tags = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
@@ -51,14 +52,19 @@ Future<ContentBulkActionResponse> bulkContentActions(ClientConfig config,
             'tags': SdkUtils.unwrapOptional(tags)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'bulkContentActions',
-          fromJsonRaw: (value) => ContentBulkActionResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ContentBulkActionResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '422': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Searches Knowledge Hub content, including articles, snippets, external pages, uploaded files, and internal articles. Supply `query` to search titles and body text, or omit it to retrieve the most recent content items; use the filters to narrow the results. Use `page` and `per_page` to paginate the results.
 ///
@@ -114,10 +120,13 @@ Future<ContentSearchResponse> searchContent(ClientConfig config,
     SdkOptional<SearchContentTagOperator> tagOperator = const SdkOmitted(),
     SdkOptional<List<int>> anyTagIds = const SdkOmitted(),
     SdkOptional<List<int>> folderIds = const SdkOmitted(),
-    SdkOptional<SearchContentFolderEntityType> folderEntityType = const SdkOmitted(),
-    SdkOptional<List<SearchContentContentTypesItem>> contentTypes = const SdkOmitted(),
+    SdkOptional<SearchContentFolderEntityType> folderEntityType =
+        const SdkOmitted(),
+    SdkOptional<List<SearchContentContentTypesItem>> contentTypes =
+        const SdkOmitted(),
     SdkOptional<SearchContentCopilotState> copilotState = const SdkOmitted(),
-    SdkOptional<SearchContentFinServiceState> finServiceState = const SdkOmitted(),
+    SdkOptional<SearchContentFinServiceState> finServiceState =
+        const SdkOmitted(),
     SdkOptional<SearchContentFinSalesState> finSalesState = const SdkOmitted(),
     SdkOptional<List<int>> createdByIds = const SdkOmitted(),
     SdkOptional<List<int>> lastUpdatedByIds = const SdkOmitted(),
@@ -140,32 +149,79 @@ Future<ContentSearchResponse> searchContent(ClientConfig config,
   return (await sdkRequest<ContentSearchResponse>('GET', '/content/search',
           config: config,
           query: {
-            'query': SdkQueryValue(SdkUtils.unwrapOptional(query), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'states': SdkQueryValue(SdkUtils.unwrapOptional(states), style: 'form', explode: false),
-            'locales': SdkQueryValue(SdkUtils.unwrapOptional(locales), style: 'form', explode: false),
-            'tag_ids': SdkQueryValue(SdkUtils.unwrapOptional(tagIds), style: 'form', explode: false),
-            'tag_operator': SdkQueryValue(SdkUtils.unwrapOptional(tagOperator), style: 'form', explode: true),
-            'any_tag_ids': SdkQueryValue(SdkUtils.unwrapOptional(anyTagIds), style: 'form', explode: false),
-            'folder_ids': SdkQueryValue(SdkUtils.unwrapOptional(folderIds), style: 'form', explode: false),
-            'folder_entity_type': SdkQueryValue(SdkUtils.unwrapOptional(folderEntityType), style: 'form', explode: true),
-            'content_types': SdkQueryValue(SdkUtils.unwrapOptional(contentTypes), style: 'form', explode: false),
-            'copilot_state': SdkQueryValue(SdkUtils.unwrapOptional(copilotState), style: 'form', explode: true),
-            'fin_service_state': SdkQueryValue(SdkUtils.unwrapOptional(finServiceState), style: 'form', explode: true),
-            'fin_sales_state': SdkQueryValue(SdkUtils.unwrapOptional(finSalesState), style: 'form', explode: true),
-            'created_by_ids': SdkQueryValue(SdkUtils.unwrapOptional(createdByIds), style: 'form', explode: false),
-            'last_updated_by_ids': SdkQueryValue(SdkUtils.unwrapOptional(lastUpdatedByIds), style: 'form', explode: false),
-            'created_at_after': SdkQueryValue(SdkUtils.unwrapOptional(createdAtAfter), style: 'form', explode: true),
-            'created_at_before': SdkQueryValue(SdkUtils.unwrapOptional(createdAtBefore), style: 'form', explode: true),
-            'updated_at_after': SdkQueryValue(SdkUtils.unwrapOptional(updatedAtAfter), style: 'form', explode: true),
-            'updated_at_before': SdkQueryValue(SdkUtils.unwrapOptional(updatedAtBefore), style: 'form', explode: true)
+            'query': SdkQueryValue(SdkUtils.unwrapOptional(query),
+                style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'states': SdkQueryValue(SdkUtils.unwrapOptional(states),
+                style: 'form', explode: false),
+            'locales': SdkQueryValue(SdkUtils.unwrapOptional(locales),
+                style: 'form', explode: false),
+            'tag_ids': SdkQueryValue(SdkUtils.unwrapOptional(tagIds),
+                style: 'form', explode: false),
+            'tag_operator': SdkQueryValue(SdkUtils.unwrapOptional(tagOperator),
+                style: 'form', explode: true),
+            'any_tag_ids': SdkQueryValue(SdkUtils.unwrapOptional(anyTagIds),
+                style: 'form', explode: false),
+            'folder_ids': SdkQueryValue(SdkUtils.unwrapOptional(folderIds),
+                style: 'form', explode: false),
+            'folder_entity_type': SdkQueryValue(
+                SdkUtils.unwrapOptional(folderEntityType),
+                style: 'form',
+                explode: true),
+            'content_types': SdkQueryValue(
+                SdkUtils.unwrapOptional(contentTypes),
+                style: 'form',
+                explode: false),
+            'copilot_state': SdkQueryValue(
+                SdkUtils.unwrapOptional(copilotState),
+                style: 'form',
+                explode: true),
+            'fin_service_state': SdkQueryValue(
+                SdkUtils.unwrapOptional(finServiceState),
+                style: 'form',
+                explode: true),
+            'fin_sales_state': SdkQueryValue(
+                SdkUtils.unwrapOptional(finSalesState),
+                style: 'form',
+                explode: true),
+            'created_by_ids': SdkQueryValue(
+                SdkUtils.unwrapOptional(createdByIds),
+                style: 'form',
+                explode: false),
+            'last_updated_by_ids': SdkQueryValue(
+                SdkUtils.unwrapOptional(lastUpdatedByIds),
+                style: 'form',
+                explode: false),
+            'created_at_after': SdkQueryValue(
+                SdkUtils.unwrapOptional(createdAtAfter),
+                style: 'form',
+                explode: true),
+            'created_at_before': SdkQueryValue(
+                SdkUtils.unwrapOptional(createdAtBefore),
+                style: 'form',
+                explode: true),
+            'updated_at_after': SdkQueryValue(
+                SdkUtils.unwrapOptional(updatedAtAfter),
+                style: 'form',
+                explode: true),
+            'updated_at_before': SdkQueryValue(
+                SdkUtils.unwrapOptional(updatedAtBefore),
+                style: 'form',
+                explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'searchContent',
-          fromJsonRaw: (value) => ContentSearchResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ContentSearchResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '422': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }

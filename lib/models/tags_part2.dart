@@ -8,99 +8,157 @@ part of 'tags.dart';
 class TagMultipleUsersRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the tag, which will be created if not found.
   final String name;
+
   /// Required array value serialized in the `users` wire field.
   final List<TagMultipleUsersRequestUsersItem> users;
 
   const TagMultipleUsersRequest({required this.name, required this.users});
 
-  TagMultipleUsersRequest Function({String name, List<TagMultipleUsersRequestUsersItem> users}) get copyWith => _copyWith;
+  TagMultipleUsersRequest Function(
+      {String name,
+      List<TagMultipleUsersRequestUsersItem> users}) get copyWith => _copyWith;
 
-  TagMultipleUsersRequest _copyWith({Object? name = sdkOmittedValue, Object? users = sdkOmittedValue}) => TagMultipleUsersRequest(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    users: identical(users, sdkOmittedValue) ? this.users : users as List<TagMultipleUsersRequestUsersItem>,
-  );
+  TagMultipleUsersRequest _copyWith(
+          {Object? name = sdkOmittedValue, Object? users = sdkOmittedValue}) =>
+      TagMultipleUsersRequest(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        users: identical(users, sdkOmittedValue)
+            ? this.users
+            : users as List<TagMultipleUsersRequestUsersItem>,
+      );
 
-  factory TagMultipleUsersRequest.fromJson(Map<String, dynamic> json) => TagMultipleUsersRequest(
-    name: (json['name'] as String?)!,
-    users: ((json['users'] as List?)?.map((e) => TagMultipleUsersRequestUsersItem.fromJson(e as Map<String, dynamic>)).toList())!,
-  );
+  factory TagMultipleUsersRequest.fromJson(Map<String, dynamic> json) =>
+      TagMultipleUsersRequest(
+        name: (json['name'] as String?)!,
+        users: ((json['users'] as List?)
+            ?.map((e) => TagMultipleUsersRequestUsersItem.fromJson(
+                e as Map<String, dynamic>))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    'users': users.map((item) => item.toJson()).toList(),
-  };
+        'name': name,
+        'users': users.map((item) => item.toJson()).toList(),
+      };
 }
 
 /// Required object value serialized in the `companies[]` wire field.
 class UntagCompanyRequestCompaniesItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The Intercom defined id representing the company.
   final SdkOptional<String> id;
+
   /// The company id you have defined for the company.
   final SdkOptional<String> companyId;
+
   /// Always set to true
   final SdkOptional<bool> untag;
 
-  const UntagCompanyRequestCompaniesItem({this.id = const SdkOmitted(), this.companyId = const SdkOmitted(), this.untag = const SdkOmitted()});
+  const UntagCompanyRequestCompaniesItem(
+      {this.id = const SdkOmitted(),
+      this.companyId = const SdkOmitted(),
+      this.untag = const SdkOmitted()});
 
-  UntagCompanyRequestCompaniesItem Function({SdkOptional<String> id, SdkOptional<String> companyId, SdkOptional<bool> untag}) get copyWith => _copyWith;
+  UntagCompanyRequestCompaniesItem Function(
+      {SdkOptional<String> id,
+      SdkOptional<String> companyId,
+      SdkOptional<bool> untag}) get copyWith => _copyWith;
 
-  UntagCompanyRequestCompaniesItem _copyWith({Object? id = sdkOmittedValue, Object? companyId = sdkOmittedValue, Object? untag = sdkOmittedValue}) => UntagCompanyRequestCompaniesItem(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    companyId: identical(companyId, sdkOmittedValue) ? this.companyId : companyId as SdkOptional<String>,
-    untag: identical(untag, sdkOmittedValue) ? this.untag : untag as SdkOptional<bool>,
-  );
+  UntagCompanyRequestCompaniesItem _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? companyId = sdkOmittedValue,
+          Object? untag = sdkOmittedValue}) =>
+      UntagCompanyRequestCompaniesItem(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        companyId: identical(companyId, sdkOmittedValue)
+            ? this.companyId
+            : companyId as SdkOptional<String>,
+        untag: identical(untag, sdkOmittedValue)
+            ? this.untag
+            : untag as SdkOptional<bool>,
+      );
 
-  factory UntagCompanyRequestCompaniesItem.fromJson(Map<String, dynamic> json) => UntagCompanyRequestCompaniesItem(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    companyId: json['company_id'] != null ? SdkPresent((json['company_id'] as String?)!) : const SdkOmitted(),
-    untag: json['untag'] != null ? SdkPresent((json['untag'] as bool?)!) : const SdkOmitted(),
-  );
+  factory UntagCompanyRequestCompaniesItem.fromJson(
+          Map<String, dynamic> json) =>
+      UntagCompanyRequestCompaniesItem(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        companyId: json['company_id'] != null
+            ? SdkPresent((json['company_id'] as String?)!)
+            : const SdkOmitted(),
+        untag: json['untag'] != null
+            ? SdkPresent((json['untag'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (companyId) {
-      SdkPresent<String>(value: final value) => {'company_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (untag) {
-      SdkPresent<bool>(value: final value) => {'untag': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (companyId) {
+          SdkPresent<String>(value: final value) => {
+              'company_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (untag) {
+          SdkPresent<bool>(value: final value) => {
+              'untag': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// You can tag a single company or a list of companies.
 class UntagCompanyRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the tag which will be untagged from the company
   final String name;
+
   /// The id or company_id of the company can be passed as input parameters.
   final List<UntagCompanyRequestCompaniesItem> companies;
 
   const UntagCompanyRequest({required this.name, required this.companies});
 
-  UntagCompanyRequest Function({String name, List<UntagCompanyRequestCompaniesItem> companies}) get copyWith => _copyWith;
+  UntagCompanyRequest Function(
+          {String name, List<UntagCompanyRequestCompaniesItem> companies})
+      get copyWith => _copyWith;
 
-  UntagCompanyRequest _copyWith({Object? name = sdkOmittedValue, Object? companies = sdkOmittedValue}) => UntagCompanyRequest(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    companies: identical(companies, sdkOmittedValue) ? this.companies : companies as List<UntagCompanyRequestCompaniesItem>,
-  );
+  UntagCompanyRequest _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? companies = sdkOmittedValue}) =>
+      UntagCompanyRequest(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        companies: identical(companies, sdkOmittedValue)
+            ? this.companies
+            : companies as List<UntagCompanyRequestCompaniesItem>,
+      );
 
-  factory UntagCompanyRequest.fromJson(Map<String, dynamic> json) => UntagCompanyRequest(
-    name: (json['name'] as String?)!,
-    companies: ((json['companies'] as List?)?.map((e) => UntagCompanyRequestCompaniesItem.fromJson(e as Map<String, dynamic>)).toList())!,
-  );
+  factory UntagCompanyRequest.fromJson(Map<String, dynamic> json) =>
+      UntagCompanyRequest(
+        name: (json['name'] as String?)!,
+        companies: ((json['companies'] as List?)
+            ?.map((e) => UntagCompanyRequestCompaniesItem.fromJson(
+                e as Map<String, dynamic>))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    'companies': companies.map((item) => item.toJson()).toList(),
-  };
+        'name': name,
+        'companies': companies.map((item) => item.toJson()).toList(),
+      };
 }

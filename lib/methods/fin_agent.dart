@@ -30,7 +30,8 @@ Future<StartFinConversationResponse> startFinConversation(ClientConfig config,
     required FinAgentUser user,
     SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
     SdkOptional<List<FinAgentAttachment>> attachments = const SdkOmitted(),
-    SdkOptional<FinAgentConversationMetadata> conversationMetadata = const SdkOmitted(),
+    SdkOptional<FinAgentConversationMetadata> conversationMetadata =
+        const SdkOmitted(),
     SdkOptional<String> environment = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   if (attachments is SdkPresent<List<FinAgentAttachment>>) {
@@ -44,18 +45,23 @@ Future<StartFinConversationResponse> startFinConversation(ClientConfig config,
             'message': message,
             'user': user,
             'attachments': SdkUtils.unwrapOptional(attachments),
-            'conversation_metadata': SdkUtils.unwrapOptional(conversationMetadata),
+            'conversation_metadata':
+                SdkUtils.unwrapOptional(conversationMetadata),
             'environment': SdkUtils.unwrapOptional(environment)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'startFinConversation',
-          fromJsonRaw: (value) => StartFinConversationResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => StartFinConversationResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Sends a user's reply to Fin after Fin has returned a response and the conversation is awaiting a user reply. Include the conversation ID, message, and user details so Fin can continue the conversation.
 ///
@@ -86,14 +92,18 @@ Future<ReplyToFinResponse> replyToFin(ClientConfig config,
             'attachments': SdkUtils.unwrapOptional(attachments)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'replyToFin',
-          fromJsonRaw: (value) => ReplyToFinResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ReplyToFinResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Submits a customer's satisfaction rating for a conversation, with an optional free-text remark. Use the rating option provided in Fin's `csat_requested` event; submitting a remark locks the rating against further changes.
 ///
@@ -120,14 +130,17 @@ Future<SubmitFinCsatResponse> submitFinCsat(ClientConfig config,
             'remark': SdkUtils.unwrapOptional(remark)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'submitFinCsat',
-          fromJsonRaw: (value) => SubmitFinCsatResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              SubmitFinCsatResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Lists the Fin capabilities available for a supplied user so an orchestrating agent can choose which action to call. Include the user's ID; if that user does not exist, Fin creates a user from the supplied details, and updates the email and attributes of an existing user.
 ///
@@ -145,14 +158,18 @@ Future<ListFinCapabilitiesResponse> listFinCapabilities(ClientConfig config,
           config: config,
           body: {'user': user},
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listFinCapabilities',
-          fromJsonRaw: (value) => ListFinCapabilitiesResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListFinCapabilitiesResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Submits a single, self-contained question to Fin and starts a non-conversational request. Fin returns its answer asynchronously through the `fin_replied` event and completes the conversation without an `awaiting_user_reply` cycle.
 ///
@@ -177,7 +194,8 @@ Future<AskFinResponse> askFin(ClientConfig config,
     required FinAgentMessage message,
     required FinAgentUser user,
     SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
-    SdkOptional<FinAgentConversationMetadata> conversationMetadata = const SdkOmitted(),
+    SdkOptional<FinAgentConversationMetadata> conversationMetadata =
+        const SdkOmitted(),
     SdkOptional<List<FinAgentAttachment>> attachments = const SdkOmitted(),
     SdkOptional<String> environment = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
@@ -191,19 +209,24 @@ Future<AskFinResponse> askFin(ClientConfig config,
             'conversation_id': conversationId,
             'message': message,
             'user': user,
-            'conversation_metadata': SdkUtils.unwrapOptional(conversationMetadata),
+            'conversation_metadata':
+                SdkUtils.unwrapOptional(conversationMetadata),
             'attachments': SdkUtils.unwrapOptional(attachments),
             'environment': SdkUtils.unwrapOptional(environment)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'askFin',
-          fromJsonRaw: (value) => AskFinResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AskFinResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Runs the specified Fin procedure deterministically on a new conversation. Fin reports progress asynchronously through events or Server-Sent Events; if the procedure pauses for user input, send the reply using the Fin reply operation.
 ///
@@ -228,7 +251,8 @@ Future<RunFinProcedureResponse> runFinProcedure(ClientConfig config,
     required FinAgentUser user,
     SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
     SdkOptional<FinAgentMessage> message = const SdkOmitted(),
-    SdkOptional<RunFinProcedureRequestBodyConversationMetadata> conversationMetadata = const SdkOmitted(),
+    SdkOptional<RunFinProcedureRequestBodyConversationMetadata>
+        conversationMetadata = const SdkOmitted(),
     SdkOptional<String> environment = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<RunFinProcedureResponse>('POST',
@@ -238,18 +262,23 @@ Future<RunFinProcedureResponse> runFinProcedure(ClientConfig config,
             'conversation_id': conversationId,
             'user': user,
             'message': SdkUtils.unwrapOptional(message),
-            'conversation_metadata': SdkUtils.unwrapOptional(conversationMetadata),
+            'conversation_metadata':
+                SdkUtils.unwrapOptional(conversationMetadata),
             'environment': SdkUtils.unwrapOptional(environment)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'runFinProcedure',
-          fromJsonRaw: (value) => RunFinProcedureResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              RunFinProcedureResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Escalates an existing Fin conversation or a user without a prior agent conversation to a human teammate. Provide either `conversation_id` or `user`; the conversation remains open after Fin signals that the handoff is complete.
 ///
@@ -266,13 +295,13 @@ Future<RunFinProcedureResponse> runFinProcedure(ClientConfig config,
 ///   and is never shown to the end user. Not surfaced on Fin for Platforms. Avoid
 ///   including credentials or unnecessary personal data — it is visible to any
 ///   teammate with access to the conversation.
-Future<EscalateFinConversationResponse>
-    escalateFinConversation(ClientConfig config,
-        {SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
-        SdkOptional<String> conversationId = const SdkOmitted(),
-        SdkOptional<FinAgentUser> user = const SdkOmitted(),
-        SdkOptional<String> context = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<EscalateFinConversationResponse> escalateFinConversation(
+    ClientConfig config,
+    {SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
+    SdkOptional<String> conversationId = const SdkOmitted(),
+    SdkOptional<FinAgentUser> user = const SdkOmitted(),
+    SdkOptional<String> context = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   if (context is SdkPresent<String>) {
     validateLength('context', context.value, max: 10000);
   }
@@ -286,10 +315,15 @@ Future<EscalateFinConversationResponse>
             'context': SdkUtils.unwrapOptional(context)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'escalateFinConversation',
-          fromJsonRaw: (value) => EscalateFinConversationResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => EscalateFinConversationResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }

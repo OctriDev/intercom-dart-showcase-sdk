@@ -22,14 +22,18 @@ Future<OfficeHoursException> getOfficeHoursException(ClientConfig config,
           '/office_hours_schedules/${Uri.encodeComponent(officeHoursScheduleId.toString())}/office_hours_exceptions/${Uri.encodeComponent(id.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'getOfficeHoursException',
-          fromJsonRaw: (value) => OfficeHoursException.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OfficeHoursException.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates an existing office hours exception, changing only the fields included in the request. Set `exception_type` to `closed` or `custom_hours`; custom hours require `time_intervals`, while closed exceptions omit them. Set `exception_date` in `YYYY-MM-DD` format and use `recurring_annually` to indicate whether the exception repeats each year.
 ///
@@ -49,9 +53,11 @@ Future<OfficeHoursException> updateOfficeHoursException(ClientConfig config,
     required String id,
     SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
     SdkOptional<String> exceptionDate = const SdkOmitted(),
-    SdkOptional<UpdateOfficeHoursExceptionRequestRequestExceptionType> exceptionType = const SdkOmitted(),
+    SdkOptional<UpdateOfficeHoursExceptionRequestRequestExceptionType>
+        exceptionType = const SdkOmitted(),
     SdkOptional<String> name = const SdkOmitted(),
-    SdkOptional<List<OfficeHoursTimeIntervalRequest>?> timeIntervals = const SdkOmitted(),
+    SdkOptional<List<OfficeHoursTimeIntervalRequest>?> timeIntervals =
+        const SdkOmitted(),
     SdkOptional<bool> recurringAnnually = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   if (exceptionDate is SdkPresent<String>) {
@@ -69,14 +75,19 @@ Future<OfficeHoursException> updateOfficeHoursException(ClientConfig config,
             'recurring_annually': SdkUtils.unwrapOptional(recurringAnnually)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'updateOfficeHoursException',
-          fromJsonRaw: (value) => OfficeHoursException.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OfficeHoursException.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '422': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes one office hours exception from a specific schedule. Use the schedule and exception identifiers to target the exception to remove. The response confirms deletion and includes the exception identifier.
 ///
@@ -84,24 +95,28 @@ Future<OfficeHoursException> updateOfficeHoursException(ClientConfig config,
 ///
 /// [officeHoursScheduleId] The unique identifier for the office hours schedule.
 /// [id] The unique identifier for the office hours exception.
-Future<DeleteOfficeHoursExceptionResponse>
-    deleteOfficeHoursException(ClientConfig config,
-        {required String officeHoursScheduleId,
-        required String id,
-        SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<DeleteOfficeHoursExceptionResponse> deleteOfficeHoursException(
+    ClientConfig config,
+    {required String officeHoursScheduleId,
+    required String id,
+    SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<DeleteOfficeHoursExceptionResponse>('DELETE',
           '/office_hours_schedules/${Uri.encodeComponent(officeHoursScheduleId.toString())}/office_hours_exceptions/${Uri.encodeComponent(id.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'deleteOfficeHoursException',
-          fromJsonRaw: (value) => DeleteOfficeHoursExceptionResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeleteOfficeHoursExceptionResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Lists the exceptions for a specific office hours schedule. Use the schedule identifier to retrieve exceptions that override its regular hours on particular dates.
 ///
@@ -116,14 +131,18 @@ Future<OfficeHoursExceptionList> listOfficeHoursExceptions(ClientConfig config,
           '/office_hours_schedules/${Uri.encodeComponent(officeHoursScheduleId.toString())}/office_hours_exceptions',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listOfficeHoursExceptions',
-          fromJsonRaw: (value) => OfficeHoursExceptionList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OfficeHoursExceptionList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Creates an exception that overrides the regular hours for a specific date on an office hours schedule. Supply `exception_date` and choose `closed` or `custom_hours`; provide `time_intervals` for custom hours and omit it for a closed day. Set `recurring_annually` to repeat the exception on the same date each year.
 ///
@@ -140,10 +159,12 @@ Future<OfficeHoursExceptionList> listOfficeHoursExceptions(ClientConfig config,
 Future<OfficeHoursException> createOfficeHoursException(ClientConfig config,
     {required String officeHoursScheduleId,
     required String exceptionDate,
-    required CreateOfficeHoursExceptionRequestRequestExceptionType exceptionType,
+    required CreateOfficeHoursExceptionRequestRequestExceptionType
+        exceptionType,
     SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
     SdkOptional<String> name = const SdkOmitted(),
-    SdkOptional<List<OfficeHoursTimeIntervalRequest>?> timeIntervals = const SdkOmitted(),
+    SdkOptional<List<OfficeHoursTimeIntervalRequest>?> timeIntervals =
+        const SdkOmitted(),
     SdkOptional<bool> recurringAnnually = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   sdkValidateDate('exception_date', exceptionDate);
@@ -159,14 +180,19 @@ Future<OfficeHoursException> createOfficeHoursException(ClientConfig config,
             'recurring_annually': SdkUtils.unwrapOptional(recurringAnnually)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'createOfficeHoursException',
-          fromJsonRaw: (value) => OfficeHoursException.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OfficeHoursException.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '422': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves the details of a specific office hours schedule. Use the schedule identifier to view its recurring weekly hours and the time zone used to evaluate them.
 ///
@@ -181,14 +207,18 @@ Future<OfficeHoursSchedule> getOfficeHoursSchedule(ClientConfig config,
           '/office_hours_schedules/${Uri.encodeComponent(id.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'getOfficeHoursSchedule',
-          fromJsonRaw: (value) => OfficeHoursSchedule.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OfficeHoursSchedule.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates the provided fields of an existing office hours schedule. Supply only the schedule properties you want to change; when updating `time_intervals`, set `start_minute` and `end_minute` on 15-minute boundaries.
 ///
@@ -204,7 +234,8 @@ Future<OfficeHoursSchedule> updateOfficeHoursSchedule(ClientConfig config,
     SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
     SdkOptional<String> name = const SdkOmitted(),
     SdkOptional<String> timeZoneName = const SdkOmitted(),
-    SdkOptional<List<OfficeHoursTimeIntervalRequest>> timeIntervals = const SdkOmitted(),
+    SdkOptional<List<OfficeHoursTimeIntervalRequest>> timeIntervals =
+        const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<OfficeHoursSchedule>('PUT',
           '/office_hours_schedules/${Uri.encodeComponent(id.toString())}',
@@ -215,37 +246,46 @@ Future<OfficeHoursSchedule> updateOfficeHoursSchedule(ClientConfig config,
             'time_intervals': SdkUtils.unwrapOptional(timeIntervals)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'updateOfficeHoursSchedule',
-          fromJsonRaw: (value) => OfficeHoursSchedule.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OfficeHoursSchedule.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '422': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes a specific office hours schedule. Use its identifier to select the schedule to remove. The response confirms deletion and includes the schedule identifier.
 ///
 /// You can delete a single office hours schedule.
 ///
 /// [id] The unique identifier for the office hours schedule.
-Future<DeleteOfficeHoursScheduleResponse>
-    deleteOfficeHoursSchedule(ClientConfig config,
-        {required String id,
-        SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<DeleteOfficeHoursScheduleResponse> deleteOfficeHoursSchedule(
+    ClientConfig config,
+    {required String id,
+    SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<DeleteOfficeHoursScheduleResponse>('DELETE',
           '/office_hours_schedules/${Uri.encodeComponent(id.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'deleteOfficeHoursSchedule',
-          fromJsonRaw: (value) => DeleteOfficeHoursScheduleResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeleteOfficeHoursScheduleResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Lists the office hours schedules configured for the workspace. Use this endpoint to view the recurring schedules and their weekly hours.
 ///
@@ -257,14 +297,17 @@ Future<OfficeHoursScheduleList> listOfficeHoursSchedules(ClientConfig config,
           'GET', '/office_hours_schedules',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listOfficeHoursSchedules',
-          fromJsonRaw: (value) => OfficeHoursScheduleList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OfficeHoursScheduleList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Creates a recurring weekly office hours schedule for the workspace. Provide its `name`, `time_zone_name`, and `time_intervals`; set each interval's start and end on 15-minute boundaries. The response includes the created schedule and its identifier.
 ///
@@ -289,10 +332,15 @@ Future<OfficeHoursSchedule> createOfficeHoursSchedule(ClientConfig config,
             'time_intervals': timeIntervals
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'createOfficeHoursSchedule',
-          fromJsonRaw: (value) => OfficeHoursSchedule.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OfficeHoursSchedule.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '422': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }

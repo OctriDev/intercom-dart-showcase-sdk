@@ -7,276 +7,550 @@ part of 'inline.dart';
 class AskFinResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The external ID of the conversation.
   final SdkOptional<String> conversationId;
+
   /// The internal Intercom conversation ID, useful for matching this Agent API session to the conversation in Intercom.
   final SdkOptional<String> intercomConversationId;
+
   /// The ID of the user.
   final SdkOptional<String> userId;
+
   /// Fin's current status in the conversation workflow.
   final SdkOptional<AskFinResponseStatus> status;
+
   /// The timestamp the response was created at, with millisecond precision.
   final SdkOptional<String> createdAtMs;
+
   /// Contains error details if any user or conversation attribute updates failed.
   final SdkOptional<FinAgentAttributeErrors> errors;
+
   /// Optional. A URL to subscribe to Server-Sent Events (SSE) for this conversation, if SSE is enabled. The access token is a JWT with a 3-minute TTL. The token is revoked when Fin sets the conversation to complete status. When CSAT is enabled and a survey will follow the resolution, `complete` revocation is deferred until the `csat_requested` event is delivered or the token expires.
   final SdkOptional<String> sseSubscriptionUrl;
 
-  const AskFinResponse({this.conversationId = const SdkOmitted(), this.intercomConversationId = const SdkOmitted(), this.userId = const SdkOmitted(), this.status = const SdkOmitted(), this.createdAtMs = const SdkOmitted(), this.errors = const SdkOmitted(), this.sseSubscriptionUrl = const SdkOmitted()});
+  const AskFinResponse(
+      {this.conversationId = const SdkOmitted(),
+      this.intercomConversationId = const SdkOmitted(),
+      this.userId = const SdkOmitted(),
+      this.status = const SdkOmitted(),
+      this.createdAtMs = const SdkOmitted(),
+      this.errors = const SdkOmitted(),
+      this.sseSubscriptionUrl = const SdkOmitted()});
 
-  AskFinResponse Function({SdkOptional<String> conversationId, SdkOptional<String> intercomConversationId, SdkOptional<String> userId, SdkOptional<AskFinResponseStatus> status, SdkOptional<String> createdAtMs, SdkOptional<FinAgentAttributeErrors> errors, SdkOptional<String> sseSubscriptionUrl}) get copyWith => _copyWith;
+  AskFinResponse Function(
+      {SdkOptional<String> conversationId,
+      SdkOptional<String> intercomConversationId,
+      SdkOptional<String> userId,
+      SdkOptional<AskFinResponseStatus> status,
+      SdkOptional<String> createdAtMs,
+      SdkOptional<FinAgentAttributeErrors> errors,
+      SdkOptional<String> sseSubscriptionUrl}) get copyWith => _copyWith;
 
-  AskFinResponse _copyWith({Object? conversationId = sdkOmittedValue, Object? intercomConversationId = sdkOmittedValue, Object? userId = sdkOmittedValue, Object? status = sdkOmittedValue, Object? createdAtMs = sdkOmittedValue, Object? errors = sdkOmittedValue, Object? sseSubscriptionUrl = sdkOmittedValue}) => AskFinResponse(
-    conversationId: identical(conversationId, sdkOmittedValue) ? this.conversationId : conversationId as SdkOptional<String>,
-    intercomConversationId: identical(intercomConversationId, sdkOmittedValue) ? this.intercomConversationId : intercomConversationId as SdkOptional<String>,
-    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as SdkOptional<String>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<AskFinResponseStatus>,
-    createdAtMs: identical(createdAtMs, sdkOmittedValue) ? this.createdAtMs : createdAtMs as SdkOptional<String>,
-    errors: identical(errors, sdkOmittedValue) ? this.errors : errors as SdkOptional<FinAgentAttributeErrors>,
-    sseSubscriptionUrl: identical(sseSubscriptionUrl, sdkOmittedValue) ? this.sseSubscriptionUrl : sseSubscriptionUrl as SdkOptional<String>,
-  );
+  AskFinResponse _copyWith(
+          {Object? conversationId = sdkOmittedValue,
+          Object? intercomConversationId = sdkOmittedValue,
+          Object? userId = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? createdAtMs = sdkOmittedValue,
+          Object? errors = sdkOmittedValue,
+          Object? sseSubscriptionUrl = sdkOmittedValue}) =>
+      AskFinResponse(
+        conversationId: identical(conversationId, sdkOmittedValue)
+            ? this.conversationId
+            : conversationId as SdkOptional<String>,
+        intercomConversationId:
+            identical(intercomConversationId, sdkOmittedValue)
+                ? this.intercomConversationId
+                : intercomConversationId as SdkOptional<String>,
+        userId: identical(userId, sdkOmittedValue)
+            ? this.userId
+            : userId as SdkOptional<String>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<AskFinResponseStatus>,
+        createdAtMs: identical(createdAtMs, sdkOmittedValue)
+            ? this.createdAtMs
+            : createdAtMs as SdkOptional<String>,
+        errors: identical(errors, sdkOmittedValue)
+            ? this.errors
+            : errors as SdkOptional<FinAgentAttributeErrors>,
+        sseSubscriptionUrl: identical(sseSubscriptionUrl, sdkOmittedValue)
+            ? this.sseSubscriptionUrl
+            : sseSubscriptionUrl as SdkOptional<String>,
+      );
 
   factory AskFinResponse.fromJson(Map<String, dynamic> json) => AskFinResponse(
-    conversationId: json['conversation_id'] != null ? SdkPresent((json['conversation_id'] as String?)!) : const SdkOmitted(),
-    intercomConversationId: json['intercom_conversation_id'] != null ? SdkPresent((json['intercom_conversation_id'] as String?)!) : const SdkOmitted(),
-    userId: json['user_id'] != null ? SdkPresent((json['user_id'] as String?)!) : const SdkOmitted(),
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? AskFinResponseStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-    createdAtMs: json['created_at_ms'] != null ? SdkPresent((json['created_at_ms'] as String?)!) : const SdkOmitted(),
-    errors: json['errors'] != null ? SdkPresent((json['errors'] != null ? FinAgentAttributeErrors.fromJson(json['errors'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    sseSubscriptionUrl: json['sse_subscription_url'] != null ? SdkPresent((json['sse_subscription_url'] as String?)!) : const SdkOmitted(),
-  );
+        conversationId: json['conversation_id'] != null
+            ? SdkPresent((json['conversation_id'] as String?)!)
+            : const SdkOmitted(),
+        intercomConversationId: json['intercom_conversation_id'] != null
+            ? SdkPresent((json['intercom_conversation_id'] as String?)!)
+            : const SdkOmitted(),
+        userId: json['user_id'] != null
+            ? SdkPresent((json['user_id'] as String?)!)
+            : const SdkOmitted(),
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? AskFinResponseStatus.fromJson(json['status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        createdAtMs: json['created_at_ms'] != null
+            ? SdkPresent((json['created_at_ms'] as String?)!)
+            : const SdkOmitted(),
+        errors: json['errors'] != null
+            ? SdkPresent((json['errors'] != null
+                ? FinAgentAttributeErrors.fromJson(
+                    json['errors'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        sseSubscriptionUrl: json['sse_subscription_url'] != null
+            ? SdkPresent((json['sse_subscription_url'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (conversationId) {
-      SdkPresent<String>(value: final value) => {'conversation_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (intercomConversationId) {
-      SdkPresent<String>(value: final value) => {'intercom_conversation_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (userId) {
-      SdkPresent<String>(value: final value) => {'user_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (status) {
-      SdkPresent<AskFinResponseStatus>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAtMs) {
-      SdkPresent<String>(value: final value) => {'created_at_ms': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (errors) {
-      SdkPresent<FinAgentAttributeErrors>(value: final value) => {'errors': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (sseSubscriptionUrl) {
-      SdkPresent<String>(value: final value) => {'sse_subscription_url': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (conversationId) {
+          SdkPresent<String>(value: final value) => {
+              'conversation_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (intercomConversationId) {
+          SdkPresent<String>(value: final value) => {
+              'intercom_conversation_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (userId) {
+          SdkPresent<String>(value: final value) => {
+              'user_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (status) {
+          SdkPresent<AskFinResponseStatus>(value: final value) => {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAtMs) {
+          SdkPresent<String>(value: final value) => {
+              'created_at_ms': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (errors) {
+          SdkPresent<FinAgentAttributeErrors>(value: final value) => {
+              'errors': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (sseSubscriptionUrl) {
+          SdkPresent<String>(value: final value) => {
+              'sse_subscription_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Metadata about the conversation. Only attributes are accepted (no history).
 class RunFinProcedureRequestBodyConversationMetadata {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A hash of conversation attributes. Limit to 20 attributes.
   final SdkOptional<Map<String, Object?>> attributes;
 
-  const RunFinProcedureRequestBodyConversationMetadata({this.attributes = const SdkOmitted()});
+  const RunFinProcedureRequestBodyConversationMetadata(
+      {this.attributes = const SdkOmitted()});
 
-  RunFinProcedureRequestBodyConversationMetadata Function({SdkOptional<Map<String, Object?>> attributes}) get copyWith => _copyWith;
+  RunFinProcedureRequestBodyConversationMetadata Function(
+      {SdkOptional<Map<String, Object?>> attributes}) get copyWith => _copyWith;
 
-  RunFinProcedureRequestBodyConversationMetadata _copyWith({Object? attributes = sdkOmittedValue}) => RunFinProcedureRequestBodyConversationMetadata(
-    attributes: identical(attributes, sdkOmittedValue) ? this.attributes : attributes as SdkOptional<Map<String, Object?>>,
-  );
+  RunFinProcedureRequestBodyConversationMetadata _copyWith(
+          {Object? attributes = sdkOmittedValue}) =>
+      RunFinProcedureRequestBodyConversationMetadata(
+        attributes: identical(attributes, sdkOmittedValue)
+            ? this.attributes
+            : attributes as SdkOptional<Map<String, Object?>>,
+      );
 
-  factory RunFinProcedureRequestBodyConversationMetadata.fromJson(Map<String, dynamic> json) => RunFinProcedureRequestBodyConversationMetadata(
-    attributes: json['attributes'] != null ? SdkPresent((json['attributes'] == null ? null : Map<String, dynamic>.from(json['attributes'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
-  );
+  factory RunFinProcedureRequestBodyConversationMetadata.fromJson(
+          Map<String, dynamic> json) =>
+      RunFinProcedureRequestBodyConversationMetadata(
+        attributes: json['attributes'] != null
+            ? SdkPresent((json['attributes'] == null
+                ? null
+                : Map<String, dynamic>.from(json['attributes'] as Map)
+                    .map((key, value) => MapEntry(key, value)))!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (attributes) {
-      SdkPresent<Map<String, Object?>>(value: final value) => {'attributes': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (attributes) {
+          SdkPresent<Map<String, Object?>>(value: final value) => {
+              'attributes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class RunFinProcedureRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Your external conversation ID. Fin creates a conversation for this ID. If a conversation already exists for it, use `/fin/reply` instead.
   final String conversationId;
+
   /// A user object representing the user in a Fin Agent conversation.
   final FinAgentUser user;
+
   /// A message exchanged within a Fin Agent conversation.
   final SdkOptional<FinAgentMessage> message;
+
   /// Metadata about the conversation. Only attributes are accepted (no history).
-  final SdkOptional<RunFinProcedureRequestBodyConversationMetadata> conversationMetadata;
+  final SdkOptional<RunFinProcedureRequestBodyConversationMetadata>
+      conversationMetadata;
+
   /// The identifier of the environment to start the conversation in, if your Fin for Platforms workspace has environments. Use the same value as `messenger_environment` in your Messenger installation. Defaults to the workspace's default environment; an identifier that matches no environment is rejected.
   final SdkOptional<String> environment;
 
-  const RunFinProcedureRequestBody({required this.conversationId, required this.user, this.message = const SdkOmitted(), this.conversationMetadata = const SdkOmitted(), this.environment = const SdkOmitted()});
+  const RunFinProcedureRequestBody(
+      {required this.conversationId,
+      required this.user,
+      this.message = const SdkOmitted(),
+      this.conversationMetadata = const SdkOmitted(),
+      this.environment = const SdkOmitted()});
 
-  RunFinProcedureRequestBody Function({String conversationId, FinAgentUser user, SdkOptional<FinAgentMessage> message, SdkOptional<RunFinProcedureRequestBodyConversationMetadata> conversationMetadata, SdkOptional<String> environment}) get copyWith => _copyWith;
+  RunFinProcedureRequestBody Function(
+      {String conversationId,
+      FinAgentUser user,
+      SdkOptional<FinAgentMessage> message,
+      SdkOptional<RunFinProcedureRequestBodyConversationMetadata>
+          conversationMetadata,
+      SdkOptional<String> environment}) get copyWith => _copyWith;
 
-  RunFinProcedureRequestBody _copyWith({Object? conversationId = sdkOmittedValue, Object? user = sdkOmittedValue, Object? message = sdkOmittedValue, Object? conversationMetadata = sdkOmittedValue, Object? environment = sdkOmittedValue}) => RunFinProcedureRequestBody(
-    conversationId: identical(conversationId, sdkOmittedValue) ? this.conversationId : conversationId as String,
-    user: identical(user, sdkOmittedValue) ? this.user : user as FinAgentUser,
-    message: identical(message, sdkOmittedValue) ? this.message : message as SdkOptional<FinAgentMessage>,
-    conversationMetadata: identical(conversationMetadata, sdkOmittedValue) ? this.conversationMetadata : conversationMetadata as SdkOptional<RunFinProcedureRequestBodyConversationMetadata>,
-    environment: identical(environment, sdkOmittedValue) ? this.environment : environment as SdkOptional<String>,
-  );
+  RunFinProcedureRequestBody _copyWith(
+          {Object? conversationId = sdkOmittedValue,
+          Object? user = sdkOmittedValue,
+          Object? message = sdkOmittedValue,
+          Object? conversationMetadata = sdkOmittedValue,
+          Object? environment = sdkOmittedValue}) =>
+      RunFinProcedureRequestBody(
+        conversationId: identical(conversationId, sdkOmittedValue)
+            ? this.conversationId
+            : conversationId as String,
+        user:
+            identical(user, sdkOmittedValue) ? this.user : user as FinAgentUser,
+        message: identical(message, sdkOmittedValue)
+            ? this.message
+            : message as SdkOptional<FinAgentMessage>,
+        conversationMetadata: identical(conversationMetadata, sdkOmittedValue)
+            ? this.conversationMetadata
+            : conversationMetadata
+                as SdkOptional<RunFinProcedureRequestBodyConversationMetadata>,
+        environment: identical(environment, sdkOmittedValue)
+            ? this.environment
+            : environment as SdkOptional<String>,
+      );
 
-  factory RunFinProcedureRequestBody.fromJson(Map<String, dynamic> json) => RunFinProcedureRequestBody(
-    conversationId: (json['conversation_id'] as String?)!,
-    user: (json['user'] != null ? FinAgentUser.fromJson(json['user'] as Map<String, dynamic>) : null)!,
-    message: json['message'] != null ? SdkPresent((json['message'] != null ? FinAgentMessage.fromJson(json['message'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    conversationMetadata: json['conversation_metadata'] != null ? SdkPresent((json['conversation_metadata'] != null ? RunFinProcedureRequestBodyConversationMetadata.fromJson(json['conversation_metadata'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    environment: json['environment'] != null ? SdkPresent((json['environment'] as String?)!) : const SdkOmitted(),
-  );
+  factory RunFinProcedureRequestBody.fromJson(Map<String, dynamic> json) =>
+      RunFinProcedureRequestBody(
+        conversationId: (json['conversation_id'] as String?)!,
+        user: (json['user'] != null
+            ? FinAgentUser.fromJson(json['user'] as Map<String, dynamic>)
+            : null)!,
+        message: json['message'] != null
+            ? SdkPresent((json['message'] != null
+                ? FinAgentMessage.fromJson(
+                    json['message'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        conversationMetadata: json['conversation_metadata'] != null
+            ? SdkPresent((json['conversation_metadata'] != null
+                ? RunFinProcedureRequestBodyConversationMetadata.fromJson(
+                    json['conversation_metadata'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        environment: json['environment'] != null
+            ? SdkPresent((json['environment'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'conversation_id': conversationId,
-    'user': user.toJson(),
-    ...switch (message) {
-      SdkPresent<FinAgentMessage>(value: final value) => {'message': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (conversationMetadata) {
-      SdkPresent<RunFinProcedureRequestBodyConversationMetadata>(value: final value) => {'conversation_metadata': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (environment) {
-      SdkPresent<String>(value: final value) => {'environment': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'conversation_id': conversationId,
+        'user': user.toJson(),
+        ...switch (message) {
+          SdkPresent<FinAgentMessage>(value: final value) => {
+              'message': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (conversationMetadata) {
+          SdkPresent<RunFinProcedureRequestBodyConversationMetadata>(
+            value: final value
+          ) =>
+            {
+              'conversation_metadata': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (environment) {
+          SdkPresent<String>(value: final value) => {
+              'environment': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class RunFinProcedureResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the conversation.
   final SdkOptional<String> conversationId;
+
   /// The internal Intercom conversation ID, useful for matching this Agent API session to the conversation in Intercom.
   final SdkOptional<String> intercomConversationId;
+
   /// The ID of the user.
   final SdkOptional<String> userId;
+
   /// The ID of the procedure that was run.
   final SdkOptional<String> procedureId;
+
   /// Fin's current status in the conversation workflow.
   final SdkOptional<RunFinProcedureResponseStatus> status;
+
   /// The timestamp the response was created at, with millisecond precision.
   final SdkOptional<String> createdAtMs;
+
   /// Contains error details if any user or conversation attribute updates failed.
   final SdkOptional<FinAgentAttributeErrors> errors;
+
   /// Optional. A URL to subscribe to Server-Sent Events (SSE) for this conversation, if SSE is enabled. The access token is a JWT with a 3-minute TTL. The token is revoked when Fin sets the conversation to awaiting_user_reply or complete status. When CSAT is enabled and a survey will follow the resolution, `complete` revocation is deferred until the `csat_requested` event is delivered or the token expires.
   final SdkOptional<String> sseSubscriptionUrl;
 
-  const RunFinProcedureResponse({this.conversationId = const SdkOmitted(), this.intercomConversationId = const SdkOmitted(), this.userId = const SdkOmitted(), this.procedureId = const SdkOmitted(), this.status = const SdkOmitted(), this.createdAtMs = const SdkOmitted(), this.errors = const SdkOmitted(), this.sseSubscriptionUrl = const SdkOmitted()});
+  const RunFinProcedureResponse(
+      {this.conversationId = const SdkOmitted(),
+      this.intercomConversationId = const SdkOmitted(),
+      this.userId = const SdkOmitted(),
+      this.procedureId = const SdkOmitted(),
+      this.status = const SdkOmitted(),
+      this.createdAtMs = const SdkOmitted(),
+      this.errors = const SdkOmitted(),
+      this.sseSubscriptionUrl = const SdkOmitted()});
 
-  RunFinProcedureResponse Function({SdkOptional<String> conversationId, SdkOptional<String> intercomConversationId, SdkOptional<String> userId, SdkOptional<String> procedureId, SdkOptional<RunFinProcedureResponseStatus> status, SdkOptional<String> createdAtMs, SdkOptional<FinAgentAttributeErrors> errors, SdkOptional<String> sseSubscriptionUrl}) get copyWith => _copyWith;
+  RunFinProcedureResponse Function(
+      {SdkOptional<String> conversationId,
+      SdkOptional<String> intercomConversationId,
+      SdkOptional<String> userId,
+      SdkOptional<String> procedureId,
+      SdkOptional<RunFinProcedureResponseStatus> status,
+      SdkOptional<String> createdAtMs,
+      SdkOptional<FinAgentAttributeErrors> errors,
+      SdkOptional<String> sseSubscriptionUrl}) get copyWith => _copyWith;
 
-  RunFinProcedureResponse _copyWith({Object? conversationId = sdkOmittedValue, Object? intercomConversationId = sdkOmittedValue, Object? userId = sdkOmittedValue, Object? procedureId = sdkOmittedValue, Object? status = sdkOmittedValue, Object? createdAtMs = sdkOmittedValue, Object? errors = sdkOmittedValue, Object? sseSubscriptionUrl = sdkOmittedValue}) => RunFinProcedureResponse(
-    conversationId: identical(conversationId, sdkOmittedValue) ? this.conversationId : conversationId as SdkOptional<String>,
-    intercomConversationId: identical(intercomConversationId, sdkOmittedValue) ? this.intercomConversationId : intercomConversationId as SdkOptional<String>,
-    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as SdkOptional<String>,
-    procedureId: identical(procedureId, sdkOmittedValue) ? this.procedureId : procedureId as SdkOptional<String>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<RunFinProcedureResponseStatus>,
-    createdAtMs: identical(createdAtMs, sdkOmittedValue) ? this.createdAtMs : createdAtMs as SdkOptional<String>,
-    errors: identical(errors, sdkOmittedValue) ? this.errors : errors as SdkOptional<FinAgentAttributeErrors>,
-    sseSubscriptionUrl: identical(sseSubscriptionUrl, sdkOmittedValue) ? this.sseSubscriptionUrl : sseSubscriptionUrl as SdkOptional<String>,
-  );
+  RunFinProcedureResponse _copyWith(
+          {Object? conversationId = sdkOmittedValue,
+          Object? intercomConversationId = sdkOmittedValue,
+          Object? userId = sdkOmittedValue,
+          Object? procedureId = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? createdAtMs = sdkOmittedValue,
+          Object? errors = sdkOmittedValue,
+          Object? sseSubscriptionUrl = sdkOmittedValue}) =>
+      RunFinProcedureResponse(
+        conversationId: identical(conversationId, sdkOmittedValue)
+            ? this.conversationId
+            : conversationId as SdkOptional<String>,
+        intercomConversationId:
+            identical(intercomConversationId, sdkOmittedValue)
+                ? this.intercomConversationId
+                : intercomConversationId as SdkOptional<String>,
+        userId: identical(userId, sdkOmittedValue)
+            ? this.userId
+            : userId as SdkOptional<String>,
+        procedureId: identical(procedureId, sdkOmittedValue)
+            ? this.procedureId
+            : procedureId as SdkOptional<String>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<RunFinProcedureResponseStatus>,
+        createdAtMs: identical(createdAtMs, sdkOmittedValue)
+            ? this.createdAtMs
+            : createdAtMs as SdkOptional<String>,
+        errors: identical(errors, sdkOmittedValue)
+            ? this.errors
+            : errors as SdkOptional<FinAgentAttributeErrors>,
+        sseSubscriptionUrl: identical(sseSubscriptionUrl, sdkOmittedValue)
+            ? this.sseSubscriptionUrl
+            : sseSubscriptionUrl as SdkOptional<String>,
+      );
 
-  factory RunFinProcedureResponse.fromJson(Map<String, dynamic> json) => RunFinProcedureResponse(
-    conversationId: json['conversation_id'] != null ? SdkPresent((json['conversation_id'] as String?)!) : const SdkOmitted(),
-    intercomConversationId: json['intercom_conversation_id'] != null ? SdkPresent((json['intercom_conversation_id'] as String?)!) : const SdkOmitted(),
-    userId: json['user_id'] != null ? SdkPresent((json['user_id'] as String?)!) : const SdkOmitted(),
-    procedureId: json['procedure_id'] != null ? SdkPresent((json['procedure_id'] as String?)!) : const SdkOmitted(),
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? RunFinProcedureResponseStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-    createdAtMs: json['created_at_ms'] != null ? SdkPresent((json['created_at_ms'] as String?)!) : const SdkOmitted(),
-    errors: json['errors'] != null ? SdkPresent((json['errors'] != null ? FinAgentAttributeErrors.fromJson(json['errors'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    sseSubscriptionUrl: json['sse_subscription_url'] != null ? SdkPresent((json['sse_subscription_url'] as String?)!) : const SdkOmitted(),
-  );
+  factory RunFinProcedureResponse.fromJson(Map<String, dynamic> json) =>
+      RunFinProcedureResponse(
+        conversationId: json['conversation_id'] != null
+            ? SdkPresent((json['conversation_id'] as String?)!)
+            : const SdkOmitted(),
+        intercomConversationId: json['intercom_conversation_id'] != null
+            ? SdkPresent((json['intercom_conversation_id'] as String?)!)
+            : const SdkOmitted(),
+        userId: json['user_id'] != null
+            ? SdkPresent((json['user_id'] as String?)!)
+            : const SdkOmitted(),
+        procedureId: json['procedure_id'] != null
+            ? SdkPresent((json['procedure_id'] as String?)!)
+            : const SdkOmitted(),
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? RunFinProcedureResponseStatus.fromJson(
+                    json['status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        createdAtMs: json['created_at_ms'] != null
+            ? SdkPresent((json['created_at_ms'] as String?)!)
+            : const SdkOmitted(),
+        errors: json['errors'] != null
+            ? SdkPresent((json['errors'] != null
+                ? FinAgentAttributeErrors.fromJson(
+                    json['errors'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        sseSubscriptionUrl: json['sse_subscription_url'] != null
+            ? SdkPresent((json['sse_subscription_url'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (conversationId) {
-      SdkPresent<String>(value: final value) => {'conversation_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (intercomConversationId) {
-      SdkPresent<String>(value: final value) => {'intercom_conversation_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (userId) {
-      SdkPresent<String>(value: final value) => {'user_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (procedureId) {
-      SdkPresent<String>(value: final value) => {'procedure_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (status) {
-      SdkPresent<RunFinProcedureResponseStatus>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAtMs) {
-      SdkPresent<String>(value: final value) => {'created_at_ms': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (errors) {
-      SdkPresent<FinAgentAttributeErrors>(value: final value) => {'errors': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (sseSubscriptionUrl) {
-      SdkPresent<String>(value: final value) => {'sse_subscription_url': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (conversationId) {
+          SdkPresent<String>(value: final value) => {
+              'conversation_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (intercomConversationId) {
+          SdkPresent<String>(value: final value) => {
+              'intercom_conversation_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (userId) {
+          SdkPresent<String>(value: final value) => {
+              'user_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (procedureId) {
+          SdkPresent<String>(value: final value) => {
+              'procedure_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (status) {
+          SdkPresent<RunFinProcedureResponseStatus>(value: final value) => {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAtMs) {
+          SdkPresent<String>(value: final value) => {
+              'created_at_ms': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (errors) {
+          SdkPresent<FinAgentAttributeErrors>(value: final value) => {
+              'errors': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (sseSubscriptionUrl) {
+          SdkPresent<String>(value: final value) => {
+              'sse_subscription_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class EscalateFinConversationRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The external ID of the conversation to escalate. Provide this or `user`. Required on Fin for Platforms, where `user` is not supported.
   final SdkOptional<String> conversationId;
+
   /// The user to escalate on behalf of, creating a new conversation. Provide this or `conversation_id`. Not supported on Fin for Platforms.
   final SdkOptional<FinAgentUser> user;
+
   /// Optional background for the receiving teammate, valid with either `conversation_id` or `user`. On the Intercom Helpdesk, it appears above the summary in the internal note of the new conversation the teammate picks up, and is never shown to the end user. Not surfaced on Fin for Platforms. Avoid including credentials or unnecessary personal data — it is visible to any teammate with access to the conversation.
   final SdkOptional<String> context;
 
-  const EscalateFinConversationRequestBody({this.conversationId = const SdkOmitted(), this.user = const SdkOmitted(), this.context = const SdkOmitted()});
+  const EscalateFinConversationRequestBody(
+      {this.conversationId = const SdkOmitted(),
+      this.user = const SdkOmitted(),
+      this.context = const SdkOmitted()});
 
-  EscalateFinConversationRequestBody Function({SdkOptional<String> conversationId, SdkOptional<FinAgentUser> user, SdkOptional<String> context}) get copyWith => _copyWith;
+  EscalateFinConversationRequestBody Function(
+      {SdkOptional<String> conversationId,
+      SdkOptional<FinAgentUser> user,
+      SdkOptional<String> context}) get copyWith => _copyWith;
 
-  EscalateFinConversationRequestBody _copyWith({Object? conversationId = sdkOmittedValue, Object? user = sdkOmittedValue, Object? context = sdkOmittedValue}) => EscalateFinConversationRequestBody(
-    conversationId: identical(conversationId, sdkOmittedValue) ? this.conversationId : conversationId as SdkOptional<String>,
-    user: identical(user, sdkOmittedValue) ? this.user : user as SdkOptional<FinAgentUser>,
-    context: identical(context, sdkOmittedValue) ? this.context : context as SdkOptional<String>,
-  );
+  EscalateFinConversationRequestBody _copyWith(
+          {Object? conversationId = sdkOmittedValue,
+          Object? user = sdkOmittedValue,
+          Object? context = sdkOmittedValue}) =>
+      EscalateFinConversationRequestBody(
+        conversationId: identical(conversationId, sdkOmittedValue)
+            ? this.conversationId
+            : conversationId as SdkOptional<String>,
+        user: identical(user, sdkOmittedValue)
+            ? this.user
+            : user as SdkOptional<FinAgentUser>,
+        context: identical(context, sdkOmittedValue)
+            ? this.context
+            : context as SdkOptional<String>,
+      );
 
-  factory EscalateFinConversationRequestBody.fromJson(Map<String, dynamic> json) => EscalateFinConversationRequestBody(
-    conversationId: json['conversation_id'] != null ? SdkPresent((json['conversation_id'] as String?)!) : const SdkOmitted(),
-    user: json['user'] != null ? SdkPresent((json['user'] != null ? FinAgentUser.fromJson(json['user'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    context: json['context'] != null ? SdkPresent((json['context'] as String?)!) : const SdkOmitted(),
-  );
+  factory EscalateFinConversationRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      EscalateFinConversationRequestBody(
+        conversationId: json['conversation_id'] != null
+            ? SdkPresent((json['conversation_id'] as String?)!)
+            : const SdkOmitted(),
+        user: json['user'] != null
+            ? SdkPresent((json['user'] != null
+                ? FinAgentUser.fromJson(json['user'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        context: json['context'] != null
+            ? SdkPresent((json['context'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (conversationId) {
-      SdkPresent<String>(value: final value) => {'conversation_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (user) {
-      SdkPresent<FinAgentUser>(value: final value) => {'user': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (context) {
-      SdkPresent<String>(value: final value) => {'context': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (conversationId) {
+          SdkPresent<String>(value: final value) => {
+              'conversation_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (user) {
+          SdkPresent<FinAgentUser>(value: final value) => {
+              'user': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (context) {
+          SdkPresent<String>(value: final value) => {
+              'context': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

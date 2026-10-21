@@ -7,160 +7,303 @@ part of 'tags.dart';
 class TagCreateResponseVariant1UsersItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The Intercom ID of the user.
   final SdkOptional<String> id;
+
   /// Whether the user was tagged (true) or untagged (false).
   final SdkOptional<bool> tagged;
 
-  const TagCreateResponseVariant1UsersItem({this.id = const SdkOmitted(), this.tagged = const SdkOmitted()});
+  const TagCreateResponseVariant1UsersItem(
+      {this.id = const SdkOmitted(), this.tagged = const SdkOmitted()});
 
-  TagCreateResponseVariant1UsersItem Function({SdkOptional<String> id, SdkOptional<bool> tagged}) get copyWith => _copyWith;
+  TagCreateResponseVariant1UsersItem Function(
+      {SdkOptional<String> id,
+      SdkOptional<bool> tagged}) get copyWith => _copyWith;
 
-  TagCreateResponseVariant1UsersItem _copyWith({Object? id = sdkOmittedValue, Object? tagged = sdkOmittedValue}) => TagCreateResponseVariant1UsersItem(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    tagged: identical(tagged, sdkOmittedValue) ? this.tagged : tagged as SdkOptional<bool>,
-  );
+  TagCreateResponseVariant1UsersItem _copyWith(
+          {Object? id = sdkOmittedValue, Object? tagged = sdkOmittedValue}) =>
+      TagCreateResponseVariant1UsersItem(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        tagged: identical(tagged, sdkOmittedValue)
+            ? this.tagged
+            : tagged as SdkOptional<bool>,
+      );
 
-  factory TagCreateResponseVariant1UsersItem.fromJson(Map<String, dynamic> json) => TagCreateResponseVariant1UsersItem(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    tagged: json['tagged'] != null ? SdkPresent((json['tagged'] as bool?)!) : const SdkOmitted(),
-  );
+  factory TagCreateResponseVariant1UsersItem.fromJson(
+          Map<String, dynamic> json) =>
+      TagCreateResponseVariant1UsersItem(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        tagged: json['tagged'] != null
+            ? SdkPresent((json['tagged'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tagged) {
-      SdkPresent<bool>(value: final value) => {'tagged': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tagged) {
+          SdkPresent<bool>(value: final value) => {
+              'tagged': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class TagCreateResponseVariant1CompaniesItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The Intercom ID of the company.
   final SdkOptional<String> id;
+
   /// Whether the company was tagged (true) or untagged (false).
   final SdkOptional<bool> tagged;
 
-  const TagCreateResponseVariant1CompaniesItem({this.id = const SdkOmitted(), this.tagged = const SdkOmitted()});
+  const TagCreateResponseVariant1CompaniesItem(
+      {this.id = const SdkOmitted(), this.tagged = const SdkOmitted()});
 
-  TagCreateResponseVariant1CompaniesItem Function({SdkOptional<String> id, SdkOptional<bool> tagged}) get copyWith => _copyWith;
+  TagCreateResponseVariant1CompaniesItem Function(
+      {SdkOptional<String> id,
+      SdkOptional<bool> tagged}) get copyWith => _copyWith;
 
-  TagCreateResponseVariant1CompaniesItem _copyWith({Object? id = sdkOmittedValue, Object? tagged = sdkOmittedValue}) => TagCreateResponseVariant1CompaniesItem(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    tagged: identical(tagged, sdkOmittedValue) ? this.tagged : tagged as SdkOptional<bool>,
-  );
+  TagCreateResponseVariant1CompaniesItem _copyWith(
+          {Object? id = sdkOmittedValue, Object? tagged = sdkOmittedValue}) =>
+      TagCreateResponseVariant1CompaniesItem(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        tagged: identical(tagged, sdkOmittedValue)
+            ? this.tagged
+            : tagged as SdkOptional<bool>,
+      );
 
-  factory TagCreateResponseVariant1CompaniesItem.fromJson(Map<String, dynamic> json) => TagCreateResponseVariant1CompaniesItem(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    tagged: json['tagged'] != null ? SdkPresent((json['tagged'] as bool?)!) : const SdkOmitted(),
-  );
+  factory TagCreateResponseVariant1CompaniesItem.fromJson(
+          Map<String, dynamic> json) =>
+      TagCreateResponseVariant1CompaniesItem(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        tagged: json['tagged'] != null
+            ? SdkPresent((json['tagged'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tagged) {
-      SdkPresent<bool>(value: final value) => {'tagged': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tagged) {
+          SdkPresent<bool>(value: final value) => {
+              'tagged': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class TagCreateResponseVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The users that were tagged or untagged.
   final SdkOptional<List<TagCreateResponseVariant1UsersItem>?> users;
+
   /// The companies that were tagged or untagged.
   final SdkOptional<List<TagCreateResponseVariant1CompaniesItem>?> companies;
 
-  const TagCreateResponseVariant1({this.users = const SdkOmitted(), this.companies = const SdkOmitted()});
+  const TagCreateResponseVariant1(
+      {this.users = const SdkOmitted(), this.companies = const SdkOmitted()});
 
-  TagCreateResponseVariant1 Function({SdkOptional<List<TagCreateResponseVariant1UsersItem>?> users, SdkOptional<List<TagCreateResponseVariant1CompaniesItem>?> companies}) get copyWith => _copyWith;
+  TagCreateResponseVariant1 Function(
+          {SdkOptional<List<TagCreateResponseVariant1UsersItem>?> users,
+          SdkOptional<List<TagCreateResponseVariant1CompaniesItem>?> companies})
+      get copyWith => _copyWith;
 
-  TagCreateResponseVariant1 _copyWith({Object? users = sdkOmittedValue, Object? companies = sdkOmittedValue}) => TagCreateResponseVariant1(
-    users: identical(users, sdkOmittedValue) ? this.users : users as SdkOptional<List<TagCreateResponseVariant1UsersItem>?>,
-    companies: identical(companies, sdkOmittedValue) ? this.companies : companies as SdkOptional<List<TagCreateResponseVariant1CompaniesItem>?>,
-  );
+  TagCreateResponseVariant1 _copyWith(
+          {Object? users = sdkOmittedValue,
+          Object? companies = sdkOmittedValue}) =>
+      TagCreateResponseVariant1(
+        users: identical(users, sdkOmittedValue)
+            ? this.users
+            : users as SdkOptional<List<TagCreateResponseVariant1UsersItem>?>,
+        companies: identical(companies, sdkOmittedValue)
+            ? this.companies
+            : companies
+                as SdkOptional<List<TagCreateResponseVariant1CompaniesItem>?>,
+      );
 
-  factory TagCreateResponseVariant1.fromJson(Map<String, dynamic> json) => TagCreateResponseVariant1(
-    users: json.containsKey('users') ? SdkPresent((json['users'] as List?)?.map((e) => TagCreateResponseVariant1UsersItem.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
-    companies: json.containsKey('companies') ? SdkPresent((json['companies'] as List?)?.map((e) => TagCreateResponseVariant1CompaniesItem.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
-  );
+  factory TagCreateResponseVariant1.fromJson(Map<String, dynamic> json) =>
+      TagCreateResponseVariant1(
+        users: json.containsKey('users')
+            ? SdkPresent((json['users'] as List?)
+                ?.map((e) => TagCreateResponseVariant1UsersItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())
+            : const SdkOmitted(),
+        companies: json.containsKey('companies')
+            ? SdkPresent((json['companies'] as List?)
+                ?.map((e) => TagCreateResponseVariant1CompaniesItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (users) {
-      SdkPresent<List<TagCreateResponseVariant1UsersItem>?>(value: final value) => {'users': value?.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (companies) {
-      SdkPresent<List<TagCreateResponseVariant1CompaniesItem>?>(value: final value) => {'companies': value?.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (users) {
+          SdkPresent<List<TagCreateResponseVariant1UsersItem>?>(
+            value: final value
+          ) =>
+            {
+              'users': value?.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (companies) {
+          SdkPresent<List<TagCreateResponseVariant1CompaniesItem>?>(
+            value: final value
+          ) =>
+            {
+              'companies': value?.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// The response for creating or updating a tag, including the entities that were tagged or untagged.
 class TagCreateResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// value is "tag"
   final SdkOptional<String> type_;
+
   /// The id of the tag
   final SdkOptional<String> id;
+
   /// The name of the tag
   final SdkOptional<String> name;
+
   /// The users that were tagged or untagged.
   final SdkOptional<List<TagCreateResponseVariant1UsersItem>?> users;
+
   /// The companies that were tagged or untagged.
   final SdkOptional<List<TagCreateResponseVariant1CompaniesItem>?> companies;
 
-  const TagCreateResponse({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.name = const SdkOmitted(), this.users = const SdkOmitted(), this.companies = const SdkOmitted()});
+  const TagCreateResponse(
+      {this.type_ = const SdkOmitted(),
+      this.id = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.users = const SdkOmitted(),
+      this.companies = const SdkOmitted()});
 
-  TagCreateResponse Function({SdkOptional<String> type_, SdkOptional<String> id, SdkOptional<String> name, SdkOptional<List<TagCreateResponseVariant1UsersItem>?> users, SdkOptional<List<TagCreateResponseVariant1CompaniesItem>?> companies}) get copyWith => _copyWith;
+  TagCreateResponse Function(
+          {SdkOptional<String> type_,
+          SdkOptional<String> id,
+          SdkOptional<String> name,
+          SdkOptional<List<TagCreateResponseVariant1UsersItem>?> users,
+          SdkOptional<List<TagCreateResponseVariant1CompaniesItem>?> companies})
+      get copyWith => _copyWith;
 
-  TagCreateResponse _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? users = sdkOmittedValue, Object? companies = sdkOmittedValue}) => TagCreateResponse(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    users: identical(users, sdkOmittedValue) ? this.users : users as SdkOptional<List<TagCreateResponseVariant1UsersItem>?>,
-    companies: identical(companies, sdkOmittedValue) ? this.companies : companies as SdkOptional<List<TagCreateResponseVariant1CompaniesItem>?>,
-  );
+  TagCreateResponse _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? users = sdkOmittedValue,
+          Object? companies = sdkOmittedValue}) =>
+      TagCreateResponse(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<String>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        users: identical(users, sdkOmittedValue)
+            ? this.users
+            : users as SdkOptional<List<TagCreateResponseVariant1UsersItem>?>,
+        companies: identical(companies, sdkOmittedValue)
+            ? this.companies
+            : companies
+                as SdkOptional<List<TagCreateResponseVariant1CompaniesItem>?>,
+      );
 
-  factory TagCreateResponse.fromJson(Map<String, dynamic> json) => TagCreateResponse(
-    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    users: json.containsKey('users') ? SdkPresent((json['users'] as List?)?.map((e) => TagCreateResponseVariant1UsersItem.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
-    companies: json.containsKey('companies') ? SdkPresent((json['companies'] as List?)?.map((e) => TagCreateResponseVariant1CompaniesItem.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
-  );
+  factory TagCreateResponse.fromJson(Map<String, dynamic> json) =>
+      TagCreateResponse(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] as String?)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        users: json.containsKey('users')
+            ? SdkPresent((json['users'] as List?)
+                ?.map((e) => TagCreateResponseVariant1UsersItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())
+            : const SdkOmitted(),
+        companies: json.containsKey('companies')
+            ? SdkPresent((json['companies'] as List?)
+                ?.map((e) => TagCreateResponseVariant1CompaniesItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<String>(value: final value) => {'type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (users) {
-      SdkPresent<List<TagCreateResponseVariant1UsersItem>?>(value: final value) => {'users': value?.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (companies) {
-      SdkPresent<List<TagCreateResponseVariant1CompaniesItem>?>(value: final value) => {'companies': value?.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<String>(value: final value) => {
+              'type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (users) {
+          SdkPresent<List<TagCreateResponseVariant1UsersItem>?>(
+            value: final value
+          ) =>
+            {
+              'users': value?.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (companies) {
+          SdkPresent<List<TagCreateResponseVariant1CompaniesItem>?>(
+            value: final value
+          ) =>
+            {
+              'companies': value?.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

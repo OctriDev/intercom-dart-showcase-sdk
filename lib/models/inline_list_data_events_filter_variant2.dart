@@ -11,228 +11,467 @@ class ListDataEventsFilterVariant2 {
 
   const ListDataEventsFilterVariant2({required this.email});
 
-  ListDataEventsFilterVariant2 Function({String email}) get copyWith => _copyWith;
+  ListDataEventsFilterVariant2 Function({String email}) get copyWith =>
+      _copyWith;
 
-  ListDataEventsFilterVariant2 _copyWith({Object? email = sdkOmittedValue}) => ListDataEventsFilterVariant2(
-    email: identical(email, sdkOmittedValue) ? this.email : email as String,
-  );
+  ListDataEventsFilterVariant2 _copyWith({Object? email = sdkOmittedValue}) =>
+      ListDataEventsFilterVariant2(
+        email: identical(email, sdkOmittedValue) ? this.email : email as String,
+      );
 
-  factory ListDataEventsFilterVariant2.fromJson(Map<String, dynamic> json) => ListDataEventsFilterVariant2(
-    email: (json['email'] as String?)!,
-  );
+  factory ListDataEventsFilterVariant2.fromJson(Map<String, dynamic> json) =>
+      ListDataEventsFilterVariant2(
+        email: (json['email'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'email': email,
-  };
+        'email': email,
+      };
 }
 
 class ListCallsWithTranscriptsRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A list of conversation ids to fetch calls for. Maximum 20.
   final List<String> conversationIds;
 
   const ListCallsWithTranscriptsRequestBody({required this.conversationIds});
 
-  ListCallsWithTranscriptsRequestBody Function({List<String> conversationIds}) get copyWith => _copyWith;
+  ListCallsWithTranscriptsRequestBody Function({List<String> conversationIds})
+      get copyWith => _copyWith;
 
-  ListCallsWithTranscriptsRequestBody _copyWith({Object? conversationIds = sdkOmittedValue}) => ListCallsWithTranscriptsRequestBody(
-    conversationIds: identical(conversationIds, sdkOmittedValue) ? this.conversationIds : conversationIds as List<String>,
-  );
+  ListCallsWithTranscriptsRequestBody _copyWith(
+          {Object? conversationIds = sdkOmittedValue}) =>
+      ListCallsWithTranscriptsRequestBody(
+        conversationIds: identical(conversationIds, sdkOmittedValue)
+            ? this.conversationIds
+            : conversationIds as List<String>,
+      );
 
-  factory ListCallsWithTranscriptsRequestBody.fromJson(Map<String, dynamic> json) => ListCallsWithTranscriptsRequestBody(
-    conversationIds: ((json['conversation_ids'] as List?)?.map((e) => e as String).toList())!,
-  );
+  factory ListCallsWithTranscriptsRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      ListCallsWithTranscriptsRequestBody(
+        conversationIds: ((json['conversation_ids'] as List?)
+            ?.map((e) => e as String)
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'conversation_ids': conversationIds,
-  };
+        'conversation_ids': conversationIds,
+      };
 }
 
 class ListCallsWithTranscriptsResponseDataItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// String representing the object's type. Always has the value `call`.
   final SdkOptional<String> type_;
+
   /// The id of the call.
   final SdkOptional<String> id;
+
   /// The id of the conversation associated with the call, if any.
   final SdkOptional<String?> conversationId;
+
   /// The id of the admin associated with the call, if any.
   final SdkOptional<String?> adminId;
+
   /// The id of the contact associated with the call, if any.
   final SdkOptional<String?> contactId;
+
   /// The current state of the call.
   final SdkOptional<String> state;
+
   /// Optional API value serialized in the `initiated_at` wire field.
   final SdkOptional<Datetime> initiatedAt;
+
   /// Optional API value serialized in the `answered_at` wire field.
   final SdkOptional<Datetime> answeredAt;
+
   /// Optional API value serialized in the `ended_at` wire field.
   final SdkOptional<Datetime> endedAt;
+
   /// Optional API value serialized in the `created_at` wire field.
   final SdkOptional<Datetime> createdAt;
+
   /// Optional API value serialized in the `updated_at` wire field.
   final SdkOptional<Datetime> updatedAt;
+
   /// API URL to download or redirect to the call recording if available.
   final SdkOptional<String?> recordingUrl;
+
   /// API URL to download or redirect to the call transcript if available.
   final SdkOptional<String?> transcriptionUrl;
+
   /// The type of call.
   final SdkOptional<String> callType;
+
   /// The direction of the call.
   final SdkOptional<String> direction;
+
   /// The reason for the call end, if applicable.
   final SdkOptional<String?> endedReason;
+
   /// The phone number involved in the call, in E.164 format.
   final SdkOptional<String?> phone;
+
   /// API URL to the AI Agent (Fin) call recording if available.
   final SdkOptional<String?> finRecordingUrl;
+
   /// API URL to the AI Agent (Fin) call transcript if available.
   final SdkOptional<String?> finTranscriptionUrl;
+
   /// The call transcript if available, otherwise an empty array.
   final SdkOptional<List<Map<String, Object?>>> transcript;
+
   /// The status of the transcript if available.
   final SdkOptional<String?> transcriptStatus;
 
-  const ListCallsWithTranscriptsResponseDataItem({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.conversationId = const SdkOmitted(), this.adminId = const SdkOmitted(), this.contactId = const SdkOmitted(), this.state = const SdkOmitted(), this.initiatedAt = const SdkOmitted(), this.answeredAt = const SdkOmitted(), this.endedAt = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.recordingUrl = const SdkOmitted(), this.transcriptionUrl = const SdkOmitted(), this.callType = const SdkOmitted(), this.direction = const SdkOmitted(), this.endedReason = const SdkOmitted(), this.phone = const SdkOmitted(), this.finRecordingUrl = const SdkOmitted(), this.finTranscriptionUrl = const SdkOmitted(), this.transcript = const SdkOmitted(), this.transcriptStatus = const SdkOmitted()});
+  const ListCallsWithTranscriptsResponseDataItem(
+      {this.type_ = const SdkOmitted(),
+      this.id = const SdkOmitted(),
+      this.conversationId = const SdkOmitted(),
+      this.adminId = const SdkOmitted(),
+      this.contactId = const SdkOmitted(),
+      this.state = const SdkOmitted(),
+      this.initiatedAt = const SdkOmitted(),
+      this.answeredAt = const SdkOmitted(),
+      this.endedAt = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.updatedAt = const SdkOmitted(),
+      this.recordingUrl = const SdkOmitted(),
+      this.transcriptionUrl = const SdkOmitted(),
+      this.callType = const SdkOmitted(),
+      this.direction = const SdkOmitted(),
+      this.endedReason = const SdkOmitted(),
+      this.phone = const SdkOmitted(),
+      this.finRecordingUrl = const SdkOmitted(),
+      this.finTranscriptionUrl = const SdkOmitted(),
+      this.transcript = const SdkOmitted(),
+      this.transcriptStatus = const SdkOmitted()});
 
-  ListCallsWithTranscriptsResponseDataItem Function({SdkOptional<String> type_, SdkOptional<String> id, SdkOptional<String?> conversationId, SdkOptional<String?> adminId, SdkOptional<String?> contactId, SdkOptional<String> state, SdkOptional<Datetime> initiatedAt, SdkOptional<Datetime> answeredAt, SdkOptional<Datetime> endedAt, SdkOptional<Datetime> createdAt, SdkOptional<Datetime> updatedAt, SdkOptional<String?> recordingUrl, SdkOptional<String?> transcriptionUrl, SdkOptional<String> callType, SdkOptional<String> direction, SdkOptional<String?> endedReason, SdkOptional<String?> phone, SdkOptional<String?> finRecordingUrl, SdkOptional<String?> finTranscriptionUrl, SdkOptional<List<Map<String, Object?>>> transcript, SdkOptional<String?> transcriptStatus}) get copyWith => _copyWith;
+  ListCallsWithTranscriptsResponseDataItem Function(
+      {SdkOptional<String> type_,
+      SdkOptional<String> id,
+      SdkOptional<String?> conversationId,
+      SdkOptional<String?> adminId,
+      SdkOptional<String?> contactId,
+      SdkOptional<String> state,
+      SdkOptional<Datetime> initiatedAt,
+      SdkOptional<Datetime> answeredAt,
+      SdkOptional<Datetime> endedAt,
+      SdkOptional<Datetime> createdAt,
+      SdkOptional<Datetime> updatedAt,
+      SdkOptional<String?> recordingUrl,
+      SdkOptional<String?> transcriptionUrl,
+      SdkOptional<String> callType,
+      SdkOptional<String> direction,
+      SdkOptional<String?> endedReason,
+      SdkOptional<String?> phone,
+      SdkOptional<String?> finRecordingUrl,
+      SdkOptional<String?> finTranscriptionUrl,
+      SdkOptional<List<Map<String, Object?>>> transcript,
+      SdkOptional<String?> transcriptStatus}) get copyWith => _copyWith;
 
-  ListCallsWithTranscriptsResponseDataItem _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? conversationId = sdkOmittedValue, Object? adminId = sdkOmittedValue, Object? contactId = sdkOmittedValue, Object? state = sdkOmittedValue, Object? initiatedAt = sdkOmittedValue, Object? answeredAt = sdkOmittedValue, Object? endedAt = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? recordingUrl = sdkOmittedValue, Object? transcriptionUrl = sdkOmittedValue, Object? callType = sdkOmittedValue, Object? direction = sdkOmittedValue, Object? endedReason = sdkOmittedValue, Object? phone = sdkOmittedValue, Object? finRecordingUrl = sdkOmittedValue, Object? finTranscriptionUrl = sdkOmittedValue, Object? transcript = sdkOmittedValue, Object? transcriptStatus = sdkOmittedValue}) => ListCallsWithTranscriptsResponseDataItem(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    conversationId: identical(conversationId, sdkOmittedValue) ? this.conversationId : conversationId as SdkOptional<String?>,
-    adminId: identical(adminId, sdkOmittedValue) ? this.adminId : adminId as SdkOptional<String?>,
-    contactId: identical(contactId, sdkOmittedValue) ? this.contactId : contactId as SdkOptional<String?>,
-    state: identical(state, sdkOmittedValue) ? this.state : state as SdkOptional<String>,
-    initiatedAt: identical(initiatedAt, sdkOmittedValue) ? this.initiatedAt : initiatedAt as SdkOptional<Datetime>,
-    answeredAt: identical(answeredAt, sdkOmittedValue) ? this.answeredAt : answeredAt as SdkOptional<Datetime>,
-    endedAt: identical(endedAt, sdkOmittedValue) ? this.endedAt : endedAt as SdkOptional<Datetime>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<Datetime>,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<Datetime>,
-    recordingUrl: identical(recordingUrl, sdkOmittedValue) ? this.recordingUrl : recordingUrl as SdkOptional<String?>,
-    transcriptionUrl: identical(transcriptionUrl, sdkOmittedValue) ? this.transcriptionUrl : transcriptionUrl as SdkOptional<String?>,
-    callType: identical(callType, sdkOmittedValue) ? this.callType : callType as SdkOptional<String>,
-    direction: identical(direction, sdkOmittedValue) ? this.direction : direction as SdkOptional<String>,
-    endedReason: identical(endedReason, sdkOmittedValue) ? this.endedReason : endedReason as SdkOptional<String?>,
-    phone: identical(phone, sdkOmittedValue) ? this.phone : phone as SdkOptional<String?>,
-    finRecordingUrl: identical(finRecordingUrl, sdkOmittedValue) ? this.finRecordingUrl : finRecordingUrl as SdkOptional<String?>,
-    finTranscriptionUrl: identical(finTranscriptionUrl, sdkOmittedValue) ? this.finTranscriptionUrl : finTranscriptionUrl as SdkOptional<String?>,
-    transcript: identical(transcript, sdkOmittedValue) ? this.transcript : transcript as SdkOptional<List<Map<String, Object?>>>,
-    transcriptStatus: identical(transcriptStatus, sdkOmittedValue) ? this.transcriptStatus : transcriptStatus as SdkOptional<String?>,
-  );
+  ListCallsWithTranscriptsResponseDataItem _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? conversationId = sdkOmittedValue,
+          Object? adminId = sdkOmittedValue,
+          Object? contactId = sdkOmittedValue,
+          Object? state = sdkOmittedValue,
+          Object? initiatedAt = sdkOmittedValue,
+          Object? answeredAt = sdkOmittedValue,
+          Object? endedAt = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue,
+          Object? recordingUrl = sdkOmittedValue,
+          Object? transcriptionUrl = sdkOmittedValue,
+          Object? callType = sdkOmittedValue,
+          Object? direction = sdkOmittedValue,
+          Object? endedReason = sdkOmittedValue,
+          Object? phone = sdkOmittedValue,
+          Object? finRecordingUrl = sdkOmittedValue,
+          Object? finTranscriptionUrl = sdkOmittedValue,
+          Object? transcript = sdkOmittedValue,
+          Object? transcriptStatus = sdkOmittedValue}) =>
+      ListCallsWithTranscriptsResponseDataItem(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<String>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        conversationId: identical(conversationId, sdkOmittedValue)
+            ? this.conversationId
+            : conversationId as SdkOptional<String?>,
+        adminId: identical(adminId, sdkOmittedValue)
+            ? this.adminId
+            : adminId as SdkOptional<String?>,
+        contactId: identical(contactId, sdkOmittedValue)
+            ? this.contactId
+            : contactId as SdkOptional<String?>,
+        state: identical(state, sdkOmittedValue)
+            ? this.state
+            : state as SdkOptional<String>,
+        initiatedAt: identical(initiatedAt, sdkOmittedValue)
+            ? this.initiatedAt
+            : initiatedAt as SdkOptional<Datetime>,
+        answeredAt: identical(answeredAt, sdkOmittedValue)
+            ? this.answeredAt
+            : answeredAt as SdkOptional<Datetime>,
+        endedAt: identical(endedAt, sdkOmittedValue)
+            ? this.endedAt
+            : endedAt as SdkOptional<Datetime>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<Datetime>,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as SdkOptional<Datetime>,
+        recordingUrl: identical(recordingUrl, sdkOmittedValue)
+            ? this.recordingUrl
+            : recordingUrl as SdkOptional<String?>,
+        transcriptionUrl: identical(transcriptionUrl, sdkOmittedValue)
+            ? this.transcriptionUrl
+            : transcriptionUrl as SdkOptional<String?>,
+        callType: identical(callType, sdkOmittedValue)
+            ? this.callType
+            : callType as SdkOptional<String>,
+        direction: identical(direction, sdkOmittedValue)
+            ? this.direction
+            : direction as SdkOptional<String>,
+        endedReason: identical(endedReason, sdkOmittedValue)
+            ? this.endedReason
+            : endedReason as SdkOptional<String?>,
+        phone: identical(phone, sdkOmittedValue)
+            ? this.phone
+            : phone as SdkOptional<String?>,
+        finRecordingUrl: identical(finRecordingUrl, sdkOmittedValue)
+            ? this.finRecordingUrl
+            : finRecordingUrl as SdkOptional<String?>,
+        finTranscriptionUrl: identical(finTranscriptionUrl, sdkOmittedValue)
+            ? this.finTranscriptionUrl
+            : finTranscriptionUrl as SdkOptional<String?>,
+        transcript: identical(transcript, sdkOmittedValue)
+            ? this.transcript
+            : transcript as SdkOptional<List<Map<String, Object?>>>,
+        transcriptStatus: identical(transcriptStatus, sdkOmittedValue)
+            ? this.transcriptStatus
+            : transcriptStatus as SdkOptional<String?>,
+      );
 
-  factory ListCallsWithTranscriptsResponseDataItem.fromJson(Map<String, dynamic> json) => ListCallsWithTranscriptsResponseDataItem(
-    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    conversationId: json.containsKey('conversation_id') ? SdkPresent(json['conversation_id'] as String?) : const SdkOmitted(),
-    adminId: json.containsKey('admin_id') ? SdkPresent(json['admin_id'] as String?) : const SdkOmitted(),
-    contactId: json.containsKey('contact_id') ? SdkPresent(json['contact_id'] as String?) : const SdkOmitted(),
-    state: json['state'] != null ? SdkPresent((json['state'] as String?)!) : const SdkOmitted(),
-    initiatedAt: json['initiated_at'] != null ? SdkPresent((json['initiated_at'] != null ? Datetime.fromJson(json['initiated_at']) : null)!) : const SdkOmitted(),
-    answeredAt: json['answered_at'] != null ? SdkPresent((json['answered_at'] != null ? Datetime.fromJson(json['answered_at']) : null)!) : const SdkOmitted(),
-    endedAt: json['ended_at'] != null ? SdkPresent((json['ended_at'] != null ? Datetime.fromJson(json['ended_at']) : null)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] != null ? Datetime.fromJson(json['created_at']) : null)!) : const SdkOmitted(),
-    updatedAt: json['updated_at'] != null ? SdkPresent((json['updated_at'] != null ? Datetime.fromJson(json['updated_at']) : null)!) : const SdkOmitted(),
-    recordingUrl: json.containsKey('recording_url') ? SdkPresent(json['recording_url'] as String?) : const SdkOmitted(),
-    transcriptionUrl: json.containsKey('transcription_url') ? SdkPresent(json['transcription_url'] as String?) : const SdkOmitted(),
-    callType: json['call_type'] != null ? SdkPresent((json['call_type'] as String?)!) : const SdkOmitted(),
-    direction: json['direction'] != null ? SdkPresent((json['direction'] as String?)!) : const SdkOmitted(),
-    endedReason: json.containsKey('ended_reason') ? SdkPresent(json['ended_reason'] as String?) : const SdkOmitted(),
-    phone: json.containsKey('phone') ? SdkPresent(json['phone'] as String?) : const SdkOmitted(),
-    finRecordingUrl: json.containsKey('fin_recording_url') ? SdkPresent(json['fin_recording_url'] as String?) : const SdkOmitted(),
-    finTranscriptionUrl: json.containsKey('fin_transcription_url') ? SdkPresent(json['fin_transcription_url'] as String?) : const SdkOmitted(),
-    transcript: json['transcript'] != null ? SdkPresent(((json['transcript'] as List?)?.map((e) => Map<String, dynamic>.from(e as Map).map((key, value) => MapEntry(key, value))).toList())!) : const SdkOmitted(),
-    transcriptStatus: json.containsKey('transcript_status') ? SdkPresent(json['transcript_status'] as String?) : const SdkOmitted(),
-  );
+  factory ListCallsWithTranscriptsResponseDataItem.fromJson(
+          Map<String, dynamic> json) =>
+      ListCallsWithTranscriptsResponseDataItem(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] as String?)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        conversationId: json.containsKey('conversation_id')
+            ? SdkPresent(json['conversation_id'] as String?)
+            : const SdkOmitted(),
+        adminId: json.containsKey('admin_id')
+            ? SdkPresent(json['admin_id'] as String?)
+            : const SdkOmitted(),
+        contactId: json.containsKey('contact_id')
+            ? SdkPresent(json['contact_id'] as String?)
+            : const SdkOmitted(),
+        state: json['state'] != null
+            ? SdkPresent((json['state'] as String?)!)
+            : const SdkOmitted(),
+        initiatedAt: json['initiated_at'] != null
+            ? SdkPresent((json['initiated_at'] != null
+                ? Datetime.fromJson(json['initiated_at'])
+                : null)!)
+            : const SdkOmitted(),
+        answeredAt: json['answered_at'] != null
+            ? SdkPresent((json['answered_at'] != null
+                ? Datetime.fromJson(json['answered_at'])
+                : null)!)
+            : const SdkOmitted(),
+        endedAt: json['ended_at'] != null
+            ? SdkPresent((json['ended_at'] != null
+                ? Datetime.fromJson(json['ended_at'])
+                : null)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] != null
+                ? Datetime.fromJson(json['created_at'])
+                : null)!)
+            : const SdkOmitted(),
+        updatedAt: json['updated_at'] != null
+            ? SdkPresent((json['updated_at'] != null
+                ? Datetime.fromJson(json['updated_at'])
+                : null)!)
+            : const SdkOmitted(),
+        recordingUrl: json.containsKey('recording_url')
+            ? SdkPresent(json['recording_url'] as String?)
+            : const SdkOmitted(),
+        transcriptionUrl: json.containsKey('transcription_url')
+            ? SdkPresent(json['transcription_url'] as String?)
+            : const SdkOmitted(),
+        callType: json['call_type'] != null
+            ? SdkPresent((json['call_type'] as String?)!)
+            : const SdkOmitted(),
+        direction: json['direction'] != null
+            ? SdkPresent((json['direction'] as String?)!)
+            : const SdkOmitted(),
+        endedReason: json.containsKey('ended_reason')
+            ? SdkPresent(json['ended_reason'] as String?)
+            : const SdkOmitted(),
+        phone: json.containsKey('phone')
+            ? SdkPresent(json['phone'] as String?)
+            : const SdkOmitted(),
+        finRecordingUrl: json.containsKey('fin_recording_url')
+            ? SdkPresent(json['fin_recording_url'] as String?)
+            : const SdkOmitted(),
+        finTranscriptionUrl: json.containsKey('fin_transcription_url')
+            ? SdkPresent(json['fin_transcription_url'] as String?)
+            : const SdkOmitted(),
+        transcript: json['transcript'] != null
+            ? SdkPresent(((json['transcript'] as List?)
+                ?.map((e) => Map<String, dynamic>.from(e as Map)
+                    .map((key, value) => MapEntry(key, value)))
+                .toList())!)
+            : const SdkOmitted(),
+        transcriptStatus: json.containsKey('transcript_status')
+            ? SdkPresent(json['transcript_status'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<String>(value: final value) => {'type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (conversationId) {
-      SdkPresent<String?>(value: final value) => {'conversation_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (adminId) {
-      SdkPresent<String?>(value: final value) => {'admin_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (contactId) {
-      SdkPresent<String?>(value: final value) => {'contact_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (state) {
-      SdkPresent<String>(value: final value) => {'state': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (initiatedAt) {
-      SdkPresent<Datetime>(value: final value) => {'initiated_at': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (answeredAt) {
-      SdkPresent<Datetime>(value: final value) => {'answered_at': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (endedAt) {
-      SdkPresent<Datetime>(value: final value) => {'ended_at': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<Datetime>(value: final value) => {'created_at': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (updatedAt) {
-      SdkPresent<Datetime>(value: final value) => {'updated_at': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (recordingUrl) {
-      SdkPresent<String?>(value: final value) => {'recording_url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (transcriptionUrl) {
-      SdkPresent<String?>(value: final value) => {'transcription_url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (callType) {
-      SdkPresent<String>(value: final value) => {'call_type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (direction) {
-      SdkPresent<String>(value: final value) => {'direction': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (endedReason) {
-      SdkPresent<String?>(value: final value) => {'ended_reason': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (phone) {
-      SdkPresent<String?>(value: final value) => {'phone': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (finRecordingUrl) {
-      SdkPresent<String?>(value: final value) => {'fin_recording_url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (finTranscriptionUrl) {
-      SdkPresent<String?>(value: final value) => {'fin_transcription_url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (transcript) {
-      SdkPresent<List<Map<String, Object?>>>(value: final value) => {'transcript': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (transcriptStatus) {
-      SdkPresent<String?>(value: final value) => {'transcript_status': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<String>(value: final value) => {
+              'type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (conversationId) {
+          SdkPresent<String?>(value: final value) => {
+              'conversation_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (adminId) {
+          SdkPresent<String?>(value: final value) => {
+              'admin_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (contactId) {
+          SdkPresent<String?>(value: final value) => {
+              'contact_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (state) {
+          SdkPresent<String>(value: final value) => {
+              'state': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (initiatedAt) {
+          SdkPresent<Datetime>(value: final value) => {
+              'initiated_at': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (answeredAt) {
+          SdkPresent<Datetime>(value: final value) => {
+              'answered_at': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (endedAt) {
+          SdkPresent<Datetime>(value: final value) => {
+              'ended_at': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<Datetime>(value: final value) => {
+              'created_at': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (updatedAt) {
+          SdkPresent<Datetime>(value: final value) => {
+              'updated_at': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (recordingUrl) {
+          SdkPresent<String?>(value: final value) => {
+              'recording_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (transcriptionUrl) {
+          SdkPresent<String?>(value: final value) => {
+              'transcription_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (callType) {
+          SdkPresent<String>(value: final value) => {
+              'call_type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (direction) {
+          SdkPresent<String>(value: final value) => {
+              'direction': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (endedReason) {
+          SdkPresent<String?>(value: final value) => {
+              'ended_reason': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (phone) {
+          SdkPresent<String?>(value: final value) => {
+              'phone': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (finRecordingUrl) {
+          SdkPresent<String?>(value: final value) => {
+              'fin_recording_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (finTranscriptionUrl) {
+          SdkPresent<String?>(value: final value) => {
+              'fin_transcription_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (transcript) {
+          SdkPresent<List<Map<String, Object?>>>(value: final value) => {
+              'transcript': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (transcriptStatus) {
+          SdkPresent<String?>(value: final value) => {
+              'transcript_status': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class ListCallsWithTranscriptsResponse {
@@ -241,51 +480,86 @@ class ListCallsWithTranscriptsResponse {
   final SdkOptional<String> type_;
   final SdkOptional<List<ListCallsWithTranscriptsResponseDataItem>> data;
 
-  const ListCallsWithTranscriptsResponse({this.type_ = const SdkOmitted(), this.data = const SdkOmitted()});
+  const ListCallsWithTranscriptsResponse(
+      {this.type_ = const SdkOmitted(), this.data = const SdkOmitted()});
 
-  ListCallsWithTranscriptsResponse Function({SdkOptional<String> type_, SdkOptional<List<ListCallsWithTranscriptsResponseDataItem>> data}) get copyWith => _copyWith;
+  ListCallsWithTranscriptsResponse Function(
+          {SdkOptional<String> type_,
+          SdkOptional<List<ListCallsWithTranscriptsResponseDataItem>> data})
+      get copyWith => _copyWith;
 
-  ListCallsWithTranscriptsResponse _copyWith({Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) => ListCallsWithTranscriptsResponse(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<ListCallsWithTranscriptsResponseDataItem>>,
-  );
+  ListCallsWithTranscriptsResponse _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
+      ListCallsWithTranscriptsResponse(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<String>,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data
+                as SdkOptional<List<ListCallsWithTranscriptsResponseDataItem>>,
+      );
 
-  factory ListCallsWithTranscriptsResponse.fromJson(Map<String, dynamic> json) => ListCallsWithTranscriptsResponse(
-    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
-    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => ListCallsWithTranscriptsResponseDataItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory ListCallsWithTranscriptsResponse.fromJson(
+          Map<String, dynamic> json) =>
+      ListCallsWithTranscriptsResponse(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] as String?)!)
+            : const SdkOmitted(),
+        data: json['data'] != null
+            ? SdkPresent(((json['data'] as List?)
+                ?.map((e) => ListCallsWithTranscriptsResponseDataItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<String>(value: final value) => {'type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (data) {
-      SdkPresent<List<ListCallsWithTranscriptsResponseDataItem>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<String>(value: final value) => {
+              'type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (data) {
+          SdkPresent<List<ListCallsWithTranscriptsResponseDataItem>>(
+            value: final value
+          ) =>
+            {
+              'data': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class LinkTicketsConversationRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique identifier (given by Intercom) for the conversation or customer ticket to link to the tracker ticket.
   final String conversationId;
 
   const LinkTicketsConversationRequestBody({required this.conversationId});
 
-  LinkTicketsConversationRequestBody Function({String conversationId}) get copyWith => _copyWith;
+  LinkTicketsConversationRequestBody Function({String conversationId})
+      get copyWith => _copyWith;
 
-  LinkTicketsConversationRequestBody _copyWith({Object? conversationId = sdkOmittedValue}) => LinkTicketsConversationRequestBody(
-    conversationId: identical(conversationId, sdkOmittedValue) ? this.conversationId : conversationId as String,
-  );
+  LinkTicketsConversationRequestBody _copyWith(
+          {Object? conversationId = sdkOmittedValue}) =>
+      LinkTicketsConversationRequestBody(
+        conversationId: identical(conversationId, sdkOmittedValue)
+            ? this.conversationId
+            : conversationId as String,
+      );
 
-  factory LinkTicketsConversationRequestBody.fromJson(Map<String, dynamic> json) => LinkTicketsConversationRequestBody(
-    conversationId: (json['conversation_id'] as String?)!,
-  );
+  factory LinkTicketsConversationRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      LinkTicketsConversationRequestBody(
+        conversationId: (json['conversation_id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'conversation_id': conversationId,
-  };
+        'conversation_id': conversationId,
+      };
 }

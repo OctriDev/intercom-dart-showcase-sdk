@@ -8,33 +8,62 @@ part of 'contacts.dart';
 class MergePreviewSummary {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The attribute changes the merge would make to the surviving contact.
   final SdkOptional<MergePreviewAttributeChanges> attributeChanges;
+
   /// Two counts per object type — `from`, how many are on the lead and would move to the surviving contact, and `into`, how many the surviving contact already has. Only types with reassignments are included, and both counts are always present on a type that is included.
   final SdkOptional<MergePreviewReassignments> reassignments;
 
-  const MergePreviewSummary({this.attributeChanges = const SdkOmitted(), this.reassignments = const SdkOmitted()});
+  const MergePreviewSummary(
+      {this.attributeChanges = const SdkOmitted(),
+      this.reassignments = const SdkOmitted()});
 
-  MergePreviewSummary Function({SdkOptional<MergePreviewAttributeChanges> attributeChanges, SdkOptional<MergePreviewReassignments> reassignments}) get copyWith => _copyWith;
+  MergePreviewSummary Function(
+          {SdkOptional<MergePreviewAttributeChanges> attributeChanges,
+          SdkOptional<MergePreviewReassignments> reassignments})
+      get copyWith => _copyWith;
 
-  MergePreviewSummary _copyWith({Object? attributeChanges = sdkOmittedValue, Object? reassignments = sdkOmittedValue}) => MergePreviewSummary(
-    attributeChanges: identical(attributeChanges, sdkOmittedValue) ? this.attributeChanges : attributeChanges as SdkOptional<MergePreviewAttributeChanges>,
-    reassignments: identical(reassignments, sdkOmittedValue) ? this.reassignments : reassignments as SdkOptional<MergePreviewReassignments>,
-  );
+  MergePreviewSummary _copyWith(
+          {Object? attributeChanges = sdkOmittedValue,
+          Object? reassignments = sdkOmittedValue}) =>
+      MergePreviewSummary(
+        attributeChanges: identical(attributeChanges, sdkOmittedValue)
+            ? this.attributeChanges
+            : attributeChanges as SdkOptional<MergePreviewAttributeChanges>,
+        reassignments: identical(reassignments, sdkOmittedValue)
+            ? this.reassignments
+            : reassignments as SdkOptional<MergePreviewReassignments>,
+      );
 
-  factory MergePreviewSummary.fromJson(Map<String, dynamic> json) => MergePreviewSummary(
-    attributeChanges: json['attribute_changes'] != null ? SdkPresent((json['attribute_changes'] != null ? MergePreviewAttributeChanges.fromJson(json['attribute_changes'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    reassignments: json['reassignments'] != null ? SdkPresent((json['reassignments'] != null ? MergePreviewReassignments.fromJson(json['reassignments'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory MergePreviewSummary.fromJson(Map<String, dynamic> json) =>
+      MergePreviewSummary(
+        attributeChanges: json['attribute_changes'] != null
+            ? SdkPresent((json['attribute_changes'] != null
+                ? MergePreviewAttributeChanges.fromJson(
+                    json['attribute_changes'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        reassignments: json['reassignments'] != null
+            ? SdkPresent((json['reassignments'] != null
+                ? MergePreviewReassignments.fromJson(
+                    json['reassignments'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (attributeChanges) {
-      SdkPresent<MergePreviewAttributeChanges>(value: final value) => {'attribute_changes': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (reassignments) {
-      SdkPresent<MergePreviewReassignments>(value: final value) => {'reassignments': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (attributeChanges) {
+          SdkPresent<MergePreviewAttributeChanges>(value: final value) => {
+              'attribute_changes': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (reassignments) {
+          SdkPresent<MergePreviewReassignments>(value: final value) => {
+              'reassignments': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

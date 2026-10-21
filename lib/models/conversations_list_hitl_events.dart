@@ -8,287 +8,593 @@ part of 'conversations.dart';
 class HitlEventData {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The channel the conversation was on when Fin consulted a teammate.
   final SdkOptional<HitlEventDataChannel> channel;
+
   /// The confidence threshold the rule required, as a percentage.
   final SdkOptional<int?> ruleThresholdPercent;
+
   /// How confident Fin was in its answer, as a percentage. Compare against `rule_threshold_percent`.
   final SdkOptional<int?> confidencePercent;
+
   /// The question Fin put to the teammate.
   final SdkOptional<String?> sharpAsk;
+
   /// Why Fin needed to ask.
   final SdkOptional<String?> askRationale;
+
   /// Fin's summary of what the customer needs.
   final SdkOptional<String?> issueSummary;
+
   /// The customer's message that prompted the consultation.
   final SdkOptional<String?> customerQuestion;
+
   /// The reply Fin proposed to the teammate.
   final SdkOptional<String?> draft;
+
   /// Which round of teammate feedback this event belongs to, starting at 1.
   final SdkOptional<int> roundIndex;
+
   /// The feedback the teammate gave Fin.
   final SdkOptional<String?> teammateInput;
+
   /// The teammate involved in this event — who gave the feedback, or who approved the draft or took over.
   final SdkOptional<String?> reviewerAdminId;
+
   /// How Fin responded to the feedback. `answer` means it produced a revised draft, and is the only value accompanied by a `fin_draft_revised` event. `no_answer` means it had nothing to send, `failed` that regeneration failed, `consult_teammate` that it asked the teammate again, and `pending` that the consultation ended before Fin responded.
   final SdkOptional<String?> regenerationOutcome;
+
   /// The reply Fin produced after the teammate's feedback.
   final SdkOptional<String?> revisedDraft;
+
   /// How the consultation ended.
   final SdkOptional<HitlEventDataOutcome> outcome;
+
   /// Whether the teammate approved Fin's original draft or the one it revised after their feedback.
   final SdkOptional<HitlEventDataApprovedDraftType?> approvedDraftType;
+
   /// The reply as it stood when the consultation ended.
   final SdkOptional<String?> finalDraft;
+
   /// What was sent to the customer. Null when nothing was sent.
   final SdkOptional<String?> sentText;
+
   /// How long the consultation took, in seconds.
   final SdkOptional<int?> durationSeconds;
+
   /// How many rounds of teammate feedback the consultation had. Only the ten most recent are returned as events, so this can exceed the number of `fin_teammate_input_received` events.
   final SdkOptional<int> roundsCount;
+
   /// Whether any text on this consultation was too long to store in full and was cut.
   final SdkOptional<bool> payloadTruncated;
 
-  const HitlEventData({this.channel = const SdkOmitted(), this.ruleThresholdPercent = const SdkOmitted(), this.confidencePercent = const SdkOmitted(), this.sharpAsk = const SdkOmitted(), this.askRationale = const SdkOmitted(), this.issueSummary = const SdkOmitted(), this.customerQuestion = const SdkOmitted(), this.draft = const SdkOmitted(), this.roundIndex = const SdkOmitted(), this.teammateInput = const SdkOmitted(), this.reviewerAdminId = const SdkOmitted(), this.regenerationOutcome = const SdkOmitted(), this.revisedDraft = const SdkOmitted(), this.outcome = const SdkOmitted(), this.approvedDraftType = const SdkOmitted(), this.finalDraft = const SdkOmitted(), this.sentText = const SdkOmitted(), this.durationSeconds = const SdkOmitted(), this.roundsCount = const SdkOmitted(), this.payloadTruncated = const SdkOmitted()});
+  const HitlEventData(
+      {this.channel = const SdkOmitted(),
+      this.ruleThresholdPercent = const SdkOmitted(),
+      this.confidencePercent = const SdkOmitted(),
+      this.sharpAsk = const SdkOmitted(),
+      this.askRationale = const SdkOmitted(),
+      this.issueSummary = const SdkOmitted(),
+      this.customerQuestion = const SdkOmitted(),
+      this.draft = const SdkOmitted(),
+      this.roundIndex = const SdkOmitted(),
+      this.teammateInput = const SdkOmitted(),
+      this.reviewerAdminId = const SdkOmitted(),
+      this.regenerationOutcome = const SdkOmitted(),
+      this.revisedDraft = const SdkOmitted(),
+      this.outcome = const SdkOmitted(),
+      this.approvedDraftType = const SdkOmitted(),
+      this.finalDraft = const SdkOmitted(),
+      this.sentText = const SdkOmitted(),
+      this.durationSeconds = const SdkOmitted(),
+      this.roundsCount = const SdkOmitted(),
+      this.payloadTruncated = const SdkOmitted()});
 
-  HitlEventData Function({SdkOptional<HitlEventDataChannel> channel, SdkOptional<int?> ruleThresholdPercent, SdkOptional<int?> confidencePercent, SdkOptional<String?> sharpAsk, SdkOptional<String?> askRationale, SdkOptional<String?> issueSummary, SdkOptional<String?> customerQuestion, SdkOptional<String?> draft, SdkOptional<int> roundIndex, SdkOptional<String?> teammateInput, SdkOptional<String?> reviewerAdminId, SdkOptional<String?> regenerationOutcome, SdkOptional<String?> revisedDraft, SdkOptional<HitlEventDataOutcome> outcome, SdkOptional<HitlEventDataApprovedDraftType?> approvedDraftType, SdkOptional<String?> finalDraft, SdkOptional<String?> sentText, SdkOptional<int?> durationSeconds, SdkOptional<int> roundsCount, SdkOptional<bool> payloadTruncated}) get copyWith => _copyWith;
+  HitlEventData Function(
+      {SdkOptional<HitlEventDataChannel> channel,
+      SdkOptional<int?> ruleThresholdPercent,
+      SdkOptional<int?> confidencePercent,
+      SdkOptional<String?> sharpAsk,
+      SdkOptional<String?> askRationale,
+      SdkOptional<String?> issueSummary,
+      SdkOptional<String?> customerQuestion,
+      SdkOptional<String?> draft,
+      SdkOptional<int> roundIndex,
+      SdkOptional<String?> teammateInput,
+      SdkOptional<String?> reviewerAdminId,
+      SdkOptional<String?> regenerationOutcome,
+      SdkOptional<String?> revisedDraft,
+      SdkOptional<HitlEventDataOutcome> outcome,
+      SdkOptional<HitlEventDataApprovedDraftType?> approvedDraftType,
+      SdkOptional<String?> finalDraft,
+      SdkOptional<String?> sentText,
+      SdkOptional<int?> durationSeconds,
+      SdkOptional<int> roundsCount,
+      SdkOptional<bool> payloadTruncated}) get copyWith => _copyWith;
 
-  HitlEventData _copyWith({Object? channel = sdkOmittedValue, Object? ruleThresholdPercent = sdkOmittedValue, Object? confidencePercent = sdkOmittedValue, Object? sharpAsk = sdkOmittedValue, Object? askRationale = sdkOmittedValue, Object? issueSummary = sdkOmittedValue, Object? customerQuestion = sdkOmittedValue, Object? draft = sdkOmittedValue, Object? roundIndex = sdkOmittedValue, Object? teammateInput = sdkOmittedValue, Object? reviewerAdminId = sdkOmittedValue, Object? regenerationOutcome = sdkOmittedValue, Object? revisedDraft = sdkOmittedValue, Object? outcome = sdkOmittedValue, Object? approvedDraftType = sdkOmittedValue, Object? finalDraft = sdkOmittedValue, Object? sentText = sdkOmittedValue, Object? durationSeconds = sdkOmittedValue, Object? roundsCount = sdkOmittedValue, Object? payloadTruncated = sdkOmittedValue}) => HitlEventData(
-    channel: identical(channel, sdkOmittedValue) ? this.channel : channel as SdkOptional<HitlEventDataChannel>,
-    ruleThresholdPercent: identical(ruleThresholdPercent, sdkOmittedValue) ? this.ruleThresholdPercent : ruleThresholdPercent as SdkOptional<int?>,
-    confidencePercent: identical(confidencePercent, sdkOmittedValue) ? this.confidencePercent : confidencePercent as SdkOptional<int?>,
-    sharpAsk: identical(sharpAsk, sdkOmittedValue) ? this.sharpAsk : sharpAsk as SdkOptional<String?>,
-    askRationale: identical(askRationale, sdkOmittedValue) ? this.askRationale : askRationale as SdkOptional<String?>,
-    issueSummary: identical(issueSummary, sdkOmittedValue) ? this.issueSummary : issueSummary as SdkOptional<String?>,
-    customerQuestion: identical(customerQuestion, sdkOmittedValue) ? this.customerQuestion : customerQuestion as SdkOptional<String?>,
-    draft: identical(draft, sdkOmittedValue) ? this.draft : draft as SdkOptional<String?>,
-    roundIndex: identical(roundIndex, sdkOmittedValue) ? this.roundIndex : roundIndex as SdkOptional<int>,
-    teammateInput: identical(teammateInput, sdkOmittedValue) ? this.teammateInput : teammateInput as SdkOptional<String?>,
-    reviewerAdminId: identical(reviewerAdminId, sdkOmittedValue) ? this.reviewerAdminId : reviewerAdminId as SdkOptional<String?>,
-    regenerationOutcome: identical(regenerationOutcome, sdkOmittedValue) ? this.regenerationOutcome : regenerationOutcome as SdkOptional<String?>,
-    revisedDraft: identical(revisedDraft, sdkOmittedValue) ? this.revisedDraft : revisedDraft as SdkOptional<String?>,
-    outcome: identical(outcome, sdkOmittedValue) ? this.outcome : outcome as SdkOptional<HitlEventDataOutcome>,
-    approvedDraftType: identical(approvedDraftType, sdkOmittedValue) ? this.approvedDraftType : approvedDraftType as SdkOptional<HitlEventDataApprovedDraftType?>,
-    finalDraft: identical(finalDraft, sdkOmittedValue) ? this.finalDraft : finalDraft as SdkOptional<String?>,
-    sentText: identical(sentText, sdkOmittedValue) ? this.sentText : sentText as SdkOptional<String?>,
-    durationSeconds: identical(durationSeconds, sdkOmittedValue) ? this.durationSeconds : durationSeconds as SdkOptional<int?>,
-    roundsCount: identical(roundsCount, sdkOmittedValue) ? this.roundsCount : roundsCount as SdkOptional<int>,
-    payloadTruncated: identical(payloadTruncated, sdkOmittedValue) ? this.payloadTruncated : payloadTruncated as SdkOptional<bool>,
-  );
+  HitlEventData _copyWith(
+          {Object? channel = sdkOmittedValue,
+          Object? ruleThresholdPercent = sdkOmittedValue,
+          Object? confidencePercent = sdkOmittedValue,
+          Object? sharpAsk = sdkOmittedValue,
+          Object? askRationale = sdkOmittedValue,
+          Object? issueSummary = sdkOmittedValue,
+          Object? customerQuestion = sdkOmittedValue,
+          Object? draft = sdkOmittedValue,
+          Object? roundIndex = sdkOmittedValue,
+          Object? teammateInput = sdkOmittedValue,
+          Object? reviewerAdminId = sdkOmittedValue,
+          Object? regenerationOutcome = sdkOmittedValue,
+          Object? revisedDraft = sdkOmittedValue,
+          Object? outcome = sdkOmittedValue,
+          Object? approvedDraftType = sdkOmittedValue,
+          Object? finalDraft = sdkOmittedValue,
+          Object? sentText = sdkOmittedValue,
+          Object? durationSeconds = sdkOmittedValue,
+          Object? roundsCount = sdkOmittedValue,
+          Object? payloadTruncated = sdkOmittedValue}) =>
+      HitlEventData(
+        channel: identical(channel, sdkOmittedValue)
+            ? this.channel
+            : channel as SdkOptional<HitlEventDataChannel>,
+        ruleThresholdPercent: identical(ruleThresholdPercent, sdkOmittedValue)
+            ? this.ruleThresholdPercent
+            : ruleThresholdPercent as SdkOptional<int?>,
+        confidencePercent: identical(confidencePercent, sdkOmittedValue)
+            ? this.confidencePercent
+            : confidencePercent as SdkOptional<int?>,
+        sharpAsk: identical(sharpAsk, sdkOmittedValue)
+            ? this.sharpAsk
+            : sharpAsk as SdkOptional<String?>,
+        askRationale: identical(askRationale, sdkOmittedValue)
+            ? this.askRationale
+            : askRationale as SdkOptional<String?>,
+        issueSummary: identical(issueSummary, sdkOmittedValue)
+            ? this.issueSummary
+            : issueSummary as SdkOptional<String?>,
+        customerQuestion: identical(customerQuestion, sdkOmittedValue)
+            ? this.customerQuestion
+            : customerQuestion as SdkOptional<String?>,
+        draft: identical(draft, sdkOmittedValue)
+            ? this.draft
+            : draft as SdkOptional<String?>,
+        roundIndex: identical(roundIndex, sdkOmittedValue)
+            ? this.roundIndex
+            : roundIndex as SdkOptional<int>,
+        teammateInput: identical(teammateInput, sdkOmittedValue)
+            ? this.teammateInput
+            : teammateInput as SdkOptional<String?>,
+        reviewerAdminId: identical(reviewerAdminId, sdkOmittedValue)
+            ? this.reviewerAdminId
+            : reviewerAdminId as SdkOptional<String?>,
+        regenerationOutcome: identical(regenerationOutcome, sdkOmittedValue)
+            ? this.regenerationOutcome
+            : regenerationOutcome as SdkOptional<String?>,
+        revisedDraft: identical(revisedDraft, sdkOmittedValue)
+            ? this.revisedDraft
+            : revisedDraft as SdkOptional<String?>,
+        outcome: identical(outcome, sdkOmittedValue)
+            ? this.outcome
+            : outcome as SdkOptional<HitlEventDataOutcome>,
+        approvedDraftType: identical(approvedDraftType, sdkOmittedValue)
+            ? this.approvedDraftType
+            : approvedDraftType as SdkOptional<HitlEventDataApprovedDraftType?>,
+        finalDraft: identical(finalDraft, sdkOmittedValue)
+            ? this.finalDraft
+            : finalDraft as SdkOptional<String?>,
+        sentText: identical(sentText, sdkOmittedValue)
+            ? this.sentText
+            : sentText as SdkOptional<String?>,
+        durationSeconds: identical(durationSeconds, sdkOmittedValue)
+            ? this.durationSeconds
+            : durationSeconds as SdkOptional<int?>,
+        roundsCount: identical(roundsCount, sdkOmittedValue)
+            ? this.roundsCount
+            : roundsCount as SdkOptional<int>,
+        payloadTruncated: identical(payloadTruncated, sdkOmittedValue)
+            ? this.payloadTruncated
+            : payloadTruncated as SdkOptional<bool>,
+      );
 
   factory HitlEventData.fromJson(Map<String, dynamic> json) => HitlEventData(
-    channel: json['channel'] != null ? SdkPresent((json['channel'] != null ? HitlEventDataChannel.fromJson(json['channel'] as String) : null)!) : const SdkOmitted(),
-    ruleThresholdPercent: json.containsKey('rule_threshold_percent') ? SdkPresent((json['rule_threshold_percent'] as num?)?.toInt()) : const SdkOmitted(),
-    confidencePercent: json.containsKey('confidence_percent') ? SdkPresent((json['confidence_percent'] as num?)?.toInt()) : const SdkOmitted(),
-    sharpAsk: json.containsKey('sharp_ask') ? SdkPresent(json['sharp_ask'] as String?) : const SdkOmitted(),
-    askRationale: json.containsKey('ask_rationale') ? SdkPresent(json['ask_rationale'] as String?) : const SdkOmitted(),
-    issueSummary: json.containsKey('issue_summary') ? SdkPresent(json['issue_summary'] as String?) : const SdkOmitted(),
-    customerQuestion: json.containsKey('customer_question') ? SdkPresent(json['customer_question'] as String?) : const SdkOmitted(),
-    draft: json.containsKey('draft') ? SdkPresent(json['draft'] as String?) : const SdkOmitted(),
-    roundIndex: json['round_index'] != null ? SdkPresent(((json['round_index'] as num?)?.toInt())!) : const SdkOmitted(),
-    teammateInput: json.containsKey('teammate_input') ? SdkPresent(json['teammate_input'] as String?) : const SdkOmitted(),
-    reviewerAdminId: json.containsKey('reviewer_admin_id') ? SdkPresent(json['reviewer_admin_id'] as String?) : const SdkOmitted(),
-    regenerationOutcome: json.containsKey('regeneration_outcome') ? SdkPresent(json['regeneration_outcome'] as String?) : const SdkOmitted(),
-    revisedDraft: json.containsKey('revised_draft') ? SdkPresent(json['revised_draft'] as String?) : const SdkOmitted(),
-    outcome: json['outcome'] != null ? SdkPresent((json['outcome'] != null ? HitlEventDataOutcome.fromJson(json['outcome'] as String) : null)!) : const SdkOmitted(),
-    approvedDraftType: json.containsKey('approved_draft_type') ? SdkPresent(json['approved_draft_type'] != null ? HitlEventDataApprovedDraftType.fromJson(json['approved_draft_type'] as String) : null) : const SdkOmitted(),
-    finalDraft: json.containsKey('final_draft') ? SdkPresent(json['final_draft'] as String?) : const SdkOmitted(),
-    sentText: json.containsKey('sent_text') ? SdkPresent(json['sent_text'] as String?) : const SdkOmitted(),
-    durationSeconds: json.containsKey('duration_seconds') ? SdkPresent((json['duration_seconds'] as num?)?.toInt()) : const SdkOmitted(),
-    roundsCount: json['rounds_count'] != null ? SdkPresent(((json['rounds_count'] as num?)?.toInt())!) : const SdkOmitted(),
-    payloadTruncated: json['payload_truncated'] != null ? SdkPresent((json['payload_truncated'] as bool?)!) : const SdkOmitted(),
-  );
+        channel: json['channel'] != null
+            ? SdkPresent((json['channel'] != null
+                ? HitlEventDataChannel.fromJson(json['channel'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        ruleThresholdPercent: json.containsKey('rule_threshold_percent')
+            ? SdkPresent((json['rule_threshold_percent'] as num?)?.toInt())
+            : const SdkOmitted(),
+        confidencePercent: json.containsKey('confidence_percent')
+            ? SdkPresent((json['confidence_percent'] as num?)?.toInt())
+            : const SdkOmitted(),
+        sharpAsk: json.containsKey('sharp_ask')
+            ? SdkPresent(json['sharp_ask'] as String?)
+            : const SdkOmitted(),
+        askRationale: json.containsKey('ask_rationale')
+            ? SdkPresent(json['ask_rationale'] as String?)
+            : const SdkOmitted(),
+        issueSummary: json.containsKey('issue_summary')
+            ? SdkPresent(json['issue_summary'] as String?)
+            : const SdkOmitted(),
+        customerQuestion: json.containsKey('customer_question')
+            ? SdkPresent(json['customer_question'] as String?)
+            : const SdkOmitted(),
+        draft: json.containsKey('draft')
+            ? SdkPresent(json['draft'] as String?)
+            : const SdkOmitted(),
+        roundIndex: json['round_index'] != null
+            ? SdkPresent(((json['round_index'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        teammateInput: json.containsKey('teammate_input')
+            ? SdkPresent(json['teammate_input'] as String?)
+            : const SdkOmitted(),
+        reviewerAdminId: json.containsKey('reviewer_admin_id')
+            ? SdkPresent(json['reviewer_admin_id'] as String?)
+            : const SdkOmitted(),
+        regenerationOutcome: json.containsKey('regeneration_outcome')
+            ? SdkPresent(json['regeneration_outcome'] as String?)
+            : const SdkOmitted(),
+        revisedDraft: json.containsKey('revised_draft')
+            ? SdkPresent(json['revised_draft'] as String?)
+            : const SdkOmitted(),
+        outcome: json['outcome'] != null
+            ? SdkPresent((json['outcome'] != null
+                ? HitlEventDataOutcome.fromJson(json['outcome'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        approvedDraftType: json.containsKey('approved_draft_type')
+            ? SdkPresent(json['approved_draft_type'] != null
+                ? HitlEventDataApprovedDraftType.fromJson(
+                    json['approved_draft_type'] as String)
+                : null)
+            : const SdkOmitted(),
+        finalDraft: json.containsKey('final_draft')
+            ? SdkPresent(json['final_draft'] as String?)
+            : const SdkOmitted(),
+        sentText: json.containsKey('sent_text')
+            ? SdkPresent(json['sent_text'] as String?)
+            : const SdkOmitted(),
+        durationSeconds: json.containsKey('duration_seconds')
+            ? SdkPresent((json['duration_seconds'] as num?)?.toInt())
+            : const SdkOmitted(),
+        roundsCount: json['rounds_count'] != null
+            ? SdkPresent(((json['rounds_count'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        payloadTruncated: json['payload_truncated'] != null
+            ? SdkPresent((json['payload_truncated'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (channel) {
-      SdkPresent<HitlEventDataChannel>(value: final value) => {'channel': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (ruleThresholdPercent) {
-      SdkPresent<int?>(value: final value) => {'rule_threshold_percent': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (confidencePercent) {
-      SdkPresent<int?>(value: final value) => {'confidence_percent': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (sharpAsk) {
-      SdkPresent<String?>(value: final value) => {'sharp_ask': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (askRationale) {
-      SdkPresent<String?>(value: final value) => {'ask_rationale': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (issueSummary) {
-      SdkPresent<String?>(value: final value) => {'issue_summary': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (customerQuestion) {
-      SdkPresent<String?>(value: final value) => {'customer_question': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (draft) {
-      SdkPresent<String?>(value: final value) => {'draft': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (roundIndex) {
-      SdkPresent<int>(value: final value) => {'round_index': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (teammateInput) {
-      SdkPresent<String?>(value: final value) => {'teammate_input': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (reviewerAdminId) {
-      SdkPresent<String?>(value: final value) => {'reviewer_admin_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (regenerationOutcome) {
-      SdkPresent<String?>(value: final value) => {'regeneration_outcome': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (revisedDraft) {
-      SdkPresent<String?>(value: final value) => {'revised_draft': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (outcome) {
-      SdkPresent<HitlEventDataOutcome>(value: final value) => {'outcome': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (approvedDraftType) {
-      SdkPresent<HitlEventDataApprovedDraftType?>(value: final value) => {'approved_draft_type': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (finalDraft) {
-      SdkPresent<String?>(value: final value) => {'final_draft': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (sentText) {
-      SdkPresent<String?>(value: final value) => {'sent_text': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (durationSeconds) {
-      SdkPresent<int?>(value: final value) => {'duration_seconds': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (roundsCount) {
-      SdkPresent<int>(value: final value) => {'rounds_count': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (payloadTruncated) {
-      SdkPresent<bool>(value: final value) => {'payload_truncated': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (channel) {
+          SdkPresent<HitlEventDataChannel>(value: final value) => {
+              'channel': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (ruleThresholdPercent) {
+          SdkPresent<int?>(value: final value) => {
+              'rule_threshold_percent': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (confidencePercent) {
+          SdkPresent<int?>(value: final value) => {
+              'confidence_percent': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (sharpAsk) {
+          SdkPresent<String?>(value: final value) => {
+              'sharp_ask': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (askRationale) {
+          SdkPresent<String?>(value: final value) => {
+              'ask_rationale': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (issueSummary) {
+          SdkPresent<String?>(value: final value) => {
+              'issue_summary': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (customerQuestion) {
+          SdkPresent<String?>(value: final value) => {
+              'customer_question': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (draft) {
+          SdkPresent<String?>(value: final value) => {
+              'draft': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (roundIndex) {
+          SdkPresent<int>(value: final value) => {
+              'round_index': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (teammateInput) {
+          SdkPresent<String?>(value: final value) => {
+              'teammate_input': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (reviewerAdminId) {
+          SdkPresent<String?>(value: final value) => {
+              'reviewer_admin_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (regenerationOutcome) {
+          SdkPresent<String?>(value: final value) => {
+              'regeneration_outcome': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (revisedDraft) {
+          SdkPresent<String?>(value: final value) => {
+              'revised_draft': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (outcome) {
+          SdkPresent<HitlEventDataOutcome>(value: final value) => {
+              'outcome': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (approvedDraftType) {
+          SdkPresent<HitlEventDataApprovedDraftType?>(value: final value) => {
+              'approved_draft_type': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (finalDraft) {
+          SdkPresent<String?>(value: final value) => {
+              'final_draft': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (sentText) {
+          SdkPresent<String?>(value: final value) => {
+              'sent_text': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (durationSeconds) {
+          SdkPresent<int?>(value: final value) => {
+              'duration_seconds': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (roundsCount) {
+          SdkPresent<int>(value: final value) => {
+              'rounds_count': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (payloadTruncated) {
+          SdkPresent<bool>(value: final value) => {
+              'payload_truncated': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A single event in a Fin human-in-the-loop consultation on a conversation.
 class HitlEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Identifies the consultation this event belongs to. The same on every event of one consultation, so it is not unique per event.
   final SdkOptional<String> hitlCycleId;
+
   /// What happened.
   final SdkOptional<HitlEventEventType> eventType;
+
   /// The conversation part this event relates to, where one exists.
   final SdkOptional<String?> conversationPartId;
+
   /// The escalation rule that triggered the consultation, as recorded when it began. Null if no rule triggered it.
   final SdkOptional<String?> ruleId;
+
   /// The rule's name as recorded when the consultation began, which may differ from its current name.
   final SdkOptional<String?> ruleName;
+
   /// Unix timestamp for when the event occurred. Approximate on `fin_draft_proposed`.
   final SdkOptional<int> createdAt;
+
   /// Fields specific to this event. Which are present depends on `event_type` — see the endpoint description for the full mapping.
   final SdkOptional<HitlEventData> data;
 
-  const HitlEvent({this.hitlCycleId = const SdkOmitted(), this.eventType = const SdkOmitted(), this.conversationPartId = const SdkOmitted(), this.ruleId = const SdkOmitted(), this.ruleName = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.data = const SdkOmitted()});
+  const HitlEvent(
+      {this.hitlCycleId = const SdkOmitted(),
+      this.eventType = const SdkOmitted(),
+      this.conversationPartId = const SdkOmitted(),
+      this.ruleId = const SdkOmitted(),
+      this.ruleName = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.data = const SdkOmitted()});
 
-  HitlEvent Function({SdkOptional<String> hitlCycleId, SdkOptional<HitlEventEventType> eventType, SdkOptional<String?> conversationPartId, SdkOptional<String?> ruleId, SdkOptional<String?> ruleName, SdkOptional<int> createdAt, SdkOptional<HitlEventData> data}) get copyWith => _copyWith;
+  HitlEvent Function(
+      {SdkOptional<String> hitlCycleId,
+      SdkOptional<HitlEventEventType> eventType,
+      SdkOptional<String?> conversationPartId,
+      SdkOptional<String?> ruleId,
+      SdkOptional<String?> ruleName,
+      SdkOptional<int> createdAt,
+      SdkOptional<HitlEventData> data}) get copyWith => _copyWith;
 
-  HitlEvent _copyWith({Object? hitlCycleId = sdkOmittedValue, Object? eventType = sdkOmittedValue, Object? conversationPartId = sdkOmittedValue, Object? ruleId = sdkOmittedValue, Object? ruleName = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? data = sdkOmittedValue}) => HitlEvent(
-    hitlCycleId: identical(hitlCycleId, sdkOmittedValue) ? this.hitlCycleId : hitlCycleId as SdkOptional<String>,
-    eventType: identical(eventType, sdkOmittedValue) ? this.eventType : eventType as SdkOptional<HitlEventEventType>,
-    conversationPartId: identical(conversationPartId, sdkOmittedValue) ? this.conversationPartId : conversationPartId as SdkOptional<String?>,
-    ruleId: identical(ruleId, sdkOmittedValue) ? this.ruleId : ruleId as SdkOptional<String?>,
-    ruleName: identical(ruleName, sdkOmittedValue) ? this.ruleName : ruleName as SdkOptional<String?>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<int>,
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<HitlEventData>,
-  );
+  HitlEvent _copyWith(
+          {Object? hitlCycleId = sdkOmittedValue,
+          Object? eventType = sdkOmittedValue,
+          Object? conversationPartId = sdkOmittedValue,
+          Object? ruleId = sdkOmittedValue,
+          Object? ruleName = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? data = sdkOmittedValue}) =>
+      HitlEvent(
+        hitlCycleId: identical(hitlCycleId, sdkOmittedValue)
+            ? this.hitlCycleId
+            : hitlCycleId as SdkOptional<String>,
+        eventType: identical(eventType, sdkOmittedValue)
+            ? this.eventType
+            : eventType as SdkOptional<HitlEventEventType>,
+        conversationPartId: identical(conversationPartId, sdkOmittedValue)
+            ? this.conversationPartId
+            : conversationPartId as SdkOptional<String?>,
+        ruleId: identical(ruleId, sdkOmittedValue)
+            ? this.ruleId
+            : ruleId as SdkOptional<String?>,
+        ruleName: identical(ruleName, sdkOmittedValue)
+            ? this.ruleName
+            : ruleName as SdkOptional<String?>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<int>,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<HitlEventData>,
+      );
 
   factory HitlEvent.fromJson(Map<String, dynamic> json) => HitlEvent(
-    hitlCycleId: json['hitl_cycle_id'] != null ? SdkPresent((json['hitl_cycle_id'] as String?)!) : const SdkOmitted(),
-    eventType: json['event_type'] != null ? SdkPresent((json['event_type'] != null ? HitlEventEventType.fromJson(json['event_type'] as String) : null)!) : const SdkOmitted(),
-    conversationPartId: json.containsKey('conversation_part_id') ? SdkPresent(json['conversation_part_id'] as String?) : const SdkOmitted(),
-    ruleId: json.containsKey('rule_id') ? SdkPresent(json['rule_id'] as String?) : const SdkOmitted(),
-    ruleName: json.containsKey('rule_name') ? SdkPresent(json['rule_name'] as String?) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent(((json['created_at'] as num?)?.toInt())!) : const SdkOmitted(),
-    data: json['data'] != null ? SdkPresent((json['data'] != null ? HitlEventData.fromJson(json['data'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+        hitlCycleId: json['hitl_cycle_id'] != null
+            ? SdkPresent((json['hitl_cycle_id'] as String?)!)
+            : const SdkOmitted(),
+        eventType: json['event_type'] != null
+            ? SdkPresent((json['event_type'] != null
+                ? HitlEventEventType.fromJson(json['event_type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        conversationPartId: json.containsKey('conversation_part_id')
+            ? SdkPresent(json['conversation_part_id'] as String?)
+            : const SdkOmitted(),
+        ruleId: json.containsKey('rule_id')
+            ? SdkPresent(json['rule_id'] as String?)
+            : const SdkOmitted(),
+        ruleName: json.containsKey('rule_name')
+            ? SdkPresent(json['rule_name'] as String?)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent(((json['created_at'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        data: json['data'] != null
+            ? SdkPresent((json['data'] != null
+                ? HitlEventData.fromJson(json['data'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (hitlCycleId) {
-      SdkPresent<String>(value: final value) => {'hitl_cycle_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (eventType) {
-      SdkPresent<HitlEventEventType>(value: final value) => {'event_type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (conversationPartId) {
-      SdkPresent<String?>(value: final value) => {'conversation_part_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (ruleId) {
-      SdkPresent<String?>(value: final value) => {'rule_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (ruleName) {
-      SdkPresent<String?>(value: final value) => {'rule_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<int>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (data) {
-      SdkPresent<HitlEventData>(value: final value) => {'data': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (hitlCycleId) {
+          SdkPresent<String>(value: final value) => {
+              'hitl_cycle_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (eventType) {
+          SdkPresent<HitlEventEventType>(value: final value) => {
+              'event_type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (conversationPartId) {
+          SdkPresent<String?>(value: final value) => {
+              'conversation_part_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (ruleId) {
+          SdkPresent<String?>(value: final value) => {
+              'rule_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (ruleName) {
+          SdkPresent<String?>(value: final value) => {
+              'rule_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<int>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (data) {
+          SdkPresent<HitlEventData>(value: final value) => {
+              'data': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A list of human-in-the-loop events for a conversation, oldest first.
 class HitlEventList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object.
   final SdkOptional<HitlEventListType> type_;
+
   /// An array of HITL event objects.
   final SdkOptional<List<HitlEvent>> data;
 
-  const HitlEventList({this.type_ = const SdkOmitted(), this.data = const SdkOmitted()});
+  const HitlEventList(
+      {this.type_ = const SdkOmitted(), this.data = const SdkOmitted()});
 
-  HitlEventList Function({SdkOptional<HitlEventListType> type_, SdkOptional<List<HitlEvent>> data}) get copyWith => _copyWith;
+  HitlEventList Function(
+      {SdkOptional<HitlEventListType> type_,
+      SdkOptional<List<HitlEvent>> data}) get copyWith => _copyWith;
 
-  HitlEventList _copyWith({Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) => HitlEventList(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<HitlEventListType>,
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<HitlEvent>>,
-  );
+  HitlEventList _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
+      HitlEventList(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<HitlEventListType>,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<List<HitlEvent>>,
+      );
 
   factory HitlEventList.fromJson(Map<String, dynamic> json) => HitlEventList(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? HitlEventListType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => HitlEvent.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? HitlEventListType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        data: json['data'] != null
+            ? SdkPresent(((json['data'] as List?)
+                ?.map((e) => HitlEvent.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<HitlEventListType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (data) {
-      SdkPresent<List<HitlEvent>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<HitlEventListType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (data) {
+          SdkPresent<List<HitlEvent>>(value: final value) => {
+              'data': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

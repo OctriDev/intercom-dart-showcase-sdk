@@ -8,33 +8,55 @@ part of 'shared.dart';
 class StartingAfterPaging {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The number of results to fetch per page.
   final SdkOptional<int> perPage;
+
   /// The cursor to use in the next request to get the next page of results.
   final SdkOptional<String?> startingAfter;
 
-  const StartingAfterPaging({this.perPage = const SdkOmitted(), this.startingAfter = const SdkOmitted()});
+  const StartingAfterPaging(
+      {this.perPage = const SdkOmitted(),
+      this.startingAfter = const SdkOmitted()});
 
-  StartingAfterPaging Function({SdkOptional<int> perPage, SdkOptional<String?> startingAfter}) get copyWith => _copyWith;
+  StartingAfterPaging Function(
+      {SdkOptional<int> perPage,
+      SdkOptional<String?> startingAfter}) get copyWith => _copyWith;
 
-  StartingAfterPaging _copyWith({Object? perPage = sdkOmittedValue, Object? startingAfter = sdkOmittedValue}) => StartingAfterPaging(
-    perPage: identical(perPage, sdkOmittedValue) ? this.perPage : perPage as SdkOptional<int>,
-    startingAfter: identical(startingAfter, sdkOmittedValue) ? this.startingAfter : startingAfter as SdkOptional<String?>,
-  );
+  StartingAfterPaging _copyWith(
+          {Object? perPage = sdkOmittedValue,
+          Object? startingAfter = sdkOmittedValue}) =>
+      StartingAfterPaging(
+        perPage: identical(perPage, sdkOmittedValue)
+            ? this.perPage
+            : perPage as SdkOptional<int>,
+        startingAfter: identical(startingAfter, sdkOmittedValue)
+            ? this.startingAfter
+            : startingAfter as SdkOptional<String?>,
+      );
 
-  factory StartingAfterPaging.fromJson(Map<String, dynamic> json) => StartingAfterPaging(
-    perPage: json['per_page'] != null ? SdkPresent(((json['per_page'] as num?)?.toInt())!) : const SdkOmitted(),
-    startingAfter: json.containsKey('starting_after') ? SdkPresent(json['starting_after'] as String?) : const SdkOmitted(),
-  );
+  factory StartingAfterPaging.fromJson(Map<String, dynamic> json) =>
+      StartingAfterPaging(
+        perPage: json['per_page'] != null
+            ? SdkPresent(((json['per_page'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        startingAfter: json.containsKey('starting_after')
+            ? SdkPresent(json['starting_after'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (perPage) {
-      SdkPresent<int>(value: final value) => {'per_page': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (startingAfter) {
-      SdkPresent<String?>(value: final value) => {'starting_after': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (perPage) {
+          SdkPresent<int>(value: final value) => {
+              'per_page': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (startingAfter) {
+          SdkPresent<String?>(value: final value) => {
+              'starting_after': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

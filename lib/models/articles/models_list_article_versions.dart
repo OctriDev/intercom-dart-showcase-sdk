@@ -8,105 +8,221 @@ part of 'models.dart';
 class ArticleVersionSummary {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// String representing the object's type. Always has the value `article_version`.
   final SdkOptional<ArticleVersionSummaryType> type_;
+
   /// The unique identifier for the version.
   final SdkOptional<String> id;
+
   /// The unique identifier of the article this version belongs to.
   final SdkOptional<String> articleId;
+
   /// The title of the article at this version.
   final SdkOptional<String> title;
+
   /// The description of the article at this version.
   final SdkOptional<String?> description;
+
   /// The id of the teammate listed as the article's author at this version.
   final SdkOptional<String> authorId;
+
   /// The id of the teammate who created this version.
   final SdkOptional<String?> createdById;
+
   /// How this version was created (for example `web`, `api`).
   final SdkOptional<String> createdVia;
+
   /// The id of the version this version was created from, or `null` if this is the first version.
   final SdkOptional<String?> fromVersionId;
+
   /// Whether this version is the currently published version of the article (`published`) or an earlier non-live version (`draft`).
   final SdkOptional<ArticleVersionSummaryState> state;
+
   /// The time the version was created, as a UTC Unix timestamp.
   final SdkOptional<int> createdAt;
 
-  const ArticleVersionSummary({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.articleId = const SdkOmitted(), this.title = const SdkOmitted(), this.description = const SdkOmitted(), this.authorId = const SdkOmitted(), this.createdById = const SdkOmitted(), this.createdVia = const SdkOmitted(), this.fromVersionId = const SdkOmitted(), this.state = const SdkOmitted(), this.createdAt = const SdkOmitted()});
+  const ArticleVersionSummary(
+      {this.type_ = const SdkOmitted(),
+      this.id = const SdkOmitted(),
+      this.articleId = const SdkOmitted(),
+      this.title = const SdkOmitted(),
+      this.description = const SdkOmitted(),
+      this.authorId = const SdkOmitted(),
+      this.createdById = const SdkOmitted(),
+      this.createdVia = const SdkOmitted(),
+      this.fromVersionId = const SdkOmitted(),
+      this.state = const SdkOmitted(),
+      this.createdAt = const SdkOmitted()});
 
-  ArticleVersionSummary Function({SdkOptional<ArticleVersionSummaryType> type_, SdkOptional<String> id, SdkOptional<String> articleId, SdkOptional<String> title, SdkOptional<String?> description, SdkOptional<String> authorId, SdkOptional<String?> createdById, SdkOptional<String> createdVia, SdkOptional<String?> fromVersionId, SdkOptional<ArticleVersionSummaryState> state, SdkOptional<int> createdAt}) get copyWith => _copyWith;
+  ArticleVersionSummary Function(
+      {SdkOptional<ArticleVersionSummaryType> type_,
+      SdkOptional<String> id,
+      SdkOptional<String> articleId,
+      SdkOptional<String> title,
+      SdkOptional<String?> description,
+      SdkOptional<String> authorId,
+      SdkOptional<String?> createdById,
+      SdkOptional<String> createdVia,
+      SdkOptional<String?> fromVersionId,
+      SdkOptional<ArticleVersionSummaryState> state,
+      SdkOptional<int> createdAt}) get copyWith => _copyWith;
 
-  ArticleVersionSummary _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? articleId = sdkOmittedValue, Object? title = sdkOmittedValue, Object? description = sdkOmittedValue, Object? authorId = sdkOmittedValue, Object? createdById = sdkOmittedValue, Object? createdVia = sdkOmittedValue, Object? fromVersionId = sdkOmittedValue, Object? state = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => ArticleVersionSummary(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ArticleVersionSummaryType>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    articleId: identical(articleId, sdkOmittedValue) ? this.articleId : articleId as SdkOptional<String>,
-    title: identical(title, sdkOmittedValue) ? this.title : title as SdkOptional<String>,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String?>,
-    authorId: identical(authorId, sdkOmittedValue) ? this.authorId : authorId as SdkOptional<String>,
-    createdById: identical(createdById, sdkOmittedValue) ? this.createdById : createdById as SdkOptional<String?>,
-    createdVia: identical(createdVia, sdkOmittedValue) ? this.createdVia : createdVia as SdkOptional<String>,
-    fromVersionId: identical(fromVersionId, sdkOmittedValue) ? this.fromVersionId : fromVersionId as SdkOptional<String?>,
-    state: identical(state, sdkOmittedValue) ? this.state : state as SdkOptional<ArticleVersionSummaryState>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<int>,
-  );
+  ArticleVersionSummary _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? articleId = sdkOmittedValue,
+          Object? title = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? authorId = sdkOmittedValue,
+          Object? createdById = sdkOmittedValue,
+          Object? createdVia = sdkOmittedValue,
+          Object? fromVersionId = sdkOmittedValue,
+          Object? state = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue}) =>
+      ArticleVersionSummary(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<ArticleVersionSummaryType>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        articleId: identical(articleId, sdkOmittedValue)
+            ? this.articleId
+            : articleId as SdkOptional<String>,
+        title: identical(title, sdkOmittedValue)
+            ? this.title
+            : title as SdkOptional<String>,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String?>,
+        authorId: identical(authorId, sdkOmittedValue)
+            ? this.authorId
+            : authorId as SdkOptional<String>,
+        createdById: identical(createdById, sdkOmittedValue)
+            ? this.createdById
+            : createdById as SdkOptional<String?>,
+        createdVia: identical(createdVia, sdkOmittedValue)
+            ? this.createdVia
+            : createdVia as SdkOptional<String>,
+        fromVersionId: identical(fromVersionId, sdkOmittedValue)
+            ? this.fromVersionId
+            : fromVersionId as SdkOptional<String?>,
+        state: identical(state, sdkOmittedValue)
+            ? this.state
+            : state as SdkOptional<ArticleVersionSummaryState>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<int>,
+      );
 
-  factory ArticleVersionSummary.fromJson(Map<String, dynamic> json) => ArticleVersionSummary(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ArticleVersionSummaryType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    articleId: json['article_id'] != null ? SdkPresent((json['article_id'] as String?)!) : const SdkOmitted(),
-    title: json['title'] != null ? SdkPresent((json['title'] as String?)!) : const SdkOmitted(),
-    description: json.containsKey('description') ? SdkPresent(json['description'] as String?) : const SdkOmitted(),
-    authorId: json['author_id'] != null ? SdkPresent((json['author_id'] as String?)!) : const SdkOmitted(),
-    createdById: json.containsKey('created_by_id') ? SdkPresent(json['created_by_id'] as String?) : const SdkOmitted(),
-    createdVia: json['created_via'] != null ? SdkPresent((json['created_via'] as String?)!) : const SdkOmitted(),
-    fromVersionId: json.containsKey('from_version_id') ? SdkPresent(json['from_version_id'] as String?) : const SdkOmitted(),
-    state: json['state'] != null ? SdkPresent((json['state'] != null ? ArticleVersionSummaryState.fromJson(json['state'] as String) : null)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent(((json['created_at'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory ArticleVersionSummary.fromJson(Map<String, dynamic> json) =>
+      ArticleVersionSummary(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? ArticleVersionSummaryType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        articleId: json['article_id'] != null
+            ? SdkPresent((json['article_id'] as String?)!)
+            : const SdkOmitted(),
+        title: json['title'] != null
+            ? SdkPresent((json['title'] as String?)!)
+            : const SdkOmitted(),
+        description: json.containsKey('description')
+            ? SdkPresent(json['description'] as String?)
+            : const SdkOmitted(),
+        authorId: json['author_id'] != null
+            ? SdkPresent((json['author_id'] as String?)!)
+            : const SdkOmitted(),
+        createdById: json.containsKey('created_by_id')
+            ? SdkPresent(json['created_by_id'] as String?)
+            : const SdkOmitted(),
+        createdVia: json['created_via'] != null
+            ? SdkPresent((json['created_via'] as String?)!)
+            : const SdkOmitted(),
+        fromVersionId: json.containsKey('from_version_id')
+            ? SdkPresent(json['from_version_id'] as String?)
+            : const SdkOmitted(),
+        state: json['state'] != null
+            ? SdkPresent((json['state'] != null
+                ? ArticleVersionSummaryState.fromJson(json['state'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent(((json['created_at'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<ArticleVersionSummaryType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (articleId) {
-      SdkPresent<String>(value: final value) => {'article_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (title) {
-      SdkPresent<String>(value: final value) => {'title': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (description) {
-      SdkPresent<String?>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (authorId) {
-      SdkPresent<String>(value: final value) => {'author_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdById) {
-      SdkPresent<String?>(value: final value) => {'created_by_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdVia) {
-      SdkPresent<String>(value: final value) => {'created_via': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (fromVersionId) {
-      SdkPresent<String?>(value: final value) => {'from_version_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (state) {
-      SdkPresent<ArticleVersionSummaryState>(value: final value) => {'state': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<int>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<ArticleVersionSummaryType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (articleId) {
+          SdkPresent<String>(value: final value) => {
+              'article_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (title) {
+          SdkPresent<String>(value: final value) => {
+              'title': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (description) {
+          SdkPresent<String?>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (authorId) {
+          SdkPresent<String>(value: final value) => {
+              'author_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdById) {
+          SdkPresent<String?>(value: final value) => {
+              'created_by_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdVia) {
+          SdkPresent<String>(value: final value) => {
+              'created_via': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (fromVersionId) {
+          SdkPresent<String?>(value: final value) => {
+              'from_version_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (state) {
+          SdkPresent<ArticleVersionSummaryState>(value: final value) => {
+              'state': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<int>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

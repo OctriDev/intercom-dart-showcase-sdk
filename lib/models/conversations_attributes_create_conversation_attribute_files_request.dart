@@ -7,76 +7,145 @@ part of 'conversations_attributes.dart';
 class CreateConversationAttributeFilesRequestVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-  final SdkOptional<CreateConversationAttributeFilesRequestVariant1DataType> dataType;
+  final SdkOptional<CreateConversationAttributeFilesRequestVariant1DataType>
+      dataType;
 
-  const CreateConversationAttributeFilesRequestVariant1({this.dataType = const SdkOmitted()});
+  const CreateConversationAttributeFilesRequestVariant1(
+      {this.dataType = const SdkOmitted()});
 
-  CreateConversationAttributeFilesRequestVariant1 Function({SdkOptional<CreateConversationAttributeFilesRequestVariant1DataType> dataType}) get copyWith => _copyWith;
+  CreateConversationAttributeFilesRequestVariant1 Function(
+      {SdkOptional<CreateConversationAttributeFilesRequestVariant1DataType>
+          dataType}) get copyWith => _copyWith;
 
-  CreateConversationAttributeFilesRequestVariant1 _copyWith({Object? dataType = sdkOmittedValue}) => CreateConversationAttributeFilesRequestVariant1(
-    dataType: identical(dataType, sdkOmittedValue) ? this.dataType : dataType as SdkOptional<CreateConversationAttributeFilesRequestVariant1DataType>,
-  );
+  CreateConversationAttributeFilesRequestVariant1 _copyWith(
+          {Object? dataType = sdkOmittedValue}) =>
+      CreateConversationAttributeFilesRequestVariant1(
+        dataType: identical(dataType, sdkOmittedValue)
+            ? this.dataType
+            : dataType as SdkOptional<
+                CreateConversationAttributeFilesRequestVariant1DataType>,
+      );
 
-  factory CreateConversationAttributeFilesRequestVariant1.fromJson(Map<String, dynamic> json) => CreateConversationAttributeFilesRequestVariant1(
-    dataType: json['data_type'] != null ? SdkPresent((json['data_type'] != null ? CreateConversationAttributeFilesRequestVariant1DataType.fromJson(json['data_type'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory CreateConversationAttributeFilesRequestVariant1.fromJson(
+          Map<String, dynamic> json) =>
+      CreateConversationAttributeFilesRequestVariant1(
+        dataType: json['data_type'] != null
+            ? SdkPresent((json['data_type'] != null
+                ? CreateConversationAttributeFilesRequestVariant1DataType
+                    .fromJson(json['data_type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (dataType) {
-      SdkPresent<CreateConversationAttributeFilesRequestVariant1DataType>(value: final value) => {'data_type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (dataType) {
+          SdkPresent<CreateConversationAttributeFilesRequestVariant1DataType>(
+            value: final value
+          ) =>
+            {
+              'data_type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `CreateConversationAttributeFilesRequest` API schema.
 class CreateConversationAttributeFilesRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Name of the attribute.
   final String name;
+
   /// Readable description of the attribute.
   final SdkOptional<String> description;
   final CreateConversationAttributeFilesRequestVariant1DataType dataType;
+
   /// Whether this attribute is required.
   final SdkOptional<bool> required_;
+
   /// Team IDs that can see this attribute. Empty array means all teams.
   final SdkOptional<List<String>> visibleToTeamIds;
 
-  const CreateConversationAttributeFilesRequest({required this.name, this.description = const SdkOmitted(), required this.dataType, this.required_ = const SdkOmitted(), this.visibleToTeamIds = const SdkOmitted()});
+  const CreateConversationAttributeFilesRequest(
+      {required this.name,
+      this.description = const SdkOmitted(),
+      required this.dataType,
+      this.required_ = const SdkOmitted(),
+      this.visibleToTeamIds = const SdkOmitted()});
 
-  CreateConversationAttributeFilesRequest Function({String name, SdkOptional<String> description, CreateConversationAttributeFilesRequestVariant1DataType dataType, SdkOptional<bool> required_, SdkOptional<List<String>> visibleToTeamIds}) get copyWith => _copyWith;
+  CreateConversationAttributeFilesRequest Function(
+      {String name,
+      SdkOptional<String> description,
+      CreateConversationAttributeFilesRequestVariant1DataType dataType,
+      SdkOptional<bool> required_,
+      SdkOptional<List<String>> visibleToTeamIds}) get copyWith => _copyWith;
 
-  CreateConversationAttributeFilesRequest _copyWith({Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? dataType = sdkOmittedValue, Object? required_ = sdkOmittedValue, Object? visibleToTeamIds = sdkOmittedValue}) => CreateConversationAttributeFilesRequest(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
-    dataType: identical(dataType, sdkOmittedValue) ? this.dataType : dataType as CreateConversationAttributeFilesRequestVariant1DataType,
-    required_: identical(required_, sdkOmittedValue) ? this.required_ : required_ as SdkOptional<bool>,
-    visibleToTeamIds: identical(visibleToTeamIds, sdkOmittedValue) ? this.visibleToTeamIds : visibleToTeamIds as SdkOptional<List<String>>,
-  );
+  CreateConversationAttributeFilesRequest _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? dataType = sdkOmittedValue,
+          Object? required_ = sdkOmittedValue,
+          Object? visibleToTeamIds = sdkOmittedValue}) =>
+      CreateConversationAttributeFilesRequest(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String>,
+        dataType: identical(dataType, sdkOmittedValue)
+            ? this.dataType
+            : dataType
+                as CreateConversationAttributeFilesRequestVariant1DataType,
+        required_: identical(required_, sdkOmittedValue)
+            ? this.required_
+            : required_ as SdkOptional<bool>,
+        visibleToTeamIds: identical(visibleToTeamIds, sdkOmittedValue)
+            ? this.visibleToTeamIds
+            : visibleToTeamIds as SdkOptional<List<String>>,
+      );
 
-  factory CreateConversationAttributeFilesRequest.fromJson(Map<String, dynamic> json) => CreateConversationAttributeFilesRequest(
-    name: (json['name'] as String?)!,
-    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
-    dataType: (json['data_type'] != null ? CreateConversationAttributeFilesRequestVariant1DataType.fromJson(json['data_type'] as String) : null)!,
-    required_: json['required'] != null ? SdkPresent((json['required'] as bool?)!) : const SdkOmitted(),
-    visibleToTeamIds: json['visible_to_team_ids'] != null ? SdkPresent(((json['visible_to_team_ids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+  factory CreateConversationAttributeFilesRequest.fromJson(
+          Map<String, dynamic> json) =>
+      CreateConversationAttributeFilesRequest(
+        name: (json['name'] as String?)!,
+        description: json['description'] != null
+            ? SdkPresent((json['description'] as String?)!)
+            : const SdkOmitted(),
+        dataType: (json['data_type'] != null
+            ? CreateConversationAttributeFilesRequestVariant1DataType.fromJson(
+                json['data_type'] as String)
+            : null)!,
+        required_: json['required'] != null
+            ? SdkPresent((json['required'] as bool?)!)
+            : const SdkOmitted(),
+        visibleToTeamIds: json['visible_to_team_ids'] != null
+            ? SdkPresent(((json['visible_to_team_ids'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    ...switch (description) {
-      SdkPresent<String>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    'data_type': dataType.toJson(),
-    ...switch (required_) {
-      SdkPresent<bool>(value: final value) => {'required': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (visibleToTeamIds) {
-      SdkPresent<List<String>>(value: final value) => {'visible_to_team_ids': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'name': name,
+        ...switch (description) {
+          SdkPresent<String>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'data_type': dataType.toJson(),
+        ...switch (required_) {
+          SdkPresent<bool>(value: final value) => {
+              'required': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (visibleToTeamIds) {
+          SdkPresent<List<String>>(value: final value) => {
+              'visible_to_team_ids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

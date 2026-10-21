@@ -8,98 +8,187 @@ part of 'conversations.dart';
 class ContactReplyEmailRequestReplyOptionsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The text of the chosen reply option.
   final String text;
+
   /// The unique identifier for the quick reply option selected.
   final String uuid;
 
-  const ContactReplyEmailRequestReplyOptionsItem({required this.text, required this.uuid});
+  const ContactReplyEmailRequestReplyOptionsItem(
+      {required this.text, required this.uuid});
 
-  ContactReplyEmailRequestReplyOptionsItem Function({String text, String uuid}) get copyWith => _copyWith;
+  ContactReplyEmailRequestReplyOptionsItem Function({String text, String uuid})
+      get copyWith => _copyWith;
 
-  ContactReplyEmailRequestReplyOptionsItem _copyWith({Object? text = sdkOmittedValue, Object? uuid = sdkOmittedValue}) => ContactReplyEmailRequestReplyOptionsItem(
-    text: identical(text, sdkOmittedValue) ? this.text : text as String,
-    uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as String,
-  );
+  ContactReplyEmailRequestReplyOptionsItem _copyWith(
+          {Object? text = sdkOmittedValue, Object? uuid = sdkOmittedValue}) =>
+      ContactReplyEmailRequestReplyOptionsItem(
+        text: identical(text, sdkOmittedValue) ? this.text : text as String,
+        uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as String,
+      );
 
-  factory ContactReplyEmailRequestReplyOptionsItem.fromJson(Map<String, dynamic> json) => ContactReplyEmailRequestReplyOptionsItem(
-    text: (json['text'] as String?)!,
-    uuid: (json['uuid'] as String?)!,
-  );
+  factory ContactReplyEmailRequestReplyOptionsItem.fromJson(
+          Map<String, dynamic> json) =>
+      ContactReplyEmailRequestReplyOptionsItem(
+        text: (json['text'] as String?)!,
+        uuid: (json['uuid'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'text': text,
-    'uuid': uuid,
-  };
+        'text': text,
+        'uuid': uuid,
+      };
 }
 
 /// Payload of the request to reply on behalf of a contact using their `email`
 class ContactReplyEmailRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `message_type` wire field.
   final ContactReplyEmailRequestMessageType messageType;
+
   /// Required enumerated value serialized in the `type` wire field.
   final ContactReplyEmailRequestType type_;
+
   /// The text body of the comment.
   final String body;
+
   /// The time the reply was created. If not provided, the current time will be used.
   final SdkOptional<int> createdAt;
+
   /// A list of image URLs that will be added as attachments. You can include up to 10 URLs.
   final SdkOptional<List<String>> attachmentUrls;
+
   /// The quick reply selection the contact wishes to respond with. These map to buttons displayed in the Messenger UI if sent by a bot, or the reply options sent by an Admin via the API.
-  final SdkOptional<List<ContactReplyEmailRequestReplyOptionsItem>> replyOptions;
+  final SdkOptional<List<ContactReplyEmailRequestReplyOptionsItem>>
+      replyOptions;
+
   /// The email you have defined for the user.
   final String email;
+
   /// A list of files that will be added as attachments.
   final SdkOptional<List<ConversationAttachmentFiles>> attachmentFiles;
 
-  const ContactReplyEmailRequest({required this.messageType, required this.type_, required this.body, this.createdAt = const SdkOmitted(), this.attachmentUrls = const SdkOmitted(), this.replyOptions = const SdkOmitted(), required this.email, this.attachmentFiles = const SdkOmitted()});
+  const ContactReplyEmailRequest(
+      {required this.messageType,
+      required this.type_,
+      required this.body,
+      this.createdAt = const SdkOmitted(),
+      this.attachmentUrls = const SdkOmitted(),
+      this.replyOptions = const SdkOmitted(),
+      required this.email,
+      this.attachmentFiles = const SdkOmitted()});
 
-  ContactReplyEmailRequest Function({ContactReplyEmailRequestMessageType messageType, ContactReplyEmailRequestType type_, String body, SdkOptional<int> createdAt, SdkOptional<List<String>> attachmentUrls, SdkOptional<List<ContactReplyEmailRequestReplyOptionsItem>> replyOptions, String email, SdkOptional<List<ConversationAttachmentFiles>> attachmentFiles}) get copyWith => _copyWith;
+  ContactReplyEmailRequest Function(
+      {ContactReplyEmailRequestMessageType messageType,
+      ContactReplyEmailRequestType type_,
+      String body,
+      SdkOptional<int> createdAt,
+      SdkOptional<List<String>> attachmentUrls,
+      SdkOptional<List<ContactReplyEmailRequestReplyOptionsItem>> replyOptions,
+      String email,
+      SdkOptional<List<ConversationAttachmentFiles>>
+          attachmentFiles}) get copyWith => _copyWith;
 
-  ContactReplyEmailRequest _copyWith({Object? messageType = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? body = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? attachmentUrls = sdkOmittedValue, Object? replyOptions = sdkOmittedValue, Object? email = sdkOmittedValue, Object? attachmentFiles = sdkOmittedValue}) => ContactReplyEmailRequest(
-    messageType: identical(messageType, sdkOmittedValue) ? this.messageType : messageType as ContactReplyEmailRequestMessageType,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ContactReplyEmailRequestType,
-    body: identical(body, sdkOmittedValue) ? this.body : body as String,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<int>,
-    attachmentUrls: identical(attachmentUrls, sdkOmittedValue) ? this.attachmentUrls : attachmentUrls as SdkOptional<List<String>>,
-    replyOptions: identical(replyOptions, sdkOmittedValue) ? this.replyOptions : replyOptions as SdkOptional<List<ContactReplyEmailRequestReplyOptionsItem>>,
-    email: identical(email, sdkOmittedValue) ? this.email : email as String,
-    attachmentFiles: identical(attachmentFiles, sdkOmittedValue) ? this.attachmentFiles : attachmentFiles as SdkOptional<List<ConversationAttachmentFiles>>,
-  );
+  ContactReplyEmailRequest _copyWith(
+          {Object? messageType = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? body = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? attachmentUrls = sdkOmittedValue,
+          Object? replyOptions = sdkOmittedValue,
+          Object? email = sdkOmittedValue,
+          Object? attachmentFiles = sdkOmittedValue}) =>
+      ContactReplyEmailRequest(
+        messageType: identical(messageType, sdkOmittedValue)
+            ? this.messageType
+            : messageType as ContactReplyEmailRequestMessageType,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ContactReplyEmailRequestType,
+        body: identical(body, sdkOmittedValue) ? this.body : body as String,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<int>,
+        attachmentUrls: identical(attachmentUrls, sdkOmittedValue)
+            ? this.attachmentUrls
+            : attachmentUrls as SdkOptional<List<String>>,
+        replyOptions: identical(replyOptions, sdkOmittedValue)
+            ? this.replyOptions
+            : replyOptions
+                as SdkOptional<List<ContactReplyEmailRequestReplyOptionsItem>>,
+        email: identical(email, sdkOmittedValue) ? this.email : email as String,
+        attachmentFiles: identical(attachmentFiles, sdkOmittedValue)
+            ? this.attachmentFiles
+            : attachmentFiles as SdkOptional<List<ConversationAttachmentFiles>>,
+      );
 
-  factory ContactReplyEmailRequest.fromJson(Map<String, dynamic> json) => ContactReplyEmailRequest(
-    messageType: (json['message_type'] != null ? ContactReplyEmailRequestMessageType.fromJson(json['message_type'] as String) : null)!,
-    type_: (json['type'] != null ? ContactReplyEmailRequestType.fromJson(json['type'] as String) : null)!,
-    body: (json['body'] as String?)!,
-    createdAt: json['created_at'] != null ? SdkPresent(((json['created_at'] as num?)?.toInt())!) : const SdkOmitted(),
-    attachmentUrls: json['attachment_urls'] != null ? SdkPresent(((json['attachment_urls'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    replyOptions: json['reply_options'] != null ? SdkPresent(((json['reply_options'] as List?)?.map((e) => ContactReplyEmailRequestReplyOptionsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    email: (json['email'] as String?)!,
-    attachmentFiles: json['attachment_files'] != null ? SdkPresent(((json['attachment_files'] as List?)?.map((e) => ConversationAttachmentFiles.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory ContactReplyEmailRequest.fromJson(Map<String, dynamic> json) =>
+      ContactReplyEmailRequest(
+        messageType: (json['message_type'] != null
+            ? ContactReplyEmailRequestMessageType.fromJson(
+                json['message_type'] as String)
+            : null)!,
+        type_: (json['type'] != null
+            ? ContactReplyEmailRequestType.fromJson(json['type'] as String)
+            : null)!,
+        body: (json['body'] as String?)!,
+        createdAt: json['created_at'] != null
+            ? SdkPresent(((json['created_at'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        attachmentUrls: json['attachment_urls'] != null
+            ? SdkPresent(((json['attachment_urls'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        replyOptions: json['reply_options'] != null
+            ? SdkPresent(((json['reply_options'] as List?)
+                ?.map((e) => ContactReplyEmailRequestReplyOptionsItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        email: (json['email'] as String?)!,
+        attachmentFiles: json['attachment_files'] != null
+            ? SdkPresent(((json['attachment_files'] as List?)
+                ?.map((e) => ConversationAttachmentFiles.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'message_type': messageType.toJson(),
-    'type': type_.toJson(),
-    'body': body,
-    ...switch (createdAt) {
-      SdkPresent<int>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (attachmentUrls) {
-      SdkPresent<List<String>>(value: final value) => {'attachment_urls': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (replyOptions) {
-      SdkPresent<List<ContactReplyEmailRequestReplyOptionsItem>>(value: final value) => {'reply_options': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    'email': email,
-    ...switch (attachmentFiles) {
-      SdkPresent<List<ConversationAttachmentFiles>>(value: final value) => {'attachment_files': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'message_type': messageType.toJson(),
+        'type': type_.toJson(),
+        'body': body,
+        ...switch (createdAt) {
+          SdkPresent<int>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (attachmentUrls) {
+          SdkPresent<List<String>>(value: final value) => {
+              'attachment_urls': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (replyOptions) {
+          SdkPresent<List<ContactReplyEmailRequestReplyOptionsItem>>(
+            value: final value
+          ) =>
+            {
+              'reply_options': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'email': email,
+        ...switch (attachmentFiles) {
+          SdkPresent<List<ConversationAttachmentFiles>>(value: final value) => {
+              'attachment_files': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

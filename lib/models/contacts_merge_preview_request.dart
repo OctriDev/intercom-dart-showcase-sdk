@@ -8,43 +8,77 @@ part of 'contacts.dart';
 class MergePreviewRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique identifier for the contact to merge away from (the source contact).
   final String from;
+
   /// The unique identifier for the contact to merge into (the destination contact). Must have a `role` of `user`.
   final String into;
+
   /// When `true`, previews the merge even if the contacts don't share a common identifier. Must be a JSON boolean; the string `"true"` does not bypass the check. Defaults to false.
   final SdkOptional<bool> skipDuplicateValidation;
+
   /// Custom attribute names to include in the previewed attribute changes.
   final SdkOptional<List<String>> customAttributeNames;
 
-  const MergePreviewRequest({required this.from, required this.into, this.skipDuplicateValidation = const SdkOmitted(), this.customAttributeNames = const SdkOmitted()});
+  const MergePreviewRequest(
+      {required this.from,
+      required this.into,
+      this.skipDuplicateValidation = const SdkOmitted(),
+      this.customAttributeNames = const SdkOmitted()});
 
-  MergePreviewRequest Function({String from, String into, SdkOptional<bool> skipDuplicateValidation, SdkOptional<List<String>> customAttributeNames}) get copyWith => _copyWith;
+  MergePreviewRequest Function(
+          {String from,
+          String into,
+          SdkOptional<bool> skipDuplicateValidation,
+          SdkOptional<List<String>> customAttributeNames})
+      get copyWith => _copyWith;
 
-  MergePreviewRequest _copyWith({Object? from = sdkOmittedValue, Object? into = sdkOmittedValue, Object? skipDuplicateValidation = sdkOmittedValue, Object? customAttributeNames = sdkOmittedValue}) => MergePreviewRequest(
-    from: identical(from, sdkOmittedValue) ? this.from : from as String,
-    into: identical(into, sdkOmittedValue) ? this.into : into as String,
-    skipDuplicateValidation: identical(skipDuplicateValidation, sdkOmittedValue) ? this.skipDuplicateValidation : skipDuplicateValidation as SdkOptional<bool>,
-    customAttributeNames: identical(customAttributeNames, sdkOmittedValue) ? this.customAttributeNames : customAttributeNames as SdkOptional<List<String>>,
-  );
+  MergePreviewRequest _copyWith(
+          {Object? from = sdkOmittedValue,
+          Object? into = sdkOmittedValue,
+          Object? skipDuplicateValidation = sdkOmittedValue,
+          Object? customAttributeNames = sdkOmittedValue}) =>
+      MergePreviewRequest(
+        from: identical(from, sdkOmittedValue) ? this.from : from as String,
+        into: identical(into, sdkOmittedValue) ? this.into : into as String,
+        skipDuplicateValidation:
+            identical(skipDuplicateValidation, sdkOmittedValue)
+                ? this.skipDuplicateValidation
+                : skipDuplicateValidation as SdkOptional<bool>,
+        customAttributeNames: identical(customAttributeNames, sdkOmittedValue)
+            ? this.customAttributeNames
+            : customAttributeNames as SdkOptional<List<String>>,
+      );
 
-  factory MergePreviewRequest.fromJson(Map<String, dynamic> json) => MergePreviewRequest(
-    from: (json['from'] as String?)!,
-    into: (json['into'] as String?)!,
-    skipDuplicateValidation: json['skip_duplicate_validation'] != null ? SdkPresent((json['skip_duplicate_validation'] as bool?)!) : const SdkOmitted(),
-    customAttributeNames: json['custom_attribute_names'] != null ? SdkPresent(((json['custom_attribute_names'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+  factory MergePreviewRequest.fromJson(Map<String, dynamic> json) =>
+      MergePreviewRequest(
+        from: (json['from'] as String?)!,
+        into: (json['into'] as String?)!,
+        skipDuplicateValidation: json['skip_duplicate_validation'] != null
+            ? SdkPresent((json['skip_duplicate_validation'] as bool?)!)
+            : const SdkOmitted(),
+        customAttributeNames: json['custom_attribute_names'] != null
+            ? SdkPresent(((json['custom_attribute_names'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'from': from,
-    'into': into,
-    ...switch (skipDuplicateValidation) {
-      SdkPresent<bool>(value: final value) => {'skip_duplicate_validation': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (customAttributeNames) {
-      SdkPresent<List<String>>(value: final value) => {'custom_attribute_names': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'from': from,
+        'into': into,
+        ...switch (skipDuplicateValidation) {
+          SdkPresent<bool>(value: final value) => {
+              'skip_duplicate_validation': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (customAttributeNames) {
+          SdkPresent<List<String>>(value: final value) => {
+              'custom_attribute_names': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -9,8 +9,12 @@ sealed class Datetime {
   static const String constructionSurface = 'named';
   const Datetime();
   factory Datetime.fromJson(Object? json) {
-    if (json is String) { return DatetimeString(json); }
-    if (json is num) { return DatetimeInt(json.toInt()); }
+    if (json is String) {
+      return DatetimeString(json);
+    }
+    if (json is num) {
+      return DatetimeInt(json.toInt());
+    }
     throw FormatException("No variant matched for Datetime");
   }
   Object? toJson();
@@ -19,11 +23,13 @@ sealed class Datetime {
 final class DatetimeString extends Datetime {
   final String value;
   const DatetimeString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 final class DatetimeInt extends Datetime {
   final int value;
   const DatetimeInt(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }

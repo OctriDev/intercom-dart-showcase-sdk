@@ -8,90 +8,173 @@ part of 'tickets.dart';
 class ContactReplyTicketIntercomUserIdRequestReplyOptionsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The text of the chosen reply option.
   final String text;
+
   /// The unique identifier for the quick reply option selected.
   final String uuid;
 
-  const ContactReplyTicketIntercomUserIdRequestReplyOptionsItem({required this.text, required this.uuid});
+  const ContactReplyTicketIntercomUserIdRequestReplyOptionsItem(
+      {required this.text, required this.uuid});
 
-  ContactReplyTicketIntercomUserIdRequestReplyOptionsItem Function({String text, String uuid}) get copyWith => _copyWith;
+  ContactReplyTicketIntercomUserIdRequestReplyOptionsItem Function(
+      {String text, String uuid}) get copyWith => _copyWith;
 
-  ContactReplyTicketIntercomUserIdRequestReplyOptionsItem _copyWith({Object? text = sdkOmittedValue, Object? uuid = sdkOmittedValue}) => ContactReplyTicketIntercomUserIdRequestReplyOptionsItem(
-    text: identical(text, sdkOmittedValue) ? this.text : text as String,
-    uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as String,
-  );
+  ContactReplyTicketIntercomUserIdRequestReplyOptionsItem _copyWith(
+          {Object? text = sdkOmittedValue, Object? uuid = sdkOmittedValue}) =>
+      ContactReplyTicketIntercomUserIdRequestReplyOptionsItem(
+        text: identical(text, sdkOmittedValue) ? this.text : text as String,
+        uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as String,
+      );
 
-  factory ContactReplyTicketIntercomUserIdRequestReplyOptionsItem.fromJson(Map<String, dynamic> json) => ContactReplyTicketIntercomUserIdRequestReplyOptionsItem(
-    text: (json['text'] as String?)!,
-    uuid: (json['uuid'] as String?)!,
-  );
+  factory ContactReplyTicketIntercomUserIdRequestReplyOptionsItem.fromJson(
+          Map<String, dynamic> json) =>
+      ContactReplyTicketIntercomUserIdRequestReplyOptionsItem(
+        text: (json['text'] as String?)!,
+        uuid: (json['uuid'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'text': text,
-    'uuid': uuid,
-  };
+        'text': text,
+        'uuid': uuid,
+      };
 }
 
 /// Payload of the request to reply on behalf of a contact using their `intercom_user_id`
 class ContactReplyTicketIntercomUserIdRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `message_type` wire field.
   final ContactReplyTicketIntercomUserIdRequestMessageType messageType;
+
   /// Required enumerated value serialized in the `type` wire field.
   final ContactReplyTicketIntercomUserIdRequestType type_;
+
   /// The text body of the comment.
   final String body;
+
   /// The time the reply was created. If not provided, the current time will be used.
   final SdkOptional<int> createdAt;
+
   /// A list of image URLs that will be added as attachments. You can include up to 10 URLs.
   final SdkOptional<List<String>> attachmentUrls;
+
   /// The quick reply selection the contact wishes to respond with. These map to buttons displayed in the Messenger UI if sent by a bot, or the reply options sent by an Admin via the API.
-  final SdkOptional<List<ContactReplyTicketIntercomUserIdRequestReplyOptionsItem>> replyOptions;
+  final SdkOptional<
+          List<ContactReplyTicketIntercomUserIdRequestReplyOptionsItem>>
+      replyOptions;
+
   /// The identifier for the contact as given by Intercom.
   final String intercomUserId;
 
-  const ContactReplyTicketIntercomUserIdRequest({required this.messageType, required this.type_, required this.body, this.createdAt = const SdkOmitted(), this.attachmentUrls = const SdkOmitted(), this.replyOptions = const SdkOmitted(), required this.intercomUserId});
+  const ContactReplyTicketIntercomUserIdRequest(
+      {required this.messageType,
+      required this.type_,
+      required this.body,
+      this.createdAt = const SdkOmitted(),
+      this.attachmentUrls = const SdkOmitted(),
+      this.replyOptions = const SdkOmitted(),
+      required this.intercomUserId});
 
-  ContactReplyTicketIntercomUserIdRequest Function({ContactReplyTicketIntercomUserIdRequestMessageType messageType, ContactReplyTicketIntercomUserIdRequestType type_, String body, SdkOptional<int> createdAt, SdkOptional<List<String>> attachmentUrls, SdkOptional<List<ContactReplyTicketIntercomUserIdRequestReplyOptionsItem>> replyOptions, String intercomUserId}) get copyWith => _copyWith;
+  ContactReplyTicketIntercomUserIdRequest Function(
+      {ContactReplyTicketIntercomUserIdRequestMessageType messageType,
+      ContactReplyTicketIntercomUserIdRequestType type_,
+      String body,
+      SdkOptional<int> createdAt,
+      SdkOptional<List<String>> attachmentUrls,
+      SdkOptional<List<ContactReplyTicketIntercomUserIdRequestReplyOptionsItem>>
+          replyOptions,
+      String intercomUserId}) get copyWith => _copyWith;
 
-  ContactReplyTicketIntercomUserIdRequest _copyWith({Object? messageType = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? body = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? attachmentUrls = sdkOmittedValue, Object? replyOptions = sdkOmittedValue, Object? intercomUserId = sdkOmittedValue}) => ContactReplyTicketIntercomUserIdRequest(
-    messageType: identical(messageType, sdkOmittedValue) ? this.messageType : messageType as ContactReplyTicketIntercomUserIdRequestMessageType,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ContactReplyTicketIntercomUserIdRequestType,
-    body: identical(body, sdkOmittedValue) ? this.body : body as String,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<int>,
-    attachmentUrls: identical(attachmentUrls, sdkOmittedValue) ? this.attachmentUrls : attachmentUrls as SdkOptional<List<String>>,
-    replyOptions: identical(replyOptions, sdkOmittedValue) ? this.replyOptions : replyOptions as SdkOptional<List<ContactReplyTicketIntercomUserIdRequestReplyOptionsItem>>,
-    intercomUserId: identical(intercomUserId, sdkOmittedValue) ? this.intercomUserId : intercomUserId as String,
-  );
+  ContactReplyTicketIntercomUserIdRequest _copyWith(
+          {Object? messageType = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? body = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? attachmentUrls = sdkOmittedValue,
+          Object? replyOptions = sdkOmittedValue,
+          Object? intercomUserId = sdkOmittedValue}) =>
+      ContactReplyTicketIntercomUserIdRequest(
+        messageType: identical(messageType, sdkOmittedValue)
+            ? this.messageType
+            : messageType as ContactReplyTicketIntercomUserIdRequestMessageType,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ContactReplyTicketIntercomUserIdRequestType,
+        body: identical(body, sdkOmittedValue) ? this.body : body as String,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<int>,
+        attachmentUrls: identical(attachmentUrls, sdkOmittedValue)
+            ? this.attachmentUrls
+            : attachmentUrls as SdkOptional<List<String>>,
+        replyOptions: identical(replyOptions, sdkOmittedValue)
+            ? this.replyOptions
+            : replyOptions as SdkOptional<
+                List<ContactReplyTicketIntercomUserIdRequestReplyOptionsItem>>,
+        intercomUserId: identical(intercomUserId, sdkOmittedValue)
+            ? this.intercomUserId
+            : intercomUserId as String,
+      );
 
-  factory ContactReplyTicketIntercomUserIdRequest.fromJson(Map<String, dynamic> json) => ContactReplyTicketIntercomUserIdRequest(
-    messageType: (json['message_type'] != null ? ContactReplyTicketIntercomUserIdRequestMessageType.fromJson(json['message_type'] as String) : null)!,
-    type_: (json['type'] != null ? ContactReplyTicketIntercomUserIdRequestType.fromJson(json['type'] as String) : null)!,
-    body: (json['body'] as String?)!,
-    createdAt: json['created_at'] != null ? SdkPresent(((json['created_at'] as num?)?.toInt())!) : const SdkOmitted(),
-    attachmentUrls: json['attachment_urls'] != null ? SdkPresent(((json['attachment_urls'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    replyOptions: json['reply_options'] != null ? SdkPresent(((json['reply_options'] as List?)?.map((e) => ContactReplyTicketIntercomUserIdRequestReplyOptionsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    intercomUserId: (json['intercom_user_id'] as String?)!,
-  );
+  factory ContactReplyTicketIntercomUserIdRequest.fromJson(
+          Map<String, dynamic> json) =>
+      ContactReplyTicketIntercomUserIdRequest(
+        messageType: (json['message_type'] != null
+            ? ContactReplyTicketIntercomUserIdRequestMessageType.fromJson(
+                json['message_type'] as String)
+            : null)!,
+        type_: (json['type'] != null
+            ? ContactReplyTicketIntercomUserIdRequestType.fromJson(
+                json['type'] as String)
+            : null)!,
+        body: (json['body'] as String?)!,
+        createdAt: json['created_at'] != null
+            ? SdkPresent(((json['created_at'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        attachmentUrls: json['attachment_urls'] != null
+            ? SdkPresent(((json['attachment_urls'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        replyOptions: json['reply_options'] != null
+            ? SdkPresent(((json['reply_options'] as List?)
+                ?.map((e) =>
+                    ContactReplyTicketIntercomUserIdRequestReplyOptionsItem
+                        .fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        intercomUserId: (json['intercom_user_id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'message_type': messageType.toJson(),
-    'type': type_.toJson(),
-    'body': body,
-    ...switch (createdAt) {
-      SdkPresent<int>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (attachmentUrls) {
-      SdkPresent<List<String>>(value: final value) => {'attachment_urls': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (replyOptions) {
-      SdkPresent<List<ContactReplyTicketIntercomUserIdRequestReplyOptionsItem>>(value: final value) => {'reply_options': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    'intercom_user_id': intercomUserId,
-  };
+        'message_type': messageType.toJson(),
+        'type': type_.toJson(),
+        'body': body,
+        ...switch (createdAt) {
+          SdkPresent<int>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (attachmentUrls) {
+          SdkPresent<List<String>>(value: final value) => {
+              'attachment_urls': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (replyOptions) {
+          SdkPresent<
+                List<ContactReplyTicketIntercomUserIdRequestReplyOptionsItem>>(
+            value: final value
+          ) =>
+            {
+              'reply_options': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'intercom_user_id': intercomUserId,
+      };
 }

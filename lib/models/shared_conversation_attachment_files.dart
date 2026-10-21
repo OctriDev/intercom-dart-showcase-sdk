@@ -8,41 +8,73 @@ part of 'shared_conversation.dart';
 class ConversationAttachmentFiles {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The content type of the file
   final SdkOptional<String> contentType;
+
   /// The base64 encoded file data.
   final SdkOptional<String> data;
+
   /// The name of the file.
   final SdkOptional<String> name;
 
-  const ConversationAttachmentFiles({this.contentType = const SdkOmitted(), this.data = const SdkOmitted(), this.name = const SdkOmitted()});
+  const ConversationAttachmentFiles(
+      {this.contentType = const SdkOmitted(),
+      this.data = const SdkOmitted(),
+      this.name = const SdkOmitted()});
 
-  ConversationAttachmentFiles Function({SdkOptional<String> contentType, SdkOptional<String> data, SdkOptional<String> name}) get copyWith => _copyWith;
+  ConversationAttachmentFiles Function(
+      {SdkOptional<String> contentType,
+      SdkOptional<String> data,
+      SdkOptional<String> name}) get copyWith => _copyWith;
 
-  ConversationAttachmentFiles _copyWith({Object? contentType = sdkOmittedValue, Object? data = sdkOmittedValue, Object? name = sdkOmittedValue}) => ConversationAttachmentFiles(
-    contentType: identical(contentType, sdkOmittedValue) ? this.contentType : contentType as SdkOptional<String>,
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-  );
+  ConversationAttachmentFiles _copyWith(
+          {Object? contentType = sdkOmittedValue,
+          Object? data = sdkOmittedValue,
+          Object? name = sdkOmittedValue}) =>
+      ConversationAttachmentFiles(
+        contentType: identical(contentType, sdkOmittedValue)
+            ? this.contentType
+            : contentType as SdkOptional<String>,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+      );
 
-  factory ConversationAttachmentFiles.fromJson(Map<String, dynamic> json) => ConversationAttachmentFiles(
-    contentType: json['content_type'] != null ? SdkPresent((json['content_type'] as String?)!) : const SdkOmitted(),
-    data: json['data'] != null ? SdkPresent((json['data'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-  );
+  factory ConversationAttachmentFiles.fromJson(Map<String, dynamic> json) =>
+      ConversationAttachmentFiles(
+        contentType: json['content_type'] != null
+            ? SdkPresent((json['content_type'] as String?)!)
+            : const SdkOmitted(),
+        data: json['data'] != null
+            ? SdkPresent((json['data'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (contentType) {
-      SdkPresent<String>(value: final value) => {'content_type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (data) {
-      SdkPresent<String>(value: final value) => {'data': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (contentType) {
+          SdkPresent<String>(value: final value) => {
+              'content_type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (data) {
+          SdkPresent<String>(value: final value) => {
+              'data': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

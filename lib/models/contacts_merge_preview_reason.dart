@@ -8,33 +8,56 @@ part of 'contacts.dart';
 class MergePreviewReason {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A stable code identifying the reason. Branch on this value.
   final SdkOptional<MergePreviewReasonCode> code;
+
   /// A human-readable explanation. Display this to people; do not match on it, as the wording may change.
   final SdkOptional<String> message;
 
-  const MergePreviewReason({this.code = const SdkOmitted(), this.message = const SdkOmitted()});
+  const MergePreviewReason(
+      {this.code = const SdkOmitted(), this.message = const SdkOmitted()});
 
-  MergePreviewReason Function({SdkOptional<MergePreviewReasonCode> code, SdkOptional<String> message}) get copyWith => _copyWith;
+  MergePreviewReason Function(
+      {SdkOptional<MergePreviewReasonCode> code,
+      SdkOptional<String> message}) get copyWith => _copyWith;
 
-  MergePreviewReason _copyWith({Object? code = sdkOmittedValue, Object? message = sdkOmittedValue}) => MergePreviewReason(
-    code: identical(code, sdkOmittedValue) ? this.code : code as SdkOptional<MergePreviewReasonCode>,
-    message: identical(message, sdkOmittedValue) ? this.message : message as SdkOptional<String>,
-  );
+  MergePreviewReason _copyWith(
+          {Object? code = sdkOmittedValue,
+          Object? message = sdkOmittedValue}) =>
+      MergePreviewReason(
+        code: identical(code, sdkOmittedValue)
+            ? this.code
+            : code as SdkOptional<MergePreviewReasonCode>,
+        message: identical(message, sdkOmittedValue)
+            ? this.message
+            : message as SdkOptional<String>,
+      );
 
-  factory MergePreviewReason.fromJson(Map<String, dynamic> json) => MergePreviewReason(
-    code: json['code'] != null ? SdkPresent((json['code'] != null ? MergePreviewReasonCode.fromJson(json['code'] as String) : null)!) : const SdkOmitted(),
-    message: json['message'] != null ? SdkPresent((json['message'] as String?)!) : const SdkOmitted(),
-  );
+  factory MergePreviewReason.fromJson(Map<String, dynamic> json) =>
+      MergePreviewReason(
+        code: json['code'] != null
+            ? SdkPresent((json['code'] != null
+                ? MergePreviewReasonCode.fromJson(json['code'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        message: json['message'] != null
+            ? SdkPresent((json['message'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (code) {
-      SdkPresent<MergePreviewReasonCode>(value: final value) => {'code': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (message) {
-      SdkPresent<String>(value: final value) => {'message': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (code) {
+          SdkPresent<MergePreviewReasonCode>(value: final value) => {
+              'code': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (message) {
+          SdkPresent<String>(value: final value) => {
+              'message': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

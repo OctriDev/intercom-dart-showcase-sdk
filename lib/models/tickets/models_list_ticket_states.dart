@@ -8,108 +8,211 @@ part of 'models.dart';
 class TicketStateDetailedTicketTypes {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// String representing the object's type. Always has the value `list`.
   final SdkOptional<String> type_;
+
   /// A list of ticket type attributes associated with a given ticket type.
   final SdkOptional<List<TicketType?>> data;
 
-  const TicketStateDetailedTicketTypes({this.type_ = const SdkOmitted(), this.data = const SdkOmitted()});
+  const TicketStateDetailedTicketTypes(
+      {this.type_ = const SdkOmitted(), this.data = const SdkOmitted()});
 
-  TicketStateDetailedTicketTypes Function({SdkOptional<String> type_, SdkOptional<List<TicketType?>> data}) get copyWith => _copyWith;
+  TicketStateDetailedTicketTypes Function(
+      {SdkOptional<String> type_,
+      SdkOptional<List<TicketType?>> data}) get copyWith => _copyWith;
 
-  TicketStateDetailedTicketTypes _copyWith({Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) => TicketStateDetailedTicketTypes(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<TicketType?>>,
-  );
+  TicketStateDetailedTicketTypes _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
+      TicketStateDetailedTicketTypes(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<String>,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<List<TicketType?>>,
+      );
 
-  factory TicketStateDetailedTicketTypes.fromJson(Map<String, dynamic> json) => TicketStateDetailedTicketTypes(
-    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
-    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => e == null ? null : TicketType.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory TicketStateDetailedTicketTypes.fromJson(Map<String, dynamic> json) =>
+      TicketStateDetailedTicketTypes(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] as String?)!)
+            : const SdkOmitted(),
+        data: json['data'] != null
+            ? SdkPresent(((json['data'] as List?)
+                ?.map((e) => e == null
+                    ? null
+                    : TicketType.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<String>(value: final value) => {'type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (data) {
-      SdkPresent<List<TicketType?>>(value: final value) => {'data': value.map((item) => item?.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<String>(value: final value) => {
+              'type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (data) {
+          SdkPresent<List<TicketType?>>(value: final value) => {
+              'data': value.map((item) => item?.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A ticket state, used to define the state of a ticket.
 class TicketStateDetailed {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// String representing the object's type. Always has the value `ticket_state`.
   final SdkOptional<String> type_;
+
   /// The id of the ticket state
   final SdkOptional<String> id;
+
   /// The category of the ticket state
   final SdkOptional<TicketStateDetailedCategory> category;
+
   /// The state the ticket is currently in, in a human readable form - visible in Intercom
   final SdkOptional<String> internalLabel;
+
   /// The state the ticket is currently in, in a human readable form - visible to customers, in the messenger, email and tickets portal.
   final SdkOptional<String> externalLabel;
+
   /// Whether the ticket state is archived
   final SdkOptional<bool> archived;
+
   /// A list of ticket types associated with a given ticket state.
   final SdkOptional<TicketStateDetailedTicketTypes> ticketTypes;
 
-  const TicketStateDetailed({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.category = const SdkOmitted(), this.internalLabel = const SdkOmitted(), this.externalLabel = const SdkOmitted(), this.archived = const SdkOmitted(), this.ticketTypes = const SdkOmitted()});
+  const TicketStateDetailed(
+      {this.type_ = const SdkOmitted(),
+      this.id = const SdkOmitted(),
+      this.category = const SdkOmitted(),
+      this.internalLabel = const SdkOmitted(),
+      this.externalLabel = const SdkOmitted(),
+      this.archived = const SdkOmitted(),
+      this.ticketTypes = const SdkOmitted()});
 
-  TicketStateDetailed Function({SdkOptional<String> type_, SdkOptional<String> id, SdkOptional<TicketStateDetailedCategory> category, SdkOptional<String> internalLabel, SdkOptional<String> externalLabel, SdkOptional<bool> archived, SdkOptional<TicketStateDetailedTicketTypes> ticketTypes}) get copyWith => _copyWith;
+  TicketStateDetailed Function(
+          {SdkOptional<String> type_,
+          SdkOptional<String> id,
+          SdkOptional<TicketStateDetailedCategory> category,
+          SdkOptional<String> internalLabel,
+          SdkOptional<String> externalLabel,
+          SdkOptional<bool> archived,
+          SdkOptional<TicketStateDetailedTicketTypes> ticketTypes})
+      get copyWith => _copyWith;
 
-  TicketStateDetailed _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? category = sdkOmittedValue, Object? internalLabel = sdkOmittedValue, Object? externalLabel = sdkOmittedValue, Object? archived = sdkOmittedValue, Object? ticketTypes = sdkOmittedValue}) => TicketStateDetailed(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    category: identical(category, sdkOmittedValue) ? this.category : category as SdkOptional<TicketStateDetailedCategory>,
-    internalLabel: identical(internalLabel, sdkOmittedValue) ? this.internalLabel : internalLabel as SdkOptional<String>,
-    externalLabel: identical(externalLabel, sdkOmittedValue) ? this.externalLabel : externalLabel as SdkOptional<String>,
-    archived: identical(archived, sdkOmittedValue) ? this.archived : archived as SdkOptional<bool>,
-    ticketTypes: identical(ticketTypes, sdkOmittedValue) ? this.ticketTypes : ticketTypes as SdkOptional<TicketStateDetailedTicketTypes>,
-  );
+  TicketStateDetailed _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? category = sdkOmittedValue,
+          Object? internalLabel = sdkOmittedValue,
+          Object? externalLabel = sdkOmittedValue,
+          Object? archived = sdkOmittedValue,
+          Object? ticketTypes = sdkOmittedValue}) =>
+      TicketStateDetailed(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<String>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        category: identical(category, sdkOmittedValue)
+            ? this.category
+            : category as SdkOptional<TicketStateDetailedCategory>,
+        internalLabel: identical(internalLabel, sdkOmittedValue)
+            ? this.internalLabel
+            : internalLabel as SdkOptional<String>,
+        externalLabel: identical(externalLabel, sdkOmittedValue)
+            ? this.externalLabel
+            : externalLabel as SdkOptional<String>,
+        archived: identical(archived, sdkOmittedValue)
+            ? this.archived
+            : archived as SdkOptional<bool>,
+        ticketTypes: identical(ticketTypes, sdkOmittedValue)
+            ? this.ticketTypes
+            : ticketTypes as SdkOptional<TicketStateDetailedTicketTypes>,
+      );
 
-  factory TicketStateDetailed.fromJson(Map<String, dynamic> json) => TicketStateDetailed(
-    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    category: json['category'] != null ? SdkPresent((json['category'] != null ? TicketStateDetailedCategory.fromJson(json['category'] as String) : null)!) : const SdkOmitted(),
-    internalLabel: json['internal_label'] != null ? SdkPresent((json['internal_label'] as String?)!) : const SdkOmitted(),
-    externalLabel: json['external_label'] != null ? SdkPresent((json['external_label'] as String?)!) : const SdkOmitted(),
-    archived: json['archived'] != null ? SdkPresent((json['archived'] as bool?)!) : const SdkOmitted(),
-    ticketTypes: json['ticket_types'] != null ? SdkPresent((json['ticket_types'] != null ? TicketStateDetailedTicketTypes.fromJson(json['ticket_types'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory TicketStateDetailed.fromJson(Map<String, dynamic> json) =>
+      TicketStateDetailed(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] as String?)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        category: json['category'] != null
+            ? SdkPresent((json['category'] != null
+                ? TicketStateDetailedCategory.fromJson(
+                    json['category'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        internalLabel: json['internal_label'] != null
+            ? SdkPresent((json['internal_label'] as String?)!)
+            : const SdkOmitted(),
+        externalLabel: json['external_label'] != null
+            ? SdkPresent((json['external_label'] as String?)!)
+            : const SdkOmitted(),
+        archived: json['archived'] != null
+            ? SdkPresent((json['archived'] as bool?)!)
+            : const SdkOmitted(),
+        ticketTypes: json['ticket_types'] != null
+            ? SdkPresent((json['ticket_types'] != null
+                ? TicketStateDetailedTicketTypes.fromJson(
+                    json['ticket_types'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<String>(value: final value) => {'type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (category) {
-      SdkPresent<TicketStateDetailedCategory>(value: final value) => {'category': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (internalLabel) {
-      SdkPresent<String>(value: final value) => {'internal_label': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (externalLabel) {
-      SdkPresent<String>(value: final value) => {'external_label': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (archived) {
-      SdkPresent<bool>(value: final value) => {'archived': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (ticketTypes) {
-      SdkPresent<TicketStateDetailedTicketTypes>(value: final value) => {'ticket_types': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<String>(value: final value) => {
+              'type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (category) {
+          SdkPresent<TicketStateDetailedCategory>(value: final value) => {
+              'category': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (internalLabel) {
+          SdkPresent<String>(value: final value) => {
+              'internal_label': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (externalLabel) {
+          SdkPresent<String>(value: final value) => {
+              'external_label': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (archived) {
+          SdkPresent<bool>(value: final value) => {
+              'archived': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (ticketTypes) {
+          SdkPresent<TicketStateDetailedTicketTypes>(value: final value) => {
+              'ticket_types': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

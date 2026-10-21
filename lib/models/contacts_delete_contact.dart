@@ -8,49 +8,92 @@ part of 'contacts.dart';
 class ContactDeleted {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// always contact
   final SdkOptional<ContactDeletedType> type_;
+
   /// The unique identifier for the contact which is given by Intercom.
   final SdkOptional<String> id;
+
   /// The unique identifier for the contact which is provided by the Client.
   final SdkOptional<String?> externalId;
+
   /// Whether the contact is deleted or not.
   final SdkOptional<bool> deleted;
 
-  const ContactDeleted({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.externalId = const SdkOmitted(), this.deleted = const SdkOmitted()});
+  const ContactDeleted(
+      {this.type_ = const SdkOmitted(),
+      this.id = const SdkOmitted(),
+      this.externalId = const SdkOmitted(),
+      this.deleted = const SdkOmitted()});
 
-  ContactDeleted Function({SdkOptional<ContactDeletedType> type_, SdkOptional<String> id, SdkOptional<String?> externalId, SdkOptional<bool> deleted}) get copyWith => _copyWith;
+  ContactDeleted Function(
+      {SdkOptional<ContactDeletedType> type_,
+      SdkOptional<String> id,
+      SdkOptional<String?> externalId,
+      SdkOptional<bool> deleted}) get copyWith => _copyWith;
 
-  ContactDeleted _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? externalId = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => ContactDeleted(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ContactDeletedType>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    externalId: identical(externalId, sdkOmittedValue) ? this.externalId : externalId as SdkOptional<String?>,
-    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as SdkOptional<bool>,
-  );
+  ContactDeleted _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? externalId = sdkOmittedValue,
+          Object? deleted = sdkOmittedValue}) =>
+      ContactDeleted(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<ContactDeletedType>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        externalId: identical(externalId, sdkOmittedValue)
+            ? this.externalId
+            : externalId as SdkOptional<String?>,
+        deleted: identical(deleted, sdkOmittedValue)
+            ? this.deleted
+            : deleted as SdkOptional<bool>,
+      );
 
   factory ContactDeleted.fromJson(Map<String, dynamic> json) => ContactDeleted(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ContactDeletedType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    externalId: json.containsKey('external_id') ? SdkPresent(json['external_id'] as String?) : const SdkOmitted(),
-    deleted: json['deleted'] != null ? SdkPresent((json['deleted'] as bool?)!) : const SdkOmitted(),
-  );
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? ContactDeletedType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        externalId: json.containsKey('external_id')
+            ? SdkPresent(json['external_id'] as String?)
+            : const SdkOmitted(),
+        deleted: json['deleted'] != null
+            ? SdkPresent((json['deleted'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<ContactDeletedType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (externalId) {
-      SdkPresent<String?>(value: final value) => {'external_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (deleted) {
-      SdkPresent<bool>(value: final value) => {'deleted': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<ContactDeletedType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (externalId) {
+          SdkPresent<String?>(value: final value) => {
+              'external_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (deleted) {
+          SdkPresent<bool>(value: final value) => {
+              'deleted': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

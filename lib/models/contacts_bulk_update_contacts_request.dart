@@ -8,30 +8,53 @@ part of 'contacts.dart';
 class BulkUpdateContactsRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An array of contact objects to update. Each must include an `id` and the fields to update. Maximum 100 contacts per request.
   final List<BulkUpdateContactsRequestContactsItem> contacts;
+
   /// Optional. Include to append tasks to an existing job.
   final SdkOptional<BulkUpdateContactsRequestJob> job;
 
-  const BulkUpdateContactsRequest({required this.contacts, this.job = const SdkOmitted()});
+  const BulkUpdateContactsRequest(
+      {required this.contacts, this.job = const SdkOmitted()});
 
-  BulkUpdateContactsRequest Function({List<BulkUpdateContactsRequestContactsItem> contacts, SdkOptional<BulkUpdateContactsRequestJob> job}) get copyWith => _copyWith;
+  BulkUpdateContactsRequest Function(
+      {List<BulkUpdateContactsRequestContactsItem> contacts,
+      SdkOptional<BulkUpdateContactsRequestJob> job}) get copyWith => _copyWith;
 
-  BulkUpdateContactsRequest _copyWith({Object? contacts = sdkOmittedValue, Object? job = sdkOmittedValue}) => BulkUpdateContactsRequest(
-    contacts: identical(contacts, sdkOmittedValue) ? this.contacts : contacts as List<BulkUpdateContactsRequestContactsItem>,
-    job: identical(job, sdkOmittedValue) ? this.job : job as SdkOptional<BulkUpdateContactsRequestJob>,
-  );
+  BulkUpdateContactsRequest _copyWith(
+          {Object? contacts = sdkOmittedValue,
+          Object? job = sdkOmittedValue}) =>
+      BulkUpdateContactsRequest(
+        contacts: identical(contacts, sdkOmittedValue)
+            ? this.contacts
+            : contacts as List<BulkUpdateContactsRequestContactsItem>,
+        job: identical(job, sdkOmittedValue)
+            ? this.job
+            : job as SdkOptional<BulkUpdateContactsRequestJob>,
+      );
 
-  factory BulkUpdateContactsRequest.fromJson(Map<String, dynamic> json) => BulkUpdateContactsRequest(
-    contacts: ((json['contacts'] as List?)?.map((e) => BulkUpdateContactsRequestContactsItem.fromJson(e as Map<String, dynamic>)).toList())!,
-    job: json['job'] != null ? SdkPresent((json['job'] != null ? BulkUpdateContactsRequestJob.fromJson(json['job'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory BulkUpdateContactsRequest.fromJson(Map<String, dynamic> json) =>
+      BulkUpdateContactsRequest(
+        contacts: ((json['contacts'] as List?)
+            ?.map((e) => BulkUpdateContactsRequestContactsItem.fromJson(
+                e as Map<String, dynamic>))
+            .toList())!,
+        job: json['job'] != null
+            ? SdkPresent((json['job'] != null
+                ? BulkUpdateContactsRequestJob.fromJson(
+                    json['job'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'contacts': contacts.map((item) => item.toJson()).toList(),
-    ...switch (job) {
-      SdkPresent<BulkUpdateContactsRequestJob>(value: final value) => {'job': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'contacts': contacts.map((item) => item.toJson()).toList(),
+        ...switch (job) {
+          SdkPresent<BulkUpdateContactsRequestJob>(value: final value) => {
+              'job': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

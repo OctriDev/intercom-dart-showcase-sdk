@@ -8,33 +8,61 @@ part of 'models.dart';
 class ConversationScorecardSubmittedBy {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The kind of submitter. `ai` if Fin submitted the review; `admin` if a teammate did.
   final SdkOptional<ConversationScorecardSubmittedByType> type_;
+
   /// The id of the admin who submitted the review. Present only when `type` is `admin`.
   final SdkOptional<String?> adminId;
 
-  const ConversationScorecardSubmittedBy({this.type_ = const SdkOmitted(), this.adminId = const SdkOmitted()});
+  const ConversationScorecardSubmittedBy(
+      {this.type_ = const SdkOmitted(), this.adminId = const SdkOmitted()});
 
-  ConversationScorecardSubmittedBy Function({SdkOptional<ConversationScorecardSubmittedByType> type_, SdkOptional<String?> adminId}) get copyWith => _copyWith;
+  ConversationScorecardSubmittedBy Function(
+      {SdkOptional<ConversationScorecardSubmittedByType> type_,
+      SdkOptional<String?> adminId}) get copyWith => _copyWith;
 
-  ConversationScorecardSubmittedBy _copyWith({Object? type_ = sdkOmittedValue, Object? adminId = sdkOmittedValue}) => ConversationScorecardSubmittedBy(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ConversationScorecardSubmittedByType>,
-    adminId: identical(adminId, sdkOmittedValue) ? this.adminId : adminId as SdkOptional<String?>,
-  );
+  ConversationScorecardSubmittedBy _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? adminId = sdkOmittedValue}) =>
+      ConversationScorecardSubmittedBy(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<ConversationScorecardSubmittedByType>,
+        adminId: identical(adminId, sdkOmittedValue)
+            ? this.adminId
+            : adminId as SdkOptional<String?>,
+      );
 
-  factory ConversationScorecardSubmittedBy.fromJson(Map<String, dynamic> json) => ConversationScorecardSubmittedBy(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ConversationScorecardSubmittedByType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    adminId: json.containsKey('admin_id') ? SdkPresent(json['admin_id'] as String?) : const SdkOmitted(),
-  );
+  factory ConversationScorecardSubmittedBy.fromJson(
+          Map<String, dynamic> json) =>
+      ConversationScorecardSubmittedBy(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? ConversationScorecardSubmittedByType.fromJson(
+                    json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        adminId: json.containsKey('admin_id')
+            ? SdkPresent(json['admin_id'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<ConversationScorecardSubmittedByType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (adminId) {
-      SdkPresent<String?>(value: final value) => {'admin_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<ConversationScorecardSubmittedByType>(
+            value: final value
+          ) =>
+            {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (adminId) {
+          SdkPresent<String?>(value: final value) => {
+              'admin_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

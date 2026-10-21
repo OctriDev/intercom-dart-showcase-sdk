@@ -8,41 +8,78 @@ part of 'shared.dart';
 class ContentSourcesList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional enumerated value serialized in the `type` wire field.
   final SdkOptional<ContentSourcesListType> type_;
+
   /// The total number of content sources used by AI Agent in the conversation.
   final SdkOptional<int> totalCount;
+
   /// The content sources used by AI Agent in the conversation.
   final SdkOptional<List<ContentSource>> contentSources;
 
-  const ContentSourcesList({this.type_ = const SdkOmitted(), this.totalCount = const SdkOmitted(), this.contentSources = const SdkOmitted()});
+  const ContentSourcesList(
+      {this.type_ = const SdkOmitted(),
+      this.totalCount = const SdkOmitted(),
+      this.contentSources = const SdkOmitted()});
 
-  ContentSourcesList Function({SdkOptional<ContentSourcesListType> type_, SdkOptional<int> totalCount, SdkOptional<List<ContentSource>> contentSources}) get copyWith => _copyWith;
+  ContentSourcesList Function(
+          {SdkOptional<ContentSourcesListType> type_,
+          SdkOptional<int> totalCount,
+          SdkOptional<List<ContentSource>> contentSources})
+      get copyWith => _copyWith;
 
-  ContentSourcesList _copyWith({Object? type_ = sdkOmittedValue, Object? totalCount = sdkOmittedValue, Object? contentSources = sdkOmittedValue}) => ContentSourcesList(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ContentSourcesListType>,
-    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as SdkOptional<int>,
-    contentSources: identical(contentSources, sdkOmittedValue) ? this.contentSources : contentSources as SdkOptional<List<ContentSource>>,
-  );
+  ContentSourcesList _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? totalCount = sdkOmittedValue,
+          Object? contentSources = sdkOmittedValue}) =>
+      ContentSourcesList(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<ContentSourcesListType>,
+        totalCount: identical(totalCount, sdkOmittedValue)
+            ? this.totalCount
+            : totalCount as SdkOptional<int>,
+        contentSources: identical(contentSources, sdkOmittedValue)
+            ? this.contentSources
+            : contentSources as SdkOptional<List<ContentSource>>,
+      );
 
-  factory ContentSourcesList.fromJson(Map<String, dynamic> json) => ContentSourcesList(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ContentSourcesListType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    totalCount: json['total_count'] != null ? SdkPresent(((json['total_count'] as num?)?.toInt())!) : const SdkOmitted(),
-    contentSources: json['content_sources'] != null ? SdkPresent(((json['content_sources'] as List?)?.map((e) => ContentSource.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory ContentSourcesList.fromJson(Map<String, dynamic> json) =>
+      ContentSourcesList(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? ContentSourcesListType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        totalCount: json['total_count'] != null
+            ? SdkPresent(((json['total_count'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        contentSources: json['content_sources'] != null
+            ? SdkPresent(((json['content_sources'] as List?)
+                ?.map((e) => ContentSource.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<ContentSourcesListType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (totalCount) {
-      SdkPresent<int>(value: final value) => {'total_count': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (contentSources) {
-      SdkPresent<List<ContentSource>>(value: final value) => {'content_sources': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<ContentSourcesListType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (totalCount) {
+          SdkPresent<int>(value: final value) => {
+              'total_count': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (contentSources) {
+          SdkPresent<List<ContentSource>>(value: final value) => {
+              'content_sources': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

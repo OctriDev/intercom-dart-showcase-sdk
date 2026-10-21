@@ -8,139 +8,261 @@ part of 'models.dart';
 class FinAgentRepliedEventMessageSourcesItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The title of the source.
   final String title;
+
   /// Whether the source is an Intercom article or external content.
   final FinAgentRepliedEventMessageSourcesItemType type_;
+
   /// The URL of the source.
   final String url;
 
-  const FinAgentRepliedEventMessageSourcesItem({required this.title, required this.type_, required this.url});
+  const FinAgentRepliedEventMessageSourcesItem(
+      {required this.title, required this.type_, required this.url});
 
-  FinAgentRepliedEventMessageSourcesItem Function({String title, FinAgentRepliedEventMessageSourcesItemType type_, String url}) get copyWith => _copyWith;
+  FinAgentRepliedEventMessageSourcesItem Function(
+      {String title,
+      FinAgentRepliedEventMessageSourcesItemType type_,
+      String url}) get copyWith => _copyWith;
 
-  FinAgentRepliedEventMessageSourcesItem _copyWith({Object? title = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? url = sdkOmittedValue}) => FinAgentRepliedEventMessageSourcesItem(
-    title: identical(title, sdkOmittedValue) ? this.title : title as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as FinAgentRepliedEventMessageSourcesItemType,
-    url: identical(url, sdkOmittedValue) ? this.url : url as String,
-  );
+  FinAgentRepliedEventMessageSourcesItem _copyWith(
+          {Object? title = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? url = sdkOmittedValue}) =>
+      FinAgentRepliedEventMessageSourcesItem(
+        title: identical(title, sdkOmittedValue) ? this.title : title as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as FinAgentRepliedEventMessageSourcesItemType,
+        url: identical(url, sdkOmittedValue) ? this.url : url as String,
+      );
 
-  factory FinAgentRepliedEventMessageSourcesItem.fromJson(Map<String, dynamic> json) => FinAgentRepliedEventMessageSourcesItem(
-    title: (json['title'] as String?)!,
-    type_: (json['type'] != null ? FinAgentRepliedEventMessageSourcesItemType.fromJson(json['type'] as String) : null)!,
-    url: (json['url'] as String?)!,
-  );
+  factory FinAgentRepliedEventMessageSourcesItem.fromJson(
+          Map<String, dynamic> json) =>
+      FinAgentRepliedEventMessageSourcesItem(
+        title: (json['title'] as String?)!,
+        type_: (json['type'] != null
+            ? FinAgentRepliedEventMessageSourcesItemType.fromJson(
+                json['type'] as String)
+            : null)!,
+        url: (json['url'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'title': title,
-    'type': type_.toJson(),
-    'url': url,
-  };
+        'title': title,
+        'type': type_.toJson(),
+        'url': url,
+      };
 }
 
 /// Fin's answer to the user's query.
 class FinAgentRepliedEventMessage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A unique identifier for this message.
   final SdkOptional<String> id;
+
   /// The author of the message (always 'fin' for this event).
   final FinAgentRepliedEventMessageAuthor author;
+
   /// The HTML body of Fin's response.
   final String body;
+
   /// The timestamp the message was created at, with millisecond precision.
   final String timestampMs;
+
   /// The content sources Fin used to generate this reply, in the same order as the [n] citation markers in the body. Present only when Fin cited content.
   final SdkOptional<List<FinAgentRepliedEventMessageSourcesItem>> sources;
 
-  const FinAgentRepliedEventMessage({this.id = const SdkOmitted(), required this.author, required this.body, required this.timestampMs, this.sources = const SdkOmitted()});
+  const FinAgentRepliedEventMessage(
+      {this.id = const SdkOmitted(),
+      required this.author,
+      required this.body,
+      required this.timestampMs,
+      this.sources = const SdkOmitted()});
 
-  FinAgentRepliedEventMessage Function({SdkOptional<String> id, FinAgentRepliedEventMessageAuthor author, String body, String timestampMs, SdkOptional<List<FinAgentRepliedEventMessageSourcesItem>> sources}) get copyWith => _copyWith;
+  FinAgentRepliedEventMessage Function(
+          {SdkOptional<String> id,
+          FinAgentRepliedEventMessageAuthor author,
+          String body,
+          String timestampMs,
+          SdkOptional<List<FinAgentRepliedEventMessageSourcesItem>> sources})
+      get copyWith => _copyWith;
 
-  FinAgentRepliedEventMessage _copyWith({Object? id = sdkOmittedValue, Object? author = sdkOmittedValue, Object? body = sdkOmittedValue, Object? timestampMs = sdkOmittedValue, Object? sources = sdkOmittedValue}) => FinAgentRepliedEventMessage(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    author: identical(author, sdkOmittedValue) ? this.author : author as FinAgentRepliedEventMessageAuthor,
-    body: identical(body, sdkOmittedValue) ? this.body : body as String,
-    timestampMs: identical(timestampMs, sdkOmittedValue) ? this.timestampMs : timestampMs as String,
-    sources: identical(sources, sdkOmittedValue) ? this.sources : sources as SdkOptional<List<FinAgentRepliedEventMessageSourcesItem>>,
-  );
+  FinAgentRepliedEventMessage _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? author = sdkOmittedValue,
+          Object? body = sdkOmittedValue,
+          Object? timestampMs = sdkOmittedValue,
+          Object? sources = sdkOmittedValue}) =>
+      FinAgentRepliedEventMessage(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        author: identical(author, sdkOmittedValue)
+            ? this.author
+            : author as FinAgentRepliedEventMessageAuthor,
+        body: identical(body, sdkOmittedValue) ? this.body : body as String,
+        timestampMs: identical(timestampMs, sdkOmittedValue)
+            ? this.timestampMs
+            : timestampMs as String,
+        sources: identical(sources, sdkOmittedValue)
+            ? this.sources
+            : sources
+                as SdkOptional<List<FinAgentRepliedEventMessageSourcesItem>>,
+      );
 
-  factory FinAgentRepliedEventMessage.fromJson(Map<String, dynamic> json) => FinAgentRepliedEventMessage(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    author: (json['author'] != null ? FinAgentRepliedEventMessageAuthor.fromJson(json['author'] as String) : null)!,
-    body: (json['body'] as String?)!,
-    timestampMs: (json['timestamp_ms'] as String?)!,
-    sources: json['sources'] != null ? SdkPresent(((json['sources'] as List?)?.map((e) => FinAgentRepliedEventMessageSourcesItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory FinAgentRepliedEventMessage.fromJson(Map<String, dynamic> json) =>
+      FinAgentRepliedEventMessage(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        author: (json['author'] != null
+            ? FinAgentRepliedEventMessageAuthor.fromJson(
+                json['author'] as String)
+            : null)!,
+        body: (json['body'] as String?)!,
+        timestampMs: (json['timestamp_ms'] as String?)!,
+        sources: json['sources'] != null
+            ? SdkPresent(((json['sources'] as List?)
+                ?.map((e) => FinAgentRepliedEventMessageSourcesItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'author': author.toJson(),
-    'body': body,
-    'timestamp_ms': timestampMs,
-    ...switch (sources) {
-      SdkPresent<List<FinAgentRepliedEventMessageSourcesItem>>(value: final value) => {'sources': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'author': author.toJson(),
+        'body': body,
+        'timestamp_ms': timestampMs,
+        ...switch (sources) {
+          SdkPresent<List<FinAgentRepliedEventMessageSourcesItem>>(
+            value: final value
+          ) =>
+            {
+              'sources': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Event fired when Fin replies to a user. Delivered via webhooks or SSE. The content of the response will be contained in the message object. Intermediate replies have status 'replying'; a separate fin_status_updated event with 'awaiting_user_reply' fires once Fin's reply is done.
 class FinAgentRepliedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the event.
   final FinAgentRepliedEventEventName eventName;
+
   /// The ID of the conversation.
   final String conversationId;
+
   /// The ID of the user.
   final String userId;
+
   /// Fin's answer to the user's query.
   final FinAgentRepliedEventMessage message;
+
   /// Fin's current status. - replying: Intermediate reply part; more parts may follow - awaiting_user_reply: Legacy status; instead use the fin_status_updated event with 'awaiting_user_reply', which fires once Fin's reply is done
   final FinAgentRepliedEventStatus status;
+
   /// Optional. Present when the reply was generated via streaming. Correlates this event with the fin_reply_chunk events that preceded it. Use this to know when to replace streamed chunk_text with the final message body.
   final SdkOptional<String> streamId;
+
   /// The timestamp the event was created at, with millisecond precision.
   final String createdAtMs;
 
-  const FinAgentRepliedEvent({required this.eventName, required this.conversationId, required this.userId, required this.message, required this.status, this.streamId = const SdkOmitted(), required this.createdAtMs});
+  const FinAgentRepliedEvent(
+      {required this.eventName,
+      required this.conversationId,
+      required this.userId,
+      required this.message,
+      required this.status,
+      this.streamId = const SdkOmitted(),
+      required this.createdAtMs});
 
-  FinAgentRepliedEvent Function({FinAgentRepliedEventEventName eventName, String conversationId, String userId, FinAgentRepliedEventMessage message, FinAgentRepliedEventStatus status, SdkOptional<String> streamId, String createdAtMs}) get copyWith => _copyWith;
+  FinAgentRepliedEvent Function(
+      {FinAgentRepliedEventEventName eventName,
+      String conversationId,
+      String userId,
+      FinAgentRepliedEventMessage message,
+      FinAgentRepliedEventStatus status,
+      SdkOptional<String> streamId,
+      String createdAtMs}) get copyWith => _copyWith;
 
-  FinAgentRepliedEvent _copyWith({Object? eventName = sdkOmittedValue, Object? conversationId = sdkOmittedValue, Object? userId = sdkOmittedValue, Object? message = sdkOmittedValue, Object? status = sdkOmittedValue, Object? streamId = sdkOmittedValue, Object? createdAtMs = sdkOmittedValue}) => FinAgentRepliedEvent(
-    eventName: identical(eventName, sdkOmittedValue) ? this.eventName : eventName as FinAgentRepliedEventEventName,
-    conversationId: identical(conversationId, sdkOmittedValue) ? this.conversationId : conversationId as String,
-    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as String,
-    message: identical(message, sdkOmittedValue) ? this.message : message as FinAgentRepliedEventMessage,
-    status: identical(status, sdkOmittedValue) ? this.status : status as FinAgentRepliedEventStatus,
-    streamId: identical(streamId, sdkOmittedValue) ? this.streamId : streamId as SdkOptional<String>,
-    createdAtMs: identical(createdAtMs, sdkOmittedValue) ? this.createdAtMs : createdAtMs as String,
-  );
+  FinAgentRepliedEvent _copyWith(
+          {Object? eventName = sdkOmittedValue,
+          Object? conversationId = sdkOmittedValue,
+          Object? userId = sdkOmittedValue,
+          Object? message = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? streamId = sdkOmittedValue,
+          Object? createdAtMs = sdkOmittedValue}) =>
+      FinAgentRepliedEvent(
+        eventName: identical(eventName, sdkOmittedValue)
+            ? this.eventName
+            : eventName as FinAgentRepliedEventEventName,
+        conversationId: identical(conversationId, sdkOmittedValue)
+            ? this.conversationId
+            : conversationId as String,
+        userId:
+            identical(userId, sdkOmittedValue) ? this.userId : userId as String,
+        message: identical(message, sdkOmittedValue)
+            ? this.message
+            : message as FinAgentRepliedEventMessage,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as FinAgentRepliedEventStatus,
+        streamId: identical(streamId, sdkOmittedValue)
+            ? this.streamId
+            : streamId as SdkOptional<String>,
+        createdAtMs: identical(createdAtMs, sdkOmittedValue)
+            ? this.createdAtMs
+            : createdAtMs as String,
+      );
 
-  factory FinAgentRepliedEvent.fromJson(Map<String, dynamic> json) => FinAgentRepliedEvent(
-    eventName: (json['event_name'] != null ? FinAgentRepliedEventEventName.fromJson(json['event_name'] as String) : null)!,
-    conversationId: (json['conversation_id'] as String?)!,
-    userId: (json['user_id'] as String?)!,
-    message: (json['message'] != null ? FinAgentRepliedEventMessage.fromJson(json['message'] as Map<String, dynamic>) : null)!,
-    status: (json['status'] != null ? FinAgentRepliedEventStatus.fromJson(json['status'] as String) : null)!,
-    streamId: json['stream_id'] != null ? SdkPresent((json['stream_id'] as String?)!) : const SdkOmitted(),
-    createdAtMs: (json['created_at_ms'] as String?)!,
-  );
+  factory FinAgentRepliedEvent.fromJson(Map<String, dynamic> json) =>
+      FinAgentRepliedEvent(
+        eventName: (json['event_name'] != null
+            ? FinAgentRepliedEventEventName.fromJson(
+                json['event_name'] as String)
+            : null)!,
+        conversationId: (json['conversation_id'] as String?)!,
+        userId: (json['user_id'] as String?)!,
+        message: (json['message'] != null
+            ? FinAgentRepliedEventMessage.fromJson(
+                json['message'] as Map<String, dynamic>)
+            : null)!,
+        status: (json['status'] != null
+            ? FinAgentRepliedEventStatus.fromJson(json['status'] as String)
+            : null)!,
+        streamId: json['stream_id'] != null
+            ? SdkPresent((json['stream_id'] as String?)!)
+            : const SdkOmitted(),
+        createdAtMs: (json['created_at_ms'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event_name': eventName.toJson(),
-    'conversation_id': conversationId,
-    'user_id': userId,
-    'message': message.toJson(),
-    'status': status.toJson(),
-    ...switch (streamId) {
-      SdkPresent<String>(value: final value) => {'stream_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'created_at_ms': createdAtMs,
-  };
+        'event_name': eventName.toJson(),
+        'conversation_id': conversationId,
+        'user_id': userId,
+        'message': message.toJson(),
+        'status': status.toJson(),
+        ...switch (streamId) {
+          SdkPresent<String>(value: final value) => {
+              'stream_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'created_at_ms': createdAtMs,
+      };
 }

@@ -6,7 +6,6 @@ part of 'inline.dart';
 // Inline operation models
 /// The type of object.
 final class SegmentType {
-
   final String value;
 
   const SegmentType._(this.value);
@@ -17,17 +16,19 @@ final class SegmentType {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SegmentType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SegmentType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the object
 final class SegmentListType {
-
   final String value;
 
   const SegmentListType._(this.value);
@@ -38,64 +39,74 @@ final class SegmentListType {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SegmentListType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SegmentListType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional enumerated value serialized in the `type` wire field.
 final class SideConversationListPagesType {
-
   final String value;
 
   const SideConversationListPagesType._(this.value);
 
-  factory SideConversationListPagesType.fromJson(String value) => SideConversationListPagesType._(value);
+  factory SideConversationListPagesType.fromJson(String value) =>
+      SideConversationListPagesType._(value);
 
   static const pages = SideConversationListPagesType._('pages');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SideConversationListPagesType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SideConversationListPagesType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the response object.
 final class SideConversationListType {
-
   final String value;
 
   const SideConversationListType._(this.value);
 
-  factory SideConversationListType.fromJson(String value) => SideConversationListType._(value);
+  factory SideConversationListType.fromJson(String value) =>
+      SideConversationListType._(value);
 
-  static const sideConversationList = SideConversationListType._('side_conversation.list');
+  static const sideConversationList =
+      SideConversationListType._('side_conversation.list');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SideConversationListType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SideConversationListType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The accepted operators you can use to define how you want to search for the value. Operator support depends on the field's data type. The breakdown below is for Contacts search; the other search endpoints that share this schema accept a different set per field: - `string` fields: `=`, `!=`, `IN`, `NIN`, `~`, `!~`, `^`, `$` - `tag_id`: `=` and `!=` only. Every other operator returns an error. - `boolean` fields: `=`, `!=`, `IN`, `NIN` - `integer` fields: `=`, `!=`, `IN`, `NIN`, `&lt;`, `&gt;`, `&lt;=`, `&gt;=` - `date` fields (all standard timestamp attributes and date custom attributes): `=`, `&lt;`, `&gt;` only. `!=`, `&lt;=`, `&gt;=`, `IN`, and `NIN` are not supported and return an error.
 final class SingleFilterSearchRequestOperator {
-
   final String value;
 
   const SingleFilterSearchRequestOperator._(this.value);
 
-  factory SingleFilterSearchRequestOperator.fromJson(String value) => SingleFilterSearchRequestOperator._(value);
+  factory SingleFilterSearchRequestOperator.fromJson(String value) =>
+      SingleFilterSearchRequestOperator._(value);
 
   static const unknown = SingleFilterSearchRequestOperator._('=');
   static const unknown2 = SingleFilterSearchRequestOperator._('!=');
@@ -112,22 +123,25 @@ final class SingleFilterSearchRequestOperator {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SingleFilterSearchRequestOperator && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SingleFilterSearchRequestOperator && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// SLA statuses: - `hit`: If there’s at least one hit event in the underlying sla_events table, and no “missed” or “canceled” events for the conversation. - `missed`: If there are any missed sla_events for the conversation and no canceled events. If there’s even a single missed sla event, the status will always be missed. A missed status is not applied when the SLA expires, only the next time a teammate replies. - `active`: An SLA has been applied to a conversation, but has not yet been fulfilled. SLA status is active only if there are no “hit, “missed”, or “canceled” events.
 final class SlaAppliedSlaStatus {
-
   final String value;
 
   const SlaAppliedSlaStatus._(this.value);
 
-  factory SlaAppliedSlaStatus.fromJson(String value) => SlaAppliedSlaStatus._(value);
+  factory SlaAppliedSlaStatus.fromJson(String value) =>
+      SlaAppliedSlaStatus._(value);
 
   static const hit = SlaAppliedSlaStatus._('hit');
   static const missed = SlaAppliedSlaStatus._('missed');
@@ -136,12 +150,15 @@ final class SlaAppliedSlaStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SlaAppliedSlaStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SlaAppliedSlaStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `message_type` wire field.
@@ -150,14 +167,18 @@ enum SnoozeConversationRequestMessageType {
 
   static SnoozeConversationRequestMessageType fromJson(String value) {
     switch (value) {
-      case 'snoozed': return SnoozeConversationRequestMessageType.snoozed;
-      default: throw ArgumentError('Unknown SnoozeConversationRequestMessageType: $value');
+      case 'snoozed':
+        return SnoozeConversationRequestMessageType.snoozed;
+      default:
+        throw ArgumentError(
+            'Unknown SnoozeConversationRequestMessageType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SnoozeConversationRequestMessageType.snoozed: return 'snoozed';
+      case SnoozeConversationRequestMessageType.snoozed:
+        return 'snoozed';
     }
   }
 
@@ -167,56 +188,62 @@ enum SnoozeConversationRequestMessageType {
 
 /// Describes the type of consent.
 final class SubscriptionTypeConsentType {
-
   final String value;
 
   const SubscriptionTypeConsentType._(this.value);
 
-  factory SubscriptionTypeConsentType.fromJson(String value) => SubscriptionTypeConsentType._(value);
+  factory SubscriptionTypeConsentType.fromJson(String value) =>
+      SubscriptionTypeConsentType._(value);
 
   static const optOut = SubscriptionTypeConsentType._('opt_out');
   static const optIn = SubscriptionTypeConsentType._('opt_in');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SubscriptionTypeConsentType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SubscriptionTypeConsentType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `content_types[]` wire field.
 final class SubscriptionTypeContentTypesItem {
-
   final String value;
 
   const SubscriptionTypeContentTypesItem._(this.value);
 
-  factory SubscriptionTypeContentTypesItem.fromJson(String value) => SubscriptionTypeContentTypesItem._(value);
+  factory SubscriptionTypeContentTypesItem.fromJson(String value) =>
+      SubscriptionTypeContentTypesItem._(value);
 
   static const email = SubscriptionTypeContentTypesItem._('email');
   static const smsMessage = SubscriptionTypeContentTypesItem._('sms_message');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SubscriptionTypeContentTypesItem && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SubscriptionTypeContentTypesItem && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The state of the subscription type.
 final class SubscriptionTypeState {
-
   final String value;
 
   const SubscriptionTypeState._(this.value);
 
-  factory SubscriptionTypeState.fromJson(String value) => SubscriptionTypeState._(value);
+  factory SubscriptionTypeState.fromJson(String value) =>
+      SubscriptionTypeState._(value);
 
   static const live = SubscriptionTypeState._('live');
   static const draft = SubscriptionTypeState._('draft');
@@ -224,38 +251,43 @@ final class SubscriptionTypeState {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SubscriptionTypeState && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SubscriptionTypeState && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the object
 final class SubscriptionTypeListType {
-
   final String value;
 
   const SubscriptionTypeListType._(this.value);
 
-  factory SubscriptionTypeListType.fromJson(String value) => SubscriptionTypeListType._(value);
+  factory SubscriptionTypeListType.fromJson(String value) =>
+      SubscriptionTypeListType._(value);
 
   static const list = SubscriptionTypeListType._('list');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SubscriptionTypeListType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SubscriptionTypeListType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the object
 final class TagListType {
-
   final String value;
 
   const TagListType._(this.value);
@@ -266,10 +298,13 @@ final class TagListType {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is TagListType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is TagListType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

@@ -6,7 +6,6 @@ part of 'inline.dart';
 // Inline operation models
 /// The type of object.
 final class AudienceType {
-
   final String value;
 
   const AudienceType._(this.value);
@@ -17,17 +16,19 @@ final class AudienceType {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AudienceType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AudienceType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the object.
 final class AudienceListType {
-
   final String value;
 
   const AudienceListType._(this.value);
@@ -38,33 +39,39 @@ final class AudienceListType {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AudienceListType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AudienceListType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the object
 final class AwayStatusReasonListType {
-
   final String value;
 
   const AwayStatusReasonListType._(this.value);
 
-  factory AwayStatusReasonListType.fromJson(String value) => AwayStatusReasonListType._(value);
+  factory AwayStatusReasonListType.fromJson(String value) =>
+      AwayStatusReasonListType._(value);
 
   static const list = AwayStatusReasonListType._('list');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AwayStatusReasonListType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AwayStatusReasonListType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `message_type` wire field.
@@ -73,14 +80,18 @@ enum CloseConversationRequestMessageType {
 
   static CloseConversationRequestMessageType fromJson(String value) {
     switch (value) {
-      case 'close': return CloseConversationRequestMessageType.close;
-      default: throw ArgumentError('Unknown CloseConversationRequestMessageType: $value');
+      case 'close':
+        return CloseConversationRequestMessageType.close;
+      default:
+        throw ArgumentError(
+            'Unknown CloseConversationRequestMessageType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CloseConversationRequestMessageType.close: return 'close';
+      case CloseConversationRequestMessageType.close:
+        return 'close';
     }
   }
 
@@ -90,49 +101,54 @@ enum CloseConversationRequestMessageType {
 
 /// Required enumerated value serialized in the `type` wire field.
 final class CloseConversationRequestType {
-
   final String value;
 
   const CloseConversationRequestType._(this.value);
 
-  factory CloseConversationRequestType.fromJson(String value) => CloseConversationRequestType._(value);
+  factory CloseConversationRequestType.fromJson(String value) =>
+      CloseConversationRequestType._(value);
 
   static const admin = CloseConversationRequestType._('admin');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CloseConversationRequestType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CloseConversationRequestType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the object - `list`.
 final class CollectionListType {
-
   final String value;
 
   const CollectionListType._(this.value);
 
-  factory CollectionListType.fromJson(String value) => CollectionListType._(value);
+  factory CollectionListType.fromJson(String value) =>
+      CollectionListType._(value);
 
   static const list = CollectionListType._('list');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CollectionListType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CollectionListType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the object
 final class CompanyNotesType {
-
   final String value;
 
   const CompanyNotesType._(this.value);
@@ -143,38 +159,43 @@ final class CompanyNotesType {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CompanyNotesType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CompanyNotesType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the object
 final class CompanySegmentsType {
-
   final String value;
 
   const CompanySegmentsType._(this.value);
 
-  factory CompanySegmentsType.fromJson(String value) => CompanySegmentsType._(value);
+  factory CompanySegmentsType.fromJson(String value) =>
+      CompanySegmentsType._(value);
 
   static const segmentList = CompanySegmentsType._('segment.list');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CompanySegmentsType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CompanySegmentsType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the object
 final class CompanyTagsType {
-
   final String value;
 
   const CompanyTagsType._(this.value);
@@ -185,17 +206,19 @@ final class CompanyTagsType {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CompanyTagsType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CompanyTagsType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Value is `company`
 final class CompanyType {
-
   final String value;
 
   const CompanyType._(this.value);
@@ -206,59 +229,67 @@ final class CompanyType {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CompanyType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CompanyType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of object - `list`
 final class CompanyAttachedContactsType {
-
   final String value;
 
   const CompanyAttachedContactsType._(this.value);
 
-  factory CompanyAttachedContactsType.fromJson(String value) => CompanyAttachedContactsType._(value);
+  factory CompanyAttachedContactsType.fromJson(String value) =>
+      CompanyAttachedContactsType._(value);
 
   static const list = CompanyAttachedContactsType._('list');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CompanyAttachedContactsType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CompanyAttachedContactsType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of object - `list`
 final class CompanyAttachedSegmentsType {
-
   final String value;
 
   const CompanyAttachedSegmentsType._(this.value);
 
-  factory CompanyAttachedSegmentsType.fromJson(String value) => CompanyAttachedSegmentsType._(value);
+  factory CompanyAttachedSegmentsType.fromJson(String value) =>
+      CompanyAttachedSegmentsType._(value);
 
   static const list = CompanyAttachedSegmentsType._('list');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CompanyAttachedSegmentsType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CompanyAttachedSegmentsType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the object. Always company.
 final class CompanyDataType {
-
   final String value;
 
   const CompanyDataType._(this.value);
@@ -269,10 +300,13 @@ final class CompanyDataType {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CompanyDataType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CompanyDataType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

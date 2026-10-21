@@ -8,38 +8,69 @@ part of 'conversations.dart';
 class ConvertConversationToTicketRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the type of ticket you want to convert the conversation to
   final String ticketTypeId;
+
   /// The ID of the ticket state associated with the ticket type.
   final SdkOptional<String> ticketStateId;
+
   /// The attributes set on the ticket. When setting the default title and description attributes, the attribute keys that should be used are `_default_title_` and `_default_description_`. When setting ticket type attributes of the list attribute type, the key should be the attribute name and the value of the attribute should be the list item id, obtainable by [listing the ticket type](ref:get_ticket-types). For example, if the ticket type has an attribute called `priority` of type `list`, the key should be `priority` and the value of the attribute should be the guid of the list item (e.g. `de1825a0-0164-4070-8ca6-13e22462fa7e`).
   final SdkOptional<Map<String, dynamic>> attributes;
 
-  const ConvertConversationToTicketRequest({required this.ticketTypeId, this.ticketStateId = const SdkOmitted(), this.attributes = const SdkOmitted()});
+  const ConvertConversationToTicketRequest(
+      {required this.ticketTypeId,
+      this.ticketStateId = const SdkOmitted(),
+      this.attributes = const SdkOmitted()});
 
-  ConvertConversationToTicketRequest Function({String ticketTypeId, SdkOptional<String> ticketStateId, SdkOptional<Map<String, dynamic>> attributes}) get copyWith => _copyWith;
+  ConvertConversationToTicketRequest Function(
+      {String ticketTypeId,
+      SdkOptional<String> ticketStateId,
+      SdkOptional<Map<String, dynamic>> attributes}) get copyWith => _copyWith;
 
-  ConvertConversationToTicketRequest _copyWith({Object? ticketTypeId = sdkOmittedValue, Object? ticketStateId = sdkOmittedValue, Object? attributes = sdkOmittedValue}) => ConvertConversationToTicketRequest(
-    ticketTypeId: identical(ticketTypeId, sdkOmittedValue) ? this.ticketTypeId : ticketTypeId as String,
-    ticketStateId: identical(ticketStateId, sdkOmittedValue) ? this.ticketStateId : ticketStateId as SdkOptional<String>,
-    attributes: identical(attributes, sdkOmittedValue) ? this.attributes : attributes as SdkOptional<Map<String, dynamic>>,
-  );
+  ConvertConversationToTicketRequest _copyWith(
+          {Object? ticketTypeId = sdkOmittedValue,
+          Object? ticketStateId = sdkOmittedValue,
+          Object? attributes = sdkOmittedValue}) =>
+      ConvertConversationToTicketRequest(
+        ticketTypeId: identical(ticketTypeId, sdkOmittedValue)
+            ? this.ticketTypeId
+            : ticketTypeId as String,
+        ticketStateId: identical(ticketStateId, sdkOmittedValue)
+            ? this.ticketStateId
+            : ticketStateId as SdkOptional<String>,
+        attributes: identical(attributes, sdkOmittedValue)
+            ? this.attributes
+            : attributes as SdkOptional<Map<String, dynamic>>,
+      );
 
-  factory ConvertConversationToTicketRequest.fromJson(Map<String, dynamic> json) => ConvertConversationToTicketRequest(
-    ticketTypeId: (json['ticket_type_id'] as String?)!,
-    ticketStateId: json['ticket_state_id'] != null ? SdkPresent((json['ticket_state_id'] as String?)!) : const SdkOmitted(),
-    attributes: json['attributes'] != null ? SdkPresent((json['attributes'] == null ? null : json['attributes'] as Map<String, dynamic>)!) : const SdkOmitted(),
-  );
+  factory ConvertConversationToTicketRequest.fromJson(
+          Map<String, dynamic> json) =>
+      ConvertConversationToTicketRequest(
+        ticketTypeId: (json['ticket_type_id'] as String?)!,
+        ticketStateId: json['ticket_state_id'] != null
+            ? SdkPresent((json['ticket_state_id'] as String?)!)
+            : const SdkOmitted(),
+        attributes: json['attributes'] != null
+            ? SdkPresent((json['attributes'] == null
+                ? null
+                : json['attributes'] as Map<String, dynamic>)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'ticket_type_id': ticketTypeId,
-    ...switch (ticketStateId) {
-      SdkPresent<String>(value: final value) => {'ticket_state_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (attributes) {
-      SdkPresent<Map<String, dynamic>>(value: final value) => {'attributes': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'ticket_type_id': ticketTypeId,
+        ...switch (ticketStateId) {
+          SdkPresent<String>(value: final value) => {
+              'ticket_state_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (attributes) {
+          SdkPresent<Map<String, dynamic>>(value: final value) => {
+              'attributes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

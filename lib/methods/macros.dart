@@ -20,14 +20,18 @@ Future<Macro> getMacro(ClientConfig config,
           'GET', '/macros/${Uri.encodeComponent(id.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'getMacro',
           fromJsonRaw: (value) => Macro.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Lists macros (saved replies) in the workspace, ordered by most recently updated. Use `starting_after` to continue from the previous page and `updated_since` to filter by update time. The `starting_after` cursor is a Base64-encoded JSON array containing the previous page's last `updated_at` and `id` values.
 ///
@@ -50,15 +54,28 @@ Future<MacroList> listMacros(ClientConfig config,
   return (await sdkRequest<MacroList>('GET', '/macros',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'starting_after': SdkQueryValue(SdkUtils.unwrapOptional(startingAfter), style: 'form', explode: true),
-            'updated_since': SdkQueryValue(SdkUtils.unwrapOptional(updatedSince), style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'starting_after': SdkQueryValue(
+                SdkUtils.unwrapOptional(startingAfter),
+                style: 'form',
+                explode: true),
+            'updated_since': SdkQueryValue(
+                SdkUtils.unwrapOptional(updatedSince),
+                style: 'form',
+                explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listMacros',
-          fromJsonRaw: (value) => MacroList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              MacroList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '403': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }

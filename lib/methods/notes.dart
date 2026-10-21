@@ -19,14 +19,17 @@ Future<NoteList> listCompanyNotes(ClientConfig config,
           '/companies/${Uri.encodeComponent(companyId.toString())}/notes',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listCompanyNotes',
-          fromJsonRaw: (value) => NoteList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              NoteList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Creates a note associated with a specific company. Include the note text in `body`; you can optionally specify `admin_id` to set the note's author, otherwise the admin associated with the access token is used.
 ///
@@ -47,14 +50,17 @@ Future<Note> createCompanyNote(ClientConfig config,
           config: config,
           body: {'body': body, 'admin_id': SdkUtils.unwrapOptional(adminId)},
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'createCompanyNote',
           fromJsonRaw: (value) => Note.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Lists notes associated with a contact. Use the `contact_id` path parameter to identify the contact; the response includes cursor-based pagination metadata and the total note count.
 ///
@@ -69,14 +75,17 @@ Future<NoteList> listNotes(ClientConfig config,
           'GET', '/contacts/${Uri.encodeComponent(contactId.toString())}/notes',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listNotes',
-          fromJsonRaw: (value) => NoteList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              NoteList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Creates a note for a contact. Supply the required `body` text and optionally specify the `admin_id` of the admin associated with the note. The response includes the created note and its contact and author details.
 ///
@@ -96,14 +105,16 @@ Future<Note> createNote(ClientConfig config,
           config: config,
           body: {'body': body, 'admin_id': SdkUtils.unwrapOptional(adminId)},
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'createNote',
           fromJsonRaw: (value) => Note.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves a note attached to a contact or company. Supply `note_id` to identify the note. The response includes the note body, creation time, author, and associated contact or company.
 ///
@@ -118,14 +129,17 @@ Future<Note> retrieveNote(ClientConfig config,
           'GET', '/notes/${Uri.encodeComponent(noteId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'retrieveNote',
           fromJsonRaw: (value) => Note.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Deletes a note attached to a contact or company. Use `note_id` to identify the note to remove. Notes of other kinds cannot be deleted through the API.
 ///
@@ -140,10 +154,16 @@ Future<DeletedNoteObject> deleteNote(ClientConfig config,
           'DELETE', '/notes/${Uri.encodeComponent(noteId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'deleteNote',
-          fromJsonRaw: (value) => DeletedNoteObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeletedNoteObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

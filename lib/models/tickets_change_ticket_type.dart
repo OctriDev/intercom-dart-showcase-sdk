@@ -8,35 +8,62 @@ part of 'tickets.dart';
 class ChangeTicketTypeRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the new ticket type. Must be in the same category as the current type.
   final String ticketTypeId;
+
   /// The ID of the ticket state for the new ticket type.
   final String ticketStateId;
+
   /// The attributes to set on the ticket for the new type. Attributes matching by name and type are transferred automatically from the old type; values provided here override the transferred values.
   final SdkOptional<Map<String, dynamic>> ticketAttributes;
 
-  const ChangeTicketTypeRequest({required this.ticketTypeId, required this.ticketStateId, this.ticketAttributes = const SdkOmitted()});
+  const ChangeTicketTypeRequest(
+      {required this.ticketTypeId,
+      required this.ticketStateId,
+      this.ticketAttributes = const SdkOmitted()});
 
-  ChangeTicketTypeRequest Function({String ticketTypeId, String ticketStateId, SdkOptional<Map<String, dynamic>> ticketAttributes}) get copyWith => _copyWith;
+  ChangeTicketTypeRequest Function(
+          {String ticketTypeId,
+          String ticketStateId,
+          SdkOptional<Map<String, dynamic>> ticketAttributes})
+      get copyWith => _copyWith;
 
-  ChangeTicketTypeRequest _copyWith({Object? ticketTypeId = sdkOmittedValue, Object? ticketStateId = sdkOmittedValue, Object? ticketAttributes = sdkOmittedValue}) => ChangeTicketTypeRequest(
-    ticketTypeId: identical(ticketTypeId, sdkOmittedValue) ? this.ticketTypeId : ticketTypeId as String,
-    ticketStateId: identical(ticketStateId, sdkOmittedValue) ? this.ticketStateId : ticketStateId as String,
-    ticketAttributes: identical(ticketAttributes, sdkOmittedValue) ? this.ticketAttributes : ticketAttributes as SdkOptional<Map<String, dynamic>>,
-  );
+  ChangeTicketTypeRequest _copyWith(
+          {Object? ticketTypeId = sdkOmittedValue,
+          Object? ticketStateId = sdkOmittedValue,
+          Object? ticketAttributes = sdkOmittedValue}) =>
+      ChangeTicketTypeRequest(
+        ticketTypeId: identical(ticketTypeId, sdkOmittedValue)
+            ? this.ticketTypeId
+            : ticketTypeId as String,
+        ticketStateId: identical(ticketStateId, sdkOmittedValue)
+            ? this.ticketStateId
+            : ticketStateId as String,
+        ticketAttributes: identical(ticketAttributes, sdkOmittedValue)
+            ? this.ticketAttributes
+            : ticketAttributes as SdkOptional<Map<String, dynamic>>,
+      );
 
-  factory ChangeTicketTypeRequest.fromJson(Map<String, dynamic> json) => ChangeTicketTypeRequest(
-    ticketTypeId: (json['ticket_type_id'] as String?)!,
-    ticketStateId: (json['ticket_state_id'] as String?)!,
-    ticketAttributes: json['ticket_attributes'] != null ? SdkPresent((json['ticket_attributes'] == null ? null : json['ticket_attributes'] as Map<String, dynamic>)!) : const SdkOmitted(),
-  );
+  factory ChangeTicketTypeRequest.fromJson(Map<String, dynamic> json) =>
+      ChangeTicketTypeRequest(
+        ticketTypeId: (json['ticket_type_id'] as String?)!,
+        ticketStateId: (json['ticket_state_id'] as String?)!,
+        ticketAttributes: json['ticket_attributes'] != null
+            ? SdkPresent((json['ticket_attributes'] == null
+                ? null
+                : json['ticket_attributes'] as Map<String, dynamic>)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'ticket_type_id': ticketTypeId,
-    'ticket_state_id': ticketStateId,
-    ...switch (ticketAttributes) {
-      SdkPresent<Map<String, dynamic>>(value: final value) => {'ticket_attributes': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'ticket_type_id': ticketTypeId,
+        'ticket_state_id': ticketStateId,
+        ...switch (ticketAttributes) {
+          SdkPresent<Map<String, dynamic>>(value: final value) => {
+              'ticket_attributes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

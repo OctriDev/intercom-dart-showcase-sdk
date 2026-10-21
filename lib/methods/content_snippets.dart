@@ -21,18 +21,20 @@ Future<ContentSnippetList> listContentSnippets(ClientConfig config,
   return (await sdkRequest<ContentSnippetList>('GET', '/content_snippets',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listContentSnippets',
-          fromJsonRaw: (value) => ContentSnippetList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ContentSnippetList.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
-
 
 /// Lists content snippets in a workspace. Use `page` and `per_page` to paginate the results; each page includes snippet objects and pagination metadata.
 ///
@@ -40,34 +42,64 @@ Future<ContentSnippetList> listContentSnippets(ClientConfig config,
 ///
 /// [page] The page of results to fetch.
 /// [perPage] The number of results to return per page. Max value of 50.
-Stream<ContentSnippet> listContentSnippetsPaginated(ClientConfig config, {int? page, int? perPage, IntercomVersion? intercomVersion, RequestOptions? requestOptions}) async* {
+Stream<ContentSnippet> listContentSnippetsPaginated(ClientConfig config,
+    {int? page,
+    int? perPage,
+    IntercomVersion? intercomVersion,
+    RequestOptions? requestOptions}) async* {
   var sdkPageNumber = page ?? 1;
   while (true) {
-    final sdkPage = await listContentSnippets(config, page: SdkPresent<int>(sdkPageNumber), perPage: perPage == null ? const SdkOmitted<int>() : SdkPresent<int>(perPage), intercomVersion: intercomVersion == null ? const SdkOmitted<IntercomVersion>() : SdkPresent<IntercomVersion>(intercomVersion), requestOptions: requestOptions);
+    final sdkPage = await listContentSnippets(config,
+        page: SdkPresent<int>(sdkPageNumber),
+        perPage: perPage == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(perPage),
+        intercomVersion: intercomVersion == null
+            ? const SdkOmitted<IntercomVersion>()
+            : SdkPresent<IntercomVersion>(intercomVersion),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
-    if (sdkPage.totalPages.valueOrNull != null && sdkPageNumber >= sdkPage.totalPages.valueOrNull!) {
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
+    if (sdkPage.totalPages.valueOrNull != null &&
+        sdkPageNumber >= sdkPage.totalPages.valueOrNull!) {
       return;
     }
     sdkPageNumber += 1;
   }
 }
 
-Stream<SdkPage<ContentSnippetList, ContentSnippet>> listContentSnippetsPages(ClientConfig config, {int? page, int? perPage, IntercomVersion? intercomVersion, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ContentSnippetList, ContentSnippet>> listContentSnippetsPages(
+    ClientConfig config,
+    {int? page,
+    int? perPage,
+    IntercomVersion? intercomVersion,
+    RequestOptions? requestOptions}) async* {
   var sdkPageNumber = page ?? 1;
   while (true) {
-    final sdkPage = await listContentSnippets(config, page: SdkPresent<int>(sdkPageNumber), perPage: perPage == null ? const SdkOmitted<int>() : SdkPresent<int>(perPage), intercomVersion: intercomVersion == null ? const SdkOmitted<IntercomVersion>() : SdkPresent<IntercomVersion>(intercomVersion), requestOptions: requestOptions);
+    final sdkPage = await listContentSnippets(config,
+        page: SdkPresent<int>(sdkPageNumber),
+        perPage: perPage == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(perPage),
+        intercomVersion: intercomVersion == null
+            ? const SdkOmitted<IntercomVersion>()
+            : SdkPresent<IntercomVersion>(intercomVersion),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPageNumber + 1;
-    final sdkHasMore = true && sdkNext != sdkPageNumber && (sdkPage.totalPages.valueOrNull == null || sdkNext <= sdkPage.totalPages.valueOrNull!);
+    final sdkHasMore = true &&
+        sdkNext != sdkPageNumber &&
+        (sdkPage.totalPages.valueOrNull == null ||
+            sdkNext <= sdkPage.totalPages.valueOrNull!);
     yield SdkPage(data: sdkPage, items: sdkItems, hasMore: sdkHasMore);
     if (!sdkHasMore) return;
     sdkPageNumber = sdkNext;
   }
 }
-
 
 /// Creates a content snippet for reuse by the AI agent and Copilot. Provide a `title` and the snippet content as either `json_blocks` or `body_markdown`; these content formats are mutually exclusive. Audience targeting and availability flags are optional.
 ///
@@ -110,19 +142,26 @@ Future<ContentSnippet> createContentSnippet(ClientConfig config,
             'body_markdown': SdkUtils.unwrapOptional(bodyMarkdown),
             'locale': SdkUtils.unwrapOptional(locale),
             'audience_ids': SdkUtils.unwrapOptional(audienceIds),
-            'ai_chatbot_availability': SdkUtils.unwrapOptional(aiChatbotAvailability),
-            'ai_copilot_availability': SdkUtils.unwrapOptional(aiCopilotAvailability),
-            'ai_sales_agent_availability': SdkUtils.unwrapOptional(aiSalesAgentAvailability)
+            'ai_chatbot_availability':
+                SdkUtils.unwrapOptional(aiChatbotAvailability),
+            'ai_copilot_availability':
+                SdkUtils.unwrapOptional(aiCopilotAvailability),
+            'ai_sales_agent_availability':
+                SdkUtils.unwrapOptional(aiSalesAgentAvailability)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'createContentSnippet',
-          fromJsonRaw: (value) => ContentSnippet.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ContentSnippet.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '422': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves a content snippet by its unique identifier. Use this operation when you need the snippet's content, locale, availability settings, or audience targeting.
 ///
@@ -137,14 +176,17 @@ Future<ContentSnippet> getContentSnippet(ClientConfig config,
           'GET', '/content_snippets/${Uri.encodeComponent(id.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'getContentSnippet',
-          fromJsonRaw: (value) => ContentSnippet.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ContentSnippet.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Replaces the supplied fields on an existing content snippet while leaving omitted fields unchanged. Provide only the fields you want to update, and use either `json_blocks` or `body_markdown` for the content, not both. Pass an empty `audience_ids` array to clear audience targeting.
 ///
@@ -193,19 +235,26 @@ Future<ContentSnippet> updateContentSnippet(ClientConfig config,
             'body_markdown': SdkUtils.unwrapOptional(bodyMarkdown),
             'locale': SdkUtils.unwrapOptional(locale),
             'audience_ids': SdkUtils.unwrapOptional(audienceIds),
-            'ai_chatbot_availability': SdkUtils.unwrapOptional(aiChatbotAvailability),
-            'ai_copilot_availability': SdkUtils.unwrapOptional(aiCopilotAvailability),
-            'ai_sales_agent_availability': SdkUtils.unwrapOptional(aiSalesAgentAvailability)
+            'ai_chatbot_availability':
+                SdkUtils.unwrapOptional(aiChatbotAvailability),
+            'ai_copilot_availability':
+                SdkUtils.unwrapOptional(aiCopilotAvailability),
+            'ai_sales_agent_availability':
+                SdkUtils.unwrapOptional(aiSalesAgentAvailability)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'updateContentSnippet',
-          fromJsonRaw: (value) => ContentSnippet.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ContentSnippet.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '422': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes a content snippet by its unique identifier. Use this operation to remove a snippet that is no longer needed; deletion is unavailable while the snippet has procedure dependencies.
 ///
@@ -220,13 +269,16 @@ Future<void> deleteContentSnippet(ClientConfig config,
           'DELETE', '/content_snippets/${Uri.encodeComponent(id.toString())}',
           config: config,
           decoder: SdkResponseDecoder.empty,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'deleteContentSnippet',
           options: requestOptions,
-          errors: {'404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '422': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Applies an existing tag to a content snippet and returns the applied tag. The tag must already exist, and the authenticated user must have the `manage_knowledge_base_content` permission. The request requires the `read_write_content_snippets` OAuth scope.
 ///
@@ -247,14 +299,18 @@ Future<Tag> attachContentSnippetsTag(ClientConfig config,
           config: config,
           body: {'id': id, 'admin_id': SdkUtils.unwrapOptional(adminId)},
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'attachContentSnippetsTag',
           fromJsonRaw: (value) => Tag.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Removes a tag from a content snippet and returns the removed tag. The authenticated user must have the `manage_knowledge_base_content` permission, and the request requires the `read_write_content_snippets` OAuth scope.
 ///
@@ -271,10 +327,15 @@ Future<Tag> detachContentSnippetsTag(ClientConfig config,
           '/content_snippets/${Uri.encodeComponent(contentSnippetId.toString())}/tags/${Uri.encodeComponent(id.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'detachContentSnippetsTag',
           fromJsonRaw: (value) => Tag.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

@@ -8,37 +8,65 @@ part of 'help_center.dart';
 class CreateHelpCenterRedirectRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The source URL to redirect. Must be an absolute URL within the help center's URL space.
   final String fromUrl;
+
   /// The locale of the target translation (e.g. `en`, `fr`). For article targets this selects the ArticleContent variant.
   final String locale;
+
   /// The type of the redirect target.
   final CreateHelpCenterRedirectRequestTargetType targetType;
+
   /// The unique identifier of the target article or collection. The target must be a member of the help center.
   final String targetId;
 
-  const CreateHelpCenterRedirectRequest({required this.fromUrl, required this.locale, required this.targetType, required this.targetId});
+  const CreateHelpCenterRedirectRequest(
+      {required this.fromUrl,
+      required this.locale,
+      required this.targetType,
+      required this.targetId});
 
-  CreateHelpCenterRedirectRequest Function({String fromUrl, String locale, CreateHelpCenterRedirectRequestTargetType targetType, String targetId}) get copyWith => _copyWith;
+  CreateHelpCenterRedirectRequest Function(
+      {String fromUrl,
+      String locale,
+      CreateHelpCenterRedirectRequestTargetType targetType,
+      String targetId}) get copyWith => _copyWith;
 
-  CreateHelpCenterRedirectRequest _copyWith({Object? fromUrl = sdkOmittedValue, Object? locale = sdkOmittedValue, Object? targetType = sdkOmittedValue, Object? targetId = sdkOmittedValue}) => CreateHelpCenterRedirectRequest(
-    fromUrl: identical(fromUrl, sdkOmittedValue) ? this.fromUrl : fromUrl as String,
-    locale: identical(locale, sdkOmittedValue) ? this.locale : locale as String,
-    targetType: identical(targetType, sdkOmittedValue) ? this.targetType : targetType as CreateHelpCenterRedirectRequestTargetType,
-    targetId: identical(targetId, sdkOmittedValue) ? this.targetId : targetId as String,
-  );
+  CreateHelpCenterRedirectRequest _copyWith(
+          {Object? fromUrl = sdkOmittedValue,
+          Object? locale = sdkOmittedValue,
+          Object? targetType = sdkOmittedValue,
+          Object? targetId = sdkOmittedValue}) =>
+      CreateHelpCenterRedirectRequest(
+        fromUrl: identical(fromUrl, sdkOmittedValue)
+            ? this.fromUrl
+            : fromUrl as String,
+        locale:
+            identical(locale, sdkOmittedValue) ? this.locale : locale as String,
+        targetType: identical(targetType, sdkOmittedValue)
+            ? this.targetType
+            : targetType as CreateHelpCenterRedirectRequestTargetType,
+        targetId: identical(targetId, sdkOmittedValue)
+            ? this.targetId
+            : targetId as String,
+      );
 
-  factory CreateHelpCenterRedirectRequest.fromJson(Map<String, dynamic> json) => CreateHelpCenterRedirectRequest(
-    fromUrl: (json['from_url'] as String?)!,
-    locale: (json['locale'] as String?)!,
-    targetType: (json['target_type'] != null ? CreateHelpCenterRedirectRequestTargetType.fromJson(json['target_type'] as String) : null)!,
-    targetId: (json['target_id'] as String?)!,
-  );
+  factory CreateHelpCenterRedirectRequest.fromJson(Map<String, dynamic> json) =>
+      CreateHelpCenterRedirectRequest(
+        fromUrl: (json['from_url'] as String?)!,
+        locale: (json['locale'] as String?)!,
+        targetType: (json['target_type'] != null
+            ? CreateHelpCenterRedirectRequestTargetType.fromJson(
+                json['target_type'] as String)
+            : null)!,
+        targetId: (json['target_id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'from_url': fromUrl,
-    'locale': locale,
-    'target_type': targetType.toJson(),
-    'target_id': targetId,
-  };
+        'from_url': fromUrl,
+        'locale': locale,
+        'target_type': targetType.toJson(),
+        'target_id': targetId,
+      };
 }

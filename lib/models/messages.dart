@@ -5,5 +5,6 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'messages_part1.dart';
-part 'messages_part2.dart';
+part 'messages_create_message.dart';
+part 'messages_retrieve_whats_app_message_status.dart';
+part 'messages_get_whats_app_message_status.dart';

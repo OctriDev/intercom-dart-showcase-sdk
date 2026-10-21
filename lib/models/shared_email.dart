@@ -4,4 +4,4 @@
 // shared_email domain model library.
 import '../sdk_utils.dart';
 
-part 'shared_email_part1.dart';
+part 'shared_email_models.dart';

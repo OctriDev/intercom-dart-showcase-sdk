@@ -4399,7 +4399,7 @@ class TicketsNamespace {
       required String id,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return tickets_methods.unlinkTicketsConversation(_config,
+    return tickets_methods.unlinkTicketConversation(_config,
         ticketId: ticketId,
         id: id,
         intercomVersion: intercomVersion,

@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'custom_object_instances/models.dart';
 import 'inline.dart';
 
-part 'shared_custom_part1.dart';
+part 'shared_custom_models.dart';

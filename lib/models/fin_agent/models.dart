@@ -6,6 +6,12 @@ import 'dart:convert';
 import '../../sdk_utils.dart';
 import '../inline.dart';
 
-part 'models_part1.dart';
-part 'models_part2.dart';
-part 'models_part3.dart';
+part 'models_fin_agent_attachment.dart';
+part 'models_fin_agent_attribute_errors.dart';
+part 'models_fin_agent_conversation_metadata.dart';
+part 'models_fin_agent_csat_requested_event.dart';
+part 'models_fin_agent_message.dart';
+part 'models_fin_agent_replied_event.dart';
+part 'models_fin_agent_reply_chunk_event.dart';
+part 'models_fin_agent_status_updated_event.dart';
+part 'models_fin_agent_user.dart';

@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'dynamic_content/models.dart';
 import 'inline.dart';
 
-part 'dynamic_content_part1.dart';
+part 'dynamic_content_models.dart';

@@ -4,4 +4,4 @@
 // tagged_models_conversation domain model library.
 import '../../sdk_utils.dart';
 
-part 'models_part1.dart';
+part 'models_models.dart';

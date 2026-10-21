@@ -9,5 +9,11 @@ import 'inline.dart';
 import 'segments/models.dart';
 import 'shared.dart';
 
-part 'companies_part1.dart';
-part 'companies_part2.dart';
+part 'companies_list_attached_contacts.dart';
+part 'companies_list_companies_attached_segments.dart';
+part 'companies_shared.dart';
+part 'companies_scroll_over_all_companies.dart';
+part 'companies_search_companies.dart';
+part 'companies_create_or_update_company.dart';
+part 'companies_delete_company.dart';
+part 'companies_update_company.dart';

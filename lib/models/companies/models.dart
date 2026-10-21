@@ -8,5 +8,5 @@ import '../notes/models.dart';
 import '../segments/models.dart';
 import '../tags/models.dart';
 
-part 'models_part1.dart';
-part 'models_part2.dart';
+part 'models_company_plan.dart';
+part 'models_company.dart';

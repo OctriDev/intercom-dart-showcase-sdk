@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'ai_content_part1.dart';
+part 'ai_content_models.dart';

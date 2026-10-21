@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'banners/models.dart';
 
-part 'banners_part1.dart';
+part 'banners_models.dart';

@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'articles.dart';
 import 'inline.dart';
 
-part 'update_part1.dart';
+part 'update_models.dart';

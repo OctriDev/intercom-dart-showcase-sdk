@@ -6,6 +6,8 @@ import '../sdk_utils.dart';
 import 'companies/models.dart';
 import 'inline.dart';
 
-part 'visitors_part1.dart';
-part 'visitors_part2.dart';
-part 'visitors_part3.dart';
+part 'visitors_convert_visitor.dart';
+part 'visitors_update_visitor.dart';
+part 'visitors_visitor_avatar.dart';
+part 'visitors_visitor_segments.dart';
+part 'visitors_visitor.dart';

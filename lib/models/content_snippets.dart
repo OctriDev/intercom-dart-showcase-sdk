@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'content_snippets/models.dart';
 import 'inline.dart';
 
-part 'content_snippets_part1.dart';
+part 'content_snippets_models.dart';

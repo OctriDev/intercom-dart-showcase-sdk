@@ -7,4 +7,4 @@ import 'inline.dart';
 import 'internal_articles/models.dart';
 import 'shared.dart';
 
-part 'internal_articles_part1.dart';
+part 'internal_articles_models.dart';

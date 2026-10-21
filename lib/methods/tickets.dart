@@ -78,7 +78,7 @@ Future<Conversation> linkTicketsConversation(ClientConfig config,
 ///   Intercom.
 /// [id] The unique identifier (given by Intercom) for the linked conversation
 ///   or customer ticket to unlink.
-Future<Conversation> unlinkTicketsConversation(ClientConfig config,
+Future<Conversation> unlinkTicketConversation(ClientConfig config,
     {required String ticketId,
     required String id,
     SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
@@ -89,7 +89,7 @@ Future<Conversation> unlinkTicketsConversation(ClientConfig config,
           decoder: SdkResponseDecoder.json,
           extraHeaders: SdkUtils.serializeHeaders(
               {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
-          operationId: 'unlinkTicketsConversation',
+          operationId: 'unlinkTicketConversation',
           fromJsonRaw: (value) =>
               Conversation.fromJson(value as Map<String, dynamic>),
           options: requestOptions,

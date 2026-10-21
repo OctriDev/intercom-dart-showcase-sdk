@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'tickets/models.dart';
 
-part 'ticket_states_part1.dart';
+part 'ticket_states_models.dart';

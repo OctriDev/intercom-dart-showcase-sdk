@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'ticket_type_attributes_part1.dart';
+part 'ticket_type_attributes_models.dart';

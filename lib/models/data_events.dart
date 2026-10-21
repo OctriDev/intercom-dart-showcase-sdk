@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'data_events_part1.dart';
+part 'data_events_models.dart';

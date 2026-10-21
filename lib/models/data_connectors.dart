@@ -6,7 +6,10 @@ import '../sdk_utils.dart';
 import 'data_connectors/models.dart';
 import 'inline.dart';
 
-part 'data_connectors_part1.dart';
-part 'data_connectors_part2.dart';
-part 'data_connectors_part3.dart';
-part 'data_connectors_part4.dart';
+part 'data_connectors_create_data_connector.dart';
+part 'data_connectors_list_data_connector_execution_results.dart';
+part 'data_connectors_list_data_connectors.dart';
+part 'data_connectors_list_data_connector_versions.dart';
+part 'data_connectors_delete_data_connector.dart';
+part 'data_connectors_update_data_connector.dart';
+part 'data_connectors_update_data_connector_version.dart';

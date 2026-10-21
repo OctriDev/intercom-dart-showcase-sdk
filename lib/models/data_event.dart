@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'data_events/models.dart';
 import 'inline.dart';
 
-part 'data_event_part1.dart';
+part 'data_event_models.dart';

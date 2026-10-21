@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'shared.dart';
 
-part 'shared_contact_part1.dart';
+part 'shared_contact_models.dart';

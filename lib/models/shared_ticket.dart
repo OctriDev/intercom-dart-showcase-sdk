@@ -6,6 +6,9 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'tickets/models.dart';
 
-part 'shared_ticket_part1.dart';
-part 'shared_ticket_part2.dart';
-part 'shared_ticket_part3.dart';
+part 'shared_ticket_custom_attributes.dart';
+part 'shared_ticket_part_author.dart';
+part 'shared_ticket_parts.dart';
+part 'shared_ticket_request_custom_attributes.dart';
+part 'shared_ticket_type_attribute.dart';
+part 'shared_ticket_type_attribute_list.dart';

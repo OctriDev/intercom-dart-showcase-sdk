@@ -8,153 +8,329 @@ part of 'models.dart';
 class DataAttribute {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Value is `data_attribute`.
   final SdkOptional<DataAttributeType> type_;
+
   /// The unique identifier for the data attribute which is given by Intercom. Only available for custom attributes.
   final SdkOptional<int> id;
+
   /// Value is `contact` for user/lead attributes and `company` for company attributes.
   final SdkOptional<DataAttributeModel> model;
+
   /// Name of the attribute.
   final SdkOptional<String> name;
+
   /// Full name of the attribute. Should match the name unless it's a nested attribute. We can split full_name on `.` to access nested user object values.
   final SdkOptional<String> fullName;
+
   /// Readable name of the attribute (i.e. name you see in the UI)
   final SdkOptional<String> label;
+
   /// Readable description of the attribute.
   final SdkOptional<String> description;
+
   /// The data type of the attribute.
   final SdkOptional<DataAttributeDataType> dataType;
+
   /// List of predefined options for attribute value.
   final SdkOptional<List<String>> options;
+
   /// Can this attribute be updated through API
   final SdkOptional<bool> apiWritable;
+
   /// Can this attribute be updated by the Messenger
   final SdkOptional<bool> messengerWritable;
+
   /// Can this attribute be updated in the UI
   final SdkOptional<bool> uiWritable;
+
   /// Set to true if this is a CDA
   final SdkOptional<bool> custom;
+
   /// Is this attribute archived. (Only applicable to CDAs)
   final SdkOptional<bool> archived;
+
   /// The time the attribute was created as a UTC Unix timestamp
   final SdkOptional<int> createdAt;
+
   /// The time the attribute was last updated as a UTC Unix timestamp
   final SdkOptional<int> updatedAt;
+
   /// Teammate who created the attribute. Only applicable to CDAs
   final SdkOptional<String> adminId;
 
-  const DataAttribute({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.model = const SdkOmitted(), this.name = const SdkOmitted(), this.fullName = const SdkOmitted(), this.label = const SdkOmitted(), this.description = const SdkOmitted(), this.dataType = const SdkOmitted(), this.options = const SdkOmitted(), this.apiWritable = const SdkOmitted(), this.messengerWritable = const SdkOmitted(), this.uiWritable = const SdkOmitted(), this.custom = const SdkOmitted(), this.archived = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.adminId = const SdkOmitted()});
+  const DataAttribute(
+      {this.type_ = const SdkOmitted(),
+      this.id = const SdkOmitted(),
+      this.model = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.fullName = const SdkOmitted(),
+      this.label = const SdkOmitted(),
+      this.description = const SdkOmitted(),
+      this.dataType = const SdkOmitted(),
+      this.options = const SdkOmitted(),
+      this.apiWritable = const SdkOmitted(),
+      this.messengerWritable = const SdkOmitted(),
+      this.uiWritable = const SdkOmitted(),
+      this.custom = const SdkOmitted(),
+      this.archived = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.updatedAt = const SdkOmitted(),
+      this.adminId = const SdkOmitted()});
 
-  DataAttribute Function({SdkOptional<DataAttributeType> type_, SdkOptional<int> id, SdkOptional<DataAttributeModel> model, SdkOptional<String> name, SdkOptional<String> fullName, SdkOptional<String> label, SdkOptional<String> description, SdkOptional<DataAttributeDataType> dataType, SdkOptional<List<String>> options, SdkOptional<bool> apiWritable, SdkOptional<bool> messengerWritable, SdkOptional<bool> uiWritable, SdkOptional<bool> custom, SdkOptional<bool> archived, SdkOptional<int> createdAt, SdkOptional<int> updatedAt, SdkOptional<String> adminId}) get copyWith => _copyWith;
+  DataAttribute Function(
+      {SdkOptional<DataAttributeType> type_,
+      SdkOptional<int> id,
+      SdkOptional<DataAttributeModel> model,
+      SdkOptional<String> name,
+      SdkOptional<String> fullName,
+      SdkOptional<String> label,
+      SdkOptional<String> description,
+      SdkOptional<DataAttributeDataType> dataType,
+      SdkOptional<List<String>> options,
+      SdkOptional<bool> apiWritable,
+      SdkOptional<bool> messengerWritable,
+      SdkOptional<bool> uiWritable,
+      SdkOptional<bool> custom,
+      SdkOptional<bool> archived,
+      SdkOptional<int> createdAt,
+      SdkOptional<int> updatedAt,
+      SdkOptional<String> adminId}) get copyWith => _copyWith;
 
-  DataAttribute _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? model = sdkOmittedValue, Object? name = sdkOmittedValue, Object? fullName = sdkOmittedValue, Object? label = sdkOmittedValue, Object? description = sdkOmittedValue, Object? dataType = sdkOmittedValue, Object? options = sdkOmittedValue, Object? apiWritable = sdkOmittedValue, Object? messengerWritable = sdkOmittedValue, Object? uiWritable = sdkOmittedValue, Object? custom = sdkOmittedValue, Object? archived = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? adminId = sdkOmittedValue}) => DataAttribute(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<DataAttributeType>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<int>,
-    model: identical(model, sdkOmittedValue) ? this.model : model as SdkOptional<DataAttributeModel>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    fullName: identical(fullName, sdkOmittedValue) ? this.fullName : fullName as SdkOptional<String>,
-    label: identical(label, sdkOmittedValue) ? this.label : label as SdkOptional<String>,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
-    dataType: identical(dataType, sdkOmittedValue) ? this.dataType : dataType as SdkOptional<DataAttributeDataType>,
-    options: identical(options, sdkOmittedValue) ? this.options : options as SdkOptional<List<String>>,
-    apiWritable: identical(apiWritable, sdkOmittedValue) ? this.apiWritable : apiWritable as SdkOptional<bool>,
-    messengerWritable: identical(messengerWritable, sdkOmittedValue) ? this.messengerWritable : messengerWritable as SdkOptional<bool>,
-    uiWritable: identical(uiWritable, sdkOmittedValue) ? this.uiWritable : uiWritable as SdkOptional<bool>,
-    custom: identical(custom, sdkOmittedValue) ? this.custom : custom as SdkOptional<bool>,
-    archived: identical(archived, sdkOmittedValue) ? this.archived : archived as SdkOptional<bool>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<int>,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<int>,
-    adminId: identical(adminId, sdkOmittedValue) ? this.adminId : adminId as SdkOptional<String>,
-  );
+  DataAttribute _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? model = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? fullName = sdkOmittedValue,
+          Object? label = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? dataType = sdkOmittedValue,
+          Object? options = sdkOmittedValue,
+          Object? apiWritable = sdkOmittedValue,
+          Object? messengerWritable = sdkOmittedValue,
+          Object? uiWritable = sdkOmittedValue,
+          Object? custom = sdkOmittedValue,
+          Object? archived = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue,
+          Object? adminId = sdkOmittedValue}) =>
+      DataAttribute(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<DataAttributeType>,
+        id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<int>,
+        model: identical(model, sdkOmittedValue)
+            ? this.model
+            : model as SdkOptional<DataAttributeModel>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        fullName: identical(fullName, sdkOmittedValue)
+            ? this.fullName
+            : fullName as SdkOptional<String>,
+        label: identical(label, sdkOmittedValue)
+            ? this.label
+            : label as SdkOptional<String>,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String>,
+        dataType: identical(dataType, sdkOmittedValue)
+            ? this.dataType
+            : dataType as SdkOptional<DataAttributeDataType>,
+        options: identical(options, sdkOmittedValue)
+            ? this.options
+            : options as SdkOptional<List<String>>,
+        apiWritable: identical(apiWritable, sdkOmittedValue)
+            ? this.apiWritable
+            : apiWritable as SdkOptional<bool>,
+        messengerWritable: identical(messengerWritable, sdkOmittedValue)
+            ? this.messengerWritable
+            : messengerWritable as SdkOptional<bool>,
+        uiWritable: identical(uiWritable, sdkOmittedValue)
+            ? this.uiWritable
+            : uiWritable as SdkOptional<bool>,
+        custom: identical(custom, sdkOmittedValue)
+            ? this.custom
+            : custom as SdkOptional<bool>,
+        archived: identical(archived, sdkOmittedValue)
+            ? this.archived
+            : archived as SdkOptional<bool>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<int>,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as SdkOptional<int>,
+        adminId: identical(adminId, sdkOmittedValue)
+            ? this.adminId
+            : adminId as SdkOptional<String>,
+      );
 
   factory DataAttribute.fromJson(Map<String, dynamic> json) => DataAttribute(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? DataAttributeType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent(((json['id'] as num?)?.toInt())!) : const SdkOmitted(),
-    model: json['model'] != null ? SdkPresent((json['model'] != null ? DataAttributeModel.fromJson(json['model'] as String) : null)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    fullName: json['full_name'] != null ? SdkPresent((json['full_name'] as String?)!) : const SdkOmitted(),
-    label: json['label'] != null ? SdkPresent((json['label'] as String?)!) : const SdkOmitted(),
-    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
-    dataType: json['data_type'] != null ? SdkPresent((json['data_type'] != null ? DataAttributeDataType.fromJson(json['data_type'] as String) : null)!) : const SdkOmitted(),
-    options: json['options'] != null ? SdkPresent(((json['options'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    apiWritable: json['api_writable'] != null ? SdkPresent((json['api_writable'] as bool?)!) : const SdkOmitted(),
-    messengerWritable: json['messenger_writable'] != null ? SdkPresent((json['messenger_writable'] as bool?)!) : const SdkOmitted(),
-    uiWritable: json['ui_writable'] != null ? SdkPresent((json['ui_writable'] as bool?)!) : const SdkOmitted(),
-    custom: json['custom'] != null ? SdkPresent((json['custom'] as bool?)!) : const SdkOmitted(),
-    archived: json['archived'] != null ? SdkPresent((json['archived'] as bool?)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent(((json['created_at'] as num?)?.toInt())!) : const SdkOmitted(),
-    updatedAt: json['updated_at'] != null ? SdkPresent(((json['updated_at'] as num?)?.toInt())!) : const SdkOmitted(),
-    adminId: json['admin_id'] != null ? SdkPresent((json['admin_id'] as String?)!) : const SdkOmitted(),
-  );
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? DataAttributeType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent(((json['id'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        model: json['model'] != null
+            ? SdkPresent((json['model'] != null
+                ? DataAttributeModel.fromJson(json['model'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        fullName: json['full_name'] != null
+            ? SdkPresent((json['full_name'] as String?)!)
+            : const SdkOmitted(),
+        label: json['label'] != null
+            ? SdkPresent((json['label'] as String?)!)
+            : const SdkOmitted(),
+        description: json['description'] != null
+            ? SdkPresent((json['description'] as String?)!)
+            : const SdkOmitted(),
+        dataType: json['data_type'] != null
+            ? SdkPresent((json['data_type'] != null
+                ? DataAttributeDataType.fromJson(json['data_type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        options: json['options'] != null
+            ? SdkPresent(
+                ((json['options'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        apiWritable: json['api_writable'] != null
+            ? SdkPresent((json['api_writable'] as bool?)!)
+            : const SdkOmitted(),
+        messengerWritable: json['messenger_writable'] != null
+            ? SdkPresent((json['messenger_writable'] as bool?)!)
+            : const SdkOmitted(),
+        uiWritable: json['ui_writable'] != null
+            ? SdkPresent((json['ui_writable'] as bool?)!)
+            : const SdkOmitted(),
+        custom: json['custom'] != null
+            ? SdkPresent((json['custom'] as bool?)!)
+            : const SdkOmitted(),
+        archived: json['archived'] != null
+            ? SdkPresent((json['archived'] as bool?)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent(((json['created_at'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        updatedAt: json['updated_at'] != null
+            ? SdkPresent(((json['updated_at'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        adminId: json['admin_id'] != null
+            ? SdkPresent((json['admin_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<DataAttributeType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<int>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (model) {
-      SdkPresent<DataAttributeModel>(value: final value) => {'model': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (fullName) {
-      SdkPresent<String>(value: final value) => {'full_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (label) {
-      SdkPresent<String>(value: final value) => {'label': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (description) {
-      SdkPresent<String>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (dataType) {
-      SdkPresent<DataAttributeDataType>(value: final value) => {'data_type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (options) {
-      SdkPresent<List<String>>(value: final value) => {'options': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (apiWritable) {
-      SdkPresent<bool>(value: final value) => {'api_writable': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (messengerWritable) {
-      SdkPresent<bool>(value: final value) => {'messenger_writable': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (uiWritable) {
-      SdkPresent<bool>(value: final value) => {'ui_writable': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (custom) {
-      SdkPresent<bool>(value: final value) => {'custom': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (archived) {
-      SdkPresent<bool>(value: final value) => {'archived': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<int>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (updatedAt) {
-      SdkPresent<int>(value: final value) => {'updated_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (adminId) {
-      SdkPresent<String>(value: final value) => {'admin_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<DataAttributeType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<int>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (model) {
+          SdkPresent<DataAttributeModel>(value: final value) => {
+              'model': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (fullName) {
+          SdkPresent<String>(value: final value) => {
+              'full_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (label) {
+          SdkPresent<String>(value: final value) => {
+              'label': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (description) {
+          SdkPresent<String>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (dataType) {
+          SdkPresent<DataAttributeDataType>(value: final value) => {
+              'data_type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (options) {
+          SdkPresent<List<String>>(value: final value) => {
+              'options': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (apiWritable) {
+          SdkPresent<bool>(value: final value) => {
+              'api_writable': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (messengerWritable) {
+          SdkPresent<bool>(value: final value) => {
+              'messenger_writable': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (uiWritable) {
+          SdkPresent<bool>(value: final value) => {
+              'ui_writable': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (custom) {
+          SdkPresent<bool>(value: final value) => {
+              'custom': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (archived) {
+          SdkPresent<bool>(value: final value) => {
+              'archived': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<int>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (updatedAt) {
+          SdkPresent<int>(value: final value) => {
+              'updated_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (adminId) {
+          SdkPresent<String>(value: final value) => {
+              'admin_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

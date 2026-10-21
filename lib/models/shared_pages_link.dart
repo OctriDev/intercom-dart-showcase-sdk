@@ -8,57 +8,110 @@ part of 'shared.dart';
 class PagesLink {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional enumerated value serialized in the `type` wire field.
   final SdkOptional<PagesLinkType> type_;
+
   /// Optional `integer` value serialized in the `page` wire field.
   final SdkOptional<int> page;
+
   /// A link to the next page of results. A response that does not contain a next link does not have further data to fetch.
   final SdkOptional<String?> next;
+
   /// Optional `integer` value serialized in the `per_page` wire field.
   final SdkOptional<int> perPage;
+
   /// Optional `integer` value serialized in the `total_pages` wire field.
   final SdkOptional<int> totalPages;
 
-  const PagesLink({this.type_ = const SdkOmitted(), this.page = const SdkOmitted(), this.next = const SdkOmitted(), this.perPage = const SdkOmitted(), this.totalPages = const SdkOmitted()});
+  const PagesLink(
+      {this.type_ = const SdkOmitted(),
+      this.page = const SdkOmitted(),
+      this.next = const SdkOmitted(),
+      this.perPage = const SdkOmitted(),
+      this.totalPages = const SdkOmitted()});
 
-  PagesLink Function({SdkOptional<PagesLinkType> type_, SdkOptional<int> page, SdkOptional<String?> next, SdkOptional<int> perPage, SdkOptional<int> totalPages}) get copyWith => _copyWith;
+  PagesLink Function(
+      {SdkOptional<PagesLinkType> type_,
+      SdkOptional<int> page,
+      SdkOptional<String?> next,
+      SdkOptional<int> perPage,
+      SdkOptional<int> totalPages}) get copyWith => _copyWith;
 
-  PagesLink _copyWith({Object? type_ = sdkOmittedValue, Object? page = sdkOmittedValue, Object? next = sdkOmittedValue, Object? perPage = sdkOmittedValue, Object? totalPages = sdkOmittedValue}) => PagesLink(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<PagesLinkType>,
-    page: identical(page, sdkOmittedValue) ? this.page : page as SdkOptional<int>,
-    next: identical(next, sdkOmittedValue) ? this.next : next as SdkOptional<String?>,
-    perPage: identical(perPage, sdkOmittedValue) ? this.perPage : perPage as SdkOptional<int>,
-    totalPages: identical(totalPages, sdkOmittedValue) ? this.totalPages : totalPages as SdkOptional<int>,
-  );
+  PagesLink _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? page = sdkOmittedValue,
+          Object? next = sdkOmittedValue,
+          Object? perPage = sdkOmittedValue,
+          Object? totalPages = sdkOmittedValue}) =>
+      PagesLink(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<PagesLinkType>,
+        page: identical(page, sdkOmittedValue)
+            ? this.page
+            : page as SdkOptional<int>,
+        next: identical(next, sdkOmittedValue)
+            ? this.next
+            : next as SdkOptional<String?>,
+        perPage: identical(perPage, sdkOmittedValue)
+            ? this.perPage
+            : perPage as SdkOptional<int>,
+        totalPages: identical(totalPages, sdkOmittedValue)
+            ? this.totalPages
+            : totalPages as SdkOptional<int>,
+      );
 
   factory PagesLink.fromJson(Map<String, dynamic> json) => PagesLink(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? PagesLinkType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    page: json['page'] != null ? SdkPresent(((json['page'] as num?)?.toInt())!) : const SdkOmitted(),
-    next: json.containsKey('next') ? SdkPresent(json['next'] as String?) : const SdkOmitted(),
-    perPage: json['per_page'] != null ? SdkPresent(((json['per_page'] as num?)?.toInt())!) : const SdkOmitted(),
-    totalPages: json['total_pages'] != null ? SdkPresent(((json['total_pages'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? PagesLinkType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        page: json['page'] != null
+            ? SdkPresent(((json['page'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        next: json.containsKey('next')
+            ? SdkPresent(json['next'] as String?)
+            : const SdkOmitted(),
+        perPage: json['per_page'] != null
+            ? SdkPresent(((json['per_page'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        totalPages: json['total_pages'] != null
+            ? SdkPresent(((json['total_pages'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<PagesLinkType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (page) {
-      SdkPresent<int>(value: final value) => {'page': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (next) {
-      SdkPresent<String?>(value: final value) => {'next': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (perPage) {
-      SdkPresent<int>(value: final value) => {'per_page': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (totalPages) {
-      SdkPresent<int>(value: final value) => {'total_pages': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<PagesLinkType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (page) {
+          SdkPresent<int>(value: final value) => {
+              'page': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (next) {
+          SdkPresent<String?>(value: final value) => {
+              'next': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (perPage) {
+          SdkPresent<int>(value: final value) => {
+              'per_page': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (totalPages) {
+          SdkPresent<int>(value: final value) => {
+              'total_pages': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

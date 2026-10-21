@@ -8,270 +8,494 @@ part of 'conversations.dart';
 class SideConversationListPages {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional enumerated value serialized in the `type` wire field.
   final SdkOptional<SideConversationListPagesType> type_;
+
   /// The current page number.
   final SdkOptional<int> page;
+
   /// The number of results per page.
   final SdkOptional<int> perPage;
+
   /// The total number of pages.
   final SdkOptional<int> totalPages;
 
-  const SideConversationListPages({this.type_ = const SdkOmitted(), this.page = const SdkOmitted(), this.perPage = const SdkOmitted(), this.totalPages = const SdkOmitted()});
+  const SideConversationListPages(
+      {this.type_ = const SdkOmitted(),
+      this.page = const SdkOmitted(),
+      this.perPage = const SdkOmitted(),
+      this.totalPages = const SdkOmitted()});
 
-  SideConversationListPages Function({SdkOptional<SideConversationListPagesType> type_, SdkOptional<int> page, SdkOptional<int> perPage, SdkOptional<int> totalPages}) get copyWith => _copyWith;
+  SideConversationListPages Function(
+      {SdkOptional<SideConversationListPagesType> type_,
+      SdkOptional<int> page,
+      SdkOptional<int> perPage,
+      SdkOptional<int> totalPages}) get copyWith => _copyWith;
 
-  SideConversationListPages _copyWith({Object? type_ = sdkOmittedValue, Object? page = sdkOmittedValue, Object? perPage = sdkOmittedValue, Object? totalPages = sdkOmittedValue}) => SideConversationListPages(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<SideConversationListPagesType>,
-    page: identical(page, sdkOmittedValue) ? this.page : page as SdkOptional<int>,
-    perPage: identical(perPage, sdkOmittedValue) ? this.perPage : perPage as SdkOptional<int>,
-    totalPages: identical(totalPages, sdkOmittedValue) ? this.totalPages : totalPages as SdkOptional<int>,
-  );
+  SideConversationListPages _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? page = sdkOmittedValue,
+          Object? perPage = sdkOmittedValue,
+          Object? totalPages = sdkOmittedValue}) =>
+      SideConversationListPages(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<SideConversationListPagesType>,
+        page: identical(page, sdkOmittedValue)
+            ? this.page
+            : page as SdkOptional<int>,
+        perPage: identical(perPage, sdkOmittedValue)
+            ? this.perPage
+            : perPage as SdkOptional<int>,
+        totalPages: identical(totalPages, sdkOmittedValue)
+            ? this.totalPages
+            : totalPages as SdkOptional<int>,
+      );
 
-  factory SideConversationListPages.fromJson(Map<String, dynamic> json) => SideConversationListPages(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? SideConversationListPagesType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    page: json['page'] != null ? SdkPresent(((json['page'] as num?)?.toInt())!) : const SdkOmitted(),
-    perPage: json['per_page'] != null ? SdkPresent(((json['per_page'] as num?)?.toInt())!) : const SdkOmitted(),
-    totalPages: json['total_pages'] != null ? SdkPresent(((json['total_pages'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory SideConversationListPages.fromJson(Map<String, dynamic> json) =>
+      SideConversationListPages(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? SideConversationListPagesType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        page: json['page'] != null
+            ? SdkPresent(((json['page'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        perPage: json['per_page'] != null
+            ? SdkPresent(((json['per_page'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        totalPages: json['total_pages'] != null
+            ? SdkPresent(((json['total_pages'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<SideConversationListPagesType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (page) {
-      SdkPresent<int>(value: final value) => {'page': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (perPage) {
-      SdkPresent<int>(value: final value) => {'per_page': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (totalPages) {
-      SdkPresent<int>(value: final value) => {'total_pages': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<SideConversationListPagesType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (page) {
+          SdkPresent<int>(value: final value) => {
+              'page': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (perPage) {
+          SdkPresent<int>(value: final value) => {
+              'per_page': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (totalPages) {
+          SdkPresent<int>(value: final value) => {
+              'total_pages': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A paginated list of side conversations for a conversation.
 class SideConversationList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the response object.
   final SdkOptional<SideConversationListType> type_;
+
   /// An array of side conversation objects.
   final SdkOptional<List<SideConversationSummary>> sideConversations;
+
   /// The total number of side conversations.
   final SdkOptional<int> totalCount;
+
   /// Pagination metadata.
   final SdkOptional<SideConversationListPages> pages;
 
-  const SideConversationList({this.type_ = const SdkOmitted(), this.sideConversations = const SdkOmitted(), this.totalCount = const SdkOmitted(), this.pages = const SdkOmitted()});
+  const SideConversationList(
+      {this.type_ = const SdkOmitted(),
+      this.sideConversations = const SdkOmitted(),
+      this.totalCount = const SdkOmitted(),
+      this.pages = const SdkOmitted()});
 
-  SideConversationList Function({SdkOptional<SideConversationListType> type_, SdkOptional<List<SideConversationSummary>> sideConversations, SdkOptional<int> totalCount, SdkOptional<SideConversationListPages> pages}) get copyWith => _copyWith;
+  SideConversationList Function(
+      {SdkOptional<SideConversationListType> type_,
+      SdkOptional<List<SideConversationSummary>> sideConversations,
+      SdkOptional<int> totalCount,
+      SdkOptional<SideConversationListPages> pages}) get copyWith => _copyWith;
 
-  SideConversationList _copyWith({Object? type_ = sdkOmittedValue, Object? sideConversations = sdkOmittedValue, Object? totalCount = sdkOmittedValue, Object? pages = sdkOmittedValue}) => SideConversationList(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<SideConversationListType>,
-    sideConversations: identical(sideConversations, sdkOmittedValue) ? this.sideConversations : sideConversations as SdkOptional<List<SideConversationSummary>>,
-    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as SdkOptional<int>,
-    pages: identical(pages, sdkOmittedValue) ? this.pages : pages as SdkOptional<SideConversationListPages>,
-  );
+  SideConversationList _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? sideConversations = sdkOmittedValue,
+          Object? totalCount = sdkOmittedValue,
+          Object? pages = sdkOmittedValue}) =>
+      SideConversationList(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<SideConversationListType>,
+        sideConversations: identical(sideConversations, sdkOmittedValue)
+            ? this.sideConversations
+            : sideConversations as SdkOptional<List<SideConversationSummary>>,
+        totalCount: identical(totalCount, sdkOmittedValue)
+            ? this.totalCount
+            : totalCount as SdkOptional<int>,
+        pages: identical(pages, sdkOmittedValue)
+            ? this.pages
+            : pages as SdkOptional<SideConversationListPages>,
+      );
 
-  factory SideConversationList.fromJson(Map<String, dynamic> json) => SideConversationList(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? SideConversationListType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    sideConversations: json['side_conversations'] != null ? SdkPresent(((json['side_conversations'] as List?)?.map((e) => SideConversationSummary.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    totalCount: json['total_count'] != null ? SdkPresent(((json['total_count'] as num?)?.toInt())!) : const SdkOmitted(),
-    pages: json['pages'] != null ? SdkPresent((json['pages'] != null ? SideConversationListPages.fromJson(json['pages'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory SideConversationList.fromJson(Map<String, dynamic> json) =>
+      SideConversationList(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? SideConversationListType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        sideConversations: json['side_conversations'] != null
+            ? SdkPresent(((json['side_conversations'] as List?)
+                ?.map((e) =>
+                    SideConversationSummary.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        totalCount: json['total_count'] != null
+            ? SdkPresent(((json['total_count'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        pages: json['pages'] != null
+            ? SdkPresent((json['pages'] != null
+                ? SideConversationListPages.fromJson(
+                    json['pages'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<SideConversationListType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (sideConversations) {
-      SdkPresent<List<SideConversationSummary>>(value: final value) => {'side_conversations': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (totalCount) {
-      SdkPresent<int>(value: final value) => {'total_count': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (pages) {
-      SdkPresent<SideConversationListPages>(value: final value) => {'pages': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<SideConversationListType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (sideConversations) {
+          SdkPresent<List<SideConversationSummary>>(value: final value) => {
+              'side_conversations': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (totalCount) {
+          SdkPresent<int>(value: final value) => {
+              'total_count': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pages) {
+          SdkPresent<SideConversationListPages>(value: final value) => {
+              'pages': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A side conversation with its conversation parts.
 class SideConversationSummary {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique identifier for the side conversation.
   final SdkOptional<String> sideConversationId;
+
   /// The conversation parts (messages) in this side conversation.
   final SdkOptional<List<ConversationPart>> conversationParts;
+
   /// The total number of conversation parts in this side conversation.
   final SdkOptional<int> totalCount;
 
-  const SideConversationSummary({this.sideConversationId = const SdkOmitted(), this.conversationParts = const SdkOmitted(), this.totalCount = const SdkOmitted()});
+  const SideConversationSummary(
+      {this.sideConversationId = const SdkOmitted(),
+      this.conversationParts = const SdkOmitted(),
+      this.totalCount = const SdkOmitted()});
 
-  SideConversationSummary Function({SdkOptional<String> sideConversationId, SdkOptional<List<ConversationPart>> conversationParts, SdkOptional<int> totalCount}) get copyWith => _copyWith;
+  SideConversationSummary Function(
+      {SdkOptional<String> sideConversationId,
+      SdkOptional<List<ConversationPart>> conversationParts,
+      SdkOptional<int> totalCount}) get copyWith => _copyWith;
 
-  SideConversationSummary _copyWith({Object? sideConversationId = sdkOmittedValue, Object? conversationParts = sdkOmittedValue, Object? totalCount = sdkOmittedValue}) => SideConversationSummary(
-    sideConversationId: identical(sideConversationId, sdkOmittedValue) ? this.sideConversationId : sideConversationId as SdkOptional<String>,
-    conversationParts: identical(conversationParts, sdkOmittedValue) ? this.conversationParts : conversationParts as SdkOptional<List<ConversationPart>>,
-    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as SdkOptional<int>,
-  );
+  SideConversationSummary _copyWith(
+          {Object? sideConversationId = sdkOmittedValue,
+          Object? conversationParts = sdkOmittedValue,
+          Object? totalCount = sdkOmittedValue}) =>
+      SideConversationSummary(
+        sideConversationId: identical(sideConversationId, sdkOmittedValue)
+            ? this.sideConversationId
+            : sideConversationId as SdkOptional<String>,
+        conversationParts: identical(conversationParts, sdkOmittedValue)
+            ? this.conversationParts
+            : conversationParts as SdkOptional<List<ConversationPart>>,
+        totalCount: identical(totalCount, sdkOmittedValue)
+            ? this.totalCount
+            : totalCount as SdkOptional<int>,
+      );
 
-  factory SideConversationSummary.fromJson(Map<String, dynamic> json) => SideConversationSummary(
-    sideConversationId: json['side_conversation_id'] != null ? SdkPresent((json['side_conversation_id'] as String?)!) : const SdkOmitted(),
-    conversationParts: json['conversation_parts'] != null ? SdkPresent(((json['conversation_parts'] as List?)?.map((e) => ConversationPart.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    totalCount: json['total_count'] != null ? SdkPresent(((json['total_count'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory SideConversationSummary.fromJson(Map<String, dynamic> json) =>
+      SideConversationSummary(
+        sideConversationId: json['side_conversation_id'] != null
+            ? SdkPresent((json['side_conversation_id'] as String?)!)
+            : const SdkOmitted(),
+        conversationParts: json['conversation_parts'] != null
+            ? SdkPresent(((json['conversation_parts'] as List?)
+                ?.map(
+                    (e) => ConversationPart.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        totalCount: json['total_count'] != null
+            ? SdkPresent(((json['total_count'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (sideConversationId) {
-      SdkPresent<String>(value: final value) => {'side_conversation_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (conversationParts) {
-      SdkPresent<List<ConversationPart>>(value: final value) => {'conversation_parts': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (totalCount) {
-      SdkPresent<int>(value: final value) => {'total_count': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (sideConversationId) {
+          SdkPresent<String>(value: final value) => {
+              'side_conversation_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (conversationParts) {
+          SdkPresent<List<ConversationPart>>(value: final value) => {
+              'conversation_parts': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (totalCount) {
+          SdkPresent<int>(value: final value) => {
+              'total_count': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Payload of the request to snooze a conversation
 class SnoozeConversationRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `message_type` wire field.
   final SnoozeConversationRequestMessageType messageType;
+
   /// The id of the admin who is performing the action.
   final String adminId;
+
   /// The time you want the conversation to reopen.
   final int snoozedUntil;
 
-  const SnoozeConversationRequest({required this.messageType, required this.adminId, required this.snoozedUntil});
+  const SnoozeConversationRequest(
+      {required this.messageType,
+      required this.adminId,
+      required this.snoozedUntil});
 
-  SnoozeConversationRequest Function({SnoozeConversationRequestMessageType messageType, String adminId, int snoozedUntil}) get copyWith => _copyWith;
+  SnoozeConversationRequest Function(
+      {SnoozeConversationRequestMessageType messageType,
+      String adminId,
+      int snoozedUntil}) get copyWith => _copyWith;
 
-  SnoozeConversationRequest _copyWith({Object? messageType = sdkOmittedValue, Object? adminId = sdkOmittedValue, Object? snoozedUntil = sdkOmittedValue}) => SnoozeConversationRequest(
-    messageType: identical(messageType, sdkOmittedValue) ? this.messageType : messageType as SnoozeConversationRequestMessageType,
-    adminId: identical(adminId, sdkOmittedValue) ? this.adminId : adminId as String,
-    snoozedUntil: identical(snoozedUntil, sdkOmittedValue) ? this.snoozedUntil : snoozedUntil as int,
-  );
+  SnoozeConversationRequest _copyWith(
+          {Object? messageType = sdkOmittedValue,
+          Object? adminId = sdkOmittedValue,
+          Object? snoozedUntil = sdkOmittedValue}) =>
+      SnoozeConversationRequest(
+        messageType: identical(messageType, sdkOmittedValue)
+            ? this.messageType
+            : messageType as SnoozeConversationRequestMessageType,
+        adminId: identical(adminId, sdkOmittedValue)
+            ? this.adminId
+            : adminId as String,
+        snoozedUntil: identical(snoozedUntil, sdkOmittedValue)
+            ? this.snoozedUntil
+            : snoozedUntil as int,
+      );
 
-  factory SnoozeConversationRequest.fromJson(Map<String, dynamic> json) => SnoozeConversationRequest(
-    messageType: (json['message_type'] != null ? SnoozeConversationRequestMessageType.fromJson(json['message_type'] as String) : null)!,
-    adminId: (json['admin_id'] as String?)!,
-    snoozedUntil: ((json['snoozed_until'] as num?)?.toInt())!,
-  );
+  factory SnoozeConversationRequest.fromJson(Map<String, dynamic> json) =>
+      SnoozeConversationRequest(
+        messageType: (json['message_type'] != null
+            ? SnoozeConversationRequestMessageType.fromJson(
+                json['message_type'] as String)
+            : null)!,
+        adminId: (json['admin_id'] as String?)!,
+        snoozedUntil: ((json['snoozed_until'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'message_type': messageType.toJson(),
-    'admin_id': adminId,
-    'snoozed_until': snoozedUntil,
-  };
+        'message_type': messageType.toJson(),
+        'admin_id': adminId,
+        'snoozed_until': snoozedUntil,
+      };
 }
 
 /// A reference to a teammate
 class TeammateReference {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of teammate
   final TeammateReferenceType type_;
+
   /// The unique identifier of the teammate
   final int id;
+
   /// The display name of the teammate
   final String name;
+
   /// The email address of the teammate (optional for teams/bots)
   final SdkOptional<String?> email;
 
-  const TeammateReference({required this.type_, required this.id, required this.name, this.email = const SdkOmitted()});
+  const TeammateReference(
+      {required this.type_,
+      required this.id,
+      required this.name,
+      this.email = const SdkOmitted()});
 
-  TeammateReference Function({TeammateReferenceType type_, int id, String name, SdkOptional<String?> email}) get copyWith => _copyWith;
+  TeammateReference Function(
+      {TeammateReferenceType type_,
+      int id,
+      String name,
+      SdkOptional<String?> email}) get copyWith => _copyWith;
 
-  TeammateReference _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? email = sdkOmittedValue}) => TeammateReference(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as TeammateReferenceType,
-    id: identical(id, sdkOmittedValue) ? this.id : id as int,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    email: identical(email, sdkOmittedValue) ? this.email : email as SdkOptional<String?>,
-  );
+  TeammateReference _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? email = sdkOmittedValue}) =>
+      TeammateReference(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as TeammateReferenceType,
+        id: identical(id, sdkOmittedValue) ? this.id : id as int,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        email: identical(email, sdkOmittedValue)
+            ? this.email
+            : email as SdkOptional<String?>,
+      );
 
-  factory TeammateReference.fromJson(Map<String, dynamic> json) => TeammateReference(
-    type_: (json['type'] != null ? TeammateReferenceType.fromJson(json['type'] as String) : null)!,
-    id: ((json['id'] as num?)?.toInt())!,
-    name: (json['name'] as String?)!,
-    email: json.containsKey('email') ? SdkPresent(json['email'] as String?) : const SdkOmitted(),
-  );
+  factory TeammateReference.fromJson(Map<String, dynamic> json) =>
+      TeammateReference(
+        type_: (json['type'] != null
+            ? TeammateReferenceType.fromJson(json['type'] as String)
+            : null)!,
+        id: ((json['id'] as num?)?.toInt())!,
+        name: (json['name'] as String?)!,
+        email: json.containsKey('email')
+            ? SdkPresent(json['email'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'id': id,
-    'name': name,
-    ...switch (email) {
-      SdkPresent<String?>(value: final value) => {'email': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        'id': id,
+        'name': name,
+        ...switch (email) {
+          SdkPresent<String?>(value: final value) => {
+              'email': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Payload of the request to update a conversation
 class UpdateConversationRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Mark a conversation as read within Intercom.
   final SdkOptional<bool> read;
+
   /// The title given to the conversation
   final SdkOptional<String> title;
+
   /// The custom attributes which are set on this object, as key-value pairs. For relationship attributes the value should be a list of custom object instance models. Only attributes a caller may set are accepted here — attributes Intercom generates are returned in responses only.
   final SdkOptional<Map<String, dynamic>> customAttributes;
+
   /// The ID of the company that the conversation is associated with. The unique identifier for the company which is given by Intercom. Set to nil to remove company.
   final SdkOptional<String> companyId;
 
-  const UpdateConversationRequest({this.read = const SdkOmitted(), this.title = const SdkOmitted(), this.customAttributes = const SdkOmitted(), this.companyId = const SdkOmitted()});
+  const UpdateConversationRequest(
+      {this.read = const SdkOmitted(),
+      this.title = const SdkOmitted(),
+      this.customAttributes = const SdkOmitted(),
+      this.companyId = const SdkOmitted()});
 
-  UpdateConversationRequest Function({SdkOptional<bool> read, SdkOptional<String> title, SdkOptional<Map<String, dynamic>> customAttributes, SdkOptional<String> companyId}) get copyWith => _copyWith;
+  UpdateConversationRequest Function(
+      {SdkOptional<bool> read,
+      SdkOptional<String> title,
+      SdkOptional<Map<String, dynamic>> customAttributes,
+      SdkOptional<String> companyId}) get copyWith => _copyWith;
 
-  UpdateConversationRequest _copyWith({Object? read = sdkOmittedValue, Object? title = sdkOmittedValue, Object? customAttributes = sdkOmittedValue, Object? companyId = sdkOmittedValue}) => UpdateConversationRequest(
-    read: identical(read, sdkOmittedValue) ? this.read : read as SdkOptional<bool>,
-    title: identical(title, sdkOmittedValue) ? this.title : title as SdkOptional<String>,
-    customAttributes: identical(customAttributes, sdkOmittedValue) ? this.customAttributes : customAttributes as SdkOptional<Map<String, dynamic>>,
-    companyId: identical(companyId, sdkOmittedValue) ? this.companyId : companyId as SdkOptional<String>,
-  );
+  UpdateConversationRequest _copyWith(
+          {Object? read = sdkOmittedValue,
+          Object? title = sdkOmittedValue,
+          Object? customAttributes = sdkOmittedValue,
+          Object? companyId = sdkOmittedValue}) =>
+      UpdateConversationRequest(
+        read: identical(read, sdkOmittedValue)
+            ? this.read
+            : read as SdkOptional<bool>,
+        title: identical(title, sdkOmittedValue)
+            ? this.title
+            : title as SdkOptional<String>,
+        customAttributes: identical(customAttributes, sdkOmittedValue)
+            ? this.customAttributes
+            : customAttributes as SdkOptional<Map<String, dynamic>>,
+        companyId: identical(companyId, sdkOmittedValue)
+            ? this.companyId
+            : companyId as SdkOptional<String>,
+      );
 
-  factory UpdateConversationRequest.fromJson(Map<String, dynamic> json) => UpdateConversationRequest(
-    read: json['read'] != null ? SdkPresent((json['read'] as bool?)!) : const SdkOmitted(),
-    title: json['title'] != null ? SdkPresent((json['title'] as String?)!) : const SdkOmitted(),
-    customAttributes: json['custom_attributes'] != null ? SdkPresent((json['custom_attributes'] == null ? null : json['custom_attributes'] as Map<String, dynamic>)!) : const SdkOmitted(),
-    companyId: json['company_id'] != null ? SdkPresent((json['company_id'] as String?)!) : const SdkOmitted(),
-  );
+  factory UpdateConversationRequest.fromJson(Map<String, dynamic> json) =>
+      UpdateConversationRequest(
+        read: json['read'] != null
+            ? SdkPresent((json['read'] as bool?)!)
+            : const SdkOmitted(),
+        title: json['title'] != null
+            ? SdkPresent((json['title'] as String?)!)
+            : const SdkOmitted(),
+        customAttributes: json['custom_attributes'] != null
+            ? SdkPresent((json['custom_attributes'] == null
+                ? null
+                : json['custom_attributes'] as Map<String, dynamic>)!)
+            : const SdkOmitted(),
+        companyId: json['company_id'] != null
+            ? SdkPresent((json['company_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (read) {
-      SdkPresent<bool>(value: final value) => {'read': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (title) {
-      SdkPresent<String>(value: final value) => {'title': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (customAttributes) {
-      SdkPresent<Map<String, dynamic>>(value: final value) => {'custom_attributes': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (companyId) {
-      SdkPresent<String>(value: final value) => {'company_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (read) {
+          SdkPresent<bool>(value: final value) => {
+              'read': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (title) {
+          SdkPresent<String>(value: final value) => {
+              'title': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (customAttributes) {
+          SdkPresent<Map<String, dynamic>>(value: final value) => {
+              'custom_attributes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (companyId) {
+          SdkPresent<String>(value: final value) => {
+              'company_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

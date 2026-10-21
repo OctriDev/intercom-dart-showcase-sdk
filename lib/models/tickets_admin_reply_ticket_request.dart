@@ -8,109 +8,214 @@ part of 'tickets.dart';
 class AdminReplyTicketRequestReplyOptionsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The text to display in this quick reply option.
   final String text;
+
   /// A unique identifier for this quick reply option. This value will be available within the metadata of the comment ticket part that is created when a user clicks on this reply option.
   final String uuid;
 
-  const AdminReplyTicketRequestReplyOptionsItem({required this.text, required this.uuid});
+  const AdminReplyTicketRequestReplyOptionsItem(
+      {required this.text, required this.uuid});
 
-  AdminReplyTicketRequestReplyOptionsItem Function({String text, String uuid}) get copyWith => _copyWith;
+  AdminReplyTicketRequestReplyOptionsItem Function({String text, String uuid})
+      get copyWith => _copyWith;
 
-  AdminReplyTicketRequestReplyOptionsItem _copyWith({Object? text = sdkOmittedValue, Object? uuid = sdkOmittedValue}) => AdminReplyTicketRequestReplyOptionsItem(
-    text: identical(text, sdkOmittedValue) ? this.text : text as String,
-    uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as String,
-  );
+  AdminReplyTicketRequestReplyOptionsItem _copyWith(
+          {Object? text = sdkOmittedValue, Object? uuid = sdkOmittedValue}) =>
+      AdminReplyTicketRequestReplyOptionsItem(
+        text: identical(text, sdkOmittedValue) ? this.text : text as String,
+        uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as String,
+      );
 
-  factory AdminReplyTicketRequestReplyOptionsItem.fromJson(Map<String, dynamic> json) => AdminReplyTicketRequestReplyOptionsItem(
-    text: (json['text'] as String?)!,
-    uuid: (json['uuid'] as String?)!,
-  );
+  factory AdminReplyTicketRequestReplyOptionsItem.fromJson(
+          Map<String, dynamic> json) =>
+      AdminReplyTicketRequestReplyOptionsItem(
+        text: (json['text'] as String?)!,
+        uuid: (json['uuid'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'text': text,
-    'uuid': uuid,
-  };
+        'text': text,
+        'uuid': uuid,
+      };
 }
 
 /// Payload of the request to reply on behalf of an admin
 class AdminReplyTicketRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of reply. Tracker tickets and back-office tickets that are not shared with the customer do not support `comment`; use `note` instead.
   final AdminReplyTicketRequestMessageType messageType;
+
   /// Required enumerated value serialized in the `type` wire field.
   final AdminReplyTicketRequestType type_;
+
   /// The text body of the reply. Notes accept some HTML formatting. Must be present for comment and note message types.
   final SdkOptional<String> body;
+
   /// The id of the admin who is authoring the comment.
   final String adminId;
+
   /// The time the reply was created. If not provided, the current time will be used.
   final SdkOptional<int> createdAt;
+
   /// The quick reply options to display. Must be present for quick_reply message types.
   final SdkOptional<List<AdminReplyTicketRequestReplyOptionsItem>> replyOptions;
+
   /// A list of image URLs that will be added as attachments. You can include up to 10 URLs.
   final SdkOptional<List<String>> attachmentUrls;
+
   /// A list of files that will be added as attachments. You can include up to 10 files. If both attachment_files and attachment_urls are provided, attachment_files takes precedence.
   final SdkOptional<List<ConversationAttachmentFiles>> attachmentFiles;
+
   /// If set to true, the note will be cross-posted to all linked conversations. Only applicable to note message types on back-office tickets.
   final SdkOptional<bool> crossPost;
 
-  const AdminReplyTicketRequest({required this.messageType, required this.type_, this.body = const SdkOmitted(), required this.adminId, this.createdAt = const SdkOmitted(), this.replyOptions = const SdkOmitted(), this.attachmentUrls = const SdkOmitted(), this.attachmentFiles = const SdkOmitted(), this.crossPost = const SdkOmitted()});
+  const AdminReplyTicketRequest(
+      {required this.messageType,
+      required this.type_,
+      this.body = const SdkOmitted(),
+      required this.adminId,
+      this.createdAt = const SdkOmitted(),
+      this.replyOptions = const SdkOmitted(),
+      this.attachmentUrls = const SdkOmitted(),
+      this.attachmentFiles = const SdkOmitted(),
+      this.crossPost = const SdkOmitted()});
 
-  AdminReplyTicketRequest Function({AdminReplyTicketRequestMessageType messageType, AdminReplyTicketRequestType type_, SdkOptional<String> body, String adminId, SdkOptional<int> createdAt, SdkOptional<List<AdminReplyTicketRequestReplyOptionsItem>> replyOptions, SdkOptional<List<String>> attachmentUrls, SdkOptional<List<ConversationAttachmentFiles>> attachmentFiles, SdkOptional<bool> crossPost}) get copyWith => _copyWith;
+  AdminReplyTicketRequest Function(
+      {AdminReplyTicketRequestMessageType messageType,
+      AdminReplyTicketRequestType type_,
+      SdkOptional<String> body,
+      String adminId,
+      SdkOptional<int> createdAt,
+      SdkOptional<List<AdminReplyTicketRequestReplyOptionsItem>> replyOptions,
+      SdkOptional<List<String>> attachmentUrls,
+      SdkOptional<List<ConversationAttachmentFiles>> attachmentFiles,
+      SdkOptional<bool> crossPost}) get copyWith => _copyWith;
 
-  AdminReplyTicketRequest _copyWith({Object? messageType = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? body = sdkOmittedValue, Object? adminId = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? replyOptions = sdkOmittedValue, Object? attachmentUrls = sdkOmittedValue, Object? attachmentFiles = sdkOmittedValue, Object? crossPost = sdkOmittedValue}) => AdminReplyTicketRequest(
-    messageType: identical(messageType, sdkOmittedValue) ? this.messageType : messageType as AdminReplyTicketRequestMessageType,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as AdminReplyTicketRequestType,
-    body: identical(body, sdkOmittedValue) ? this.body : body as SdkOptional<String>,
-    adminId: identical(adminId, sdkOmittedValue) ? this.adminId : adminId as String,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<int>,
-    replyOptions: identical(replyOptions, sdkOmittedValue) ? this.replyOptions : replyOptions as SdkOptional<List<AdminReplyTicketRequestReplyOptionsItem>>,
-    attachmentUrls: identical(attachmentUrls, sdkOmittedValue) ? this.attachmentUrls : attachmentUrls as SdkOptional<List<String>>,
-    attachmentFiles: identical(attachmentFiles, sdkOmittedValue) ? this.attachmentFiles : attachmentFiles as SdkOptional<List<ConversationAttachmentFiles>>,
-    crossPost: identical(crossPost, sdkOmittedValue) ? this.crossPost : crossPost as SdkOptional<bool>,
-  );
+  AdminReplyTicketRequest _copyWith(
+          {Object? messageType = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? body = sdkOmittedValue,
+          Object? adminId = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? replyOptions = sdkOmittedValue,
+          Object? attachmentUrls = sdkOmittedValue,
+          Object? attachmentFiles = sdkOmittedValue,
+          Object? crossPost = sdkOmittedValue}) =>
+      AdminReplyTicketRequest(
+        messageType: identical(messageType, sdkOmittedValue)
+            ? this.messageType
+            : messageType as AdminReplyTicketRequestMessageType,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as AdminReplyTicketRequestType,
+        body: identical(body, sdkOmittedValue)
+            ? this.body
+            : body as SdkOptional<String>,
+        adminId: identical(adminId, sdkOmittedValue)
+            ? this.adminId
+            : adminId as String,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<int>,
+        replyOptions: identical(replyOptions, sdkOmittedValue)
+            ? this.replyOptions
+            : replyOptions
+                as SdkOptional<List<AdminReplyTicketRequestReplyOptionsItem>>,
+        attachmentUrls: identical(attachmentUrls, sdkOmittedValue)
+            ? this.attachmentUrls
+            : attachmentUrls as SdkOptional<List<String>>,
+        attachmentFiles: identical(attachmentFiles, sdkOmittedValue)
+            ? this.attachmentFiles
+            : attachmentFiles as SdkOptional<List<ConversationAttachmentFiles>>,
+        crossPost: identical(crossPost, sdkOmittedValue)
+            ? this.crossPost
+            : crossPost as SdkOptional<bool>,
+      );
 
-  factory AdminReplyTicketRequest.fromJson(Map<String, dynamic> json) => AdminReplyTicketRequest(
-    messageType: (json['message_type'] != null ? AdminReplyTicketRequestMessageType.fromJson(json['message_type'] as String) : null)!,
-    type_: (json['type'] != null ? AdminReplyTicketRequestType.fromJson(json['type'] as String) : null)!,
-    body: json['body'] != null ? SdkPresent((json['body'] as String?)!) : const SdkOmitted(),
-    adminId: (json['admin_id'] as String?)!,
-    createdAt: json['created_at'] != null ? SdkPresent(((json['created_at'] as num?)?.toInt())!) : const SdkOmitted(),
-    replyOptions: json['reply_options'] != null ? SdkPresent(((json['reply_options'] as List?)?.map((e) => AdminReplyTicketRequestReplyOptionsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    attachmentUrls: json['attachment_urls'] != null ? SdkPresent(((json['attachment_urls'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    attachmentFiles: json['attachment_files'] != null ? SdkPresent(((json['attachment_files'] as List?)?.map((e) => ConversationAttachmentFiles.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    crossPost: json['cross_post'] != null ? SdkPresent((json['cross_post'] as bool?)!) : const SdkOmitted(),
-  );
+  factory AdminReplyTicketRequest.fromJson(Map<String, dynamic> json) =>
+      AdminReplyTicketRequest(
+        messageType: (json['message_type'] != null
+            ? AdminReplyTicketRequestMessageType.fromJson(
+                json['message_type'] as String)
+            : null)!,
+        type_: (json['type'] != null
+            ? AdminReplyTicketRequestType.fromJson(json['type'] as String)
+            : null)!,
+        body: json['body'] != null
+            ? SdkPresent((json['body'] as String?)!)
+            : const SdkOmitted(),
+        adminId: (json['admin_id'] as String?)!,
+        createdAt: json['created_at'] != null
+            ? SdkPresent(((json['created_at'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        replyOptions: json['reply_options'] != null
+            ? SdkPresent(((json['reply_options'] as List?)
+                ?.map((e) => AdminReplyTicketRequestReplyOptionsItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        attachmentUrls: json['attachment_urls'] != null
+            ? SdkPresent(((json['attachment_urls'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        attachmentFiles: json['attachment_files'] != null
+            ? SdkPresent(((json['attachment_files'] as List?)
+                ?.map((e) => ConversationAttachmentFiles.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        crossPost: json['cross_post'] != null
+            ? SdkPresent((json['cross_post'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'message_type': messageType.toJson(),
-    'type': type_.toJson(),
-    ...switch (body) {
-      SdkPresent<String>(value: final value) => {'body': value,},
-      _ => const <String, dynamic>{},
-    },
-    'admin_id': adminId,
-    ...switch (createdAt) {
-      SdkPresent<int>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (replyOptions) {
-      SdkPresent<List<AdminReplyTicketRequestReplyOptionsItem>>(value: final value) => {'reply_options': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (attachmentUrls) {
-      SdkPresent<List<String>>(value: final value) => {'attachment_urls': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (attachmentFiles) {
-      SdkPresent<List<ConversationAttachmentFiles>>(value: final value) => {'attachment_files': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (crossPost) {
-      SdkPresent<bool>(value: final value) => {'cross_post': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'message_type': messageType.toJson(),
+        'type': type_.toJson(),
+        ...switch (body) {
+          SdkPresent<String>(value: final value) => {
+              'body': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'admin_id': adminId,
+        ...switch (createdAt) {
+          SdkPresent<int>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (replyOptions) {
+          SdkPresent<List<AdminReplyTicketRequestReplyOptionsItem>>(
+            value: final value
+          ) =>
+            {
+              'reply_options': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (attachmentUrls) {
+          SdkPresent<List<String>>(value: final value) => {
+              'attachment_urls': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (attachmentFiles) {
+          SdkPresent<List<ConversationAttachmentFiles>>(value: final value) => {
+              'attachment_files': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (crossPost) {
+          SdkPresent<bool>(value: final value) => {
+              'cross_post': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,40 +8,70 @@ part of 'models.dart';
 class FinAgentMessage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The author that created the message.
   final FinAgentMessageAuthor author;
+
   /// The body of the message. Accepts both plain text and HTML format. When sending a message to Fin, this should contain the user's message. Fin's response will be returned as HTML.
   final String body;
+
   /// The timestamp when the message was created. Used to deduplicate messages sent within a 5 minute window. Ideally should include milliseconds for higher precision.
   final String timestamp;
+
   /// The timestamp when the message was created, with millisecond precision. Only present in webhook event responses (fin_replied).
   final SdkOptional<String> timestampMs;
 
-  const FinAgentMessage({required this.author, required this.body, required this.timestamp, this.timestampMs = const SdkOmitted()});
+  const FinAgentMessage(
+      {required this.author,
+      required this.body,
+      required this.timestamp,
+      this.timestampMs = const SdkOmitted()});
 
-  FinAgentMessage Function({FinAgentMessageAuthor author, String body, String timestamp, SdkOptional<String> timestampMs}) get copyWith => _copyWith;
+  FinAgentMessage Function(
+      {FinAgentMessageAuthor author,
+      String body,
+      String timestamp,
+      SdkOptional<String> timestampMs}) get copyWith => _copyWith;
 
-  FinAgentMessage _copyWith({Object? author = sdkOmittedValue, Object? body = sdkOmittedValue, Object? timestamp = sdkOmittedValue, Object? timestampMs = sdkOmittedValue}) => FinAgentMessage(
-    author: identical(author, sdkOmittedValue) ? this.author : author as FinAgentMessageAuthor,
-    body: identical(body, sdkOmittedValue) ? this.body : body as String,
-    timestamp: identical(timestamp, sdkOmittedValue) ? this.timestamp : timestamp as String,
-    timestampMs: identical(timestampMs, sdkOmittedValue) ? this.timestampMs : timestampMs as SdkOptional<String>,
-  );
+  FinAgentMessage _copyWith(
+          {Object? author = sdkOmittedValue,
+          Object? body = sdkOmittedValue,
+          Object? timestamp = sdkOmittedValue,
+          Object? timestampMs = sdkOmittedValue}) =>
+      FinAgentMessage(
+        author: identical(author, sdkOmittedValue)
+            ? this.author
+            : author as FinAgentMessageAuthor,
+        body: identical(body, sdkOmittedValue) ? this.body : body as String,
+        timestamp: identical(timestamp, sdkOmittedValue)
+            ? this.timestamp
+            : timestamp as String,
+        timestampMs: identical(timestampMs, sdkOmittedValue)
+            ? this.timestampMs
+            : timestampMs as SdkOptional<String>,
+      );
 
-  factory FinAgentMessage.fromJson(Map<String, dynamic> json) => FinAgentMessage(
-    author: (json['author'] != null ? FinAgentMessageAuthor.fromJson(json['author'] as String) : null)!,
-    body: (json['body'] as String?)!,
-    timestamp: (json['timestamp'] as String?)!,
-    timestampMs: json['timestamp_ms'] != null ? SdkPresent((json['timestamp_ms'] as String?)!) : const SdkOmitted(),
-  );
+  factory FinAgentMessage.fromJson(Map<String, dynamic> json) =>
+      FinAgentMessage(
+        author: (json['author'] != null
+            ? FinAgentMessageAuthor.fromJson(json['author'] as String)
+            : null)!,
+        body: (json['body'] as String?)!,
+        timestamp: (json['timestamp'] as String?)!,
+        timestampMs: json['timestamp_ms'] != null
+            ? SdkPresent((json['timestamp_ms'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'author': author.toJson(),
-    'body': body,
-    'timestamp': timestamp,
-    ...switch (timestampMs) {
-      SdkPresent<String>(value: final value) => {'timestamp_ms': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'author': author.toJson(),
+        'body': body,
+        'timestamp': timestamp,
+        ...switch (timestampMs) {
+          SdkPresent<String>(value: final value) => {
+              'timestamp_ms': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

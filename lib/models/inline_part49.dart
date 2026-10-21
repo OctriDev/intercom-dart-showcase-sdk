@@ -7,89 +7,183 @@ part of 'inline.dart';
 class UpdateTicketRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The attributes set on the ticket.
   final SdkOptional<Map<String, dynamic>> ticketAttributes;
+
   /// The ID of the ticket state associated with the ticket type.
   final SdkOptional<String> ticketStateId;
+
   /// The ID of the company that the ticket is associated with. The unique identifier for the company which is given by Intercom. Set to nil to remove company.
   final SdkOptional<String> companyId;
+
   /// Specify if a ticket is open. Set to false to close a ticket. Closing a ticket will also unsnooze it.
   final SdkOptional<bool> open;
+
   /// Specify whether the ticket is visible to users.
   final SdkOptional<bool> isShared;
+
   /// The time you want the ticket to reopen.
   final SdkOptional<int> snoozedUntil;
+
   /// The ID of the admin performing ticket update. Needed for workflows execution and attributing actions to specific admins.
   final SdkOptional<int> adminId;
+
   /// The ID of the admin or team to which the ticket is assigned. Set this 0 to unassign it.
   final SdkOptional<String> assigneeId;
+
   /// Option to disable notifications when a Ticket is updated.
   final SdkOptional<bool> skipNotifications;
 
-  const UpdateTicketRequestBody({this.ticketAttributes = const SdkOmitted(), this.ticketStateId = const SdkOmitted(), this.companyId = const SdkOmitted(), this.open = const SdkOmitted(), this.isShared = const SdkOmitted(), this.snoozedUntil = const SdkOmitted(), this.adminId = const SdkOmitted(), this.assigneeId = const SdkOmitted(), this.skipNotifications = const SdkOmitted()});
+  const UpdateTicketRequestBody(
+      {this.ticketAttributes = const SdkOmitted(),
+      this.ticketStateId = const SdkOmitted(),
+      this.companyId = const SdkOmitted(),
+      this.open = const SdkOmitted(),
+      this.isShared = const SdkOmitted(),
+      this.snoozedUntil = const SdkOmitted(),
+      this.adminId = const SdkOmitted(),
+      this.assigneeId = const SdkOmitted(),
+      this.skipNotifications = const SdkOmitted()});
 
-  UpdateTicketRequestBody Function({SdkOptional<Map<String, dynamic>> ticketAttributes, SdkOptional<String> ticketStateId, SdkOptional<String> companyId, SdkOptional<bool> open, SdkOptional<bool> isShared, SdkOptional<int> snoozedUntil, SdkOptional<int> adminId, SdkOptional<String> assigneeId, SdkOptional<bool> skipNotifications}) get copyWith => _copyWith;
+  UpdateTicketRequestBody Function(
+      {SdkOptional<Map<String, dynamic>> ticketAttributes,
+      SdkOptional<String> ticketStateId,
+      SdkOptional<String> companyId,
+      SdkOptional<bool> open,
+      SdkOptional<bool> isShared,
+      SdkOptional<int> snoozedUntil,
+      SdkOptional<int> adminId,
+      SdkOptional<String> assigneeId,
+      SdkOptional<bool> skipNotifications}) get copyWith => _copyWith;
 
-  UpdateTicketRequestBody _copyWith({Object? ticketAttributes = sdkOmittedValue, Object? ticketStateId = sdkOmittedValue, Object? companyId = sdkOmittedValue, Object? open = sdkOmittedValue, Object? isShared = sdkOmittedValue, Object? snoozedUntil = sdkOmittedValue, Object? adminId = sdkOmittedValue, Object? assigneeId = sdkOmittedValue, Object? skipNotifications = sdkOmittedValue}) => UpdateTicketRequestBody(
-    ticketAttributes: identical(ticketAttributes, sdkOmittedValue) ? this.ticketAttributes : ticketAttributes as SdkOptional<Map<String, dynamic>>,
-    ticketStateId: identical(ticketStateId, sdkOmittedValue) ? this.ticketStateId : ticketStateId as SdkOptional<String>,
-    companyId: identical(companyId, sdkOmittedValue) ? this.companyId : companyId as SdkOptional<String>,
-    open: identical(open, sdkOmittedValue) ? this.open : open as SdkOptional<bool>,
-    isShared: identical(isShared, sdkOmittedValue) ? this.isShared : isShared as SdkOptional<bool>,
-    snoozedUntil: identical(snoozedUntil, sdkOmittedValue) ? this.snoozedUntil : snoozedUntil as SdkOptional<int>,
-    adminId: identical(adminId, sdkOmittedValue) ? this.adminId : adminId as SdkOptional<int>,
-    assigneeId: identical(assigneeId, sdkOmittedValue) ? this.assigneeId : assigneeId as SdkOptional<String>,
-    skipNotifications: identical(skipNotifications, sdkOmittedValue) ? this.skipNotifications : skipNotifications as SdkOptional<bool>,
-  );
+  UpdateTicketRequestBody _copyWith(
+          {Object? ticketAttributes = sdkOmittedValue,
+          Object? ticketStateId = sdkOmittedValue,
+          Object? companyId = sdkOmittedValue,
+          Object? open = sdkOmittedValue,
+          Object? isShared = sdkOmittedValue,
+          Object? snoozedUntil = sdkOmittedValue,
+          Object? adminId = sdkOmittedValue,
+          Object? assigneeId = sdkOmittedValue,
+          Object? skipNotifications = sdkOmittedValue}) =>
+      UpdateTicketRequestBody(
+        ticketAttributes: identical(ticketAttributes, sdkOmittedValue)
+            ? this.ticketAttributes
+            : ticketAttributes as SdkOptional<Map<String, dynamic>>,
+        ticketStateId: identical(ticketStateId, sdkOmittedValue)
+            ? this.ticketStateId
+            : ticketStateId as SdkOptional<String>,
+        companyId: identical(companyId, sdkOmittedValue)
+            ? this.companyId
+            : companyId as SdkOptional<String>,
+        open: identical(open, sdkOmittedValue)
+            ? this.open
+            : open as SdkOptional<bool>,
+        isShared: identical(isShared, sdkOmittedValue)
+            ? this.isShared
+            : isShared as SdkOptional<bool>,
+        snoozedUntil: identical(snoozedUntil, sdkOmittedValue)
+            ? this.snoozedUntil
+            : snoozedUntil as SdkOptional<int>,
+        adminId: identical(adminId, sdkOmittedValue)
+            ? this.adminId
+            : adminId as SdkOptional<int>,
+        assigneeId: identical(assigneeId, sdkOmittedValue)
+            ? this.assigneeId
+            : assigneeId as SdkOptional<String>,
+        skipNotifications: identical(skipNotifications, sdkOmittedValue)
+            ? this.skipNotifications
+            : skipNotifications as SdkOptional<bool>,
+      );
 
-  factory UpdateTicketRequestBody.fromJson(Map<String, dynamic> json) => UpdateTicketRequestBody(
-    ticketAttributes: json['ticket_attributes'] != null ? SdkPresent((json['ticket_attributes'] == null ? null : json['ticket_attributes'] as Map<String, dynamic>)!) : const SdkOmitted(),
-    ticketStateId: json['ticket_state_id'] != null ? SdkPresent((json['ticket_state_id'] as String?)!) : const SdkOmitted(),
-    companyId: json['company_id'] != null ? SdkPresent((json['company_id'] as String?)!) : const SdkOmitted(),
-    open: json['open'] != null ? SdkPresent((json['open'] as bool?)!) : const SdkOmitted(),
-    isShared: json['is_shared'] != null ? SdkPresent((json['is_shared'] as bool?)!) : const SdkOmitted(),
-    snoozedUntil: json['snoozed_until'] != null ? SdkPresent(((json['snoozed_until'] as num?)?.toInt())!) : const SdkOmitted(),
-    adminId: json['admin_id'] != null ? SdkPresent(((json['admin_id'] as num?)?.toInt())!) : const SdkOmitted(),
-    assigneeId: json['assignee_id'] != null ? SdkPresent((json['assignee_id'] as String?)!) : const SdkOmitted(),
-    skipNotifications: json['skip_notifications'] != null ? SdkPresent((json['skip_notifications'] as bool?)!) : const SdkOmitted(),
-  );
+  factory UpdateTicketRequestBody.fromJson(Map<String, dynamic> json) =>
+      UpdateTicketRequestBody(
+        ticketAttributes: json['ticket_attributes'] != null
+            ? SdkPresent((json['ticket_attributes'] == null
+                ? null
+                : json['ticket_attributes'] as Map<String, dynamic>)!)
+            : const SdkOmitted(),
+        ticketStateId: json['ticket_state_id'] != null
+            ? SdkPresent((json['ticket_state_id'] as String?)!)
+            : const SdkOmitted(),
+        companyId: json['company_id'] != null
+            ? SdkPresent((json['company_id'] as String?)!)
+            : const SdkOmitted(),
+        open: json['open'] != null
+            ? SdkPresent((json['open'] as bool?)!)
+            : const SdkOmitted(),
+        isShared: json['is_shared'] != null
+            ? SdkPresent((json['is_shared'] as bool?)!)
+            : const SdkOmitted(),
+        snoozedUntil: json['snoozed_until'] != null
+            ? SdkPresent(((json['snoozed_until'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        adminId: json['admin_id'] != null
+            ? SdkPresent(((json['admin_id'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        assigneeId: json['assignee_id'] != null
+            ? SdkPresent((json['assignee_id'] as String?)!)
+            : const SdkOmitted(),
+        skipNotifications: json['skip_notifications'] != null
+            ? SdkPresent((json['skip_notifications'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (ticketAttributes) {
-      SdkPresent<Map<String, dynamic>>(value: final value) => {'ticket_attributes': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (ticketStateId) {
-      SdkPresent<String>(value: final value) => {'ticket_state_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (companyId) {
-      SdkPresent<String>(value: final value) => {'company_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (open) {
-      SdkPresent<bool>(value: final value) => {'open': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (isShared) {
-      SdkPresent<bool>(value: final value) => {'is_shared': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (snoozedUntil) {
-      SdkPresent<int>(value: final value) => {'snoozed_until': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (adminId) {
-      SdkPresent<int>(value: final value) => {'admin_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (assigneeId) {
-      SdkPresent<String>(value: final value) => {'assignee_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (skipNotifications) {
-      SdkPresent<bool>(value: final value) => {'skip_notifications': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (ticketAttributes) {
+          SdkPresent<Map<String, dynamic>>(value: final value) => {
+              'ticket_attributes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (ticketStateId) {
+          SdkPresent<String>(value: final value) => {
+              'ticket_state_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (companyId) {
+          SdkPresent<String>(value: final value) => {
+              'company_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (open) {
+          SdkPresent<bool>(value: final value) => {
+              'open': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (isShared) {
+          SdkPresent<bool>(value: final value) => {
+              'is_shared': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (snoozedUntil) {
+          SdkPresent<int>(value: final value) => {
+              'snoozed_until': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (adminId) {
+          SdkPresent<int>(value: final value) => {
+              'admin_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (assigneeId) {
+          SdkPresent<String>(value: final value) => {
+              'assignee_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (skipNotifications) {
+          SdkPresent<bool>(value: final value) => {
+              'skip_notifications': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

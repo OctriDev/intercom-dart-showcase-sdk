@@ -8,41 +8,79 @@ part of 'admins.dart';
 class ActivityLogList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// String representing the object's type. Always has the value `activity_log.list`.
   final SdkOptional<String> type_;
+
   /// Cursor-based pagination is a technique used in the Intercom API to navigate through large amounts of data. A "cursor" or pointer is used to keep track of the current position in the result set, allowing the API to return the data in small chunks or "pages" as needed.
   final SdkOptional<CursorPages?> pages;
+
   /// An array of activity logs
   final SdkOptional<List<ActivityLog?>> activityLogs;
 
-  const ActivityLogList({this.type_ = const SdkOmitted(), this.pages = const SdkOmitted(), this.activityLogs = const SdkOmitted()});
+  const ActivityLogList(
+      {this.type_ = const SdkOmitted(),
+      this.pages = const SdkOmitted(),
+      this.activityLogs = const SdkOmitted()});
 
-  ActivityLogList Function({SdkOptional<String> type_, SdkOptional<CursorPages?> pages, SdkOptional<List<ActivityLog?>> activityLogs}) get copyWith => _copyWith;
+  ActivityLogList Function(
+      {SdkOptional<String> type_,
+      SdkOptional<CursorPages?> pages,
+      SdkOptional<List<ActivityLog?>> activityLogs}) get copyWith => _copyWith;
 
-  ActivityLogList _copyWith({Object? type_ = sdkOmittedValue, Object? pages = sdkOmittedValue, Object? activityLogs = sdkOmittedValue}) => ActivityLogList(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
-    pages: identical(pages, sdkOmittedValue) ? this.pages : pages as SdkOptional<CursorPages?>,
-    activityLogs: identical(activityLogs, sdkOmittedValue) ? this.activityLogs : activityLogs as SdkOptional<List<ActivityLog?>>,
-  );
+  ActivityLogList _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? pages = sdkOmittedValue,
+          Object? activityLogs = sdkOmittedValue}) =>
+      ActivityLogList(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<String>,
+        pages: identical(pages, sdkOmittedValue)
+            ? this.pages
+            : pages as SdkOptional<CursorPages?>,
+        activityLogs: identical(activityLogs, sdkOmittedValue)
+            ? this.activityLogs
+            : activityLogs as SdkOptional<List<ActivityLog?>>,
+      );
 
-  factory ActivityLogList.fromJson(Map<String, dynamic> json) => ActivityLogList(
-    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
-    pages: json.containsKey('pages') ? SdkPresent(json['pages'] != null ? CursorPages.fromJson(json['pages'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    activityLogs: json['activity_logs'] != null ? SdkPresent(((json['activity_logs'] as List?)?.map((e) => e == null ? null : ActivityLog.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory ActivityLogList.fromJson(Map<String, dynamic> json) =>
+      ActivityLogList(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] as String?)!)
+            : const SdkOmitted(),
+        pages: json.containsKey('pages')
+            ? SdkPresent(json['pages'] != null
+                ? CursorPages.fromJson(json['pages'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        activityLogs: json['activity_logs'] != null
+            ? SdkPresent(((json['activity_logs'] as List?)
+                ?.map((e) => e == null
+                    ? null
+                    : ActivityLog.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<String>(value: final value) => {'type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (pages) {
-      SdkPresent<CursorPages?>(value: final value) => {'pages': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (activityLogs) {
-      SdkPresent<List<ActivityLog?>>(value: final value) => {'activity_logs': value.map((item) => item?.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<String>(value: final value) => {
+              'type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pages) {
+          SdkPresent<CursorPages?>(value: final value) => {
+              'pages': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (activityLogs) {
+          SdkPresent<List<ActivityLog?>>(value: final value) => {
+              'activity_logs': value.map((item) => item?.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

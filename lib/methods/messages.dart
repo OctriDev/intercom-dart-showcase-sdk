@@ -29,7 +29,8 @@ import '../types.dart';
 ///   to false if not provided.
 Future<Message> createMessage(ClientConfig config,
     {SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
-    SdkOptional<CreateMessageRequestMessageType> messageType = const SdkOmitted(),
+    SdkOptional<CreateMessageRequestMessageType> messageType =
+        const SdkOmitted(),
     SdkOptional<String> subject = const SdkOmitted(),
     SdkOptional<String> body = const SdkOmitted(),
     SdkOptional<String> template = const SdkOmitted(),
@@ -38,7 +39,8 @@ Future<Message> createMessage(ClientConfig config,
     SdkOptional<dynamic> cc = const SdkOmitted(),
     SdkOptional<dynamic> bcc = const SdkOmitted(),
     SdkOptional<int> createdAt = const SdkOmitted(),
-    SdkOptional<bool> createConversationWithoutContactReply = const SdkOmitted(),
+    SdkOptional<bool> createConversationWithoutContactReply =
+        const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<Message>('POST', '/messages',
           config: config,
@@ -52,17 +54,24 @@ Future<Message> createMessage(ClientConfig config,
             'cc': SdkUtils.unwrapOptional(cc),
             'bcc': SdkUtils.unwrapOptional(bcc),
             'created_at': SdkUtils.unwrapOptional(createdAt),
-            'create_conversation_without_contact_reply': SdkUtils.unwrapOptional(createConversationWithoutContactReply)
+            'create_conversation_without_contact_reply':
+                SdkUtils.unwrapOptional(createConversationWithoutContactReply)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'createMessage',
-          fromJsonRaw: (value) => Message.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Message.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '422': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves the delivery status and conversation details for a specific WhatsApp message. Supply the message's `message_id` to check whether it was sent, delivered, read, or failed. The response includes error details when delivery fails.
 ///
@@ -80,14 +89,19 @@ Future<WhatsappMessageStatus> retrieveWhatsAppMessageStatus(ClientConfig config,
             'message_id': SdkQueryValue(messageId, style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'retrieveWhatsAppMessageStatus',
-          fromJsonRaw: (value) => WhatsappMessageStatus.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              WhatsappMessageStatus.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Lists paginated status events for WhatsApp messages sent through the Outbound module. Use `ruleset_id` to select the set of messages and `per_page` and `starting_after` to paginate the results. The API plan must allow access to this operation.
 ///
@@ -111,15 +125,27 @@ Future<WhatsappMessageStatusList> getWhatsAppMessageStatus(ClientConfig config,
   return (await sdkRequest<WhatsappMessageStatusList>('GET', '/messages/status',
           config: config,
           query: {
-            'ruleset_id': SdkQueryValue(rulesetId, style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'starting_after': SdkQueryValue(SdkUtils.unwrapOptional(startingAfter), style: 'form', explode: true)
+            'ruleset_id':
+                SdkQueryValue(rulesetId, style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'starting_after': SdkQueryValue(
+                SdkUtils.unwrapOptional(startingAfter),
+                style: 'form',
+                explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'getWhatsAppMessageStatus',
-          fromJsonRaw: (value) => WhatsappMessageStatusList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              WhatsappMessageStatusList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }

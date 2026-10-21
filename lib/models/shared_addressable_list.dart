@@ -8,41 +8,73 @@ part of 'shared.dart';
 class AddressableList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The addressable object type
   final SdkOptional<String> type_;
+
   /// The id of the addressable object
   final SdkOptional<String> id;
+
   /// Url to get more company resources for this contact
   final SdkOptional<String> url;
 
-  const AddressableList({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.url = const SdkOmitted()});
+  const AddressableList(
+      {this.type_ = const SdkOmitted(),
+      this.id = const SdkOmitted(),
+      this.url = const SdkOmitted()});
 
-  AddressableList Function({SdkOptional<String> type_, SdkOptional<String> id, SdkOptional<String> url}) get copyWith => _copyWith;
+  AddressableList Function(
+      {SdkOptional<String> type_,
+      SdkOptional<String> id,
+      SdkOptional<String> url}) get copyWith => _copyWith;
 
-  AddressableList _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? url = sdkOmittedValue}) => AddressableList(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String>,
-  );
+  AddressableList _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? url = sdkOmittedValue}) =>
+      AddressableList(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<String>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        url: identical(url, sdkOmittedValue)
+            ? this.url
+            : url as SdkOptional<String>,
+      );
 
-  factory AddressableList.fromJson(Map<String, dynamic> json) => AddressableList(
-    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    url: json['url'] != null ? SdkPresent((json['url'] as String?)!) : const SdkOmitted(),
-  );
+  factory AddressableList.fromJson(Map<String, dynamic> json) =>
+      AddressableList(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] as String?)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        url: json['url'] != null
+            ? SdkPresent((json['url'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<String>(value: final value) => {'type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (url) {
-      SdkPresent<String>(value: final value) => {'url': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<String>(value: final value) => {
+              'type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (url) {
+          SdkPresent<String>(value: final value) => {
+              'url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

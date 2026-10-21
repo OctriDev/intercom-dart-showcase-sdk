@@ -7,35 +7,55 @@ part of 'shared.dart';
 class CxScoreReasonListItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the reason.
   final SdkOptional<String> name;
+
   /// The value recorded for the reason.
   final SdkOptional<String> value;
 
-  const CxScoreReasonListItem({this.name = const SdkOmitted(), this.value = const SdkOmitted()});
+  const CxScoreReasonListItem(
+      {this.name = const SdkOmitted(), this.value = const SdkOmitted()});
 
-  CxScoreReasonListItem Function({SdkOptional<String> name, SdkOptional<String> value}) get copyWith => _copyWith;
+  CxScoreReasonListItem Function(
+      {SdkOptional<String> name,
+      SdkOptional<String> value}) get copyWith => _copyWith;
 
-  CxScoreReasonListItem _copyWith({Object? name = sdkOmittedValue, Object? value = sdkOmittedValue}) => CxScoreReasonListItem(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    value: identical(value, sdkOmittedValue) ? this.value : value as SdkOptional<String>,
-  );
+  CxScoreReasonListItem _copyWith(
+          {Object? name = sdkOmittedValue, Object? value = sdkOmittedValue}) =>
+      CxScoreReasonListItem(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        value: identical(value, sdkOmittedValue)
+            ? this.value
+            : value as SdkOptional<String>,
+      );
 
-  factory CxScoreReasonListItem.fromJson(Map<String, dynamic> json) => CxScoreReasonListItem(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    value: json['value'] != null ? SdkPresent((json['value'] as String?)!) : const SdkOmitted(),
-  );
+  factory CxScoreReasonListItem.fromJson(Map<String, dynamic> json) =>
+      CxScoreReasonListItem(
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        value: json['value'] != null
+            ? SdkPresent((json['value'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (value) {
-      SdkPresent<String>(value: final value) => {'value': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (value) {
+          SdkPresent<String>(value: final value) => {
+              'value': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 // CxScoreReasonList = List<CxScoreReasonListItem>

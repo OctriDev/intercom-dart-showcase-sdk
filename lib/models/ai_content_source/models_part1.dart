@@ -8,49 +8,93 @@ part of 'models.dart';
 class ContentSource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the content source.
   final SdkOptional<ContentSourceContentType> contentType;
+
   /// The internal URL linking to the content source for teammates.
   final SdkOptional<String> url;
+
   /// The title of the content source.
   final SdkOptional<String> title;
+
   /// The ISO 639 language code of the content source.
   final SdkOptional<String> locale;
 
-  const ContentSource({this.contentType = const SdkOmitted(), this.url = const SdkOmitted(), this.title = const SdkOmitted(), this.locale = const SdkOmitted()});
+  const ContentSource(
+      {this.contentType = const SdkOmitted(),
+      this.url = const SdkOmitted(),
+      this.title = const SdkOmitted(),
+      this.locale = const SdkOmitted()});
 
-  ContentSource Function({SdkOptional<ContentSourceContentType> contentType, SdkOptional<String> url, SdkOptional<String> title, SdkOptional<String> locale}) get copyWith => _copyWith;
+  ContentSource Function(
+      {SdkOptional<ContentSourceContentType> contentType,
+      SdkOptional<String> url,
+      SdkOptional<String> title,
+      SdkOptional<String> locale}) get copyWith => _copyWith;
 
-  ContentSource _copyWith({Object? contentType = sdkOmittedValue, Object? url = sdkOmittedValue, Object? title = sdkOmittedValue, Object? locale = sdkOmittedValue}) => ContentSource(
-    contentType: identical(contentType, sdkOmittedValue) ? this.contentType : contentType as SdkOptional<ContentSourceContentType>,
-    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String>,
-    title: identical(title, sdkOmittedValue) ? this.title : title as SdkOptional<String>,
-    locale: identical(locale, sdkOmittedValue) ? this.locale : locale as SdkOptional<String>,
-  );
+  ContentSource _copyWith(
+          {Object? contentType = sdkOmittedValue,
+          Object? url = sdkOmittedValue,
+          Object? title = sdkOmittedValue,
+          Object? locale = sdkOmittedValue}) =>
+      ContentSource(
+        contentType: identical(contentType, sdkOmittedValue)
+            ? this.contentType
+            : contentType as SdkOptional<ContentSourceContentType>,
+        url: identical(url, sdkOmittedValue)
+            ? this.url
+            : url as SdkOptional<String>,
+        title: identical(title, sdkOmittedValue)
+            ? this.title
+            : title as SdkOptional<String>,
+        locale: identical(locale, sdkOmittedValue)
+            ? this.locale
+            : locale as SdkOptional<String>,
+      );
 
   factory ContentSource.fromJson(Map<String, dynamic> json) => ContentSource(
-    contentType: json['content_type'] != null ? SdkPresent((json['content_type'] != null ? ContentSourceContentType.fromJson(json['content_type'] as String) : null)!) : const SdkOmitted(),
-    url: json['url'] != null ? SdkPresent((json['url'] as String?)!) : const SdkOmitted(),
-    title: json['title'] != null ? SdkPresent((json['title'] as String?)!) : const SdkOmitted(),
-    locale: json['locale'] != null ? SdkPresent((json['locale'] as String?)!) : const SdkOmitted(),
-  );
+        contentType: json['content_type'] != null
+            ? SdkPresent((json['content_type'] != null
+                ? ContentSourceContentType.fromJson(
+                    json['content_type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        url: json['url'] != null
+            ? SdkPresent((json['url'] as String?)!)
+            : const SdkOmitted(),
+        title: json['title'] != null
+            ? SdkPresent((json['title'] as String?)!)
+            : const SdkOmitted(),
+        locale: json['locale'] != null
+            ? SdkPresent((json['locale'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (contentType) {
-      SdkPresent<ContentSourceContentType>(value: final value) => {'content_type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (url) {
-      SdkPresent<String>(value: final value) => {'url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (title) {
-      SdkPresent<String>(value: final value) => {'title': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (locale) {
-      SdkPresent<String>(value: final value) => {'locale': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (contentType) {
+          SdkPresent<ContentSourceContentType>(value: final value) => {
+              'content_type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (url) {
+          SdkPresent<String>(value: final value) => {
+              'url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (title) {
+          SdkPresent<String>(value: final value) => {
+              'title': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (locale) {
+          SdkPresent<String>(value: final value) => {
+              'locale': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,35 +8,56 @@ part of 'contacts.dart';
 class MergeContactsRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique identifier for the contact to merge away from. Must be a lead.
   final String from;
+
   /// The unique identifier for the contact to merge into. Must be a user.
   final String into;
+
   /// Set to `true` to merge two contacts that are not duplicates (they share no matching email or phone).
   final SdkOptional<bool> skipDuplicateValidation;
 
-  const MergeContactsRequest({required this.from, required this.into, this.skipDuplicateValidation = const SdkOmitted()});
+  const MergeContactsRequest(
+      {required this.from,
+      required this.into,
+      this.skipDuplicateValidation = const SdkOmitted()});
 
-  MergeContactsRequest Function({String from, String into, SdkOptional<bool> skipDuplicateValidation}) get copyWith => _copyWith;
+  MergeContactsRequest Function(
+      {String from,
+      String into,
+      SdkOptional<bool> skipDuplicateValidation}) get copyWith => _copyWith;
 
-  MergeContactsRequest _copyWith({Object? from = sdkOmittedValue, Object? into = sdkOmittedValue, Object? skipDuplicateValidation = sdkOmittedValue}) => MergeContactsRequest(
-    from: identical(from, sdkOmittedValue) ? this.from : from as String,
-    into: identical(into, sdkOmittedValue) ? this.into : into as String,
-    skipDuplicateValidation: identical(skipDuplicateValidation, sdkOmittedValue) ? this.skipDuplicateValidation : skipDuplicateValidation as SdkOptional<bool>,
-  );
+  MergeContactsRequest _copyWith(
+          {Object? from = sdkOmittedValue,
+          Object? into = sdkOmittedValue,
+          Object? skipDuplicateValidation = sdkOmittedValue}) =>
+      MergeContactsRequest(
+        from: identical(from, sdkOmittedValue) ? this.from : from as String,
+        into: identical(into, sdkOmittedValue) ? this.into : into as String,
+        skipDuplicateValidation:
+            identical(skipDuplicateValidation, sdkOmittedValue)
+                ? this.skipDuplicateValidation
+                : skipDuplicateValidation as SdkOptional<bool>,
+      );
 
-  factory MergeContactsRequest.fromJson(Map<String, dynamic> json) => MergeContactsRequest(
-    from: (json['from'] as String?)!,
-    into: (json['into'] as String?)!,
-    skipDuplicateValidation: json['skip_duplicate_validation'] != null ? SdkPresent((json['skip_duplicate_validation'] as bool?)!) : const SdkOmitted(),
-  );
+  factory MergeContactsRequest.fromJson(Map<String, dynamic> json) =>
+      MergeContactsRequest(
+        from: (json['from'] as String?)!,
+        into: (json['into'] as String?)!,
+        skipDuplicateValidation: json['skip_duplicate_validation'] != null
+            ? SdkPresent((json['skip_duplicate_validation'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'from': from,
-    'into': into,
-    ...switch (skipDuplicateValidation) {
-      SdkPresent<bool>(value: final value) => {'skip_duplicate_validation': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'from': from,
+        'into': into,
+        ...switch (skipDuplicateValidation) {
+          SdkPresent<bool>(value: final value) => {
+              'skip_duplicate_validation': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

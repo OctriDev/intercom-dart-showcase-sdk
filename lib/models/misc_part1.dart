@@ -8,76 +8,142 @@ part of 'misc.dart';
 class Metadata {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The quick reply options sent by the Admin or bot, presented in this conversation part.
-  final SdkOptional<List<ConversationPartMetadataQuickReplyOptionsItem>> quickReplyOptions;
+  final SdkOptional<List<ConversationPartMetadataQuickReplyOptionsItem>>
+      quickReplyOptions;
+
   /// The unique identifier for the quick reply option that was clicked by the end user.
   final SdkOptional<String> quickReplyUuid;
 
-  const Metadata({this.quickReplyOptions = const SdkOmitted(), this.quickReplyUuid = const SdkOmitted()});
+  const Metadata(
+      {this.quickReplyOptions = const SdkOmitted(),
+      this.quickReplyUuid = const SdkOmitted()});
 
-  Metadata Function({SdkOptional<List<ConversationPartMetadataQuickReplyOptionsItem>> quickReplyOptions, SdkOptional<String> quickReplyUuid}) get copyWith => _copyWith;
+  Metadata Function(
+      {SdkOptional<List<ConversationPartMetadataQuickReplyOptionsItem>>
+          quickReplyOptions,
+      SdkOptional<String> quickReplyUuid}) get copyWith => _copyWith;
 
-  Metadata _copyWith({Object? quickReplyOptions = sdkOmittedValue, Object? quickReplyUuid = sdkOmittedValue}) => Metadata(
-    quickReplyOptions: identical(quickReplyOptions, sdkOmittedValue) ? this.quickReplyOptions : quickReplyOptions as SdkOptional<List<ConversationPartMetadataQuickReplyOptionsItem>>,
-    quickReplyUuid: identical(quickReplyUuid, sdkOmittedValue) ? this.quickReplyUuid : quickReplyUuid as SdkOptional<String>,
-  );
+  Metadata _copyWith(
+          {Object? quickReplyOptions = sdkOmittedValue,
+          Object? quickReplyUuid = sdkOmittedValue}) =>
+      Metadata(
+        quickReplyOptions: identical(quickReplyOptions, sdkOmittedValue)
+            ? this.quickReplyOptions
+            : quickReplyOptions as SdkOptional<
+                List<ConversationPartMetadataQuickReplyOptionsItem>>,
+        quickReplyUuid: identical(quickReplyUuid, sdkOmittedValue)
+            ? this.quickReplyUuid
+            : quickReplyUuid as SdkOptional<String>,
+      );
 
   factory Metadata.fromJson(Map<String, dynamic> json) => Metadata(
-    quickReplyOptions: json['quick_reply_options'] != null ? SdkPresent(((json['quick_reply_options'] as List?)?.map((e) => ConversationPartMetadataQuickReplyOptionsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    quickReplyUuid: json['quick_reply_uuid'] != null ? SdkPresent((json['quick_reply_uuid'] as String?)!) : const SdkOmitted(),
-  );
+        quickReplyOptions: json['quick_reply_options'] != null
+            ? SdkPresent(((json['quick_reply_options'] as List?)
+                ?.map((e) =>
+                    ConversationPartMetadataQuickReplyOptionsItem.fromJson(
+                        e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        quickReplyUuid: json['quick_reply_uuid'] != null
+            ? SdkPresent((json['quick_reply_uuid'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (quickReplyOptions) {
-      SdkPresent<List<ConversationPartMetadataQuickReplyOptionsItem>>(value: final value) => {'quick_reply_options': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (quickReplyUuid) {
-      SdkPresent<String>(value: final value) => {'quick_reply_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (quickReplyOptions) {
+          SdkPresent<List<ConversationPartMetadataQuickReplyOptionsItem>>(
+            value: final value
+          ) =>
+            {
+              'quick_reply_options':
+                  value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (quickReplyUuid) {
+          SdkPresent<String>(value: final value) => {
+              'quick_reply_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Response returned when an object is deleted
 class VisitorDeletedObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique identifier for the visitor which is given by Intercom.
   final SdkOptional<String> id;
+
   /// The type of object which was deleted
   final SdkOptional<VisitorDeletedObjectType> type_;
+
   /// Automatically generated identifier for the Visitor.
   final SdkOptional<String> userId;
 
-  const VisitorDeletedObject({this.id = const SdkOmitted(), this.type_ = const SdkOmitted(), this.userId = const SdkOmitted()});
+  const VisitorDeletedObject(
+      {this.id = const SdkOmitted(),
+      this.type_ = const SdkOmitted(),
+      this.userId = const SdkOmitted()});
 
-  VisitorDeletedObject Function({SdkOptional<String> id, SdkOptional<VisitorDeletedObjectType> type_, SdkOptional<String> userId}) get copyWith => _copyWith;
+  VisitorDeletedObject Function(
+      {SdkOptional<String> id,
+      SdkOptional<VisitorDeletedObjectType> type_,
+      SdkOptional<String> userId}) get copyWith => _copyWith;
 
-  VisitorDeletedObject _copyWith({Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? userId = sdkOmittedValue}) => VisitorDeletedObject(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<VisitorDeletedObjectType>,
-    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as SdkOptional<String>,
-  );
+  VisitorDeletedObject _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? userId = sdkOmittedValue}) =>
+      VisitorDeletedObject(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<VisitorDeletedObjectType>,
+        userId: identical(userId, sdkOmittedValue)
+            ? this.userId
+            : userId as SdkOptional<String>,
+      );
 
-  factory VisitorDeletedObject.fromJson(Map<String, dynamic> json) => VisitorDeletedObject(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? VisitorDeletedObjectType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    userId: json['user_id'] != null ? SdkPresent((json['user_id'] as String?)!) : const SdkOmitted(),
-  );
+  factory VisitorDeletedObject.fromJson(Map<String, dynamic> json) =>
+      VisitorDeletedObject(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? VisitorDeletedObjectType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        userId: json['user_id'] != null
+            ? SdkPresent((json['user_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (type_) {
-      SdkPresent<VisitorDeletedObjectType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (userId) {
-      SdkPresent<String>(value: final value) => {'user_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (type_) {
+          SdkPresent<VisitorDeletedObjectType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (userId) {
+          SdkPresent<String>(value: final value) => {
+              'user_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

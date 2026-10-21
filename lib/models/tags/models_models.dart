@@ -8,100 +8,184 @@ part of 'models.dart';
 class Tag {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// value is "tag"
   final SdkOptional<String> type_;
+
   /// The id of the tag
   final SdkOptional<String> id;
+
   /// The name of the tag
   final SdkOptional<String> name;
+
   /// The time when the tag was applied to the object. Only present when the tag is returned as part of a tagging operation on a contact, conversation, or ticket.
   final SdkOptional<int?> appliedAt;
+
   /// The admin who applied the tag. Only present when the tag is returned as part of a tagging operation on a contact, conversation, or ticket.
   final SdkOptional<Reference?> appliedBy;
 
-  const Tag({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.name = const SdkOmitted(), this.appliedAt = const SdkOmitted(), this.appliedBy = const SdkOmitted()});
+  const Tag(
+      {this.type_ = const SdkOmitted(),
+      this.id = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.appliedAt = const SdkOmitted(),
+      this.appliedBy = const SdkOmitted()});
 
-  Tag Function({SdkOptional<String> type_, SdkOptional<String> id, SdkOptional<String> name, SdkOptional<int?> appliedAt, SdkOptional<Reference?> appliedBy}) get copyWith => _copyWith;
+  Tag Function(
+      {SdkOptional<String> type_,
+      SdkOptional<String> id,
+      SdkOptional<String> name,
+      SdkOptional<int?> appliedAt,
+      SdkOptional<Reference?> appliedBy}) get copyWith => _copyWith;
 
-  Tag _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? appliedAt = sdkOmittedValue, Object? appliedBy = sdkOmittedValue}) => Tag(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    appliedAt: identical(appliedAt, sdkOmittedValue) ? this.appliedAt : appliedAt as SdkOptional<int?>,
-    appliedBy: identical(appliedBy, sdkOmittedValue) ? this.appliedBy : appliedBy as SdkOptional<Reference?>,
-  );
+  Tag _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? appliedAt = sdkOmittedValue,
+          Object? appliedBy = sdkOmittedValue}) =>
+      Tag(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<String>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        appliedAt: identical(appliedAt, sdkOmittedValue)
+            ? this.appliedAt
+            : appliedAt as SdkOptional<int?>,
+        appliedBy: identical(appliedBy, sdkOmittedValue)
+            ? this.appliedBy
+            : appliedBy as SdkOptional<Reference?>,
+      );
 
   factory Tag.fromJson(Map<String, dynamic> json) => Tag(
-    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    appliedAt: json.containsKey('applied_at') ? SdkPresent((json['applied_at'] as num?)?.toInt()) : const SdkOmitted(),
-    appliedBy: json.containsKey('applied_by') ? SdkPresent(json['applied_by'] != null ? Reference.fromJson(json['applied_by'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-  );
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] as String?)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        appliedAt: json.containsKey('applied_at')
+            ? SdkPresent((json['applied_at'] as num?)?.toInt())
+            : const SdkOmitted(),
+        appliedBy: json.containsKey('applied_by')
+            ? SdkPresent(json['applied_by'] != null
+                ? Reference.fromJson(json['applied_by'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<String>(value: final value) => {'type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (appliedAt) {
-      SdkPresent<int?>(value: final value) => {'applied_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (appliedBy) {
-      SdkPresent<Reference?>(value: final value) => {'applied_by': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<String>(value: final value) => {
+              'type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (appliedAt) {
+          SdkPresent<int?>(value: final value) => {
+              'applied_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (appliedBy) {
+          SdkPresent<Reference?>(value: final value) => {
+              'applied_by': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A tag allows you to label your contacts, companies, and conversations and list them using that tag.
 class TagBasic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// value is "tag"
   final SdkOptional<String> type_;
+
   /// The id of the tag
   final SdkOptional<String> id;
+
   /// The name of the tag
   final SdkOptional<String> name;
 
-  const TagBasic({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.name = const SdkOmitted()});
+  const TagBasic(
+      {this.type_ = const SdkOmitted(),
+      this.id = const SdkOmitted(),
+      this.name = const SdkOmitted()});
 
-  TagBasic Function({SdkOptional<String> type_, SdkOptional<String> id, SdkOptional<String> name}) get copyWith => _copyWith;
+  TagBasic Function(
+      {SdkOptional<String> type_,
+      SdkOptional<String> id,
+      SdkOptional<String> name}) get copyWith => _copyWith;
 
-  TagBasic _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue}) => TagBasic(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-  );
+  TagBasic _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue}) =>
+      TagBasic(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<String>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+      );
 
   factory TagBasic.fromJson(Map<String, dynamic> json) => TagBasic(
-    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-  );
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] as String?)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<String>(value: final value) => {'type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<String>(value: final value) => {
+              'type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

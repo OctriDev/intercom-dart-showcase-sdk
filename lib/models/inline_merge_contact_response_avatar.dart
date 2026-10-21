@@ -8,33 +8,54 @@ part of 'inline.dart';
 class MergeContactResponseAvatar {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of object
   final SdkOptional<String> type_;
+
   /// An image URL containing the avatar of a contact.
   final SdkOptional<String?> imageUrl;
 
-  const MergeContactResponseAvatar({this.type_ = const SdkOmitted(), this.imageUrl = const SdkOmitted()});
+  const MergeContactResponseAvatar(
+      {this.type_ = const SdkOmitted(), this.imageUrl = const SdkOmitted()});
 
-  MergeContactResponseAvatar Function({SdkOptional<String> type_, SdkOptional<String?> imageUrl}) get copyWith => _copyWith;
+  MergeContactResponseAvatar Function(
+      {SdkOptional<String> type_,
+      SdkOptional<String?> imageUrl}) get copyWith => _copyWith;
 
-  MergeContactResponseAvatar _copyWith({Object? type_ = sdkOmittedValue, Object? imageUrl = sdkOmittedValue}) => MergeContactResponseAvatar(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
-    imageUrl: identical(imageUrl, sdkOmittedValue) ? this.imageUrl : imageUrl as SdkOptional<String?>,
-  );
+  MergeContactResponseAvatar _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? imageUrl = sdkOmittedValue}) =>
+      MergeContactResponseAvatar(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<String>,
+        imageUrl: identical(imageUrl, sdkOmittedValue)
+            ? this.imageUrl
+            : imageUrl as SdkOptional<String?>,
+      );
 
-  factory MergeContactResponseAvatar.fromJson(Map<String, dynamic> json) => MergeContactResponseAvatar(
-    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
-    imageUrl: json.containsKey('image_url') ? SdkPresent(json['image_url'] as String?) : const SdkOmitted(),
-  );
+  factory MergeContactResponseAvatar.fromJson(Map<String, dynamic> json) =>
+      MergeContactResponseAvatar(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] as String?)!)
+            : const SdkOmitted(),
+        imageUrl: json.containsKey('image_url')
+            ? SdkPresent(json['image_url'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<String>(value: final value) => {'type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (imageUrl) {
-      SdkPresent<String?>(value: final value) => {'image_url': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<String>(value: final value) => {
+              'type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (imageUrl) {
+          SdkPresent<String?>(value: final value) => {
+              'image_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

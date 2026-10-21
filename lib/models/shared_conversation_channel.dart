@@ -8,33 +8,54 @@ part of 'shared_conversation.dart';
 class ConversationChannel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The channel through which the conversation was originally initiated. Possible values include `messenger`, `zendesk_sunshine`, `zendesk_ticket`, `twitter`, `email`. Returns `null` if channel data is unavailable.
   final SdkOptional<String?> initial;
+
   /// The current channel of the conversation. May differ from `initial` if the conversation was migrated between channels. Returns `null` if channel data is unavailable.
   final SdkOptional<String?> current;
 
-  const ConversationChannel({this.initial = const SdkOmitted(), this.current = const SdkOmitted()});
+  const ConversationChannel(
+      {this.initial = const SdkOmitted(), this.current = const SdkOmitted()});
 
-  ConversationChannel Function({SdkOptional<String?> initial, SdkOptional<String?> current}) get copyWith => _copyWith;
+  ConversationChannel Function(
+      {SdkOptional<String?> initial,
+      SdkOptional<String?> current}) get copyWith => _copyWith;
 
-  ConversationChannel _copyWith({Object? initial = sdkOmittedValue, Object? current = sdkOmittedValue}) => ConversationChannel(
-    initial: identical(initial, sdkOmittedValue) ? this.initial : initial as SdkOptional<String?>,
-    current: identical(current, sdkOmittedValue) ? this.current : current as SdkOptional<String?>,
-  );
+  ConversationChannel _copyWith(
+          {Object? initial = sdkOmittedValue,
+          Object? current = sdkOmittedValue}) =>
+      ConversationChannel(
+        initial: identical(initial, sdkOmittedValue)
+            ? this.initial
+            : initial as SdkOptional<String?>,
+        current: identical(current, sdkOmittedValue)
+            ? this.current
+            : current as SdkOptional<String?>,
+      );
 
-  factory ConversationChannel.fromJson(Map<String, dynamic> json) => ConversationChannel(
-    initial: json.containsKey('initial') ? SdkPresent(json['initial'] as String?) : const SdkOmitted(),
-    current: json.containsKey('current') ? SdkPresent(json['current'] as String?) : const SdkOmitted(),
-  );
+  factory ConversationChannel.fromJson(Map<String, dynamic> json) =>
+      ConversationChannel(
+        initial: json.containsKey('initial')
+            ? SdkPresent(json['initial'] as String?)
+            : const SdkOmitted(),
+        current: json.containsKey('current')
+            ? SdkPresent(json['current'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (initial) {
-      SdkPresent<String?>(value: final value) => {'initial': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (current) {
-      SdkPresent<String?>(value: final value) => {'current': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (initial) {
+          SdkPresent<String?>(value: final value) => {
+              'initial': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (current) {
+          SdkPresent<String?>(value: final value) => {
+              'current': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

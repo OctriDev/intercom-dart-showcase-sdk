@@ -8,257 +8,494 @@ part of 'content.dart';
 class ContentSearchArticleContentItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Always `article_content`.
   final SdkOptional<ContentSearchArticleContentItemType> type_;
+
   /// The unique identifier of the article content.
   final SdkOptional<String> id;
+
   /// The localized title of the article.
   final SdkOptional<String> title;
+
   /// The locale of this article content.
   final SdkOptional<String> locale;
 
-  const ContentSearchArticleContentItem({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.title = const SdkOmitted(), this.locale = const SdkOmitted()});
+  const ContentSearchArticleContentItem(
+      {this.type_ = const SdkOmitted(),
+      this.id = const SdkOmitted(),
+      this.title = const SdkOmitted(),
+      this.locale = const SdkOmitted()});
 
-  ContentSearchArticleContentItem Function({SdkOptional<ContentSearchArticleContentItemType> type_, SdkOptional<String> id, SdkOptional<String> title, SdkOptional<String> locale}) get copyWith => _copyWith;
+  ContentSearchArticleContentItem Function(
+      {SdkOptional<ContentSearchArticleContentItemType> type_,
+      SdkOptional<String> id,
+      SdkOptional<String> title,
+      SdkOptional<String> locale}) get copyWith => _copyWith;
 
-  ContentSearchArticleContentItem _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? title = sdkOmittedValue, Object? locale = sdkOmittedValue}) => ContentSearchArticleContentItem(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ContentSearchArticleContentItemType>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    title: identical(title, sdkOmittedValue) ? this.title : title as SdkOptional<String>,
-    locale: identical(locale, sdkOmittedValue) ? this.locale : locale as SdkOptional<String>,
-  );
+  ContentSearchArticleContentItem _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? title = sdkOmittedValue,
+          Object? locale = sdkOmittedValue}) =>
+      ContentSearchArticleContentItem(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<ContentSearchArticleContentItemType>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        title: identical(title, sdkOmittedValue)
+            ? this.title
+            : title as SdkOptional<String>,
+        locale: identical(locale, sdkOmittedValue)
+            ? this.locale
+            : locale as SdkOptional<String>,
+      );
 
-  factory ContentSearchArticleContentItem.fromJson(Map<String, dynamic> json) => ContentSearchArticleContentItem(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ContentSearchArticleContentItemType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    title: json['title'] != null ? SdkPresent((json['title'] as String?)!) : const SdkOmitted(),
-    locale: json['locale'] != null ? SdkPresent((json['locale'] as String?)!) : const SdkOmitted(),
-  );
+  factory ContentSearchArticleContentItem.fromJson(Map<String, dynamic> json) =>
+      ContentSearchArticleContentItem(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? ContentSearchArticleContentItemType.fromJson(
+                    json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        title: json['title'] != null
+            ? SdkPresent((json['title'] as String?)!)
+            : const SdkOmitted(),
+        locale: json['locale'] != null
+            ? SdkPresent((json['locale'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<ContentSearchArticleContentItemType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (title) {
-      SdkPresent<String>(value: final value) => {'title': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (locale) {
-      SdkPresent<String>(value: final value) => {'locale': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<ContentSearchArticleContentItemType>(value: final value) =>
+            {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (title) {
+          SdkPresent<String>(value: final value) => {
+              'title': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (locale) {
+          SdkPresent<String>(value: final value) => {
+              'locale': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A help center article result from Knowledge Hub search, with one nested `article_content` entry per locale.
 class ContentSearchArticleItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Always `article`.
   final ContentSearchArticleItemType type_;
+
   /// The unique identifier of the article.
   final SdkOptional<String> id;
+
   /// The article's canonical title.
   final SdkOptional<String> title;
+
   /// One entry per locale of the article.
   final SdkOptional<List<ContentSearchArticleContentItem>> contents;
 
-  const ContentSearchArticleItem({required this.type_, this.id = const SdkOmitted(), this.title = const SdkOmitted(), this.contents = const SdkOmitted()});
+  const ContentSearchArticleItem(
+      {required this.type_,
+      this.id = const SdkOmitted(),
+      this.title = const SdkOmitted(),
+      this.contents = const SdkOmitted()});
 
-  ContentSearchArticleItem Function({ContentSearchArticleItemType type_, SdkOptional<String> id, SdkOptional<String> title, SdkOptional<List<ContentSearchArticleContentItem>> contents}) get copyWith => _copyWith;
+  ContentSearchArticleItem Function(
+          {ContentSearchArticleItemType type_,
+          SdkOptional<String> id,
+          SdkOptional<String> title,
+          SdkOptional<List<ContentSearchArticleContentItem>> contents})
+      get copyWith => _copyWith;
 
-  ContentSearchArticleItem _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? title = sdkOmittedValue, Object? contents = sdkOmittedValue}) => ContentSearchArticleItem(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ContentSearchArticleItemType,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    title: identical(title, sdkOmittedValue) ? this.title : title as SdkOptional<String>,
-    contents: identical(contents, sdkOmittedValue) ? this.contents : contents as SdkOptional<List<ContentSearchArticleContentItem>>,
-  );
+  ContentSearchArticleItem _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? title = sdkOmittedValue,
+          Object? contents = sdkOmittedValue}) =>
+      ContentSearchArticleItem(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ContentSearchArticleItemType,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        title: identical(title, sdkOmittedValue)
+            ? this.title
+            : title as SdkOptional<String>,
+        contents: identical(contents, sdkOmittedValue)
+            ? this.contents
+            : contents as SdkOptional<List<ContentSearchArticleContentItem>>,
+      );
 
-  factory ContentSearchArticleItem.fromJson(Map<String, dynamic> json) => ContentSearchArticleItem(
-    type_: (json['type'] != null ? ContentSearchArticleItemType.fromJson(json['type'] as String) : null)!,
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    title: json['title'] != null ? SdkPresent((json['title'] as String?)!) : const SdkOmitted(),
-    contents: json['contents'] != null ? SdkPresent(((json['contents'] as List?)?.map((e) => ContentSearchArticleContentItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory ContentSearchArticleItem.fromJson(Map<String, dynamic> json) =>
+      ContentSearchArticleItem(
+        type_: (json['type'] != null
+            ? ContentSearchArticleItemType.fromJson(json['type'] as String)
+            : null)!,
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        title: json['title'] != null
+            ? SdkPresent((json['title'] as String?)!)
+            : const SdkOmitted(),
+        contents: json['contents'] != null
+            ? SdkPresent(((json['contents'] as List?)
+                ?.map((e) => ContentSearchArticleContentItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (title) {
-      SdkPresent<String>(value: final value) => {'title': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (contents) {
-      SdkPresent<List<ContentSearchArticleContentItem>>(value: final value) => {'contents': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (title) {
+          SdkPresent<String>(value: final value) => {
+              'title': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (contents) {
+          SdkPresent<List<ContentSearchArticleContentItem>>(
+            value: final value
+          ) =>
+            {
+              'contents': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// The flat result shape returned from Knowledge Hub search for content snippets, external pages, uploaded files, and internal articles.
 class ContentSearchDefaultItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The kind of content item.
   final ContentSearchDefaultItemType type_;
+
   /// The unique identifier of the content item.
   final SdkOptional<String> id;
+
   /// The display title of the content item.
   final SdkOptional<String> title;
 
-  const ContentSearchDefaultItem({required this.type_, this.id = const SdkOmitted(), this.title = const SdkOmitted()});
+  const ContentSearchDefaultItem(
+      {required this.type_,
+      this.id = const SdkOmitted(),
+      this.title = const SdkOmitted()});
 
-  ContentSearchDefaultItem Function({ContentSearchDefaultItemType type_, SdkOptional<String> id, SdkOptional<String> title}) get copyWith => _copyWith;
+  ContentSearchDefaultItem Function(
+      {ContentSearchDefaultItemType type_,
+      SdkOptional<String> id,
+      SdkOptional<String> title}) get copyWith => _copyWith;
 
-  ContentSearchDefaultItem _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? title = sdkOmittedValue}) => ContentSearchDefaultItem(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ContentSearchDefaultItemType,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    title: identical(title, sdkOmittedValue) ? this.title : title as SdkOptional<String>,
-  );
+  ContentSearchDefaultItem _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? title = sdkOmittedValue}) =>
+      ContentSearchDefaultItem(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ContentSearchDefaultItemType,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        title: identical(title, sdkOmittedValue)
+            ? this.title
+            : title as SdkOptional<String>,
+      );
 
-  factory ContentSearchDefaultItem.fromJson(Map<String, dynamic> json) => ContentSearchDefaultItem(
-    type_: (json['type'] != null ? ContentSearchDefaultItemType.fromJson(json['type'] as String) : null)!,
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    title: json['title'] != null ? SdkPresent((json['title'] as String?)!) : const SdkOmitted(),
-  );
+  factory ContentSearchDefaultItem.fromJson(Map<String, dynamic> json) =>
+      ContentSearchDefaultItem(
+        type_: (json['type'] != null
+            ? ContentSearchDefaultItemType.fromJson(json['type'] as String)
+            : null)!,
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        title: json['title'] != null
+            ? SdkPresent((json['title'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (title) {
-      SdkPresent<String>(value: final value) => {'title': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (title) {
+          SdkPresent<String>(value: final value) => {
+              'title': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Pagination metadata, including links to neighbouring pages.
 class ContentSearchResponsePages {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional enumerated value serialized in the `type` wire field.
   final SdkOptional<ContentSearchResponsePagesType> type_;
+
   /// The current page number.
   final SdkOptional<int> page;
+
   /// Number of results per page.
   final SdkOptional<int> perPage;
+
   /// Total number of pages of results.
   final SdkOptional<int> totalPages;
+
   /// A link to the next page of results, or null when on the last page.
   final SdkOptional<String?> next;
+
   /// A link to the previous page of results, or null when on the first page.
   final SdkOptional<String?> prev;
 
-  const ContentSearchResponsePages({this.type_ = const SdkOmitted(), this.page = const SdkOmitted(), this.perPage = const SdkOmitted(), this.totalPages = const SdkOmitted(), this.next = const SdkOmitted(), this.prev = const SdkOmitted()});
+  const ContentSearchResponsePages(
+      {this.type_ = const SdkOmitted(),
+      this.page = const SdkOmitted(),
+      this.perPage = const SdkOmitted(),
+      this.totalPages = const SdkOmitted(),
+      this.next = const SdkOmitted(),
+      this.prev = const SdkOmitted()});
 
-  ContentSearchResponsePages Function({SdkOptional<ContentSearchResponsePagesType> type_, SdkOptional<int> page, SdkOptional<int> perPage, SdkOptional<int> totalPages, SdkOptional<String?> next, SdkOptional<String?> prev}) get copyWith => _copyWith;
+  ContentSearchResponsePages Function(
+      {SdkOptional<ContentSearchResponsePagesType> type_,
+      SdkOptional<int> page,
+      SdkOptional<int> perPage,
+      SdkOptional<int> totalPages,
+      SdkOptional<String?> next,
+      SdkOptional<String?> prev}) get copyWith => _copyWith;
 
-  ContentSearchResponsePages _copyWith({Object? type_ = sdkOmittedValue, Object? page = sdkOmittedValue, Object? perPage = sdkOmittedValue, Object? totalPages = sdkOmittedValue, Object? next = sdkOmittedValue, Object? prev = sdkOmittedValue}) => ContentSearchResponsePages(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ContentSearchResponsePagesType>,
-    page: identical(page, sdkOmittedValue) ? this.page : page as SdkOptional<int>,
-    perPage: identical(perPage, sdkOmittedValue) ? this.perPage : perPage as SdkOptional<int>,
-    totalPages: identical(totalPages, sdkOmittedValue) ? this.totalPages : totalPages as SdkOptional<int>,
-    next: identical(next, sdkOmittedValue) ? this.next : next as SdkOptional<String?>,
-    prev: identical(prev, sdkOmittedValue) ? this.prev : prev as SdkOptional<String?>,
-  );
+  ContentSearchResponsePages _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? page = sdkOmittedValue,
+          Object? perPage = sdkOmittedValue,
+          Object? totalPages = sdkOmittedValue,
+          Object? next = sdkOmittedValue,
+          Object? prev = sdkOmittedValue}) =>
+      ContentSearchResponsePages(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<ContentSearchResponsePagesType>,
+        page: identical(page, sdkOmittedValue)
+            ? this.page
+            : page as SdkOptional<int>,
+        perPage: identical(perPage, sdkOmittedValue)
+            ? this.perPage
+            : perPage as SdkOptional<int>,
+        totalPages: identical(totalPages, sdkOmittedValue)
+            ? this.totalPages
+            : totalPages as SdkOptional<int>,
+        next: identical(next, sdkOmittedValue)
+            ? this.next
+            : next as SdkOptional<String?>,
+        prev: identical(prev, sdkOmittedValue)
+            ? this.prev
+            : prev as SdkOptional<String?>,
+      );
 
-  factory ContentSearchResponsePages.fromJson(Map<String, dynamic> json) => ContentSearchResponsePages(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ContentSearchResponsePagesType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    page: json['page'] != null ? SdkPresent(((json['page'] as num?)?.toInt())!) : const SdkOmitted(),
-    perPage: json['per_page'] != null ? SdkPresent(((json['per_page'] as num?)?.toInt())!) : const SdkOmitted(),
-    totalPages: json['total_pages'] != null ? SdkPresent(((json['total_pages'] as num?)?.toInt())!) : const SdkOmitted(),
-    next: json.containsKey('next') ? SdkPresent(json['next'] as String?) : const SdkOmitted(),
-    prev: json.containsKey('prev') ? SdkPresent(json['prev'] as String?) : const SdkOmitted(),
-  );
+  factory ContentSearchResponsePages.fromJson(Map<String, dynamic> json) =>
+      ContentSearchResponsePages(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? ContentSearchResponsePagesType.fromJson(
+                    json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        page: json['page'] != null
+            ? SdkPresent(((json['page'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        perPage: json['per_page'] != null
+            ? SdkPresent(((json['per_page'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        totalPages: json['total_pages'] != null
+            ? SdkPresent(((json['total_pages'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        next: json.containsKey('next')
+            ? SdkPresent(json['next'] as String?)
+            : const SdkOmitted(),
+        prev: json.containsKey('prev')
+            ? SdkPresent(json['prev'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<ContentSearchResponsePagesType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (page) {
-      SdkPresent<int>(value: final value) => {'page': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (perPage) {
-      SdkPresent<int>(value: final value) => {'per_page': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (totalPages) {
-      SdkPresent<int>(value: final value) => {'total_pages': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (next) {
-      SdkPresent<String?>(value: final value) => {'next': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (prev) {
-      SdkPresent<String?>(value: final value) => {'prev': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<ContentSearchResponsePagesType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (page) {
+          SdkPresent<int>(value: final value) => {
+              'page': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (perPage) {
+          SdkPresent<int>(value: final value) => {
+              'per_page': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (totalPages) {
+          SdkPresent<int>(value: final value) => {
+              'total_pages': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (next) {
+          SdkPresent<String?>(value: final value) => {
+              'next': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (prev) {
+          SdkPresent<String?>(value: final value) => {
+              'prev': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A paginated list of Knowledge Hub content results matching a search query.
 class ContentSearchResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Always `list`.
   final SdkOptional<ContentSearchResponseType> type_;
+
   /// Total number of results matching the query.
   final SdkOptional<int> totalCount;
+
   /// Pagination metadata, including links to neighbouring pages.
   final SdkOptional<ContentSearchResponsePages> pages;
+
   /// The list of matched content items. Each item's `type` field determines its shape.
   final SdkOptional<List<ContentSearchResult>> data;
 
-  const ContentSearchResponse({this.type_ = const SdkOmitted(), this.totalCount = const SdkOmitted(), this.pages = const SdkOmitted(), this.data = const SdkOmitted()});
+  const ContentSearchResponse(
+      {this.type_ = const SdkOmitted(),
+      this.totalCount = const SdkOmitted(),
+      this.pages = const SdkOmitted(),
+      this.data = const SdkOmitted()});
 
-  ContentSearchResponse Function({SdkOptional<ContentSearchResponseType> type_, SdkOptional<int> totalCount, SdkOptional<ContentSearchResponsePages> pages, SdkOptional<List<ContentSearchResult>> data}) get copyWith => _copyWith;
+  ContentSearchResponse Function(
+      {SdkOptional<ContentSearchResponseType> type_,
+      SdkOptional<int> totalCount,
+      SdkOptional<ContentSearchResponsePages> pages,
+      SdkOptional<List<ContentSearchResult>> data}) get copyWith => _copyWith;
 
-  ContentSearchResponse _copyWith({Object? type_ = sdkOmittedValue, Object? totalCount = sdkOmittedValue, Object? pages = sdkOmittedValue, Object? data = sdkOmittedValue}) => ContentSearchResponse(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ContentSearchResponseType>,
-    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as SdkOptional<int>,
-    pages: identical(pages, sdkOmittedValue) ? this.pages : pages as SdkOptional<ContentSearchResponsePages>,
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<ContentSearchResult>>,
-  );
+  ContentSearchResponse _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? totalCount = sdkOmittedValue,
+          Object? pages = sdkOmittedValue,
+          Object? data = sdkOmittedValue}) =>
+      ContentSearchResponse(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<ContentSearchResponseType>,
+        totalCount: identical(totalCount, sdkOmittedValue)
+            ? this.totalCount
+            : totalCount as SdkOptional<int>,
+        pages: identical(pages, sdkOmittedValue)
+            ? this.pages
+            : pages as SdkOptional<ContentSearchResponsePages>,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<List<ContentSearchResult>>,
+      );
 
-  factory ContentSearchResponse.fromJson(Map<String, dynamic> json) => ContentSearchResponse(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ContentSearchResponseType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    totalCount: json['total_count'] != null ? SdkPresent(((json['total_count'] as num?)?.toInt())!) : const SdkOmitted(),
-    pages: json['pages'] != null ? SdkPresent((json['pages'] != null ? ContentSearchResponsePages.fromJson(json['pages'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => ContentSearchResult.fromJson(e)).toList())!) : const SdkOmitted(),
-  );
+  factory ContentSearchResponse.fromJson(Map<String, dynamic> json) =>
+      ContentSearchResponse(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? ContentSearchResponseType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        totalCount: json['total_count'] != null
+            ? SdkPresent(((json['total_count'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        pages: json['pages'] != null
+            ? SdkPresent((json['pages'] != null
+                ? ContentSearchResponsePages.fromJson(
+                    json['pages'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        data: json['data'] != null
+            ? SdkPresent(((json['data'] as List?)
+                ?.map((e) => ContentSearchResult.fromJson(e))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<ContentSearchResponseType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (totalCount) {
-      SdkPresent<int>(value: final value) => {'total_count': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (pages) {
-      SdkPresent<ContentSearchResponsePages>(value: final value) => {'pages': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (data) {
-      SdkPresent<List<ContentSearchResult>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<ContentSearchResponseType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (totalCount) {
+          SdkPresent<int>(value: final value) => {
+              'total_count': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pages) {
+          SdkPresent<ContentSearchResponsePages>(value: final value) => {
+              'pages': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (data) {
+          SdkPresent<List<ContentSearchResult>>(value: final value) => {
+              'data': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class ContentSearchResult {
@@ -267,32 +504,63 @@ sealed class ContentSearchResult {
   const ContentSearchResult();
   factory ContentSearchResult.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = ContentSearchDefaultItem.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ContentSearchResultContentSearchDefaultItem(value); } } catch (_) {}
-      try { final value = ContentSearchArticleItem.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ContentSearchResultContentSearchArticleItem(value); } } catch (_) {}
+      try {
+        final value = ContentSearchDefaultItem.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ContentSearchResultContentSearchDefaultItem(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ContentSearchArticleItem.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ContentSearchResultContentSearchArticleItem(value);
+        }
+      } catch (_) {}
     }
-    try { return ContentSearchResultContentSearchDefaultItem(ContentSearchDefaultItem.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ContentSearchResultContentSearchArticleItem(ContentSearchArticleItem.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"content_snippet", "external_content", "file_source_content", "internal_article", "article"}.contains(json["type"])) { return UnknownContentSearchResult(json); }
+    try {
+      return ContentSearchResultContentSearchDefaultItem(
+          ContentSearchDefaultItem.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ContentSearchResultContentSearchArticleItem(
+          ContentSearchArticleItem.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {
+          "content_snippet",
+          "external_content",
+          "file_source_content",
+          "internal_article",
+          "article"
+        }.contains(json["type"])) {
+      return UnknownContentSearchResult(json);
+    }
     throw FormatException("No variant matched for ContentSearchResult");
   }
   Object? toJson();
 }
 
-final class ContentSearchResultContentSearchDefaultItem extends ContentSearchResult {
+final class ContentSearchResultContentSearchDefaultItem
+    extends ContentSearchResult {
   final ContentSearchDefaultItem value;
   const ContentSearchResultContentSearchDefaultItem(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ContentSearchResultContentSearchArticleItem extends ContentSearchResult {
+final class ContentSearchResultContentSearchArticleItem
+    extends ContentSearchResult {
   final ContentSearchArticleItem value;
   const ContentSearchResultContentSearchArticleItem(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [ContentSearchResult] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownContentSearchResult extends ContentSearchResult {
   final Map<String, dynamic> raw;
   const UnknownContentSearchResult(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

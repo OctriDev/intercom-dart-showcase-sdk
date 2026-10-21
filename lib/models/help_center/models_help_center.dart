@@ -8,105 +8,217 @@ part of 'models.dart';
 class HelpCenter {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique identifier for the Help Center which is given by Intercom.
   final SdkOptional<String> id;
+
   /// The id of the workspace which the Help Center belongs to.
   final SdkOptional<String> workspaceId;
+
   /// The time when the Help Center was created.
   final SdkOptional<int> createdAt;
+
   /// The time when the Help Center was last updated.
   final SdkOptional<int> updatedAt;
+
   /// The identifier of the Help Center. This is used in the URL of the Help Center.
   final SdkOptional<String> identifier;
+
   /// Whether the Help Center is turned on or not. This is controlled in your Help Center settings.
   final SdkOptional<bool> websiteTurnedOn;
+
   /// The display name of the Help Center only seen by teammates.
   final SdkOptional<String> displayName;
+
   /// The URL for the help center, if you have a custom domain then this will show the URL using the custom domain.
   final SdkOptional<String> url;
+
   /// Custom domain configured for the help center
   final SdkOptional<String?> customDomain;
+
   /// Whether this help center is the default for the workspace.
   final SdkOptional<bool> default_;
+
   /// The locales in which the help center is available.
   final SdkOptional<List<String>> locales;
 
-  const HelpCenter({this.id = const SdkOmitted(), this.workspaceId = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.identifier = const SdkOmitted(), this.websiteTurnedOn = const SdkOmitted(), this.displayName = const SdkOmitted(), this.url = const SdkOmitted(), this.customDomain = const SdkOmitted(), this.default_ = const SdkOmitted(), this.locales = const SdkOmitted()});
+  const HelpCenter(
+      {this.id = const SdkOmitted(),
+      this.workspaceId = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.updatedAt = const SdkOmitted(),
+      this.identifier = const SdkOmitted(),
+      this.websiteTurnedOn = const SdkOmitted(),
+      this.displayName = const SdkOmitted(),
+      this.url = const SdkOmitted(),
+      this.customDomain = const SdkOmitted(),
+      this.default_ = const SdkOmitted(),
+      this.locales = const SdkOmitted()});
 
-  HelpCenter Function({SdkOptional<String> id, SdkOptional<String> workspaceId, SdkOptional<int> createdAt, SdkOptional<int> updatedAt, SdkOptional<String> identifier, SdkOptional<bool> websiteTurnedOn, SdkOptional<String> displayName, SdkOptional<String> url, SdkOptional<String?> customDomain, SdkOptional<bool> default_, SdkOptional<List<String>> locales}) get copyWith => _copyWith;
+  HelpCenter Function(
+      {SdkOptional<String> id,
+      SdkOptional<String> workspaceId,
+      SdkOptional<int> createdAt,
+      SdkOptional<int> updatedAt,
+      SdkOptional<String> identifier,
+      SdkOptional<bool> websiteTurnedOn,
+      SdkOptional<String> displayName,
+      SdkOptional<String> url,
+      SdkOptional<String?> customDomain,
+      SdkOptional<bool> default_,
+      SdkOptional<List<String>> locales}) get copyWith => _copyWith;
 
-  HelpCenter _copyWith({Object? id = sdkOmittedValue, Object? workspaceId = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? identifier = sdkOmittedValue, Object? websiteTurnedOn = sdkOmittedValue, Object? displayName = sdkOmittedValue, Object? url = sdkOmittedValue, Object? customDomain = sdkOmittedValue, Object? default_ = sdkOmittedValue, Object? locales = sdkOmittedValue}) => HelpCenter(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    workspaceId: identical(workspaceId, sdkOmittedValue) ? this.workspaceId : workspaceId as SdkOptional<String>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<int>,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<int>,
-    identifier: identical(identifier, sdkOmittedValue) ? this.identifier : identifier as SdkOptional<String>,
-    websiteTurnedOn: identical(websiteTurnedOn, sdkOmittedValue) ? this.websiteTurnedOn : websiteTurnedOn as SdkOptional<bool>,
-    displayName: identical(displayName, sdkOmittedValue) ? this.displayName : displayName as SdkOptional<String>,
-    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String>,
-    customDomain: identical(customDomain, sdkOmittedValue) ? this.customDomain : customDomain as SdkOptional<String?>,
-    default_: identical(default_, sdkOmittedValue) ? this.default_ : default_ as SdkOptional<bool>,
-    locales: identical(locales, sdkOmittedValue) ? this.locales : locales as SdkOptional<List<String>>,
-  );
+  HelpCenter _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? workspaceId = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue,
+          Object? identifier = sdkOmittedValue,
+          Object? websiteTurnedOn = sdkOmittedValue,
+          Object? displayName = sdkOmittedValue,
+          Object? url = sdkOmittedValue,
+          Object? customDomain = sdkOmittedValue,
+          Object? default_ = sdkOmittedValue,
+          Object? locales = sdkOmittedValue}) =>
+      HelpCenter(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        workspaceId: identical(workspaceId, sdkOmittedValue)
+            ? this.workspaceId
+            : workspaceId as SdkOptional<String>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<int>,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as SdkOptional<int>,
+        identifier: identical(identifier, sdkOmittedValue)
+            ? this.identifier
+            : identifier as SdkOptional<String>,
+        websiteTurnedOn: identical(websiteTurnedOn, sdkOmittedValue)
+            ? this.websiteTurnedOn
+            : websiteTurnedOn as SdkOptional<bool>,
+        displayName: identical(displayName, sdkOmittedValue)
+            ? this.displayName
+            : displayName as SdkOptional<String>,
+        url: identical(url, sdkOmittedValue)
+            ? this.url
+            : url as SdkOptional<String>,
+        customDomain: identical(customDomain, sdkOmittedValue)
+            ? this.customDomain
+            : customDomain as SdkOptional<String?>,
+        default_: identical(default_, sdkOmittedValue)
+            ? this.default_
+            : default_ as SdkOptional<bool>,
+        locales: identical(locales, sdkOmittedValue)
+            ? this.locales
+            : locales as SdkOptional<List<String>>,
+      );
 
   factory HelpCenter.fromJson(Map<String, dynamic> json) => HelpCenter(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    workspaceId: json['workspace_id'] != null ? SdkPresent((json['workspace_id'] as String?)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent(((json['created_at'] as num?)?.toInt())!) : const SdkOmitted(),
-    updatedAt: json['updated_at'] != null ? SdkPresent(((json['updated_at'] as num?)?.toInt())!) : const SdkOmitted(),
-    identifier: json['identifier'] != null ? SdkPresent((json['identifier'] as String?)!) : const SdkOmitted(),
-    websiteTurnedOn: json['website_turned_on'] != null ? SdkPresent((json['website_turned_on'] as bool?)!) : const SdkOmitted(),
-    displayName: json['display_name'] != null ? SdkPresent((json['display_name'] as String?)!) : const SdkOmitted(),
-    url: json['url'] != null ? SdkPresent((json['url'] as String?)!) : const SdkOmitted(),
-    customDomain: json.containsKey('custom_domain') ? SdkPresent(json['custom_domain'] as String?) : const SdkOmitted(),
-    default_: json['default'] != null ? SdkPresent((json['default'] as bool?)!) : const SdkOmitted(),
-    locales: json['locales'] != null ? SdkPresent(((json['locales'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        workspaceId: json['workspace_id'] != null
+            ? SdkPresent((json['workspace_id'] as String?)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent(((json['created_at'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        updatedAt: json['updated_at'] != null
+            ? SdkPresent(((json['updated_at'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        identifier: json['identifier'] != null
+            ? SdkPresent((json['identifier'] as String?)!)
+            : const SdkOmitted(),
+        websiteTurnedOn: json['website_turned_on'] != null
+            ? SdkPresent((json['website_turned_on'] as bool?)!)
+            : const SdkOmitted(),
+        displayName: json['display_name'] != null
+            ? SdkPresent((json['display_name'] as String?)!)
+            : const SdkOmitted(),
+        url: json['url'] != null
+            ? SdkPresent((json['url'] as String?)!)
+            : const SdkOmitted(),
+        customDomain: json.containsKey('custom_domain')
+            ? SdkPresent(json['custom_domain'] as String?)
+            : const SdkOmitted(),
+        default_: json['default'] != null
+            ? SdkPresent((json['default'] as bool?)!)
+            : const SdkOmitted(),
+        locales: json['locales'] != null
+            ? SdkPresent(
+                ((json['locales'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (workspaceId) {
-      SdkPresent<String>(value: final value) => {'workspace_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<int>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (updatedAt) {
-      SdkPresent<int>(value: final value) => {'updated_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (identifier) {
-      SdkPresent<String>(value: final value) => {'identifier': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (websiteTurnedOn) {
-      SdkPresent<bool>(value: final value) => {'website_turned_on': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (displayName) {
-      SdkPresent<String>(value: final value) => {'display_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (url) {
-      SdkPresent<String>(value: final value) => {'url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (customDomain) {
-      SdkPresent<String?>(value: final value) => {'custom_domain': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (default_) {
-      SdkPresent<bool>(value: final value) => {'default': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (locales) {
-      SdkPresent<List<String>>(value: final value) => {'locales': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (workspaceId) {
+          SdkPresent<String>(value: final value) => {
+              'workspace_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<int>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (updatedAt) {
+          SdkPresent<int>(value: final value) => {
+              'updated_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (identifier) {
+          SdkPresent<String>(value: final value) => {
+              'identifier': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (websiteTurnedOn) {
+          SdkPresent<bool>(value: final value) => {
+              'website_turned_on': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (displayName) {
+          SdkPresent<String>(value: final value) => {
+              'display_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (url) {
+          SdkPresent<String>(value: final value) => {
+              'url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (customDomain) {
+          SdkPresent<String?>(value: final value) => {
+              'custom_domain': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (default_) {
+          SdkPresent<bool>(value: final value) => {
+              'default': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (locales) {
+          SdkPresent<List<String>>(value: final value) => {
+              'locales': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

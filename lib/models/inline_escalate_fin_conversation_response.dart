@@ -7,82 +7,146 @@ part of 'inline.dart';
 class EscalateFinConversationResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The external ID of the conversation. Returned when you escalate an existing conversation by `conversation_id` (echoed back). When you escalate a `user`, a new conversation is created and only `intercom_conversation_id` is returned.
   final SdkOptional<String> conversationId;
+
   /// The internal Intercom conversation ID. Returned when a new conversation was created for the escalation.
   final SdkOptional<String> intercomConversationId;
+
   /// Optional. A URL to subscribe to Server-Sent Events (SSE) for this conversation, if SSE is enabled. The access token is a JWT with a 3-minute TTL. The token is revoked when Fin sets the conversation to complete status. When CSAT is enabled and a survey will follow the resolution, `complete` revocation is deferred until the `csat_requested` event is delivered or the token expires. Includes a `rewind` window so a subscriber that connects after the escalation is processed can still receive the `escalated` and `complete` events.
   final SdkOptional<String> sseSubscriptionUrl;
+
   /// The resulting status of the conversation.
   final SdkOptional<EscalateFinConversationResponseStatus> status;
 
-  const EscalateFinConversationResponse({this.conversationId = const SdkOmitted(), this.intercomConversationId = const SdkOmitted(), this.sseSubscriptionUrl = const SdkOmitted(), this.status = const SdkOmitted()});
+  const EscalateFinConversationResponse(
+      {this.conversationId = const SdkOmitted(),
+      this.intercomConversationId = const SdkOmitted(),
+      this.sseSubscriptionUrl = const SdkOmitted(),
+      this.status = const SdkOmitted()});
 
-  EscalateFinConversationResponse Function({SdkOptional<String> conversationId, SdkOptional<String> intercomConversationId, SdkOptional<String> sseSubscriptionUrl, SdkOptional<EscalateFinConversationResponseStatus> status}) get copyWith => _copyWith;
+  EscalateFinConversationResponse Function(
+          {SdkOptional<String> conversationId,
+          SdkOptional<String> intercomConversationId,
+          SdkOptional<String> sseSubscriptionUrl,
+          SdkOptional<EscalateFinConversationResponseStatus> status})
+      get copyWith => _copyWith;
 
-  EscalateFinConversationResponse _copyWith({Object? conversationId = sdkOmittedValue, Object? intercomConversationId = sdkOmittedValue, Object? sseSubscriptionUrl = sdkOmittedValue, Object? status = sdkOmittedValue}) => EscalateFinConversationResponse(
-    conversationId: identical(conversationId, sdkOmittedValue) ? this.conversationId : conversationId as SdkOptional<String>,
-    intercomConversationId: identical(intercomConversationId, sdkOmittedValue) ? this.intercomConversationId : intercomConversationId as SdkOptional<String>,
-    sseSubscriptionUrl: identical(sseSubscriptionUrl, sdkOmittedValue) ? this.sseSubscriptionUrl : sseSubscriptionUrl as SdkOptional<String>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<EscalateFinConversationResponseStatus>,
-  );
+  EscalateFinConversationResponse _copyWith(
+          {Object? conversationId = sdkOmittedValue,
+          Object? intercomConversationId = sdkOmittedValue,
+          Object? sseSubscriptionUrl = sdkOmittedValue,
+          Object? status = sdkOmittedValue}) =>
+      EscalateFinConversationResponse(
+        conversationId: identical(conversationId, sdkOmittedValue)
+            ? this.conversationId
+            : conversationId as SdkOptional<String>,
+        intercomConversationId:
+            identical(intercomConversationId, sdkOmittedValue)
+                ? this.intercomConversationId
+                : intercomConversationId as SdkOptional<String>,
+        sseSubscriptionUrl: identical(sseSubscriptionUrl, sdkOmittedValue)
+            ? this.sseSubscriptionUrl
+            : sseSubscriptionUrl as SdkOptional<String>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<EscalateFinConversationResponseStatus>,
+      );
 
-  factory EscalateFinConversationResponse.fromJson(Map<String, dynamic> json) => EscalateFinConversationResponse(
-    conversationId: json['conversation_id'] != null ? SdkPresent((json['conversation_id'] as String?)!) : const SdkOmitted(),
-    intercomConversationId: json['intercom_conversation_id'] != null ? SdkPresent((json['intercom_conversation_id'] as String?)!) : const SdkOmitted(),
-    sseSubscriptionUrl: json['sse_subscription_url'] != null ? SdkPresent((json['sse_subscription_url'] as String?)!) : const SdkOmitted(),
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? EscalateFinConversationResponseStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory EscalateFinConversationResponse.fromJson(Map<String, dynamic> json) =>
+      EscalateFinConversationResponse(
+        conversationId: json['conversation_id'] != null
+            ? SdkPresent((json['conversation_id'] as String?)!)
+            : const SdkOmitted(),
+        intercomConversationId: json['intercom_conversation_id'] != null
+            ? SdkPresent((json['intercom_conversation_id'] as String?)!)
+            : const SdkOmitted(),
+        sseSubscriptionUrl: json['sse_subscription_url'] != null
+            ? SdkPresent((json['sse_subscription_url'] as String?)!)
+            : const SdkOmitted(),
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? EscalateFinConversationResponseStatus.fromJson(
+                    json['status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (conversationId) {
-      SdkPresent<String>(value: final value) => {'conversation_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (intercomConversationId) {
-      SdkPresent<String>(value: final value) => {'intercom_conversation_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (sseSubscriptionUrl) {
-      SdkPresent<String>(value: final value) => {'sse_subscription_url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (status) {
-      SdkPresent<EscalateFinConversationResponseStatus>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (conversationId) {
+          SdkPresent<String>(value: final value) => {
+              'conversation_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (intercomConversationId) {
+          SdkPresent<String>(value: final value) => {
+              'intercom_conversation_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (sseSubscriptionUrl) {
+          SdkPresent<String>(value: final value) => {
+              'sse_subscription_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (status) {
+          SdkPresent<EscalateFinConversationResponseStatus>(
+            value: final value
+          ) =>
+            {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class AttachInternalArticlesTagRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique identifier of the tag to apply, as given by Intercom.
   final String id;
+
   /// Optional id of the teammate to attribute the tagging to. Defaults to the authenticating teammate. Does not affect authorization.
   final SdkOptional<String?> adminId;
 
-  const AttachInternalArticlesTagRequestBody({required this.id, this.adminId = const SdkOmitted()});
+  const AttachInternalArticlesTagRequestBody(
+      {required this.id, this.adminId = const SdkOmitted()});
 
-  AttachInternalArticlesTagRequestBody Function({String id, SdkOptional<String?> adminId}) get copyWith => _copyWith;
+  AttachInternalArticlesTagRequestBody Function(
+      {String id, SdkOptional<String?> adminId}) get copyWith => _copyWith;
 
-  AttachInternalArticlesTagRequestBody _copyWith({Object? id = sdkOmittedValue, Object? adminId = sdkOmittedValue}) => AttachInternalArticlesTagRequestBody(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    adminId: identical(adminId, sdkOmittedValue) ? this.adminId : adminId as SdkOptional<String?>,
-  );
+  AttachInternalArticlesTagRequestBody _copyWith(
+          {Object? id = sdkOmittedValue, Object? adminId = sdkOmittedValue}) =>
+      AttachInternalArticlesTagRequestBody(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        adminId: identical(adminId, sdkOmittedValue)
+            ? this.adminId
+            : adminId as SdkOptional<String?>,
+      );
 
-  factory AttachInternalArticlesTagRequestBody.fromJson(Map<String, dynamic> json) => AttachInternalArticlesTagRequestBody(
-    id: (json['id'] as String?)!,
-    adminId: json.containsKey('admin_id') ? SdkPresent(json['admin_id'] as String?) : const SdkOmitted(),
-  );
+  factory AttachInternalArticlesTagRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      AttachInternalArticlesTagRequestBody(
+        id: (json['id'] as String?)!,
+        adminId: json.containsKey('admin_id')
+            ? SdkPresent(json['admin_id'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    ...switch (adminId) {
-      SdkPresent<String?>(value: final value) => {'admin_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'id': id,
+        ...switch (adminId) {
+          SdkPresent<String?>(value: final value) => {
+              'admin_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class ListFoldersResponse {
@@ -90,94 +154,176 @@ class ListFoldersResponse {
   static const String constructionSurface = 'named';
   final SdkOptional<ListFoldersResponseType> type_;
   final SdkOptional<List<Folder>> data;
+
   /// Total number of folders
   final SdkOptional<int> totalCount;
+
   /// The majority of list resources in the API are paginated to allow clients to traverse data over multiple requests. Their responses are likely to contain a pages object that hosts pagination links which a client can use to paginate through the data without having to construct a query. The link relations for the pages field are as follows.
   final SdkOptional<PagesLink> pages;
 
-  const ListFoldersResponse({this.type_ = const SdkOmitted(), this.data = const SdkOmitted(), this.totalCount = const SdkOmitted(), this.pages = const SdkOmitted()});
+  const ListFoldersResponse(
+      {this.type_ = const SdkOmitted(),
+      this.data = const SdkOmitted(),
+      this.totalCount = const SdkOmitted(),
+      this.pages = const SdkOmitted()});
 
-  ListFoldersResponse Function({SdkOptional<ListFoldersResponseType> type_, SdkOptional<List<Folder>> data, SdkOptional<int> totalCount, SdkOptional<PagesLink> pages}) get copyWith => _copyWith;
+  ListFoldersResponse Function(
+      {SdkOptional<ListFoldersResponseType> type_,
+      SdkOptional<List<Folder>> data,
+      SdkOptional<int> totalCount,
+      SdkOptional<PagesLink> pages}) get copyWith => _copyWith;
 
-  ListFoldersResponse _copyWith({Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue, Object? totalCount = sdkOmittedValue, Object? pages = sdkOmittedValue}) => ListFoldersResponse(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ListFoldersResponseType>,
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<Folder>>,
-    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as SdkOptional<int>,
-    pages: identical(pages, sdkOmittedValue) ? this.pages : pages as SdkOptional<PagesLink>,
-  );
+  ListFoldersResponse _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? data = sdkOmittedValue,
+          Object? totalCount = sdkOmittedValue,
+          Object? pages = sdkOmittedValue}) =>
+      ListFoldersResponse(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<ListFoldersResponseType>,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<List<Folder>>,
+        totalCount: identical(totalCount, sdkOmittedValue)
+            ? this.totalCount
+            : totalCount as SdkOptional<int>,
+        pages: identical(pages, sdkOmittedValue)
+            ? this.pages
+            : pages as SdkOptional<PagesLink>,
+      );
 
-  factory ListFoldersResponse.fromJson(Map<String, dynamic> json) => ListFoldersResponse(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ListFoldersResponseType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => Folder.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    totalCount: json['total_count'] != null ? SdkPresent(((json['total_count'] as num?)?.toInt())!) : const SdkOmitted(),
-    pages: json['pages'] != null ? SdkPresent((json['pages'] != null ? PagesLink.fromJson(json['pages'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ListFoldersResponse.fromJson(Map<String, dynamic> json) =>
+      ListFoldersResponse(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? ListFoldersResponseType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        data: json['data'] != null
+            ? SdkPresent(((json['data'] as List?)
+                ?.map((e) => Folder.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        totalCount: json['total_count'] != null
+            ? SdkPresent(((json['total_count'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        pages: json['pages'] != null
+            ? SdkPresent((json['pages'] != null
+                ? PagesLink.fromJson(json['pages'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<ListFoldersResponseType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (data) {
-      SdkPresent<List<Folder>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (totalCount) {
-      SdkPresent<int>(value: final value) => {'total_count': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (pages) {
-      SdkPresent<PagesLink>(value: final value) => {'pages': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<ListFoldersResponseType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (data) {
+          SdkPresent<List<Folder>>(value: final value) => {
+              'data': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (totalCount) {
+          SdkPresent<int>(value: final value) => {
+              'total_count': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pages) {
+          SdkPresent<PagesLink>(value: final value) => {
+              'pages': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class CreateFolderRequestBodyFolder {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the folder
   final String name;
+
   /// The description of the folder
   final SdkOptional<String> description;
+
   /// An emoji for the folder
   final SdkOptional<String> emoji;
+
   /// The ID of the parent folder
   final SdkOptional<int?> parentFolderId;
 
-  const CreateFolderRequestBodyFolder({required this.name, this.description = const SdkOmitted(), this.emoji = const SdkOmitted(), this.parentFolderId = const SdkOmitted()});
+  const CreateFolderRequestBodyFolder(
+      {required this.name,
+      this.description = const SdkOmitted(),
+      this.emoji = const SdkOmitted(),
+      this.parentFolderId = const SdkOmitted()});
 
-  CreateFolderRequestBodyFolder Function({String name, SdkOptional<String> description, SdkOptional<String> emoji, SdkOptional<int?> parentFolderId}) get copyWith => _copyWith;
+  CreateFolderRequestBodyFolder Function(
+      {String name,
+      SdkOptional<String> description,
+      SdkOptional<String> emoji,
+      SdkOptional<int?> parentFolderId}) get copyWith => _copyWith;
 
-  CreateFolderRequestBodyFolder _copyWith({Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? emoji = sdkOmittedValue, Object? parentFolderId = sdkOmittedValue}) => CreateFolderRequestBodyFolder(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
-    emoji: identical(emoji, sdkOmittedValue) ? this.emoji : emoji as SdkOptional<String>,
-    parentFolderId: identical(parentFolderId, sdkOmittedValue) ? this.parentFolderId : parentFolderId as SdkOptional<int?>,
-  );
+  CreateFolderRequestBodyFolder _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? emoji = sdkOmittedValue,
+          Object? parentFolderId = sdkOmittedValue}) =>
+      CreateFolderRequestBodyFolder(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String>,
+        emoji: identical(emoji, sdkOmittedValue)
+            ? this.emoji
+            : emoji as SdkOptional<String>,
+        parentFolderId: identical(parentFolderId, sdkOmittedValue)
+            ? this.parentFolderId
+            : parentFolderId as SdkOptional<int?>,
+      );
 
-  factory CreateFolderRequestBodyFolder.fromJson(Map<String, dynamic> json) => CreateFolderRequestBodyFolder(
-    name: (json['name'] as String?)!,
-    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
-    emoji: json['emoji'] != null ? SdkPresent((json['emoji'] as String?)!) : const SdkOmitted(),
-    parentFolderId: json.containsKey('parent_folder_id') ? SdkPresent((json['parent_folder_id'] as num?)?.toInt()) : const SdkOmitted(),
-  );
+  factory CreateFolderRequestBodyFolder.fromJson(Map<String, dynamic> json) =>
+      CreateFolderRequestBodyFolder(
+        name: (json['name'] as String?)!,
+        description: json['description'] != null
+            ? SdkPresent((json['description'] as String?)!)
+            : const SdkOmitted(),
+        emoji: json['emoji'] != null
+            ? SdkPresent((json['emoji'] as String?)!)
+            : const SdkOmitted(),
+        parentFolderId: json.containsKey('parent_folder_id')
+            ? SdkPresent((json['parent_folder_id'] as num?)?.toInt())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    ...switch (description) {
-      SdkPresent<String>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (emoji) {
-      SdkPresent<String>(value: final value) => {'emoji': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (parentFolderId) {
-      SdkPresent<int?>(value: final value) => {'parent_folder_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'name': name,
+        ...switch (description) {
+          SdkPresent<String>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (emoji) {
+          SdkPresent<String>(value: final value) => {
+              'emoji': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (parentFolderId) {
+          SdkPresent<int?>(value: final value) => {
+              'parent_folder_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class CreateFolderRequestBody {
@@ -187,69 +333,119 @@ class CreateFolderRequestBody {
 
   const CreateFolderRequestBody({required this.folder});
 
-  CreateFolderRequestBody Function({CreateFolderRequestBodyFolder folder}) get copyWith => _copyWith;
+  CreateFolderRequestBody Function({CreateFolderRequestBodyFolder folder})
+      get copyWith => _copyWith;
 
-  CreateFolderRequestBody _copyWith({Object? folder = sdkOmittedValue}) => CreateFolderRequestBody(
-    folder: identical(folder, sdkOmittedValue) ? this.folder : folder as CreateFolderRequestBodyFolder,
-  );
+  CreateFolderRequestBody _copyWith({Object? folder = sdkOmittedValue}) =>
+      CreateFolderRequestBody(
+        folder: identical(folder, sdkOmittedValue)
+            ? this.folder
+            : folder as CreateFolderRequestBodyFolder,
+      );
 
-  factory CreateFolderRequestBody.fromJson(Map<String, dynamic> json) => CreateFolderRequestBody(
-    folder: (json['folder'] != null ? CreateFolderRequestBodyFolder.fromJson(json['folder'] as Map<String, dynamic>) : null)!,
-  );
+  factory CreateFolderRequestBody.fromJson(Map<String, dynamic> json) =>
+      CreateFolderRequestBody(
+        folder: (json['folder'] != null
+            ? CreateFolderRequestBodyFolder.fromJson(
+                json['folder'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'folder': folder.toJson(),
-  };
+        'folder': folder.toJson(),
+      };
 }
 
 class UpdateFolderRequestBodyFolder {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the folder
   final SdkOptional<String> name;
+
   /// The description of the folder
   final SdkOptional<String> description;
+
   /// An emoji for the folder
   final SdkOptional<String> emoji;
+
   /// The ID of the parent folder
   final SdkOptional<int?> parentFolderId;
 
-  const UpdateFolderRequestBodyFolder({this.name = const SdkOmitted(), this.description = const SdkOmitted(), this.emoji = const SdkOmitted(), this.parentFolderId = const SdkOmitted()});
+  const UpdateFolderRequestBodyFolder(
+      {this.name = const SdkOmitted(),
+      this.description = const SdkOmitted(),
+      this.emoji = const SdkOmitted(),
+      this.parentFolderId = const SdkOmitted()});
 
-  UpdateFolderRequestBodyFolder Function({SdkOptional<String> name, SdkOptional<String> description, SdkOptional<String> emoji, SdkOptional<int?> parentFolderId}) get copyWith => _copyWith;
+  UpdateFolderRequestBodyFolder Function(
+      {SdkOptional<String> name,
+      SdkOptional<String> description,
+      SdkOptional<String> emoji,
+      SdkOptional<int?> parentFolderId}) get copyWith => _copyWith;
 
-  UpdateFolderRequestBodyFolder _copyWith({Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? emoji = sdkOmittedValue, Object? parentFolderId = sdkOmittedValue}) => UpdateFolderRequestBodyFolder(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
-    emoji: identical(emoji, sdkOmittedValue) ? this.emoji : emoji as SdkOptional<String>,
-    parentFolderId: identical(parentFolderId, sdkOmittedValue) ? this.parentFolderId : parentFolderId as SdkOptional<int?>,
-  );
+  UpdateFolderRequestBodyFolder _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? emoji = sdkOmittedValue,
+          Object? parentFolderId = sdkOmittedValue}) =>
+      UpdateFolderRequestBodyFolder(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String>,
+        emoji: identical(emoji, sdkOmittedValue)
+            ? this.emoji
+            : emoji as SdkOptional<String>,
+        parentFolderId: identical(parentFolderId, sdkOmittedValue)
+            ? this.parentFolderId
+            : parentFolderId as SdkOptional<int?>,
+      );
 
-  factory UpdateFolderRequestBodyFolder.fromJson(Map<String, dynamic> json) => UpdateFolderRequestBodyFolder(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
-    emoji: json['emoji'] != null ? SdkPresent((json['emoji'] as String?)!) : const SdkOmitted(),
-    parentFolderId: json.containsKey('parent_folder_id') ? SdkPresent((json['parent_folder_id'] as num?)?.toInt()) : const SdkOmitted(),
-  );
+  factory UpdateFolderRequestBodyFolder.fromJson(Map<String, dynamic> json) =>
+      UpdateFolderRequestBodyFolder(
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        description: json['description'] != null
+            ? SdkPresent((json['description'] as String?)!)
+            : const SdkOmitted(),
+        emoji: json['emoji'] != null
+            ? SdkPresent((json['emoji'] as String?)!)
+            : const SdkOmitted(),
+        parentFolderId: json.containsKey('parent_folder_id')
+            ? SdkPresent((json['parent_folder_id'] as num?)?.toInt())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (description) {
-      SdkPresent<String>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (emoji) {
-      SdkPresent<String>(value: final value) => {'emoji': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (parentFolderId) {
-      SdkPresent<int?>(value: final value) => {'parent_folder_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (description) {
+          SdkPresent<String>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (emoji) {
+          SdkPresent<String>(value: final value) => {
+              'emoji': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (parentFolderId) {
+          SdkPresent<int?>(value: final value) => {
+              'parent_folder_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class UpdateFolderRequestBody {
@@ -259,40 +455,53 @@ class UpdateFolderRequestBody {
 
   const UpdateFolderRequestBody({required this.folder});
 
-  UpdateFolderRequestBody Function({UpdateFolderRequestBodyFolder folder}) get copyWith => _copyWith;
+  UpdateFolderRequestBody Function({UpdateFolderRequestBodyFolder folder})
+      get copyWith => _copyWith;
 
-  UpdateFolderRequestBody _copyWith({Object? folder = sdkOmittedValue}) => UpdateFolderRequestBody(
-    folder: identical(folder, sdkOmittedValue) ? this.folder : folder as UpdateFolderRequestBodyFolder,
-  );
+  UpdateFolderRequestBody _copyWith({Object? folder = sdkOmittedValue}) =>
+      UpdateFolderRequestBody(
+        folder: identical(folder, sdkOmittedValue)
+            ? this.folder
+            : folder as UpdateFolderRequestBodyFolder,
+      );
 
-  factory UpdateFolderRequestBody.fromJson(Map<String, dynamic> json) => UpdateFolderRequestBody(
-    folder: (json['folder'] != null ? UpdateFolderRequestBodyFolder.fromJson(json['folder'] as Map<String, dynamic>) : null)!,
-  );
+  factory UpdateFolderRequestBody.fromJson(Map<String, dynamic> json) =>
+      UpdateFolderRequestBody(
+        folder: (json['folder'] != null
+            ? UpdateFolderRequestBodyFolder.fromJson(
+                json['folder'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'folder': folder.toJson(),
-  };
+        'folder': folder.toJson(),
+      };
 }
 
 class AttachCompaniesContactRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique identifier for the company which is given by Intercom
   final String id;
 
   const AttachCompaniesContactRequestBody({required this.id});
 
-  AttachCompaniesContactRequestBody Function({String id}) get copyWith => _copyWith;
+  AttachCompaniesContactRequestBody Function({String id}) get copyWith =>
+      _copyWith;
 
-  AttachCompaniesContactRequestBody _copyWith({Object? id = sdkOmittedValue}) => AttachCompaniesContactRequestBody(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-  );
+  AttachCompaniesContactRequestBody _copyWith({Object? id = sdkOmittedValue}) =>
+      AttachCompaniesContactRequestBody(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+      );
 
-  factory AttachCompaniesContactRequestBody.fromJson(Map<String, dynamic> json) => AttachCompaniesContactRequestBody(
-    id: (json['id'] as String?)!,
-  );
+  factory AttachCompaniesContactRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      AttachCompaniesContactRequestBody(
+        id: (json['id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-  };
+        'id': id,
+      };
 }

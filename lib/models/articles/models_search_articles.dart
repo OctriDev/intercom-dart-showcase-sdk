@@ -8,197 +8,389 @@ part of 'models.dart';
 class ArticleSearchHighlightsHighlightedTitleItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of text - `highlight` or `plain`.
   final SdkOptional<ArticleSearchHighlightsHighlightedTitleItemType> type_;
+
   /// The text of the title.
   final SdkOptional<String> text;
 
-  const ArticleSearchHighlightsHighlightedTitleItem({this.type_ = const SdkOmitted(), this.text = const SdkOmitted()});
+  const ArticleSearchHighlightsHighlightedTitleItem(
+      {this.type_ = const SdkOmitted(), this.text = const SdkOmitted()});
 
-  ArticleSearchHighlightsHighlightedTitleItem Function({SdkOptional<ArticleSearchHighlightsHighlightedTitleItemType> type_, SdkOptional<String> text}) get copyWith => _copyWith;
+  ArticleSearchHighlightsHighlightedTitleItem Function(
+      {SdkOptional<ArticleSearchHighlightsHighlightedTitleItemType> type_,
+      SdkOptional<String> text}) get copyWith => _copyWith;
 
-  ArticleSearchHighlightsHighlightedTitleItem _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) => ArticleSearchHighlightsHighlightedTitleItem(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ArticleSearchHighlightsHighlightedTitleItemType>,
-    text: identical(text, sdkOmittedValue) ? this.text : text as SdkOptional<String>,
-  );
+  ArticleSearchHighlightsHighlightedTitleItem _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) =>
+      ArticleSearchHighlightsHighlightedTitleItem(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_
+                as SdkOptional<ArticleSearchHighlightsHighlightedTitleItemType>,
+        text: identical(text, sdkOmittedValue)
+            ? this.text
+            : text as SdkOptional<String>,
+      );
 
-  factory ArticleSearchHighlightsHighlightedTitleItem.fromJson(Map<String, dynamic> json) => ArticleSearchHighlightsHighlightedTitleItem(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ArticleSearchHighlightsHighlightedTitleItemType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    text: json['text'] != null ? SdkPresent((json['text'] as String?)!) : const SdkOmitted(),
-  );
+  factory ArticleSearchHighlightsHighlightedTitleItem.fromJson(
+          Map<String, dynamic> json) =>
+      ArticleSearchHighlightsHighlightedTitleItem(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? ArticleSearchHighlightsHighlightedTitleItemType.fromJson(
+                    json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        text: json['text'] != null
+            ? SdkPresent((json['text'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<ArticleSearchHighlightsHighlightedTitleItemType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (text) {
-      SdkPresent<String>(value: final value) => {'text': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<ArticleSearchHighlightsHighlightedTitleItemType>(
+            value: final value
+          ) =>
+            {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (text) {
+          SdkPresent<String>(value: final value) => {
+              'text': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// An instance of highlighted summary text.
 class ArticleSearchHighlightsHighlightedSummaryItemItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of text - `highlight` or `plain`.
-  final SdkOptional<ArticleSearchHighlightsHighlightedSummaryItemItemType> type_;
+  final SdkOptional<ArticleSearchHighlightsHighlightedSummaryItemItemType>
+      type_;
+
   /// The text of the title.
   final SdkOptional<String> text;
 
-  const ArticleSearchHighlightsHighlightedSummaryItemItem({this.type_ = const SdkOmitted(), this.text = const SdkOmitted()});
+  const ArticleSearchHighlightsHighlightedSummaryItemItem(
+      {this.type_ = const SdkOmitted(), this.text = const SdkOmitted()});
 
-  ArticleSearchHighlightsHighlightedSummaryItemItem Function({SdkOptional<ArticleSearchHighlightsHighlightedSummaryItemItemType> type_, SdkOptional<String> text}) get copyWith => _copyWith;
+  ArticleSearchHighlightsHighlightedSummaryItemItem Function(
+      {SdkOptional<ArticleSearchHighlightsHighlightedSummaryItemItemType> type_,
+      SdkOptional<String> text}) get copyWith => _copyWith;
 
-  ArticleSearchHighlightsHighlightedSummaryItemItem _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) => ArticleSearchHighlightsHighlightedSummaryItemItem(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ArticleSearchHighlightsHighlightedSummaryItemItemType>,
-    text: identical(text, sdkOmittedValue) ? this.text : text as SdkOptional<String>,
-  );
+  ArticleSearchHighlightsHighlightedSummaryItemItem _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) =>
+      ArticleSearchHighlightsHighlightedSummaryItemItem(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<
+                ArticleSearchHighlightsHighlightedSummaryItemItemType>,
+        text: identical(text, sdkOmittedValue)
+            ? this.text
+            : text as SdkOptional<String>,
+      );
 
-  factory ArticleSearchHighlightsHighlightedSummaryItemItem.fromJson(Map<String, dynamic> json) => ArticleSearchHighlightsHighlightedSummaryItemItem(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ArticleSearchHighlightsHighlightedSummaryItemItemType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    text: json['text'] != null ? SdkPresent((json['text'] as String?)!) : const SdkOmitted(),
-  );
+  factory ArticleSearchHighlightsHighlightedSummaryItemItem.fromJson(
+          Map<String, dynamic> json) =>
+      ArticleSearchHighlightsHighlightedSummaryItemItem(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? ArticleSearchHighlightsHighlightedSummaryItemItemType
+                    .fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        text: json['text'] != null
+            ? SdkPresent((json['text'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<ArticleSearchHighlightsHighlightedSummaryItemItemType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (text) {
-      SdkPresent<String>(value: final value) => {'text': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<ArticleSearchHighlightsHighlightedSummaryItemItemType>(
+            value: final value
+          ) =>
+            {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (text) {
+          SdkPresent<String>(value: final value) => {
+              'text': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// The highlighted results of an Article search. In the examples provided my search query is always "my query".
 class ArticleSearchHighlights {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the corresponding article.
   final SdkOptional<String> articleId;
+
   /// An Article title highlighted.
-  final SdkOptional<List<ArticleSearchHighlightsHighlightedTitleItem>> highlightedTitle;
+  final SdkOptional<List<ArticleSearchHighlightsHighlightedTitleItem>>
+      highlightedTitle;
+
   /// An Article description and body text highlighted.
-  final SdkOptional<List<List<ArticleSearchHighlightsHighlightedSummaryItemItem>>> highlightedSummary;
+  final SdkOptional<
+          List<List<ArticleSearchHighlightsHighlightedSummaryItemItem>>>
+      highlightedSummary;
 
-  const ArticleSearchHighlights({this.articleId = const SdkOmitted(), this.highlightedTitle = const SdkOmitted(), this.highlightedSummary = const SdkOmitted()});
+  const ArticleSearchHighlights(
+      {this.articleId = const SdkOmitted(),
+      this.highlightedTitle = const SdkOmitted(),
+      this.highlightedSummary = const SdkOmitted()});
 
-  ArticleSearchHighlights Function({SdkOptional<String> articleId, SdkOptional<List<ArticleSearchHighlightsHighlightedTitleItem>> highlightedTitle, SdkOptional<List<List<ArticleSearchHighlightsHighlightedSummaryItemItem>>> highlightedSummary}) get copyWith => _copyWith;
+  ArticleSearchHighlights Function(
+      {SdkOptional<String> articleId,
+      SdkOptional<List<ArticleSearchHighlightsHighlightedTitleItem>>
+          highlightedTitle,
+      SdkOptional<List<List<ArticleSearchHighlightsHighlightedSummaryItemItem>>>
+          highlightedSummary}) get copyWith => _copyWith;
 
-  ArticleSearchHighlights _copyWith({Object? articleId = sdkOmittedValue, Object? highlightedTitle = sdkOmittedValue, Object? highlightedSummary = sdkOmittedValue}) => ArticleSearchHighlights(
-    articleId: identical(articleId, sdkOmittedValue) ? this.articleId : articleId as SdkOptional<String>,
-    highlightedTitle: identical(highlightedTitle, sdkOmittedValue) ? this.highlightedTitle : highlightedTitle as SdkOptional<List<ArticleSearchHighlightsHighlightedTitleItem>>,
-    highlightedSummary: identical(highlightedSummary, sdkOmittedValue) ? this.highlightedSummary : highlightedSummary as SdkOptional<List<List<ArticleSearchHighlightsHighlightedSummaryItemItem>>>,
-  );
+  ArticleSearchHighlights _copyWith(
+          {Object? articleId = sdkOmittedValue,
+          Object? highlightedTitle = sdkOmittedValue,
+          Object? highlightedSummary = sdkOmittedValue}) =>
+      ArticleSearchHighlights(
+        articleId: identical(articleId, sdkOmittedValue)
+            ? this.articleId
+            : articleId as SdkOptional<String>,
+        highlightedTitle: identical(highlightedTitle, sdkOmittedValue)
+            ? this.highlightedTitle
+            : highlightedTitle as SdkOptional<
+                List<ArticleSearchHighlightsHighlightedTitleItem>>,
+        highlightedSummary: identical(highlightedSummary, sdkOmittedValue)
+            ? this.highlightedSummary
+            : highlightedSummary as SdkOptional<
+                List<List<ArticleSearchHighlightsHighlightedSummaryItemItem>>>,
+      );
 
-  factory ArticleSearchHighlights.fromJson(Map<String, dynamic> json) => ArticleSearchHighlights(
-    articleId: json['article_id'] != null ? SdkPresent((json['article_id'] as String?)!) : const SdkOmitted(),
-    highlightedTitle: json['highlighted_title'] != null ? SdkPresent(((json['highlighted_title'] as List?)?.map((e) => ArticleSearchHighlightsHighlightedTitleItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    highlightedSummary: json['highlighted_summary'] != null ? SdkPresent(((json['highlighted_summary'] as List?)?.map((e) => (e as List).map((item) => ArticleSearchHighlightsHighlightedSummaryItemItem.fromJson(item as Map<String, dynamic>)).toList()).toList())!) : const SdkOmitted(),
-  );
+  factory ArticleSearchHighlights.fromJson(Map<String, dynamic> json) =>
+      ArticleSearchHighlights(
+        articleId: json['article_id'] != null
+            ? SdkPresent((json['article_id'] as String?)!)
+            : const SdkOmitted(),
+        highlightedTitle: json['highlighted_title'] != null
+            ? SdkPresent(((json['highlighted_title'] as List?)
+                ?.map((e) =>
+                    ArticleSearchHighlightsHighlightedTitleItem.fromJson(
+                        e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        highlightedSummary: json['highlighted_summary'] != null
+            ? SdkPresent(((json['highlighted_summary'] as List?)
+                ?.map((e) => (e as List)
+                    .map((item) =>
+                        ArticleSearchHighlightsHighlightedSummaryItemItem
+                            .fromJson(item as Map<String, dynamic>))
+                    .toList())
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (articleId) {
-      SdkPresent<String>(value: final value) => {'article_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (highlightedTitle) {
-      SdkPresent<List<ArticleSearchHighlightsHighlightedTitleItem>>(value: final value) => {'highlighted_title': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (highlightedSummary) {
-      SdkPresent<List<List<ArticleSearchHighlightsHighlightedSummaryItemItem>>>(value: final value) => {'highlighted_summary': value.map((item) => item.map((item) => item.toJson()).toList()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (articleId) {
+          SdkPresent<String>(value: final value) => {
+              'article_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (highlightedTitle) {
+          SdkPresent<List<ArticleSearchHighlightsHighlightedTitleItem>>(
+            value: final value
+          ) =>
+            {
+              'highlighted_title': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (highlightedSummary) {
+          SdkPresent<
+                List<List<ArticleSearchHighlightsHighlightedSummaryItemItem>>>(
+            value: final value
+          ) =>
+            {
+              'highlighted_summary': value
+                  .map((item) => item.map((item) => item.toJson()).toList())
+                  .toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// An object containing the results of the search.
 class ArticleSearchResponseData {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An array of Article objects
   final SdkOptional<List<Article>> articles;
+
   /// A corresponding array of highlighted Article content
   final SdkOptional<List<ArticleSearchHighlights>> highlights;
 
-  const ArticleSearchResponseData({this.articles = const SdkOmitted(), this.highlights = const SdkOmitted()});
+  const ArticleSearchResponseData(
+      {this.articles = const SdkOmitted(),
+      this.highlights = const SdkOmitted()});
 
-  ArticleSearchResponseData Function({SdkOptional<List<Article>> articles, SdkOptional<List<ArticleSearchHighlights>> highlights}) get copyWith => _copyWith;
+  ArticleSearchResponseData Function(
+          {SdkOptional<List<Article>> articles,
+          SdkOptional<List<ArticleSearchHighlights>> highlights})
+      get copyWith => _copyWith;
 
-  ArticleSearchResponseData _copyWith({Object? articles = sdkOmittedValue, Object? highlights = sdkOmittedValue}) => ArticleSearchResponseData(
-    articles: identical(articles, sdkOmittedValue) ? this.articles : articles as SdkOptional<List<Article>>,
-    highlights: identical(highlights, sdkOmittedValue) ? this.highlights : highlights as SdkOptional<List<ArticleSearchHighlights>>,
-  );
+  ArticleSearchResponseData _copyWith(
+          {Object? articles = sdkOmittedValue,
+          Object? highlights = sdkOmittedValue}) =>
+      ArticleSearchResponseData(
+        articles: identical(articles, sdkOmittedValue)
+            ? this.articles
+            : articles as SdkOptional<List<Article>>,
+        highlights: identical(highlights, sdkOmittedValue)
+            ? this.highlights
+            : highlights as SdkOptional<List<ArticleSearchHighlights>>,
+      );
 
-  factory ArticleSearchResponseData.fromJson(Map<String, dynamic> json) => ArticleSearchResponseData(
-    articles: json['articles'] != null ? SdkPresent(((json['articles'] as List?)?.map((e) => Article.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    highlights: json['highlights'] != null ? SdkPresent(((json['highlights'] as List?)?.map((e) => ArticleSearchHighlights.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory ArticleSearchResponseData.fromJson(Map<String, dynamic> json) =>
+      ArticleSearchResponseData(
+        articles: json['articles'] != null
+            ? SdkPresent(((json['articles'] as List?)
+                ?.map((e) => Article.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        highlights: json['highlights'] != null
+            ? SdkPresent(((json['highlights'] as List?)
+                ?.map((e) =>
+                    ArticleSearchHighlights.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (articles) {
-      SdkPresent<List<Article>>(value: final value) => {'articles': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (highlights) {
-      SdkPresent<List<ArticleSearchHighlights>>(value: final value) => {'highlights': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (articles) {
+          SdkPresent<List<Article>>(value: final value) => {
+              'articles': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (highlights) {
+          SdkPresent<List<ArticleSearchHighlights>>(value: final value) => {
+              'highlights': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// The results of an Article search
 class ArticleSearchResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object - `list`.
   final SdkOptional<ArticleSearchResponseType> type_;
+
   /// The total number of Articles matching the search query
   final SdkOptional<int> totalCount;
+
   /// An object containing the results of the search.
   final SdkOptional<ArticleSearchResponseData> data;
+
   /// Cursor-based pagination is a technique used in the Intercom API to navigate through large amounts of data. A "cursor" or pointer is used to keep track of the current position in the result set, allowing the API to return the data in small chunks or "pages" as needed.
   final SdkOptional<CursorPages?> pages;
 
-  const ArticleSearchResponse({this.type_ = const SdkOmitted(), this.totalCount = const SdkOmitted(), this.data = const SdkOmitted(), this.pages = const SdkOmitted()});
+  const ArticleSearchResponse(
+      {this.type_ = const SdkOmitted(),
+      this.totalCount = const SdkOmitted(),
+      this.data = const SdkOmitted(),
+      this.pages = const SdkOmitted()});
 
-  ArticleSearchResponse Function({SdkOptional<ArticleSearchResponseType> type_, SdkOptional<int> totalCount, SdkOptional<ArticleSearchResponseData> data, SdkOptional<CursorPages?> pages}) get copyWith => _copyWith;
+  ArticleSearchResponse Function(
+      {SdkOptional<ArticleSearchResponseType> type_,
+      SdkOptional<int> totalCount,
+      SdkOptional<ArticleSearchResponseData> data,
+      SdkOptional<CursorPages?> pages}) get copyWith => _copyWith;
 
-  ArticleSearchResponse _copyWith({Object? type_ = sdkOmittedValue, Object? totalCount = sdkOmittedValue, Object? data = sdkOmittedValue, Object? pages = sdkOmittedValue}) => ArticleSearchResponse(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ArticleSearchResponseType>,
-    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as SdkOptional<int>,
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<ArticleSearchResponseData>,
-    pages: identical(pages, sdkOmittedValue) ? this.pages : pages as SdkOptional<CursorPages?>,
-  );
+  ArticleSearchResponse _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? totalCount = sdkOmittedValue,
+          Object? data = sdkOmittedValue,
+          Object? pages = sdkOmittedValue}) =>
+      ArticleSearchResponse(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<ArticleSearchResponseType>,
+        totalCount: identical(totalCount, sdkOmittedValue)
+            ? this.totalCount
+            : totalCount as SdkOptional<int>,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<ArticleSearchResponseData>,
+        pages: identical(pages, sdkOmittedValue)
+            ? this.pages
+            : pages as SdkOptional<CursorPages?>,
+      );
 
-  factory ArticleSearchResponse.fromJson(Map<String, dynamic> json) => ArticleSearchResponse(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ArticleSearchResponseType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    totalCount: json['total_count'] != null ? SdkPresent(((json['total_count'] as num?)?.toInt())!) : const SdkOmitted(),
-    data: json['data'] != null ? SdkPresent((json['data'] != null ? ArticleSearchResponseData.fromJson(json['data'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    pages: json.containsKey('pages') ? SdkPresent(json['pages'] != null ? CursorPages.fromJson(json['pages'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-  );
+  factory ArticleSearchResponse.fromJson(Map<String, dynamic> json) =>
+      ArticleSearchResponse(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? ArticleSearchResponseType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        totalCount: json['total_count'] != null
+            ? SdkPresent(((json['total_count'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        data: json['data'] != null
+            ? SdkPresent((json['data'] != null
+                ? ArticleSearchResponseData.fromJson(
+                    json['data'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        pages: json.containsKey('pages')
+            ? SdkPresent(json['pages'] != null
+                ? CursorPages.fromJson(json['pages'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<ArticleSearchResponseType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (totalCount) {
-      SdkPresent<int>(value: final value) => {'total_count': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (data) {
-      SdkPresent<ArticleSearchResponseData>(value: final value) => {'data': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (pages) {
-      SdkPresent<CursorPages?>(value: final value) => {'pages': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<ArticleSearchResponseType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (totalCount) {
+          SdkPresent<int>(value: final value) => {
+              'total_count': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (data) {
+          SdkPresent<ArticleSearchResponseData>(value: final value) => {
+              'data': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pages) {
+          SdkPresent<CursorPages?>(value: final value) => {
+              'pages': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

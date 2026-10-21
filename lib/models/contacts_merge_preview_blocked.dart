@@ -8,33 +8,59 @@ part of 'contacts.dart';
 class MergePreviewBlocked {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Always false. The merge is not allowed.
   final SdkOptional<MergePreviewBlockedAllowed> allowed;
+
   /// One or more reasons the merge is not allowed.
   final SdkOptional<List<MergePreviewReason>> reasons;
 
-  const MergePreviewBlocked({this.allowed = const SdkOmitted(), this.reasons = const SdkOmitted()});
+  const MergePreviewBlocked(
+      {this.allowed = const SdkOmitted(), this.reasons = const SdkOmitted()});
 
-  MergePreviewBlocked Function({SdkOptional<MergePreviewBlockedAllowed> allowed, SdkOptional<List<MergePreviewReason>> reasons}) get copyWith => _copyWith;
+  MergePreviewBlocked Function(
+      {SdkOptional<MergePreviewBlockedAllowed> allowed,
+      SdkOptional<List<MergePreviewReason>> reasons}) get copyWith => _copyWith;
 
-  MergePreviewBlocked _copyWith({Object? allowed = sdkOmittedValue, Object? reasons = sdkOmittedValue}) => MergePreviewBlocked(
-    allowed: identical(allowed, sdkOmittedValue) ? this.allowed : allowed as SdkOptional<MergePreviewBlockedAllowed>,
-    reasons: identical(reasons, sdkOmittedValue) ? this.reasons : reasons as SdkOptional<List<MergePreviewReason>>,
-  );
+  MergePreviewBlocked _copyWith(
+          {Object? allowed = sdkOmittedValue,
+          Object? reasons = sdkOmittedValue}) =>
+      MergePreviewBlocked(
+        allowed: identical(allowed, sdkOmittedValue)
+            ? this.allowed
+            : allowed as SdkOptional<MergePreviewBlockedAllowed>,
+        reasons: identical(reasons, sdkOmittedValue)
+            ? this.reasons
+            : reasons as SdkOptional<List<MergePreviewReason>>,
+      );
 
-  factory MergePreviewBlocked.fromJson(Map<String, dynamic> json) => MergePreviewBlocked(
-    allowed: json['allowed'] != null ? SdkPresent((json['allowed'] != null ? MergePreviewBlockedAllowed.fromJson(json['allowed'] as bool) : null)!) : const SdkOmitted(),
-    reasons: json['reasons'] != null ? SdkPresent(((json['reasons'] as List?)?.map((e) => MergePreviewReason.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory MergePreviewBlocked.fromJson(Map<String, dynamic> json) =>
+      MergePreviewBlocked(
+        allowed: json['allowed'] != null
+            ? SdkPresent((json['allowed'] != null
+                ? MergePreviewBlockedAllowed.fromJson(json['allowed'] as bool)
+                : null)!)
+            : const SdkOmitted(),
+        reasons: json['reasons'] != null
+            ? SdkPresent(((json['reasons'] as List?)
+                ?.map((e) =>
+                    MergePreviewReason.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (allowed) {
-      SdkPresent<MergePreviewBlockedAllowed>(value: final value) => {'allowed': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (reasons) {
-      SdkPresent<List<MergePreviewReason>>(value: final value) => {'reasons': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (allowed) {
+          SdkPresent<MergePreviewBlockedAllowed>(value: final value) => {
+              'allowed': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (reasons) {
+          SdkPresent<List<MergePreviewReason>>(value: final value) => {
+              'reasons': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

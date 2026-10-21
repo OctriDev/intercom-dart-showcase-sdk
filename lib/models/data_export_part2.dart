@@ -8,225 +8,488 @@ part of 'data_export.dart';
 class DataExportCsv {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The user_id of the user who was sent the message.
   final SdkOptional<String> userId;
+
   /// The external_user_id of the user who was sent the message
   final SdkOptional<String> userExternalId;
+
   /// The company ID of the user in relation to the message that was sent. Will return -1 if no company is present.
   final SdkOptional<String> companyId;
+
   /// The users email who was sent the message.
   final SdkOptional<String> email;
+
   /// The full name of the user receiving the message
   final SdkOptional<String> name;
+
   /// The id of the message.
   final SdkOptional<String> rulesetId;
+
   /// The specific content that was received. In an A/B test each version has its own Content ID.
   final SdkOptional<String> contentId;
+
   /// Email, Chat, Post etc.
   final SdkOptional<String> contentType;
+
   /// The title of the content you see in your Intercom workspace.
   final SdkOptional<String> contentTitle;
+
   /// As you edit content we record new versions. This ID can help you determine which version of a piece of content that was received.
   final SdkOptional<String> rulesetVersionId;
+
   /// ID for this receipt. Will be included with any related stats in other files to identify this specific delivery of a message.
   final SdkOptional<String> receiptId;
+
   /// Timestamp for when the receipt was recorded.
   final SdkOptional<int> receivedAt;
+
   /// The id of the series that this content is part of. Will return -1 if not part of a series.
   final SdkOptional<String> seriesId;
+
   /// The title of the series that this content is part of.
   final SdkOptional<String> seriesTitle;
+
   /// The id of the series node that this ruleset is associated with. Each block in a series has a corresponding node_id.
   final SdkOptional<String> nodeId;
+
   /// The first time a user replied to this message if the content was able to receive replies. Only events within the export job's requested date range are counted.
   final SdkOptional<int> firstReply;
+
   /// The first time a user completed this message if the content was able to be completed e.g. Tours, Surveys. Only events within the export job's requested date range are counted.
   final SdkOptional<int> firstCompletion;
+
   /// The first time the series this message was a part of was completed by the user. Only events within the export job's requested date range are counted.
   final SdkOptional<int> firstSeriesCompletion;
+
   /// The first time the series this message was a part of was disengaged by the user. Only events within the export job's requested date range are counted.
   final SdkOptional<int> firstSeriesDisengagement;
+
   /// The first time the series this message was a part of was exited by the user. Only events within the export job's requested date range are counted.
   final SdkOptional<int> firstSeriesExit;
+
   /// The first time the user met this messages associated goal if one exists. Only events within the export job's requested date range are counted.
   final SdkOptional<int> firstGoalSuccess;
+
   /// The first time the user opened this message. Only events within the export job's requested date range are counted.
   final SdkOptional<int> firstOpen;
+
   /// The first time the series the user clicked on a link within this message. Only events within the export job's requested date range are counted.
   final SdkOptional<int> firstClick;
+
   /// The first time the series the user dismissed this message. Only events within the export job's requested date range are counted.
   final SdkOptional<int> firstDismisall;
+
   /// The first time the user unsubscribed from this message. Only events within the export job's requested date range are counted.
   final SdkOptional<int> firstUnsubscribe;
+
   /// The first time this message hard bounced for this user. Only events within the export job's requested date range are counted.
   final SdkOptional<int> firstHardBounce;
 
-  const DataExportCsv({this.userId = const SdkOmitted(), this.userExternalId = const SdkOmitted(), this.companyId = const SdkOmitted(), this.email = const SdkOmitted(), this.name = const SdkOmitted(), this.rulesetId = const SdkOmitted(), this.contentId = const SdkOmitted(), this.contentType = const SdkOmitted(), this.contentTitle = const SdkOmitted(), this.rulesetVersionId = const SdkOmitted(), this.receiptId = const SdkOmitted(), this.receivedAt = const SdkOmitted(), this.seriesId = const SdkOmitted(), this.seriesTitle = const SdkOmitted(), this.nodeId = const SdkOmitted(), this.firstReply = const SdkOmitted(), this.firstCompletion = const SdkOmitted(), this.firstSeriesCompletion = const SdkOmitted(), this.firstSeriesDisengagement = const SdkOmitted(), this.firstSeriesExit = const SdkOmitted(), this.firstGoalSuccess = const SdkOmitted(), this.firstOpen = const SdkOmitted(), this.firstClick = const SdkOmitted(), this.firstDismisall = const SdkOmitted(), this.firstUnsubscribe = const SdkOmitted(), this.firstHardBounce = const SdkOmitted()});
+  const DataExportCsv(
+      {this.userId = const SdkOmitted(),
+      this.userExternalId = const SdkOmitted(),
+      this.companyId = const SdkOmitted(),
+      this.email = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.rulesetId = const SdkOmitted(),
+      this.contentId = const SdkOmitted(),
+      this.contentType = const SdkOmitted(),
+      this.contentTitle = const SdkOmitted(),
+      this.rulesetVersionId = const SdkOmitted(),
+      this.receiptId = const SdkOmitted(),
+      this.receivedAt = const SdkOmitted(),
+      this.seriesId = const SdkOmitted(),
+      this.seriesTitle = const SdkOmitted(),
+      this.nodeId = const SdkOmitted(),
+      this.firstReply = const SdkOmitted(),
+      this.firstCompletion = const SdkOmitted(),
+      this.firstSeriesCompletion = const SdkOmitted(),
+      this.firstSeriesDisengagement = const SdkOmitted(),
+      this.firstSeriesExit = const SdkOmitted(),
+      this.firstGoalSuccess = const SdkOmitted(),
+      this.firstOpen = const SdkOmitted(),
+      this.firstClick = const SdkOmitted(),
+      this.firstDismisall = const SdkOmitted(),
+      this.firstUnsubscribe = const SdkOmitted(),
+      this.firstHardBounce = const SdkOmitted()});
 
-  DataExportCsv Function({SdkOptional<String> userId, SdkOptional<String> userExternalId, SdkOptional<String> companyId, SdkOptional<String> email, SdkOptional<String> name, SdkOptional<String> rulesetId, SdkOptional<String> contentId, SdkOptional<String> contentType, SdkOptional<String> contentTitle, SdkOptional<String> rulesetVersionId, SdkOptional<String> receiptId, SdkOptional<int> receivedAt, SdkOptional<String> seriesId, SdkOptional<String> seriesTitle, SdkOptional<String> nodeId, SdkOptional<int> firstReply, SdkOptional<int> firstCompletion, SdkOptional<int> firstSeriesCompletion, SdkOptional<int> firstSeriesDisengagement, SdkOptional<int> firstSeriesExit, SdkOptional<int> firstGoalSuccess, SdkOptional<int> firstOpen, SdkOptional<int> firstClick, SdkOptional<int> firstDismisall, SdkOptional<int> firstUnsubscribe, SdkOptional<int> firstHardBounce}) get copyWith => _copyWith;
+  DataExportCsv Function(
+      {SdkOptional<String> userId,
+      SdkOptional<String> userExternalId,
+      SdkOptional<String> companyId,
+      SdkOptional<String> email,
+      SdkOptional<String> name,
+      SdkOptional<String> rulesetId,
+      SdkOptional<String> contentId,
+      SdkOptional<String> contentType,
+      SdkOptional<String> contentTitle,
+      SdkOptional<String> rulesetVersionId,
+      SdkOptional<String> receiptId,
+      SdkOptional<int> receivedAt,
+      SdkOptional<String> seriesId,
+      SdkOptional<String> seriesTitle,
+      SdkOptional<String> nodeId,
+      SdkOptional<int> firstReply,
+      SdkOptional<int> firstCompletion,
+      SdkOptional<int> firstSeriesCompletion,
+      SdkOptional<int> firstSeriesDisengagement,
+      SdkOptional<int> firstSeriesExit,
+      SdkOptional<int> firstGoalSuccess,
+      SdkOptional<int> firstOpen,
+      SdkOptional<int> firstClick,
+      SdkOptional<int> firstDismisall,
+      SdkOptional<int> firstUnsubscribe,
+      SdkOptional<int> firstHardBounce}) get copyWith => _copyWith;
 
-  DataExportCsv _copyWith({Object? userId = sdkOmittedValue, Object? userExternalId = sdkOmittedValue, Object? companyId = sdkOmittedValue, Object? email = sdkOmittedValue, Object? name = sdkOmittedValue, Object? rulesetId = sdkOmittedValue, Object? contentId = sdkOmittedValue, Object? contentType = sdkOmittedValue, Object? contentTitle = sdkOmittedValue, Object? rulesetVersionId = sdkOmittedValue, Object? receiptId = sdkOmittedValue, Object? receivedAt = sdkOmittedValue, Object? seriesId = sdkOmittedValue, Object? seriesTitle = sdkOmittedValue, Object? nodeId = sdkOmittedValue, Object? firstReply = sdkOmittedValue, Object? firstCompletion = sdkOmittedValue, Object? firstSeriesCompletion = sdkOmittedValue, Object? firstSeriesDisengagement = sdkOmittedValue, Object? firstSeriesExit = sdkOmittedValue, Object? firstGoalSuccess = sdkOmittedValue, Object? firstOpen = sdkOmittedValue, Object? firstClick = sdkOmittedValue, Object? firstDismisall = sdkOmittedValue, Object? firstUnsubscribe = sdkOmittedValue, Object? firstHardBounce = sdkOmittedValue}) => DataExportCsv(
-    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as SdkOptional<String>,
-    userExternalId: identical(userExternalId, sdkOmittedValue) ? this.userExternalId : userExternalId as SdkOptional<String>,
-    companyId: identical(companyId, sdkOmittedValue) ? this.companyId : companyId as SdkOptional<String>,
-    email: identical(email, sdkOmittedValue) ? this.email : email as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    rulesetId: identical(rulesetId, sdkOmittedValue) ? this.rulesetId : rulesetId as SdkOptional<String>,
-    contentId: identical(contentId, sdkOmittedValue) ? this.contentId : contentId as SdkOptional<String>,
-    contentType: identical(contentType, sdkOmittedValue) ? this.contentType : contentType as SdkOptional<String>,
-    contentTitle: identical(contentTitle, sdkOmittedValue) ? this.contentTitle : contentTitle as SdkOptional<String>,
-    rulesetVersionId: identical(rulesetVersionId, sdkOmittedValue) ? this.rulesetVersionId : rulesetVersionId as SdkOptional<String>,
-    receiptId: identical(receiptId, sdkOmittedValue) ? this.receiptId : receiptId as SdkOptional<String>,
-    receivedAt: identical(receivedAt, sdkOmittedValue) ? this.receivedAt : receivedAt as SdkOptional<int>,
-    seriesId: identical(seriesId, sdkOmittedValue) ? this.seriesId : seriesId as SdkOptional<String>,
-    seriesTitle: identical(seriesTitle, sdkOmittedValue) ? this.seriesTitle : seriesTitle as SdkOptional<String>,
-    nodeId: identical(nodeId, sdkOmittedValue) ? this.nodeId : nodeId as SdkOptional<String>,
-    firstReply: identical(firstReply, sdkOmittedValue) ? this.firstReply : firstReply as SdkOptional<int>,
-    firstCompletion: identical(firstCompletion, sdkOmittedValue) ? this.firstCompletion : firstCompletion as SdkOptional<int>,
-    firstSeriesCompletion: identical(firstSeriesCompletion, sdkOmittedValue) ? this.firstSeriesCompletion : firstSeriesCompletion as SdkOptional<int>,
-    firstSeriesDisengagement: identical(firstSeriesDisengagement, sdkOmittedValue) ? this.firstSeriesDisengagement : firstSeriesDisengagement as SdkOptional<int>,
-    firstSeriesExit: identical(firstSeriesExit, sdkOmittedValue) ? this.firstSeriesExit : firstSeriesExit as SdkOptional<int>,
-    firstGoalSuccess: identical(firstGoalSuccess, sdkOmittedValue) ? this.firstGoalSuccess : firstGoalSuccess as SdkOptional<int>,
-    firstOpen: identical(firstOpen, sdkOmittedValue) ? this.firstOpen : firstOpen as SdkOptional<int>,
-    firstClick: identical(firstClick, sdkOmittedValue) ? this.firstClick : firstClick as SdkOptional<int>,
-    firstDismisall: identical(firstDismisall, sdkOmittedValue) ? this.firstDismisall : firstDismisall as SdkOptional<int>,
-    firstUnsubscribe: identical(firstUnsubscribe, sdkOmittedValue) ? this.firstUnsubscribe : firstUnsubscribe as SdkOptional<int>,
-    firstHardBounce: identical(firstHardBounce, sdkOmittedValue) ? this.firstHardBounce : firstHardBounce as SdkOptional<int>,
-  );
+  DataExportCsv _copyWith(
+          {Object? userId = sdkOmittedValue,
+          Object? userExternalId = sdkOmittedValue,
+          Object? companyId = sdkOmittedValue,
+          Object? email = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? rulesetId = sdkOmittedValue,
+          Object? contentId = sdkOmittedValue,
+          Object? contentType = sdkOmittedValue,
+          Object? contentTitle = sdkOmittedValue,
+          Object? rulesetVersionId = sdkOmittedValue,
+          Object? receiptId = sdkOmittedValue,
+          Object? receivedAt = sdkOmittedValue,
+          Object? seriesId = sdkOmittedValue,
+          Object? seriesTitle = sdkOmittedValue,
+          Object? nodeId = sdkOmittedValue,
+          Object? firstReply = sdkOmittedValue,
+          Object? firstCompletion = sdkOmittedValue,
+          Object? firstSeriesCompletion = sdkOmittedValue,
+          Object? firstSeriesDisengagement = sdkOmittedValue,
+          Object? firstSeriesExit = sdkOmittedValue,
+          Object? firstGoalSuccess = sdkOmittedValue,
+          Object? firstOpen = sdkOmittedValue,
+          Object? firstClick = sdkOmittedValue,
+          Object? firstDismisall = sdkOmittedValue,
+          Object? firstUnsubscribe = sdkOmittedValue,
+          Object? firstHardBounce = sdkOmittedValue}) =>
+      DataExportCsv(
+        userId: identical(userId, sdkOmittedValue)
+            ? this.userId
+            : userId as SdkOptional<String>,
+        userExternalId: identical(userExternalId, sdkOmittedValue)
+            ? this.userExternalId
+            : userExternalId as SdkOptional<String>,
+        companyId: identical(companyId, sdkOmittedValue)
+            ? this.companyId
+            : companyId as SdkOptional<String>,
+        email: identical(email, sdkOmittedValue)
+            ? this.email
+            : email as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        rulesetId: identical(rulesetId, sdkOmittedValue)
+            ? this.rulesetId
+            : rulesetId as SdkOptional<String>,
+        contentId: identical(contentId, sdkOmittedValue)
+            ? this.contentId
+            : contentId as SdkOptional<String>,
+        contentType: identical(contentType, sdkOmittedValue)
+            ? this.contentType
+            : contentType as SdkOptional<String>,
+        contentTitle: identical(contentTitle, sdkOmittedValue)
+            ? this.contentTitle
+            : contentTitle as SdkOptional<String>,
+        rulesetVersionId: identical(rulesetVersionId, sdkOmittedValue)
+            ? this.rulesetVersionId
+            : rulesetVersionId as SdkOptional<String>,
+        receiptId: identical(receiptId, sdkOmittedValue)
+            ? this.receiptId
+            : receiptId as SdkOptional<String>,
+        receivedAt: identical(receivedAt, sdkOmittedValue)
+            ? this.receivedAt
+            : receivedAt as SdkOptional<int>,
+        seriesId: identical(seriesId, sdkOmittedValue)
+            ? this.seriesId
+            : seriesId as SdkOptional<String>,
+        seriesTitle: identical(seriesTitle, sdkOmittedValue)
+            ? this.seriesTitle
+            : seriesTitle as SdkOptional<String>,
+        nodeId: identical(nodeId, sdkOmittedValue)
+            ? this.nodeId
+            : nodeId as SdkOptional<String>,
+        firstReply: identical(firstReply, sdkOmittedValue)
+            ? this.firstReply
+            : firstReply as SdkOptional<int>,
+        firstCompletion: identical(firstCompletion, sdkOmittedValue)
+            ? this.firstCompletion
+            : firstCompletion as SdkOptional<int>,
+        firstSeriesCompletion: identical(firstSeriesCompletion, sdkOmittedValue)
+            ? this.firstSeriesCompletion
+            : firstSeriesCompletion as SdkOptional<int>,
+        firstSeriesDisengagement:
+            identical(firstSeriesDisengagement, sdkOmittedValue)
+                ? this.firstSeriesDisengagement
+                : firstSeriesDisengagement as SdkOptional<int>,
+        firstSeriesExit: identical(firstSeriesExit, sdkOmittedValue)
+            ? this.firstSeriesExit
+            : firstSeriesExit as SdkOptional<int>,
+        firstGoalSuccess: identical(firstGoalSuccess, sdkOmittedValue)
+            ? this.firstGoalSuccess
+            : firstGoalSuccess as SdkOptional<int>,
+        firstOpen: identical(firstOpen, sdkOmittedValue)
+            ? this.firstOpen
+            : firstOpen as SdkOptional<int>,
+        firstClick: identical(firstClick, sdkOmittedValue)
+            ? this.firstClick
+            : firstClick as SdkOptional<int>,
+        firstDismisall: identical(firstDismisall, sdkOmittedValue)
+            ? this.firstDismisall
+            : firstDismisall as SdkOptional<int>,
+        firstUnsubscribe: identical(firstUnsubscribe, sdkOmittedValue)
+            ? this.firstUnsubscribe
+            : firstUnsubscribe as SdkOptional<int>,
+        firstHardBounce: identical(firstHardBounce, sdkOmittedValue)
+            ? this.firstHardBounce
+            : firstHardBounce as SdkOptional<int>,
+      );
 
   factory DataExportCsv.fromJson(Map<String, dynamic> json) => DataExportCsv(
-    userId: json['user_id'] != null ? SdkPresent((json['user_id'] as String?)!) : const SdkOmitted(),
-    userExternalId: json['user_external_id'] != null ? SdkPresent((json['user_external_id'] as String?)!) : const SdkOmitted(),
-    companyId: json['company_id'] != null ? SdkPresent((json['company_id'] as String?)!) : const SdkOmitted(),
-    email: json['email'] != null ? SdkPresent((json['email'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    rulesetId: json['ruleset_id'] != null ? SdkPresent((json['ruleset_id'] as String?)!) : const SdkOmitted(),
-    contentId: json['content_id'] != null ? SdkPresent((json['content_id'] as String?)!) : const SdkOmitted(),
-    contentType: json['content_type'] != null ? SdkPresent((json['content_type'] as String?)!) : const SdkOmitted(),
-    contentTitle: json['content_title'] != null ? SdkPresent((json['content_title'] as String?)!) : const SdkOmitted(),
-    rulesetVersionId: json['ruleset_version_id'] != null ? SdkPresent((json['ruleset_version_id'] as String?)!) : const SdkOmitted(),
-    receiptId: json['receipt_id'] != null ? SdkPresent((json['receipt_id'] as String?)!) : const SdkOmitted(),
-    receivedAt: json['received_at'] != null ? SdkPresent(((json['received_at'] as num?)?.toInt())!) : const SdkOmitted(),
-    seriesId: json['series_id'] != null ? SdkPresent((json['series_id'] as String?)!) : const SdkOmitted(),
-    seriesTitle: json['series_title'] != null ? SdkPresent((json['series_title'] as String?)!) : const SdkOmitted(),
-    nodeId: json['node_id'] != null ? SdkPresent((json['node_id'] as String?)!) : const SdkOmitted(),
-    firstReply: json['first_reply'] != null ? SdkPresent(((json['first_reply'] as num?)?.toInt())!) : const SdkOmitted(),
-    firstCompletion: json['first_completion'] != null ? SdkPresent(((json['first_completion'] as num?)?.toInt())!) : const SdkOmitted(),
-    firstSeriesCompletion: json['first_series_completion'] != null ? SdkPresent(((json['first_series_completion'] as num?)?.toInt())!) : const SdkOmitted(),
-    firstSeriesDisengagement: json['first_series_disengagement'] != null ? SdkPresent(((json['first_series_disengagement'] as num?)?.toInt())!) : const SdkOmitted(),
-    firstSeriesExit: json['first_series_exit'] != null ? SdkPresent(((json['first_series_exit'] as num?)?.toInt())!) : const SdkOmitted(),
-    firstGoalSuccess: json['first_goal_success'] != null ? SdkPresent(((json['first_goal_success'] as num?)?.toInt())!) : const SdkOmitted(),
-    firstOpen: json['first_open'] != null ? SdkPresent(((json['first_open'] as num?)?.toInt())!) : const SdkOmitted(),
-    firstClick: json['first_click'] != null ? SdkPresent(((json['first_click'] as num?)?.toInt())!) : const SdkOmitted(),
-    firstDismisall: json['first_dismisall'] != null ? SdkPresent(((json['first_dismisall'] as num?)?.toInt())!) : const SdkOmitted(),
-    firstUnsubscribe: json['first_unsubscribe'] != null ? SdkPresent(((json['first_unsubscribe'] as num?)?.toInt())!) : const SdkOmitted(),
-    firstHardBounce: json['first_hard_bounce'] != null ? SdkPresent(((json['first_hard_bounce'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+        userId: json['user_id'] != null
+            ? SdkPresent((json['user_id'] as String?)!)
+            : const SdkOmitted(),
+        userExternalId: json['user_external_id'] != null
+            ? SdkPresent((json['user_external_id'] as String?)!)
+            : const SdkOmitted(),
+        companyId: json['company_id'] != null
+            ? SdkPresent((json['company_id'] as String?)!)
+            : const SdkOmitted(),
+        email: json['email'] != null
+            ? SdkPresent((json['email'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        rulesetId: json['ruleset_id'] != null
+            ? SdkPresent((json['ruleset_id'] as String?)!)
+            : const SdkOmitted(),
+        contentId: json['content_id'] != null
+            ? SdkPresent((json['content_id'] as String?)!)
+            : const SdkOmitted(),
+        contentType: json['content_type'] != null
+            ? SdkPresent((json['content_type'] as String?)!)
+            : const SdkOmitted(),
+        contentTitle: json['content_title'] != null
+            ? SdkPresent((json['content_title'] as String?)!)
+            : const SdkOmitted(),
+        rulesetVersionId: json['ruleset_version_id'] != null
+            ? SdkPresent((json['ruleset_version_id'] as String?)!)
+            : const SdkOmitted(),
+        receiptId: json['receipt_id'] != null
+            ? SdkPresent((json['receipt_id'] as String?)!)
+            : const SdkOmitted(),
+        receivedAt: json['received_at'] != null
+            ? SdkPresent(((json['received_at'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        seriesId: json['series_id'] != null
+            ? SdkPresent((json['series_id'] as String?)!)
+            : const SdkOmitted(),
+        seriesTitle: json['series_title'] != null
+            ? SdkPresent((json['series_title'] as String?)!)
+            : const SdkOmitted(),
+        nodeId: json['node_id'] != null
+            ? SdkPresent((json['node_id'] as String?)!)
+            : const SdkOmitted(),
+        firstReply: json['first_reply'] != null
+            ? SdkPresent(((json['first_reply'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        firstCompletion: json['first_completion'] != null
+            ? SdkPresent(((json['first_completion'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        firstSeriesCompletion: json['first_series_completion'] != null
+            ? SdkPresent(((json['first_series_completion'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        firstSeriesDisengagement: json['first_series_disengagement'] != null
+            ? SdkPresent(
+                ((json['first_series_disengagement'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        firstSeriesExit: json['first_series_exit'] != null
+            ? SdkPresent(((json['first_series_exit'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        firstGoalSuccess: json['first_goal_success'] != null
+            ? SdkPresent(((json['first_goal_success'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        firstOpen: json['first_open'] != null
+            ? SdkPresent(((json['first_open'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        firstClick: json['first_click'] != null
+            ? SdkPresent(((json['first_click'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        firstDismisall: json['first_dismisall'] != null
+            ? SdkPresent(((json['first_dismisall'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        firstUnsubscribe: json['first_unsubscribe'] != null
+            ? SdkPresent(((json['first_unsubscribe'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        firstHardBounce: json['first_hard_bounce'] != null
+            ? SdkPresent(((json['first_hard_bounce'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (userId) {
-      SdkPresent<String>(value: final value) => {'user_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (userExternalId) {
-      SdkPresent<String>(value: final value) => {'user_external_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (companyId) {
-      SdkPresent<String>(value: final value) => {'company_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (email) {
-      SdkPresent<String>(value: final value) => {'email': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (rulesetId) {
-      SdkPresent<String>(value: final value) => {'ruleset_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (contentId) {
-      SdkPresent<String>(value: final value) => {'content_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (contentType) {
-      SdkPresent<String>(value: final value) => {'content_type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (contentTitle) {
-      SdkPresent<String>(value: final value) => {'content_title': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (rulesetVersionId) {
-      SdkPresent<String>(value: final value) => {'ruleset_version_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (receiptId) {
-      SdkPresent<String>(value: final value) => {'receipt_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (receivedAt) {
-      SdkPresent<int>(value: final value) => {'received_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (seriesId) {
-      SdkPresent<String>(value: final value) => {'series_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (seriesTitle) {
-      SdkPresent<String>(value: final value) => {'series_title': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (nodeId) {
-      SdkPresent<String>(value: final value) => {'node_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (firstReply) {
-      SdkPresent<int>(value: final value) => {'first_reply': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (firstCompletion) {
-      SdkPresent<int>(value: final value) => {'first_completion': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (firstSeriesCompletion) {
-      SdkPresent<int>(value: final value) => {'first_series_completion': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (firstSeriesDisengagement) {
-      SdkPresent<int>(value: final value) => {'first_series_disengagement': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (firstSeriesExit) {
-      SdkPresent<int>(value: final value) => {'first_series_exit': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (firstGoalSuccess) {
-      SdkPresent<int>(value: final value) => {'first_goal_success': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (firstOpen) {
-      SdkPresent<int>(value: final value) => {'first_open': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (firstClick) {
-      SdkPresent<int>(value: final value) => {'first_click': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (firstDismisall) {
-      SdkPresent<int>(value: final value) => {'first_dismisall': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (firstUnsubscribe) {
-      SdkPresent<int>(value: final value) => {'first_unsubscribe': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (firstHardBounce) {
-      SdkPresent<int>(value: final value) => {'first_hard_bounce': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (userId) {
+          SdkPresent<String>(value: final value) => {
+              'user_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (userExternalId) {
+          SdkPresent<String>(value: final value) => {
+              'user_external_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (companyId) {
+          SdkPresent<String>(value: final value) => {
+              'company_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (email) {
+          SdkPresent<String>(value: final value) => {
+              'email': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (rulesetId) {
+          SdkPresent<String>(value: final value) => {
+              'ruleset_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (contentId) {
+          SdkPresent<String>(value: final value) => {
+              'content_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (contentType) {
+          SdkPresent<String>(value: final value) => {
+              'content_type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (contentTitle) {
+          SdkPresent<String>(value: final value) => {
+              'content_title': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (rulesetVersionId) {
+          SdkPresent<String>(value: final value) => {
+              'ruleset_version_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (receiptId) {
+          SdkPresent<String>(value: final value) => {
+              'receipt_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (receivedAt) {
+          SdkPresent<int>(value: final value) => {
+              'received_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (seriesId) {
+          SdkPresent<String>(value: final value) => {
+              'series_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (seriesTitle) {
+          SdkPresent<String>(value: final value) => {
+              'series_title': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (nodeId) {
+          SdkPresent<String>(value: final value) => {
+              'node_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (firstReply) {
+          SdkPresent<int>(value: final value) => {
+              'first_reply': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (firstCompletion) {
+          SdkPresent<int>(value: final value) => {
+              'first_completion': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (firstSeriesCompletion) {
+          SdkPresent<int>(value: final value) => {
+              'first_series_completion': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (firstSeriesDisengagement) {
+          SdkPresent<int>(value: final value) => {
+              'first_series_disengagement': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (firstSeriesExit) {
+          SdkPresent<int>(value: final value) => {
+              'first_series_exit': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (firstGoalSuccess) {
+          SdkPresent<int>(value: final value) => {
+              'first_goal_success': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (firstOpen) {
+          SdkPresent<int>(value: final value) => {
+              'first_open': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (firstClick) {
+          SdkPresent<int>(value: final value) => {
+              'first_click': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (firstDismisall) {
+          SdkPresent<int>(value: final value) => {
+              'first_dismisall': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (firstUnsubscribe) {
+          SdkPresent<int>(value: final value) => {
+              'first_unsubscribe': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (firstHardBounce) {
+          SdkPresent<int>(value: final value) => {
+              'first_hard_bounce': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,49 +8,93 @@ part of 'shared_ticket.dart';
 class TicketPartAuthor {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the author
   final SdkOptional<TicketPartAuthorType> type_;
+
   /// The id of the author
   final SdkOptional<String> id;
+
   /// The name of the author
   final SdkOptional<String?> name;
+
   /// The email of the author
   final SdkOptional<String> email;
 
-  const TicketPartAuthor({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.name = const SdkOmitted(), this.email = const SdkOmitted()});
+  const TicketPartAuthor(
+      {this.type_ = const SdkOmitted(),
+      this.id = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.email = const SdkOmitted()});
 
-  TicketPartAuthor Function({SdkOptional<TicketPartAuthorType> type_, SdkOptional<String> id, SdkOptional<String?> name, SdkOptional<String> email}) get copyWith => _copyWith;
+  TicketPartAuthor Function(
+      {SdkOptional<TicketPartAuthorType> type_,
+      SdkOptional<String> id,
+      SdkOptional<String?> name,
+      SdkOptional<String> email}) get copyWith => _copyWith;
 
-  TicketPartAuthor _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? email = sdkOmittedValue}) => TicketPartAuthor(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<TicketPartAuthorType>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String?>,
-    email: identical(email, sdkOmittedValue) ? this.email : email as SdkOptional<String>,
-  );
+  TicketPartAuthor _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? email = sdkOmittedValue}) =>
+      TicketPartAuthor(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<TicketPartAuthorType>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String?>,
+        email: identical(email, sdkOmittedValue)
+            ? this.email
+            : email as SdkOptional<String>,
+      );
 
-  factory TicketPartAuthor.fromJson(Map<String, dynamic> json) => TicketPartAuthor(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? TicketPartAuthorType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    name: json.containsKey('name') ? SdkPresent(json['name'] as String?) : const SdkOmitted(),
-    email: json['email'] != null ? SdkPresent((json['email'] as String?)!) : const SdkOmitted(),
-  );
+  factory TicketPartAuthor.fromJson(Map<String, dynamic> json) =>
+      TicketPartAuthor(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? TicketPartAuthorType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        name: json.containsKey('name')
+            ? SdkPresent(json['name'] as String?)
+            : const SdkOmitted(),
+        email: json['email'] != null
+            ? SdkPresent((json['email'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<TicketPartAuthorType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String?>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (email) {
-      SdkPresent<String>(value: final value) => {'email': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<TicketPartAuthorType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String?>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (email) {
+          SdkPresent<String>(value: final value) => {
+              'email': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

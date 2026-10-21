@@ -8,244 +8,420 @@ part of 'shared_conversation.dart';
 class ConversationAttributeUpdatedByWorkflowValue {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Value of the CDA updated
   final SdkOptional<String> name;
 
-  const ConversationAttributeUpdatedByWorkflowValue({this.name = const SdkOmitted()});
+  const ConversationAttributeUpdatedByWorkflowValue(
+      {this.name = const SdkOmitted()});
 
-  ConversationAttributeUpdatedByWorkflowValue Function({SdkOptional<String> name}) get copyWith => _copyWith;
+  ConversationAttributeUpdatedByWorkflowValue Function(
+      {SdkOptional<String> name}) get copyWith => _copyWith;
 
-  ConversationAttributeUpdatedByWorkflowValue _copyWith({Object? name = sdkOmittedValue}) => ConversationAttributeUpdatedByWorkflowValue(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-  );
+  ConversationAttributeUpdatedByWorkflowValue _copyWith(
+          {Object? name = sdkOmittedValue}) =>
+      ConversationAttributeUpdatedByWorkflowValue(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+      );
 
-  factory ConversationAttributeUpdatedByWorkflowValue.fromJson(Map<String, dynamic> json) => ConversationAttributeUpdatedByWorkflowValue(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-  );
+  factory ConversationAttributeUpdatedByWorkflowValue.fromJson(
+          Map<String, dynamic> json) =>
+      ConversationAttributeUpdatedByWorkflowValue(
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Contains details about the workflow that was triggered and any Custom Data Attributes (CDAs) that were modified during the workflow execution for conversation part type &lt;code&gt;conversation_attribute_updated_by_workflow&lt;/code&gt;.
 class ConversationAttributeUpdatedByWorkflow {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `workflow` wire field.
   final SdkOptional<ConversationAttributeUpdatedByWorkflowWorkflow> workflow;
+
   /// Optional object value serialized in the `attribute` wire field.
   final SdkOptional<ConversationAttributeUpdatedByWorkflowAttribute> attribute;
+
   /// Optional object value serialized in the `value` wire field.
   final SdkOptional<ConversationAttributeUpdatedByWorkflowValue> value;
 
-  const ConversationAttributeUpdatedByWorkflow({this.workflow = const SdkOmitted(), this.attribute = const SdkOmitted(), this.value = const SdkOmitted()});
+  const ConversationAttributeUpdatedByWorkflow(
+      {this.workflow = const SdkOmitted(),
+      this.attribute = const SdkOmitted(),
+      this.value = const SdkOmitted()});
 
-  ConversationAttributeUpdatedByWorkflow Function({SdkOptional<ConversationAttributeUpdatedByWorkflowWorkflow> workflow, SdkOptional<ConversationAttributeUpdatedByWorkflowAttribute> attribute, SdkOptional<ConversationAttributeUpdatedByWorkflowValue> value}) get copyWith => _copyWith;
+  ConversationAttributeUpdatedByWorkflow Function(
+      {SdkOptional<ConversationAttributeUpdatedByWorkflowWorkflow> workflow,
+      SdkOptional<ConversationAttributeUpdatedByWorkflowAttribute> attribute,
+      SdkOptional<ConversationAttributeUpdatedByWorkflowValue>
+          value}) get copyWith => _copyWith;
 
-  ConversationAttributeUpdatedByWorkflow _copyWith({Object? workflow = sdkOmittedValue, Object? attribute = sdkOmittedValue, Object? value = sdkOmittedValue}) => ConversationAttributeUpdatedByWorkflow(
-    workflow: identical(workflow, sdkOmittedValue) ? this.workflow : workflow as SdkOptional<ConversationAttributeUpdatedByWorkflowWorkflow>,
-    attribute: identical(attribute, sdkOmittedValue) ? this.attribute : attribute as SdkOptional<ConversationAttributeUpdatedByWorkflowAttribute>,
-    value: identical(value, sdkOmittedValue) ? this.value : value as SdkOptional<ConversationAttributeUpdatedByWorkflowValue>,
-  );
+  ConversationAttributeUpdatedByWorkflow _copyWith(
+          {Object? workflow = sdkOmittedValue,
+          Object? attribute = sdkOmittedValue,
+          Object? value = sdkOmittedValue}) =>
+      ConversationAttributeUpdatedByWorkflow(
+        workflow: identical(workflow, sdkOmittedValue)
+            ? this.workflow
+            : workflow
+                as SdkOptional<ConversationAttributeUpdatedByWorkflowWorkflow>,
+        attribute: identical(attribute, sdkOmittedValue)
+            ? this.attribute
+            : attribute
+                as SdkOptional<ConversationAttributeUpdatedByWorkflowAttribute>,
+        value: identical(value, sdkOmittedValue)
+            ? this.value
+            : value as SdkOptional<ConversationAttributeUpdatedByWorkflowValue>,
+      );
 
-  factory ConversationAttributeUpdatedByWorkflow.fromJson(Map<String, dynamic> json) => ConversationAttributeUpdatedByWorkflow(
-    workflow: json['workflow'] != null ? SdkPresent((json['workflow'] != null ? ConversationAttributeUpdatedByWorkflowWorkflow.fromJson(json['workflow'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    attribute: json['attribute'] != null ? SdkPresent((json['attribute'] != null ? ConversationAttributeUpdatedByWorkflowAttribute.fromJson(json['attribute'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    value: json['value'] != null ? SdkPresent((json['value'] != null ? ConversationAttributeUpdatedByWorkflowValue.fromJson(json['value'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ConversationAttributeUpdatedByWorkflow.fromJson(
+          Map<String, dynamic> json) =>
+      ConversationAttributeUpdatedByWorkflow(
+        workflow: json['workflow'] != null
+            ? SdkPresent((json['workflow'] != null
+                ? ConversationAttributeUpdatedByWorkflowWorkflow.fromJson(
+                    json['workflow'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        attribute: json['attribute'] != null
+            ? SdkPresent((json['attribute'] != null
+                ? ConversationAttributeUpdatedByWorkflowAttribute.fromJson(
+                    json['attribute'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        value: json['value'] != null
+            ? SdkPresent((json['value'] != null
+                ? ConversationAttributeUpdatedByWorkflowValue.fromJson(
+                    json['value'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (workflow) {
-      SdkPresent<ConversationAttributeUpdatedByWorkflowWorkflow>(value: final value) => {'workflow': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (attribute) {
-      SdkPresent<ConversationAttributeUpdatedByWorkflowAttribute>(value: final value) => {'attribute': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (value) {
-      SdkPresent<ConversationAttributeUpdatedByWorkflowValue>(value: final value) => {'value': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (workflow) {
+          SdkPresent<ConversationAttributeUpdatedByWorkflowWorkflow>(
+            value: final value
+          ) =>
+            {
+              'workflow': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (attribute) {
+          SdkPresent<ConversationAttributeUpdatedByWorkflowAttribute>(
+            value: final value
+          ) =>
+            {
+              'attribute': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (value) {
+          SdkPresent<ConversationAttributeUpdatedByWorkflowValue>(
+            value: final value
+          ) =>
+            {
+              'value': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// The channel through which a conversation was originally initiated and its current channel.
 class ConversationChannel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The channel through which the conversation was originally initiated. Possible values include `messenger`, `zendesk_sunshine`, `zendesk_ticket`, `twitter`, `email`. Returns `null` if channel data is unavailable.
   final SdkOptional<String?> initial;
+
   /// The current channel of the conversation. May differ from `initial` if the conversation was migrated between channels. Returns `null` if channel data is unavailable.
   final SdkOptional<String?> current;
 
-  const ConversationChannel({this.initial = const SdkOmitted(), this.current = const SdkOmitted()});
+  const ConversationChannel(
+      {this.initial = const SdkOmitted(), this.current = const SdkOmitted()});
 
-  ConversationChannel Function({SdkOptional<String?> initial, SdkOptional<String?> current}) get copyWith => _copyWith;
+  ConversationChannel Function(
+      {SdkOptional<String?> initial,
+      SdkOptional<String?> current}) get copyWith => _copyWith;
 
-  ConversationChannel _copyWith({Object? initial = sdkOmittedValue, Object? current = sdkOmittedValue}) => ConversationChannel(
-    initial: identical(initial, sdkOmittedValue) ? this.initial : initial as SdkOptional<String?>,
-    current: identical(current, sdkOmittedValue) ? this.current : current as SdkOptional<String?>,
-  );
+  ConversationChannel _copyWith(
+          {Object? initial = sdkOmittedValue,
+          Object? current = sdkOmittedValue}) =>
+      ConversationChannel(
+        initial: identical(initial, sdkOmittedValue)
+            ? this.initial
+            : initial as SdkOptional<String?>,
+        current: identical(current, sdkOmittedValue)
+            ? this.current
+            : current as SdkOptional<String?>,
+      );
 
-  factory ConversationChannel.fromJson(Map<String, dynamic> json) => ConversationChannel(
-    initial: json.containsKey('initial') ? SdkPresent(json['initial'] as String?) : const SdkOmitted(),
-    current: json.containsKey('current') ? SdkPresent(json['current'] as String?) : const SdkOmitted(),
-  );
+  factory ConversationChannel.fromJson(Map<String, dynamic> json) =>
+      ConversationChannel(
+        initial: json.containsKey('initial')
+            ? SdkPresent(json['initial'] as String?)
+            : const SdkOmitted(),
+        current: json.containsKey('current')
+            ? SdkPresent(json['current'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (initial) {
-      SdkPresent<String?>(value: final value) => {'initial': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (current) {
-      SdkPresent<String?>(value: final value) => {'current': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (initial) {
+          SdkPresent<String?>(value: final value) => {
+              'initial': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (current) {
+          SdkPresent<String?>(value: final value) => {
+              'current': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// The list of contacts (users or leads) involved in this conversation. This will only contain one customer unless more were added via the group conversation feature.
 class ConversationContacts {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional enumerated value serialized in the `type` wire field.
   final SdkOptional<ConversationContactsType> type_;
+
   /// The list of contacts (users or leads) involved in this conversation. This will only contain one customer unless more were added via the group conversation feature.
   final SdkOptional<List<ContactReference>> contacts;
 
-  const ConversationContacts({this.type_ = const SdkOmitted(), this.contacts = const SdkOmitted()});
+  const ConversationContacts(
+      {this.type_ = const SdkOmitted(), this.contacts = const SdkOmitted()});
 
-  ConversationContacts Function({SdkOptional<ConversationContactsType> type_, SdkOptional<List<ContactReference>> contacts}) get copyWith => _copyWith;
+  ConversationContacts Function(
+      {SdkOptional<ConversationContactsType> type_,
+      SdkOptional<List<ContactReference>> contacts}) get copyWith => _copyWith;
 
-  ConversationContacts _copyWith({Object? type_ = sdkOmittedValue, Object? contacts = sdkOmittedValue}) => ConversationContacts(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ConversationContactsType>,
-    contacts: identical(contacts, sdkOmittedValue) ? this.contacts : contacts as SdkOptional<List<ContactReference>>,
-  );
+  ConversationContacts _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? contacts = sdkOmittedValue}) =>
+      ConversationContacts(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<ConversationContactsType>,
+        contacts: identical(contacts, sdkOmittedValue)
+            ? this.contacts
+            : contacts as SdkOptional<List<ContactReference>>,
+      );
 
-  factory ConversationContacts.fromJson(Map<String, dynamic> json) => ConversationContacts(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ConversationContactsType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    contacts: json['contacts'] != null ? SdkPresent(((json['contacts'] as List?)?.map((e) => ContactReference.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory ConversationContacts.fromJson(Map<String, dynamic> json) =>
+      ConversationContacts(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? ConversationContactsType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        contacts: json['contacts'] != null
+            ? SdkPresent(((json['contacts'] as List?)
+                ?.map(
+                    (e) => ContactReference.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<ConversationContactsType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (contacts) {
-      SdkPresent<List<ContactReference>>(value: final value) => {'contacts': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<ConversationContactsType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (contacts) {
+          SdkPresent<List<ContactReference>>(value: final value) => {
+              'contacts': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A reference linking a conversation to a record in an external helpdesk or CRM system, surfaced for Fin Standalone workspaces.
 class ConversationExternalReference {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of external system the reference points to. Possible values include `zendesk_ticket`, `zendesk_sunshine_conversation`, `salesforce_case`, `salesforce_in_app_message_conversation`, `freshdesk_ticket`, `freshchat_conversation`, `hubspot_conversation`, `custom_helpdesk_conversation`, `api_conversation`.
   final SdkOptional<String> type_;
+
   /// The identifier of the record in the external system. Always serialized as a string, since some external IDs exceed 32-bit integer range.
   final SdkOptional<String> id;
 
-  const ConversationExternalReference({this.type_ = const SdkOmitted(), this.id = const SdkOmitted()});
+  const ConversationExternalReference(
+      {this.type_ = const SdkOmitted(), this.id = const SdkOmitted()});
 
-  ConversationExternalReference Function({SdkOptional<String> type_, SdkOptional<String> id}) get copyWith => _copyWith;
+  ConversationExternalReference Function(
+      {SdkOptional<String> type_,
+      SdkOptional<String> id}) get copyWith => _copyWith;
 
-  ConversationExternalReference _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue}) => ConversationExternalReference(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-  );
+  ConversationExternalReference _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue}) =>
+      ConversationExternalReference(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<String>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+      );
 
-  factory ConversationExternalReference.fromJson(Map<String, dynamic> json) => ConversationExternalReference(
-    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-  );
+  factory ConversationExternalReference.fromJson(Map<String, dynamic> json) =>
+      ConversationExternalReference(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] as String?)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<String>(value: final value) => {'type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<String>(value: final value) => {
+              'type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// An object containing information on the first users message. For a contact initiated message this will represent the users original message.
 class ConversationFirstContactReply {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional `date-time`-formatted value serialized in the `created_at` wire field.
   final SdkOptional<int> createdAt;
+
   /// Optional `string` value serialized in the `type` wire field.
   final SdkOptional<String> type_;
+
   /// Optional `string` value serialized in the `url` wire field.
   final SdkOptional<String?> url;
 
-  const ConversationFirstContactReply({this.createdAt = const SdkOmitted(), this.type_ = const SdkOmitted(), this.url = const SdkOmitted()});
+  const ConversationFirstContactReply(
+      {this.createdAt = const SdkOmitted(),
+      this.type_ = const SdkOmitted(),
+      this.url = const SdkOmitted()});
 
-  ConversationFirstContactReply Function({SdkOptional<int> createdAt, SdkOptional<String> type_, SdkOptional<String?> url}) get copyWith => _copyWith;
+  ConversationFirstContactReply Function(
+      {SdkOptional<int> createdAt,
+      SdkOptional<String> type_,
+      SdkOptional<String?> url}) get copyWith => _copyWith;
 
-  ConversationFirstContactReply _copyWith({Object? createdAt = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? url = sdkOmittedValue}) => ConversationFirstContactReply(
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<int>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
-    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String?>,
-  );
+  ConversationFirstContactReply _copyWith(
+          {Object? createdAt = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? url = sdkOmittedValue}) =>
+      ConversationFirstContactReply(
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<int>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<String>,
+        url: identical(url, sdkOmittedValue)
+            ? this.url
+            : url as SdkOptional<String?>,
+      );
 
-  factory ConversationFirstContactReply.fromJson(Map<String, dynamic> json) => ConversationFirstContactReply(
-    createdAt: json['created_at'] != null ? SdkPresent(((json['created_at'] as num?)?.toInt())!) : const SdkOmitted(),
-    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
-    url: json.containsKey('url') ? SdkPresent(json['url'] as String?) : const SdkOmitted(),
-  );
+  factory ConversationFirstContactReply.fromJson(Map<String, dynamic> json) =>
+      ConversationFirstContactReply(
+        createdAt: json['created_at'] != null
+            ? SdkPresent(((json['created_at'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] as String?)!)
+            : const SdkOmitted(),
+        url: json.containsKey('url')
+            ? SdkPresent(json['url'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (createdAt) {
-      SdkPresent<int>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (type_) {
-      SdkPresent<String>(value: final value) => {'type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (url) {
-      SdkPresent<String?>(value: final value) => {'url': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (createdAt) {
+          SdkPresent<int>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (type_) {
+          SdkPresent<String>(value: final value) => {
+              'type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (url) {
+          SdkPresent<String?>(value: final value) => {
+              'url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A map of the reply text keyed by locale code. Backs the `conversation.admin.replied.translated` webhook topic. `original` holds the locale code the reply was written in; every other key holds the reply translated into that locale.
 class ConversationPartTranslations {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The locale code identifying the language the reply was originally written in.
   final String original;
   final Map<String, dynamic> additionalProperties;
 
-  const ConversationPartTranslations({required this.original, this.additionalProperties = const <String, dynamic>{}});
+  const ConversationPartTranslations(
+      {required this.original,
+      this.additionalProperties = const <String, dynamic>{}});
 
-  ConversationPartTranslations Function({String original}) get copyWith => _copyWith;
+  ConversationPartTranslations Function({String original}) get copyWith =>
+      _copyWith;
 
-  ConversationPartTranslations _copyWith({Object? original = sdkOmittedValue}) => ConversationPartTranslations(
-    original: identical(original, sdkOmittedValue) ? this.original : original as String,
-    additionalProperties: additionalProperties,
-  );
+  ConversationPartTranslations _copyWith(
+          {Object? original = sdkOmittedValue}) =>
+      ConversationPartTranslations(
+        original: identical(original, sdkOmittedValue)
+            ? this.original
+            : original as String,
+        additionalProperties: additionalProperties,
+      );
 
-  factory ConversationPartTranslations.fromJson(Map<String, dynamic> json) => ConversationPartTranslations(
-    original: (json['original'] as String?)!,
-    additionalProperties: Map.of(json)..removeWhere((key, _) => const <String>{'original'}.contains(key)),
-  );
+  factory ConversationPartTranslations.fromJson(Map<String, dynamic> json) =>
+      ConversationPartTranslations(
+        original: (json['original'] as String?)!,
+        additionalProperties: Map.of(json)
+          ..removeWhere((key, _) => const <String>{'original'}.contains(key)),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...additionalProperties,
-    'original': original,
-  };
+        ...additionalProperties,
+        'original': original,
+      };
 }

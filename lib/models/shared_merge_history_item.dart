@@ -8,49 +8,95 @@ part of 'shared.dart';
 class MergeHistoryItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of object.
   final SdkOptional<String> type_;
+
   /// The Intercom ID of the contact that was merged into this contact.
   final SdkOptional<String> sourceContactId;
+
   /// The role of the contact that was merged in.
   final SdkOptional<MergeHistoryItemSourceContactRole> sourceContactRole;
+
   /// (Unix timestamp in seconds) The time when the merge occurred.
   final SdkOptional<int?> mergedAt;
 
-  const MergeHistoryItem({this.type_ = const SdkOmitted(), this.sourceContactId = const SdkOmitted(), this.sourceContactRole = const SdkOmitted(), this.mergedAt = const SdkOmitted()});
+  const MergeHistoryItem(
+      {this.type_ = const SdkOmitted(),
+      this.sourceContactId = const SdkOmitted(),
+      this.sourceContactRole = const SdkOmitted(),
+      this.mergedAt = const SdkOmitted()});
 
-  MergeHistoryItem Function({SdkOptional<String> type_, SdkOptional<String> sourceContactId, SdkOptional<MergeHistoryItemSourceContactRole> sourceContactRole, SdkOptional<int?> mergedAt}) get copyWith => _copyWith;
+  MergeHistoryItem Function(
+      {SdkOptional<String> type_,
+      SdkOptional<String> sourceContactId,
+      SdkOptional<MergeHistoryItemSourceContactRole> sourceContactRole,
+      SdkOptional<int?> mergedAt}) get copyWith => _copyWith;
 
-  MergeHistoryItem _copyWith({Object? type_ = sdkOmittedValue, Object? sourceContactId = sdkOmittedValue, Object? sourceContactRole = sdkOmittedValue, Object? mergedAt = sdkOmittedValue}) => MergeHistoryItem(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
-    sourceContactId: identical(sourceContactId, sdkOmittedValue) ? this.sourceContactId : sourceContactId as SdkOptional<String>,
-    sourceContactRole: identical(sourceContactRole, sdkOmittedValue) ? this.sourceContactRole : sourceContactRole as SdkOptional<MergeHistoryItemSourceContactRole>,
-    mergedAt: identical(mergedAt, sdkOmittedValue) ? this.mergedAt : mergedAt as SdkOptional<int?>,
-  );
+  MergeHistoryItem _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? sourceContactId = sdkOmittedValue,
+          Object? sourceContactRole = sdkOmittedValue,
+          Object? mergedAt = sdkOmittedValue}) =>
+      MergeHistoryItem(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<String>,
+        sourceContactId: identical(sourceContactId, sdkOmittedValue)
+            ? this.sourceContactId
+            : sourceContactId as SdkOptional<String>,
+        sourceContactRole: identical(sourceContactRole, sdkOmittedValue)
+            ? this.sourceContactRole
+            : sourceContactRole
+                as SdkOptional<MergeHistoryItemSourceContactRole>,
+        mergedAt: identical(mergedAt, sdkOmittedValue)
+            ? this.mergedAt
+            : mergedAt as SdkOptional<int?>,
+      );
 
-  factory MergeHistoryItem.fromJson(Map<String, dynamic> json) => MergeHistoryItem(
-    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
-    sourceContactId: json['source_contact_id'] != null ? SdkPresent((json['source_contact_id'] as String?)!) : const SdkOmitted(),
-    sourceContactRole: json['source_contact_role'] != null ? SdkPresent((json['source_contact_role'] != null ? MergeHistoryItemSourceContactRole.fromJson(json['source_contact_role'] as String) : null)!) : const SdkOmitted(),
-    mergedAt: json.containsKey('merged_at') ? SdkPresent((json['merged_at'] as num?)?.toInt()) : const SdkOmitted(),
-  );
+  factory MergeHistoryItem.fromJson(Map<String, dynamic> json) =>
+      MergeHistoryItem(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] as String?)!)
+            : const SdkOmitted(),
+        sourceContactId: json['source_contact_id'] != null
+            ? SdkPresent((json['source_contact_id'] as String?)!)
+            : const SdkOmitted(),
+        sourceContactRole: json['source_contact_role'] != null
+            ? SdkPresent((json['source_contact_role'] != null
+                ? MergeHistoryItemSourceContactRole.fromJson(
+                    json['source_contact_role'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        mergedAt: json.containsKey('merged_at')
+            ? SdkPresent((json['merged_at'] as num?)?.toInt())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<String>(value: final value) => {'type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (sourceContactId) {
-      SdkPresent<String>(value: final value) => {'source_contact_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (sourceContactRole) {
-      SdkPresent<MergeHistoryItemSourceContactRole>(value: final value) => {'source_contact_role': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (mergedAt) {
-      SdkPresent<int?>(value: final value) => {'merged_at': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<String>(value: final value) => {
+              'type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (sourceContactId) {
+          SdkPresent<String>(value: final value) => {
+              'source_contact_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (sourceContactRole) {
+          SdkPresent<MergeHistoryItemSourceContactRole>(value: final value) => {
+              'source_contact_role': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (mergedAt) {
+          SdkPresent<int?>(value: final value) => {
+              'merged_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

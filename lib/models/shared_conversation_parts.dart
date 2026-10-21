@@ -8,41 +8,78 @@ part of 'shared_conversation.dart';
 class ConversationParts {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional enumerated value serialized in the `type` wire field.
   final SdkOptional<ConversationPartsType> type_;
+
   /// A list of Conversation Part objects for each part message in the conversation. This is only returned when Retrieving a Conversation, and ignored when Listing all Conversations. There is a limit of 500 parts.
   final SdkOptional<List<ConversationPart>> conversationParts;
+
   /// Optional `integer` value serialized in the `total_count` wire field.
   final SdkOptional<int> totalCount;
 
-  const ConversationParts({this.type_ = const SdkOmitted(), this.conversationParts = const SdkOmitted(), this.totalCount = const SdkOmitted()});
+  const ConversationParts(
+      {this.type_ = const SdkOmitted(),
+      this.conversationParts = const SdkOmitted(),
+      this.totalCount = const SdkOmitted()});
 
-  ConversationParts Function({SdkOptional<ConversationPartsType> type_, SdkOptional<List<ConversationPart>> conversationParts, SdkOptional<int> totalCount}) get copyWith => _copyWith;
+  ConversationParts Function(
+      {SdkOptional<ConversationPartsType> type_,
+      SdkOptional<List<ConversationPart>> conversationParts,
+      SdkOptional<int> totalCount}) get copyWith => _copyWith;
 
-  ConversationParts _copyWith({Object? type_ = sdkOmittedValue, Object? conversationParts = sdkOmittedValue, Object? totalCount = sdkOmittedValue}) => ConversationParts(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ConversationPartsType>,
-    conversationParts: identical(conversationParts, sdkOmittedValue) ? this.conversationParts : conversationParts as SdkOptional<List<ConversationPart>>,
-    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as SdkOptional<int>,
-  );
+  ConversationParts _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? conversationParts = sdkOmittedValue,
+          Object? totalCount = sdkOmittedValue}) =>
+      ConversationParts(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<ConversationPartsType>,
+        conversationParts: identical(conversationParts, sdkOmittedValue)
+            ? this.conversationParts
+            : conversationParts as SdkOptional<List<ConversationPart>>,
+        totalCount: identical(totalCount, sdkOmittedValue)
+            ? this.totalCount
+            : totalCount as SdkOptional<int>,
+      );
 
-  factory ConversationParts.fromJson(Map<String, dynamic> json) => ConversationParts(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ConversationPartsType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    conversationParts: json['conversation_parts'] != null ? SdkPresent(((json['conversation_parts'] as List?)?.map((e) => ConversationPart.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    totalCount: json['total_count'] != null ? SdkPresent(((json['total_count'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory ConversationParts.fromJson(Map<String, dynamic> json) =>
+      ConversationParts(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? ConversationPartsType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        conversationParts: json['conversation_parts'] != null
+            ? SdkPresent(((json['conversation_parts'] as List?)
+                ?.map(
+                    (e) => ConversationPart.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        totalCount: json['total_count'] != null
+            ? SdkPresent(((json['total_count'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<ConversationPartsType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (conversationParts) {
-      SdkPresent<List<ConversationPart>>(value: final value) => {'conversation_parts': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (totalCount) {
-      SdkPresent<int>(value: final value) => {'total_count': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<ConversationPartsType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (conversationParts) {
+          SdkPresent<List<ConversationPart>>(value: final value) => {
+              'conversation_parts': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (totalCount) {
+          SdkPresent<int>(value: final value) => {
+              'total_count': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

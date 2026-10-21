@@ -8,210 +8,406 @@ part of 'contacts.dart';
 class ContactActivity {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Always contact_activity
   final SdkOptional<ContactActivityType> type_;
+
   /// The unique identifier for the activity event.
   final SdkOptional<String> id;
+
   /// The type of activity event.
   final SdkOptional<ContactActivityEventType> eventType;
+
   /// The unique identifier for the contact the event relates to.
   final SdkOptional<String> contactId;
+
   /// The external identifier of the contact, if one is set.
   final SdkOptional<String?> externalId;
+
   /// The role of the contact at the time of the event, either user, lead, or visitor.
   final SdkOptional<String?> role;
+
   /// For merge events, the identifier of the contact that was merged away.
   final SdkOptional<String?> mergeSourceId;
+
   /// For merge events, the identifier of the contact that was merged into.
   final SdkOptional<String?> mergeTargetId;
+
   /// For failed events, the reason the activity did not succeed.
   final SdkOptional<String?> failureReason;
+
   /// The time the activity event occurred, as a Unix timestamp in seconds.
   final SdkOptional<int> createdAt;
 
-  const ContactActivity({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.eventType = const SdkOmitted(), this.contactId = const SdkOmitted(), this.externalId = const SdkOmitted(), this.role = const SdkOmitted(), this.mergeSourceId = const SdkOmitted(), this.mergeTargetId = const SdkOmitted(), this.failureReason = const SdkOmitted(), this.createdAt = const SdkOmitted()});
+  const ContactActivity(
+      {this.type_ = const SdkOmitted(),
+      this.id = const SdkOmitted(),
+      this.eventType = const SdkOmitted(),
+      this.contactId = const SdkOmitted(),
+      this.externalId = const SdkOmitted(),
+      this.role = const SdkOmitted(),
+      this.mergeSourceId = const SdkOmitted(),
+      this.mergeTargetId = const SdkOmitted(),
+      this.failureReason = const SdkOmitted(),
+      this.createdAt = const SdkOmitted()});
 
-  ContactActivity Function({SdkOptional<ContactActivityType> type_, SdkOptional<String> id, SdkOptional<ContactActivityEventType> eventType, SdkOptional<String> contactId, SdkOptional<String?> externalId, SdkOptional<String?> role, SdkOptional<String?> mergeSourceId, SdkOptional<String?> mergeTargetId, SdkOptional<String?> failureReason, SdkOptional<int> createdAt}) get copyWith => _copyWith;
+  ContactActivity Function(
+      {SdkOptional<ContactActivityType> type_,
+      SdkOptional<String> id,
+      SdkOptional<ContactActivityEventType> eventType,
+      SdkOptional<String> contactId,
+      SdkOptional<String?> externalId,
+      SdkOptional<String?> role,
+      SdkOptional<String?> mergeSourceId,
+      SdkOptional<String?> mergeTargetId,
+      SdkOptional<String?> failureReason,
+      SdkOptional<int> createdAt}) get copyWith => _copyWith;
 
-  ContactActivity _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? eventType = sdkOmittedValue, Object? contactId = sdkOmittedValue, Object? externalId = sdkOmittedValue, Object? role = sdkOmittedValue, Object? mergeSourceId = sdkOmittedValue, Object? mergeTargetId = sdkOmittedValue, Object? failureReason = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => ContactActivity(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ContactActivityType>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    eventType: identical(eventType, sdkOmittedValue) ? this.eventType : eventType as SdkOptional<ContactActivityEventType>,
-    contactId: identical(contactId, sdkOmittedValue) ? this.contactId : contactId as SdkOptional<String>,
-    externalId: identical(externalId, sdkOmittedValue) ? this.externalId : externalId as SdkOptional<String?>,
-    role: identical(role, sdkOmittedValue) ? this.role : role as SdkOptional<String?>,
-    mergeSourceId: identical(mergeSourceId, sdkOmittedValue) ? this.mergeSourceId : mergeSourceId as SdkOptional<String?>,
-    mergeTargetId: identical(mergeTargetId, sdkOmittedValue) ? this.mergeTargetId : mergeTargetId as SdkOptional<String?>,
-    failureReason: identical(failureReason, sdkOmittedValue) ? this.failureReason : failureReason as SdkOptional<String?>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<int>,
-  );
+  ContactActivity _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? eventType = sdkOmittedValue,
+          Object? contactId = sdkOmittedValue,
+          Object? externalId = sdkOmittedValue,
+          Object? role = sdkOmittedValue,
+          Object? mergeSourceId = sdkOmittedValue,
+          Object? mergeTargetId = sdkOmittedValue,
+          Object? failureReason = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue}) =>
+      ContactActivity(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<ContactActivityType>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        eventType: identical(eventType, sdkOmittedValue)
+            ? this.eventType
+            : eventType as SdkOptional<ContactActivityEventType>,
+        contactId: identical(contactId, sdkOmittedValue)
+            ? this.contactId
+            : contactId as SdkOptional<String>,
+        externalId: identical(externalId, sdkOmittedValue)
+            ? this.externalId
+            : externalId as SdkOptional<String?>,
+        role: identical(role, sdkOmittedValue)
+            ? this.role
+            : role as SdkOptional<String?>,
+        mergeSourceId: identical(mergeSourceId, sdkOmittedValue)
+            ? this.mergeSourceId
+            : mergeSourceId as SdkOptional<String?>,
+        mergeTargetId: identical(mergeTargetId, sdkOmittedValue)
+            ? this.mergeTargetId
+            : mergeTargetId as SdkOptional<String?>,
+        failureReason: identical(failureReason, sdkOmittedValue)
+            ? this.failureReason
+            : failureReason as SdkOptional<String?>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<int>,
+      );
 
-  factory ContactActivity.fromJson(Map<String, dynamic> json) => ContactActivity(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ContactActivityType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    eventType: json['event_type'] != null ? SdkPresent((json['event_type'] != null ? ContactActivityEventType.fromJson(json['event_type'] as String) : null)!) : const SdkOmitted(),
-    contactId: json['contact_id'] != null ? SdkPresent((json['contact_id'] as String?)!) : const SdkOmitted(),
-    externalId: json.containsKey('external_id') ? SdkPresent(json['external_id'] as String?) : const SdkOmitted(),
-    role: json.containsKey('role') ? SdkPresent(json['role'] as String?) : const SdkOmitted(),
-    mergeSourceId: json.containsKey('merge_source_id') ? SdkPresent(json['merge_source_id'] as String?) : const SdkOmitted(),
-    mergeTargetId: json.containsKey('merge_target_id') ? SdkPresent(json['merge_target_id'] as String?) : const SdkOmitted(),
-    failureReason: json.containsKey('failure_reason') ? SdkPresent(json['failure_reason'] as String?) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent(((json['created_at'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory ContactActivity.fromJson(Map<String, dynamic> json) =>
+      ContactActivity(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? ContactActivityType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        eventType: json['event_type'] != null
+            ? SdkPresent((json['event_type'] != null
+                ? ContactActivityEventType.fromJson(
+                    json['event_type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        contactId: json['contact_id'] != null
+            ? SdkPresent((json['contact_id'] as String?)!)
+            : const SdkOmitted(),
+        externalId: json.containsKey('external_id')
+            ? SdkPresent(json['external_id'] as String?)
+            : const SdkOmitted(),
+        role: json.containsKey('role')
+            ? SdkPresent(json['role'] as String?)
+            : const SdkOmitted(),
+        mergeSourceId: json.containsKey('merge_source_id')
+            ? SdkPresent(json['merge_source_id'] as String?)
+            : const SdkOmitted(),
+        mergeTargetId: json.containsKey('merge_target_id')
+            ? SdkPresent(json['merge_target_id'] as String?)
+            : const SdkOmitted(),
+        failureReason: json.containsKey('failure_reason')
+            ? SdkPresent(json['failure_reason'] as String?)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent(((json['created_at'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<ContactActivityType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (eventType) {
-      SdkPresent<ContactActivityEventType>(value: final value) => {'event_type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (contactId) {
-      SdkPresent<String>(value: final value) => {'contact_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (externalId) {
-      SdkPresent<String?>(value: final value) => {'external_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (role) {
-      SdkPresent<String?>(value: final value) => {'role': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (mergeSourceId) {
-      SdkPresent<String?>(value: final value) => {'merge_source_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (mergeTargetId) {
-      SdkPresent<String?>(value: final value) => {'merge_target_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (failureReason) {
-      SdkPresent<String?>(value: final value) => {'failure_reason': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<int>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<ContactActivityType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (eventType) {
+          SdkPresent<ContactActivityEventType>(value: final value) => {
+              'event_type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (contactId) {
+          SdkPresent<String>(value: final value) => {
+              'contact_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (externalId) {
+          SdkPresent<String?>(value: final value) => {
+              'external_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (role) {
+          SdkPresent<String?>(value: final value) => {
+              'role': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (mergeSourceId) {
+          SdkPresent<String?>(value: final value) => {
+              'merge_source_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (mergeTargetId) {
+          SdkPresent<String?>(value: final value) => {
+              'merge_target_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (failureReason) {
+          SdkPresent<String?>(value: final value) => {
+              'failure_reason': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<int>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Cursor for the next page of results.
 class ContactActivityListPagesNext {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The cursor value to use for the next page.
   final SdkOptional<String> startingAfter;
 
   const ContactActivityListPagesNext({this.startingAfter = const SdkOmitted()});
 
-  ContactActivityListPagesNext Function({SdkOptional<String> startingAfter}) get copyWith => _copyWith;
+  ContactActivityListPagesNext Function({SdkOptional<String> startingAfter})
+      get copyWith => _copyWith;
 
-  ContactActivityListPagesNext _copyWith({Object? startingAfter = sdkOmittedValue}) => ContactActivityListPagesNext(
-    startingAfter: identical(startingAfter, sdkOmittedValue) ? this.startingAfter : startingAfter as SdkOptional<String>,
-  );
+  ContactActivityListPagesNext _copyWith(
+          {Object? startingAfter = sdkOmittedValue}) =>
+      ContactActivityListPagesNext(
+        startingAfter: identical(startingAfter, sdkOmittedValue)
+            ? this.startingAfter
+            : startingAfter as SdkOptional<String>,
+      );
 
-  factory ContactActivityListPagesNext.fromJson(Map<String, dynamic> json) => ContactActivityListPagesNext(
-    startingAfter: json['starting_after'] != null ? SdkPresent((json['starting_after'] as String?)!) : const SdkOmitted(),
-  );
+  factory ContactActivityListPagesNext.fromJson(Map<String, dynamic> json) =>
+      ContactActivityListPagesNext(
+        startingAfter: json['starting_after'] != null
+            ? SdkPresent((json['starting_after'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (startingAfter) {
-      SdkPresent<String>(value: final value) => {'starting_after': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (startingAfter) {
+          SdkPresent<String>(value: final value) => {
+              'starting_after': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Pagination information.
 class ContactActivityListPages {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional enumerated value serialized in the `type` wire field.
   final SdkOptional<ContactActivityListPagesType> type_;
+
   /// The number of results per page.
   final SdkOptional<int> perPage;
+
   /// Cursor for the next page of results.
   final SdkOptional<ContactActivityListPagesNext?> next;
 
-  const ContactActivityListPages({this.type_ = const SdkOmitted(), this.perPage = const SdkOmitted(), this.next = const SdkOmitted()});
+  const ContactActivityListPages(
+      {this.type_ = const SdkOmitted(),
+      this.perPage = const SdkOmitted(),
+      this.next = const SdkOmitted()});
 
-  ContactActivityListPages Function({SdkOptional<ContactActivityListPagesType> type_, SdkOptional<int> perPage, SdkOptional<ContactActivityListPagesNext?> next}) get copyWith => _copyWith;
+  ContactActivityListPages Function(
+          {SdkOptional<ContactActivityListPagesType> type_,
+          SdkOptional<int> perPage,
+          SdkOptional<ContactActivityListPagesNext?> next})
+      get copyWith => _copyWith;
 
-  ContactActivityListPages _copyWith({Object? type_ = sdkOmittedValue, Object? perPage = sdkOmittedValue, Object? next = sdkOmittedValue}) => ContactActivityListPages(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ContactActivityListPagesType>,
-    perPage: identical(perPage, sdkOmittedValue) ? this.perPage : perPage as SdkOptional<int>,
-    next: identical(next, sdkOmittedValue) ? this.next : next as SdkOptional<ContactActivityListPagesNext?>,
-  );
+  ContactActivityListPages _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? perPage = sdkOmittedValue,
+          Object? next = sdkOmittedValue}) =>
+      ContactActivityListPages(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<ContactActivityListPagesType>,
+        perPage: identical(perPage, sdkOmittedValue)
+            ? this.perPage
+            : perPage as SdkOptional<int>,
+        next: identical(next, sdkOmittedValue)
+            ? this.next
+            : next as SdkOptional<ContactActivityListPagesNext?>,
+      );
 
-  factory ContactActivityListPages.fromJson(Map<String, dynamic> json) => ContactActivityListPages(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ContactActivityListPagesType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    perPage: json['per_page'] != null ? SdkPresent(((json['per_page'] as num?)?.toInt())!) : const SdkOmitted(),
-    next: json.containsKey('next') ? SdkPresent(json['next'] != null ? ContactActivityListPagesNext.fromJson(json['next'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-  );
+  factory ContactActivityListPages.fromJson(Map<String, dynamic> json) =>
+      ContactActivityListPages(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? ContactActivityListPagesType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        perPage: json['per_page'] != null
+            ? SdkPresent(((json['per_page'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        next: json.containsKey('next')
+            ? SdkPresent(json['next'] != null
+                ? ContactActivityListPagesNext.fromJson(
+                    json['next'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<ContactActivityListPagesType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (perPage) {
-      SdkPresent<int>(value: final value) => {'per_page': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (next) {
-      SdkPresent<ContactActivityListPagesNext?>(value: final value) => {'next': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<ContactActivityListPagesType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (perPage) {
+          SdkPresent<int>(value: final value) => {
+              'per_page': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (next) {
+          SdkPresent<ContactActivityListPagesNext?>(value: final value) => {
+              'next': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A paginated list of contact activity events.
 class ContactActivityList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Always list
   final SdkOptional<ContactActivityListType> type_;
+
   /// The list of contact activity objects.
   final SdkOptional<List<ContactActivity>> data;
+
   /// Pagination information.
   final SdkOptional<ContactActivityListPages> pages;
 
-  const ContactActivityList({this.type_ = const SdkOmitted(), this.data = const SdkOmitted(), this.pages = const SdkOmitted()});
+  const ContactActivityList(
+      {this.type_ = const SdkOmitted(),
+      this.data = const SdkOmitted(),
+      this.pages = const SdkOmitted()});
 
-  ContactActivityList Function({SdkOptional<ContactActivityListType> type_, SdkOptional<List<ContactActivity>> data, SdkOptional<ContactActivityListPages> pages}) get copyWith => _copyWith;
+  ContactActivityList Function(
+      {SdkOptional<ContactActivityListType> type_,
+      SdkOptional<List<ContactActivity>> data,
+      SdkOptional<ContactActivityListPages> pages}) get copyWith => _copyWith;
 
-  ContactActivityList _copyWith({Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue, Object? pages = sdkOmittedValue}) => ContactActivityList(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ContactActivityListType>,
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<ContactActivity>>,
-    pages: identical(pages, sdkOmittedValue) ? this.pages : pages as SdkOptional<ContactActivityListPages>,
-  );
+  ContactActivityList _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? data = sdkOmittedValue,
+          Object? pages = sdkOmittedValue}) =>
+      ContactActivityList(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<ContactActivityListType>,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<List<ContactActivity>>,
+        pages: identical(pages, sdkOmittedValue)
+            ? this.pages
+            : pages as SdkOptional<ContactActivityListPages>,
+      );
 
-  factory ContactActivityList.fromJson(Map<String, dynamic> json) => ContactActivityList(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ContactActivityListType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => ContactActivity.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    pages: json['pages'] != null ? SdkPresent((json['pages'] != null ? ContactActivityListPages.fromJson(json['pages'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ContactActivityList.fromJson(Map<String, dynamic> json) =>
+      ContactActivityList(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? ContactActivityListType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        data: json['data'] != null
+            ? SdkPresent(((json['data'] as List?)
+                ?.map(
+                    (e) => ContactActivity.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        pages: json['pages'] != null
+            ? SdkPresent((json['pages'] != null
+                ? ContactActivityListPages.fromJson(
+                    json['pages'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<ContactActivityListType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (data) {
-      SdkPresent<List<ContactActivity>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (pages) {
-      SdkPresent<ContactActivityListPages>(value: final value) => {'pages': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<ContactActivityListType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (data) {
+          SdkPresent<List<ContactActivity>>(value: final value) => {
+              'data': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pages) {
+          SdkPresent<ContactActivityListPages>(value: final value) => {
+              'pages': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

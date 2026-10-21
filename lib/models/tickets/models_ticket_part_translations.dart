@@ -8,62 +8,88 @@ part of 'models.dart';
 class TicketPartTranslations {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The locale code identifying the language the reply was originally written in.
   final String original;
   final Map<String, dynamic> additionalProperties;
 
-  const TicketPartTranslations({required this.original, this.additionalProperties = const <String, dynamic>{}});
+  const TicketPartTranslations(
+      {required this.original,
+      this.additionalProperties = const <String, dynamic>{}});
 
   TicketPartTranslations Function({String original}) get copyWith => _copyWith;
 
-  TicketPartTranslations _copyWith({Object? original = sdkOmittedValue}) => TicketPartTranslations(
-    original: identical(original, sdkOmittedValue) ? this.original : original as String,
-    additionalProperties: additionalProperties,
-  );
+  TicketPartTranslations _copyWith({Object? original = sdkOmittedValue}) =>
+      TicketPartTranslations(
+        original: identical(original, sdkOmittedValue)
+            ? this.original
+            : original as String,
+        additionalProperties: additionalProperties,
+      );
 
-  factory TicketPartTranslations.fromJson(Map<String, dynamic> json) => TicketPartTranslations(
-    original: (json['original'] as String?)!,
-    additionalProperties: Map.of(json)..removeWhere((key, _) => const <String>{'original'}.contains(key)),
-  );
+  factory TicketPartTranslations.fromJson(Map<String, dynamic> json) =>
+      TicketPartTranslations(
+        original: (json['original'] as String?)!,
+        additionalProperties: Map.of(json)
+          ..removeWhere((key, _) => const <String>{'original'}.contains(key)),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...additionalProperties,
-    'original': original,
-  };
+        ...additionalProperties,
+        'original': original,
+      };
 }
 
 /// Information about the attribute that was updated.
 class TicketPartUpdatedAttributeDataAttribute {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always 'attribute'.
   final TicketPartUpdatedAttributeDataAttributeType type_;
+
   /// The unique identifier of the attribute.
   final String id;
+
   /// The human-readable name of the attribute.
   final String label;
 
-  const TicketPartUpdatedAttributeDataAttribute({required this.type_, required this.id, required this.label});
+  const TicketPartUpdatedAttributeDataAttribute(
+      {required this.type_, required this.id, required this.label});
 
-  TicketPartUpdatedAttributeDataAttribute Function({TicketPartUpdatedAttributeDataAttributeType type_, String id, String label}) get copyWith => _copyWith;
+  TicketPartUpdatedAttributeDataAttribute Function(
+      {TicketPartUpdatedAttributeDataAttributeType type_,
+      String id,
+      String label}) get copyWith => _copyWith;
 
-  TicketPartUpdatedAttributeDataAttribute _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? label = sdkOmittedValue}) => TicketPartUpdatedAttributeDataAttribute(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as TicketPartUpdatedAttributeDataAttributeType,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    label: identical(label, sdkOmittedValue) ? this.label : label as String,
-  );
+  TicketPartUpdatedAttributeDataAttribute _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? label = sdkOmittedValue}) =>
+      TicketPartUpdatedAttributeDataAttribute(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as TicketPartUpdatedAttributeDataAttributeType,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        label: identical(label, sdkOmittedValue) ? this.label : label as String,
+      );
 
-  factory TicketPartUpdatedAttributeDataAttribute.fromJson(Map<String, dynamic> json) => TicketPartUpdatedAttributeDataAttribute(
-    type_: (json['type'] != null ? TicketPartUpdatedAttributeDataAttributeType.fromJson(json['type'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    label: (json['label'] as String?)!,
-  );
+  factory TicketPartUpdatedAttributeDataAttribute.fromJson(
+          Map<String, dynamic> json) =>
+      TicketPartUpdatedAttributeDataAttribute(
+        type_: (json['type'] != null
+            ? TicketPartUpdatedAttributeDataAttributeType.fromJson(
+                json['type'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        label: (json['label'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'id': id,
-    'label': label,
-  };
+        'type': type_.toJson(),
+        'id': id,
+        'label': label,
+      };
 }
 
 sealed class TicketPartUpdatedAttributeDataValueId {
@@ -71,23 +97,33 @@ sealed class TicketPartUpdatedAttributeDataValueId {
   static const String constructionSurface = 'named';
   const TicketPartUpdatedAttributeDataValueId();
   factory TicketPartUpdatedAttributeDataValueId.fromJson(Object? json) {
-    if (json is String) { return TicketPartUpdatedAttributeDataValueIdString(json); }
-    if (json is List) { return TicketPartUpdatedAttributeDataValueIdListint(json.map((e) => (e as num).toInt()).toList().cast<int>()); }
-    throw FormatException("No variant matched for TicketPartUpdatedAttributeDataValueId");
+    if (json is String) {
+      return TicketPartUpdatedAttributeDataValueIdString(json);
+    }
+    if (json is List) {
+      return TicketPartUpdatedAttributeDataValueIdListint(
+          json.map((e) => (e as num).toInt()).toList().cast<int>());
+    }
+    throw FormatException(
+        "No variant matched for TicketPartUpdatedAttributeDataValueId");
   }
   Object? toJson();
 }
 
-final class TicketPartUpdatedAttributeDataValueIdString extends TicketPartUpdatedAttributeDataValueId {
+final class TicketPartUpdatedAttributeDataValueIdString
+    extends TicketPartUpdatedAttributeDataValueId {
   final String value;
   const TicketPartUpdatedAttributeDataValueIdString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class TicketPartUpdatedAttributeDataValueIdListint extends TicketPartUpdatedAttributeDataValueId {
+final class TicketPartUpdatedAttributeDataValueIdListint
+    extends TicketPartUpdatedAttributeDataValueId {
   final List<int> value;
   const TicketPartUpdatedAttributeDataValueIdListint(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 sealed class TicketPartUpdatedAttributeDataValueLabel {
@@ -95,84 +131,135 @@ sealed class TicketPartUpdatedAttributeDataValueLabel {
   static const String constructionSurface = 'named';
   const TicketPartUpdatedAttributeDataValueLabel();
   factory TicketPartUpdatedAttributeDataValueLabel.fromJson(Object? json) {
-    if (json is String) { return TicketPartUpdatedAttributeDataValueLabelString(json); }
-    if (json is List) { return TicketPartUpdatedAttributeDataValueLabelListString(json.map((e) => e as String).toList().cast<String>()); }
-    throw FormatException("No variant matched for TicketPartUpdatedAttributeDataValueLabel");
+    if (json is String) {
+      return TicketPartUpdatedAttributeDataValueLabelString(json);
+    }
+    if (json is List) {
+      return TicketPartUpdatedAttributeDataValueLabelListString(
+          json.map((e) => e as String).toList().cast<String>());
+    }
+    throw FormatException(
+        "No variant matched for TicketPartUpdatedAttributeDataValueLabel");
   }
   Object? toJson();
 }
 
-final class TicketPartUpdatedAttributeDataValueLabelString extends TicketPartUpdatedAttributeDataValueLabel {
+final class TicketPartUpdatedAttributeDataValueLabelString
+    extends TicketPartUpdatedAttributeDataValueLabel {
   final String value;
   const TicketPartUpdatedAttributeDataValueLabelString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class TicketPartUpdatedAttributeDataValueLabelListString extends TicketPartUpdatedAttributeDataValueLabel {
+final class TicketPartUpdatedAttributeDataValueLabelListString
+    extends TicketPartUpdatedAttributeDataValueLabel {
   final List<String> value;
   const TicketPartUpdatedAttributeDataValueLabelListString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 /// The new value of the attribute.
 class TicketPartUpdatedAttributeDataValue {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always 'value'.
   final TicketPartUpdatedAttributeDataValueType type_;
+
   /// Required API value serialized in the `id` wire field.
   final dynamic id;
+
   /// Required API value serialized in the `label` wire field.
   final dynamic label;
 
-  const TicketPartUpdatedAttributeDataValue({required this.type_, required this.id, required this.label});
+  const TicketPartUpdatedAttributeDataValue(
+      {required this.type_, required this.id, required this.label});
 
-  TicketPartUpdatedAttributeDataValue Function({TicketPartUpdatedAttributeDataValueType type_, dynamic id, dynamic label}) get copyWith => _copyWith;
+  TicketPartUpdatedAttributeDataValue Function(
+      {TicketPartUpdatedAttributeDataValueType type_,
+      dynamic id,
+      dynamic label}) get copyWith => _copyWith;
 
-  TicketPartUpdatedAttributeDataValue _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? label = sdkOmittedValue}) => TicketPartUpdatedAttributeDataValue(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as TicketPartUpdatedAttributeDataValueType,
-    id: identical(id, sdkOmittedValue) ? this.id : id as dynamic,
-    label: identical(label, sdkOmittedValue) ? this.label : label as dynamic,
-  );
+  TicketPartUpdatedAttributeDataValue _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? label = sdkOmittedValue}) =>
+      TicketPartUpdatedAttributeDataValue(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as TicketPartUpdatedAttributeDataValueType,
+        id: identical(id, sdkOmittedValue) ? this.id : id as dynamic,
+        label:
+            identical(label, sdkOmittedValue) ? this.label : label as dynamic,
+      );
 
-  factory TicketPartUpdatedAttributeDataValue.fromJson(Map<String, dynamic> json) => TicketPartUpdatedAttributeDataValue(
-    type_: (json['type'] != null ? TicketPartUpdatedAttributeDataValueType.fromJson(json['type'] as String) : null)!,
-    id: json.containsKey('id') ? json['id'] : throw ArgumentError.value(null, 'id', 'Required property is missing'),
-    label: (json['label'])!,
-  );
+  factory TicketPartUpdatedAttributeDataValue.fromJson(
+          Map<String, dynamic> json) =>
+      TicketPartUpdatedAttributeDataValue(
+        type_: (json['type'] != null
+            ? TicketPartUpdatedAttributeDataValueType.fromJson(
+                json['type'] as String)
+            : null)!,
+        id: json.containsKey('id')
+            ? json['id']
+            : throw ArgumentError.value(
+                null, 'id', 'Required property is missing'),
+        label: (json['label'])!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'id': id,
-    'label': label,
-  };
+        'type': type_.toJson(),
+        'id': id,
+        'label': label,
+      };
 }
 
 /// The updated attribute data of the ticket part. Only present for attribute update parts.
 class TicketPartUpdatedAttributeData {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Information about the attribute that was updated.
   final TicketPartUpdatedAttributeDataAttribute attribute;
+
   /// The new value of the attribute.
   final TicketPartUpdatedAttributeDataValue value;
 
-  const TicketPartUpdatedAttributeData({required this.attribute, required this.value});
+  const TicketPartUpdatedAttributeData(
+      {required this.attribute, required this.value});
 
-  TicketPartUpdatedAttributeData Function({TicketPartUpdatedAttributeDataAttribute attribute, TicketPartUpdatedAttributeDataValue value}) get copyWith => _copyWith;
+  TicketPartUpdatedAttributeData Function(
+      {TicketPartUpdatedAttributeDataAttribute attribute,
+      TicketPartUpdatedAttributeDataValue value}) get copyWith => _copyWith;
 
-  TicketPartUpdatedAttributeData _copyWith({Object? attribute = sdkOmittedValue, Object? value = sdkOmittedValue}) => TicketPartUpdatedAttributeData(
-    attribute: identical(attribute, sdkOmittedValue) ? this.attribute : attribute as TicketPartUpdatedAttributeDataAttribute,
-    value: identical(value, sdkOmittedValue) ? this.value : value as TicketPartUpdatedAttributeDataValue,
-  );
+  TicketPartUpdatedAttributeData _copyWith(
+          {Object? attribute = sdkOmittedValue,
+          Object? value = sdkOmittedValue}) =>
+      TicketPartUpdatedAttributeData(
+        attribute: identical(attribute, sdkOmittedValue)
+            ? this.attribute
+            : attribute as TicketPartUpdatedAttributeDataAttribute,
+        value: identical(value, sdkOmittedValue)
+            ? this.value
+            : value as TicketPartUpdatedAttributeDataValue,
+      );
 
-  factory TicketPartUpdatedAttributeData.fromJson(Map<String, dynamic> json) => TicketPartUpdatedAttributeData(
-    attribute: (json['attribute'] != null ? TicketPartUpdatedAttributeDataAttribute.fromJson(json['attribute'] as Map<String, dynamic>) : null)!,
-    value: (json['value'] != null ? TicketPartUpdatedAttributeDataValue.fromJson(json['value'] as Map<String, dynamic>) : null)!,
-  );
+  factory TicketPartUpdatedAttributeData.fromJson(Map<String, dynamic> json) =>
+      TicketPartUpdatedAttributeData(
+        attribute: (json['attribute'] != null
+            ? TicketPartUpdatedAttributeDataAttribute.fromJson(
+                json['attribute'] as Map<String, dynamic>)
+            : null)!,
+        value: (json['value'] != null
+            ? TicketPartUpdatedAttributeDataValue.fromJson(
+                json['value'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'attribute': attribute.toJson(),
-    'value': value.toJson(),
-  };
+        'attribute': attribute.toJson(),
+        'value': value.toJson(),
+      };
 }

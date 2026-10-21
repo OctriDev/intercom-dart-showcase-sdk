@@ -8,73 +8,150 @@ part of 'models.dart';
 class Audience {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of object.
   final SdkOptional<AudienceType> type_;
+
   /// The unique identifier representing the audience.
   final SdkOptional<String> id;
+
   /// The name of the audience.
   final SdkOptional<String> name;
+
   /// The predicates that define which contacts belong to the audience.
   final SdkOptional<List<Predicate>> predicates;
+
   /// Role-based predicates that further filter audience membership by contact role.
   final SdkOptional<List<Predicate>> rolePredicates;
+
   /// The time the audience was created as a Unix timestamp.
   final SdkOptional<int> createdAt;
+
   /// The time the audience was last updated as a Unix timestamp.
   final SdkOptional<int> updatedAt;
 
-  const Audience({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.name = const SdkOmitted(), this.predicates = const SdkOmitted(), this.rolePredicates = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.updatedAt = const SdkOmitted()});
+  const Audience(
+      {this.type_ = const SdkOmitted(),
+      this.id = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.predicates = const SdkOmitted(),
+      this.rolePredicates = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.updatedAt = const SdkOmitted()});
 
-  Audience Function({SdkOptional<AudienceType> type_, SdkOptional<String> id, SdkOptional<String> name, SdkOptional<List<Predicate>> predicates, SdkOptional<List<Predicate>> rolePredicates, SdkOptional<int> createdAt, SdkOptional<int> updatedAt}) get copyWith => _copyWith;
+  Audience Function(
+      {SdkOptional<AudienceType> type_,
+      SdkOptional<String> id,
+      SdkOptional<String> name,
+      SdkOptional<List<Predicate>> predicates,
+      SdkOptional<List<Predicate>> rolePredicates,
+      SdkOptional<int> createdAt,
+      SdkOptional<int> updatedAt}) get copyWith => _copyWith;
 
-  Audience _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? predicates = sdkOmittedValue, Object? rolePredicates = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => Audience(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<AudienceType>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    predicates: identical(predicates, sdkOmittedValue) ? this.predicates : predicates as SdkOptional<List<Predicate>>,
-    rolePredicates: identical(rolePredicates, sdkOmittedValue) ? this.rolePredicates : rolePredicates as SdkOptional<List<Predicate>>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<int>,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<int>,
-  );
+  Audience _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? predicates = sdkOmittedValue,
+          Object? rolePredicates = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue}) =>
+      Audience(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<AudienceType>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        predicates: identical(predicates, sdkOmittedValue)
+            ? this.predicates
+            : predicates as SdkOptional<List<Predicate>>,
+        rolePredicates: identical(rolePredicates, sdkOmittedValue)
+            ? this.rolePredicates
+            : rolePredicates as SdkOptional<List<Predicate>>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<int>,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as SdkOptional<int>,
+      );
 
   factory Audience.fromJson(Map<String, dynamic> json) => Audience(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? AudienceType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    predicates: json['predicates'] != null ? SdkPresent(((json['predicates'] as List?)?.map((e) => Predicate.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    rolePredicates: json['role_predicates'] != null ? SdkPresent(((json['role_predicates'] as List?)?.map((e) => Predicate.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent(((json['created_at'] as num?)?.toInt())!) : const SdkOmitted(),
-    updatedAt: json['updated_at'] != null ? SdkPresent(((json['updated_at'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? AudienceType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        predicates: json['predicates'] != null
+            ? SdkPresent(((json['predicates'] as List?)
+                ?.map((e) => Predicate.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        rolePredicates: json['role_predicates'] != null
+            ? SdkPresent(((json['role_predicates'] as List?)
+                ?.map((e) => Predicate.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent(((json['created_at'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        updatedAt: json['updated_at'] != null
+            ? SdkPresent(((json['updated_at'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<AudienceType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (predicates) {
-      SdkPresent<List<Predicate>>(value: final value) => {'predicates': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (rolePredicates) {
-      SdkPresent<List<Predicate>>(value: final value) => {'role_predicates': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<int>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (updatedAt) {
-      SdkPresent<int>(value: final value) => {'updated_at': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<AudienceType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (predicates) {
+          SdkPresent<List<Predicate>>(value: final value) => {
+              'predicates': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (rolePredicates) {
+          SdkPresent<List<Predicate>>(value: final value) => {
+              'role_predicates': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<int>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (updatedAt) {
+          SdkPresent<int>(value: final value) => {
+              'updated_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

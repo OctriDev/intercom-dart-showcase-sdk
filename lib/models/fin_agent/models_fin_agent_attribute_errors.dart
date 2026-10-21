@@ -8,87 +8,146 @@ part of 'models.dart';
 class FinAgentAttributeErrorsUser {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Map of user attribute names to error messages.
   final SdkOptional<Map<String, String>> attributes;
 
   const FinAgentAttributeErrorsUser({this.attributes = const SdkOmitted()});
 
-  FinAgentAttributeErrorsUser Function({SdkOptional<Map<String, String>> attributes}) get copyWith => _copyWith;
+  FinAgentAttributeErrorsUser Function(
+      {SdkOptional<Map<String, String>> attributes}) get copyWith => _copyWith;
 
-  FinAgentAttributeErrorsUser _copyWith({Object? attributes = sdkOmittedValue}) => FinAgentAttributeErrorsUser(
-    attributes: identical(attributes, sdkOmittedValue) ? this.attributes : attributes as SdkOptional<Map<String, String>>,
-  );
+  FinAgentAttributeErrorsUser _copyWith(
+          {Object? attributes = sdkOmittedValue}) =>
+      FinAgentAttributeErrorsUser(
+        attributes: identical(attributes, sdkOmittedValue)
+            ? this.attributes
+            : attributes as SdkOptional<Map<String, String>>,
+      );
 
-  factory FinAgentAttributeErrorsUser.fromJson(Map<String, dynamic> json) => FinAgentAttributeErrorsUser(
-    attributes: json['attributes'] != null ? SdkPresent((json['attributes'] == null ? null : Map<String, dynamic>.from(json['attributes'] as Map).map((key, value) => MapEntry(key, value as String)))!) : const SdkOmitted(),
-  );
+  factory FinAgentAttributeErrorsUser.fromJson(Map<String, dynamic> json) =>
+      FinAgentAttributeErrorsUser(
+        attributes: json['attributes'] != null
+            ? SdkPresent((json['attributes'] == null
+                ? null
+                : Map<String, dynamic>.from(json['attributes'] as Map)
+                    .map((key, value) => MapEntry(key, value as String)))!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (attributes) {
-      SdkPresent<Map<String, String>>(value: final value) => {'attributes': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (attributes) {
+          SdkPresent<Map<String, String>>(value: final value) => {
+              'attributes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Conversation-related attribute errors.
 class FinAgentAttributeErrorsConversation {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Map of conversation attribute names to error messages.
   final SdkOptional<Map<String, String>> attributes;
 
-  const FinAgentAttributeErrorsConversation({this.attributes = const SdkOmitted()});
+  const FinAgentAttributeErrorsConversation(
+      {this.attributes = const SdkOmitted()});
 
-  FinAgentAttributeErrorsConversation Function({SdkOptional<Map<String, String>> attributes}) get copyWith => _copyWith;
+  FinAgentAttributeErrorsConversation Function(
+      {SdkOptional<Map<String, String>> attributes}) get copyWith => _copyWith;
 
-  FinAgentAttributeErrorsConversation _copyWith({Object? attributes = sdkOmittedValue}) => FinAgentAttributeErrorsConversation(
-    attributes: identical(attributes, sdkOmittedValue) ? this.attributes : attributes as SdkOptional<Map<String, String>>,
-  );
+  FinAgentAttributeErrorsConversation _copyWith(
+          {Object? attributes = sdkOmittedValue}) =>
+      FinAgentAttributeErrorsConversation(
+        attributes: identical(attributes, sdkOmittedValue)
+            ? this.attributes
+            : attributes as SdkOptional<Map<String, String>>,
+      );
 
-  factory FinAgentAttributeErrorsConversation.fromJson(Map<String, dynamic> json) => FinAgentAttributeErrorsConversation(
-    attributes: json['attributes'] != null ? SdkPresent((json['attributes'] == null ? null : Map<String, dynamic>.from(json['attributes'] as Map).map((key, value) => MapEntry(key, value as String)))!) : const SdkOmitted(),
-  );
+  factory FinAgentAttributeErrorsConversation.fromJson(
+          Map<String, dynamic> json) =>
+      FinAgentAttributeErrorsConversation(
+        attributes: json['attributes'] != null
+            ? SdkPresent((json['attributes'] == null
+                ? null
+                : Map<String, dynamic>.from(json['attributes'] as Map)
+                    .map((key, value) => MapEntry(key, value as String)))!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (attributes) {
-      SdkPresent<Map<String, String>>(value: final value) => {'attributes': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (attributes) {
+          SdkPresent<Map<String, String>>(value: final value) => {
+              'attributes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Contains error details if any user or conversation attribute updates failed.
 class FinAgentAttributeErrors {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// User-related attribute errors.
   final SdkOptional<FinAgentAttributeErrorsUser> user;
+
   /// Conversation-related attribute errors.
   final SdkOptional<FinAgentAttributeErrorsConversation> conversation;
 
-  const FinAgentAttributeErrors({this.user = const SdkOmitted(), this.conversation = const SdkOmitted()});
+  const FinAgentAttributeErrors(
+      {this.user = const SdkOmitted(), this.conversation = const SdkOmitted()});
 
-  FinAgentAttributeErrors Function({SdkOptional<FinAgentAttributeErrorsUser> user, SdkOptional<FinAgentAttributeErrorsConversation> conversation}) get copyWith => _copyWith;
+  FinAgentAttributeErrors Function(
+          {SdkOptional<FinAgentAttributeErrorsUser> user,
+          SdkOptional<FinAgentAttributeErrorsConversation> conversation})
+      get copyWith => _copyWith;
 
-  FinAgentAttributeErrors _copyWith({Object? user = sdkOmittedValue, Object? conversation = sdkOmittedValue}) => FinAgentAttributeErrors(
-    user: identical(user, sdkOmittedValue) ? this.user : user as SdkOptional<FinAgentAttributeErrorsUser>,
-    conversation: identical(conversation, sdkOmittedValue) ? this.conversation : conversation as SdkOptional<FinAgentAttributeErrorsConversation>,
-  );
+  FinAgentAttributeErrors _copyWith(
+          {Object? user = sdkOmittedValue,
+          Object? conversation = sdkOmittedValue}) =>
+      FinAgentAttributeErrors(
+        user: identical(user, sdkOmittedValue)
+            ? this.user
+            : user as SdkOptional<FinAgentAttributeErrorsUser>,
+        conversation: identical(conversation, sdkOmittedValue)
+            ? this.conversation
+            : conversation as SdkOptional<FinAgentAttributeErrorsConversation>,
+      );
 
-  factory FinAgentAttributeErrors.fromJson(Map<String, dynamic> json) => FinAgentAttributeErrors(
-    user: json['user'] != null ? SdkPresent((json['user'] != null ? FinAgentAttributeErrorsUser.fromJson(json['user'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    conversation: json['conversation'] != null ? SdkPresent((json['conversation'] != null ? FinAgentAttributeErrorsConversation.fromJson(json['conversation'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory FinAgentAttributeErrors.fromJson(Map<String, dynamic> json) =>
+      FinAgentAttributeErrors(
+        user: json['user'] != null
+            ? SdkPresent((json['user'] != null
+                ? FinAgentAttributeErrorsUser.fromJson(
+                    json['user'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        conversation: json['conversation'] != null
+            ? SdkPresent((json['conversation'] != null
+                ? FinAgentAttributeErrorsConversation.fromJson(
+                    json['conversation'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (user) {
-      SdkPresent<FinAgentAttributeErrorsUser>(value: final value) => {'user': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (conversation) {
-      SdkPresent<FinAgentAttributeErrorsConversation>(value: final value) => {'conversation': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (user) {
+          SdkPresent<FinAgentAttributeErrorsUser>(value: final value) => {
+              'user': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (conversation) {
+          SdkPresent<FinAgentAttributeErrorsConversation>(value: final value) =>
+            {
+              'conversation': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,33 +8,58 @@ part of 'visitors.dart';
 class VisitorSegments {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object
   final SdkOptional<VisitorSegmentsType> type_;
+
   /// Optional array value serialized in the `segments` wire field.
   final SdkOptional<List<String>> segments;
 
-  const VisitorSegments({this.type_ = const SdkOmitted(), this.segments = const SdkOmitted()});
+  const VisitorSegments(
+      {this.type_ = const SdkOmitted(), this.segments = const SdkOmitted()});
 
-  VisitorSegments Function({SdkOptional<VisitorSegmentsType> type_, SdkOptional<List<String>> segments}) get copyWith => _copyWith;
+  VisitorSegments Function(
+      {SdkOptional<VisitorSegmentsType> type_,
+      SdkOptional<List<String>> segments}) get copyWith => _copyWith;
 
-  VisitorSegments _copyWith({Object? type_ = sdkOmittedValue, Object? segments = sdkOmittedValue}) => VisitorSegments(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<VisitorSegmentsType>,
-    segments: identical(segments, sdkOmittedValue) ? this.segments : segments as SdkOptional<List<String>>,
-  );
+  VisitorSegments _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? segments = sdkOmittedValue}) =>
+      VisitorSegments(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<VisitorSegmentsType>,
+        segments: identical(segments, sdkOmittedValue)
+            ? this.segments
+            : segments as SdkOptional<List<String>>,
+      );
 
-  factory VisitorSegments.fromJson(Map<String, dynamic> json) => VisitorSegments(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? VisitorSegmentsType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    segments: json['segments'] != null ? SdkPresent(((json['segments'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+  factory VisitorSegments.fromJson(Map<String, dynamic> json) =>
+      VisitorSegments(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? VisitorSegmentsType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        segments: json['segments'] != null
+            ? SdkPresent(((json['segments'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<VisitorSegmentsType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (segments) {
-      SdkPresent<List<String>>(value: final value) => {'segments': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<VisitorSegmentsType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (segments) {
+          SdkPresent<List<String>>(value: final value) => {
+              'segments': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -6,33 +6,36 @@ part of 'inline.dart';
 // Inline operation models (part 16)
 /// The type of object - `list`.
 final class DataConnectorListType {
-
   final String value;
 
   const DataConnectorListType._(this.value);
 
-  factory DataConnectorListType.fromJson(String value) => DataConnectorListType._(value);
+  factory DataConnectorListType.fromJson(String value) =>
+      DataConnectorListType._(value);
 
   static const list = DataConnectorListType._('list');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DataConnectorListType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DataConnectorListType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The status of this version today.
 final class DataConnectorVersionStatus {
-
   final String value;
 
   const DataConnectorVersionStatus._(this.value);
 
-  factory DataConnectorVersionStatus.fromJson(String value) => DataConnectorVersionStatus._(value);
+  factory DataConnectorVersionStatus.fromJson(String value) =>
+      DataConnectorVersionStatus._(value);
 
   static const live = DataConnectorVersionStatus._('live');
   static const paused = DataConnectorVersionStatus._('paused');
@@ -41,80 +44,92 @@ final class DataConnectorVersionStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DataConnectorVersionStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DataConnectorVersionStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of object - `data_connector_version`.
 final class DataConnectorVersionType {
-
   final String value;
 
   const DataConnectorVersionType._(this.value);
 
-  factory DataConnectorVersionType.fromJson(String value) => DataConnectorVersionType._(value);
+  factory DataConnectorVersionType.fromJson(String value) =>
+      DataConnectorVersionType._(value);
 
-  static const dataConnectorVersion = DataConnectorVersionType._('data_connector_version');
+  static const dataConnectorVersion =
+      DataConnectorVersionType._('data_connector_version');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DataConnectorVersionType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DataConnectorVersionType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional enumerated value serialized in the `type` wire field.
 final class DataConnectorVersionListPagesType {
-
   final String value;
 
   const DataConnectorVersionListPagesType._(this.value);
 
-  factory DataConnectorVersionListPagesType.fromJson(String value) => DataConnectorVersionListPagesType._(value);
+  factory DataConnectorVersionListPagesType.fromJson(String value) =>
+      DataConnectorVersionListPagesType._(value);
 
   static const pages = DataConnectorVersionListPagesType._('pages');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DataConnectorVersionListPagesType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DataConnectorVersionListPagesType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of object - `list`.
 final class DataConnectorVersionListType {
-
   final String value;
 
   const DataConnectorVersionListType._(this.value);
 
-  factory DataConnectorVersionListType.fromJson(String value) => DataConnectorVersionListType._(value);
+  factory DataConnectorVersionListType.fromJson(String value) =>
+      DataConnectorVersionListType._(value);
 
   static const list = DataConnectorVersionListType._('list');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DataConnectorVersionListType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DataConnectorVersionListType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the object
 final class DataEventType {
-
   final String value;
 
   const DataEventType._(this.value);
@@ -125,59 +140,67 @@ final class DataEventType {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DataEventType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DataEventType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the object
 final class DataEventListType {
-
   final String value;
 
   const DataEventListType._(this.value);
 
-  factory DataEventListType.fromJson(String value) => DataEventListType._(value);
+  factory DataEventListType.fromJson(String value) =>
+      DataEventListType._(value);
 
   static const eventList = DataEventListType._('event.list');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DataEventListType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DataEventListType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the object
 final class DataEventSummaryType {
-
   final String value;
 
   const DataEventSummaryType._(this.value);
 
-  factory DataEventSummaryType.fromJson(String value) => DataEventSummaryType._(value);
+  factory DataEventSummaryType.fromJson(String value) =>
+      DataEventSummaryType._(value);
 
   static const eventSummary = DataEventSummaryType._('event.summary');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DataEventSummaryType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DataEventSummaryType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The current state of your job.
 final class DataExportStatus {
-
   final String value;
 
   const DataExportStatus._(this.value);
@@ -193,95 +216,110 @@ final class DataExportStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DataExportStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DataExportStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of object which was deleted. - article
 final class DeletedArticleObjectObject {
-
   final String value;
 
   const DeletedArticleObjectObject._(this.value);
 
-  factory DeletedArticleObjectObject.fromJson(String value) => DeletedArticleObjectObject._(value);
+  factory DeletedArticleObjectObject.fromJson(String value) =>
+      DeletedArticleObjectObject._(value);
 
   static const article = DeletedArticleObjectObject._('article');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DeletedArticleObjectObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DeletedArticleObjectObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of object which was deleted. - `collection`
 final class DeletedCollectionObjectObject {
-
   final String value;
 
   const DeletedCollectionObjectObject._(this.value);
 
-  factory DeletedCollectionObjectObject.fromJson(String value) => DeletedCollectionObjectObject._(value);
+  factory DeletedCollectionObjectObject.fromJson(String value) =>
+      DeletedCollectionObjectObject._(value);
 
   static const collection = DeletedCollectionObjectObject._('collection');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DeletedCollectionObjectObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DeletedCollectionObjectObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of object which was deleted. - `company`
 final class DeletedCompanyObjectObject {
-
   final String value;
 
   const DeletedCompanyObjectObject._(this.value);
 
-  factory DeletedCompanyObjectObject.fromJson(String value) => DeletedCompanyObjectObject._(value);
+  factory DeletedCompanyObjectObject.fromJson(String value) =>
+      DeletedCompanyObjectObject._(value);
 
   static const company = DeletedCompanyObjectObject._('company');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DeletedCompanyObjectObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DeletedCompanyObjectObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The role of the contact.
 final class DeletedContactRole {
-
   final String value;
 
   const DeletedContactRole._(this.value);
 
-  factory DeletedContactRole.fromJson(String value) => DeletedContactRole._(value);
+  factory DeletedContactRole.fromJson(String value) =>
+      DeletedContactRole._(value);
 
   static const user = DeletedContactRole._('user');
   static const lead = DeletedContactRole._('lead');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DeletedContactRole && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DeletedContactRole && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

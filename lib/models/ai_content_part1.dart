@@ -8,240 +8,474 @@ part of 'ai_content.dart';
 class CreateContentImportSourceRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// If you intend to create or update External Pages via the API, this should be set to `api`.
   final CreateContentImportSourceRequestSyncBehavior syncBehavior;
+
   /// The status of the content import source.
   final SdkOptional<CreateContentImportSourceRequestStatus> status;
+
   /// The URL of the content import source.
   final String url;
+
   /// The unique identifiers for the audiences to associate with this content import source. Can be a single integer or an array of integers.
   final SdkOptional<List<int>?> audienceIds;
 
-  const CreateContentImportSourceRequest({required this.syncBehavior, this.status = const SdkOmitted(), required this.url, this.audienceIds = const SdkOmitted()});
+  const CreateContentImportSourceRequest(
+      {required this.syncBehavior,
+      this.status = const SdkOmitted(),
+      required this.url,
+      this.audienceIds = const SdkOmitted()});
 
-  CreateContentImportSourceRequest Function({CreateContentImportSourceRequestSyncBehavior syncBehavior, SdkOptional<CreateContentImportSourceRequestStatus> status, String url, SdkOptional<List<int>?> audienceIds}) get copyWith => _copyWith;
+  CreateContentImportSourceRequest Function(
+      {CreateContentImportSourceRequestSyncBehavior syncBehavior,
+      SdkOptional<CreateContentImportSourceRequestStatus> status,
+      String url,
+      SdkOptional<List<int>?> audienceIds}) get copyWith => _copyWith;
 
-  CreateContentImportSourceRequest _copyWith({Object? syncBehavior = sdkOmittedValue, Object? status = sdkOmittedValue, Object? url = sdkOmittedValue, Object? audienceIds = sdkOmittedValue}) => CreateContentImportSourceRequest(
-    syncBehavior: identical(syncBehavior, sdkOmittedValue) ? this.syncBehavior : syncBehavior as CreateContentImportSourceRequestSyncBehavior,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<CreateContentImportSourceRequestStatus>,
-    url: identical(url, sdkOmittedValue) ? this.url : url as String,
-    audienceIds: identical(audienceIds, sdkOmittedValue) ? this.audienceIds : audienceIds as SdkOptional<List<int>?>,
-  );
+  CreateContentImportSourceRequest _copyWith(
+          {Object? syncBehavior = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? url = sdkOmittedValue,
+          Object? audienceIds = sdkOmittedValue}) =>
+      CreateContentImportSourceRequest(
+        syncBehavior: identical(syncBehavior, sdkOmittedValue)
+            ? this.syncBehavior
+            : syncBehavior as CreateContentImportSourceRequestSyncBehavior,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<CreateContentImportSourceRequestStatus>,
+        url: identical(url, sdkOmittedValue) ? this.url : url as String,
+        audienceIds: identical(audienceIds, sdkOmittedValue)
+            ? this.audienceIds
+            : audienceIds as SdkOptional<List<int>?>,
+      );
 
-  factory CreateContentImportSourceRequest.fromJson(Map<String, dynamic> json) => CreateContentImportSourceRequest(
-    syncBehavior: (json['sync_behavior'] != null ? CreateContentImportSourceRequestSyncBehavior.fromJson(json['sync_behavior'] as String) : null)!,
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? CreateContentImportSourceRequestStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-    url: (json['url'] as String?)!,
-    audienceIds: json.containsKey('audience_ids') ? SdkPresent((json['audience_ids'] as List?)?.map((e) => (e as num).toInt()).toList()) : const SdkOmitted(),
-  );
+  factory CreateContentImportSourceRequest.fromJson(
+          Map<String, dynamic> json) =>
+      CreateContentImportSourceRequest(
+        syncBehavior: (json['sync_behavior'] != null
+            ? CreateContentImportSourceRequestSyncBehavior.fromJson(
+                json['sync_behavior'] as String)
+            : null)!,
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? CreateContentImportSourceRequestStatus.fromJson(
+                    json['status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        url: (json['url'] as String?)!,
+        audienceIds: json.containsKey('audience_ids')
+            ? SdkPresent((json['audience_ids'] as List?)
+                ?.map((e) => (e as num).toInt())
+                .toList())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'sync_behavior': syncBehavior.toJson(),
-    ...switch (status) {
-      SdkPresent<CreateContentImportSourceRequestStatus>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'url': url,
-    ...switch (audienceIds) {
-      SdkPresent<List<int>?>(value: final value) => {'audience_ids': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'sync_behavior': syncBehavior.toJson(),
+        ...switch (status) {
+          SdkPresent<CreateContentImportSourceRequestStatus>(
+            value: final value
+          ) =>
+            {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'url': url,
+        ...switch (audienceIds) {
+          SdkPresent<List<int>?>(value: final value) => {
+              'audience_ids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// You can add an External Page to your Fin Content Library.
 class CreateExternalPageRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The title of the external page.
   final String title;
+
   /// The body of the external page in HTML.
   final String html;
+
   /// The URL of the external page. This will be used by Fin to link end users to the page it based its answer on. When a URL is not present, Fin will not reference the source.
   final SdkOptional<String> url;
+
   /// Whether the external page should be used to answer questions by AI Agent. Will not default when updating an existing external page.
   final SdkOptional<bool> aiAgentAvailability;
+
   /// Whether the external page should be used to answer questions by AI Copilot. Will not default when updating an existing external page.
   final SdkOptional<bool> aiCopilotAvailability;
+
   /// Always en
   final CreateExternalPageRequestLocale locale;
+
   /// The unique identifier for the source of the external page which was given by Intercom. Every external page must be associated with a Content Import Source which represents the place it comes from and from which it inherits a default audience (configured in the UI). For a new source, make a POST request to the Content Import Source endpoint and an ID for the source will be returned in the response.
   final int sourceId;
+
   /// The identifier for the external page which was given by the source. Must be unique for the source.
   final String externalId;
+
   /// The list of audience IDs to target this external page to for Fin AI Agent. Omitting the field keeps the default audience inherited from the source. Pass `[]` to clear all audience memberships, including the inherited ones. If an external page already exists with the specified source_id and external_id, omitting the field leaves its audience memberships unchanged. Unknown audience IDs return a `404` error.
   final SdkOptional<List<int>?> audienceIds;
 
-  const CreateExternalPageRequest({required this.title, required this.html, this.url = const SdkOmitted(), this.aiAgentAvailability = const SdkOmitted(), this.aiCopilotAvailability = const SdkOmitted(), required this.locale, required this.sourceId, required this.externalId, this.audienceIds = const SdkOmitted()});
+  const CreateExternalPageRequest(
+      {required this.title,
+      required this.html,
+      this.url = const SdkOmitted(),
+      this.aiAgentAvailability = const SdkOmitted(),
+      this.aiCopilotAvailability = const SdkOmitted(),
+      required this.locale,
+      required this.sourceId,
+      required this.externalId,
+      this.audienceIds = const SdkOmitted()});
 
-  CreateExternalPageRequest Function({String title, String html, SdkOptional<String> url, SdkOptional<bool> aiAgentAvailability, SdkOptional<bool> aiCopilotAvailability, CreateExternalPageRequestLocale locale, int sourceId, String externalId, SdkOptional<List<int>?> audienceIds}) get copyWith => _copyWith;
+  CreateExternalPageRequest Function(
+      {String title,
+      String html,
+      SdkOptional<String> url,
+      SdkOptional<bool> aiAgentAvailability,
+      SdkOptional<bool> aiCopilotAvailability,
+      CreateExternalPageRequestLocale locale,
+      int sourceId,
+      String externalId,
+      SdkOptional<List<int>?> audienceIds}) get copyWith => _copyWith;
 
-  CreateExternalPageRequest _copyWith({Object? title = sdkOmittedValue, Object? html = sdkOmittedValue, Object? url = sdkOmittedValue, Object? aiAgentAvailability = sdkOmittedValue, Object? aiCopilotAvailability = sdkOmittedValue, Object? locale = sdkOmittedValue, Object? sourceId = sdkOmittedValue, Object? externalId = sdkOmittedValue, Object? audienceIds = sdkOmittedValue}) => CreateExternalPageRequest(
-    title: identical(title, sdkOmittedValue) ? this.title : title as String,
-    html: identical(html, sdkOmittedValue) ? this.html : html as String,
-    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String>,
-    aiAgentAvailability: identical(aiAgentAvailability, sdkOmittedValue) ? this.aiAgentAvailability : aiAgentAvailability as SdkOptional<bool>,
-    aiCopilotAvailability: identical(aiCopilotAvailability, sdkOmittedValue) ? this.aiCopilotAvailability : aiCopilotAvailability as SdkOptional<bool>,
-    locale: identical(locale, sdkOmittedValue) ? this.locale : locale as CreateExternalPageRequestLocale,
-    sourceId: identical(sourceId, sdkOmittedValue) ? this.sourceId : sourceId as int,
-    externalId: identical(externalId, sdkOmittedValue) ? this.externalId : externalId as String,
-    audienceIds: identical(audienceIds, sdkOmittedValue) ? this.audienceIds : audienceIds as SdkOptional<List<int>?>,
-  );
+  CreateExternalPageRequest _copyWith(
+          {Object? title = sdkOmittedValue,
+          Object? html = sdkOmittedValue,
+          Object? url = sdkOmittedValue,
+          Object? aiAgentAvailability = sdkOmittedValue,
+          Object? aiCopilotAvailability = sdkOmittedValue,
+          Object? locale = sdkOmittedValue,
+          Object? sourceId = sdkOmittedValue,
+          Object? externalId = sdkOmittedValue,
+          Object? audienceIds = sdkOmittedValue}) =>
+      CreateExternalPageRequest(
+        title: identical(title, sdkOmittedValue) ? this.title : title as String,
+        html: identical(html, sdkOmittedValue) ? this.html : html as String,
+        url: identical(url, sdkOmittedValue)
+            ? this.url
+            : url as SdkOptional<String>,
+        aiAgentAvailability: identical(aiAgentAvailability, sdkOmittedValue)
+            ? this.aiAgentAvailability
+            : aiAgentAvailability as SdkOptional<bool>,
+        aiCopilotAvailability: identical(aiCopilotAvailability, sdkOmittedValue)
+            ? this.aiCopilotAvailability
+            : aiCopilotAvailability as SdkOptional<bool>,
+        locale: identical(locale, sdkOmittedValue)
+            ? this.locale
+            : locale as CreateExternalPageRequestLocale,
+        sourceId: identical(sourceId, sdkOmittedValue)
+            ? this.sourceId
+            : sourceId as int,
+        externalId: identical(externalId, sdkOmittedValue)
+            ? this.externalId
+            : externalId as String,
+        audienceIds: identical(audienceIds, sdkOmittedValue)
+            ? this.audienceIds
+            : audienceIds as SdkOptional<List<int>?>,
+      );
 
-  factory CreateExternalPageRequest.fromJson(Map<String, dynamic> json) => CreateExternalPageRequest(
-    title: (json['title'] as String?)!,
-    html: (json['html'] as String?)!,
-    url: json['url'] != null ? SdkPresent((json['url'] as String?)!) : const SdkOmitted(),
-    aiAgentAvailability: json['ai_agent_availability'] != null ? SdkPresent((json['ai_agent_availability'] as bool?)!) : const SdkOmitted(),
-    aiCopilotAvailability: json['ai_copilot_availability'] != null ? SdkPresent((json['ai_copilot_availability'] as bool?)!) : const SdkOmitted(),
-    locale: (json['locale'] != null ? CreateExternalPageRequestLocale.fromJson(json['locale'] as String) : null)!,
-    sourceId: ((json['source_id'] as num?)?.toInt())!,
-    externalId: (json['external_id'] as String?)!,
-    audienceIds: json.containsKey('audience_ids') ? SdkPresent((json['audience_ids'] as List?)?.map((e) => (e as num).toInt()).toList()) : const SdkOmitted(),
-  );
+  factory CreateExternalPageRequest.fromJson(Map<String, dynamic> json) =>
+      CreateExternalPageRequest(
+        title: (json['title'] as String?)!,
+        html: (json['html'] as String?)!,
+        url: json['url'] != null
+            ? SdkPresent((json['url'] as String?)!)
+            : const SdkOmitted(),
+        aiAgentAvailability: json['ai_agent_availability'] != null
+            ? SdkPresent((json['ai_agent_availability'] as bool?)!)
+            : const SdkOmitted(),
+        aiCopilotAvailability: json['ai_copilot_availability'] != null
+            ? SdkPresent((json['ai_copilot_availability'] as bool?)!)
+            : const SdkOmitted(),
+        locale: (json['locale'] != null
+            ? CreateExternalPageRequestLocale.fromJson(json['locale'] as String)
+            : null)!,
+        sourceId: ((json['source_id'] as num?)?.toInt())!,
+        externalId: (json['external_id'] as String?)!,
+        audienceIds: json.containsKey('audience_ids')
+            ? SdkPresent((json['audience_ids'] as List?)
+                ?.map((e) => (e as num).toInt())
+                .toList())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'title': title,
-    'html': html,
-    ...switch (url) {
-      SdkPresent<String>(value: final value) => {'url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (aiAgentAvailability) {
-      SdkPresent<bool>(value: final value) => {'ai_agent_availability': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (aiCopilotAvailability) {
-      SdkPresent<bool>(value: final value) => {'ai_copilot_availability': value,},
-      _ => const <String, dynamic>{},
-    },
-    'locale': locale.toJson(),
-    'source_id': sourceId,
-    'external_id': externalId,
-    ...switch (audienceIds) {
-      SdkPresent<List<int>?>(value: final value) => {'audience_ids': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'title': title,
+        'html': html,
+        ...switch (url) {
+          SdkPresent<String>(value: final value) => {
+              'url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (aiAgentAvailability) {
+          SdkPresent<bool>(value: final value) => {
+              'ai_agent_availability': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (aiCopilotAvailability) {
+          SdkPresent<bool>(value: final value) => {
+              'ai_copilot_availability': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'locale': locale.toJson(),
+        'source_id': sourceId,
+        'external_id': externalId,
+        ...switch (audienceIds) {
+          SdkPresent<List<int>?>(value: final value) => {
+              'audience_ids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// You can modify a Content Import Source of your Fin Content Library.
 class UpdateContentImportSourceRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// If you intend to create or update External Pages via the API, this should be set to `api`. You can not change the value to or from api.
   final UpdateContentImportSourceRequestSyncBehavior syncBehavior;
+
   /// The status of the content import source.
   final SdkOptional<UpdateContentImportSourceRequestStatus> status;
+
   /// The URL of the content import source. This may only be different from the existing value if the sync behavior is API.
   final String url;
+
   /// The unique identifiers for the audiences to associate with this content import source. Can be a single integer or an array of integers. Set to null or an empty array to remove all audiences.
   final SdkOptional<List<int>?> audienceIds;
+
   /// When true, the audience will be applied to all existing external pages belonging to this content import source.
   final SdkOptional<bool> applyAudienceToExistingContent;
 
-  const UpdateContentImportSourceRequest({required this.syncBehavior, this.status = const SdkOmitted(), required this.url, this.audienceIds = const SdkOmitted(), this.applyAudienceToExistingContent = const SdkOmitted()});
+  const UpdateContentImportSourceRequest(
+      {required this.syncBehavior,
+      this.status = const SdkOmitted(),
+      required this.url,
+      this.audienceIds = const SdkOmitted(),
+      this.applyAudienceToExistingContent = const SdkOmitted()});
 
-  UpdateContentImportSourceRequest Function({UpdateContentImportSourceRequestSyncBehavior syncBehavior, SdkOptional<UpdateContentImportSourceRequestStatus> status, String url, SdkOptional<List<int>?> audienceIds, SdkOptional<bool> applyAudienceToExistingContent}) get copyWith => _copyWith;
+  UpdateContentImportSourceRequest Function(
+          {UpdateContentImportSourceRequestSyncBehavior syncBehavior,
+          SdkOptional<UpdateContentImportSourceRequestStatus> status,
+          String url,
+          SdkOptional<List<int>?> audienceIds,
+          SdkOptional<bool> applyAudienceToExistingContent})
+      get copyWith => _copyWith;
 
-  UpdateContentImportSourceRequest _copyWith({Object? syncBehavior = sdkOmittedValue, Object? status = sdkOmittedValue, Object? url = sdkOmittedValue, Object? audienceIds = sdkOmittedValue, Object? applyAudienceToExistingContent = sdkOmittedValue}) => UpdateContentImportSourceRequest(
-    syncBehavior: identical(syncBehavior, sdkOmittedValue) ? this.syncBehavior : syncBehavior as UpdateContentImportSourceRequestSyncBehavior,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<UpdateContentImportSourceRequestStatus>,
-    url: identical(url, sdkOmittedValue) ? this.url : url as String,
-    audienceIds: identical(audienceIds, sdkOmittedValue) ? this.audienceIds : audienceIds as SdkOptional<List<int>?>,
-    applyAudienceToExistingContent: identical(applyAudienceToExistingContent, sdkOmittedValue) ? this.applyAudienceToExistingContent : applyAudienceToExistingContent as SdkOptional<bool>,
-  );
+  UpdateContentImportSourceRequest _copyWith(
+          {Object? syncBehavior = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? url = sdkOmittedValue,
+          Object? audienceIds = sdkOmittedValue,
+          Object? applyAudienceToExistingContent = sdkOmittedValue}) =>
+      UpdateContentImportSourceRequest(
+        syncBehavior: identical(syncBehavior, sdkOmittedValue)
+            ? this.syncBehavior
+            : syncBehavior as UpdateContentImportSourceRequestSyncBehavior,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<UpdateContentImportSourceRequestStatus>,
+        url: identical(url, sdkOmittedValue) ? this.url : url as String,
+        audienceIds: identical(audienceIds, sdkOmittedValue)
+            ? this.audienceIds
+            : audienceIds as SdkOptional<List<int>?>,
+        applyAudienceToExistingContent:
+            identical(applyAudienceToExistingContent, sdkOmittedValue)
+                ? this.applyAudienceToExistingContent
+                : applyAudienceToExistingContent as SdkOptional<bool>,
+      );
 
-  factory UpdateContentImportSourceRequest.fromJson(Map<String, dynamic> json) => UpdateContentImportSourceRequest(
-    syncBehavior: (json['sync_behavior'] != null ? UpdateContentImportSourceRequestSyncBehavior.fromJson(json['sync_behavior'] as String) : null)!,
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? UpdateContentImportSourceRequestStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-    url: (json['url'] as String?)!,
-    audienceIds: json.containsKey('audience_ids') ? SdkPresent((json['audience_ids'] as List?)?.map((e) => (e as num).toInt()).toList()) : const SdkOmitted(),
-    applyAudienceToExistingContent: json['apply_audience_to_existing_content'] != null ? SdkPresent((json['apply_audience_to_existing_content'] as bool?)!) : const SdkOmitted(),
-  );
+  factory UpdateContentImportSourceRequest.fromJson(
+          Map<String, dynamic> json) =>
+      UpdateContentImportSourceRequest(
+        syncBehavior: (json['sync_behavior'] != null
+            ? UpdateContentImportSourceRequestSyncBehavior.fromJson(
+                json['sync_behavior'] as String)
+            : null)!,
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? UpdateContentImportSourceRequestStatus.fromJson(
+                    json['status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        url: (json['url'] as String?)!,
+        audienceIds: json.containsKey('audience_ids')
+            ? SdkPresent((json['audience_ids'] as List?)
+                ?.map((e) => (e as num).toInt())
+                .toList())
+            : const SdkOmitted(),
+        applyAudienceToExistingContent:
+            json['apply_audience_to_existing_content'] != null
+                ? SdkPresent(
+                    (json['apply_audience_to_existing_content'] as bool?)!)
+                : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'sync_behavior': syncBehavior.toJson(),
-    ...switch (status) {
-      SdkPresent<UpdateContentImportSourceRequestStatus>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'url': url,
-    ...switch (audienceIds) {
-      SdkPresent<List<int>?>(value: final value) => {'audience_ids': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (applyAudienceToExistingContent) {
-      SdkPresent<bool>(value: final value) => {'apply_audience_to_existing_content': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'sync_behavior': syncBehavior.toJson(),
+        ...switch (status) {
+          SdkPresent<UpdateContentImportSourceRequestStatus>(
+            value: final value
+          ) =>
+            {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'url': url,
+        ...switch (audienceIds) {
+          SdkPresent<List<int>?>(value: final value) => {
+              'audience_ids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (applyAudienceToExistingContent) {
+          SdkPresent<bool>(value: final value) => {
+              'apply_audience_to_existing_content': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// You can update an External Page in your Fin Content Library.
 class UpdateExternalPageRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The title of the external page.
   final String title;
+
   /// The body of the external page in HTML.
   final String html;
+
   /// The URL of the external page. This will be used by Fin to link end users to the page it based its answer on.
   final String url;
+
   /// Whether the external page should be used to answer questions by Fin.
   final SdkOptional<bool> finAvailability;
+
   /// Always en
   final UpdateExternalPageRequestLocale locale;
+
   /// The unique identifier for the source of the external page which was given by Intercom. Every external page must be associated with a Content Import Source which represents the place it comes from and from which it inherits a default audience (configured in the UI). For a new source, make a POST request to the Content Import Source endpoint and an ID for the source will be returned in the response.
   final int sourceId;
+
   /// The identifier for the external page which was given by the source. Must be unique for the source.
   final SdkOptional<String> externalId;
+
   /// The list of audience IDs to target this external page to for Fin AI Agent. Replaces all existing audience memberships. Omitting the field leaves existing audience memberships unchanged. Pass `[]` to clear all audience memberships. Unknown audience IDs return a `404` error.
   final SdkOptional<List<int>?> audienceIds;
 
-  const UpdateExternalPageRequest({required this.title, required this.html, required this.url, this.finAvailability = const SdkOmitted(), required this.locale, required this.sourceId, this.externalId = const SdkOmitted(), this.audienceIds = const SdkOmitted()});
+  const UpdateExternalPageRequest(
+      {required this.title,
+      required this.html,
+      required this.url,
+      this.finAvailability = const SdkOmitted(),
+      required this.locale,
+      required this.sourceId,
+      this.externalId = const SdkOmitted(),
+      this.audienceIds = const SdkOmitted()});
 
-  UpdateExternalPageRequest Function({String title, String html, String url, SdkOptional<bool> finAvailability, UpdateExternalPageRequestLocale locale, int sourceId, SdkOptional<String> externalId, SdkOptional<List<int>?> audienceIds}) get copyWith => _copyWith;
+  UpdateExternalPageRequest Function(
+      {String title,
+      String html,
+      String url,
+      SdkOptional<bool> finAvailability,
+      UpdateExternalPageRequestLocale locale,
+      int sourceId,
+      SdkOptional<String> externalId,
+      SdkOptional<List<int>?> audienceIds}) get copyWith => _copyWith;
 
-  UpdateExternalPageRequest _copyWith({Object? title = sdkOmittedValue, Object? html = sdkOmittedValue, Object? url = sdkOmittedValue, Object? finAvailability = sdkOmittedValue, Object? locale = sdkOmittedValue, Object? sourceId = sdkOmittedValue, Object? externalId = sdkOmittedValue, Object? audienceIds = sdkOmittedValue}) => UpdateExternalPageRequest(
-    title: identical(title, sdkOmittedValue) ? this.title : title as String,
-    html: identical(html, sdkOmittedValue) ? this.html : html as String,
-    url: identical(url, sdkOmittedValue) ? this.url : url as String,
-    finAvailability: identical(finAvailability, sdkOmittedValue) ? this.finAvailability : finAvailability as SdkOptional<bool>,
-    locale: identical(locale, sdkOmittedValue) ? this.locale : locale as UpdateExternalPageRequestLocale,
-    sourceId: identical(sourceId, sdkOmittedValue) ? this.sourceId : sourceId as int,
-    externalId: identical(externalId, sdkOmittedValue) ? this.externalId : externalId as SdkOptional<String>,
-    audienceIds: identical(audienceIds, sdkOmittedValue) ? this.audienceIds : audienceIds as SdkOptional<List<int>?>,
-  );
+  UpdateExternalPageRequest _copyWith(
+          {Object? title = sdkOmittedValue,
+          Object? html = sdkOmittedValue,
+          Object? url = sdkOmittedValue,
+          Object? finAvailability = sdkOmittedValue,
+          Object? locale = sdkOmittedValue,
+          Object? sourceId = sdkOmittedValue,
+          Object? externalId = sdkOmittedValue,
+          Object? audienceIds = sdkOmittedValue}) =>
+      UpdateExternalPageRequest(
+        title: identical(title, sdkOmittedValue) ? this.title : title as String,
+        html: identical(html, sdkOmittedValue) ? this.html : html as String,
+        url: identical(url, sdkOmittedValue) ? this.url : url as String,
+        finAvailability: identical(finAvailability, sdkOmittedValue)
+            ? this.finAvailability
+            : finAvailability as SdkOptional<bool>,
+        locale: identical(locale, sdkOmittedValue)
+            ? this.locale
+            : locale as UpdateExternalPageRequestLocale,
+        sourceId: identical(sourceId, sdkOmittedValue)
+            ? this.sourceId
+            : sourceId as int,
+        externalId: identical(externalId, sdkOmittedValue)
+            ? this.externalId
+            : externalId as SdkOptional<String>,
+        audienceIds: identical(audienceIds, sdkOmittedValue)
+            ? this.audienceIds
+            : audienceIds as SdkOptional<List<int>?>,
+      );
 
-  factory UpdateExternalPageRequest.fromJson(Map<String, dynamic> json) => UpdateExternalPageRequest(
-    title: (json['title'] as String?)!,
-    html: (json['html'] as String?)!,
-    url: (json['url'] as String?)!,
-    finAvailability: json['fin_availability'] != null ? SdkPresent((json['fin_availability'] as bool?)!) : const SdkOmitted(),
-    locale: (json['locale'] != null ? UpdateExternalPageRequestLocale.fromJson(json['locale'] as String) : null)!,
-    sourceId: ((json['source_id'] as num?)?.toInt())!,
-    externalId: json['external_id'] != null ? SdkPresent((json['external_id'] as String?)!) : const SdkOmitted(),
-    audienceIds: json.containsKey('audience_ids') ? SdkPresent((json['audience_ids'] as List?)?.map((e) => (e as num).toInt()).toList()) : const SdkOmitted(),
-  );
+  factory UpdateExternalPageRequest.fromJson(Map<String, dynamic> json) =>
+      UpdateExternalPageRequest(
+        title: (json['title'] as String?)!,
+        html: (json['html'] as String?)!,
+        url: (json['url'] as String?)!,
+        finAvailability: json['fin_availability'] != null
+            ? SdkPresent((json['fin_availability'] as bool?)!)
+            : const SdkOmitted(),
+        locale: (json['locale'] != null
+            ? UpdateExternalPageRequestLocale.fromJson(json['locale'] as String)
+            : null)!,
+        sourceId: ((json['source_id'] as num?)?.toInt())!,
+        externalId: json['external_id'] != null
+            ? SdkPresent((json['external_id'] as String?)!)
+            : const SdkOmitted(),
+        audienceIds: json.containsKey('audience_ids')
+            ? SdkPresent((json['audience_ids'] as List?)
+                ?.map((e) => (e as num).toInt())
+                .toList())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'title': title,
-    'html': html,
-    'url': url,
-    ...switch (finAvailability) {
-      SdkPresent<bool>(value: final value) => {'fin_availability': value,},
-      _ => const <String, dynamic>{},
-    },
-    'locale': locale.toJson(),
-    'source_id': sourceId,
-    ...switch (externalId) {
-      SdkPresent<String>(value: final value) => {'external_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (audienceIds) {
-      SdkPresent<List<int>?>(value: final value) => {'audience_ids': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'title': title,
+        'html': html,
+        'url': url,
+        ...switch (finAvailability) {
+          SdkPresent<bool>(value: final value) => {
+              'fin_availability': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'locale': locale.toJson(),
+        'source_id': sourceId,
+        ...switch (externalId) {
+          SdkPresent<String>(value: final value) => {
+              'external_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (audienceIds) {
+          SdkPresent<List<int>?>(value: final value) => {
+              'audience_ids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

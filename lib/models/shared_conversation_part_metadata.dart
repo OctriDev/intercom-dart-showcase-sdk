@@ -8,70 +8,127 @@ part of 'shared_conversation.dart';
 class ConversationPartMetadataQuickReplyOptionsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The text to display in this quick reply option.
   final String text;
+
   /// A unique identifier for this quick reply option. This value will be available within the metadata of the comment conversation part that is created when a user clicks on this reply option.
   final String uuid;
+
   /// The translations for the quick reply option.
   final SdkOptional<Map<String, dynamic>?> translations;
 
-  const ConversationPartMetadataQuickReplyOptionsItem({required this.text, required this.uuid, this.translations = const SdkOmitted()});
+  const ConversationPartMetadataQuickReplyOptionsItem(
+      {required this.text,
+      required this.uuid,
+      this.translations = const SdkOmitted()});
 
-  ConversationPartMetadataQuickReplyOptionsItem Function({String text, String uuid, SdkOptional<Map<String, dynamic>?> translations}) get copyWith => _copyWith;
+  ConversationPartMetadataQuickReplyOptionsItem Function(
+          {String text,
+          String uuid,
+          SdkOptional<Map<String, dynamic>?> translations})
+      get copyWith => _copyWith;
 
-  ConversationPartMetadataQuickReplyOptionsItem _copyWith({Object? text = sdkOmittedValue, Object? uuid = sdkOmittedValue, Object? translations = sdkOmittedValue}) => ConversationPartMetadataQuickReplyOptionsItem(
-    text: identical(text, sdkOmittedValue) ? this.text : text as String,
-    uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as String,
-    translations: identical(translations, sdkOmittedValue) ? this.translations : translations as SdkOptional<Map<String, dynamic>?>,
-  );
+  ConversationPartMetadataQuickReplyOptionsItem _copyWith(
+          {Object? text = sdkOmittedValue,
+          Object? uuid = sdkOmittedValue,
+          Object? translations = sdkOmittedValue}) =>
+      ConversationPartMetadataQuickReplyOptionsItem(
+        text: identical(text, sdkOmittedValue) ? this.text : text as String,
+        uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as String,
+        translations: identical(translations, sdkOmittedValue)
+            ? this.translations
+            : translations as SdkOptional<Map<String, dynamic>?>,
+      );
 
-  factory ConversationPartMetadataQuickReplyOptionsItem.fromJson(Map<String, dynamic> json) => ConversationPartMetadataQuickReplyOptionsItem(
-    text: (json['text'] as String?)!,
-    uuid: (json['uuid'] as String?)!,
-    translations: json.containsKey('translations') ? SdkPresent(json['translations'] == null ? null : json['translations'] as Map<String, dynamic>) : const SdkOmitted(),
-  );
+  factory ConversationPartMetadataQuickReplyOptionsItem.fromJson(
+          Map<String, dynamic> json) =>
+      ConversationPartMetadataQuickReplyOptionsItem(
+        text: (json['text'] as String?)!,
+        uuid: (json['uuid'] as String?)!,
+        translations: json.containsKey('translations')
+            ? SdkPresent(json['translations'] == null
+                ? null
+                : json['translations'] as Map<String, dynamic>)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'text': text,
-    'uuid': uuid,
-    ...switch (translations) {
-      SdkPresent<Map<String, dynamic>?>(value: final value) => {'translations': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'text': text,
+        'uuid': uuid,
+        ...switch (translations) {
+          SdkPresent<Map<String, dynamic>?>(value: final value) => {
+              'translations': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Metadata for a conversation part
 class ConversationPartMetadata {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The quick reply options sent by the Admin or bot, presented in this conversation part.
-  final SdkOptional<List<ConversationPartMetadataQuickReplyOptionsItem>> quickReplyOptions;
+  final SdkOptional<List<ConversationPartMetadataQuickReplyOptionsItem>>
+      quickReplyOptions;
+
   /// The unique identifier for the quick reply option that was clicked by the end user.
   final SdkOptional<String> quickReplyUuid;
 
-  const ConversationPartMetadata({this.quickReplyOptions = const SdkOmitted(), this.quickReplyUuid = const SdkOmitted()});
+  const ConversationPartMetadata(
+      {this.quickReplyOptions = const SdkOmitted(),
+      this.quickReplyUuid = const SdkOmitted()});
 
-  ConversationPartMetadata Function({SdkOptional<List<ConversationPartMetadataQuickReplyOptionsItem>> quickReplyOptions, SdkOptional<String> quickReplyUuid}) get copyWith => _copyWith;
+  ConversationPartMetadata Function(
+      {SdkOptional<List<ConversationPartMetadataQuickReplyOptionsItem>>
+          quickReplyOptions,
+      SdkOptional<String> quickReplyUuid}) get copyWith => _copyWith;
 
-  ConversationPartMetadata _copyWith({Object? quickReplyOptions = sdkOmittedValue, Object? quickReplyUuid = sdkOmittedValue}) => ConversationPartMetadata(
-    quickReplyOptions: identical(quickReplyOptions, sdkOmittedValue) ? this.quickReplyOptions : quickReplyOptions as SdkOptional<List<ConversationPartMetadataQuickReplyOptionsItem>>,
-    quickReplyUuid: identical(quickReplyUuid, sdkOmittedValue) ? this.quickReplyUuid : quickReplyUuid as SdkOptional<String>,
-  );
+  ConversationPartMetadata _copyWith(
+          {Object? quickReplyOptions = sdkOmittedValue,
+          Object? quickReplyUuid = sdkOmittedValue}) =>
+      ConversationPartMetadata(
+        quickReplyOptions: identical(quickReplyOptions, sdkOmittedValue)
+            ? this.quickReplyOptions
+            : quickReplyOptions as SdkOptional<
+                List<ConversationPartMetadataQuickReplyOptionsItem>>,
+        quickReplyUuid: identical(quickReplyUuid, sdkOmittedValue)
+            ? this.quickReplyUuid
+            : quickReplyUuid as SdkOptional<String>,
+      );
 
-  factory ConversationPartMetadata.fromJson(Map<String, dynamic> json) => ConversationPartMetadata(
-    quickReplyOptions: json['quick_reply_options'] != null ? SdkPresent(((json['quick_reply_options'] as List?)?.map((e) => ConversationPartMetadataQuickReplyOptionsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    quickReplyUuid: json['quick_reply_uuid'] != null ? SdkPresent((json['quick_reply_uuid'] as String?)!) : const SdkOmitted(),
-  );
+  factory ConversationPartMetadata.fromJson(Map<String, dynamic> json) =>
+      ConversationPartMetadata(
+        quickReplyOptions: json['quick_reply_options'] != null
+            ? SdkPresent(((json['quick_reply_options'] as List?)
+                ?.map((e) =>
+                    ConversationPartMetadataQuickReplyOptionsItem.fromJson(
+                        e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        quickReplyUuid: json['quick_reply_uuid'] != null
+            ? SdkPresent((json['quick_reply_uuid'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (quickReplyOptions) {
-      SdkPresent<List<ConversationPartMetadataQuickReplyOptionsItem>>(value: final value) => {'quick_reply_options': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (quickReplyUuid) {
-      SdkPresent<String>(value: final value) => {'quick_reply_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (quickReplyOptions) {
+          SdkPresent<List<ConversationPartMetadataQuickReplyOptionsItem>>(
+            value: final value
+          ) =>
+            {
+              'quick_reply_options':
+                  value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (quickReplyUuid) {
+          SdkPresent<String>(value: final value) => {
+              'quick_reply_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

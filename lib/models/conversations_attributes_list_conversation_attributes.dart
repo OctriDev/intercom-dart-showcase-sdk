@@ -8,33 +8,61 @@ part of 'conversations_attributes.dart';
 class ConversationAttributeList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object.
   final SdkOptional<ConversationAttributeListTypeb488f16f> type_;
+
   /// A list of conversation attributes.
   final SdkOptional<List<ConversationAttribute>> data;
 
-  const ConversationAttributeList({this.type_ = const SdkOmitted(), this.data = const SdkOmitted()});
+  const ConversationAttributeList(
+      {this.type_ = const SdkOmitted(), this.data = const SdkOmitted()});
 
-  ConversationAttributeList Function({SdkOptional<ConversationAttributeListTypeb488f16f> type_, SdkOptional<List<ConversationAttribute>> data}) get copyWith => _copyWith;
+  ConversationAttributeList Function(
+      {SdkOptional<ConversationAttributeListTypeb488f16f> type_,
+      SdkOptional<List<ConversationAttribute>> data}) get copyWith => _copyWith;
 
-  ConversationAttributeList _copyWith({Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) => ConversationAttributeList(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ConversationAttributeListTypeb488f16f>,
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<ConversationAttribute>>,
-  );
+  ConversationAttributeList _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
+      ConversationAttributeList(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<ConversationAttributeListTypeb488f16f>,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<List<ConversationAttribute>>,
+      );
 
-  factory ConversationAttributeList.fromJson(Map<String, dynamic> json) => ConversationAttributeList(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ConversationAttributeListTypeb488f16f.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => ConversationAttribute.fromJson(e)).toList())!) : const SdkOmitted(),
-  );
+  factory ConversationAttributeList.fromJson(Map<String, dynamic> json) =>
+      ConversationAttributeList(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? ConversationAttributeListTypeb488f16f.fromJson(
+                    json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        data: json['data'] != null
+            ? SdkPresent(((json['data'] as List?)
+                ?.map((e) => ConversationAttribute.fromJson(e))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<ConversationAttributeListTypeb488f16f>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (data) {
-      SdkPresent<List<ConversationAttribute>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<ConversationAttributeListTypeb488f16f>(
+            value: final value
+          ) =>
+            {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (data) {
+          SdkPresent<List<ConversationAttribute>>(value: final value) => {
+              'data': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

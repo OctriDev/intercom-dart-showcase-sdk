@@ -8,116 +8,225 @@ part of 'messages.dart';
 class WhatsappMessageStatusError {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Error message
   final SdkOptional<String> message;
+
   /// Detailed error information
   final SdkOptional<String> details;
 
-  const WhatsappMessageStatusError({this.message = const SdkOmitted(), this.details = const SdkOmitted()});
+  const WhatsappMessageStatusError(
+      {this.message = const SdkOmitted(), this.details = const SdkOmitted()});
 
-  WhatsappMessageStatusError Function({SdkOptional<String> message, SdkOptional<String> details}) get copyWith => _copyWith;
+  WhatsappMessageStatusError Function(
+      {SdkOptional<String> message,
+      SdkOptional<String> details}) get copyWith => _copyWith;
 
-  WhatsappMessageStatusError _copyWith({Object? message = sdkOmittedValue, Object? details = sdkOmittedValue}) => WhatsappMessageStatusError(
-    message: identical(message, sdkOmittedValue) ? this.message : message as SdkOptional<String>,
-    details: identical(details, sdkOmittedValue) ? this.details : details as SdkOptional<String>,
-  );
+  WhatsappMessageStatusError _copyWith(
+          {Object? message = sdkOmittedValue,
+          Object? details = sdkOmittedValue}) =>
+      WhatsappMessageStatusError(
+        message: identical(message, sdkOmittedValue)
+            ? this.message
+            : message as SdkOptional<String>,
+        details: identical(details, sdkOmittedValue)
+            ? this.details
+            : details as SdkOptional<String>,
+      );
 
-  factory WhatsappMessageStatusError.fromJson(Map<String, dynamic> json) => WhatsappMessageStatusError(
-    message: json['message'] != null ? SdkPresent((json['message'] as String?)!) : const SdkOmitted(),
-    details: json['details'] != null ? SdkPresent((json['details'] as String?)!) : const SdkOmitted(),
-  );
+  factory WhatsappMessageStatusError.fromJson(Map<String, dynamic> json) =>
+      WhatsappMessageStatusError(
+        message: json['message'] != null
+            ? SdkPresent((json['message'] as String?)!)
+            : const SdkOmitted(),
+        details: json['details'] != null
+            ? SdkPresent((json['details'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (message) {
-      SdkPresent<String>(value: final value) => {'message': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (details) {
-      SdkPresent<String>(value: final value) => {'details': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (message) {
+          SdkPresent<String>(value: final value) => {
+              'message': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (details) {
+          SdkPresent<String>(value: final value) => {
+              'details': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// The delivery status of a specific WhatsApp message.
 class WhatsappMessageStatus {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// ID of the conversation
   final SdkOptional<String> conversationId;
+
   /// Current delivery status of the message
   final SdkOptional<WhatsappMessageStatusStatus> status;
+
   /// Event type
   final SdkOptional<String> type_;
+
   /// Creation timestamp
   final SdkOptional<int> createdAt;
+
   /// Last update timestamp
   final SdkOptional<int> updatedAt;
+
   /// Name of the WhatsApp template used
   final SdkOptional<String> templateName;
+
   /// The WhatsApp message ID
   final SdkOptional<String> messageId;
+
   /// Error details, present only when status is "failed"
   final SdkOptional<WhatsappMessageStatusError?> error;
 
-  const WhatsappMessageStatus({this.conversationId = const SdkOmitted(), this.status = const SdkOmitted(), this.type_ = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.templateName = const SdkOmitted(), this.messageId = const SdkOmitted(), this.error = const SdkOmitted()});
+  const WhatsappMessageStatus(
+      {this.conversationId = const SdkOmitted(),
+      this.status = const SdkOmitted(),
+      this.type_ = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.updatedAt = const SdkOmitted(),
+      this.templateName = const SdkOmitted(),
+      this.messageId = const SdkOmitted(),
+      this.error = const SdkOmitted()});
 
-  WhatsappMessageStatus Function({SdkOptional<String> conversationId, SdkOptional<WhatsappMessageStatusStatus> status, SdkOptional<String> type_, SdkOptional<int> createdAt, SdkOptional<int> updatedAt, SdkOptional<String> templateName, SdkOptional<String> messageId, SdkOptional<WhatsappMessageStatusError?> error}) get copyWith => _copyWith;
+  WhatsappMessageStatus Function(
+          {SdkOptional<String> conversationId,
+          SdkOptional<WhatsappMessageStatusStatus> status,
+          SdkOptional<String> type_,
+          SdkOptional<int> createdAt,
+          SdkOptional<int> updatedAt,
+          SdkOptional<String> templateName,
+          SdkOptional<String> messageId,
+          SdkOptional<WhatsappMessageStatusError?> error})
+      get copyWith => _copyWith;
 
-  WhatsappMessageStatus _copyWith({Object? conversationId = sdkOmittedValue, Object? status = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? templateName = sdkOmittedValue, Object? messageId = sdkOmittedValue, Object? error = sdkOmittedValue}) => WhatsappMessageStatus(
-    conversationId: identical(conversationId, sdkOmittedValue) ? this.conversationId : conversationId as SdkOptional<String>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<WhatsappMessageStatusStatus>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<int>,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<int>,
-    templateName: identical(templateName, sdkOmittedValue) ? this.templateName : templateName as SdkOptional<String>,
-    messageId: identical(messageId, sdkOmittedValue) ? this.messageId : messageId as SdkOptional<String>,
-    error: identical(error, sdkOmittedValue) ? this.error : error as SdkOptional<WhatsappMessageStatusError?>,
-  );
+  WhatsappMessageStatus _copyWith(
+          {Object? conversationId = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue,
+          Object? templateName = sdkOmittedValue,
+          Object? messageId = sdkOmittedValue,
+          Object? error = sdkOmittedValue}) =>
+      WhatsappMessageStatus(
+        conversationId: identical(conversationId, sdkOmittedValue)
+            ? this.conversationId
+            : conversationId as SdkOptional<String>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<WhatsappMessageStatusStatus>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<String>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<int>,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as SdkOptional<int>,
+        templateName: identical(templateName, sdkOmittedValue)
+            ? this.templateName
+            : templateName as SdkOptional<String>,
+        messageId: identical(messageId, sdkOmittedValue)
+            ? this.messageId
+            : messageId as SdkOptional<String>,
+        error: identical(error, sdkOmittedValue)
+            ? this.error
+            : error as SdkOptional<WhatsappMessageStatusError?>,
+      );
 
-  factory WhatsappMessageStatus.fromJson(Map<String, dynamic> json) => WhatsappMessageStatus(
-    conversationId: json['conversation_id'] != null ? SdkPresent((json['conversation_id'] as String?)!) : const SdkOmitted(),
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? WhatsappMessageStatusStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent(((json['created_at'] as num?)?.toInt())!) : const SdkOmitted(),
-    updatedAt: json['updated_at'] != null ? SdkPresent(((json['updated_at'] as num?)?.toInt())!) : const SdkOmitted(),
-    templateName: json['template_name'] != null ? SdkPresent((json['template_name'] as String?)!) : const SdkOmitted(),
-    messageId: json['message_id'] != null ? SdkPresent((json['message_id'] as String?)!) : const SdkOmitted(),
-    error: json.containsKey('error') ? SdkPresent(json['error'] != null ? WhatsappMessageStatusError.fromJson(json['error'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-  );
+  factory WhatsappMessageStatus.fromJson(Map<String, dynamic> json) =>
+      WhatsappMessageStatus(
+        conversationId: json['conversation_id'] != null
+            ? SdkPresent((json['conversation_id'] as String?)!)
+            : const SdkOmitted(),
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? WhatsappMessageStatusStatus.fromJson(json['status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] as String?)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent(((json['created_at'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        updatedAt: json['updated_at'] != null
+            ? SdkPresent(((json['updated_at'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        templateName: json['template_name'] != null
+            ? SdkPresent((json['template_name'] as String?)!)
+            : const SdkOmitted(),
+        messageId: json['message_id'] != null
+            ? SdkPresent((json['message_id'] as String?)!)
+            : const SdkOmitted(),
+        error: json.containsKey('error')
+            ? SdkPresent(json['error'] != null
+                ? WhatsappMessageStatusError.fromJson(
+                    json['error'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (conversationId) {
-      SdkPresent<String>(value: final value) => {'conversation_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (status) {
-      SdkPresent<WhatsappMessageStatusStatus>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (type_) {
-      SdkPresent<String>(value: final value) => {'type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<int>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (updatedAt) {
-      SdkPresent<int>(value: final value) => {'updated_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (templateName) {
-      SdkPresent<String>(value: final value) => {'template_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (messageId) {
-      SdkPresent<String>(value: final value) => {'message_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (error) {
-      SdkPresent<WhatsappMessageStatusError?>(value: final value) => {'error': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (conversationId) {
+          SdkPresent<String>(value: final value) => {
+              'conversation_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (status) {
+          SdkPresent<WhatsappMessageStatusStatus>(value: final value) => {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (type_) {
+          SdkPresent<String>(value: final value) => {
+              'type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<int>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (updatedAt) {
+          SdkPresent<int>(value: final value) => {
+              'updated_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (templateName) {
+          SdkPresent<String>(value: final value) => {
+              'template_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (messageId) {
+          SdkPresent<String>(value: final value) => {
+              'message_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (error) {
+          SdkPresent<WhatsappMessageStatusError?>(value: final value) => {
+              'error': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

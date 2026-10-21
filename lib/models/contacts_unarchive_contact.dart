@@ -8,49 +8,93 @@ part of 'contacts.dart';
 class ContactUnarchived {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// always contact
   final SdkOptional<ContactUnarchivedType> type_;
+
   /// The unique identifier for the contact which is given by Intercom.
   final SdkOptional<String> id;
+
   /// The unique identifier for the contact which is provided by the Client.
   final SdkOptional<String?> externalId;
+
   /// Whether the contact is archived or not.
   final SdkOptional<bool> archived;
 
-  const ContactUnarchived({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.externalId = const SdkOmitted(), this.archived = const SdkOmitted()});
+  const ContactUnarchived(
+      {this.type_ = const SdkOmitted(),
+      this.id = const SdkOmitted(),
+      this.externalId = const SdkOmitted(),
+      this.archived = const SdkOmitted()});
 
-  ContactUnarchived Function({SdkOptional<ContactUnarchivedType> type_, SdkOptional<String> id, SdkOptional<String?> externalId, SdkOptional<bool> archived}) get copyWith => _copyWith;
+  ContactUnarchived Function(
+      {SdkOptional<ContactUnarchivedType> type_,
+      SdkOptional<String> id,
+      SdkOptional<String?> externalId,
+      SdkOptional<bool> archived}) get copyWith => _copyWith;
 
-  ContactUnarchived _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? externalId = sdkOmittedValue, Object? archived = sdkOmittedValue}) => ContactUnarchived(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ContactUnarchivedType>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    externalId: identical(externalId, sdkOmittedValue) ? this.externalId : externalId as SdkOptional<String?>,
-    archived: identical(archived, sdkOmittedValue) ? this.archived : archived as SdkOptional<bool>,
-  );
+  ContactUnarchived _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? externalId = sdkOmittedValue,
+          Object? archived = sdkOmittedValue}) =>
+      ContactUnarchived(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<ContactUnarchivedType>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        externalId: identical(externalId, sdkOmittedValue)
+            ? this.externalId
+            : externalId as SdkOptional<String?>,
+        archived: identical(archived, sdkOmittedValue)
+            ? this.archived
+            : archived as SdkOptional<bool>,
+      );
 
-  factory ContactUnarchived.fromJson(Map<String, dynamic> json) => ContactUnarchived(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ContactUnarchivedType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    externalId: json.containsKey('external_id') ? SdkPresent(json['external_id'] as String?) : const SdkOmitted(),
-    archived: json['archived'] != null ? SdkPresent((json['archived'] as bool?)!) : const SdkOmitted(),
-  );
+  factory ContactUnarchived.fromJson(Map<String, dynamic> json) =>
+      ContactUnarchived(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? ContactUnarchivedType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        externalId: json.containsKey('external_id')
+            ? SdkPresent(json['external_id'] as String?)
+            : const SdkOmitted(),
+        archived: json['archived'] != null
+            ? SdkPresent((json['archived'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<ContactUnarchivedType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (externalId) {
-      SdkPresent<String?>(value: final value) => {'external_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (archived) {
-      SdkPresent<bool>(value: final value) => {'archived': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<ContactUnarchivedType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (externalId) {
+          SdkPresent<String?>(value: final value) => {
+              'external_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (archived) {
+          SdkPresent<bool>(value: final value) => {
+              'archived': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

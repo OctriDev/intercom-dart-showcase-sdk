@@ -8,41 +8,72 @@ part of 'shared.dart';
 class Translation {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The localised name of the subscription type.
   final SdkOptional<String> name;
+
   /// The localised description of the subscription type.
   final SdkOptional<String> description;
+
   /// The two character identifier for the language of the translation object.
   final SdkOptional<String> locale;
 
-  const Translation({this.name = const SdkOmitted(), this.description = const SdkOmitted(), this.locale = const SdkOmitted()});
+  const Translation(
+      {this.name = const SdkOmitted(),
+      this.description = const SdkOmitted(),
+      this.locale = const SdkOmitted()});
 
-  Translation Function({SdkOptional<String> name, SdkOptional<String> description, SdkOptional<String> locale}) get copyWith => _copyWith;
+  Translation Function(
+      {SdkOptional<String> name,
+      SdkOptional<String> description,
+      SdkOptional<String> locale}) get copyWith => _copyWith;
 
-  Translation _copyWith({Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? locale = sdkOmittedValue}) => Translation(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
-    locale: identical(locale, sdkOmittedValue) ? this.locale : locale as SdkOptional<String>,
-  );
+  Translation _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? locale = sdkOmittedValue}) =>
+      Translation(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String>,
+        locale: identical(locale, sdkOmittedValue)
+            ? this.locale
+            : locale as SdkOptional<String>,
+      );
 
   factory Translation.fromJson(Map<String, dynamic> json) => Translation(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
-    locale: json['locale'] != null ? SdkPresent((json['locale'] as String?)!) : const SdkOmitted(),
-  );
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        description: json['description'] != null
+            ? SdkPresent((json['description'] as String?)!)
+            : const SdkOmitted(),
+        locale: json['locale'] != null
+            ? SdkPresent((json['locale'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (description) {
-      SdkPresent<String>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (locale) {
-      SdkPresent<String>(value: final value) => {'locale': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (description) {
+          SdkPresent<String>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (locale) {
+          SdkPresent<String>(value: final value) => {
+              'locale': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

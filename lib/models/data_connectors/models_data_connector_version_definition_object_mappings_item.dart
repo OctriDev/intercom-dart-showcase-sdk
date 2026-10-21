@@ -8,252 +8,609 @@ part of 'models.dart';
 class DataConnectorVersionDefinitionObjectMappingsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional `string` value serialized in the `response_object_path` wire field.
   final SdkOptional<String> responseObjectPath;
+
   /// Optional `string` value serialized in the `intercom_object_type` wire field.
   final SdkOptional<String> intercomObjectType;
+
   /// Optional array value serialized in the `attribute_mappings` wire field.
-  final SdkOptional<List<DataConnectorVersionDefinitionObjectMappingsItemAttributeMappingsItem>> attributeMappings;
+  final SdkOptional<
+          List<
+              DataConnectorVersionDefinitionObjectMappingsItemAttributeMappingsItem>>
+      attributeMappings;
+
   /// Optional array value serialized in the `reference_mappings` wire field.
-  final SdkOptional<List<DataConnectorVersionDefinitionObjectMappingsItemReferenceMappingsItem>> referenceMappings;
+  final SdkOptional<
+          List<
+              DataConnectorVersionDefinitionObjectMappingsItemReferenceMappingsItem>>
+      referenceMappings;
 
-  const DataConnectorVersionDefinitionObjectMappingsItem({this.responseObjectPath = const SdkOmitted(), this.intercomObjectType = const SdkOmitted(), this.attributeMappings = const SdkOmitted(), this.referenceMappings = const SdkOmitted()});
+  const DataConnectorVersionDefinitionObjectMappingsItem(
+      {this.responseObjectPath = const SdkOmitted(),
+      this.intercomObjectType = const SdkOmitted(),
+      this.attributeMappings = const SdkOmitted(),
+      this.referenceMappings = const SdkOmitted()});
 
-  DataConnectorVersionDefinitionObjectMappingsItem Function({SdkOptional<String> responseObjectPath, SdkOptional<String> intercomObjectType, SdkOptional<List<DataConnectorVersionDefinitionObjectMappingsItemAttributeMappingsItem>> attributeMappings, SdkOptional<List<DataConnectorVersionDefinitionObjectMappingsItemReferenceMappingsItem>> referenceMappings}) get copyWith => _copyWith;
+  DataConnectorVersionDefinitionObjectMappingsItem Function(
+      {SdkOptional<String> responseObjectPath,
+      SdkOptional<String> intercomObjectType,
+      SdkOptional<
+              List<
+                  DataConnectorVersionDefinitionObjectMappingsItemAttributeMappingsItem>>
+          attributeMappings,
+      SdkOptional<
+              List<
+                  DataConnectorVersionDefinitionObjectMappingsItemReferenceMappingsItem>>
+          referenceMappings}) get copyWith => _copyWith;
 
-  DataConnectorVersionDefinitionObjectMappingsItem _copyWith({Object? responseObjectPath = sdkOmittedValue, Object? intercomObjectType = sdkOmittedValue, Object? attributeMappings = sdkOmittedValue, Object? referenceMappings = sdkOmittedValue}) => DataConnectorVersionDefinitionObjectMappingsItem(
-    responseObjectPath: identical(responseObjectPath, sdkOmittedValue) ? this.responseObjectPath : responseObjectPath as SdkOptional<String>,
-    intercomObjectType: identical(intercomObjectType, sdkOmittedValue) ? this.intercomObjectType : intercomObjectType as SdkOptional<String>,
-    attributeMappings: identical(attributeMappings, sdkOmittedValue) ? this.attributeMappings : attributeMappings as SdkOptional<List<DataConnectorVersionDefinitionObjectMappingsItemAttributeMappingsItem>>,
-    referenceMappings: identical(referenceMappings, sdkOmittedValue) ? this.referenceMappings : referenceMappings as SdkOptional<List<DataConnectorVersionDefinitionObjectMappingsItemReferenceMappingsItem>>,
-  );
+  DataConnectorVersionDefinitionObjectMappingsItem _copyWith(
+          {Object? responseObjectPath = sdkOmittedValue,
+          Object? intercomObjectType = sdkOmittedValue,
+          Object? attributeMappings = sdkOmittedValue,
+          Object? referenceMappings = sdkOmittedValue}) =>
+      DataConnectorVersionDefinitionObjectMappingsItem(
+        responseObjectPath: identical(responseObjectPath, sdkOmittedValue)
+            ? this.responseObjectPath
+            : responseObjectPath as SdkOptional<String>,
+        intercomObjectType: identical(intercomObjectType, sdkOmittedValue)
+            ? this.intercomObjectType
+            : intercomObjectType as SdkOptional<String>,
+        attributeMappings: identical(attributeMappings, sdkOmittedValue)
+            ? this.attributeMappings
+            : attributeMappings as SdkOptional<
+                List<
+                    DataConnectorVersionDefinitionObjectMappingsItemAttributeMappingsItem>>,
+        referenceMappings: identical(referenceMappings, sdkOmittedValue)
+            ? this.referenceMappings
+            : referenceMappings as SdkOptional<
+                List<
+                    DataConnectorVersionDefinitionObjectMappingsItemReferenceMappingsItem>>,
+      );
 
-  factory DataConnectorVersionDefinitionObjectMappingsItem.fromJson(Map<String, dynamic> json) => DataConnectorVersionDefinitionObjectMappingsItem(
-    responseObjectPath: json['response_object_path'] != null ? SdkPresent((json['response_object_path'] as String?)!) : const SdkOmitted(),
-    intercomObjectType: json['intercom_object_type'] != null ? SdkPresent((json['intercom_object_type'] as String?)!) : const SdkOmitted(),
-    attributeMappings: json['attribute_mappings'] != null ? SdkPresent(((json['attribute_mappings'] as List?)?.map((e) => DataConnectorVersionDefinitionObjectMappingsItemAttributeMappingsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    referenceMappings: json['reference_mappings'] != null ? SdkPresent(((json['reference_mappings'] as List?)?.map((e) => DataConnectorVersionDefinitionObjectMappingsItemReferenceMappingsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory DataConnectorVersionDefinitionObjectMappingsItem.fromJson(
+          Map<String, dynamic> json) =>
+      DataConnectorVersionDefinitionObjectMappingsItem(
+        responseObjectPath: json['response_object_path'] != null
+            ? SdkPresent((json['response_object_path'] as String?)!)
+            : const SdkOmitted(),
+        intercomObjectType: json['intercom_object_type'] != null
+            ? SdkPresent((json['intercom_object_type'] as String?)!)
+            : const SdkOmitted(),
+        attributeMappings: json['attribute_mappings'] != null
+            ? SdkPresent(((json['attribute_mappings'] as List?)
+                ?.map((e) =>
+                    DataConnectorVersionDefinitionObjectMappingsItemAttributeMappingsItem
+                        .fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        referenceMappings: json['reference_mappings'] != null
+            ? SdkPresent(((json['reference_mappings'] as List?)
+                ?.map((e) =>
+                    DataConnectorVersionDefinitionObjectMappingsItemReferenceMappingsItem
+                        .fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (responseObjectPath) {
-      SdkPresent<String>(value: final value) => {'response_object_path': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (intercomObjectType) {
-      SdkPresent<String>(value: final value) => {'intercom_object_type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (attributeMappings) {
-      SdkPresent<List<DataConnectorVersionDefinitionObjectMappingsItemAttributeMappingsItem>>(value: final value) => {'attribute_mappings': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (referenceMappings) {
-      SdkPresent<List<DataConnectorVersionDefinitionObjectMappingsItemReferenceMappingsItem>>(value: final value) => {'reference_mappings': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (responseObjectPath) {
+          SdkPresent<String>(value: final value) => {
+              'response_object_path': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (intercomObjectType) {
+          SdkPresent<String>(value: final value) => {
+              'intercom_object_type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (attributeMappings) {
+          SdkPresent<
+                List<
+                    DataConnectorVersionDefinitionObjectMappingsItemAttributeMappingsItem>>(
+            value: final value
+          ) =>
+            {
+              'attribute_mappings': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (referenceMappings) {
+          SdkPresent<
+                List<
+                    DataConnectorVersionDefinitionObjectMappingsItemReferenceMappingsItem>>(
+            value: final value
+          ) =>
+            {
+              'reference_mappings': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// The data connector's configuration at this version. `null` if the snapshot is no longer available. Mirrors the response of Retrieve a data connector, without `id`, `type`, `created_by_admin_id`, `updated_by_admin_id`, `created_at`, `updated_at`, `execution_results_url` and `transform_code_block`.
 class DataConnectorVersionDefinition {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the data connector.
   final SdkOptional<String> name;
+
   /// A description of what this data connector does.
   final SdkOptional<String?> description;
+
   /// The internal description of the data connector.
   final SdkOptional<String?> internalDescription;
+
   /// The state of the data connector at this version.
   final SdkOptional<String> state;
+
   /// The URL of the external API endpoint. Supports template variables like `{{order_id}}`.
   final SdkOptional<String?> url;
+
   /// The request body template. Supports template variables.
   final SdkOptional<String?> body;
+
   /// HTTP headers for the request. Header values are always redacted as `"****"`.
   final SdkOptional<List<DataConnectorVersionDefinitionHeadersItem>> headers;
+
   /// The HTTP method used by the data connector.
   final SdkOptional<String> httpMethod;
+
   /// Whether this connector is used directly by Fin.
   final SdkOptional<bool> directFinUsage;
+
   /// The audience types this connector targets.
   final SdkOptional<List<String>> audiences;
+
   /// How the connector executes, for example `server_side` or `client_side`.
   final SdkOptional<String?> executionType;
+
   /// The expected response format from the connector.
   final SdkOptional<String?> configurationResponseType;
+
   /// The type of data transformation applied to the response.
   final SdkOptional<String?> dataTransformationType;
+
   /// The name of the client-side function, if applicable.
   final SdkOptional<String?> clientFunctionName;
+
   /// Timeout in milliseconds for the client function, if applicable.
   final SdkOptional<int?> clientFunctionTimeoutMs;
+
   /// The input parameters accepted by this data connector.
-  final SdkOptional<List<DataConnectorVersionDefinitionDataInputsItem>> dataInputs;
+  final SdkOptional<List<DataConnectorVersionDefinitionDataInputsItem>>
+      dataInputs;
+
   /// The fields returned in the connector response.
-  final SdkOptional<List<DataConnectorVersionDefinitionResponseFieldsItem>> responseFields;
+  final SdkOptional<List<DataConnectorVersionDefinitionResponseFieldsItem>>
+      responseFields;
+
   /// Mappings from connector response objects to Intercom objects.
-  final SdkOptional<List<DataConnectorVersionDefinitionObjectMappingsItem>> objectMappings;
+  final SdkOptional<List<DataConnectorVersionDefinitionObjectMappingsItem>>
+      objectMappings;
+
   /// IDs of authentication tokens associated with this connector.
   final SdkOptional<List<String>> tokenIds;
+
   /// Whether OTP authentication is enabled for this connector.
   final SdkOptional<bool> customerAuthentication;
+
   /// Whether authentication is bypassed for this connector.
   final SdkOptional<bool> bypassAuthentication;
+
   /// Whether authentication is enforced for this connector.
   final SdkOptional<bool?> enforceAuth;
+
   /// Whether to validate missing attributes before execution.
   final SdkOptional<bool?> validateMissingAttributes;
 
-  const DataConnectorVersionDefinition({this.name = const SdkOmitted(), this.description = const SdkOmitted(), this.internalDescription = const SdkOmitted(), this.state = const SdkOmitted(), this.url = const SdkOmitted(), this.body = const SdkOmitted(), this.headers = const SdkOmitted(), this.httpMethod = const SdkOmitted(), this.directFinUsage = const SdkOmitted(), this.audiences = const SdkOmitted(), this.executionType = const SdkOmitted(), this.configurationResponseType = const SdkOmitted(), this.dataTransformationType = const SdkOmitted(), this.clientFunctionName = const SdkOmitted(), this.clientFunctionTimeoutMs = const SdkOmitted(), this.dataInputs = const SdkOmitted(), this.responseFields = const SdkOmitted(), this.objectMappings = const SdkOmitted(), this.tokenIds = const SdkOmitted(), this.customerAuthentication = const SdkOmitted(), this.bypassAuthentication = const SdkOmitted(), this.enforceAuth = const SdkOmitted(), this.validateMissingAttributes = const SdkOmitted()});
+  const DataConnectorVersionDefinition(
+      {this.name = const SdkOmitted(),
+      this.description = const SdkOmitted(),
+      this.internalDescription = const SdkOmitted(),
+      this.state = const SdkOmitted(),
+      this.url = const SdkOmitted(),
+      this.body = const SdkOmitted(),
+      this.headers = const SdkOmitted(),
+      this.httpMethod = const SdkOmitted(),
+      this.directFinUsage = const SdkOmitted(),
+      this.audiences = const SdkOmitted(),
+      this.executionType = const SdkOmitted(),
+      this.configurationResponseType = const SdkOmitted(),
+      this.dataTransformationType = const SdkOmitted(),
+      this.clientFunctionName = const SdkOmitted(),
+      this.clientFunctionTimeoutMs = const SdkOmitted(),
+      this.dataInputs = const SdkOmitted(),
+      this.responseFields = const SdkOmitted(),
+      this.objectMappings = const SdkOmitted(),
+      this.tokenIds = const SdkOmitted(),
+      this.customerAuthentication = const SdkOmitted(),
+      this.bypassAuthentication = const SdkOmitted(),
+      this.enforceAuth = const SdkOmitted(),
+      this.validateMissingAttributes = const SdkOmitted()});
 
-  DataConnectorVersionDefinition Function({SdkOptional<String> name, SdkOptional<String?> description, SdkOptional<String?> internalDescription, SdkOptional<String> state, SdkOptional<String?> url, SdkOptional<String?> body, SdkOptional<List<DataConnectorVersionDefinitionHeadersItem>> headers, SdkOptional<String> httpMethod, SdkOptional<bool> directFinUsage, SdkOptional<List<String>> audiences, SdkOptional<String?> executionType, SdkOptional<String?> configurationResponseType, SdkOptional<String?> dataTransformationType, SdkOptional<String?> clientFunctionName, SdkOptional<int?> clientFunctionTimeoutMs, SdkOptional<List<DataConnectorVersionDefinitionDataInputsItem>> dataInputs, SdkOptional<List<DataConnectorVersionDefinitionResponseFieldsItem>> responseFields, SdkOptional<List<DataConnectorVersionDefinitionObjectMappingsItem>> objectMappings, SdkOptional<List<String>> tokenIds, SdkOptional<bool> customerAuthentication, SdkOptional<bool> bypassAuthentication, SdkOptional<bool?> enforceAuth, SdkOptional<bool?> validateMissingAttributes}) get copyWith => _copyWith;
+  DataConnectorVersionDefinition Function(
+      {SdkOptional<String> name,
+      SdkOptional<String?> description,
+      SdkOptional<String?> internalDescription,
+      SdkOptional<String> state,
+      SdkOptional<String?> url,
+      SdkOptional<String?> body,
+      SdkOptional<List<DataConnectorVersionDefinitionHeadersItem>> headers,
+      SdkOptional<String> httpMethod,
+      SdkOptional<bool> directFinUsage,
+      SdkOptional<List<String>> audiences,
+      SdkOptional<String?> executionType,
+      SdkOptional<String?> configurationResponseType,
+      SdkOptional<String?> dataTransformationType,
+      SdkOptional<String?> clientFunctionName,
+      SdkOptional<int?> clientFunctionTimeoutMs,
+      SdkOptional<List<DataConnectorVersionDefinitionDataInputsItem>>
+          dataInputs,
+      SdkOptional<List<DataConnectorVersionDefinitionResponseFieldsItem>>
+          responseFields,
+      SdkOptional<List<DataConnectorVersionDefinitionObjectMappingsItem>>
+          objectMappings,
+      SdkOptional<List<String>> tokenIds,
+      SdkOptional<bool> customerAuthentication,
+      SdkOptional<bool> bypassAuthentication,
+      SdkOptional<bool?> enforceAuth,
+      SdkOptional<bool?> validateMissingAttributes}) get copyWith => _copyWith;
 
-  DataConnectorVersionDefinition _copyWith({Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? internalDescription = sdkOmittedValue, Object? state = sdkOmittedValue, Object? url = sdkOmittedValue, Object? body = sdkOmittedValue, Object? headers = sdkOmittedValue, Object? httpMethod = sdkOmittedValue, Object? directFinUsage = sdkOmittedValue, Object? audiences = sdkOmittedValue, Object? executionType = sdkOmittedValue, Object? configurationResponseType = sdkOmittedValue, Object? dataTransformationType = sdkOmittedValue, Object? clientFunctionName = sdkOmittedValue, Object? clientFunctionTimeoutMs = sdkOmittedValue, Object? dataInputs = sdkOmittedValue, Object? responseFields = sdkOmittedValue, Object? objectMappings = sdkOmittedValue, Object? tokenIds = sdkOmittedValue, Object? customerAuthentication = sdkOmittedValue, Object? bypassAuthentication = sdkOmittedValue, Object? enforceAuth = sdkOmittedValue, Object? validateMissingAttributes = sdkOmittedValue}) => DataConnectorVersionDefinition(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String?>,
-    internalDescription: identical(internalDescription, sdkOmittedValue) ? this.internalDescription : internalDescription as SdkOptional<String?>,
-    state: identical(state, sdkOmittedValue) ? this.state : state as SdkOptional<String>,
-    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String?>,
-    body: identical(body, sdkOmittedValue) ? this.body : body as SdkOptional<String?>,
-    headers: identical(headers, sdkOmittedValue) ? this.headers : headers as SdkOptional<List<DataConnectorVersionDefinitionHeadersItem>>,
-    httpMethod: identical(httpMethod, sdkOmittedValue) ? this.httpMethod : httpMethod as SdkOptional<String>,
-    directFinUsage: identical(directFinUsage, sdkOmittedValue) ? this.directFinUsage : directFinUsage as SdkOptional<bool>,
-    audiences: identical(audiences, sdkOmittedValue) ? this.audiences : audiences as SdkOptional<List<String>>,
-    executionType: identical(executionType, sdkOmittedValue) ? this.executionType : executionType as SdkOptional<String?>,
-    configurationResponseType: identical(configurationResponseType, sdkOmittedValue) ? this.configurationResponseType : configurationResponseType as SdkOptional<String?>,
-    dataTransformationType: identical(dataTransformationType, sdkOmittedValue) ? this.dataTransformationType : dataTransformationType as SdkOptional<String?>,
-    clientFunctionName: identical(clientFunctionName, sdkOmittedValue) ? this.clientFunctionName : clientFunctionName as SdkOptional<String?>,
-    clientFunctionTimeoutMs: identical(clientFunctionTimeoutMs, sdkOmittedValue) ? this.clientFunctionTimeoutMs : clientFunctionTimeoutMs as SdkOptional<int?>,
-    dataInputs: identical(dataInputs, sdkOmittedValue) ? this.dataInputs : dataInputs as SdkOptional<List<DataConnectorVersionDefinitionDataInputsItem>>,
-    responseFields: identical(responseFields, sdkOmittedValue) ? this.responseFields : responseFields as SdkOptional<List<DataConnectorVersionDefinitionResponseFieldsItem>>,
-    objectMappings: identical(objectMappings, sdkOmittedValue) ? this.objectMappings : objectMappings as SdkOptional<List<DataConnectorVersionDefinitionObjectMappingsItem>>,
-    tokenIds: identical(tokenIds, sdkOmittedValue) ? this.tokenIds : tokenIds as SdkOptional<List<String>>,
-    customerAuthentication: identical(customerAuthentication, sdkOmittedValue) ? this.customerAuthentication : customerAuthentication as SdkOptional<bool>,
-    bypassAuthentication: identical(bypassAuthentication, sdkOmittedValue) ? this.bypassAuthentication : bypassAuthentication as SdkOptional<bool>,
-    enforceAuth: identical(enforceAuth, sdkOmittedValue) ? this.enforceAuth : enforceAuth as SdkOptional<bool?>,
-    validateMissingAttributes: identical(validateMissingAttributes, sdkOmittedValue) ? this.validateMissingAttributes : validateMissingAttributes as SdkOptional<bool?>,
-  );
+  DataConnectorVersionDefinition _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? internalDescription = sdkOmittedValue,
+          Object? state = sdkOmittedValue,
+          Object? url = sdkOmittedValue,
+          Object? body = sdkOmittedValue,
+          Object? headers = sdkOmittedValue,
+          Object? httpMethod = sdkOmittedValue,
+          Object? directFinUsage = sdkOmittedValue,
+          Object? audiences = sdkOmittedValue,
+          Object? executionType = sdkOmittedValue,
+          Object? configurationResponseType = sdkOmittedValue,
+          Object? dataTransformationType = sdkOmittedValue,
+          Object? clientFunctionName = sdkOmittedValue,
+          Object? clientFunctionTimeoutMs = sdkOmittedValue,
+          Object? dataInputs = sdkOmittedValue,
+          Object? responseFields = sdkOmittedValue,
+          Object? objectMappings = sdkOmittedValue,
+          Object? tokenIds = sdkOmittedValue,
+          Object? customerAuthentication = sdkOmittedValue,
+          Object? bypassAuthentication = sdkOmittedValue,
+          Object? enforceAuth = sdkOmittedValue,
+          Object? validateMissingAttributes = sdkOmittedValue}) =>
+      DataConnectorVersionDefinition(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String?>,
+        internalDescription: identical(internalDescription, sdkOmittedValue)
+            ? this.internalDescription
+            : internalDescription as SdkOptional<String?>,
+        state: identical(state, sdkOmittedValue)
+            ? this.state
+            : state as SdkOptional<String>,
+        url: identical(url, sdkOmittedValue)
+            ? this.url
+            : url as SdkOptional<String?>,
+        body: identical(body, sdkOmittedValue)
+            ? this.body
+            : body as SdkOptional<String?>,
+        headers: identical(headers, sdkOmittedValue)
+            ? this.headers
+            : headers
+                as SdkOptional<List<DataConnectorVersionDefinitionHeadersItem>>,
+        httpMethod: identical(httpMethod, sdkOmittedValue)
+            ? this.httpMethod
+            : httpMethod as SdkOptional<String>,
+        directFinUsage: identical(directFinUsage, sdkOmittedValue)
+            ? this.directFinUsage
+            : directFinUsage as SdkOptional<bool>,
+        audiences: identical(audiences, sdkOmittedValue)
+            ? this.audiences
+            : audiences as SdkOptional<List<String>>,
+        executionType: identical(executionType, sdkOmittedValue)
+            ? this.executionType
+            : executionType as SdkOptional<String?>,
+        configurationResponseType:
+            identical(configurationResponseType, sdkOmittedValue)
+                ? this.configurationResponseType
+                : configurationResponseType as SdkOptional<String?>,
+        dataTransformationType:
+            identical(dataTransformationType, sdkOmittedValue)
+                ? this.dataTransformationType
+                : dataTransformationType as SdkOptional<String?>,
+        clientFunctionName: identical(clientFunctionName, sdkOmittedValue)
+            ? this.clientFunctionName
+            : clientFunctionName as SdkOptional<String?>,
+        clientFunctionTimeoutMs:
+            identical(clientFunctionTimeoutMs, sdkOmittedValue)
+                ? this.clientFunctionTimeoutMs
+                : clientFunctionTimeoutMs as SdkOptional<int?>,
+        dataInputs: identical(dataInputs, sdkOmittedValue)
+            ? this.dataInputs
+            : dataInputs as SdkOptional<
+                List<DataConnectorVersionDefinitionDataInputsItem>>,
+        responseFields: identical(responseFields, sdkOmittedValue)
+            ? this.responseFields
+            : responseFields as SdkOptional<
+                List<DataConnectorVersionDefinitionResponseFieldsItem>>,
+        objectMappings: identical(objectMappings, sdkOmittedValue)
+            ? this.objectMappings
+            : objectMappings as SdkOptional<
+                List<DataConnectorVersionDefinitionObjectMappingsItem>>,
+        tokenIds: identical(tokenIds, sdkOmittedValue)
+            ? this.tokenIds
+            : tokenIds as SdkOptional<List<String>>,
+        customerAuthentication:
+            identical(customerAuthentication, sdkOmittedValue)
+                ? this.customerAuthentication
+                : customerAuthentication as SdkOptional<bool>,
+        bypassAuthentication: identical(bypassAuthentication, sdkOmittedValue)
+            ? this.bypassAuthentication
+            : bypassAuthentication as SdkOptional<bool>,
+        enforceAuth: identical(enforceAuth, sdkOmittedValue)
+            ? this.enforceAuth
+            : enforceAuth as SdkOptional<bool?>,
+        validateMissingAttributes:
+            identical(validateMissingAttributes, sdkOmittedValue)
+                ? this.validateMissingAttributes
+                : validateMissingAttributes as SdkOptional<bool?>,
+      );
 
-  factory DataConnectorVersionDefinition.fromJson(Map<String, dynamic> json) => DataConnectorVersionDefinition(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    description: json.containsKey('description') ? SdkPresent(json['description'] as String?) : const SdkOmitted(),
-    internalDescription: json.containsKey('internal_description') ? SdkPresent(json['internal_description'] as String?) : const SdkOmitted(),
-    state: json['state'] != null ? SdkPresent((json['state'] as String?)!) : const SdkOmitted(),
-    url: json.containsKey('url') ? SdkPresent(json['url'] as String?) : const SdkOmitted(),
-    body: json.containsKey('body') ? SdkPresent(json['body'] as String?) : const SdkOmitted(),
-    headers: json['headers'] != null ? SdkPresent(((json['headers'] as List?)?.map((e) => DataConnectorVersionDefinitionHeadersItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    httpMethod: json['http_method'] != null ? SdkPresent((json['http_method'] as String?)!) : const SdkOmitted(),
-    directFinUsage: json['direct_fin_usage'] != null ? SdkPresent((json['direct_fin_usage'] as bool?)!) : const SdkOmitted(),
-    audiences: json['audiences'] != null ? SdkPresent(((json['audiences'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    executionType: json.containsKey('execution_type') ? SdkPresent(json['execution_type'] as String?) : const SdkOmitted(),
-    configurationResponseType: json.containsKey('configuration_response_type') ? SdkPresent(json['configuration_response_type'] as String?) : const SdkOmitted(),
-    dataTransformationType: json.containsKey('data_transformation_type') ? SdkPresent(json['data_transformation_type'] as String?) : const SdkOmitted(),
-    clientFunctionName: json.containsKey('client_function_name') ? SdkPresent(json['client_function_name'] as String?) : const SdkOmitted(),
-    clientFunctionTimeoutMs: json.containsKey('client_function_timeout_ms') ? SdkPresent((json['client_function_timeout_ms'] as num?)?.toInt()) : const SdkOmitted(),
-    dataInputs: json['data_inputs'] != null ? SdkPresent(((json['data_inputs'] as List?)?.map((e) => DataConnectorVersionDefinitionDataInputsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    responseFields: json['response_fields'] != null ? SdkPresent(((json['response_fields'] as List?)?.map((e) => DataConnectorVersionDefinitionResponseFieldsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    objectMappings: json['object_mappings'] != null ? SdkPresent(((json['object_mappings'] as List?)?.map((e) => DataConnectorVersionDefinitionObjectMappingsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    tokenIds: json['token_ids'] != null ? SdkPresent(((json['token_ids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    customerAuthentication: json['customer_authentication'] != null ? SdkPresent((json['customer_authentication'] as bool?)!) : const SdkOmitted(),
-    bypassAuthentication: json['bypass_authentication'] != null ? SdkPresent((json['bypass_authentication'] as bool?)!) : const SdkOmitted(),
-    enforceAuth: json.containsKey('enforce_auth') ? SdkPresent(json['enforce_auth'] as bool?) : const SdkOmitted(),
-    validateMissingAttributes: json.containsKey('validate_missing_attributes') ? SdkPresent(json['validate_missing_attributes'] as bool?) : const SdkOmitted(),
-  );
+  factory DataConnectorVersionDefinition.fromJson(Map<String, dynamic> json) =>
+      DataConnectorVersionDefinition(
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        description: json.containsKey('description')
+            ? SdkPresent(json['description'] as String?)
+            : const SdkOmitted(),
+        internalDescription: json.containsKey('internal_description')
+            ? SdkPresent(json['internal_description'] as String?)
+            : const SdkOmitted(),
+        state: json['state'] != null
+            ? SdkPresent((json['state'] as String?)!)
+            : const SdkOmitted(),
+        url: json.containsKey('url')
+            ? SdkPresent(json['url'] as String?)
+            : const SdkOmitted(),
+        body: json.containsKey('body')
+            ? SdkPresent(json['body'] as String?)
+            : const SdkOmitted(),
+        headers: json['headers'] != null
+            ? SdkPresent(((json['headers'] as List?)
+                ?.map((e) => DataConnectorVersionDefinitionHeadersItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        httpMethod: json['http_method'] != null
+            ? SdkPresent((json['http_method'] as String?)!)
+            : const SdkOmitted(),
+        directFinUsage: json['direct_fin_usage'] != null
+            ? SdkPresent((json['direct_fin_usage'] as bool?)!)
+            : const SdkOmitted(),
+        audiences: json['audiences'] != null
+            ? SdkPresent(((json['audiences'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        executionType: json.containsKey('execution_type')
+            ? SdkPresent(json['execution_type'] as String?)
+            : const SdkOmitted(),
+        configurationResponseType:
+            json.containsKey('configuration_response_type')
+                ? SdkPresent(json['configuration_response_type'] as String?)
+                : const SdkOmitted(),
+        dataTransformationType: json.containsKey('data_transformation_type')
+            ? SdkPresent(json['data_transformation_type'] as String?)
+            : const SdkOmitted(),
+        clientFunctionName: json.containsKey('client_function_name')
+            ? SdkPresent(json['client_function_name'] as String?)
+            : const SdkOmitted(),
+        clientFunctionTimeoutMs: json.containsKey('client_function_timeout_ms')
+            ? SdkPresent((json['client_function_timeout_ms'] as num?)?.toInt())
+            : const SdkOmitted(),
+        dataInputs: json['data_inputs'] != null
+            ? SdkPresent(((json['data_inputs'] as List?)
+                ?.map((e) =>
+                    DataConnectorVersionDefinitionDataInputsItem.fromJson(
+                        e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        responseFields: json['response_fields'] != null
+            ? SdkPresent(((json['response_fields'] as List?)
+                ?.map((e) =>
+                    DataConnectorVersionDefinitionResponseFieldsItem.fromJson(
+                        e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        objectMappings: json['object_mappings'] != null
+            ? SdkPresent(((json['object_mappings'] as List?)
+                ?.map((e) =>
+                    DataConnectorVersionDefinitionObjectMappingsItem.fromJson(
+                        e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        tokenIds: json['token_ids'] != null
+            ? SdkPresent(((json['token_ids'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        customerAuthentication: json['customer_authentication'] != null
+            ? SdkPresent((json['customer_authentication'] as bool?)!)
+            : const SdkOmitted(),
+        bypassAuthentication: json['bypass_authentication'] != null
+            ? SdkPresent((json['bypass_authentication'] as bool?)!)
+            : const SdkOmitted(),
+        enforceAuth: json.containsKey('enforce_auth')
+            ? SdkPresent(json['enforce_auth'] as bool?)
+            : const SdkOmitted(),
+        validateMissingAttributes:
+            json.containsKey('validate_missing_attributes')
+                ? SdkPresent(json['validate_missing_attributes'] as bool?)
+                : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (description) {
-      SdkPresent<String?>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (internalDescription) {
-      SdkPresent<String?>(value: final value) => {'internal_description': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (state) {
-      SdkPresent<String>(value: final value) => {'state': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (url) {
-      SdkPresent<String?>(value: final value) => {'url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (body) {
-      SdkPresent<String?>(value: final value) => {'body': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (headers) {
-      SdkPresent<List<DataConnectorVersionDefinitionHeadersItem>>(value: final value) => {'headers': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (httpMethod) {
-      SdkPresent<String>(value: final value) => {'http_method': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (directFinUsage) {
-      SdkPresent<bool>(value: final value) => {'direct_fin_usage': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (audiences) {
-      SdkPresent<List<String>>(value: final value) => {'audiences': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (executionType) {
-      SdkPresent<String?>(value: final value) => {'execution_type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (configurationResponseType) {
-      SdkPresent<String?>(value: final value) => {'configuration_response_type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (dataTransformationType) {
-      SdkPresent<String?>(value: final value) => {'data_transformation_type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (clientFunctionName) {
-      SdkPresent<String?>(value: final value) => {'client_function_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (clientFunctionTimeoutMs) {
-      SdkPresent<int?>(value: final value) => {'client_function_timeout_ms': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (dataInputs) {
-      SdkPresent<List<DataConnectorVersionDefinitionDataInputsItem>>(value: final value) => {'data_inputs': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (responseFields) {
-      SdkPresent<List<DataConnectorVersionDefinitionResponseFieldsItem>>(value: final value) => {'response_fields': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (objectMappings) {
-      SdkPresent<List<DataConnectorVersionDefinitionObjectMappingsItem>>(value: final value) => {'object_mappings': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tokenIds) {
-      SdkPresent<List<String>>(value: final value) => {'token_ids': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (customerAuthentication) {
-      SdkPresent<bool>(value: final value) => {'customer_authentication': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (bypassAuthentication) {
-      SdkPresent<bool>(value: final value) => {'bypass_authentication': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (enforceAuth) {
-      SdkPresent<bool?>(value: final value) => {'enforce_auth': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (validateMissingAttributes) {
-      SdkPresent<bool?>(value: final value) => {'validate_missing_attributes': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (description) {
+          SdkPresent<String?>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (internalDescription) {
+          SdkPresent<String?>(value: final value) => {
+              'internal_description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (state) {
+          SdkPresent<String>(value: final value) => {
+              'state': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (url) {
+          SdkPresent<String?>(value: final value) => {
+              'url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (body) {
+          SdkPresent<String?>(value: final value) => {
+              'body': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (headers) {
+          SdkPresent<List<DataConnectorVersionDefinitionHeadersItem>>(
+            value: final value
+          ) =>
+            {
+              'headers': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (httpMethod) {
+          SdkPresent<String>(value: final value) => {
+              'http_method': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (directFinUsage) {
+          SdkPresent<bool>(value: final value) => {
+              'direct_fin_usage': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (audiences) {
+          SdkPresent<List<String>>(value: final value) => {
+              'audiences': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (executionType) {
+          SdkPresent<String?>(value: final value) => {
+              'execution_type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (configurationResponseType) {
+          SdkPresent<String?>(value: final value) => {
+              'configuration_response_type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (dataTransformationType) {
+          SdkPresent<String?>(value: final value) => {
+              'data_transformation_type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (clientFunctionName) {
+          SdkPresent<String?>(value: final value) => {
+              'client_function_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (clientFunctionTimeoutMs) {
+          SdkPresent<int?>(value: final value) => {
+              'client_function_timeout_ms': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (dataInputs) {
+          SdkPresent<List<DataConnectorVersionDefinitionDataInputsItem>>(
+            value: final value
+          ) =>
+            {
+              'data_inputs': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (responseFields) {
+          SdkPresent<List<DataConnectorVersionDefinitionResponseFieldsItem>>(
+            value: final value
+          ) =>
+            {
+              'response_fields': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (objectMappings) {
+          SdkPresent<List<DataConnectorVersionDefinitionObjectMappingsItem>>(
+            value: final value
+          ) =>
+            {
+              'object_mappings': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tokenIds) {
+          SdkPresent<List<String>>(value: final value) => {
+              'token_ids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (customerAuthentication) {
+          SdkPresent<bool>(value: final value) => {
+              'customer_authentication': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (bypassAuthentication) {
+          SdkPresent<bool>(value: final value) => {
+              'bypass_authentication': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (enforceAuth) {
+          SdkPresent<bool?>(value: final value) => {
+              'enforce_auth': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (validateMissingAttributes) {
+          SdkPresent<bool?>(value: final value) => {
+              'validate_missing_attributes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

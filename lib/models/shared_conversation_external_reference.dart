@@ -8,33 +8,53 @@ part of 'shared_conversation.dart';
 class ConversationExternalReference {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of external system the reference points to. Possible values include `zendesk_ticket`, `zendesk_sunshine_conversation`, `salesforce_case`, `salesforce_in_app_message_conversation`, `freshdesk_ticket`, `freshchat_conversation`, `hubspot_conversation`, `custom_helpdesk_conversation`, `api_conversation`.
   final SdkOptional<String> type_;
+
   /// The identifier of the record in the external system. Always serialized as a string, since some external IDs exceed 32-bit integer range.
   final SdkOptional<String> id;
 
-  const ConversationExternalReference({this.type_ = const SdkOmitted(), this.id = const SdkOmitted()});
+  const ConversationExternalReference(
+      {this.type_ = const SdkOmitted(), this.id = const SdkOmitted()});
 
-  ConversationExternalReference Function({SdkOptional<String> type_, SdkOptional<String> id}) get copyWith => _copyWith;
+  ConversationExternalReference Function(
+      {SdkOptional<String> type_,
+      SdkOptional<String> id}) get copyWith => _copyWith;
 
-  ConversationExternalReference _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue}) => ConversationExternalReference(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-  );
+  ConversationExternalReference _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue}) =>
+      ConversationExternalReference(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<String>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+      );
 
-  factory ConversationExternalReference.fromJson(Map<String, dynamic> json) => ConversationExternalReference(
-    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-  );
+  factory ConversationExternalReference.fromJson(Map<String, dynamic> json) =>
+      ConversationExternalReference(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] as String?)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<String>(value: final value) => {'type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<String>(value: final value) => {
+              'type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

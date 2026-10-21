@@ -8,33 +8,59 @@ part of 'shared.dart';
 class TeamPriorityLevel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The primary team ids for the team
   final SdkOptional<List<int>?> primaryTeamIds;
+
   /// The secondary team ids for the team
   final SdkOptional<List<int>?> secondaryTeamIds;
 
-  const TeamPriorityLevel({this.primaryTeamIds = const SdkOmitted(), this.secondaryTeamIds = const SdkOmitted()});
+  const TeamPriorityLevel(
+      {this.primaryTeamIds = const SdkOmitted(),
+      this.secondaryTeamIds = const SdkOmitted()});
 
-  TeamPriorityLevel Function({SdkOptional<List<int>?> primaryTeamIds, SdkOptional<List<int>?> secondaryTeamIds}) get copyWith => _copyWith;
+  TeamPriorityLevel Function(
+      {SdkOptional<List<int>?> primaryTeamIds,
+      SdkOptional<List<int>?> secondaryTeamIds}) get copyWith => _copyWith;
 
-  TeamPriorityLevel _copyWith({Object? primaryTeamIds = sdkOmittedValue, Object? secondaryTeamIds = sdkOmittedValue}) => TeamPriorityLevel(
-    primaryTeamIds: identical(primaryTeamIds, sdkOmittedValue) ? this.primaryTeamIds : primaryTeamIds as SdkOptional<List<int>?>,
-    secondaryTeamIds: identical(secondaryTeamIds, sdkOmittedValue) ? this.secondaryTeamIds : secondaryTeamIds as SdkOptional<List<int>?>,
-  );
+  TeamPriorityLevel _copyWith(
+          {Object? primaryTeamIds = sdkOmittedValue,
+          Object? secondaryTeamIds = sdkOmittedValue}) =>
+      TeamPriorityLevel(
+        primaryTeamIds: identical(primaryTeamIds, sdkOmittedValue)
+            ? this.primaryTeamIds
+            : primaryTeamIds as SdkOptional<List<int>?>,
+        secondaryTeamIds: identical(secondaryTeamIds, sdkOmittedValue)
+            ? this.secondaryTeamIds
+            : secondaryTeamIds as SdkOptional<List<int>?>,
+      );
 
-  factory TeamPriorityLevel.fromJson(Map<String, dynamic> json) => TeamPriorityLevel(
-    primaryTeamIds: json.containsKey('primary_team_ids') ? SdkPresent((json['primary_team_ids'] as List?)?.map((e) => (e as num).toInt()).toList()) : const SdkOmitted(),
-    secondaryTeamIds: json.containsKey('secondary_team_ids') ? SdkPresent((json['secondary_team_ids'] as List?)?.map((e) => (e as num).toInt()).toList()) : const SdkOmitted(),
-  );
+  factory TeamPriorityLevel.fromJson(Map<String, dynamic> json) =>
+      TeamPriorityLevel(
+        primaryTeamIds: json.containsKey('primary_team_ids')
+            ? SdkPresent((json['primary_team_ids'] as List?)
+                ?.map((e) => (e as num).toInt())
+                .toList())
+            : const SdkOmitted(),
+        secondaryTeamIds: json.containsKey('secondary_team_ids')
+            ? SdkPresent((json['secondary_team_ids'] as List?)
+                ?.map((e) => (e as num).toInt())
+                .toList())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (primaryTeamIds) {
-      SdkPresent<List<int>?>(value: final value) => {'primary_team_ids': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (secondaryTeamIds) {
-      SdkPresent<List<int>?>(value: final value) => {'secondary_team_ids': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (primaryTeamIds) {
+          SdkPresent<List<int>?>(value: final value) => {
+              'primary_team_ids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (secondaryTeamIds) {
+          SdkPresent<List<int>?>(value: final value) => {
+              'secondary_team_ids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

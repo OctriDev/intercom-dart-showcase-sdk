@@ -5,5 +5,5 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'content_part1.dart';
-part 'content_part2.dart';
+part 'content_bulk_content_actions.dart';
+part 'content_search_content.dart';

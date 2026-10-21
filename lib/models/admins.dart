@@ -7,6 +7,8 @@ import 'admins/models.dart';
 import 'inline.dart';
 import 'shared.dart';
 
-part 'admins_part1.dart';
-part 'admins_part2.dart';
-part 'admins_part3.dart';
+part 'admins_activity_log.dart';
+part 'admins_activity_log_list.dart';
+part 'admins_activity_log_metadata.dart';
+part 'admins_list_admins.dart';
+part 'admins_identify_admin.dart';

@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'data_attributes/models.dart';
 import 'inline.dart';
 
-part 'data_attributes_part1.dart';
+part 'data_attributes_models.dart';

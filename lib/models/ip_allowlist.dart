@@ -4,4 +4,4 @@
 // ip_allowlist domain model library.
 import '../sdk_utils.dart';
 
-part 'ip_allowlist_part1.dart';
+part 'ip_allowlist_models.dart';

@@ -4,5 +4,4 @@
 // data_export domain model library.
 import '../sdk_utils.dart';
 
-part 'data_export_part1.dart';
-part 'data_export_part2.dart';
+part 'data_export_models.dart';

@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'teams/models.dart';
 
-part 'teams_part1.dart';
+part 'teams_models.dart';

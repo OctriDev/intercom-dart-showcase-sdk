@@ -7,4 +7,4 @@ import 'inline.dart';
 import 'notes/models.dart';
 import 'shared.dart';
 
-part 'notes_part1.dart';
+part 'notes_models.dart';

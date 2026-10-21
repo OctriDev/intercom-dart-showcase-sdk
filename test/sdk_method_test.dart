@@ -8816,8 +8816,8 @@ void main() {
       );
     });
 
-    test("unlinkTicketsConversation reaches the mock and decodes its response", () async {
-      final actual = await sdk_methods_11.unlinkTicketsConversation(
+    test("unlinkTicketConversation reaches the mock and decodes its response", () async {
+      final actual = await sdk_methods_11.unlinkTicketConversation(
         config,
         ticketId: (jsonDecode("\"64619700005694\"") as String),
         id: (jsonDecode("\"204\"") as String),
@@ -8832,12 +8832,12 @@ void main() {
       );
     });
 
-    test("unlinkTicketsConversation answers 400 with its declared error body", () async {
+    test("unlinkTicketConversation answers 400 with its declared error body", () async {
       SdkConfig.getConfig().baseUrl = '$baseUrl/__mockStatus/400';
       addTearDown(() => SdkConfig.getConfig().baseUrl = baseUrl);
       final SdkHttpError error;
       try {
-        await sdk_methods_11.unlinkTicketsConversation(
+        await sdk_methods_11.unlinkTicketConversation(
         config,
         ticketId: (jsonDecode("\"64619700005694\"") as String),
         id: (jsonDecode("\"204\"") as String),

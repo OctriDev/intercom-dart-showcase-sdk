@@ -9,6 +9,13 @@ import 'shared_conversation.dart';
 import 'shared_ticket.dart';
 import 'tickets/models.dart';
 
-part 'tickets_part1.dart';
-part 'tickets_part2.dart';
-part 'tickets_part3.dart';
+part 'tickets_admin_reply_ticket_request.dart';
+part 'tickets_contact_reply_ticket_email_request.dart';
+part 'tickets_contact_reply_ticket_intercom_user_id_request.dart';
+part 'tickets_contact_reply_ticket_request.dart';
+part 'tickets_contact_reply_ticket_user_id_request.dart';
+part 'tickets_ticket_reply.dart';
+part 'tickets_change_ticket_type.dart';
+part 'tickets_shared.dart';
+part 'tickets_delete_ticket.dart';
+part 'tickets_search_tickets.dart';

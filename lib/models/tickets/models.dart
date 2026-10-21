@@ -9,8 +9,10 @@ import '../shared_contact.dart';
 import '../shared_linked.dart';
 import '../shared_ticket.dart';
 
-part 'models_part1.dart';
-part 'models_part2.dart';
-part 'models_part3.dart';
-part 'models_part4.dart';
-part 'models_part5.dart';
+part 'models_ticket.dart';
+part 'models_ticket_contacts.dart';
+part 'models_ticket_part_translations.dart';
+part 'models_ticket_part.dart';
+part 'models_ticket_state.dart';
+part 'models_ticket_type.dart';
+part 'models_list_ticket_states.dart';

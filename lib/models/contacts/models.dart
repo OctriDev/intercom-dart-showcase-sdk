@@ -7,6 +7,6 @@ import '../inline.dart';
 import '../shared.dart';
 import '../shared_contact.dart';
 
-part 'models_part1.dart';
-part 'models_part2.dart';
-part 'models_part3.dart';
+part 'models_contact_avatar.dart';
+part 'models_contact.dart';
+part 'models_contacts_bulk_job.dart';

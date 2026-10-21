@@ -5,11 +5,10 @@
 import '../../sdk_utils.dart';
 import '../inline.dart';
 
-part 'models_part1.dart';
-part 'models_part2.dart';
-part 'models_part3.dart';
-part 'models_part4.dart';
-part 'models_part5.dart';
-part 'models_part6.dart';
-part 'models_part7.dart';
-part 'models_part8.dart';
+part 'models_list_data_connectors.dart';
+part 'models_data_connector_detail_headers_item.dart';
+part 'models_data_connector_detail.dart';
+part 'models_data_connector_execution_result.dart';
+part 'models_data_connector_version_author.dart';
+part 'models_data_connector_version_definition_object_mappings_item.dart';
+part 'models_data_connector_version.dart';

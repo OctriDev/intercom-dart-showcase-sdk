@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'away_status_reasons_part1.dart';
+part 'away_status_reasons_models.dart';

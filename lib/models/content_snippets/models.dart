@@ -4,4 +4,4 @@
 // tagged_models_content_snippets domain model library.
 import '../../sdk_utils.dart';
 
-part 'models_part1.dart';
+part 'models_models.dart';

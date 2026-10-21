@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'segments/models.dart';
 
-part 'segments_part1.dart';
+part 'segments_models.dart';

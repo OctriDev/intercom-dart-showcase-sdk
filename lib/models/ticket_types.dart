@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'tickets/models.dart';
 
-part 'ticket_types_part1.dart';
+part 'ticket_types_models.dart';

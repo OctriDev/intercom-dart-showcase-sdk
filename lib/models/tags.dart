@@ -4,5 +4,8 @@
 // tags domain model library.
 import '../sdk_utils.dart';
 
-part 'tags_part1.dart';
-part 'tags_part2.dart';
+part 'tags_create_or_update_tag_request.dart';
+part 'tags_tag_company_request.dart';
+part 'tags_tag_create_response.dart';
+part 'tags_tag_multiple_users_request.dart';
+part 'tags_untag_company_request.dart';

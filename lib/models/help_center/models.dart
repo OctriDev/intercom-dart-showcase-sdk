@@ -6,5 +6,7 @@ import '../../sdk_utils.dart';
 import '../help_center.dart';
 import '../inline.dart';
 
-part 'models_part1.dart';
-part 'models_part2.dart';
+part 'models_collection.dart';
+part 'models_help_center.dart';
+part 'models_help_center_redirect.dart';
+part 'models_list_help_centers.dart';

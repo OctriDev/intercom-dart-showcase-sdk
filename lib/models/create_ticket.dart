@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'tickets.dart';
 
-part 'create_ticket_part1.dart';
+part 'create_ticket_models.dart';

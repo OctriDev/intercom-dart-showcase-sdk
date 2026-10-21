@@ -4,4 +4,4 @@
 // custom_object_instances domain model library.
 import '../sdk_utils.dart';
 
-part 'custom_object_instances_part1.dart';
+part 'custom_object_instances_models.dart';

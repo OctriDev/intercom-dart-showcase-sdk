@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'audiences/models.dart';
 import 'inline.dart';
 
-part 'audiences_part1.dart';
+part 'audiences_models.dart';

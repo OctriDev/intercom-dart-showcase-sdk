@@ -7,8 +7,9 @@ import '../articles.dart';
 import '../inline.dart';
 import '../shared.dart';
 
-part 'models_part1.dart';
-part 'models_part2.dart';
-part 'models_part3.dart';
-part 'models_part4.dart';
-part 'models_part5.dart';
+part 'models_article.dart';
+part 'models_internal_article.dart';
+part 'models_list_articles.dart';
+part 'models_search_articles.dart';
+part 'models_retrieve_article_version.dart';
+part 'models_list_article_versions.dart';

@@ -4,4 +4,4 @@
 // shared_ai domain model library.
 import '../sdk_utils.dart';
 
-part 'shared_ai_part1.dart';
+part 'shared_ai_models.dart';

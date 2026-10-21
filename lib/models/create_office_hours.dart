@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'office_hours/models.dart';
 
-part 'create_office_hours_part1.dart';
+part 'create_office_hours_models.dart';

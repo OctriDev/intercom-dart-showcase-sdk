@@ -7,6 +7,12 @@ import 'help_center/models.dart';
 import 'inline.dart';
 import 'shared.dart';
 
-part 'help_center_part1.dart';
-part 'help_center_part2.dart';
-part 'help_center_part3.dart';
+part 'help_center_list_all_collections.dart';
+part 'help_center_create_collection.dart';
+part 'help_center_create_help_center_redirect.dart';
+part 'help_center_delete_collection.dart';
+part 'help_center_delete_help_center_redirect.dart';
+part 'help_center_group_content.dart';
+part 'help_center_group_translated_content.dart';
+part 'help_center_list_help_center_redirects.dart';
+part 'help_center_update_collection.dart';

@@ -8,96 +8,49 @@ part of 'contacts.dart';
 class ContactList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Always list
   final SdkOptional<ContactListType> type_;
-
   /// The list of contact objects
   final SdkOptional<List<Contact>> data;
-
   /// A count of the total number of objects.
   final SdkOptional<int> totalCount;
-
   /// Cursor-based pagination is a technique used in the Intercom API to navigate through large amounts of data. A "cursor" or pointer is used to keep track of the current position in the result set, allowing the API to return the data in small chunks or "pages" as needed.
   final SdkOptional<CursorPages?> pages;
 
-  const ContactList(
-      {this.type_ = const SdkOmitted(),
-      this.data = const SdkOmitted(),
-      this.totalCount = const SdkOmitted(),
-      this.pages = const SdkOmitted()});
+  const ContactList({this.type_ = const SdkOmitted(), this.data = const SdkOmitted(), this.totalCount = const SdkOmitted(), this.pages = const SdkOmitted()});
 
-  ContactList Function(
-      {SdkOptional<ContactListType> type_,
-      SdkOptional<List<Contact>> data,
-      SdkOptional<int> totalCount,
-      SdkOptional<CursorPages?> pages}) get copyWith => _copyWith;
+  ContactList Function({SdkOptional<ContactListType> type_, SdkOptional<List<Contact>> data, SdkOptional<int> totalCount, SdkOptional<CursorPages?> pages}) get copyWith => _copyWith;
 
-  ContactList _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? data = sdkOmittedValue,
-          Object? totalCount = sdkOmittedValue,
-          Object? pages = sdkOmittedValue}) =>
-      ContactList(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<ContactListType>,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as SdkOptional<List<Contact>>,
-        totalCount: identical(totalCount, sdkOmittedValue)
-            ? this.totalCount
-            : totalCount as SdkOptional<int>,
-        pages: identical(pages, sdkOmittedValue)
-            ? this.pages
-            : pages as SdkOptional<CursorPages?>,
-      );
+  ContactList _copyWith({Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue, Object? totalCount = sdkOmittedValue, Object? pages = sdkOmittedValue}) => ContactList(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ContactListType>,
+    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<Contact>>,
+    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as SdkOptional<int>,
+    pages: identical(pages, sdkOmittedValue) ? this.pages : pages as SdkOptional<CursorPages?>,
+  );
 
   factory ContactList.fromJson(Map<String, dynamic> json) => ContactList(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? ContactListType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        data: json['data'] != null
-            ? SdkPresent(((json['data'] as List?)
-                ?.map((e) => Contact.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        totalCount: json['total_count'] != null
-            ? SdkPresent(((json['total_count'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        pages: json.containsKey('pages')
-            ? SdkPresent(json['pages'] != null
-                ? CursorPages.fromJson(json['pages'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-      );
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ContactListType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => Contact.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    totalCount: json['total_count'] != null ? SdkPresent(((json['total_count'] as num?)?.toInt())!) : const SdkOmitted(),
+    pages: json.containsKey('pages') ? SdkPresent(json['pages'] != null ? CursorPages.fromJson(json['pages'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<ContactListType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (data) {
-          SdkPresent<List<Contact>>(value: final value) => {
-              'data': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (totalCount) {
-          SdkPresent<int>(value: final value) => {
-              'total_count': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (pages) {
-          SdkPresent<CursorPages?>(value: final value) => {
-              'pages': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<ContactListType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (data) {
+      SdkPresent<List<Contact>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (totalCount) {
+      SdkPresent<int>(value: final value) => {'total_count': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (pages) {
+      SdkPresent<CursorPages?>(value: final value) => {'pages': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

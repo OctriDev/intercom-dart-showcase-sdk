@@ -15,17 +15,14 @@ Future<IpAllowlist> getIpAllowlist(ClientConfig config,
   return (await sdkRequest<IpAllowlist>('GET', '/ip_allowlist',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'getIpAllowlist',
-          fromJsonRaw: (value) =>
-              IpAllowlist.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => IpAllowlist.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Updates the workspace's IP allowlist configuration. Supply `enabled` to control whether the allowlist is active and `ip_allowlist` to set allowed IP addresses or CIDR ranges. Include the caller's current IP address before enabling the allowlist to avoid locking out the caller.
 ///
@@ -51,15 +48,10 @@ Future<IpAllowlist> updateIpAllowlist(ClientConfig config,
             'ip_allowlist': SdkUtils.unwrapOptional(ipAllowlist)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'updateIpAllowlist',
-          fromJsonRaw: (value) =>
-              IpAllowlist.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => IpAllowlist.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '422': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

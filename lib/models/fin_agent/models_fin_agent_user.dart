@@ -8,84 +8,46 @@ part of 'models.dart';
 class FinAgentUser {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of the user. This value will be used to uniquely identify the user during a conversation with Fin. Maps to the user_id field on the Intercom User object.
   final String id;
-
   /// The name of the user.
   final SdkOptional<String> name;
-
   /// The email of the user.
   final SdkOptional<String> email;
-
   /// A hash of attributes associated with the user. Attributes can be used by Fin to target content and responses. Limit to 10 attributes.
   final SdkOptional<Map<String, Object?>> attributes;
 
-  const FinAgentUser(
-      {required this.id,
-      this.name = const SdkOmitted(),
-      this.email = const SdkOmitted(),
-      this.attributes = const SdkOmitted()});
+  const FinAgentUser({required this.id, this.name = const SdkOmitted(), this.email = const SdkOmitted(), this.attributes = const SdkOmitted()});
 
-  FinAgentUser Function(
-      {String id,
-      SdkOptional<String> name,
-      SdkOptional<String> email,
-      SdkOptional<Map<String, Object?>> attributes}) get copyWith => _copyWith;
+  FinAgentUser Function({String id, SdkOptional<String> name, SdkOptional<String> email, SdkOptional<Map<String, Object?>> attributes}) get copyWith => _copyWith;
 
-  FinAgentUser _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? email = sdkOmittedValue,
-          Object? attributes = sdkOmittedValue}) =>
-      FinAgentUser(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        email: identical(email, sdkOmittedValue)
-            ? this.email
-            : email as SdkOptional<String>,
-        attributes: identical(attributes, sdkOmittedValue)
-            ? this.attributes
-            : attributes as SdkOptional<Map<String, Object?>>,
-      );
+  FinAgentUser _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? email = sdkOmittedValue, Object? attributes = sdkOmittedValue}) => FinAgentUser(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    email: identical(email, sdkOmittedValue) ? this.email : email as SdkOptional<String>,
+    attributes: identical(attributes, sdkOmittedValue) ? this.attributes : attributes as SdkOptional<Map<String, Object?>>,
+  );
 
   factory FinAgentUser.fromJson(Map<String, dynamic> json) => FinAgentUser(
-        id: (json['id'] as String?)!,
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        email: json['email'] != null
-            ? SdkPresent((json['email'] as String?)!)
-            : const SdkOmitted(),
-        attributes: json['attributes'] != null
-            ? SdkPresent((json['attributes'] == null
-                ? null
-                : Map<String, dynamic>.from(json['attributes'] as Map)
-                    .map((key, value) => MapEntry(key, value)))!)
-            : const SdkOmitted(),
-      );
+    id: (json['id'] as String?)!,
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    email: json['email'] != null ? SdkPresent((json['email'] as String?)!) : const SdkOmitted(),
+    attributes: json['attributes'] != null ? SdkPresent((json['attributes'] == null ? null : Map<String, dynamic>.from(json['attributes'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (email) {
-          SdkPresent<String>(value: final value) => {
-              'email': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (attributes) {
-          SdkPresent<Map<String, Object?>>(value: final value) => {
-              'attributes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'id': id,
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (email) {
+      SdkPresent<String>(value: final value) => {'email': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (attributes) {
+      SdkPresent<Map<String, Object?>>(value: final value) => {'attributes': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -8,110 +8,57 @@ part of 'models.dart';
 class TicketState {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// String representing the object's type. Always has the value `ticket_state`.
   final SdkOptional<String> type_;
-
   /// The id of the ticket state
   final SdkOptional<String> id;
-
   /// The category of the ticket state
   final SdkOptional<TicketStateCategory> category;
-
   /// The state the ticket is currently in, in a human readable form - visible in Intercom
   final SdkOptional<String> internalLabel;
-
   /// The state the ticket is currently in, in a human readable form - visible to customers, in the messenger, email and tickets portal.
   final SdkOptional<String> externalLabel;
 
-  const TicketState(
-      {this.type_ = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.category = const SdkOmitted(),
-      this.internalLabel = const SdkOmitted(),
-      this.externalLabel = const SdkOmitted()});
+  const TicketState({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.category = const SdkOmitted(), this.internalLabel = const SdkOmitted(), this.externalLabel = const SdkOmitted()});
 
-  TicketState Function(
-      {SdkOptional<String> type_,
-      SdkOptional<String> id,
-      SdkOptional<TicketStateCategory> category,
-      SdkOptional<String> internalLabel,
-      SdkOptional<String> externalLabel}) get copyWith => _copyWith;
+  TicketState Function({SdkOptional<String> type_, SdkOptional<String> id, SdkOptional<TicketStateCategory> category, SdkOptional<String> internalLabel, SdkOptional<String> externalLabel}) get copyWith => _copyWith;
 
-  TicketState _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? category = sdkOmittedValue,
-          Object? internalLabel = sdkOmittedValue,
-          Object? externalLabel = sdkOmittedValue}) =>
-      TicketState(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        category: identical(category, sdkOmittedValue)
-            ? this.category
-            : category as SdkOptional<TicketStateCategory>,
-        internalLabel: identical(internalLabel, sdkOmittedValue)
-            ? this.internalLabel
-            : internalLabel as SdkOptional<String>,
-        externalLabel: identical(externalLabel, sdkOmittedValue)
-            ? this.externalLabel
-            : externalLabel as SdkOptional<String>,
-      );
+  TicketState _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? category = sdkOmittedValue, Object? internalLabel = sdkOmittedValue, Object? externalLabel = sdkOmittedValue}) => TicketState(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    category: identical(category, sdkOmittedValue) ? this.category : category as SdkOptional<TicketStateCategory>,
+    internalLabel: identical(internalLabel, sdkOmittedValue) ? this.internalLabel : internalLabel as SdkOptional<String>,
+    externalLabel: identical(externalLabel, sdkOmittedValue) ? this.externalLabel : externalLabel as SdkOptional<String>,
+  );
 
   factory TicketState.fromJson(Map<String, dynamic> json) => TicketState(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        category: json['category'] != null
-            ? SdkPresent((json['category'] != null
-                ? TicketStateCategory.fromJson(json['category'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        internalLabel: json['internal_label'] != null
-            ? SdkPresent((json['internal_label'] as String?)!)
-            : const SdkOmitted(),
-        externalLabel: json['external_label'] != null
-            ? SdkPresent((json['external_label'] as String?)!)
-            : const SdkOmitted(),
-      );
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    category: json['category'] != null ? SdkPresent((json['category'] != null ? TicketStateCategory.fromJson(json['category'] as String) : null)!) : const SdkOmitted(),
+    internalLabel: json['internal_label'] != null ? SdkPresent((json['internal_label'] as String?)!) : const SdkOmitted(),
+    externalLabel: json['external_label'] != null ? SdkPresent((json['external_label'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (category) {
-          SdkPresent<TicketStateCategory>(value: final value) => {
-              'category': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (internalLabel) {
-          SdkPresent<String>(value: final value) => {
-              'internal_label': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (externalLabel) {
-          SdkPresent<String>(value: final value) => {
-              'external_label': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (category) {
+      SdkPresent<TicketStateCategory>(value: final value) => {'category': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (internalLabel) {
+      SdkPresent<String>(value: final value) => {'internal_label': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (externalLabel) {
+      SdkPresent<String>(value: final value) => {'external_label': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

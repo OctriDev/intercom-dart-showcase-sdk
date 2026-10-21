@@ -8,241 +8,113 @@ part of 'models.dart';
 class DataConnector {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of object - `data_connector`.
   final SdkOptional<DataConnectorType> type_;
-
   /// The unique identifier for the data connector.
   final SdkOptional<String> id;
-
   /// The name of the data connector.
   final SdkOptional<String> name;
-
   /// A description of what this data connector does.
   final SdkOptional<String?> description;
-
   /// The current state of the data connector.
   final SdkOptional<DataConnectorState> state;
-
   /// The HTTP method used by the data connector.
   final SdkOptional<DataConnectorHttpMethod> httpMethod;
-
   /// Whether this data connector is assigned to Fin for direct usage.
   final SdkOptional<bool> directFinUsage;
-
   /// The ID of the admin who created this data connector.
   final SdkOptional<String> createdByAdminId;
-
   /// The ID of the admin who last updated this data connector.
   final SdkOptional<String> updatedByAdminId;
-
   /// The time the data connector was created.
   final SdkOptional<String> createdAt;
-
   /// The time the data connector was last updated.
   final SdkOptional<String> updatedAt;
-
   /// The URL path to fetch execution results for this connector.
   final SdkOptional<String> executionResultsUrl;
 
-  const DataConnector(
-      {this.type_ = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.description = const SdkOmitted(),
-      this.state = const SdkOmitted(),
-      this.httpMethod = const SdkOmitted(),
-      this.directFinUsage = const SdkOmitted(),
-      this.createdByAdminId = const SdkOmitted(),
-      this.updatedByAdminId = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.updatedAt = const SdkOmitted(),
-      this.executionResultsUrl = const SdkOmitted()});
+  const DataConnector({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.name = const SdkOmitted(), this.description = const SdkOmitted(), this.state = const SdkOmitted(), this.httpMethod = const SdkOmitted(), this.directFinUsage = const SdkOmitted(), this.createdByAdminId = const SdkOmitted(), this.updatedByAdminId = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.executionResultsUrl = const SdkOmitted()});
 
-  DataConnector Function(
-      {SdkOptional<DataConnectorType> type_,
-      SdkOptional<String> id,
-      SdkOptional<String> name,
-      SdkOptional<String?> description,
-      SdkOptional<DataConnectorState> state,
-      SdkOptional<DataConnectorHttpMethod> httpMethod,
-      SdkOptional<bool> directFinUsage,
-      SdkOptional<String> createdByAdminId,
-      SdkOptional<String> updatedByAdminId,
-      SdkOptional<String> createdAt,
-      SdkOptional<String> updatedAt,
-      SdkOptional<String> executionResultsUrl}) get copyWith => _copyWith;
+  DataConnector Function({SdkOptional<DataConnectorType> type_, SdkOptional<String> id, SdkOptional<String> name, SdkOptional<String?> description, SdkOptional<DataConnectorState> state, SdkOptional<DataConnectorHttpMethod> httpMethod, SdkOptional<bool> directFinUsage, SdkOptional<String> createdByAdminId, SdkOptional<String> updatedByAdminId, SdkOptional<String> createdAt, SdkOptional<String> updatedAt, SdkOptional<String> executionResultsUrl}) get copyWith => _copyWith;
 
-  DataConnector _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? state = sdkOmittedValue,
-          Object? httpMethod = sdkOmittedValue,
-          Object? directFinUsage = sdkOmittedValue,
-          Object? createdByAdminId = sdkOmittedValue,
-          Object? updatedByAdminId = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue,
-          Object? executionResultsUrl = sdkOmittedValue}) =>
-      DataConnector(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<DataConnectorType>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String?>,
-        state: identical(state, sdkOmittedValue)
-            ? this.state
-            : state as SdkOptional<DataConnectorState>,
-        httpMethod: identical(httpMethod, sdkOmittedValue)
-            ? this.httpMethod
-            : httpMethod as SdkOptional<DataConnectorHttpMethod>,
-        directFinUsage: identical(directFinUsage, sdkOmittedValue)
-            ? this.directFinUsage
-            : directFinUsage as SdkOptional<bool>,
-        createdByAdminId: identical(createdByAdminId, sdkOmittedValue)
-            ? this.createdByAdminId
-            : createdByAdminId as SdkOptional<String>,
-        updatedByAdminId: identical(updatedByAdminId, sdkOmittedValue)
-            ? this.updatedByAdminId
-            : updatedByAdminId as SdkOptional<String>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as SdkOptional<String>,
-        executionResultsUrl: identical(executionResultsUrl, sdkOmittedValue)
-            ? this.executionResultsUrl
-            : executionResultsUrl as SdkOptional<String>,
-      );
+  DataConnector _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? state = sdkOmittedValue, Object? httpMethod = sdkOmittedValue, Object? directFinUsage = sdkOmittedValue, Object? createdByAdminId = sdkOmittedValue, Object? updatedByAdminId = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? executionResultsUrl = sdkOmittedValue}) => DataConnector(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<DataConnectorType>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String?>,
+    state: identical(state, sdkOmittedValue) ? this.state : state as SdkOptional<DataConnectorState>,
+    httpMethod: identical(httpMethod, sdkOmittedValue) ? this.httpMethod : httpMethod as SdkOptional<DataConnectorHttpMethod>,
+    directFinUsage: identical(directFinUsage, sdkOmittedValue) ? this.directFinUsage : directFinUsage as SdkOptional<bool>,
+    createdByAdminId: identical(createdByAdminId, sdkOmittedValue) ? this.createdByAdminId : createdByAdminId as SdkOptional<String>,
+    updatedByAdminId: identical(updatedByAdminId, sdkOmittedValue) ? this.updatedByAdminId : updatedByAdminId as SdkOptional<String>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String>,
+    executionResultsUrl: identical(executionResultsUrl, sdkOmittedValue) ? this.executionResultsUrl : executionResultsUrl as SdkOptional<String>,
+  );
 
   factory DataConnector.fromJson(Map<String, dynamic> json) => DataConnector(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? DataConnectorType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        description: json.containsKey('description')
-            ? SdkPresent(json['description'] as String?)
-            : const SdkOmitted(),
-        state: json['state'] != null
-            ? SdkPresent((json['state'] != null
-                ? DataConnectorState.fromJson(json['state'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        httpMethod: json['http_method'] != null
-            ? SdkPresent((json['http_method'] != null
-                ? DataConnectorHttpMethod.fromJson(
-                    json['http_method'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        directFinUsage: json['direct_fin_usage'] != null
-            ? SdkPresent((json['direct_fin_usage'] as bool?)!)
-            : const SdkOmitted(),
-        createdByAdminId: json['created_by_admin_id'] != null
-            ? SdkPresent((json['created_by_admin_id'] as String?)!)
-            : const SdkOmitted(),
-        updatedByAdminId: json['updated_by_admin_id'] != null
-            ? SdkPresent((json['updated_by_admin_id'] as String?)!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        updatedAt: json['updated_at'] != null
-            ? SdkPresent((json['updated_at'] as String?)!)
-            : const SdkOmitted(),
-        executionResultsUrl: json['execution_results_url'] != null
-            ? SdkPresent((json['execution_results_url'] as String?)!)
-            : const SdkOmitted(),
-      );
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? DataConnectorType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    description: json.containsKey('description') ? SdkPresent(json['description'] as String?) : const SdkOmitted(),
+    state: json['state'] != null ? SdkPresent((json['state'] != null ? DataConnectorState.fromJson(json['state'] as String) : null)!) : const SdkOmitted(),
+    httpMethod: json['http_method'] != null ? SdkPresent((json['http_method'] != null ? DataConnectorHttpMethod.fromJson(json['http_method'] as String) : null)!) : const SdkOmitted(),
+    directFinUsage: json['direct_fin_usage'] != null ? SdkPresent((json['direct_fin_usage'] as bool?)!) : const SdkOmitted(),
+    createdByAdminId: json['created_by_admin_id'] != null ? SdkPresent((json['created_by_admin_id'] as String?)!) : const SdkOmitted(),
+    updatedByAdminId: json['updated_by_admin_id'] != null ? SdkPresent((json['updated_by_admin_id'] as String?)!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    updatedAt: json['updated_at'] != null ? SdkPresent((json['updated_at'] as String?)!) : const SdkOmitted(),
+    executionResultsUrl: json['execution_results_url'] != null ? SdkPresent((json['execution_results_url'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<DataConnectorType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<String?>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (state) {
-          SdkPresent<DataConnectorState>(value: final value) => {
-              'state': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (httpMethod) {
-          SdkPresent<DataConnectorHttpMethod>(value: final value) => {
-              'http_method': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (directFinUsage) {
-          SdkPresent<bool>(value: final value) => {
-              'direct_fin_usage': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdByAdminId) {
-          SdkPresent<String>(value: final value) => {
-              'created_by_admin_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (updatedByAdminId) {
-          SdkPresent<String>(value: final value) => {
-              'updated_by_admin_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (updatedAt) {
-          SdkPresent<String>(value: final value) => {
-              'updated_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (executionResultsUrl) {
-          SdkPresent<String>(value: final value) => {
-              'execution_results_url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<DataConnectorType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<String?>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (state) {
+      SdkPresent<DataConnectorState>(value: final value) => {'state': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (httpMethod) {
+      SdkPresent<DataConnectorHttpMethod>(value: final value) => {'http_method': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (directFinUsage) {
+      SdkPresent<bool>(value: final value) => {'direct_fin_usage': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdByAdminId) {
+      SdkPresent<String>(value: final value) => {'created_by_admin_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (updatedByAdminId) {
+      SdkPresent<String>(value: final value) => {'updated_by_admin_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (updatedAt) {
+      SdkPresent<String>(value: final value) => {'updated_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (executionResultsUrl) {
+      SdkPresent<String>(value: final value) => {'execution_results_url': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

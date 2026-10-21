@@ -8,57 +8,33 @@ part of 'models.dart';
 class ConversationScorecardReviewer {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The kind of reviewer. `ai` if the review is assigned to Fin; `admin` if it is assigned to a teammate.
   final SdkOptional<ConversationScorecardReviewerType> type_;
-
   /// The id of the admin the review is assigned to. Present only when `type` is `admin`.
   final SdkOptional<String?> adminId;
 
-  const ConversationScorecardReviewer(
-      {this.type_ = const SdkOmitted(), this.adminId = const SdkOmitted()});
+  const ConversationScorecardReviewer({this.type_ = const SdkOmitted(), this.adminId = const SdkOmitted()});
 
-  ConversationScorecardReviewer Function(
-      {SdkOptional<ConversationScorecardReviewerType> type_,
-      SdkOptional<String?> adminId}) get copyWith => _copyWith;
+  ConversationScorecardReviewer Function({SdkOptional<ConversationScorecardReviewerType> type_, SdkOptional<String?> adminId}) get copyWith => _copyWith;
 
-  ConversationScorecardReviewer _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? adminId = sdkOmittedValue}) =>
-      ConversationScorecardReviewer(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<ConversationScorecardReviewerType>,
-        adminId: identical(adminId, sdkOmittedValue)
-            ? this.adminId
-            : adminId as SdkOptional<String?>,
-      );
+  ConversationScorecardReviewer _copyWith({Object? type_ = sdkOmittedValue, Object? adminId = sdkOmittedValue}) => ConversationScorecardReviewer(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ConversationScorecardReviewerType>,
+    adminId: identical(adminId, sdkOmittedValue) ? this.adminId : adminId as SdkOptional<String?>,
+  );
 
-  factory ConversationScorecardReviewer.fromJson(Map<String, dynamic> json) =>
-      ConversationScorecardReviewer(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? ConversationScorecardReviewerType.fromJson(
-                    json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        adminId: json.containsKey('admin_id')
-            ? SdkPresent(json['admin_id'] as String?)
-            : const SdkOmitted(),
-      );
+  factory ConversationScorecardReviewer.fromJson(Map<String, dynamic> json) => ConversationScorecardReviewer(
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ConversationScorecardReviewerType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    adminId: json.containsKey('admin_id') ? SdkPresent(json['admin_id'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<ConversationScorecardReviewerType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (adminId) {
-          SdkPresent<String?>(value: final value) => {
-              'admin_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<ConversationScorecardReviewerType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (adminId) {
+      SdkPresent<String?>(value: final value) => {'admin_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

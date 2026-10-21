@@ -8,53 +8,32 @@ part of 'shared_search.dart';
 class SearchRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required API value serialized in the `query` wire field.
   final SearchRequestQuery query;
-
   /// Optional object value serialized in the `pagination` wire field.
   final SdkOptional<StartingAfterPaging?> pagination;
 
-  const SearchRequest(
-      {required this.query, this.pagination = const SdkOmitted()});
+  const SearchRequest({required this.query, this.pagination = const SdkOmitted()});
 
-  SearchRequest Function(
-      {SearchRequestQuery query,
-      SdkOptional<StartingAfterPaging?> pagination}) get copyWith => _copyWith;
+  SearchRequest Function({SearchRequestQuery query, SdkOptional<StartingAfterPaging?> pagination}) get copyWith => _copyWith;
 
-  SearchRequest _copyWith(
-          {Object? query = sdkOmittedValue,
-          Object? pagination = sdkOmittedValue}) =>
-      SearchRequest(
-        query: identical(query, sdkOmittedValue)
-            ? this.query
-            : query as SearchRequestQuery,
-        pagination: identical(pagination, sdkOmittedValue)
-            ? this.pagination
-            : pagination as SdkOptional<StartingAfterPaging?>,
-      );
+  SearchRequest _copyWith({Object? query = sdkOmittedValue, Object? pagination = sdkOmittedValue}) => SearchRequest(
+    query: identical(query, sdkOmittedValue) ? this.query : query as SearchRequestQuery,
+    pagination: identical(pagination, sdkOmittedValue) ? this.pagination : pagination as SdkOptional<StartingAfterPaging?>,
+  );
 
   factory SearchRequest.fromJson(Map<String, dynamic> json) => SearchRequest(
-        query: (json['query'] != null
-            ? SearchRequestQuery.fromJson(json['query'])
-            : null)!,
-        pagination: json.containsKey('pagination')
-            ? SdkPresent(json['pagination'] != null
-                ? StartingAfterPaging.fromJson(
-                    json['pagination'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-      );
+    query: (json['query'] != null ? SearchRequestQuery.fromJson(json['query']) : null)!,
+    pagination: json.containsKey('pagination') ? SdkPresent(json['pagination'] != null ? StartingAfterPaging.fromJson(json['pagination'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'query': query.toJson(),
-        ...switch (pagination) {
-          SdkPresent<StartingAfterPaging?>(value: final value) => {
-              'pagination': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'query': query.toJson(),
+    ...switch (pagination) {
+      SdkPresent<StartingAfterPaging?>(value: final value) => {'pagination': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 sealed class SearchRequestQuery {
@@ -63,44 +42,24 @@ sealed class SearchRequestQuery {
   const SearchRequestQuery();
   factory SearchRequestQuery.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = SingleFilterSearchRequest.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return SearchRequestQuerySingleFilterSearchRequest(value);
-        }
-      } catch (_) {}
-      try {
-        final value = MultipleFilterSearchRequest.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return SearchRequestQueryMultipleFilterSearchRequest(value);
-        }
-      } catch (_) {}
+      try { final value = SingleFilterSearchRequest.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SearchRequestQuerySingleFilterSearchRequest(value); } } catch (_) {}
+      try { final value = MultipleFilterSearchRequest.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SearchRequestQueryMultipleFilterSearchRequest(value); } } catch (_) {}
     }
-    try {
-      return SearchRequestQuerySingleFilterSearchRequest(
-          SingleFilterSearchRequest.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return SearchRequestQueryMultipleFilterSearchRequest(
-          MultipleFilterSearchRequest.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
+    try { return SearchRequestQuerySingleFilterSearchRequest(SingleFilterSearchRequest.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return SearchRequestQueryMultipleFilterSearchRequest(MultipleFilterSearchRequest.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     throw FormatException("No variant matched for SearchRequestQuery");
   }
   Object? toJson();
 }
 
-final class SearchRequestQuerySingleFilterSearchRequest
-    extends SearchRequestQuery {
+final class SearchRequestQuerySingleFilterSearchRequest extends SearchRequestQuery {
   final SingleFilterSearchRequest value;
   const SearchRequestQuerySingleFilterSearchRequest(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class SearchRequestQueryMultipleFilterSearchRequest
-    extends SearchRequestQuery {
+final class SearchRequestQueryMultipleFilterSearchRequest extends SearchRequestQuery {
   final MultipleFilterSearchRequest value;
   const SearchRequestQueryMultipleFilterSearchRequest(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }

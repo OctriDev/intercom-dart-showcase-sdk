@@ -15,14 +15,10 @@ Future<TicketStateList> listTicketStates(ClientConfig config,
   return (await sdkRequest<TicketStateList>('GET', '/ticket_states',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listTicketStates',
-          fromJsonRaw: (value) =>
-              TicketStateList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => TicketStateList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

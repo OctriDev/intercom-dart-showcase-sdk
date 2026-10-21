@@ -10,107 +10,59 @@ sealed class MultipleFilterSearchRequestValue {
   const MultipleFilterSearchRequestValue();
   factory MultipleFilterSearchRequestValue.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = MultipleFilterSearchRequest.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return MultipleFilterSearchRequestValueMultipleFilterSearchRequest(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = SingleFilterSearchRequest.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return MultipleFilterSearchRequestValueSingleFilterSearchRequest(
-              value);
-        }
-      } catch (_) {}
+      try { final value = MultipleFilterSearchRequest.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MultipleFilterSearchRequestValueMultipleFilterSearchRequest(value); } } catch (_) {}
+      try { final value = SingleFilterSearchRequest.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MultipleFilterSearchRequestValueSingleFilterSearchRequest(value); } } catch (_) {}
     }
-    try {
-      return MultipleFilterSearchRequestValueMultipleFilterSearchRequest(
-          MultipleFilterSearchRequest.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return MultipleFilterSearchRequestValueSingleFilterSearchRequest(
-          SingleFilterSearchRequest.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for MultipleFilterSearchRequestValue");
+    try { return MultipleFilterSearchRequestValueMultipleFilterSearchRequest(MultipleFilterSearchRequest.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return MultipleFilterSearchRequestValueSingleFilterSearchRequest(SingleFilterSearchRequest.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    throw FormatException("No variant matched for MultipleFilterSearchRequestValue");
   }
   Object? toJson();
 }
 
-final class MultipleFilterSearchRequestValueMultipleFilterSearchRequest
-    extends MultipleFilterSearchRequestValue {
+final class MultipleFilterSearchRequestValueMultipleFilterSearchRequest extends MultipleFilterSearchRequestValue {
   final MultipleFilterSearchRequest value;
   const MultipleFilterSearchRequestValueMultipleFilterSearchRequest(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class MultipleFilterSearchRequestValueSingleFilterSearchRequest
-    extends MultipleFilterSearchRequestValue {
+final class MultipleFilterSearchRequestValueSingleFilterSearchRequest extends MultipleFilterSearchRequestValue {
   final SingleFilterSearchRequest value;
   const MultipleFilterSearchRequestValueSingleFilterSearchRequest(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// Search using Intercoms Search APIs with more than one filter.
 class MultipleFilterSearchRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An operator to allow boolean inspection between multiple fields.
   final SdkOptional<MultipleFilterSearchRequestOperator> operator_;
-
   /// Optional API value serialized in the `value` wire field.
   final SdkOptional<dynamic> value;
 
-  const MultipleFilterSearchRequest(
-      {this.operator_ = const SdkOmitted(), this.value = const SdkOmitted()});
+  const MultipleFilterSearchRequest({this.operator_ = const SdkOmitted(), this.value = const SdkOmitted()});
 
-  MultipleFilterSearchRequest Function(
-      {SdkOptional<MultipleFilterSearchRequestOperator> operator_,
-      SdkOptional<dynamic> value}) get copyWith => _copyWith;
+  MultipleFilterSearchRequest Function({SdkOptional<MultipleFilterSearchRequestOperator> operator_, SdkOptional<dynamic> value}) get copyWith => _copyWith;
 
-  MultipleFilterSearchRequest _copyWith(
-          {Object? operator_ = sdkOmittedValue,
-          Object? value = sdkOmittedValue}) =>
-      MultipleFilterSearchRequest(
-        operator_: identical(operator_, sdkOmittedValue)
-            ? this.operator_
-            : operator_ as SdkOptional<MultipleFilterSearchRequestOperator>,
-        value: identical(value, sdkOmittedValue)
-            ? this.value
-            : value as SdkOptional<dynamic>,
-      );
+  MultipleFilterSearchRequest _copyWith({Object? operator_ = sdkOmittedValue, Object? value = sdkOmittedValue}) => MultipleFilterSearchRequest(
+    operator_: identical(operator_, sdkOmittedValue) ? this.operator_ : operator_ as SdkOptional<MultipleFilterSearchRequestOperator>,
+    value: identical(value, sdkOmittedValue) ? this.value : value as SdkOptional<dynamic>,
+  );
 
-  factory MultipleFilterSearchRequest.fromJson(Map<String, dynamic> json) =>
-      MultipleFilterSearchRequest(
-        operator_: json['operator'] != null
-            ? SdkPresent((json['operator'] != null
-                ? MultipleFilterSearchRequestOperator.fromJson(
-                    json['operator'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        value: json['value'] != null
-            ? SdkPresent((json['value'])!)
-            : const SdkOmitted(),
-      );
+  factory MultipleFilterSearchRequest.fromJson(Map<String, dynamic> json) => MultipleFilterSearchRequest(
+    operator_: json['operator'] != null ? SdkPresent((json['operator'] != null ? MultipleFilterSearchRequestOperator.fromJson(json['operator'] as String) : null)!) : const SdkOmitted(),
+    value: json['value'] != null ? SdkPresent((json['value'])!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (operator_) {
-          SdkPresent<MultipleFilterSearchRequestOperator>(value: final value) =>
-            {
-              'operator': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (value) {
-          SdkPresent<dynamic>(value: final value) => {
-              'value': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (operator_) {
+      SdkPresent<MultipleFilterSearchRequestOperator>(value: final value) => {'operator': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (value) {
+      SdkPresent<dynamic>(value: final value) => {'value': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

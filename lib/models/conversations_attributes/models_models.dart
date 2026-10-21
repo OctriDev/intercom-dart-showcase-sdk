@@ -10,182 +10,80 @@ sealed class ConversationAttribute {
   const ConversationAttribute();
   factory ConversationAttribute.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = ConversationAttributeStringType.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ConversationAttributeConversationAttributeStringType(value);
-        }
-      } catch (_) {}
-      try {
-        final value = ConversationAttributeIntegerType.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ConversationAttributeConversationAttributeIntegerType(value);
-        }
-      } catch (_) {}
-      try {
-        final value = ConversationAttributeListType.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ConversationAttributeConversationAttributeListType(value);
-        }
-      } catch (_) {}
-      try {
-        final value = ConversationAttributeDecimalType.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ConversationAttributeConversationAttributeDecimalType(value);
-        }
-      } catch (_) {}
-      try {
-        final value = ConversationAttributeBooleanType.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ConversationAttributeConversationAttributeBooleanType(value);
-        }
-      } catch (_) {}
-      try {
-        final value = ConversationAttributeDatetimeType.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ConversationAttributeConversationAttributeDatetimeType(value);
-        }
-      } catch (_) {}
-      try {
-        final value = ConversationAttributeRelationshipType.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ConversationAttributeConversationAttributeRelationshipType(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = ConversationAttributeFilesType.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ConversationAttributeConversationAttributeFilesType(value);
-        }
-      } catch (_) {}
+      try { final value = ConversationAttributeStringType.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationAttributeConversationAttributeStringType(value); } } catch (_) {}
+      try { final value = ConversationAttributeIntegerType.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationAttributeConversationAttributeIntegerType(value); } } catch (_) {}
+      try { final value = ConversationAttributeListType.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationAttributeConversationAttributeListType(value); } } catch (_) {}
+      try { final value = ConversationAttributeDecimalType.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationAttributeConversationAttributeDecimalType(value); } } catch (_) {}
+      try { final value = ConversationAttributeBooleanType.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationAttributeConversationAttributeBooleanType(value); } } catch (_) {}
+      try { final value = ConversationAttributeDatetimeType.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationAttributeConversationAttributeDatetimeType(value); } } catch (_) {}
+      try { final value = ConversationAttributeRelationshipType.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationAttributeConversationAttributeRelationshipType(value); } } catch (_) {}
+      try { final value = ConversationAttributeFilesType.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationAttributeConversationAttributeFilesType(value); } } catch (_) {}
     }
-    try {
-      return ConversationAttributeConversationAttributeStringType(
-          ConversationAttributeStringType.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ConversationAttributeConversationAttributeIntegerType(
-          ConversationAttributeIntegerType.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ConversationAttributeConversationAttributeListType(
-          ConversationAttributeListType.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ConversationAttributeConversationAttributeDecimalType(
-          ConversationAttributeDecimalType.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ConversationAttributeConversationAttributeBooleanType(
-          ConversationAttributeBooleanType.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ConversationAttributeConversationAttributeDatetimeType(
-          ConversationAttributeDatetimeType.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ConversationAttributeConversationAttributeRelationshipType(
-          ConversationAttributeRelationshipType.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ConversationAttributeConversationAttributeFilesType(
-          ConversationAttributeFilesType.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["data_type"] is String &&
-        !const {
-          "string",
-          "integer",
-          "list",
-          "decimal",
-          "boolean",
-          "datetime",
-          "relationship",
-          "files"
-        }.contains(json["data_type"])) {
-      return UnknownConversationAttribute(json);
-    }
+    try { return ConversationAttributeConversationAttributeStringType(ConversationAttributeStringType.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ConversationAttributeConversationAttributeIntegerType(ConversationAttributeIntegerType.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ConversationAttributeConversationAttributeListType(ConversationAttributeListType.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ConversationAttributeConversationAttributeDecimalType(ConversationAttributeDecimalType.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ConversationAttributeConversationAttributeBooleanType(ConversationAttributeBooleanType.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ConversationAttributeConversationAttributeDatetimeType(ConversationAttributeDatetimeType.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ConversationAttributeConversationAttributeRelationshipType(ConversationAttributeRelationshipType.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ConversationAttributeConversationAttributeFilesType(ConversationAttributeFilesType.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["data_type"] is String && !const {"string", "integer", "list", "decimal", "boolean", "datetime", "relationship", "files"}.contains(json["data_type"])) { return UnknownConversationAttribute(json); }
     throw FormatException("No variant matched for ConversationAttribute");
   }
   Object? toJson();
 }
 
-final class ConversationAttributeConversationAttributeStringType
-    extends ConversationAttribute {
+final class ConversationAttributeConversationAttributeStringType extends ConversationAttribute {
   final ConversationAttributeStringType value;
   const ConversationAttributeConversationAttributeStringType(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class ConversationAttributeConversationAttributeIntegerType
-    extends ConversationAttribute {
+final class ConversationAttributeConversationAttributeIntegerType extends ConversationAttribute {
   final ConversationAttributeIntegerType value;
   const ConversationAttributeConversationAttributeIntegerType(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class ConversationAttributeConversationAttributeListType
-    extends ConversationAttribute {
+final class ConversationAttributeConversationAttributeListType extends ConversationAttribute {
   final ConversationAttributeListType value;
   const ConversationAttributeConversationAttributeListType(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class ConversationAttributeConversationAttributeDecimalType
-    extends ConversationAttribute {
+final class ConversationAttributeConversationAttributeDecimalType extends ConversationAttribute {
   final ConversationAttributeDecimalType value;
   const ConversationAttributeConversationAttributeDecimalType(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class ConversationAttributeConversationAttributeBooleanType
-    extends ConversationAttribute {
+final class ConversationAttributeConversationAttributeBooleanType extends ConversationAttribute {
   final ConversationAttributeBooleanType value;
   const ConversationAttributeConversationAttributeBooleanType(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class ConversationAttributeConversationAttributeDatetimeType
-    extends ConversationAttribute {
+final class ConversationAttributeConversationAttributeDatetimeType extends ConversationAttribute {
   final ConversationAttributeDatetimeType value;
   const ConversationAttributeConversationAttributeDatetimeType(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class ConversationAttributeConversationAttributeRelationshipType
-    extends ConversationAttribute {
+final class ConversationAttributeConversationAttributeRelationshipType extends ConversationAttribute {
   final ConversationAttributeRelationshipType value;
   const ConversationAttributeConversationAttributeRelationshipType(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class ConversationAttributeConversationAttributeFilesType
-    extends ConversationAttribute {
+final class ConversationAttributeConversationAttributeFilesType extends ConversationAttribute {
   final ConversationAttributeFilesType value;
   const ConversationAttributeConversationAttributeFilesType(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [ConversationAttribute] whose `data_type` names no branch this SDK knows, kept as received.
 final class UnknownConversationAttribute extends ConversationAttribute {
   final Map<String, dynamic> raw;
   const UnknownConversationAttribute(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

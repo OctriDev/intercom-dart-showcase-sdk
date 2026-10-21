@@ -8,120 +8,81 @@ part of 'contacts.dart';
 class BulkDeleteContactsRequestJob {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of an existing bulk job to append to.
   final SdkOptional<String> id;
 
   const BulkDeleteContactsRequestJob({this.id = const SdkOmitted()});
 
-  BulkDeleteContactsRequestJob Function({SdkOptional<String> id})
-      get copyWith => _copyWith;
+  BulkDeleteContactsRequestJob Function({SdkOptional<String> id}) get copyWith => _copyWith;
 
-  BulkDeleteContactsRequestJob _copyWith({Object? id = sdkOmittedValue}) =>
-      BulkDeleteContactsRequestJob(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-      );
+  BulkDeleteContactsRequestJob _copyWith({Object? id = sdkOmittedValue}) => BulkDeleteContactsRequestJob(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+  );
 
-  factory BulkDeleteContactsRequestJob.fromJson(Map<String, dynamic> json) =>
-      BulkDeleteContactsRequestJob(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory BulkDeleteContactsRequestJob.fromJson(Map<String, dynamic> json) => BulkDeleteContactsRequestJob(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Required object value serialized in the `contacts[]` wire field.
 class BulkDeleteContactsRequestContactsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique identifier for the contact.
   final String id;
 
   const BulkDeleteContactsRequestContactsItem({required this.id});
 
-  BulkDeleteContactsRequestContactsItem Function({String id}) get copyWith =>
-      _copyWith;
+  BulkDeleteContactsRequestContactsItem Function({String id}) get copyWith => _copyWith;
 
-  BulkDeleteContactsRequestContactsItem _copyWith(
-          {Object? id = sdkOmittedValue}) =>
-      BulkDeleteContactsRequestContactsItem(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-      );
+  BulkDeleteContactsRequestContactsItem _copyWith({Object? id = sdkOmittedValue}) => BulkDeleteContactsRequestContactsItem(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+  );
 
-  factory BulkDeleteContactsRequestContactsItem.fromJson(
-          Map<String, dynamic> json) =>
-      BulkDeleteContactsRequestContactsItem(
-        id: (json['id'] as String?)!,
-      );
+  factory BulkDeleteContactsRequestContactsItem.fromJson(Map<String, dynamic> json) => BulkDeleteContactsRequestContactsItem(
+    id: (json['id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-      };
+    'id': id,
+  };
 }
 
 /// Request body for permanently bulk deleting contacts.
 class BulkDeleteContactsRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An array of contacts to delete, each identified by `id`. Maximum 100 contacts per request.
   final List<BulkDeleteContactsRequestContactsItem> contacts;
-
   /// Optional. Include to append tasks to an existing job.
   final SdkOptional<BulkDeleteContactsRequestJob> job;
 
-  const BulkDeleteContactsRequest(
-      {required this.contacts, this.job = const SdkOmitted()});
+  const BulkDeleteContactsRequest({required this.contacts, this.job = const SdkOmitted()});
 
-  BulkDeleteContactsRequest Function(
-      {List<BulkDeleteContactsRequestContactsItem> contacts,
-      SdkOptional<BulkDeleteContactsRequestJob> job}) get copyWith => _copyWith;
+  BulkDeleteContactsRequest Function({List<BulkDeleteContactsRequestContactsItem> contacts, SdkOptional<BulkDeleteContactsRequestJob> job}) get copyWith => _copyWith;
 
-  BulkDeleteContactsRequest _copyWith(
-          {Object? contacts = sdkOmittedValue,
-          Object? job = sdkOmittedValue}) =>
-      BulkDeleteContactsRequest(
-        contacts: identical(contacts, sdkOmittedValue)
-            ? this.contacts
-            : contacts as List<BulkDeleteContactsRequestContactsItem>,
-        job: identical(job, sdkOmittedValue)
-            ? this.job
-            : job as SdkOptional<BulkDeleteContactsRequestJob>,
-      );
+  BulkDeleteContactsRequest _copyWith({Object? contacts = sdkOmittedValue, Object? job = sdkOmittedValue}) => BulkDeleteContactsRequest(
+    contacts: identical(contacts, sdkOmittedValue) ? this.contacts : contacts as List<BulkDeleteContactsRequestContactsItem>,
+    job: identical(job, sdkOmittedValue) ? this.job : job as SdkOptional<BulkDeleteContactsRequestJob>,
+  );
 
-  factory BulkDeleteContactsRequest.fromJson(Map<String, dynamic> json) =>
-      BulkDeleteContactsRequest(
-        contacts: ((json['contacts'] as List?)
-            ?.map((e) => BulkDeleteContactsRequestContactsItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList())!,
-        job: json['job'] != null
-            ? SdkPresent((json['job'] != null
-                ? BulkDeleteContactsRequestJob.fromJson(
-                    json['job'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory BulkDeleteContactsRequest.fromJson(Map<String, dynamic> json) => BulkDeleteContactsRequest(
+    contacts: ((json['contacts'] as List?)?.map((e) => BulkDeleteContactsRequestContactsItem.fromJson(e as Map<String, dynamic>)).toList())!,
+    job: json['job'] != null ? SdkPresent((json['job'] != null ? BulkDeleteContactsRequestJob.fromJson(json['job'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'contacts': contacts.map((item) => item.toJson()).toList(),
-        ...switch (job) {
-          SdkPresent<BulkDeleteContactsRequestJob>(value: final value) => {
-              'job': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'contacts': contacts.map((item) => item.toJson()).toList(),
+    ...switch (job) {
+      SdkPresent<BulkDeleteContactsRequestJob>(value: final value) => {'job': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

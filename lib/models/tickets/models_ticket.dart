@@ -8,381 +8,169 @@ part of 'models.dart';
 class Ticket {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Always ticket
   final SdkOptional<TicketType1bd0c454> type_;
-
   /// The unique identifier for the ticket which is given by Intercom.
   final SdkOptional<String> id;
-
   /// The ID of the Ticket used in the Intercom Inbox and Messenger. Do not use ticket_id for API queries.
   final SdkOptional<String> ticketId;
-
   /// Category of the Ticket.
   final SdkOptional<TicketCategory> category;
-
   /// The channel the ticket was created through. Defaults to messenger when no channel is specified at creation.
   final SdkOptional<String?> channel;
-
   /// An object containing the different attributes associated to the ticket as key-value pairs. For the default title and description attributes, the keys are `_default_title_` and `_default_description_`.
   final SdkOptional<Map<String, dynamic>> ticketAttributes;
-
   /// A ticket state, used to define the state of a ticket.
   final SdkOptional<TicketState?> ticketState;
-
   /// A ticket type, used to define the data fields to be captured in a ticket.
   final SdkOptional<TicketType?> ticketType;
-
   /// The list of contacts affected by a ticket.
   final SdkOptional<TicketContacts> contacts;
-
   /// The id representing the admin assigned to the ticket. If it's not assigned to an admin it will return 0.
   final SdkOptional<int> adminAssigneeId;
-
   /// The id representing the team assigned to the ticket. If it's not assigned to a team it will return 0.
   final SdkOptional<int> teamAssigneeId;
-
   /// The time the ticket was created as a UTC Unix timestamp.
   final SdkOptional<int> createdAt;
-
   /// The last time the ticket was updated as a UTC Unix timestamp.
   final SdkOptional<int> updatedAt;
-
   /// Whether or not the ticket is open. If false, the ticket is closed.
   final SdkOptional<bool> open;
-
   /// The time the ticket will be snoozed until as a UTC Unix timestamp. If null, the ticket is not currently snoozed.
   final SdkOptional<int> snoozedUntil;
-
   /// An object containing metadata about linked conversations and linked tickets. Up to 1000 can be returned.
   final SdkOptional<LinkedObjectList> linkedObjects;
-
   /// A list of Ticket Part objects for each note and event in the ticket. There is a limit of 500 parts.
   final SdkOptional<TicketParts> ticketParts;
-
   /// Whether or not the ticket is shared with the customer.
   final SdkOptional<bool> isShared;
-
   /// The ID of the previous ticket state from the most recent state change. Returns null if no state change history exists. Useful for tracking state transitions for reporting and compliance.
   final SdkOptional<String?> previousTicketStateId;
 
-  const Ticket(
-      {this.type_ = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.ticketId = const SdkOmitted(),
-      this.category = const SdkOmitted(),
-      this.channel = const SdkOmitted(),
-      this.ticketAttributes = const SdkOmitted(),
-      this.ticketState = const SdkOmitted(),
-      this.ticketType = const SdkOmitted(),
-      this.contacts = const SdkOmitted(),
-      this.adminAssigneeId = const SdkOmitted(),
-      this.teamAssigneeId = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.updatedAt = const SdkOmitted(),
-      this.open = const SdkOmitted(),
-      this.snoozedUntil = const SdkOmitted(),
-      this.linkedObjects = const SdkOmitted(),
-      this.ticketParts = const SdkOmitted(),
-      this.isShared = const SdkOmitted(),
-      this.previousTicketStateId = const SdkOmitted()});
+  const Ticket({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.ticketId = const SdkOmitted(), this.category = const SdkOmitted(), this.channel = const SdkOmitted(), this.ticketAttributes = const SdkOmitted(), this.ticketState = const SdkOmitted(), this.ticketType = const SdkOmitted(), this.contacts = const SdkOmitted(), this.adminAssigneeId = const SdkOmitted(), this.teamAssigneeId = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.open = const SdkOmitted(), this.snoozedUntil = const SdkOmitted(), this.linkedObjects = const SdkOmitted(), this.ticketParts = const SdkOmitted(), this.isShared = const SdkOmitted(), this.previousTicketStateId = const SdkOmitted()});
 
-  Ticket Function(
-      {SdkOptional<TicketType1bd0c454> type_,
-      SdkOptional<String> id,
-      SdkOptional<String> ticketId,
-      SdkOptional<TicketCategory> category,
-      SdkOptional<String?> channel,
-      SdkOptional<Map<String, dynamic>> ticketAttributes,
-      SdkOptional<TicketState?> ticketState,
-      SdkOptional<TicketType?> ticketType,
-      SdkOptional<TicketContacts> contacts,
-      SdkOptional<int> adminAssigneeId,
-      SdkOptional<int> teamAssigneeId,
-      SdkOptional<int> createdAt,
-      SdkOptional<int> updatedAt,
-      SdkOptional<bool> open,
-      SdkOptional<int> snoozedUntil,
-      SdkOptional<LinkedObjectList> linkedObjects,
-      SdkOptional<TicketParts> ticketParts,
-      SdkOptional<bool> isShared,
-      SdkOptional<String?> previousTicketStateId}) get copyWith => _copyWith;
+  Ticket Function({SdkOptional<TicketType1bd0c454> type_, SdkOptional<String> id, SdkOptional<String> ticketId, SdkOptional<TicketCategory> category, SdkOptional<String?> channel, SdkOptional<Map<String, dynamic>> ticketAttributes, SdkOptional<TicketState?> ticketState, SdkOptional<TicketType?> ticketType, SdkOptional<TicketContacts> contacts, SdkOptional<int> adminAssigneeId, SdkOptional<int> teamAssigneeId, SdkOptional<int> createdAt, SdkOptional<int> updatedAt, SdkOptional<bool> open, SdkOptional<int> snoozedUntil, SdkOptional<LinkedObjectList> linkedObjects, SdkOptional<TicketParts> ticketParts, SdkOptional<bool> isShared, SdkOptional<String?> previousTicketStateId}) get copyWith => _copyWith;
 
-  Ticket _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? ticketId = sdkOmittedValue,
-          Object? category = sdkOmittedValue,
-          Object? channel = sdkOmittedValue,
-          Object? ticketAttributes = sdkOmittedValue,
-          Object? ticketState = sdkOmittedValue,
-          Object? ticketType = sdkOmittedValue,
-          Object? contacts = sdkOmittedValue,
-          Object? adminAssigneeId = sdkOmittedValue,
-          Object? teamAssigneeId = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue,
-          Object? open = sdkOmittedValue,
-          Object? snoozedUntil = sdkOmittedValue,
-          Object? linkedObjects = sdkOmittedValue,
-          Object? ticketParts = sdkOmittedValue,
-          Object? isShared = sdkOmittedValue,
-          Object? previousTicketStateId = sdkOmittedValue}) =>
-      Ticket(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<TicketType1bd0c454>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        ticketId: identical(ticketId, sdkOmittedValue)
-            ? this.ticketId
-            : ticketId as SdkOptional<String>,
-        category: identical(category, sdkOmittedValue)
-            ? this.category
-            : category as SdkOptional<TicketCategory>,
-        channel: identical(channel, sdkOmittedValue)
-            ? this.channel
-            : channel as SdkOptional<String?>,
-        ticketAttributes: identical(ticketAttributes, sdkOmittedValue)
-            ? this.ticketAttributes
-            : ticketAttributes as SdkOptional<Map<String, dynamic>>,
-        ticketState: identical(ticketState, sdkOmittedValue)
-            ? this.ticketState
-            : ticketState as SdkOptional<TicketState?>,
-        ticketType: identical(ticketType, sdkOmittedValue)
-            ? this.ticketType
-            : ticketType as SdkOptional<TicketType?>,
-        contacts: identical(contacts, sdkOmittedValue)
-            ? this.contacts
-            : contacts as SdkOptional<TicketContacts>,
-        adminAssigneeId: identical(adminAssigneeId, sdkOmittedValue)
-            ? this.adminAssigneeId
-            : adminAssigneeId as SdkOptional<int>,
-        teamAssigneeId: identical(teamAssigneeId, sdkOmittedValue)
-            ? this.teamAssigneeId
-            : teamAssigneeId as SdkOptional<int>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<int>,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as SdkOptional<int>,
-        open: identical(open, sdkOmittedValue)
-            ? this.open
-            : open as SdkOptional<bool>,
-        snoozedUntil: identical(snoozedUntil, sdkOmittedValue)
-            ? this.snoozedUntil
-            : snoozedUntil as SdkOptional<int>,
-        linkedObjects: identical(linkedObjects, sdkOmittedValue)
-            ? this.linkedObjects
-            : linkedObjects as SdkOptional<LinkedObjectList>,
-        ticketParts: identical(ticketParts, sdkOmittedValue)
-            ? this.ticketParts
-            : ticketParts as SdkOptional<TicketParts>,
-        isShared: identical(isShared, sdkOmittedValue)
-            ? this.isShared
-            : isShared as SdkOptional<bool>,
-        previousTicketStateId: identical(previousTicketStateId, sdkOmittedValue)
-            ? this.previousTicketStateId
-            : previousTicketStateId as SdkOptional<String?>,
-      );
+  Ticket _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? ticketId = sdkOmittedValue, Object? category = sdkOmittedValue, Object? channel = sdkOmittedValue, Object? ticketAttributes = sdkOmittedValue, Object? ticketState = sdkOmittedValue, Object? ticketType = sdkOmittedValue, Object? contacts = sdkOmittedValue, Object? adminAssigneeId = sdkOmittedValue, Object? teamAssigneeId = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? open = sdkOmittedValue, Object? snoozedUntil = sdkOmittedValue, Object? linkedObjects = sdkOmittedValue, Object? ticketParts = sdkOmittedValue, Object? isShared = sdkOmittedValue, Object? previousTicketStateId = sdkOmittedValue}) => Ticket(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<TicketType1bd0c454>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    ticketId: identical(ticketId, sdkOmittedValue) ? this.ticketId : ticketId as SdkOptional<String>,
+    category: identical(category, sdkOmittedValue) ? this.category : category as SdkOptional<TicketCategory>,
+    channel: identical(channel, sdkOmittedValue) ? this.channel : channel as SdkOptional<String?>,
+    ticketAttributes: identical(ticketAttributes, sdkOmittedValue) ? this.ticketAttributes : ticketAttributes as SdkOptional<Map<String, dynamic>>,
+    ticketState: identical(ticketState, sdkOmittedValue) ? this.ticketState : ticketState as SdkOptional<TicketState?>,
+    ticketType: identical(ticketType, sdkOmittedValue) ? this.ticketType : ticketType as SdkOptional<TicketType?>,
+    contacts: identical(contacts, sdkOmittedValue) ? this.contacts : contacts as SdkOptional<TicketContacts>,
+    adminAssigneeId: identical(adminAssigneeId, sdkOmittedValue) ? this.adminAssigneeId : adminAssigneeId as SdkOptional<int>,
+    teamAssigneeId: identical(teamAssigneeId, sdkOmittedValue) ? this.teamAssigneeId : teamAssigneeId as SdkOptional<int>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<int>,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<int>,
+    open: identical(open, sdkOmittedValue) ? this.open : open as SdkOptional<bool>,
+    snoozedUntil: identical(snoozedUntil, sdkOmittedValue) ? this.snoozedUntil : snoozedUntil as SdkOptional<int>,
+    linkedObjects: identical(linkedObjects, sdkOmittedValue) ? this.linkedObjects : linkedObjects as SdkOptional<LinkedObjectList>,
+    ticketParts: identical(ticketParts, sdkOmittedValue) ? this.ticketParts : ticketParts as SdkOptional<TicketParts>,
+    isShared: identical(isShared, sdkOmittedValue) ? this.isShared : isShared as SdkOptional<bool>,
+    previousTicketStateId: identical(previousTicketStateId, sdkOmittedValue) ? this.previousTicketStateId : previousTicketStateId as SdkOptional<String?>,
+  );
 
   factory Ticket.fromJson(Map<String, dynamic> json) => Ticket(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? TicketType1bd0c454.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        ticketId: json['ticket_id'] != null
-            ? SdkPresent((json['ticket_id'] as String?)!)
-            : const SdkOmitted(),
-        category: json['category'] != null
-            ? SdkPresent((json['category'] != null
-                ? TicketCategory.fromJson(json['category'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        channel: json.containsKey('channel')
-            ? SdkPresent(json['channel'] as String?)
-            : const SdkOmitted(),
-        ticketAttributes: json['ticket_attributes'] != null
-            ? SdkPresent((json['ticket_attributes'] == null
-                ? null
-                : json['ticket_attributes'] as Map<String, dynamic>)!)
-            : const SdkOmitted(),
-        ticketState: json.containsKey('ticket_state')
-            ? SdkPresent(json['ticket_state'] != null
-                ? TicketState.fromJson(
-                    json['ticket_state'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        ticketType: json.containsKey('ticket_type')
-            ? SdkPresent(json['ticket_type'] != null
-                ? TicketType.fromJson(
-                    json['ticket_type'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        contacts: json['contacts'] != null
-            ? SdkPresent((json['contacts'] != null
-                ? TicketContacts.fromJson(
-                    json['contacts'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        adminAssigneeId: json['admin_assignee_id'] != null
-            ? SdkPresent(((json['admin_assignee_id'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        teamAssigneeId: json['team_assignee_id'] != null
-            ? SdkPresent(((json['team_assignee_id'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent(((json['created_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        updatedAt: json['updated_at'] != null
-            ? SdkPresent(((json['updated_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        open: json['open'] != null
-            ? SdkPresent((json['open'] as bool?)!)
-            : const SdkOmitted(),
-        snoozedUntil: json['snoozed_until'] != null
-            ? SdkPresent(((json['snoozed_until'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        linkedObjects: json['linked_objects'] != null
-            ? SdkPresent((json['linked_objects'] != null
-                ? LinkedObjectList.fromJson(
-                    json['linked_objects'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        ticketParts: json['ticket_parts'] != null
-            ? SdkPresent((json['ticket_parts'] != null
-                ? TicketParts.fromJson(
-                    json['ticket_parts'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        isShared: json['is_shared'] != null
-            ? SdkPresent((json['is_shared'] as bool?)!)
-            : const SdkOmitted(),
-        previousTicketStateId: json.containsKey('previous_ticket_state_id')
-            ? SdkPresent(json['previous_ticket_state_id'] as String?)
-            : const SdkOmitted(),
-      );
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? TicketType1bd0c454.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    ticketId: json['ticket_id'] != null ? SdkPresent((json['ticket_id'] as String?)!) : const SdkOmitted(),
+    category: json['category'] != null ? SdkPresent((json['category'] != null ? TicketCategory.fromJson(json['category'] as String) : null)!) : const SdkOmitted(),
+    channel: json.containsKey('channel') ? SdkPresent(json['channel'] as String?) : const SdkOmitted(),
+    ticketAttributes: json['ticket_attributes'] != null ? SdkPresent((json['ticket_attributes'] == null ? null : json['ticket_attributes'] as Map<String, dynamic>)!) : const SdkOmitted(),
+    ticketState: json.containsKey('ticket_state') ? SdkPresent(json['ticket_state'] != null ? TicketState.fromJson(json['ticket_state'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    ticketType: json.containsKey('ticket_type') ? SdkPresent(json['ticket_type'] != null ? TicketType.fromJson(json['ticket_type'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    contacts: json['contacts'] != null ? SdkPresent((json['contacts'] != null ? TicketContacts.fromJson(json['contacts'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    adminAssigneeId: json['admin_assignee_id'] != null ? SdkPresent(((json['admin_assignee_id'] as num?)?.toInt())!) : const SdkOmitted(),
+    teamAssigneeId: json['team_assignee_id'] != null ? SdkPresent(((json['team_assignee_id'] as num?)?.toInt())!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent(((json['created_at'] as num?)?.toInt())!) : const SdkOmitted(),
+    updatedAt: json['updated_at'] != null ? SdkPresent(((json['updated_at'] as num?)?.toInt())!) : const SdkOmitted(),
+    open: json['open'] != null ? SdkPresent((json['open'] as bool?)!) : const SdkOmitted(),
+    snoozedUntil: json['snoozed_until'] != null ? SdkPresent(((json['snoozed_until'] as num?)?.toInt())!) : const SdkOmitted(),
+    linkedObjects: json['linked_objects'] != null ? SdkPresent((json['linked_objects'] != null ? LinkedObjectList.fromJson(json['linked_objects'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    ticketParts: json['ticket_parts'] != null ? SdkPresent((json['ticket_parts'] != null ? TicketParts.fromJson(json['ticket_parts'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    isShared: json['is_shared'] != null ? SdkPresent((json['is_shared'] as bool?)!) : const SdkOmitted(),
+    previousTicketStateId: json.containsKey('previous_ticket_state_id') ? SdkPresent(json['previous_ticket_state_id'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<TicketType1bd0c454>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ticketId) {
-          SdkPresent<String>(value: final value) => {
-              'ticket_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (category) {
-          SdkPresent<TicketCategory>(value: final value) => {
-              'category': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (channel) {
-          SdkPresent<String?>(value: final value) => {
-              'channel': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ticketAttributes) {
-          SdkPresent<Map<String, dynamic>>(value: final value) => {
-              'ticket_attributes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ticketState) {
-          SdkPresent<TicketState?>(value: final value) => {
-              'ticket_state': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ticketType) {
-          SdkPresent<TicketType?>(value: final value) => {
-              'ticket_type': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (contacts) {
-          SdkPresent<TicketContacts>(value: final value) => {
-              'contacts': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (adminAssigneeId) {
-          SdkPresent<int>(value: final value) => {
-              'admin_assignee_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (teamAssigneeId) {
-          SdkPresent<int>(value: final value) => {
-              'team_assignee_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<int>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (updatedAt) {
-          SdkPresent<int>(value: final value) => {
-              'updated_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (open) {
-          SdkPresent<bool>(value: final value) => {
-              'open': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (snoozedUntil) {
-          SdkPresent<int>(value: final value) => {
-              'snoozed_until': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (linkedObjects) {
-          SdkPresent<LinkedObjectList>(value: final value) => {
-              'linked_objects': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ticketParts) {
-          SdkPresent<TicketParts>(value: final value) => {
-              'ticket_parts': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (isShared) {
-          SdkPresent<bool>(value: final value) => {
-              'is_shared': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (previousTicketStateId) {
-          SdkPresent<String?>(value: final value) => {
-              'previous_ticket_state_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<TicketType1bd0c454>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ticketId) {
+      SdkPresent<String>(value: final value) => {'ticket_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (category) {
+      SdkPresent<TicketCategory>(value: final value) => {'category': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (channel) {
+      SdkPresent<String?>(value: final value) => {'channel': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ticketAttributes) {
+      SdkPresent<Map<String, dynamic>>(value: final value) => {'ticket_attributes': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ticketState) {
+      SdkPresent<TicketState?>(value: final value) => {'ticket_state': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ticketType) {
+      SdkPresent<TicketType?>(value: final value) => {'ticket_type': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (contacts) {
+      SdkPresent<TicketContacts>(value: final value) => {'contacts': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (adminAssigneeId) {
+      SdkPresent<int>(value: final value) => {'admin_assignee_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (teamAssigneeId) {
+      SdkPresent<int>(value: final value) => {'team_assignee_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<int>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (updatedAt) {
+      SdkPresent<int>(value: final value) => {'updated_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (open) {
+      SdkPresent<bool>(value: final value) => {'open': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (snoozedUntil) {
+      SdkPresent<int>(value: final value) => {'snoozed_until': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (linkedObjects) {
+      SdkPresent<LinkedObjectList>(value: final value) => {'linked_objects': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ticketParts) {
+      SdkPresent<TicketParts>(value: final value) => {'ticket_parts': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (isShared) {
+      SdkPresent<bool>(value: final value) => {'is_shared': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (previousTicketStateId) {
+      SdkPresent<String?>(value: final value) => {'previous_ticket_state_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

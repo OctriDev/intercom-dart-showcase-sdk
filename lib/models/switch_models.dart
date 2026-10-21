@@ -8,103 +8,65 @@ part of 'switch.dart';
 class CreatePhoneSwitchRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Phone number in E.164 format, that will receive the SMS to continue the conversation in the Messenger.
   final String phone;
-
   /// The custom attributes which are set on this object, as key-value pairs. For relationship attributes the value should be a list of custom object instance models. Only attributes a caller may set are accepted here — attributes Intercom generates are returned in responses only.
   final SdkOptional<Map<String, dynamic>> customAttributes;
 
-  const CreatePhoneSwitchRequest(
-      {required this.phone, this.customAttributes = const SdkOmitted()});
+  const CreatePhoneSwitchRequest({required this.phone, this.customAttributes = const SdkOmitted()});
 
-  CreatePhoneSwitchRequest Function(
-          {String phone, SdkOptional<Map<String, dynamic>> customAttributes})
-      get copyWith => _copyWith;
+  CreatePhoneSwitchRequest Function({String phone, SdkOptional<Map<String, dynamic>> customAttributes}) get copyWith => _copyWith;
 
-  CreatePhoneSwitchRequest _copyWith(
-          {Object? phone = sdkOmittedValue,
-          Object? customAttributes = sdkOmittedValue}) =>
-      CreatePhoneSwitchRequest(
-        phone: identical(phone, sdkOmittedValue) ? this.phone : phone as String,
-        customAttributes: identical(customAttributes, sdkOmittedValue)
-            ? this.customAttributes
-            : customAttributes as SdkOptional<Map<String, dynamic>>,
-      );
+  CreatePhoneSwitchRequest _copyWith({Object? phone = sdkOmittedValue, Object? customAttributes = sdkOmittedValue}) => CreatePhoneSwitchRequest(
+    phone: identical(phone, sdkOmittedValue) ? this.phone : phone as String,
+    customAttributes: identical(customAttributes, sdkOmittedValue) ? this.customAttributes : customAttributes as SdkOptional<Map<String, dynamic>>,
+  );
 
-  factory CreatePhoneSwitchRequest.fromJson(Map<String, dynamic> json) =>
-      CreatePhoneSwitchRequest(
-        phone: (json['phone'] as String?)!,
-        customAttributes: json['custom_attributes'] != null
-            ? SdkPresent((json['custom_attributes'] == null
-                ? null
-                : json['custom_attributes'] as Map<String, dynamic>)!)
-            : const SdkOmitted(),
-      );
+  factory CreatePhoneSwitchRequest.fromJson(Map<String, dynamic> json) => CreatePhoneSwitchRequest(
+    phone: (json['phone'] as String?)!,
+    customAttributes: json['custom_attributes'] != null ? SdkPresent((json['custom_attributes'] == null ? null : json['custom_attributes'] as Map<String, dynamic>)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'phone': phone,
-        ...switch (customAttributes) {
-          SdkPresent<Map<String, dynamic>>(value: final value) => {
-              'custom_attributes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'phone': phone,
+    ...switch (customAttributes) {
+      SdkPresent<Map<String, dynamic>>(value: final value) => {'custom_attributes': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Phone Switch Response
 class PhoneSwitch {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional enumerated value serialized in the `type` wire field.
   final SdkOptional<PhoneSwitchType> type_;
-
   /// Phone number in E.164 format, that has received the SMS to continue the conversation in the Messenger.
   final SdkOptional<String> phone;
 
-  const PhoneSwitch(
-      {this.type_ = const SdkOmitted(), this.phone = const SdkOmitted()});
+  const PhoneSwitch({this.type_ = const SdkOmitted(), this.phone = const SdkOmitted()});
 
-  PhoneSwitch Function(
-      {SdkOptional<PhoneSwitchType> type_,
-      SdkOptional<String> phone}) get copyWith => _copyWith;
+  PhoneSwitch Function({SdkOptional<PhoneSwitchType> type_, SdkOptional<String> phone}) get copyWith => _copyWith;
 
-  PhoneSwitch _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? phone = sdkOmittedValue}) =>
-      PhoneSwitch(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<PhoneSwitchType>,
-        phone: identical(phone, sdkOmittedValue)
-            ? this.phone
-            : phone as SdkOptional<String>,
-      );
+  PhoneSwitch _copyWith({Object? type_ = sdkOmittedValue, Object? phone = sdkOmittedValue}) => PhoneSwitch(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<PhoneSwitchType>,
+    phone: identical(phone, sdkOmittedValue) ? this.phone : phone as SdkOptional<String>,
+  );
 
   factory PhoneSwitch.fromJson(Map<String, dynamic> json) => PhoneSwitch(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? PhoneSwitchType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        phone: json['phone'] != null
-            ? SdkPresent((json['phone'] as String?)!)
-            : const SdkOmitted(),
-      );
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? PhoneSwitchType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    phone: json['phone'] != null ? SdkPresent((json['phone'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<PhoneSwitchType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (phone) {
-          SdkPresent<String>(value: final value) => {
-              'phone': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<PhoneSwitchType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (phone) {
+      SdkPresent<String>(value: final value) => {'phone': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -8,7 +8,6 @@ part of 'shared.dart';
 class CallSummary {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The id of the call the summary describes
   final SdkOptional<String> callId;
 
@@ -17,23 +16,17 @@ class CallSummary {
   CallSummary Function({SdkOptional<String> callId}) get copyWith => _copyWith;
 
   CallSummary _copyWith({Object? callId = sdkOmittedValue}) => CallSummary(
-        callId: identical(callId, sdkOmittedValue)
-            ? this.callId
-            : callId as SdkOptional<String>,
-      );
+    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as SdkOptional<String>,
+  );
 
   factory CallSummary.fromJson(Map<String, dynamic> json) => CallSummary(
-        callId: json['call_id'] != null
-            ? SdkPresent((json['call_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+    callId: json['call_id'] != null ? SdkPresent((json['call_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (callId) {
-          SdkPresent<String>(value: final value) => {
-              'call_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (callId) {
+      SdkPresent<String>(value: final value) => {'call_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

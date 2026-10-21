@@ -8,61 +8,33 @@ part of 'models.dart';
 class FinAgentConversationMetadata {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An array of previous messages in the conversation before Fin is initialized. This data provides context to Fin and helps generate a better answer. Limit to the last 10 messages.
   final SdkOptional<List<FinAgentMessage>> history;
-
   /// A hash of attributes associated with the conversation. These attributes can be used by Fin to provide more contextual responses. Limit to 20 attributes.
   final SdkOptional<Map<String, Object?>> attributes;
 
-  const FinAgentConversationMetadata(
-      {this.history = const SdkOmitted(),
-      this.attributes = const SdkOmitted()});
+  const FinAgentConversationMetadata({this.history = const SdkOmitted(), this.attributes = const SdkOmitted()});
 
-  FinAgentConversationMetadata Function(
-      {SdkOptional<List<FinAgentMessage>> history,
-      SdkOptional<Map<String, Object?>> attributes}) get copyWith => _copyWith;
+  FinAgentConversationMetadata Function({SdkOptional<List<FinAgentMessage>> history, SdkOptional<Map<String, Object?>> attributes}) get copyWith => _copyWith;
 
-  FinAgentConversationMetadata _copyWith(
-          {Object? history = sdkOmittedValue,
-          Object? attributes = sdkOmittedValue}) =>
-      FinAgentConversationMetadata(
-        history: identical(history, sdkOmittedValue)
-            ? this.history
-            : history as SdkOptional<List<FinAgentMessage>>,
-        attributes: identical(attributes, sdkOmittedValue)
-            ? this.attributes
-            : attributes as SdkOptional<Map<String, Object?>>,
-      );
+  FinAgentConversationMetadata _copyWith({Object? history = sdkOmittedValue, Object? attributes = sdkOmittedValue}) => FinAgentConversationMetadata(
+    history: identical(history, sdkOmittedValue) ? this.history : history as SdkOptional<List<FinAgentMessage>>,
+    attributes: identical(attributes, sdkOmittedValue) ? this.attributes : attributes as SdkOptional<Map<String, Object?>>,
+  );
 
-  factory FinAgentConversationMetadata.fromJson(Map<String, dynamic> json) =>
-      FinAgentConversationMetadata(
-        history: json['history'] != null
-            ? SdkPresent(((json['history'] as List?)
-                ?.map(
-                    (e) => FinAgentMessage.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        attributes: json['attributes'] != null
-            ? SdkPresent((json['attributes'] == null
-                ? null
-                : Map<String, dynamic>.from(json['attributes'] as Map)
-                    .map((key, value) => MapEntry(key, value)))!)
-            : const SdkOmitted(),
-      );
+  factory FinAgentConversationMetadata.fromJson(Map<String, dynamic> json) => FinAgentConversationMetadata(
+    history: json['history'] != null ? SdkPresent(((json['history'] as List?)?.map((e) => FinAgentMessage.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    attributes: json['attributes'] != null ? SdkPresent((json['attributes'] == null ? null : Map<String, dynamic>.from(json['attributes'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (history) {
-          SdkPresent<List<FinAgentMessage>>(value: final value) => {
-              'history': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (attributes) {
-          SdkPresent<Map<String, Object?>>(value: final value) => {
-              'attributes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (history) {
+      SdkPresent<List<FinAgentMessage>>(value: final value) => {'history': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (attributes) {
+      SdkPresent<Map<String, Object?>>(value: final value) => {'attributes': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

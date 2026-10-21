@@ -8,144 +8,73 @@ part of 'shared.dart';
 class PartAttachment {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of attachment
   final SdkOptional<String> type_;
-
   /// The name of the attachment
   final SdkOptional<String> name;
-
   /// The URL of the attachment
   final SdkOptional<String> url;
-
   /// The content type of the attachment
   final SdkOptional<String> contentType;
-
   /// The size of the attachment
   final SdkOptional<int> filesize;
-
   /// The width of the attachment
   final SdkOptional<int> width;
-
   /// The height of the attachment
   final SdkOptional<int> height;
 
-  const PartAttachment(
-      {this.type_ = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.url = const SdkOmitted(),
-      this.contentType = const SdkOmitted(),
-      this.filesize = const SdkOmitted(),
-      this.width = const SdkOmitted(),
-      this.height = const SdkOmitted()});
+  const PartAttachment({this.type_ = const SdkOmitted(), this.name = const SdkOmitted(), this.url = const SdkOmitted(), this.contentType = const SdkOmitted(), this.filesize = const SdkOmitted(), this.width = const SdkOmitted(), this.height = const SdkOmitted()});
 
-  PartAttachment Function(
-      {SdkOptional<String> type_,
-      SdkOptional<String> name,
-      SdkOptional<String> url,
-      SdkOptional<String> contentType,
-      SdkOptional<int> filesize,
-      SdkOptional<int> width,
-      SdkOptional<int> height}) get copyWith => _copyWith;
+  PartAttachment Function({SdkOptional<String> type_, SdkOptional<String> name, SdkOptional<String> url, SdkOptional<String> contentType, SdkOptional<int> filesize, SdkOptional<int> width, SdkOptional<int> height}) get copyWith => _copyWith;
 
-  PartAttachment _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? url = sdkOmittedValue,
-          Object? contentType = sdkOmittedValue,
-          Object? filesize = sdkOmittedValue,
-          Object? width = sdkOmittedValue,
-          Object? height = sdkOmittedValue}) =>
-      PartAttachment(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        url: identical(url, sdkOmittedValue)
-            ? this.url
-            : url as SdkOptional<String>,
-        contentType: identical(contentType, sdkOmittedValue)
-            ? this.contentType
-            : contentType as SdkOptional<String>,
-        filesize: identical(filesize, sdkOmittedValue)
-            ? this.filesize
-            : filesize as SdkOptional<int>,
-        width: identical(width, sdkOmittedValue)
-            ? this.width
-            : width as SdkOptional<int>,
-        height: identical(height, sdkOmittedValue)
-            ? this.height
-            : height as SdkOptional<int>,
-      );
+  PartAttachment _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? url = sdkOmittedValue, Object? contentType = sdkOmittedValue, Object? filesize = sdkOmittedValue, Object? width = sdkOmittedValue, Object? height = sdkOmittedValue}) => PartAttachment(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String>,
+    contentType: identical(contentType, sdkOmittedValue) ? this.contentType : contentType as SdkOptional<String>,
+    filesize: identical(filesize, sdkOmittedValue) ? this.filesize : filesize as SdkOptional<int>,
+    width: identical(width, sdkOmittedValue) ? this.width : width as SdkOptional<int>,
+    height: identical(height, sdkOmittedValue) ? this.height : height as SdkOptional<int>,
+  );
 
   factory PartAttachment.fromJson(Map<String, dynamic> json) => PartAttachment(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        url: json['url'] != null
-            ? SdkPresent((json['url'] as String?)!)
-            : const SdkOmitted(),
-        contentType: json['content_type'] != null
-            ? SdkPresent((json['content_type'] as String?)!)
-            : const SdkOmitted(),
-        filesize: json['filesize'] != null
-            ? SdkPresent(((json['filesize'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        width: json['width'] != null
-            ? SdkPresent(((json['width'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        height: json['height'] != null
-            ? SdkPresent(((json['height'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    url: json['url'] != null ? SdkPresent((json['url'] as String?)!) : const SdkOmitted(),
+    contentType: json['content_type'] != null ? SdkPresent((json['content_type'] as String?)!) : const SdkOmitted(),
+    filesize: json['filesize'] != null ? SdkPresent(((json['filesize'] as num?)?.toInt())!) : const SdkOmitted(),
+    width: json['width'] != null ? SdkPresent(((json['width'] as num?)?.toInt())!) : const SdkOmitted(),
+    height: json['height'] != null ? SdkPresent(((json['height'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (url) {
-          SdkPresent<String>(value: final value) => {
-              'url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (contentType) {
-          SdkPresent<String>(value: final value) => {
-              'content_type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (filesize) {
-          SdkPresent<int>(value: final value) => {
-              'filesize': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (width) {
-          SdkPresent<int>(value: final value) => {
-              'width': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (height) {
-          SdkPresent<int>(value: final value) => {
-              'height': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (url) {
+      SdkPresent<String>(value: final value) => {'url': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (contentType) {
+      SdkPresent<String>(value: final value) => {'content_type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (filesize) {
+      SdkPresent<int>(value: final value) => {'filesize': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (width) {
+      SdkPresent<int>(value: final value) => {'width': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (height) {
+      SdkPresent<int>(value: final value) => {'height': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -8,53 +8,33 @@ part of 'models.dart';
 class ContactAvatar {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of object
   final SdkOptional<String> type_;
-
   /// An image URL containing the avatar of a contact.
   final SdkOptional<String?> imageUrl;
 
-  const ContactAvatar(
-      {this.type_ = const SdkOmitted(), this.imageUrl = const SdkOmitted()});
+  const ContactAvatar({this.type_ = const SdkOmitted(), this.imageUrl = const SdkOmitted()});
 
-  ContactAvatar Function(
-      {SdkOptional<String> type_,
-      SdkOptional<String?> imageUrl}) get copyWith => _copyWith;
+  ContactAvatar Function({SdkOptional<String> type_, SdkOptional<String?> imageUrl}) get copyWith => _copyWith;
 
-  ContactAvatar _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? imageUrl = sdkOmittedValue}) =>
-      ContactAvatar(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        imageUrl: identical(imageUrl, sdkOmittedValue)
-            ? this.imageUrl
-            : imageUrl as SdkOptional<String?>,
-      );
+  ContactAvatar _copyWith({Object? type_ = sdkOmittedValue, Object? imageUrl = sdkOmittedValue}) => ContactAvatar(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    imageUrl: identical(imageUrl, sdkOmittedValue) ? this.imageUrl : imageUrl as SdkOptional<String?>,
+  );
 
   factory ContactAvatar.fromJson(Map<String, dynamic> json) => ContactAvatar(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        imageUrl: json.containsKey('image_url')
-            ? SdkPresent(json['image_url'] as String?)
-            : const SdkOmitted(),
-      );
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    imageUrl: json.containsKey('image_url') ? SdkPresent(json['image_url'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (imageUrl) {
-          SdkPresent<String?>(value: final value) => {
-              'image_url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (imageUrl) {
+      SdkPresent<String?>(value: final value) => {'image_url': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

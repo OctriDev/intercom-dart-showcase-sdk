@@ -10,67 +10,32 @@ sealed class ContactReplyConversationRequest {
   const ContactReplyConversationRequest();
   factory ContactReplyConversationRequest.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = ContactReplyIntercomUserIdRequest.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ContactReplyConversationRequestContactReplyIntercomUserIdRequest(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = ContactReplyEmailRequest.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ContactReplyConversationRequestContactReplyEmailRequest(value);
-        }
-      } catch (_) {}
-      try {
-        final value = ContactReplyUserIdRequest.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ContactReplyConversationRequestContactReplyUserIdRequest(
-              value);
-        }
-      } catch (_) {}
+      try { final value = ContactReplyIntercomUserIdRequest.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ContactReplyConversationRequestContactReplyIntercomUserIdRequest(value); } } catch (_) {}
+      try { final value = ContactReplyEmailRequest.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ContactReplyConversationRequestContactReplyEmailRequest(value); } } catch (_) {}
+      try { final value = ContactReplyUserIdRequest.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ContactReplyConversationRequestContactReplyUserIdRequest(value); } } catch (_) {}
     }
-    try {
-      return ContactReplyConversationRequestContactReplyIntercomUserIdRequest(
-          ContactReplyIntercomUserIdRequest.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ContactReplyConversationRequestContactReplyEmailRequest(
-          ContactReplyEmailRequest.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ContactReplyConversationRequestContactReplyUserIdRequest(
-          ContactReplyUserIdRequest.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for ContactReplyConversationRequest");
+    try { return ContactReplyConversationRequestContactReplyIntercomUserIdRequest(ContactReplyIntercomUserIdRequest.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ContactReplyConversationRequestContactReplyEmailRequest(ContactReplyEmailRequest.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ContactReplyConversationRequestContactReplyUserIdRequest(ContactReplyUserIdRequest.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    throw FormatException("No variant matched for ContactReplyConversationRequest");
   }
   Object? toJson();
 }
 
-final class ContactReplyConversationRequestContactReplyIntercomUserIdRequest
-    extends ContactReplyConversationRequest {
+final class ContactReplyConversationRequestContactReplyIntercomUserIdRequest extends ContactReplyConversationRequest {
   final ContactReplyIntercomUserIdRequest value;
-  const ContactReplyConversationRequestContactReplyIntercomUserIdRequest(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const ContactReplyConversationRequestContactReplyIntercomUserIdRequest(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class ContactReplyConversationRequestContactReplyEmailRequest
-    extends ContactReplyConversationRequest {
+final class ContactReplyConversationRequestContactReplyEmailRequest extends ContactReplyConversationRequest {
   final ContactReplyEmailRequest value;
   const ContactReplyConversationRequestContactReplyEmailRequest(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class ContactReplyConversationRequestContactReplyUserIdRequest
-    extends ContactReplyConversationRequest {
+final class ContactReplyConversationRequestContactReplyUserIdRequest extends ContactReplyConversationRequest {
   final ContactReplyUserIdRequest value;
   const ContactReplyConversationRequestContactReplyUserIdRequest(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }

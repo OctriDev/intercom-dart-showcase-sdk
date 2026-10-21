@@ -8,28 +8,22 @@ part of 'conversations_attributes.dart';
 class CreateConversationAttributeOptionRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The label for the new option.
   final String label;
 
   const CreateConversationAttributeOptionRequest({required this.label});
 
-  CreateConversationAttributeOptionRequest Function({String label})
-      get copyWith => _copyWith;
+  CreateConversationAttributeOptionRequest Function({String label}) get copyWith => _copyWith;
 
-  CreateConversationAttributeOptionRequest _copyWith(
-          {Object? label = sdkOmittedValue}) =>
-      CreateConversationAttributeOptionRequest(
-        label: identical(label, sdkOmittedValue) ? this.label : label as String,
-      );
+  CreateConversationAttributeOptionRequest _copyWith({Object? label = sdkOmittedValue}) => CreateConversationAttributeOptionRequest(
+    label: identical(label, sdkOmittedValue) ? this.label : label as String,
+  );
 
-  factory CreateConversationAttributeOptionRequest.fromJson(
-          Map<String, dynamic> json) =>
-      CreateConversationAttributeOptionRequest(
-        label: (json['label'] as String?)!,
-      );
+  factory CreateConversationAttributeOptionRequest.fromJson(Map<String, dynamic> json) => CreateConversationAttributeOptionRequest(
+    label: (json['label'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'label': label,
-      };
+    'label': label,
+  };
 }

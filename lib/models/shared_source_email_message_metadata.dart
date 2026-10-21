@@ -8,95 +8,49 @@ part of 'shared.dart';
 class SourceEmailMessageMetadata {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique identifier for the email message as specified in the Message-ID header
   final SdkOptional<String?> messageId;
-
   /// The subject of the email
   final SdkOptional<String> subject;
-
   /// A list of an email address headers.
   final SdkOptional<List<EmailAddressHeader>> emailAddressHeaders;
-
   /// The HTML content of any quoted or forwarded email history from the initial inbound message
   final SdkOptional<String> history;
 
-  const SourceEmailMessageMetadata(
-      {this.messageId = const SdkOmitted(),
-      this.subject = const SdkOmitted(),
-      this.emailAddressHeaders = const SdkOmitted(),
-      this.history = const SdkOmitted()});
+  const SourceEmailMessageMetadata({this.messageId = const SdkOmitted(), this.subject = const SdkOmitted(), this.emailAddressHeaders = const SdkOmitted(), this.history = const SdkOmitted()});
 
-  SourceEmailMessageMetadata Function(
-      {SdkOptional<String?> messageId,
-      SdkOptional<String> subject,
-      SdkOptional<List<EmailAddressHeader>> emailAddressHeaders,
-      SdkOptional<String> history}) get copyWith => _copyWith;
+  SourceEmailMessageMetadata Function({SdkOptional<String?> messageId, SdkOptional<String> subject, SdkOptional<List<EmailAddressHeader>> emailAddressHeaders, SdkOptional<String> history}) get copyWith => _copyWith;
 
-  SourceEmailMessageMetadata _copyWith(
-          {Object? messageId = sdkOmittedValue,
-          Object? subject = sdkOmittedValue,
-          Object? emailAddressHeaders = sdkOmittedValue,
-          Object? history = sdkOmittedValue}) =>
-      SourceEmailMessageMetadata(
-        messageId: identical(messageId, sdkOmittedValue)
-            ? this.messageId
-            : messageId as SdkOptional<String?>,
-        subject: identical(subject, sdkOmittedValue)
-            ? this.subject
-            : subject as SdkOptional<String>,
-        emailAddressHeaders: identical(emailAddressHeaders, sdkOmittedValue)
-            ? this.emailAddressHeaders
-            : emailAddressHeaders as SdkOptional<List<EmailAddressHeader>>,
-        history: identical(history, sdkOmittedValue)
-            ? this.history
-            : history as SdkOptional<String>,
-      );
+  SourceEmailMessageMetadata _copyWith({Object? messageId = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? emailAddressHeaders = sdkOmittedValue, Object? history = sdkOmittedValue}) => SourceEmailMessageMetadata(
+    messageId: identical(messageId, sdkOmittedValue) ? this.messageId : messageId as SdkOptional<String?>,
+    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as SdkOptional<String>,
+    emailAddressHeaders: identical(emailAddressHeaders, sdkOmittedValue) ? this.emailAddressHeaders : emailAddressHeaders as SdkOptional<List<EmailAddressHeader>>,
+    history: identical(history, sdkOmittedValue) ? this.history : history as SdkOptional<String>,
+  );
 
-  factory SourceEmailMessageMetadata.fromJson(Map<String, dynamic> json) =>
-      SourceEmailMessageMetadata(
-        messageId: json.containsKey('message_id')
-            ? SdkPresent(json['message_id'] as String?)
-            : const SdkOmitted(),
-        subject: json['subject'] != null
-            ? SdkPresent((json['subject'] as String?)!)
-            : const SdkOmitted(),
-        emailAddressHeaders: json['email_address_headers'] != null
-            ? SdkPresent(((json['email_address_headers'] as List?)
-                ?.map((e) =>
-                    EmailAddressHeader.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        history: json['history'] != null
-            ? SdkPresent((json['history'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory SourceEmailMessageMetadata.fromJson(Map<String, dynamic> json) => SourceEmailMessageMetadata(
+    messageId: json.containsKey('message_id') ? SdkPresent(json['message_id'] as String?) : const SdkOmitted(),
+    subject: json['subject'] != null ? SdkPresent((json['subject'] as String?)!) : const SdkOmitted(),
+    emailAddressHeaders: json['email_address_headers'] != null ? SdkPresent(((json['email_address_headers'] as List?)?.map((e) => EmailAddressHeader.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    history: json['history'] != null ? SdkPresent((json['history'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (messageId) {
-          SdkPresent<String?>(value: final value) => {
-              'message_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (subject) {
-          SdkPresent<String>(value: final value) => {
-              'subject': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (emailAddressHeaders) {
-          SdkPresent<List<EmailAddressHeader>>(value: final value) => {
-              'email_address_headers':
-                  value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (history) {
-          SdkPresent<String>(value: final value) => {
-              'history': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (messageId) {
+      SdkPresent<String?>(value: final value) => {'message_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (subject) {
+      SdkPresent<String>(value: final value) => {'subject': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (emailAddressHeaders) {
+      SdkPresent<List<EmailAddressHeader>>(value: final value) => {'email_address_headers': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (history) {
+      SdkPresent<String>(value: final value) => {'history': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

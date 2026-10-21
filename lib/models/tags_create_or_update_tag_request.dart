@@ -8,43 +8,30 @@ part of 'tags.dart';
 class CreateOrUpdateTagRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the tag, which will be created if not found, or the new name for the tag if this is an update request. Names are case insensitive.
   final String name;
-
   /// The id of tag to updates.
   final SdkOptional<String> id;
 
-  const CreateOrUpdateTagRequest(
-      {required this.name, this.id = const SdkOmitted()});
+  const CreateOrUpdateTagRequest({required this.name, this.id = const SdkOmitted()});
 
-  CreateOrUpdateTagRequest Function({String name, SdkOptional<String> id})
-      get copyWith => _copyWith;
+  CreateOrUpdateTagRequest Function({String name, SdkOptional<String> id}) get copyWith => _copyWith;
 
-  CreateOrUpdateTagRequest _copyWith(
-          {Object? name = sdkOmittedValue, Object? id = sdkOmittedValue}) =>
-      CreateOrUpdateTagRequest(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-      );
+  CreateOrUpdateTagRequest _copyWith({Object? name = sdkOmittedValue, Object? id = sdkOmittedValue}) => CreateOrUpdateTagRequest(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+  );
 
-  factory CreateOrUpdateTagRequest.fromJson(Map<String, dynamic> json) =>
-      CreateOrUpdateTagRequest(
-        name: (json['name'] as String?)!,
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory CreateOrUpdateTagRequest.fromJson(Map<String, dynamic> json) => CreateOrUpdateTagRequest(
+    name: (json['name'] as String?)!,
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'name': name,
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

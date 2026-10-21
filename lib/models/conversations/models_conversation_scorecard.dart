@@ -8,319 +8,137 @@ part of 'models.dart';
 class ConversationScorecard {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique identifier of the scorecard definition.
   final SdkOptional<String> scorecardId;
-
   /// The unique identifier of the specific scorecard version that produced this result.
   final SdkOptional<String> scorecardVersionId;
-
   /// The name of the scorecard.
   final SdkOptional<String> name;
-
   /// The type of scorecard.
   final SdkOptional<String> scorecardType;
-
   /// Whether the conversation passed the scorecard. Null when the scorecard has not been scored.
   final SdkOptional<bool?> passed;
-
   /// The numeric score for the scorecard. Null when the scorecard has not been scored.
   final SdkOptional<double?> score;
-
   /// The numeric score produced by AI evaluation, if applicable. Null when not AI-scored.
   final SdkOptional<double?> aiScore;
-
   /// The time the scorecard was last evaluated. Null in the rare case the underlying record's timestamp is not yet set.
   final SdkOptional<int?> evaluatedAt;
-
   /// The teammate (or AI agent) whose handling of the conversation was reviewed by this scorecard.
   final SdkOptional<ConversationScorecardReviewedTeammate> reviewedTeammate;
-
   /// Who the review of this scorecard is assigned to. `ai` when it is assigned to Fin; `admin` when it is assigned to a teammate. Null when no review exists for this scorecard or the review is unassigned.
   final SdkOptional<ConversationScorecardReviewer?> reviewer;
-
   /// The status of the review of this scorecard, as shown in the QA reviews list in Intercom. `unreviewed` while the review is waiting for a reviewer's verdict; `submitted` once the review has been submitted; `passed_review`, `needs_fix`, `wont_fix` or `fix_complete` when a teammate set a specific outcome. Null when no review exists for this scorecard.
   final SdkOptional<ConversationScorecardReviewStatus?> reviewStatus;
-
   /// Who last submitted the review of this scorecard, which can differ from the `reviewer` it is assigned to. `ai` when Fin submitted it; `admin` when a teammate did. Null while the review is unreviewed or when no review exists for this scorecard.
   final SdkOptional<ConversationScorecardSubmittedBy?> submittedBy;
-
   /// Who last changed the review of this scorecard after it was submitted. `ai` when Fin made the change; `admin` when a teammate did. Null while the review is unreviewed, when it has not been changed since it was submitted, or when no review exists for this scorecard.
   final SdkOptional<ConversationScorecardRevisedBy?> revisedBy;
-
   /// The notes teammates left on the QA review linked to this scorecard entry. Empty when the scorecard has no linked review.
   final SdkOptional<List<ConversationScorecardNote>> notes;
-
   /// Per-evaluator results within this scorecard.
   final SdkOptional<List<ConversationScorecardEvaluator>> evaluators;
 
-  const ConversationScorecard(
-      {this.scorecardId = const SdkOmitted(),
-      this.scorecardVersionId = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.scorecardType = const SdkOmitted(),
-      this.passed = const SdkOmitted(),
-      this.score = const SdkOmitted(),
-      this.aiScore = const SdkOmitted(),
-      this.evaluatedAt = const SdkOmitted(),
-      this.reviewedTeammate = const SdkOmitted(),
-      this.reviewer = const SdkOmitted(),
-      this.reviewStatus = const SdkOmitted(),
-      this.submittedBy = const SdkOmitted(),
-      this.revisedBy = const SdkOmitted(),
-      this.notes = const SdkOmitted(),
-      this.evaluators = const SdkOmitted()});
+  const ConversationScorecard({this.scorecardId = const SdkOmitted(), this.scorecardVersionId = const SdkOmitted(), this.name = const SdkOmitted(), this.scorecardType = const SdkOmitted(), this.passed = const SdkOmitted(), this.score = const SdkOmitted(), this.aiScore = const SdkOmitted(), this.evaluatedAt = const SdkOmitted(), this.reviewedTeammate = const SdkOmitted(), this.reviewer = const SdkOmitted(), this.reviewStatus = const SdkOmitted(), this.submittedBy = const SdkOmitted(), this.revisedBy = const SdkOmitted(), this.notes = const SdkOmitted(), this.evaluators = const SdkOmitted()});
 
-  ConversationScorecard Function(
-          {SdkOptional<String> scorecardId,
-          SdkOptional<String> scorecardVersionId,
-          SdkOptional<String> name,
-          SdkOptional<String> scorecardType,
-          SdkOptional<bool?> passed,
-          SdkOptional<double?> score,
-          SdkOptional<double?> aiScore,
-          SdkOptional<int?> evaluatedAt,
-          SdkOptional<ConversationScorecardReviewedTeammate> reviewedTeammate,
-          SdkOptional<ConversationScorecardReviewer?> reviewer,
-          SdkOptional<ConversationScorecardReviewStatus?> reviewStatus,
-          SdkOptional<ConversationScorecardSubmittedBy?> submittedBy,
-          SdkOptional<ConversationScorecardRevisedBy?> revisedBy,
-          SdkOptional<List<ConversationScorecardNote>> notes,
-          SdkOptional<List<ConversationScorecardEvaluator>> evaluators})
-      get copyWith => _copyWith;
+  ConversationScorecard Function({SdkOptional<String> scorecardId, SdkOptional<String> scorecardVersionId, SdkOptional<String> name, SdkOptional<String> scorecardType, SdkOptional<bool?> passed, SdkOptional<double?> score, SdkOptional<double?> aiScore, SdkOptional<int?> evaluatedAt, SdkOptional<ConversationScorecardReviewedTeammate> reviewedTeammate, SdkOptional<ConversationScorecardReviewer?> reviewer, SdkOptional<ConversationScorecardReviewStatus?> reviewStatus, SdkOptional<ConversationScorecardSubmittedBy?> submittedBy, SdkOptional<ConversationScorecardRevisedBy?> revisedBy, SdkOptional<List<ConversationScorecardNote>> notes, SdkOptional<List<ConversationScorecardEvaluator>> evaluators}) get copyWith => _copyWith;
 
-  ConversationScorecard _copyWith(
-          {Object? scorecardId = sdkOmittedValue,
-          Object? scorecardVersionId = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? scorecardType = sdkOmittedValue,
-          Object? passed = sdkOmittedValue,
-          Object? score = sdkOmittedValue,
-          Object? aiScore = sdkOmittedValue,
-          Object? evaluatedAt = sdkOmittedValue,
-          Object? reviewedTeammate = sdkOmittedValue,
-          Object? reviewer = sdkOmittedValue,
-          Object? reviewStatus = sdkOmittedValue,
-          Object? submittedBy = sdkOmittedValue,
-          Object? revisedBy = sdkOmittedValue,
-          Object? notes = sdkOmittedValue,
-          Object? evaluators = sdkOmittedValue}) =>
-      ConversationScorecard(
-        scorecardId: identical(scorecardId, sdkOmittedValue)
-            ? this.scorecardId
-            : scorecardId as SdkOptional<String>,
-        scorecardVersionId: identical(scorecardVersionId, sdkOmittedValue)
-            ? this.scorecardVersionId
-            : scorecardVersionId as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        scorecardType: identical(scorecardType, sdkOmittedValue)
-            ? this.scorecardType
-            : scorecardType as SdkOptional<String>,
-        passed: identical(passed, sdkOmittedValue)
-            ? this.passed
-            : passed as SdkOptional<bool?>,
-        score: identical(score, sdkOmittedValue)
-            ? this.score
-            : score as SdkOptional<double?>,
-        aiScore: identical(aiScore, sdkOmittedValue)
-            ? this.aiScore
-            : aiScore as SdkOptional<double?>,
-        evaluatedAt: identical(evaluatedAt, sdkOmittedValue)
-            ? this.evaluatedAt
-            : evaluatedAt as SdkOptional<int?>,
-        reviewedTeammate: identical(reviewedTeammate, sdkOmittedValue)
-            ? this.reviewedTeammate
-            : reviewedTeammate
-                as SdkOptional<ConversationScorecardReviewedTeammate>,
-        reviewer: identical(reviewer, sdkOmittedValue)
-            ? this.reviewer
-            : reviewer as SdkOptional<ConversationScorecardReviewer?>,
-        reviewStatus: identical(reviewStatus, sdkOmittedValue)
-            ? this.reviewStatus
-            : reviewStatus as SdkOptional<ConversationScorecardReviewStatus?>,
-        submittedBy: identical(submittedBy, sdkOmittedValue)
-            ? this.submittedBy
-            : submittedBy as SdkOptional<ConversationScorecardSubmittedBy?>,
-        revisedBy: identical(revisedBy, sdkOmittedValue)
-            ? this.revisedBy
-            : revisedBy as SdkOptional<ConversationScorecardRevisedBy?>,
-        notes: identical(notes, sdkOmittedValue)
-            ? this.notes
-            : notes as SdkOptional<List<ConversationScorecardNote>>,
-        evaluators: identical(evaluators, sdkOmittedValue)
-            ? this.evaluators
-            : evaluators as SdkOptional<List<ConversationScorecardEvaluator>>,
-      );
+  ConversationScorecard _copyWith({Object? scorecardId = sdkOmittedValue, Object? scorecardVersionId = sdkOmittedValue, Object? name = sdkOmittedValue, Object? scorecardType = sdkOmittedValue, Object? passed = sdkOmittedValue, Object? score = sdkOmittedValue, Object? aiScore = sdkOmittedValue, Object? evaluatedAt = sdkOmittedValue, Object? reviewedTeammate = sdkOmittedValue, Object? reviewer = sdkOmittedValue, Object? reviewStatus = sdkOmittedValue, Object? submittedBy = sdkOmittedValue, Object? revisedBy = sdkOmittedValue, Object? notes = sdkOmittedValue, Object? evaluators = sdkOmittedValue}) => ConversationScorecard(
+    scorecardId: identical(scorecardId, sdkOmittedValue) ? this.scorecardId : scorecardId as SdkOptional<String>,
+    scorecardVersionId: identical(scorecardVersionId, sdkOmittedValue) ? this.scorecardVersionId : scorecardVersionId as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    scorecardType: identical(scorecardType, sdkOmittedValue) ? this.scorecardType : scorecardType as SdkOptional<String>,
+    passed: identical(passed, sdkOmittedValue) ? this.passed : passed as SdkOptional<bool?>,
+    score: identical(score, sdkOmittedValue) ? this.score : score as SdkOptional<double?>,
+    aiScore: identical(aiScore, sdkOmittedValue) ? this.aiScore : aiScore as SdkOptional<double?>,
+    evaluatedAt: identical(evaluatedAt, sdkOmittedValue) ? this.evaluatedAt : evaluatedAt as SdkOptional<int?>,
+    reviewedTeammate: identical(reviewedTeammate, sdkOmittedValue) ? this.reviewedTeammate : reviewedTeammate as SdkOptional<ConversationScorecardReviewedTeammate>,
+    reviewer: identical(reviewer, sdkOmittedValue) ? this.reviewer : reviewer as SdkOptional<ConversationScorecardReviewer?>,
+    reviewStatus: identical(reviewStatus, sdkOmittedValue) ? this.reviewStatus : reviewStatus as SdkOptional<ConversationScorecardReviewStatus?>,
+    submittedBy: identical(submittedBy, sdkOmittedValue) ? this.submittedBy : submittedBy as SdkOptional<ConversationScorecardSubmittedBy?>,
+    revisedBy: identical(revisedBy, sdkOmittedValue) ? this.revisedBy : revisedBy as SdkOptional<ConversationScorecardRevisedBy?>,
+    notes: identical(notes, sdkOmittedValue) ? this.notes : notes as SdkOptional<List<ConversationScorecardNote>>,
+    evaluators: identical(evaluators, sdkOmittedValue) ? this.evaluators : evaluators as SdkOptional<List<ConversationScorecardEvaluator>>,
+  );
 
-  factory ConversationScorecard.fromJson(Map<String, dynamic> json) =>
-      ConversationScorecard(
-        scorecardId: json['scorecard_id'] != null
-            ? SdkPresent((json['scorecard_id'] as String?)!)
-            : const SdkOmitted(),
-        scorecardVersionId: json['scorecard_version_id'] != null
-            ? SdkPresent((json['scorecard_version_id'] as String?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        scorecardType: json['scorecard_type'] != null
-            ? SdkPresent((json['scorecard_type'] as String?)!)
-            : const SdkOmitted(),
-        passed: json.containsKey('passed')
-            ? SdkPresent(json['passed'] as bool?)
-            : const SdkOmitted(),
-        score: json.containsKey('score')
-            ? SdkPresent((json['score'] as num?)?.toDouble())
-            : const SdkOmitted(),
-        aiScore: json.containsKey('ai_score')
-            ? SdkPresent((json['ai_score'] as num?)?.toDouble())
-            : const SdkOmitted(),
-        evaluatedAt: json.containsKey('evaluated_at')
-            ? SdkPresent((json['evaluated_at'] as num?)?.toInt())
-            : const SdkOmitted(),
-        reviewedTeammate: json['reviewed_teammate'] != null
-            ? SdkPresent((json['reviewed_teammate'] != null
-                ? ConversationScorecardReviewedTeammate.fromJson(
-                    json['reviewed_teammate'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        reviewer: json.containsKey('reviewer')
-            ? SdkPresent(json['reviewer'] != null
-                ? ConversationScorecardReviewer.fromJson(
-                    json['reviewer'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        reviewStatus: json.containsKey('review_status')
-            ? SdkPresent(json['review_status'] != null
-                ? ConversationScorecardReviewStatus.fromJson(
-                    json['review_status'] as String)
-                : null)
-            : const SdkOmitted(),
-        submittedBy: json.containsKey('submitted_by')
-            ? SdkPresent(json['submitted_by'] != null
-                ? ConversationScorecardSubmittedBy.fromJson(
-                    json['submitted_by'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        revisedBy: json.containsKey('revised_by')
-            ? SdkPresent(json['revised_by'] != null
-                ? ConversationScorecardRevisedBy.fromJson(
-                    json['revised_by'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        notes: json['notes'] != null
-            ? SdkPresent(((json['notes'] as List?)
-                ?.map((e) => ConversationScorecardNote.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        evaluators: json['evaluators'] != null
-            ? SdkPresent(((json['evaluators'] as List?)
-                ?.map((e) => ConversationScorecardEvaluator.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ConversationScorecard.fromJson(Map<String, dynamic> json) => ConversationScorecard(
+    scorecardId: json['scorecard_id'] != null ? SdkPresent((json['scorecard_id'] as String?)!) : const SdkOmitted(),
+    scorecardVersionId: json['scorecard_version_id'] != null ? SdkPresent((json['scorecard_version_id'] as String?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    scorecardType: json['scorecard_type'] != null ? SdkPresent((json['scorecard_type'] as String?)!) : const SdkOmitted(),
+    passed: json.containsKey('passed') ? SdkPresent(json['passed'] as bool?) : const SdkOmitted(),
+    score: json.containsKey('score') ? SdkPresent((json['score'] as num?)?.toDouble()) : const SdkOmitted(),
+    aiScore: json.containsKey('ai_score') ? SdkPresent((json['ai_score'] as num?)?.toDouble()) : const SdkOmitted(),
+    evaluatedAt: json.containsKey('evaluated_at') ? SdkPresent((json['evaluated_at'] as num?)?.toInt()) : const SdkOmitted(),
+    reviewedTeammate: json['reviewed_teammate'] != null ? SdkPresent((json['reviewed_teammate'] != null ? ConversationScorecardReviewedTeammate.fromJson(json['reviewed_teammate'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    reviewer: json.containsKey('reviewer') ? SdkPresent(json['reviewer'] != null ? ConversationScorecardReviewer.fromJson(json['reviewer'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    reviewStatus: json.containsKey('review_status') ? SdkPresent(json['review_status'] != null ? ConversationScorecardReviewStatus.fromJson(json['review_status'] as String) : null) : const SdkOmitted(),
+    submittedBy: json.containsKey('submitted_by') ? SdkPresent(json['submitted_by'] != null ? ConversationScorecardSubmittedBy.fromJson(json['submitted_by'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    revisedBy: json.containsKey('revised_by') ? SdkPresent(json['revised_by'] != null ? ConversationScorecardRevisedBy.fromJson(json['revised_by'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    notes: json['notes'] != null ? SdkPresent(((json['notes'] as List?)?.map((e) => ConversationScorecardNote.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    evaluators: json['evaluators'] != null ? SdkPresent(((json['evaluators'] as List?)?.map((e) => ConversationScorecardEvaluator.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (scorecardId) {
-          SdkPresent<String>(value: final value) => {
-              'scorecard_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (scorecardVersionId) {
-          SdkPresent<String>(value: final value) => {
-              'scorecard_version_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (scorecardType) {
-          SdkPresent<String>(value: final value) => {
-              'scorecard_type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (passed) {
-          SdkPresent<bool?>(value: final value) => {
-              'passed': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (score) {
-          SdkPresent<double?>(value: final value) => {
-              'score': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (aiScore) {
-          SdkPresent<double?>(value: final value) => {
-              'ai_score': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (evaluatedAt) {
-          SdkPresent<int?>(value: final value) => {
-              'evaluated_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (reviewedTeammate) {
-          SdkPresent<ConversationScorecardReviewedTeammate>(
-            value: final value
-          ) =>
-            {
-              'reviewed_teammate': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (reviewer) {
-          SdkPresent<ConversationScorecardReviewer?>(value: final value) => {
-              'reviewer': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (reviewStatus) {
-          SdkPresent<ConversationScorecardReviewStatus?>(value: final value) =>
-            {
-              'review_status': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (submittedBy) {
-          SdkPresent<ConversationScorecardSubmittedBy?>(value: final value) => {
-              'submitted_by': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (revisedBy) {
-          SdkPresent<ConversationScorecardRevisedBy?>(value: final value) => {
-              'revised_by': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (notes) {
-          SdkPresent<List<ConversationScorecardNote>>(value: final value) => {
-              'notes': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (evaluators) {
-          SdkPresent<List<ConversationScorecardEvaluator>>(
-            value: final value
-          ) =>
-            {
-              'evaluators': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (scorecardId) {
+      SdkPresent<String>(value: final value) => {'scorecard_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (scorecardVersionId) {
+      SdkPresent<String>(value: final value) => {'scorecard_version_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (scorecardType) {
+      SdkPresent<String>(value: final value) => {'scorecard_type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (passed) {
+      SdkPresent<bool?>(value: final value) => {'passed': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (score) {
+      SdkPresent<double?>(value: final value) => {'score': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (aiScore) {
+      SdkPresent<double?>(value: final value) => {'ai_score': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (evaluatedAt) {
+      SdkPresent<int?>(value: final value) => {'evaluated_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (reviewedTeammate) {
+      SdkPresent<ConversationScorecardReviewedTeammate>(value: final value) => {'reviewed_teammate': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (reviewer) {
+      SdkPresent<ConversationScorecardReviewer?>(value: final value) => {'reviewer': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (reviewStatus) {
+      SdkPresent<ConversationScorecardReviewStatus?>(value: final value) => {'review_status': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (submittedBy) {
+      SdkPresent<ConversationScorecardSubmittedBy?>(value: final value) => {'submitted_by': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (revisedBy) {
+      SdkPresent<ConversationScorecardRevisedBy?>(value: final value) => {'revised_by': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (notes) {
+      SdkPresent<List<ConversationScorecardNote>>(value: final value) => {'notes': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (evaluators) {
+      SdkPresent<List<ConversationScorecardEvaluator>>(value: final value) => {'evaluators': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

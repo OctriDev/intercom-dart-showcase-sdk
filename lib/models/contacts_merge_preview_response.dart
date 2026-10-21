@@ -10,44 +10,24 @@ sealed class MergePreviewResponse {
   const MergePreviewResponse();
   factory MergePreviewResponse.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = MergePreviewAllowed.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return MergePreviewResponseMergePreviewAllowed(value);
-        }
-      } catch (_) {}
-      try {
-        final value = MergePreviewBlocked.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return MergePreviewResponseMergePreviewBlocked(value);
-        }
-      } catch (_) {}
+      try { final value = MergePreviewAllowed.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MergePreviewResponseMergePreviewAllowed(value); } } catch (_) {}
+      try { final value = MergePreviewBlocked.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MergePreviewResponseMergePreviewBlocked(value); } } catch (_) {}
     }
-    try {
-      return MergePreviewResponseMergePreviewAllowed(
-          MergePreviewAllowed.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return MergePreviewResponseMergePreviewBlocked(
-          MergePreviewBlocked.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
+    try { return MergePreviewResponseMergePreviewAllowed(MergePreviewAllowed.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return MergePreviewResponseMergePreviewBlocked(MergePreviewBlocked.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     throw FormatException("No variant matched for MergePreviewResponse");
   }
   Object? toJson();
 }
 
-final class MergePreviewResponseMergePreviewAllowed
-    extends MergePreviewResponse {
+final class MergePreviewResponseMergePreviewAllowed extends MergePreviewResponse {
   final MergePreviewAllowed value;
   const MergePreviewResponseMergePreviewAllowed(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class MergePreviewResponseMergePreviewBlocked
-    extends MergePreviewResponse {
+final class MergePreviewResponseMergePreviewBlocked extends MergePreviewResponse {
   final MergePreviewBlocked value;
   const MergePreviewResponseMergePreviewBlocked(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }

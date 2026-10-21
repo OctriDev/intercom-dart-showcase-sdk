@@ -9,31 +9,21 @@ sealed class ReplyConversationRequest {
   static const String constructionSurface = 'named';
   const ReplyConversationRequest();
   factory ReplyConversationRequest.fromJson(Object? json) {
-    try {
-      return ReplyConversationRequestContactReplyConversationRequest(
-          ContactReplyConversationRequest.fromJson(json));
-    } catch (_) {}
-    try {
-      return ReplyConversationRequestAdminReplyConversationRequest(
-          AdminReplyConversationRequest.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
+    try { return ReplyConversationRequestContactReplyConversationRequest(ContactReplyConversationRequest.fromJson(json)); } catch (_) {}
+    try { return ReplyConversationRequestAdminReplyConversationRequest(AdminReplyConversationRequest.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     throw FormatException("No variant matched for ReplyConversationRequest");
   }
   Object? toJson();
 }
 
-final class ReplyConversationRequestContactReplyConversationRequest
-    extends ReplyConversationRequest {
+final class ReplyConversationRequestContactReplyConversationRequest extends ReplyConversationRequest {
   final ContactReplyConversationRequest value;
   const ReplyConversationRequestContactReplyConversationRequest(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class ReplyConversationRequestAdminReplyConversationRequest
-    extends ReplyConversationRequest {
+final class ReplyConversationRequestAdminReplyConversationRequest extends ReplyConversationRequest {
   final AdminReplyConversationRequest value;
   const ReplyConversationRequestAdminReplyConversationRequest(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }

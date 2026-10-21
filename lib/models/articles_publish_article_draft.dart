@@ -8,36 +8,25 @@ part of 'articles.dart';
 class PublishArticleDraftRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The locales whose staged drafts should be published. Required on multilingual workspaces; each locale must have a pending draft.
   final SdkOptional<List<String>> locales;
 
   const PublishArticleDraftRequest({this.locales = const SdkOmitted()});
 
-  PublishArticleDraftRequest Function({SdkOptional<List<String>> locales})
-      get copyWith => _copyWith;
+  PublishArticleDraftRequest Function({SdkOptional<List<String>> locales}) get copyWith => _copyWith;
 
-  PublishArticleDraftRequest _copyWith({Object? locales = sdkOmittedValue}) =>
-      PublishArticleDraftRequest(
-        locales: identical(locales, sdkOmittedValue)
-            ? this.locales
-            : locales as SdkOptional<List<String>>,
-      );
+  PublishArticleDraftRequest _copyWith({Object? locales = sdkOmittedValue}) => PublishArticleDraftRequest(
+    locales: identical(locales, sdkOmittedValue) ? this.locales : locales as SdkOptional<List<String>>,
+  );
 
-  factory PublishArticleDraftRequest.fromJson(Map<String, dynamic> json) =>
-      PublishArticleDraftRequest(
-        locales: json['locales'] != null
-            ? SdkPresent(
-                ((json['locales'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-      );
+  factory PublishArticleDraftRequest.fromJson(Map<String, dynamic> json) => PublishArticleDraftRequest(
+    locales: json['locales'] != null ? SdkPresent(((json['locales'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (locales) {
-          SdkPresent<List<String>>(value: final value) => {
-              'locales': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (locales) {
+      SdkPresent<List<String>>(value: final value) => {'locales': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

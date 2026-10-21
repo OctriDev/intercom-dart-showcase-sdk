@@ -8,73 +8,41 @@ part of 'conversations_attributes.dart';
 class ConversationAttributeOption {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique UUID identifier for this option. Use this value as `option_id` in the options management endpoints.
   final SdkOptional<String> id;
-
   /// The display label for the option.
   final SdkOptional<String> label;
-
   /// Whether this option is archived (soft-deleted).
   final SdkOptional<bool> archived;
 
-  const ConversationAttributeOption(
-      {this.id = const SdkOmitted(),
-      this.label = const SdkOmitted(),
-      this.archived = const SdkOmitted()});
+  const ConversationAttributeOption({this.id = const SdkOmitted(), this.label = const SdkOmitted(), this.archived = const SdkOmitted()});
 
-  ConversationAttributeOption Function(
-      {SdkOptional<String> id,
-      SdkOptional<String> label,
-      SdkOptional<bool> archived}) get copyWith => _copyWith;
+  ConversationAttributeOption Function({SdkOptional<String> id, SdkOptional<String> label, SdkOptional<bool> archived}) get copyWith => _copyWith;
 
-  ConversationAttributeOption _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? label = sdkOmittedValue,
-          Object? archived = sdkOmittedValue}) =>
-      ConversationAttributeOption(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        label: identical(label, sdkOmittedValue)
-            ? this.label
-            : label as SdkOptional<String>,
-        archived: identical(archived, sdkOmittedValue)
-            ? this.archived
-            : archived as SdkOptional<bool>,
-      );
+  ConversationAttributeOption _copyWith({Object? id = sdkOmittedValue, Object? label = sdkOmittedValue, Object? archived = sdkOmittedValue}) => ConversationAttributeOption(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    label: identical(label, sdkOmittedValue) ? this.label : label as SdkOptional<String>,
+    archived: identical(archived, sdkOmittedValue) ? this.archived : archived as SdkOptional<bool>,
+  );
 
-  factory ConversationAttributeOption.fromJson(Map<String, dynamic> json) =>
-      ConversationAttributeOption(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        label: json['label'] != null
-            ? SdkPresent((json['label'] as String?)!)
-            : const SdkOmitted(),
-        archived: json['archived'] != null
-            ? SdkPresent((json['archived'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory ConversationAttributeOption.fromJson(Map<String, dynamic> json) => ConversationAttributeOption(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    label: json['label'] != null ? SdkPresent((json['label'] as String?)!) : const SdkOmitted(),
+    archived: json['archived'] != null ? SdkPresent((json['archived'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (label) {
-          SdkPresent<String>(value: final value) => {
-              'label': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (archived) {
-          SdkPresent<bool>(value: final value) => {
-              'archived': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (label) {
+      SdkPresent<String>(value: final value) => {'label': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (archived) {
+      SdkPresent<bool>(value: final value) => {'archived': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

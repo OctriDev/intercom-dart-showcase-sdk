@@ -8,113 +8,57 @@ part of 'contacts.dart';
 class MergePreviewAttributeChange {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The contact field that would change.
   final SdkOptional<String> field;
-
   /// How the value is resolved. adopted = the source's value is taken; discarded = the source's value is dropped and the target's kept; merged = the two values are combined.
   final SdkOptional<MergePreviewAttributeChangeOutcome> outcome;
-
   /// The source contact's value. Omitted when null. May be a string, array, or object depending on the field.
   final SdkOptional<dynamic> fromValue;
-
   /// The target contact's value. Omitted when null. May be a string, array, or object depending on the field.
   final SdkOptional<dynamic> intoValue;
-
   /// The resulting value on the surviving contact. Always present; may be null. May be a string, array, or object depending on the field.
   final SdkOptional<dynamic> newIntoValue;
 
-  const MergePreviewAttributeChange(
-      {this.field = const SdkOmitted(),
-      this.outcome = const SdkOmitted(),
-      this.fromValue = const SdkOmitted(),
-      this.intoValue = const SdkOmitted(),
-      this.newIntoValue = const SdkOmitted()});
+  const MergePreviewAttributeChange({this.field = const SdkOmitted(), this.outcome = const SdkOmitted(), this.fromValue = const SdkOmitted(), this.intoValue = const SdkOmitted(), this.newIntoValue = const SdkOmitted()});
 
-  MergePreviewAttributeChange Function(
-      {SdkOptional<String> field,
-      SdkOptional<MergePreviewAttributeChangeOutcome> outcome,
-      SdkOptional<dynamic> fromValue,
-      SdkOptional<dynamic> intoValue,
-      SdkOptional<dynamic> newIntoValue}) get copyWith => _copyWith;
+  MergePreviewAttributeChange Function({SdkOptional<String> field, SdkOptional<MergePreviewAttributeChangeOutcome> outcome, SdkOptional<dynamic> fromValue, SdkOptional<dynamic> intoValue, SdkOptional<dynamic> newIntoValue}) get copyWith => _copyWith;
 
-  MergePreviewAttributeChange _copyWith(
-          {Object? field = sdkOmittedValue,
-          Object? outcome = sdkOmittedValue,
-          Object? fromValue = sdkOmittedValue,
-          Object? intoValue = sdkOmittedValue,
-          Object? newIntoValue = sdkOmittedValue}) =>
-      MergePreviewAttributeChange(
-        field: identical(field, sdkOmittedValue)
-            ? this.field
-            : field as SdkOptional<String>,
-        outcome: identical(outcome, sdkOmittedValue)
-            ? this.outcome
-            : outcome as SdkOptional<MergePreviewAttributeChangeOutcome>,
-        fromValue: identical(fromValue, sdkOmittedValue)
-            ? this.fromValue
-            : fromValue as SdkOptional<dynamic>,
-        intoValue: identical(intoValue, sdkOmittedValue)
-            ? this.intoValue
-            : intoValue as SdkOptional<dynamic>,
-        newIntoValue: identical(newIntoValue, sdkOmittedValue)
-            ? this.newIntoValue
-            : newIntoValue as SdkOptional<dynamic>,
-      );
+  MergePreviewAttributeChange _copyWith({Object? field = sdkOmittedValue, Object? outcome = sdkOmittedValue, Object? fromValue = sdkOmittedValue, Object? intoValue = sdkOmittedValue, Object? newIntoValue = sdkOmittedValue}) => MergePreviewAttributeChange(
+    field: identical(field, sdkOmittedValue) ? this.field : field as SdkOptional<String>,
+    outcome: identical(outcome, sdkOmittedValue) ? this.outcome : outcome as SdkOptional<MergePreviewAttributeChangeOutcome>,
+    fromValue: identical(fromValue, sdkOmittedValue) ? this.fromValue : fromValue as SdkOptional<dynamic>,
+    intoValue: identical(intoValue, sdkOmittedValue) ? this.intoValue : intoValue as SdkOptional<dynamic>,
+    newIntoValue: identical(newIntoValue, sdkOmittedValue) ? this.newIntoValue : newIntoValue as SdkOptional<dynamic>,
+  );
 
-  factory MergePreviewAttributeChange.fromJson(Map<String, dynamic> json) =>
-      MergePreviewAttributeChange(
-        field: json['field'] != null
-            ? SdkPresent((json['field'] as String?)!)
-            : const SdkOmitted(),
-        outcome: json['outcome'] != null
-            ? SdkPresent((json['outcome'] != null
-                ? MergePreviewAttributeChangeOutcome.fromJson(
-                    json['outcome'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        fromValue: json.containsKey('from_value')
-            ? SdkPresent(json['from_value'])
-            : const SdkOmitted(),
-        intoValue: json.containsKey('into_value')
-            ? SdkPresent(json['into_value'])
-            : const SdkOmitted(),
-        newIntoValue: json.containsKey('new_into_value')
-            ? SdkPresent(json['new_into_value'])
-            : const SdkOmitted(),
-      );
+  factory MergePreviewAttributeChange.fromJson(Map<String, dynamic> json) => MergePreviewAttributeChange(
+    field: json['field'] != null ? SdkPresent((json['field'] as String?)!) : const SdkOmitted(),
+    outcome: json['outcome'] != null ? SdkPresent((json['outcome'] != null ? MergePreviewAttributeChangeOutcome.fromJson(json['outcome'] as String) : null)!) : const SdkOmitted(),
+    fromValue: json.containsKey('from_value') ? SdkPresent(json['from_value']) : const SdkOmitted(),
+    intoValue: json.containsKey('into_value') ? SdkPresent(json['into_value']) : const SdkOmitted(),
+    newIntoValue: json.containsKey('new_into_value') ? SdkPresent(json['new_into_value']) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (field) {
-          SdkPresent<String>(value: final value) => {
-              'field': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (outcome) {
-          SdkPresent<MergePreviewAttributeChangeOutcome>(value: final value) =>
-            {
-              'outcome': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (fromValue) {
-          SdkPresent<dynamic>(value: final value) => {
-              'from_value': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (intoValue) {
-          SdkPresent<dynamic>(value: final value) => {
-              'into_value': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (newIntoValue) {
-          SdkPresent<dynamic>(value: final value) => {
-              'new_into_value': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (field) {
+      SdkPresent<String>(value: final value) => {'field': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (outcome) {
+      SdkPresent<MergePreviewAttributeChangeOutcome>(value: final value) => {'outcome': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (fromValue) {
+      SdkPresent<dynamic>(value: final value) => {'from_value': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (intoValue) {
+      SdkPresent<dynamic>(value: final value) => {'into_value': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (newIntoValue) {
+      SdkPresent<dynamic>(value: final value) => {'new_into_value': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

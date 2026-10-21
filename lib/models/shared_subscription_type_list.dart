@@ -8,58 +8,33 @@ part of 'shared.dart';
 class SubscriptionTypeList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object
   final SdkOptional<SubscriptionTypeListType> type_;
-
   /// A list of subscription type objects associated with the workspace .
   final SdkOptional<List<SubscriptionType>> data;
 
-  const SubscriptionTypeList(
-      {this.type_ = const SdkOmitted(), this.data = const SdkOmitted()});
+  const SubscriptionTypeList({this.type_ = const SdkOmitted(), this.data = const SdkOmitted()});
 
-  SubscriptionTypeList Function(
-      {SdkOptional<SubscriptionTypeListType> type_,
-      SdkOptional<List<SubscriptionType>> data}) get copyWith => _copyWith;
+  SubscriptionTypeList Function({SdkOptional<SubscriptionTypeListType> type_, SdkOptional<List<SubscriptionType>> data}) get copyWith => _copyWith;
 
-  SubscriptionTypeList _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
-      SubscriptionTypeList(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<SubscriptionTypeListType>,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as SdkOptional<List<SubscriptionType>>,
-      );
+  SubscriptionTypeList _copyWith({Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) => SubscriptionTypeList(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<SubscriptionTypeListType>,
+    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<SubscriptionType>>,
+  );
 
-  factory SubscriptionTypeList.fromJson(Map<String, dynamic> json) =>
-      SubscriptionTypeList(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? SubscriptionTypeListType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        data: json['data'] != null
-            ? SdkPresent(((json['data'] as List?)
-                ?.map(
-                    (e) => SubscriptionType.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory SubscriptionTypeList.fromJson(Map<String, dynamic> json) => SubscriptionTypeList(
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? SubscriptionTypeListType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => SubscriptionType.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<SubscriptionTypeListType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (data) {
-          SdkPresent<List<SubscriptionType>>(value: final value) => {
-              'data': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<SubscriptionTypeListType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (data) {
+      SdkPresent<List<SubscriptionType>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

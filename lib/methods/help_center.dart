@@ -24,24 +24,18 @@ Future<HelpCenterRedirectList> listHelpCenterRedirects(ClientConfig config,
           '/help_center/help_centers/${Uri.encodeComponent(helpCenterId.toString())}/redirects',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listHelpCenterRedirects',
-          fromJsonRaw: (value) =>
-              HelpCenterRedirectList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => HelpCenterRedirectList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Creates a redirect in a help center, mapping a source URL to an article or collection. Supply `from_url`, `locale`, `target_type`, and `target_id`; the source URL must be absolute and within the help center's URL space, and the target must belong to that help center. Use the `read_write_help_center_redirects_scope` OAuth scope to create redirects.
 ///
@@ -73,21 +67,14 @@ Future<HelpCenterRedirect> createHelpCenterRedirect(ClientConfig config,
             'target_id': targetId
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'createHelpCenterRedirect',
-          fromJsonRaw: (value) =>
-              HelpCenterRedirect.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => HelpCenterRedirect.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '409': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '422': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves a redirect from a specific help center. Use the help center and redirect identifiers to fetch the redirect's source URL, locale, and target details. Access requires the `read_help_center_redirects_scope` OAuth scope.
 ///
@@ -104,18 +91,14 @@ Future<HelpCenterRedirect> retrieveHelpCenterRedirect(ClientConfig config,
           '/help_center/help_centers/${Uri.encodeComponent(helpCenterId.toString())}/redirects/${Uri.encodeComponent(id.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'retrieveHelpCenterRedirect',
-          fromJsonRaw: (value) =>
-              HelpCenterRedirect.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => HelpCenterRedirect.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Deletes a redirect from a help center. Provide the help center and redirect identifiers to specify which redirect to remove. Access requires the `read_write_help_center_redirects_scope` OAuth scope.
 ///
@@ -123,28 +106,24 @@ Future<HelpCenterRedirect> retrieveHelpCenterRedirect(ClientConfig config,
 ///
 /// [helpCenterId] The unique identifier for the help center.
 /// [id] The unique identifier for the redirect.
-Future<DeletedHelpCenterRedirectObject> deleteHelpCenterRedirect(
-    ClientConfig config,
-    {required String helpCenterId,
-    required String id,
-    SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<DeletedHelpCenterRedirectObject>
+    deleteHelpCenterRedirect(ClientConfig config,
+        {required String helpCenterId,
+        required String id,
+        SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<DeletedHelpCenterRedirectObject>('DELETE',
           '/help_center/help_centers/${Uri.encodeComponent(helpCenterId.toString())}/redirects/${Uri.encodeComponent(id.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'deleteHelpCenterRedirect',
-          fromJsonRaw: (value) => DeletedHelpCenterRedirectObject.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeletedHelpCenterRedirectObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Lists collections in the help center app. Use the results to review collection details, including their names, descriptions, and parent collections. Collections are ordered by `updated_at` in descending order, with the most recently updated first.
 ///
@@ -155,17 +134,14 @@ Future<CollectionList> listAllCollections(ClientConfig config,
   return (await sdkRequest<CollectionList>('GET', '/help_center/collections',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listAllCollections',
-          fromJsonRaw: (value) =>
-              CollectionList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CollectionList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Creates a collection in a help center. Supply `name` and optionally provide a description, translated content, or a parent collection; omitting `help_center_id` creates the collection in the default help center. Use `parent_id` to place the collection under another collection, or leave it null to create a top-level collection.
 ///
@@ -199,18 +175,14 @@ Future<Collection> createCollection(ClientConfig config,
             'help_center_id': SdkUtils.unwrapOptional(helpCenterId)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'createCollection',
-          fromJsonRaw: (value) =>
-              Collection.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => Collection.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves a collection from the help center. Provide its identifier to get details such as its name, description, URL, and parent collection. Use the collection identifier assigned by Intercom.
 ///
@@ -226,18 +198,14 @@ Future<Collection> retrieveCollection(ClientConfig config,
           '/help_center/collections/${Uri.encodeComponent(collectionId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'retrieveCollection',
-          fromJsonRaw: (value) =>
-              Collection.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => Collection.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Replaces collection details for a specified collection. Supply the collection fields you want to change, such as `name`, `description`, translated content, or parent collection. Use the collection identifier assigned by Intercom to select the collection.
 ///
@@ -271,18 +239,14 @@ Future<Collection> updateCollection(ClientConfig config,
             'parent_id': SdkUtils.unwrapOptional(parentId)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'updateCollection',
-          fromJsonRaw: (value) =>
-              Collection.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => Collection.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Deletes a collection from the help center. Provide the collection identifier to specify which collection to remove. Use this operation when you no longer need the collection.
 ///
@@ -298,18 +262,14 @@ Future<DeletedCollectionObject> deleteCollection(ClientConfig config,
           '/help_center/collections/${Uri.encodeComponent(collectionId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'deleteCollection',
-          fromJsonRaw: (value) =>
-              DeletedCollectionObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeletedCollectionObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves details for a help center. Provide its identifier to inspect its URL, display name, availability, and configured locales. Use this operation to view the help center's workspace and configuration details.
 ///
@@ -325,18 +285,14 @@ Future<HelpCenter> retrieveHelpCenter(ClientConfig config,
           '/help_center/help_centers/${Uri.encodeComponent(helpCenterId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'retrieveHelpCenter',
-          fromJsonRaw: (value) =>
-              HelpCenter.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => HelpCenter.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Lists the help centers belonging to the app. Use the results to review each help center's identifier, URL, display name, configured locales, and availability. The response contains a list of help center objects.
 ///
@@ -347,14 +303,10 @@ Future<HelpCenterList> listHelpCenters(ClientConfig config,
   return (await sdkRequest<HelpCenterList>('GET', '/help_center/help_centers',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listHelpCenters',
-          fromJsonRaw: (value) =>
-              HelpCenterList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => HelpCenterList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

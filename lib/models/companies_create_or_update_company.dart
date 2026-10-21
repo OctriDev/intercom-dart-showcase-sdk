@@ -8,202 +8,97 @@ part of 'companies.dart';
 class CreateOrUpdateCompanyRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the Company
   final SdkOptional<String> name;
-
   /// The company id you have defined for the company. Can't be updated
   final SdkOptional<String> companyId;
-
   /// The name of the plan you have associated with the company.
   final SdkOptional<String> plan;
-
   /// The number of employees in this company.
   final SdkOptional<int> size;
-
   /// The URL for this company's website. Please note that the value specified here is not validated. Accepts any string.
   final SdkOptional<String> website;
-
   /// The industry that this company operates in.
   final SdkOptional<String> industry;
-
   /// A hash of key/value pairs containing any other data about the company you want Intercom to store.
   final SdkOptional<Map<String, String>> customAttributes;
-
   /// The time the company was created by you.
   final SdkOptional<int> remoteCreatedAt;
-
   /// Set to true to update the company's last seen time to now.
   final SdkOptional<bool> updateLastRequestAt;
-
   /// How much revenue the company generates for your business. Note that this will truncate floats. i.e. it only allow for whole integers, 155.98 will be truncated to 155. Note that this has an upper limit of 2**31-1 or 2147483647..
   final SdkOptional<int> monthlySpend;
 
-  const CreateOrUpdateCompanyRequest(
-      {this.name = const SdkOmitted(),
-      this.companyId = const SdkOmitted(),
-      this.plan = const SdkOmitted(),
-      this.size = const SdkOmitted(),
-      this.website = const SdkOmitted(),
-      this.industry = const SdkOmitted(),
-      this.customAttributes = const SdkOmitted(),
-      this.remoteCreatedAt = const SdkOmitted(),
-      this.updateLastRequestAt = const SdkOmitted(),
-      this.monthlySpend = const SdkOmitted()});
+  const CreateOrUpdateCompanyRequest({this.name = const SdkOmitted(), this.companyId = const SdkOmitted(), this.plan = const SdkOmitted(), this.size = const SdkOmitted(), this.website = const SdkOmitted(), this.industry = const SdkOmitted(), this.customAttributes = const SdkOmitted(), this.remoteCreatedAt = const SdkOmitted(), this.updateLastRequestAt = const SdkOmitted(), this.monthlySpend = const SdkOmitted()});
 
-  CreateOrUpdateCompanyRequest Function(
-      {SdkOptional<String> name,
-      SdkOptional<String> companyId,
-      SdkOptional<String> plan,
-      SdkOptional<int> size,
-      SdkOptional<String> website,
-      SdkOptional<String> industry,
-      SdkOptional<Map<String, String>> customAttributes,
-      SdkOptional<int> remoteCreatedAt,
-      SdkOptional<bool> updateLastRequestAt,
-      SdkOptional<int> monthlySpend}) get copyWith => _copyWith;
+  CreateOrUpdateCompanyRequest Function({SdkOptional<String> name, SdkOptional<String> companyId, SdkOptional<String> plan, SdkOptional<int> size, SdkOptional<String> website, SdkOptional<String> industry, SdkOptional<Map<String, String>> customAttributes, SdkOptional<int> remoteCreatedAt, SdkOptional<bool> updateLastRequestAt, SdkOptional<int> monthlySpend}) get copyWith => _copyWith;
 
-  CreateOrUpdateCompanyRequest _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? companyId = sdkOmittedValue,
-          Object? plan = sdkOmittedValue,
-          Object? size = sdkOmittedValue,
-          Object? website = sdkOmittedValue,
-          Object? industry = sdkOmittedValue,
-          Object? customAttributes = sdkOmittedValue,
-          Object? remoteCreatedAt = sdkOmittedValue,
-          Object? updateLastRequestAt = sdkOmittedValue,
-          Object? monthlySpend = sdkOmittedValue}) =>
-      CreateOrUpdateCompanyRequest(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        companyId: identical(companyId, sdkOmittedValue)
-            ? this.companyId
-            : companyId as SdkOptional<String>,
-        plan: identical(plan, sdkOmittedValue)
-            ? this.plan
-            : plan as SdkOptional<String>,
-        size: identical(size, sdkOmittedValue)
-            ? this.size
-            : size as SdkOptional<int>,
-        website: identical(website, sdkOmittedValue)
-            ? this.website
-            : website as SdkOptional<String>,
-        industry: identical(industry, sdkOmittedValue)
-            ? this.industry
-            : industry as SdkOptional<String>,
-        customAttributes: identical(customAttributes, sdkOmittedValue)
-            ? this.customAttributes
-            : customAttributes as SdkOptional<Map<String, String>>,
-        remoteCreatedAt: identical(remoteCreatedAt, sdkOmittedValue)
-            ? this.remoteCreatedAt
-            : remoteCreatedAt as SdkOptional<int>,
-        updateLastRequestAt: identical(updateLastRequestAt, sdkOmittedValue)
-            ? this.updateLastRequestAt
-            : updateLastRequestAt as SdkOptional<bool>,
-        monthlySpend: identical(monthlySpend, sdkOmittedValue)
-            ? this.monthlySpend
-            : monthlySpend as SdkOptional<int>,
-      );
+  CreateOrUpdateCompanyRequest _copyWith({Object? name = sdkOmittedValue, Object? companyId = sdkOmittedValue, Object? plan = sdkOmittedValue, Object? size = sdkOmittedValue, Object? website = sdkOmittedValue, Object? industry = sdkOmittedValue, Object? customAttributes = sdkOmittedValue, Object? remoteCreatedAt = sdkOmittedValue, Object? updateLastRequestAt = sdkOmittedValue, Object? monthlySpend = sdkOmittedValue}) => CreateOrUpdateCompanyRequest(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    companyId: identical(companyId, sdkOmittedValue) ? this.companyId : companyId as SdkOptional<String>,
+    plan: identical(plan, sdkOmittedValue) ? this.plan : plan as SdkOptional<String>,
+    size: identical(size, sdkOmittedValue) ? this.size : size as SdkOptional<int>,
+    website: identical(website, sdkOmittedValue) ? this.website : website as SdkOptional<String>,
+    industry: identical(industry, sdkOmittedValue) ? this.industry : industry as SdkOptional<String>,
+    customAttributes: identical(customAttributes, sdkOmittedValue) ? this.customAttributes : customAttributes as SdkOptional<Map<String, String>>,
+    remoteCreatedAt: identical(remoteCreatedAt, sdkOmittedValue) ? this.remoteCreatedAt : remoteCreatedAt as SdkOptional<int>,
+    updateLastRequestAt: identical(updateLastRequestAt, sdkOmittedValue) ? this.updateLastRequestAt : updateLastRequestAt as SdkOptional<bool>,
+    monthlySpend: identical(monthlySpend, sdkOmittedValue) ? this.monthlySpend : monthlySpend as SdkOptional<int>,
+  );
 
-  factory CreateOrUpdateCompanyRequest.fromJson(Map<String, dynamic> json) =>
-      CreateOrUpdateCompanyRequest(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        companyId: json['company_id'] != null
-            ? SdkPresent((json['company_id'] as String?)!)
-            : const SdkOmitted(),
-        plan: json['plan'] != null
-            ? SdkPresent((json['plan'] as String?)!)
-            : const SdkOmitted(),
-        size: json['size'] != null
-            ? SdkPresent(((json['size'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        website: json['website'] != null
-            ? SdkPresent((json['website'] as String?)!)
-            : const SdkOmitted(),
-        industry: json['industry'] != null
-            ? SdkPresent((json['industry'] as String?)!)
-            : const SdkOmitted(),
-        customAttributes: json['custom_attributes'] != null
-            ? SdkPresent((json['custom_attributes'] == null
-                ? null
-                : Map<String, dynamic>.from(json['custom_attributes'] as Map)
-                    .map((key, value) => MapEntry(key, value as String)))!)
-            : const SdkOmitted(),
-        remoteCreatedAt: json['remote_created_at'] != null
-            ? SdkPresent(((json['remote_created_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        updateLastRequestAt: json['update_last_request_at'] != null
-            ? SdkPresent((json['update_last_request_at'] as bool?)!)
-            : const SdkOmitted(),
-        monthlySpend: json['monthly_spend'] != null
-            ? SdkPresent(((json['monthly_spend'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory CreateOrUpdateCompanyRequest.fromJson(Map<String, dynamic> json) => CreateOrUpdateCompanyRequest(
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    companyId: json['company_id'] != null ? SdkPresent((json['company_id'] as String?)!) : const SdkOmitted(),
+    plan: json['plan'] != null ? SdkPresent((json['plan'] as String?)!) : const SdkOmitted(),
+    size: json['size'] != null ? SdkPresent(((json['size'] as num?)?.toInt())!) : const SdkOmitted(),
+    website: json['website'] != null ? SdkPresent((json['website'] as String?)!) : const SdkOmitted(),
+    industry: json['industry'] != null ? SdkPresent((json['industry'] as String?)!) : const SdkOmitted(),
+    customAttributes: json['custom_attributes'] != null ? SdkPresent((json['custom_attributes'] == null ? null : Map<String, dynamic>.from(json['custom_attributes'] as Map).map((key, value) => MapEntry(key, value as String)))!) : const SdkOmitted(),
+    remoteCreatedAt: json['remote_created_at'] != null ? SdkPresent(((json['remote_created_at'] as num?)?.toInt())!) : const SdkOmitted(),
+    updateLastRequestAt: json['update_last_request_at'] != null ? SdkPresent((json['update_last_request_at'] as bool?)!) : const SdkOmitted(),
+    monthlySpend: json['monthly_spend'] != null ? SdkPresent(((json['monthly_spend'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (companyId) {
-          SdkPresent<String>(value: final value) => {
-              'company_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (plan) {
-          SdkPresent<String>(value: final value) => {
-              'plan': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (size) {
-          SdkPresent<int>(value: final value) => {
-              'size': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (website) {
-          SdkPresent<String>(value: final value) => {
-              'website': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (industry) {
-          SdkPresent<String>(value: final value) => {
-              'industry': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (customAttributes) {
-          SdkPresent<Map<String, String>>(value: final value) => {
-              'custom_attributes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (remoteCreatedAt) {
-          SdkPresent<int>(value: final value) => {
-              'remote_created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (updateLastRequestAt) {
-          SdkPresent<bool>(value: final value) => {
-              'update_last_request_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (monthlySpend) {
-          SdkPresent<int>(value: final value) => {
-              'monthly_spend': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (companyId) {
+      SdkPresent<String>(value: final value) => {'company_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (plan) {
+      SdkPresent<String>(value: final value) => {'plan': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (size) {
+      SdkPresent<int>(value: final value) => {'size': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (website) {
+      SdkPresent<String>(value: final value) => {'website': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (industry) {
+      SdkPresent<String>(value: final value) => {'industry': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (customAttributes) {
+      SdkPresent<Map<String, String>>(value: final value) => {'custom_attributes': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (remoteCreatedAt) {
+      SdkPresent<int>(value: final value) => {'remote_created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (updateLastRequestAt) {
+      SdkPresent<bool>(value: final value) => {'update_last_request_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (monthlySpend) {
+      SdkPresent<int>(value: final value) => {'monthly_spend': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

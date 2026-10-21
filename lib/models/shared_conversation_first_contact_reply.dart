@@ -8,73 +8,41 @@ part of 'shared_conversation.dart';
 class ConversationFirstContactReply {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `date-time`-formatted value serialized in the `created_at` wire field.
   final SdkOptional<int> createdAt;
-
   /// Optional `string` value serialized in the `type` wire field.
   final SdkOptional<String> type_;
-
   /// Optional `string` value serialized in the `url` wire field.
   final SdkOptional<String?> url;
 
-  const ConversationFirstContactReply(
-      {this.createdAt = const SdkOmitted(),
-      this.type_ = const SdkOmitted(),
-      this.url = const SdkOmitted()});
+  const ConversationFirstContactReply({this.createdAt = const SdkOmitted(), this.type_ = const SdkOmitted(), this.url = const SdkOmitted()});
 
-  ConversationFirstContactReply Function(
-      {SdkOptional<int> createdAt,
-      SdkOptional<String> type_,
-      SdkOptional<String?> url}) get copyWith => _copyWith;
+  ConversationFirstContactReply Function({SdkOptional<int> createdAt, SdkOptional<String> type_, SdkOptional<String?> url}) get copyWith => _copyWith;
 
-  ConversationFirstContactReply _copyWith(
-          {Object? createdAt = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? url = sdkOmittedValue}) =>
-      ConversationFirstContactReply(
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<int>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        url: identical(url, sdkOmittedValue)
-            ? this.url
-            : url as SdkOptional<String?>,
-      );
+  ConversationFirstContactReply _copyWith({Object? createdAt = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? url = sdkOmittedValue}) => ConversationFirstContactReply(
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<int>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String?>,
+  );
 
-  factory ConversationFirstContactReply.fromJson(Map<String, dynamic> json) =>
-      ConversationFirstContactReply(
-        createdAt: json['created_at'] != null
-            ? SdkPresent(((json['created_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        url: json.containsKey('url')
-            ? SdkPresent(json['url'] as String?)
-            : const SdkOmitted(),
-      );
+  factory ConversationFirstContactReply.fromJson(Map<String, dynamic> json) => ConversationFirstContactReply(
+    createdAt: json['created_at'] != null ? SdkPresent(((json['created_at'] as num?)?.toInt())!) : const SdkOmitted(),
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    url: json.containsKey('url') ? SdkPresent(json['url'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (createdAt) {
-          SdkPresent<int>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (url) {
-          SdkPresent<String?>(value: final value) => {
-              'url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (createdAt) {
+      SdkPresent<int>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (url) {
+      SdkPresent<String?>(value: final value) => {'url': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -8,54 +8,33 @@ part of 'shared.dart';
 class Tags {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object
   final SdkOptional<TagsType> type_;
-
   /// A list of tags objects associated with the conversation.
   final SdkOptional<List<Tag>> tags;
 
   const Tags({this.type_ = const SdkOmitted(), this.tags = const SdkOmitted()});
 
-  Tags Function({SdkOptional<TagsType> type_, SdkOptional<List<Tag>> tags})
-      get copyWith => _copyWith;
+  Tags Function({SdkOptional<TagsType> type_, SdkOptional<List<Tag>> tags}) get copyWith => _copyWith;
 
-  Tags _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? tags = sdkOmittedValue}) =>
-      Tags(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<TagsType>,
-        tags: identical(tags, sdkOmittedValue)
-            ? this.tags
-            : tags as SdkOptional<List<Tag>>,
-      );
+  Tags _copyWith({Object? type_ = sdkOmittedValue, Object? tags = sdkOmittedValue}) => Tags(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<TagsType>,
+    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<Tag>>,
+  );
 
   factory Tags.fromJson(Map<String, dynamic> json) => Tags(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? TagsType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        tags: json['tags'] != null
-            ? SdkPresent(((json['tags'] as List?)
-                ?.map((e) => Tag.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? TagsType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => Tag.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<TagsType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tags) {
-          SdkPresent<List<Tag>>(value: final value) => {
-              'tags': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<TagsType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tags) {
+      SdkPresent<List<Tag>>(value: final value) => {'tags': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

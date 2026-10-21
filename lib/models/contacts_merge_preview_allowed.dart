@@ -8,59 +8,33 @@ part of 'contacts.dart';
 class MergePreviewAllowed {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Always true. The merge is allowed.
   final SdkOptional<MergePreviewAllowedAllowed> allowed;
-
   /// A summary of the changes the merge would make to the surviving contact.
   final SdkOptional<MergePreviewSummary> summary;
 
-  const MergePreviewAllowed(
-      {this.allowed = const SdkOmitted(), this.summary = const SdkOmitted()});
+  const MergePreviewAllowed({this.allowed = const SdkOmitted(), this.summary = const SdkOmitted()});
 
-  MergePreviewAllowed Function(
-      {SdkOptional<MergePreviewAllowedAllowed> allowed,
-      SdkOptional<MergePreviewSummary> summary}) get copyWith => _copyWith;
+  MergePreviewAllowed Function({SdkOptional<MergePreviewAllowedAllowed> allowed, SdkOptional<MergePreviewSummary> summary}) get copyWith => _copyWith;
 
-  MergePreviewAllowed _copyWith(
-          {Object? allowed = sdkOmittedValue,
-          Object? summary = sdkOmittedValue}) =>
-      MergePreviewAllowed(
-        allowed: identical(allowed, sdkOmittedValue)
-            ? this.allowed
-            : allowed as SdkOptional<MergePreviewAllowedAllowed>,
-        summary: identical(summary, sdkOmittedValue)
-            ? this.summary
-            : summary as SdkOptional<MergePreviewSummary>,
-      );
+  MergePreviewAllowed _copyWith({Object? allowed = sdkOmittedValue, Object? summary = sdkOmittedValue}) => MergePreviewAllowed(
+    allowed: identical(allowed, sdkOmittedValue) ? this.allowed : allowed as SdkOptional<MergePreviewAllowedAllowed>,
+    summary: identical(summary, sdkOmittedValue) ? this.summary : summary as SdkOptional<MergePreviewSummary>,
+  );
 
-  factory MergePreviewAllowed.fromJson(Map<String, dynamic> json) =>
-      MergePreviewAllowed(
-        allowed: json['allowed'] != null
-            ? SdkPresent((json['allowed'] != null
-                ? MergePreviewAllowedAllowed.fromJson(json['allowed'] as bool)
-                : null)!)
-            : const SdkOmitted(),
-        summary: json['summary'] != null
-            ? SdkPresent((json['summary'] != null
-                ? MergePreviewSummary.fromJson(
-                    json['summary'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory MergePreviewAllowed.fromJson(Map<String, dynamic> json) => MergePreviewAllowed(
+    allowed: json['allowed'] != null ? SdkPresent((json['allowed'] != null ? MergePreviewAllowedAllowed.fromJson(json['allowed'] as bool) : null)!) : const SdkOmitted(),
+    summary: json['summary'] != null ? SdkPresent((json['summary'] != null ? MergePreviewSummary.fromJson(json['summary'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (allowed) {
-          SdkPresent<MergePreviewAllowedAllowed>(value: final value) => {
-              'allowed': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (summary) {
-          SdkPresent<MergePreviewSummary>(value: final value) => {
-              'summary': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (allowed) {
+      SdkPresent<MergePreviewAllowedAllowed>(value: final value) => {'allowed': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (summary) {
+      SdkPresent<MergePreviewSummary>(value: final value) => {'summary': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

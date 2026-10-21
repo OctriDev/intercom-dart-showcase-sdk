@@ -8,218 +8,131 @@ part of 'conversations.dart';
 class AttachContactToConversationRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The `id` of the admin who is adding the new participant.
   final SdkOptional<String> adminId;
-
   /// Optional object value serialized in the `customer` wire field.
   final SdkOptional<AttachContactToConversationRequestCustomer> customer;
 
-  const AttachContactToConversationRequest(
-      {this.adminId = const SdkOmitted(), this.customer = const SdkOmitted()});
+  const AttachContactToConversationRequest({this.adminId = const SdkOmitted(), this.customer = const SdkOmitted()});
 
-  AttachContactToConversationRequest Function(
-          {SdkOptional<String> adminId,
-          SdkOptional<AttachContactToConversationRequestCustomer> customer})
-      get copyWith => _copyWith;
+  AttachContactToConversationRequest Function({SdkOptional<String> adminId, SdkOptional<AttachContactToConversationRequestCustomer> customer}) get copyWith => _copyWith;
 
-  AttachContactToConversationRequest _copyWith(
-          {Object? adminId = sdkOmittedValue,
-          Object? customer = sdkOmittedValue}) =>
-      AttachContactToConversationRequest(
-        adminId: identical(adminId, sdkOmittedValue)
-            ? this.adminId
-            : adminId as SdkOptional<String>,
-        customer: identical(customer, sdkOmittedValue)
-            ? this.customer
-            : customer
-                as SdkOptional<AttachContactToConversationRequestCustomer>,
-      );
+  AttachContactToConversationRequest _copyWith({Object? adminId = sdkOmittedValue, Object? customer = sdkOmittedValue}) => AttachContactToConversationRequest(
+    adminId: identical(adminId, sdkOmittedValue) ? this.adminId : adminId as SdkOptional<String>,
+    customer: identical(customer, sdkOmittedValue) ? this.customer : customer as SdkOptional<AttachContactToConversationRequestCustomer>,
+  );
 
-  factory AttachContactToConversationRequest.fromJson(
-          Map<String, dynamic> json) =>
-      AttachContactToConversationRequest(
-        adminId: json['admin_id'] != null
-            ? SdkPresent((json['admin_id'] as String?)!)
-            : const SdkOmitted(),
-        customer: json['customer'] != null
-            ? SdkPresent((json['customer'] != null
-                ? AttachContactToConversationRequestCustomer.fromJson(
-                    json['customer'])
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory AttachContactToConversationRequest.fromJson(Map<String, dynamic> json) => AttachContactToConversationRequest(
+    adminId: json['admin_id'] != null ? SdkPresent((json['admin_id'] as String?)!) : const SdkOmitted(),
+    customer: json['customer'] != null ? SdkPresent((json['customer'] != null ? AttachContactToConversationRequestCustomer.fromJson(json['customer']) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (adminId) {
-          SdkPresent<String>(value: final value) => {
-              'admin_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (customer) {
-          SdkPresent<AttachContactToConversationRequestCustomer>(
-            value: final value
-          ) =>
-            {
-              'customer': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (adminId) {
+      SdkPresent<String>(value: final value) => {'admin_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (customer) {
+      SdkPresent<AttachContactToConversationRequestCustomer>(value: final value) => {'customer': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Optional object value serialized in the `customer` wire field.
 class AttachContactToConversationRequestCustomerVariant0 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The identifier for the contact as given by Intercom.
   final String intercomUserId;
-
   /// Optional object value serialized in the `customer` wire field.
   final SdkOptional<CustomerRequest?> customer;
 
-  const AttachContactToConversationRequestCustomerVariant0(
-      {required this.intercomUserId, this.customer = const SdkOmitted()});
+  const AttachContactToConversationRequestCustomerVariant0({required this.intercomUserId, this.customer = const SdkOmitted()});
 
-  AttachContactToConversationRequestCustomerVariant0 Function(
-      {String intercomUserId,
-      SdkOptional<CustomerRequest?> customer}) get copyWith => _copyWith;
+  AttachContactToConversationRequestCustomerVariant0 Function({String intercomUserId, SdkOptional<CustomerRequest?> customer}) get copyWith => _copyWith;
 
-  AttachContactToConversationRequestCustomerVariant0 _copyWith(
-          {Object? intercomUserId = sdkOmittedValue,
-          Object? customer = sdkOmittedValue}) =>
-      AttachContactToConversationRequestCustomerVariant0(
-        intercomUserId: identical(intercomUserId, sdkOmittedValue)
-            ? this.intercomUserId
-            : intercomUserId as String,
-        customer: identical(customer, sdkOmittedValue)
-            ? this.customer
-            : customer as SdkOptional<CustomerRequest?>,
-      );
+  AttachContactToConversationRequestCustomerVariant0 _copyWith({Object? intercomUserId = sdkOmittedValue, Object? customer = sdkOmittedValue}) => AttachContactToConversationRequestCustomerVariant0(
+    intercomUserId: identical(intercomUserId, sdkOmittedValue) ? this.intercomUserId : intercomUserId as String,
+    customer: identical(customer, sdkOmittedValue) ? this.customer : customer as SdkOptional<CustomerRequest?>,
+  );
 
-  factory AttachContactToConversationRequestCustomerVariant0.fromJson(
-          Map<String, dynamic> json) =>
-      AttachContactToConversationRequestCustomerVariant0(
-        intercomUserId: (json['intercom_user_id'] as String?)!,
-        customer: json.containsKey('customer')
-            ? SdkPresent(json['customer'] != null
-                ? CustomerRequest.fromJson(json['customer'])
-                : null)
-            : const SdkOmitted(),
-      );
+  factory AttachContactToConversationRequestCustomerVariant0.fromJson(Map<String, dynamic> json) => AttachContactToConversationRequestCustomerVariant0(
+    intercomUserId: (json['intercom_user_id'] as String?)!,
+    customer: json.containsKey('customer') ? SdkPresent(json['customer'] != null ? CustomerRequest.fromJson(json['customer']) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'intercom_user_id': intercomUserId,
-        ...switch (customer) {
-          SdkPresent<CustomerRequest?>(value: final value) => {
-              'customer': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'intercom_user_id': intercomUserId,
+    ...switch (customer) {
+      SdkPresent<CustomerRequest?>(value: final value) => {'customer': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Optional object value serialized in the `customer` wire field.
 class AttachContactToConversationRequestCustomerVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The external_id you have defined for the contact who is being added as a participant.
   final String userId;
-
   /// Optional object value serialized in the `customer` wire field.
   final SdkOptional<CustomerRequest?> customer;
 
-  const AttachContactToConversationRequestCustomerVariant1(
-      {required this.userId, this.customer = const SdkOmitted()});
+  const AttachContactToConversationRequestCustomerVariant1({required this.userId, this.customer = const SdkOmitted()});
 
-  AttachContactToConversationRequestCustomerVariant1 Function(
-      {String userId,
-      SdkOptional<CustomerRequest?> customer}) get copyWith => _copyWith;
+  AttachContactToConversationRequestCustomerVariant1 Function({String userId, SdkOptional<CustomerRequest?> customer}) get copyWith => _copyWith;
 
-  AttachContactToConversationRequestCustomerVariant1 _copyWith(
-          {Object? userId = sdkOmittedValue,
-          Object? customer = sdkOmittedValue}) =>
-      AttachContactToConversationRequestCustomerVariant1(
-        userId:
-            identical(userId, sdkOmittedValue) ? this.userId : userId as String,
-        customer: identical(customer, sdkOmittedValue)
-            ? this.customer
-            : customer as SdkOptional<CustomerRequest?>,
-      );
+  AttachContactToConversationRequestCustomerVariant1 _copyWith({Object? userId = sdkOmittedValue, Object? customer = sdkOmittedValue}) => AttachContactToConversationRequestCustomerVariant1(
+    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as String,
+    customer: identical(customer, sdkOmittedValue) ? this.customer : customer as SdkOptional<CustomerRequest?>,
+  );
 
-  factory AttachContactToConversationRequestCustomerVariant1.fromJson(
-          Map<String, dynamic> json) =>
-      AttachContactToConversationRequestCustomerVariant1(
-        userId: (json['user_id'] as String?)!,
-        customer: json.containsKey('customer')
-            ? SdkPresent(json['customer'] != null
-                ? CustomerRequest.fromJson(json['customer'])
-                : null)
-            : const SdkOmitted(),
-      );
+  factory AttachContactToConversationRequestCustomerVariant1.fromJson(Map<String, dynamic> json) => AttachContactToConversationRequestCustomerVariant1(
+    userId: (json['user_id'] as String?)!,
+    customer: json.containsKey('customer') ? SdkPresent(json['customer'] != null ? CustomerRequest.fromJson(json['customer']) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'user_id': userId,
-        ...switch (customer) {
-          SdkPresent<CustomerRequest?>(value: final value) => {
-              'customer': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'user_id': userId,
+    ...switch (customer) {
+      SdkPresent<CustomerRequest?>(value: final value) => {'customer': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Optional object value serialized in the `customer` wire field.
 class AttachContactToConversationRequestCustomerVariant2 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The email you have defined for the contact who is being added as a participant.
   final String email;
-
   /// Optional object value serialized in the `customer` wire field.
   final SdkOptional<CustomerRequest?> customer;
 
-  const AttachContactToConversationRequestCustomerVariant2(
-      {required this.email, this.customer = const SdkOmitted()});
+  const AttachContactToConversationRequestCustomerVariant2({required this.email, this.customer = const SdkOmitted()});
 
-  AttachContactToConversationRequestCustomerVariant2 Function(
-      {String email,
-      SdkOptional<CustomerRequest?> customer}) get copyWith => _copyWith;
+  AttachContactToConversationRequestCustomerVariant2 Function({String email, SdkOptional<CustomerRequest?> customer}) get copyWith => _copyWith;
 
-  AttachContactToConversationRequestCustomerVariant2 _copyWith(
-          {Object? email = sdkOmittedValue,
-          Object? customer = sdkOmittedValue}) =>
-      AttachContactToConversationRequestCustomerVariant2(
-        email: identical(email, sdkOmittedValue) ? this.email : email as String,
-        customer: identical(customer, sdkOmittedValue)
-            ? this.customer
-            : customer as SdkOptional<CustomerRequest?>,
-      );
+  AttachContactToConversationRequestCustomerVariant2 _copyWith({Object? email = sdkOmittedValue, Object? customer = sdkOmittedValue}) => AttachContactToConversationRequestCustomerVariant2(
+    email: identical(email, sdkOmittedValue) ? this.email : email as String,
+    customer: identical(customer, sdkOmittedValue) ? this.customer : customer as SdkOptional<CustomerRequest?>,
+  );
 
-  factory AttachContactToConversationRequestCustomerVariant2.fromJson(
-          Map<String, dynamic> json) =>
-      AttachContactToConversationRequestCustomerVariant2(
-        email: (json['email'] as String?)!,
-        customer: json.containsKey('customer')
-            ? SdkPresent(json['customer'] != null
-                ? CustomerRequest.fromJson(json['customer'])
-                : null)
-            : const SdkOmitted(),
-      );
+  factory AttachContactToConversationRequestCustomerVariant2.fromJson(Map<String, dynamic> json) => AttachContactToConversationRequestCustomerVariant2(
+    email: (json['email'] as String?)!,
+    customer: json.containsKey('customer') ? SdkPresent(json['customer'] != null ? CustomerRequest.fromJson(json['customer']) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'email': email,
-        ...switch (customer) {
-          SdkPresent<CustomerRequest?>(value: final value) => {
-              'customer': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'email': email,
+    ...switch (customer) {
+      SdkPresent<CustomerRequest?>(value: final value) => {'customer': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 sealed class AttachContactToConversationRequestCustomer {
@@ -228,115 +141,64 @@ sealed class AttachContactToConversationRequestCustomer {
   const AttachContactToConversationRequestCustomer();
   factory AttachContactToConversationRequestCustomer.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value =
-            AttachContactToConversationRequestCustomerVariant0.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return AttachContactToConversationRequestCustomerAttachContactToConversationRequestCustomerVariant0(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value =
-            AttachContactToConversationRequestCustomerVariant1.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return AttachContactToConversationRequestCustomerAttachContactToConversationRequestCustomerVariant1(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value =
-            AttachContactToConversationRequestCustomerVariant2.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return AttachContactToConversationRequestCustomerAttachContactToConversationRequestCustomerVariant2(
-              value);
-        }
-      } catch (_) {}
+      try { final value = AttachContactToConversationRequestCustomerVariant0.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AttachContactToConversationRequestCustomerAttachContactToConversationRequestCustomerVariant0(value); } } catch (_) {}
+      try { final value = AttachContactToConversationRequestCustomerVariant1.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AttachContactToConversationRequestCustomerAttachContactToConversationRequestCustomerVariant1(value); } } catch (_) {}
+      try { final value = AttachContactToConversationRequestCustomerVariant2.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AttachContactToConversationRequestCustomerAttachContactToConversationRequestCustomerVariant2(value); } } catch (_) {}
     }
-    try {
-      return AttachContactToConversationRequestCustomerAttachContactToConversationRequestCustomerVariant0(
-          AttachContactToConversationRequestCustomerVariant0.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return AttachContactToConversationRequestCustomerAttachContactToConversationRequestCustomerVariant1(
-          AttachContactToConversationRequestCustomerVariant1.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return AttachContactToConversationRequestCustomerAttachContactToConversationRequestCustomerVariant2(
-          AttachContactToConversationRequestCustomerVariant2.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for AttachContactToConversationRequestCustomer");
+    try { return AttachContactToConversationRequestCustomerAttachContactToConversationRequestCustomerVariant0(AttachContactToConversationRequestCustomerVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return AttachContactToConversationRequestCustomerAttachContactToConversationRequestCustomerVariant1(AttachContactToConversationRequestCustomerVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return AttachContactToConversationRequestCustomerAttachContactToConversationRequestCustomerVariant2(AttachContactToConversationRequestCustomerVariant2.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    throw FormatException("No variant matched for AttachContactToConversationRequestCustomer");
   }
   Object? toJson();
 }
 
-final class AttachContactToConversationRequestCustomerAttachContactToConversationRequestCustomerVariant0
-    extends AttachContactToConversationRequestCustomer {
+final class AttachContactToConversationRequestCustomerAttachContactToConversationRequestCustomerVariant0 extends AttachContactToConversationRequestCustomer {
   final AttachContactToConversationRequestCustomerVariant0 value;
-  const AttachContactToConversationRequestCustomerAttachContactToConversationRequestCustomerVariant0(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const AttachContactToConversationRequestCustomerAttachContactToConversationRequestCustomerVariant0(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class AttachContactToConversationRequestCustomerAttachContactToConversationRequestCustomerVariant1
-    extends AttachContactToConversationRequestCustomer {
+final class AttachContactToConversationRequestCustomerAttachContactToConversationRequestCustomerVariant1 extends AttachContactToConversationRequestCustomer {
   final AttachContactToConversationRequestCustomerVariant1 value;
-  const AttachContactToConversationRequestCustomerAttachContactToConversationRequestCustomerVariant1(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const AttachContactToConversationRequestCustomerAttachContactToConversationRequestCustomerVariant1(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class AttachContactToConversationRequestCustomerAttachContactToConversationRequestCustomerVariant2
-    extends AttachContactToConversationRequestCustomer {
+final class AttachContactToConversationRequestCustomerAttachContactToConversationRequestCustomerVariant2 extends AttachContactToConversationRequestCustomer {
   final AttachContactToConversationRequestCustomerVariant2 value;
-  const AttachContactToConversationRequestCustomerAttachContactToConversationRequestCustomerVariant2(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const AttachContactToConversationRequestCustomerAttachContactToConversationRequestCustomerVariant2(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// Optional object value serialized in the `customer` wire field.
 class CustomerRequestVariant0 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The identifier for the contact as given by Intercom.
   final String intercomUserId;
 
   const CustomerRequestVariant0({required this.intercomUserId});
 
-  CustomerRequestVariant0 Function({String intercomUserId}) get copyWith =>
-      _copyWith;
+  CustomerRequestVariant0 Function({String intercomUserId}) get copyWith => _copyWith;
 
-  CustomerRequestVariant0 _copyWith(
-          {Object? intercomUserId = sdkOmittedValue}) =>
-      CustomerRequestVariant0(
-        intercomUserId: identical(intercomUserId, sdkOmittedValue)
-            ? this.intercomUserId
-            : intercomUserId as String,
-      );
+  CustomerRequestVariant0 _copyWith({Object? intercomUserId = sdkOmittedValue}) => CustomerRequestVariant0(
+    intercomUserId: identical(intercomUserId, sdkOmittedValue) ? this.intercomUserId : intercomUserId as String,
+  );
 
-  factory CustomerRequestVariant0.fromJson(Map<String, dynamic> json) =>
-      CustomerRequestVariant0(
-        intercomUserId: (json['intercom_user_id'] as String?)!,
-      );
+  factory CustomerRequestVariant0.fromJson(Map<String, dynamic> json) => CustomerRequestVariant0(
+    intercomUserId: (json['intercom_user_id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'intercom_user_id': intercomUserId,
-      };
+    'intercom_user_id': intercomUserId,
+  };
 }
 
 /// Optional object value serialized in the `customer` wire field.
 class CustomerRequestVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The external_id you have defined for the contact who is being added as a participant.
   final String userId;
 
@@ -344,27 +206,23 @@ class CustomerRequestVariant1 {
 
   CustomerRequestVariant1 Function({String userId}) get copyWith => _copyWith;
 
-  CustomerRequestVariant1 _copyWith({Object? userId = sdkOmittedValue}) =>
-      CustomerRequestVariant1(
-        userId:
-            identical(userId, sdkOmittedValue) ? this.userId : userId as String,
-      );
+  CustomerRequestVariant1 _copyWith({Object? userId = sdkOmittedValue}) => CustomerRequestVariant1(
+    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as String,
+  );
 
-  factory CustomerRequestVariant1.fromJson(Map<String, dynamic> json) =>
-      CustomerRequestVariant1(
-        userId: (json['user_id'] as String?)!,
-      );
+  factory CustomerRequestVariant1.fromJson(Map<String, dynamic> json) => CustomerRequestVariant1(
+    userId: (json['user_id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'user_id': userId,
-      };
+    'user_id': userId,
+  };
 }
 
 /// Optional object value serialized in the `customer` wire field.
 class CustomerRequestVariant2 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The email you have defined for the contact who is being added as a participant.
   final String email;
 
@@ -372,19 +230,17 @@ class CustomerRequestVariant2 {
 
   CustomerRequestVariant2 Function({String email}) get copyWith => _copyWith;
 
-  CustomerRequestVariant2 _copyWith({Object? email = sdkOmittedValue}) =>
-      CustomerRequestVariant2(
-        email: identical(email, sdkOmittedValue) ? this.email : email as String,
-      );
+  CustomerRequestVariant2 _copyWith({Object? email = sdkOmittedValue}) => CustomerRequestVariant2(
+    email: identical(email, sdkOmittedValue) ? this.email : email as String,
+  );
 
-  factory CustomerRequestVariant2.fromJson(Map<String, dynamic> json) =>
-      CustomerRequestVariant2(
-        email: (json['email'] as String?)!,
-      );
+  factory CustomerRequestVariant2.fromJson(Map<String, dynamic> json) => CustomerRequestVariant2(
+    email: (json['email'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'email': email,
-      };
+    'email': email,
+  };
 }
 
 sealed class CustomerRequest {
@@ -393,37 +249,13 @@ sealed class CustomerRequest {
   const CustomerRequest();
   factory CustomerRequest.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = CustomerRequestVariant0.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return CustomerRequestCustomerRequestVariant0(value);
-        }
-      } catch (_) {}
-      try {
-        final value = CustomerRequestVariant1.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return CustomerRequestCustomerRequestVariant1(value);
-        }
-      } catch (_) {}
-      try {
-        final value = CustomerRequestVariant2.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return CustomerRequestCustomerRequestVariant2(value);
-        }
-      } catch (_) {}
+      try { final value = CustomerRequestVariant0.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CustomerRequestCustomerRequestVariant0(value); } } catch (_) {}
+      try { final value = CustomerRequestVariant1.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CustomerRequestCustomerRequestVariant1(value); } } catch (_) {}
+      try { final value = CustomerRequestVariant2.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CustomerRequestCustomerRequestVariant2(value); } } catch (_) {}
     }
-    try {
-      return CustomerRequestCustomerRequestVariant0(
-          CustomerRequestVariant0.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return CustomerRequestCustomerRequestVariant1(
-          CustomerRequestVariant1.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return CustomerRequestCustomerRequestVariant2(
-          CustomerRequestVariant2.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
+    try { return CustomerRequestCustomerRequestVariant0(CustomerRequestVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return CustomerRequestCustomerRequestVariant1(CustomerRequestVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return CustomerRequestCustomerRequestVariant2(CustomerRequestVariant2.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     throw FormatException("No variant matched for CustomerRequest");
   }
   Object? toJson();
@@ -432,20 +264,17 @@ sealed class CustomerRequest {
 final class CustomerRequestCustomerRequestVariant0 extends CustomerRequest {
   final CustomerRequestVariant0 value;
   const CustomerRequestCustomerRequestVariant0(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class CustomerRequestCustomerRequestVariant1 extends CustomerRequest {
   final CustomerRequestVariant1 value;
   const CustomerRequestCustomerRequestVariant1(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class CustomerRequestCustomerRequestVariant2 extends CustomerRequest {
   final CustomerRequestVariant2 value;
   const CustomerRequestCustomerRequestVariant2(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }

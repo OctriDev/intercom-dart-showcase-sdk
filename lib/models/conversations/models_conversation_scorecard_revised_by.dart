@@ -8,58 +8,33 @@ part of 'models.dart';
 class ConversationScorecardRevisedBy {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The kind of reviser. `ai` if Fin changed the review; `admin` if a teammate did.
   final SdkOptional<ConversationScorecardRevisedByType> type_;
-
   /// The id of the admin who last changed the review. Present only when `type` is `admin`.
   final SdkOptional<String?> adminId;
 
-  const ConversationScorecardRevisedBy(
-      {this.type_ = const SdkOmitted(), this.adminId = const SdkOmitted()});
+  const ConversationScorecardRevisedBy({this.type_ = const SdkOmitted(), this.adminId = const SdkOmitted()});
 
-  ConversationScorecardRevisedBy Function(
-      {SdkOptional<ConversationScorecardRevisedByType> type_,
-      SdkOptional<String?> adminId}) get copyWith => _copyWith;
+  ConversationScorecardRevisedBy Function({SdkOptional<ConversationScorecardRevisedByType> type_, SdkOptional<String?> adminId}) get copyWith => _copyWith;
 
-  ConversationScorecardRevisedBy _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? adminId = sdkOmittedValue}) =>
-      ConversationScorecardRevisedBy(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<ConversationScorecardRevisedByType>,
-        adminId: identical(adminId, sdkOmittedValue)
-            ? this.adminId
-            : adminId as SdkOptional<String?>,
-      );
+  ConversationScorecardRevisedBy _copyWith({Object? type_ = sdkOmittedValue, Object? adminId = sdkOmittedValue}) => ConversationScorecardRevisedBy(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ConversationScorecardRevisedByType>,
+    adminId: identical(adminId, sdkOmittedValue) ? this.adminId : adminId as SdkOptional<String?>,
+  );
 
-  factory ConversationScorecardRevisedBy.fromJson(Map<String, dynamic> json) =>
-      ConversationScorecardRevisedBy(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? ConversationScorecardRevisedByType.fromJson(
-                    json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        adminId: json.containsKey('admin_id')
-            ? SdkPresent(json['admin_id'] as String?)
-            : const SdkOmitted(),
-      );
+  factory ConversationScorecardRevisedBy.fromJson(Map<String, dynamic> json) => ConversationScorecardRevisedBy(
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ConversationScorecardRevisedByType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    adminId: json.containsKey('admin_id') ? SdkPresent(json['admin_id'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<ConversationScorecardRevisedByType>(value: final value) =>
-            {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (adminId) {
-          SdkPresent<String?>(value: final value) => {
-              'admin_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<ConversationScorecardRevisedByType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (adminId) {
+      SdkPresent<String?>(value: final value) => {'admin_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

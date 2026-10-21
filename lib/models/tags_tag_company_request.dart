@@ -8,96 +8,62 @@ part of 'tags.dart';
 class TagCompanyRequestCompaniesItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The Intercom defined id representing the company.
   final SdkOptional<String> id;
-
   /// The company id you have defined for the company.
   final SdkOptional<String> companyId;
 
-  const TagCompanyRequestCompaniesItem(
-      {this.id = const SdkOmitted(), this.companyId = const SdkOmitted()});
+  const TagCompanyRequestCompaniesItem({this.id = const SdkOmitted(), this.companyId = const SdkOmitted()});
 
-  TagCompanyRequestCompaniesItem Function(
-      {SdkOptional<String> id,
-      SdkOptional<String> companyId}) get copyWith => _copyWith;
+  TagCompanyRequestCompaniesItem Function({SdkOptional<String> id, SdkOptional<String> companyId}) get copyWith => _copyWith;
 
-  TagCompanyRequestCompaniesItem _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? companyId = sdkOmittedValue}) =>
-      TagCompanyRequestCompaniesItem(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        companyId: identical(companyId, sdkOmittedValue)
-            ? this.companyId
-            : companyId as SdkOptional<String>,
-      );
+  TagCompanyRequestCompaniesItem _copyWith({Object? id = sdkOmittedValue, Object? companyId = sdkOmittedValue}) => TagCompanyRequestCompaniesItem(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    companyId: identical(companyId, sdkOmittedValue) ? this.companyId : companyId as SdkOptional<String>,
+  );
 
-  factory TagCompanyRequestCompaniesItem.fromJson(Map<String, dynamic> json) =>
-      TagCompanyRequestCompaniesItem(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        companyId: json['company_id'] != null
-            ? SdkPresent((json['company_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory TagCompanyRequestCompaniesItem.fromJson(Map<String, dynamic> json) => TagCompanyRequestCompaniesItem(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    companyId: json['company_id'] != null ? SdkPresent((json['company_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (companyId) {
-          SdkPresent<String>(value: final value) => {
-              'company_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (companyId) {
+      SdkPresent<String>(value: final value) => {'company_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// You can tag a single company or a list of companies.
 class TagCompanyRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the tag, which will be created if not found.
   final String name;
-
   /// The id or company_id of the company can be passed as input parameters.
   final List<TagCompanyRequestCompaniesItem> companies;
 
   const TagCompanyRequest({required this.name, required this.companies});
 
-  TagCompanyRequest Function(
-          {String name, List<TagCompanyRequestCompaniesItem> companies})
-      get copyWith => _copyWith;
+  TagCompanyRequest Function({String name, List<TagCompanyRequestCompaniesItem> companies}) get copyWith => _copyWith;
 
-  TagCompanyRequest _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? companies = sdkOmittedValue}) =>
-      TagCompanyRequest(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        companies: identical(companies, sdkOmittedValue)
-            ? this.companies
-            : companies as List<TagCompanyRequestCompaniesItem>,
-      );
+  TagCompanyRequest _copyWith({Object? name = sdkOmittedValue, Object? companies = sdkOmittedValue}) => TagCompanyRequest(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    companies: identical(companies, sdkOmittedValue) ? this.companies : companies as List<TagCompanyRequestCompaniesItem>,
+  );
 
-  factory TagCompanyRequest.fromJson(Map<String, dynamic> json) =>
-      TagCompanyRequest(
-        name: (json['name'] as String?)!,
-        companies: ((json['companies'] as List?)
-            ?.map((e) => TagCompanyRequestCompaniesItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList())!,
-      );
+  factory TagCompanyRequest.fromJson(Map<String, dynamic> json) => TagCompanyRequest(
+    name: (json['name'] as String?)!,
+    companies: ((json['companies'] as List?)?.map((e) => TagCompanyRequestCompaniesItem.fromJson(e as Map<String, dynamic>)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        'companies': companies.map((item) => item.toJson()).toList(),
-      };
+    'name': name,
+    'companies': companies.map((item) => item.toJson()).toList(),
+  };
 }

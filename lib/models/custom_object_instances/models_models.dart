@@ -8,273 +8,132 @@ part of 'models.dart';
 class CustomObjectInstance {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The Intercom defined id representing the custom object instance.
   final SdkOptional<String> id;
-
   /// The id you have defined for the custom object instance.
   final SdkOptional<String> externalId;
-
   /// The time when the Custom Object instance was created in the external system it originated from.
   final SdkOptional<int?> externalCreatedAt;
-
   /// The time when the Custom Object instance was last updated in the external system it originated from.
   final SdkOptional<int?> externalUpdatedAt;
-
   /// The time the attribute was created as a UTC Unix timestamp
   final SdkOptional<int> createdAt;
-
   /// The time the attribute was last updated as a UTC Unix timestamp
   final SdkOptional<int> updatedAt;
-
   /// The identifier of the custom object type that defines the structure of the custom object instance.
   final SdkOptional<String> type_;
-
   /// The custom attributes you have set on the custom object instance.
   final SdkOptional<Map<String, String>> customAttributes;
 
-  const CustomObjectInstance(
-      {this.id = const SdkOmitted(),
-      this.externalId = const SdkOmitted(),
-      this.externalCreatedAt = const SdkOmitted(),
-      this.externalUpdatedAt = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.updatedAt = const SdkOmitted(),
-      this.type_ = const SdkOmitted(),
-      this.customAttributes = const SdkOmitted()});
+  const CustomObjectInstance({this.id = const SdkOmitted(), this.externalId = const SdkOmitted(), this.externalCreatedAt = const SdkOmitted(), this.externalUpdatedAt = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.type_ = const SdkOmitted(), this.customAttributes = const SdkOmitted()});
 
-  CustomObjectInstance Function(
-          {SdkOptional<String> id,
-          SdkOptional<String> externalId,
-          SdkOptional<int?> externalCreatedAt,
-          SdkOptional<int?> externalUpdatedAt,
-          SdkOptional<int> createdAt,
-          SdkOptional<int> updatedAt,
-          SdkOptional<String> type_,
-          SdkOptional<Map<String, String>> customAttributes})
-      get copyWith => _copyWith;
+  CustomObjectInstance Function({SdkOptional<String> id, SdkOptional<String> externalId, SdkOptional<int?> externalCreatedAt, SdkOptional<int?> externalUpdatedAt, SdkOptional<int> createdAt, SdkOptional<int> updatedAt, SdkOptional<String> type_, SdkOptional<Map<String, String>> customAttributes}) get copyWith => _copyWith;
 
-  CustomObjectInstance _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? externalId = sdkOmittedValue,
-          Object? externalCreatedAt = sdkOmittedValue,
-          Object? externalUpdatedAt = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? customAttributes = sdkOmittedValue}) =>
-      CustomObjectInstance(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        externalId: identical(externalId, sdkOmittedValue)
-            ? this.externalId
-            : externalId as SdkOptional<String>,
-        externalCreatedAt: identical(externalCreatedAt, sdkOmittedValue)
-            ? this.externalCreatedAt
-            : externalCreatedAt as SdkOptional<int?>,
-        externalUpdatedAt: identical(externalUpdatedAt, sdkOmittedValue)
-            ? this.externalUpdatedAt
-            : externalUpdatedAt as SdkOptional<int?>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<int>,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as SdkOptional<int>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        customAttributes: identical(customAttributes, sdkOmittedValue)
-            ? this.customAttributes
-            : customAttributes as SdkOptional<Map<String, String>>,
-      );
+  CustomObjectInstance _copyWith({Object? id = sdkOmittedValue, Object? externalId = sdkOmittedValue, Object? externalCreatedAt = sdkOmittedValue, Object? externalUpdatedAt = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? customAttributes = sdkOmittedValue}) => CustomObjectInstance(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    externalId: identical(externalId, sdkOmittedValue) ? this.externalId : externalId as SdkOptional<String>,
+    externalCreatedAt: identical(externalCreatedAt, sdkOmittedValue) ? this.externalCreatedAt : externalCreatedAt as SdkOptional<int?>,
+    externalUpdatedAt: identical(externalUpdatedAt, sdkOmittedValue) ? this.externalUpdatedAt : externalUpdatedAt as SdkOptional<int?>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<int>,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<int>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    customAttributes: identical(customAttributes, sdkOmittedValue) ? this.customAttributes : customAttributes as SdkOptional<Map<String, String>>,
+  );
 
-  factory CustomObjectInstance.fromJson(Map<String, dynamic> json) =>
-      CustomObjectInstance(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        externalId: json['external_id'] != null
-            ? SdkPresent((json['external_id'] as String?)!)
-            : const SdkOmitted(),
-        externalCreatedAt: json.containsKey('external_created_at')
-            ? SdkPresent((json['external_created_at'] as num?)?.toInt())
-            : const SdkOmitted(),
-        externalUpdatedAt: json.containsKey('external_updated_at')
-            ? SdkPresent((json['external_updated_at'] as num?)?.toInt())
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent(((json['created_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        updatedAt: json['updated_at'] != null
-            ? SdkPresent(((json['updated_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        customAttributes: json['custom_attributes'] != null
-            ? SdkPresent((json['custom_attributes'] == null
-                ? null
-                : Map<String, dynamic>.from(json['custom_attributes'] as Map)
-                    .map((key, value) => MapEntry(key, value as String)))!)
-            : const SdkOmitted(),
-      );
+  factory CustomObjectInstance.fromJson(Map<String, dynamic> json) => CustomObjectInstance(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    externalId: json['external_id'] != null ? SdkPresent((json['external_id'] as String?)!) : const SdkOmitted(),
+    externalCreatedAt: json.containsKey('external_created_at') ? SdkPresent((json['external_created_at'] as num?)?.toInt()) : const SdkOmitted(),
+    externalUpdatedAt: json.containsKey('external_updated_at') ? SdkPresent((json['external_updated_at'] as num?)?.toInt()) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent(((json['created_at'] as num?)?.toInt())!) : const SdkOmitted(),
+    updatedAt: json['updated_at'] != null ? SdkPresent(((json['updated_at'] as num?)?.toInt())!) : const SdkOmitted(),
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    customAttributes: json['custom_attributes'] != null ? SdkPresent((json['custom_attributes'] == null ? null : Map<String, dynamic>.from(json['custom_attributes'] as Map).map((key, value) => MapEntry(key, value as String)))!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (externalId) {
-          SdkPresent<String>(value: final value) => {
-              'external_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (externalCreatedAt) {
-          SdkPresent<int?>(value: final value) => {
-              'external_created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (externalUpdatedAt) {
-          SdkPresent<int?>(value: final value) => {
-              'external_updated_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<int>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (updatedAt) {
-          SdkPresent<int>(value: final value) => {
-              'updated_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (customAttributes) {
-          SdkPresent<Map<String, String>>(value: final value) => {
-              'custom_attributes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (externalId) {
+      SdkPresent<String>(value: final value) => {'external_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (externalCreatedAt) {
+      SdkPresent<int?>(value: final value) => {'external_created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (externalUpdatedAt) {
+      SdkPresent<int?>(value: final value) => {'external_updated_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<int>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (updatedAt) {
+      SdkPresent<int>(value: final value) => {'updated_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (customAttributes) {
+      SdkPresent<Map<String, String>>(value: final value) => {'custom_attributes': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// A paginated list of custom object instances.
 class CustomObjectInstancesPaginatedList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object - `list`.
   final SdkOptional<CustomObjectInstancesPaginatedListType> type_;
-
   /// The majority of list resources in the API are paginated to allow clients to traverse data over multiple requests. Their responses are likely to contain a pages object that hosts pagination links which a client can use to paginate through the data without having to construct a query. The link relations for the pages field are as follows.
   final SdkOptional<PagesLink> pages;
-
   /// A count of the total number of custom object instances.
   final SdkOptional<int> totalCount;
-
   /// An array of Custom Object Instance objects.
   final SdkOptional<List<CustomObjectInstance?>> data;
 
-  const CustomObjectInstancesPaginatedList(
-      {this.type_ = const SdkOmitted(),
-      this.pages = const SdkOmitted(),
-      this.totalCount = const SdkOmitted(),
-      this.data = const SdkOmitted()});
+  const CustomObjectInstancesPaginatedList({this.type_ = const SdkOmitted(), this.pages = const SdkOmitted(), this.totalCount = const SdkOmitted(), this.data = const SdkOmitted()});
 
-  CustomObjectInstancesPaginatedList Function(
-      {SdkOptional<CustomObjectInstancesPaginatedListType> type_,
-      SdkOptional<PagesLink> pages,
-      SdkOptional<int> totalCount,
-      SdkOptional<List<CustomObjectInstance?>> data}) get copyWith => _copyWith;
+  CustomObjectInstancesPaginatedList Function({SdkOptional<CustomObjectInstancesPaginatedListType> type_, SdkOptional<PagesLink> pages, SdkOptional<int> totalCount, SdkOptional<List<CustomObjectInstance?>> data}) get copyWith => _copyWith;
 
-  CustomObjectInstancesPaginatedList _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? pages = sdkOmittedValue,
-          Object? totalCount = sdkOmittedValue,
-          Object? data = sdkOmittedValue}) =>
-      CustomObjectInstancesPaginatedList(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<CustomObjectInstancesPaginatedListType>,
-        pages: identical(pages, sdkOmittedValue)
-            ? this.pages
-            : pages as SdkOptional<PagesLink>,
-        totalCount: identical(totalCount, sdkOmittedValue)
-            ? this.totalCount
-            : totalCount as SdkOptional<int>,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as SdkOptional<List<CustomObjectInstance?>>,
-      );
+  CustomObjectInstancesPaginatedList _copyWith({Object? type_ = sdkOmittedValue, Object? pages = sdkOmittedValue, Object? totalCount = sdkOmittedValue, Object? data = sdkOmittedValue}) => CustomObjectInstancesPaginatedList(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<CustomObjectInstancesPaginatedListType>,
+    pages: identical(pages, sdkOmittedValue) ? this.pages : pages as SdkOptional<PagesLink>,
+    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as SdkOptional<int>,
+    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<CustomObjectInstance?>>,
+  );
 
-  factory CustomObjectInstancesPaginatedList.fromJson(
-          Map<String, dynamic> json) =>
-      CustomObjectInstancesPaginatedList(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? CustomObjectInstancesPaginatedListType.fromJson(
-                    json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        pages: json['pages'] != null
-            ? SdkPresent((json['pages'] != null
-                ? PagesLink.fromJson(json['pages'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        totalCount: json['total_count'] != null
-            ? SdkPresent(((json['total_count'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        data: json['data'] != null
-            ? SdkPresent(((json['data'] as List?)
-                ?.map((e) => e == null
-                    ? null
-                    : CustomObjectInstance.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory CustomObjectInstancesPaginatedList.fromJson(Map<String, dynamic> json) => CustomObjectInstancesPaginatedList(
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? CustomObjectInstancesPaginatedListType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    pages: json['pages'] != null ? SdkPresent((json['pages'] != null ? PagesLink.fromJson(json['pages'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    totalCount: json['total_count'] != null ? SdkPresent(((json['total_count'] as num?)?.toInt())!) : const SdkOmitted(),
+    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => e == null ? null : CustomObjectInstance.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<CustomObjectInstancesPaginatedListType>(
-            value: final value
-          ) =>
-            {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (pages) {
-          SdkPresent<PagesLink>(value: final value) => {
-              'pages': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (totalCount) {
-          SdkPresent<int>(value: final value) => {
-              'total_count': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (data) {
-          SdkPresent<List<CustomObjectInstance?>>(value: final value) => {
-              'data': value.map((item) => item?.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<CustomObjectInstancesPaginatedListType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (pages) {
+      SdkPresent<PagesLink>(value: final value) => {'pages': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (totalCount) {
+      SdkPresent<int>(value: final value) => {'total_count': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (data) {
+      SdkPresent<List<CustomObjectInstance?>>(value: final value) => {'data': value.map((item) => item?.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

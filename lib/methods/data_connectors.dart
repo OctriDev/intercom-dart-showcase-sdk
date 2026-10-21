@@ -27,26 +27,18 @@ Future<DataConnectorList> listDataConnectors(ClientConfig config,
   return (await sdkRequest<DataConnectorList>('GET', '/data_connectors',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'starting_after': SdkQueryValue(
-                SdkUtils.unwrapOptional(startingAfter),
-                style: 'form',
-                explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'starting_after': SdkQueryValue(SdkUtils.unwrapOptional(startingAfter), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listDataConnectors',
-          fromJsonRaw: (value) =>
-              DataConnectorList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DataConnectorList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Creates a new data connector for calling an external API. Provide `name` and any configuration fields; the connector starts in `draft` state. Configure its settings before setting it to `live`.
 ///
@@ -77,17 +69,13 @@ Future<DataConnectorDetail> createDataConnector(ClientConfig config,
     {required String name,
     SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
     SdkOptional<String> description = const SdkOmitted(),
-    SdkOptional<CreateDataConnectorRequestHttpMethod> httpMethod =
-        const SdkOmitted(),
+    SdkOptional<CreateDataConnectorRequestHttpMethod> httpMethod = const SdkOmitted(),
     SdkOptional<String> url = const SdkOmitted(),
     SdkOptional<String> body = const SdkOmitted(),
     SdkOptional<bool> directFinUsage = const SdkOmitted(),
-    SdkOptional<List<CreateDataConnectorRequestAudiencesItem>> audiences =
-        const SdkOmitted(),
-    SdkOptional<List<CreateDataConnectorRequestHeadersItem>> headers =
-        const SdkOmitted(),
-    SdkOptional<List<CreateDataConnectorRequestDataInputsItem>> dataInputs =
-        const SdkOmitted(),
+    SdkOptional<List<CreateDataConnectorRequestAudiencesItem>> audiences = const SdkOmitted(),
+    SdkOptional<List<CreateDataConnectorRequestHeadersItem>> headers = const SdkOmitted(),
+    SdkOptional<List<CreateDataConnectorRequestDataInputsItem>> dataInputs = const SdkOmitted(),
     SdkOptional<bool> customerAuthentication = const SdkOmitted(),
     SdkOptional<bool> bypassAuthentication = const SdkOmitted(),
     SdkOptional<bool> validateMissingAttributes = const SdkOmitted(),
@@ -106,28 +94,21 @@ Future<DataConnectorDetail> createDataConnector(ClientConfig config,
             'audiences': SdkUtils.unwrapOptional(audiences),
             'headers': SdkUtils.unwrapOptional(headers),
             'data_inputs': SdkUtils.unwrapOptional(dataInputs),
-            'customer_authentication':
-                SdkUtils.unwrapOptional(customerAuthentication),
-            'bypass_authentication':
-                SdkUtils.unwrapOptional(bypassAuthentication),
-            'validate_missing_attributes':
-                SdkUtils.unwrapOptional(validateMissingAttributes),
+            'customer_authentication': SdkUtils.unwrapOptional(customerAuthentication),
+            'bypass_authentication': SdkUtils.unwrapOptional(bypassAuthentication),
+            'validate_missing_attributes': SdkUtils.unwrapOptional(validateMissingAttributes),
             'mock_response': SdkUtils.unwrapOptional(mockResponse),
             'token_ids': SdkUtils.unwrapOptional(tokenIds)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'createDataConnector',
-          fromJsonRaw: (value) =>
-              DataConnectorDetail.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DataConnectorDetail.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '422': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves the full details of a data connector by its identifier. Use `state_version` to choose whether to retrieve its draft or live configuration; it defaults to the live version when omitted.
 ///
@@ -138,33 +119,24 @@ Future<DataConnectorDetail> createDataConnector(ClientConfig config,
 ///   live.
 Future<DataConnectorDetail> retrieveDataConnector(ClientConfig config,
     {required String id,
-    SdkOptional<RetrieveDataConnectorStateVersion> stateVersion =
-        const SdkOmitted(),
+    SdkOptional<RetrieveDataConnectorStateVersion> stateVersion = const SdkOmitted(),
     SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<DataConnectorDetail>(
           'GET', '/data_connectors/${Uri.encodeComponent(id.toString())}',
           config: config,
           query: {
-            'state_version': SdkQueryValue(
-                SdkUtils.unwrapOptional(stateVersion),
-                style: 'form',
-                explode: true)
+            'state_version': SdkQueryValue(SdkUtils.unwrapOptional(stateVersion), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'retrieveDataConnector',
-          fromJsonRaw: (value) =>
-              DataConnectorDetail.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DataConnectorDetail.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Deletes an existing data connector. Use this operation only when the connector is in `draft` state and is not used by any workflows or AI agents. A successful response confirms whether the connector was deleted.
 ///
@@ -179,19 +151,14 @@ Future<DeletedDataConnectorObject> deleteDataConnector(ClientConfig config,
           'DELETE', '/data_connectors/${Uri.encodeComponent(id.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'deleteDataConnector',
-          fromJsonRaw: (value) => DeletedDataConnectorObject.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeletedDataConnectorObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '409': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Updates an existing data connector's configuration. Supply only the fields to change; set `state` to `live` or `draft` to change the connector's state. Updating `data_inputs` replaces all existing inputs.
 ///
@@ -227,17 +194,13 @@ Future<DataConnectorDetail> updateDataConnector(ClientConfig config,
     SdkOptional<String> name = const SdkOmitted(),
     SdkOptional<String> description = const SdkOmitted(),
     SdkOptional<UpdateDataConnectorRequestState> state = const SdkOmitted(),
-    SdkOptional<UpdateDataConnectorRequestHttpMethod> httpMethod =
-        const SdkOmitted(),
+    SdkOptional<UpdateDataConnectorRequestHttpMethod> httpMethod = const SdkOmitted(),
     SdkOptional<String> url = const SdkOmitted(),
     SdkOptional<String> body = const SdkOmitted(),
     SdkOptional<bool> directFinUsage = const SdkOmitted(),
-    SdkOptional<List<UpdateDataConnectorRequestAudiencesItem>> audiences =
-        const SdkOmitted(),
-    SdkOptional<List<UpdateDataConnectorRequestHeadersItem>> headers =
-        const SdkOmitted(),
-    SdkOptional<List<UpdateDataConnectorRequestDataInputsItem>> dataInputs =
-        const SdkOmitted(),
+    SdkOptional<List<UpdateDataConnectorRequestAudiencesItem>> audiences = const SdkOmitted(),
+    SdkOptional<List<UpdateDataConnectorRequestHeadersItem>> headers = const SdkOmitted(),
+    SdkOptional<List<UpdateDataConnectorRequestDataInputsItem>> dataInputs = const SdkOmitted(),
     SdkOptional<bool> customerAuthentication = const SdkOmitted(),
     SdkOptional<bool> bypassAuthentication = const SdkOmitted(),
     SdkOptional<bool> validateMissingAttributes = const SdkOmitted(),
@@ -258,30 +221,21 @@ Future<DataConnectorDetail> updateDataConnector(ClientConfig config,
             'audiences': SdkUtils.unwrapOptional(audiences),
             'headers': SdkUtils.unwrapOptional(headers),
             'data_inputs': SdkUtils.unwrapOptional(dataInputs),
-            'customer_authentication':
-                SdkUtils.unwrapOptional(customerAuthentication),
-            'bypass_authentication':
-                SdkUtils.unwrapOptional(bypassAuthentication),
-            'validate_missing_attributes':
-                SdkUtils.unwrapOptional(validateMissingAttributes),
+            'customer_authentication': SdkUtils.unwrapOptional(customerAuthentication),
+            'bypass_authentication': SdkUtils.unwrapOptional(bypassAuthentication),
+            'validate_missing_attributes': SdkUtils.unwrapOptional(validateMissingAttributes),
             'mock_response': SdkUtils.unwrapOptional(mockResponse),
             'token_ids': SdkUtils.unwrapOptional(tokenIds)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'updateDataConnector',
-          fromJsonRaw: (value) =>
-              DataConnectorDetail.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DataConnectorDetail.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '409': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '422': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Lists paginated execution results for a specific data connector. Results cover the last hour by default; use `start_ts` and `end_ts` to change the time range and the filters to narrow the results. Request and response bodies are excluded unless you set `include_bodies` to `true`.
 ///
@@ -297,21 +251,18 @@ Future<DataConnectorDetail> updateDataConnector(ClientConfig config,
 /// [endTs] Unix timestamp for end of time range (default now).
 /// [includeBodies] Include request/response bodies in the response (default
 ///   false).
-Future<DataConnectorExecutionResultList> listDataConnectorExecutionResults(
-    ClientConfig config,
-    {required String dataConnectorId,
-    SdkOptional<int> perPage = const SdkOmitted(),
-    SdkOptional<String> startingAfter = const SdkOmitted(),
-    SdkOptional<ListDataConnectorExecutionResultsSuccess> success =
-        const SdkOmitted(),
-    SdkOptional<ListDataConnectorExecutionResultsErrorType> errorType =
-        const SdkOmitted(),
-    SdkOptional<int> startTs = const SdkOmitted(),
-    SdkOptional<int> endTs = const SdkOmitted(),
-    SdkOptional<ListDataConnectorExecutionResultsIncludeBodies> includeBodies =
-        const SdkOmitted(),
-    SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<DataConnectorExecutionResultList>
+    listDataConnectorExecutionResults(ClientConfig config,
+        {required String dataConnectorId,
+        SdkOptional<int> perPage = const SdkOmitted(),
+        SdkOptional<String> startingAfter = const SdkOmitted(),
+        SdkOptional<ListDataConnectorExecutionResultsSuccess> success = const SdkOmitted(),
+        SdkOptional<ListDataConnectorExecutionResultsErrorType> errorType = const SdkOmitted(),
+        SdkOptional<int> startTs = const SdkOmitted(),
+        SdkOptional<int> endTs = const SdkOmitted(),
+        SdkOptional<ListDataConnectorExecutionResultsIncludeBodies> includeBodies = const SdkOmitted(),
+        SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   if (perPage is SdkPresent<int>) {
     validateRange('per_page', perPage.value, min: 1, max: 30);
   }
@@ -320,39 +271,23 @@ Future<DataConnectorExecutionResultList> listDataConnectorExecutionResults(
           '/data_connectors/${Uri.encodeComponent(dataConnectorId.toString())}/execution_results',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'starting_after': SdkQueryValue(
-                SdkUtils.unwrapOptional(startingAfter),
-                style: 'form',
-                explode: true),
-            'success': SdkQueryValue(SdkUtils.unwrapOptional(success),
-                style: 'form', explode: true),
-            'error_type': SdkQueryValue(SdkUtils.unwrapOptional(errorType),
-                style: 'form', explode: true),
-            'start_ts': SdkQueryValue(SdkUtils.unwrapOptional(startTs),
-                style: 'form', explode: true),
-            'end_ts': SdkQueryValue(SdkUtils.unwrapOptional(endTs),
-                style: 'form', explode: true),
-            'include_bodies': SdkQueryValue(
-                SdkUtils.unwrapOptional(includeBodies),
-                style: 'form',
-                explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'starting_after': SdkQueryValue(SdkUtils.unwrapOptional(startingAfter), style: 'form', explode: true),
+            'success': SdkQueryValue(SdkUtils.unwrapOptional(success), style: 'form', explode: true),
+            'error_type': SdkQueryValue(SdkUtils.unwrapOptional(errorType), style: 'form', explode: true),
+            'start_ts': SdkQueryValue(SdkUtils.unwrapOptional(startTs), style: 'form', explode: true),
+            'end_ts': SdkQueryValue(SdkUtils.unwrapOptional(endTs), style: 'form', explode: true),
+            'include_bodies': SdkQueryValue(SdkUtils.unwrapOptional(includeBodies), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listDataConnectorExecutionResults',
-          fromJsonRaw: (value) => DataConnectorExecutionResultList.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DataConnectorExecutionResultList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves the details of a specific execution result for a data connector. The response always includes request and response bodies, as well as a sanitized request URL. Use the result to inspect the external API call and its outcome.
 ///
@@ -360,28 +295,24 @@ Future<DataConnectorExecutionResultList> listDataConnectorExecutionResults(
 ///
 /// [dataConnectorId] The unique identifier for the data connector.
 /// [id] The unique identifier for the execution result.
-Future<DataConnectorExecutionResult> showDataConnectorExecutionResult(
-    ClientConfig config,
-    {required String dataConnectorId,
-    required String id,
-    SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<DataConnectorExecutionResult>
+    showDataConnectorExecutionResult(ClientConfig config,
+        {required String dataConnectorId,
+        required String id,
+        SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<DataConnectorExecutionResult>('GET',
           '/data_connectors/${Uri.encodeComponent(dataConnectorId.toString())}/execution_results/${Uri.encodeComponent(id.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'showDataConnectorExecutionResult',
-          fromJsonRaw: (value) => DataConnectorExecutionResult.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DataConnectorExecutionResult.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Lists a data connector's version history, with the newest version first. Each entry is a configuration snapshot with its current status and an optional note; connectors that have never been published return an empty `data` list. Use `starting_after` to paginate, and provide one of the required version-reading OAuth scopes.
 ///
@@ -407,27 +338,18 @@ Future<DataConnectorVersionList> listDataConnectorVersions(ClientConfig config,
           '/data_connectors/${Uri.encodeComponent(id.toString())}/versions',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'starting_after': SdkQueryValue(
-                SdkUtils.unwrapOptional(startingAfter),
-                style: 'form',
-                explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'starting_after': SdkQueryValue(SdkUtils.unwrapOptional(startingAfter), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listDataConnectorVersions',
-          fromJsonRaw: (value) =>
-              DataConnectorVersionList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DataConnectorVersionList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves a single version snapshot of a data connector, including the connector configuration as it was at that version. Use the version's `entity_version_id` as `version_id`. Access requires a version-reading OAuth scope.
 ///
@@ -445,18 +367,14 @@ Future<DataConnectorVersion> retrieveDataConnectorVersion(ClientConfig config,
           '/data_connectors/${Uri.encodeComponent(id.toString())}/versions/${Uri.encodeComponent(versionId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'retrieveDataConnectorVersion',
-          fromJsonRaw: (value) =>
-              DataConnectorVersion.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DataConnectorVersion.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Updates the note on a data connector version; no other version field can be changed. Send an empty or whitespace-only string to clear the note. This operation does not publish the version or roll the connector back, and it requires the `read_write_data_connector_versions` OAuth scope.
 ///
@@ -478,16 +396,10 @@ Future<DataConnectorVersion> updateDataConnectorVersion(ClientConfig config,
           config: config,
           body: {'note': note},
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'updateDataConnectorVersion',
-          fromJsonRaw: (value) =>
-              DataConnectorVersion.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DataConnectorVersion.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

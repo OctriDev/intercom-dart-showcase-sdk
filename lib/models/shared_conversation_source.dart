@@ -8,388 +8,191 @@ part of 'shared_conversation.dart';
 class ConversationSourceRecipientsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The recipient type. One of `to`, `cc`, or `bcc`.
   final SdkOptional<String> type_;
-
   /// The recipient email address.
   final SdkOptional<String> email;
-
   /// The reason this recipient was dropped, if applicable.
   final SdkOptional<String?> dropReason;
 
-  const ConversationSourceRecipientsItem(
-      {this.type_ = const SdkOmitted(),
-      this.email = const SdkOmitted(),
-      this.dropReason = const SdkOmitted()});
+  const ConversationSourceRecipientsItem({this.type_ = const SdkOmitted(), this.email = const SdkOmitted(), this.dropReason = const SdkOmitted()});
 
-  ConversationSourceRecipientsItem Function(
-      {SdkOptional<String> type_,
-      SdkOptional<String> email,
-      SdkOptional<String?> dropReason}) get copyWith => _copyWith;
+  ConversationSourceRecipientsItem Function({SdkOptional<String> type_, SdkOptional<String> email, SdkOptional<String?> dropReason}) get copyWith => _copyWith;
 
-  ConversationSourceRecipientsItem _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? email = sdkOmittedValue,
-          Object? dropReason = sdkOmittedValue}) =>
-      ConversationSourceRecipientsItem(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        email: identical(email, sdkOmittedValue)
-            ? this.email
-            : email as SdkOptional<String>,
-        dropReason: identical(dropReason, sdkOmittedValue)
-            ? this.dropReason
-            : dropReason as SdkOptional<String?>,
-      );
+  ConversationSourceRecipientsItem _copyWith({Object? type_ = sdkOmittedValue, Object? email = sdkOmittedValue, Object? dropReason = sdkOmittedValue}) => ConversationSourceRecipientsItem(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    email: identical(email, sdkOmittedValue) ? this.email : email as SdkOptional<String>,
+    dropReason: identical(dropReason, sdkOmittedValue) ? this.dropReason : dropReason as SdkOptional<String?>,
+  );
 
-  factory ConversationSourceRecipientsItem.fromJson(
-          Map<String, dynamic> json) =>
-      ConversationSourceRecipientsItem(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        email: json['email'] != null
-            ? SdkPresent((json['email'] as String?)!)
-            : const SdkOmitted(),
-        dropReason: json.containsKey('drop_reason')
-            ? SdkPresent(json['drop_reason'] as String?)
-            : const SdkOmitted(),
-      );
+  factory ConversationSourceRecipientsItem.fromJson(Map<String, dynamic> json) => ConversationSourceRecipientsItem(
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    email: json['email'] != null ? SdkPresent((json['email'] as String?)!) : const SdkOmitted(),
+    dropReason: json.containsKey('drop_reason') ? SdkPresent(json['drop_reason'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (email) {
-          SdkPresent<String>(value: final value) => {
-              'email': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (dropReason) {
-          SdkPresent<String?>(value: final value) => {
-              'drop_reason': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (email) {
+      SdkPresent<String>(value: final value) => {'email': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (dropReason) {
+      SdkPresent<String?>(value: final value) => {'drop_reason': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Required object value serialized in the `reply_to[]` wire field.
 class ConversationSourceReplyToItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The Reply-To email address.
   final SdkOptional<String> email;
-
   /// The display name associated with the Reply-To address.
   final SdkOptional<String?> name;
 
-  const ConversationSourceReplyToItem(
-      {this.email = const SdkOmitted(), this.name = const SdkOmitted()});
+  const ConversationSourceReplyToItem({this.email = const SdkOmitted(), this.name = const SdkOmitted()});
 
-  ConversationSourceReplyToItem Function(
-      {SdkOptional<String> email,
-      SdkOptional<String?> name}) get copyWith => _copyWith;
+  ConversationSourceReplyToItem Function({SdkOptional<String> email, SdkOptional<String?> name}) get copyWith => _copyWith;
 
-  ConversationSourceReplyToItem _copyWith(
-          {Object? email = sdkOmittedValue, Object? name = sdkOmittedValue}) =>
-      ConversationSourceReplyToItem(
-        email: identical(email, sdkOmittedValue)
-            ? this.email
-            : email as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String?>,
-      );
+  ConversationSourceReplyToItem _copyWith({Object? email = sdkOmittedValue, Object? name = sdkOmittedValue}) => ConversationSourceReplyToItem(
+    email: identical(email, sdkOmittedValue) ? this.email : email as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String?>,
+  );
 
-  factory ConversationSourceReplyToItem.fromJson(Map<String, dynamic> json) =>
-      ConversationSourceReplyToItem(
-        email: json['email'] != null
-            ? SdkPresent((json['email'] as String?)!)
-            : const SdkOmitted(),
-        name: json.containsKey('name')
-            ? SdkPresent(json['name'] as String?)
-            : const SdkOmitted(),
-      );
+  factory ConversationSourceReplyToItem.fromJson(Map<String, dynamic> json) => ConversationSourceReplyToItem(
+    email: json['email'] != null ? SdkPresent((json['email'] as String?)!) : const SdkOmitted(),
+    name: json.containsKey('name') ? SdkPresent(json['name'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (email) {
-          SdkPresent<String>(value: final value) => {
-              'email': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String?>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (email) {
+      SdkPresent<String>(value: final value) => {'email': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String?>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// The type of the conversation part that started this conversation. Can be Contact, Admin, Campaign, Automated or Operator initiated.
 class ConversationSource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The origin of this conversation.
   final SdkOptional<String> type_;
-
   /// The id of the source message.
   final SdkOptional<String?> id;
-
   /// How the conversation was initiated.
   final SdkOptional<String> deliveredAs;
-
   /// The recipients of the source message. Only present for email conversations.
   final SdkOptional<List<ConversationSourceRecipientsItem>?> recipients;
-
   /// The Reply-To header addresses of the source message, where a reply will be routed. Can differ from the sender's From address. Only present for email conversations.
   final SdkOptional<List<ConversationSourceReplyToItem>?> replyTo;
-
   /// Optional. The message subject. For Twitter, this will show a generic message regarding why the subject is obscured. In webhook payloads for API version 2.15+, this field returns plain text.
   final SdkOptional<String> subject;
-
   /// The message body, which may contain HTML. For Twitter, this will show a generic message regarding why the body is obscured. In webhook payloads for API version 2.15+, this field returns plain text.
   final SdkOptional<String> body;
-
   /// The author who started the conversation. Can be a Contact, Admin, or Bot.
   final SdkOptional<ConversationSourceAuthor> author;
-
   /// A list of attachments for the part.
   final SdkOptional<List<PartAttachment>> attachments;
-
   /// The URL where the conversation was started. For Twitter, Email, and Bots, this will be blank.
   final SdkOptional<String?> url;
-
   /// Whether or not the source message has been redacted. Only applicable for contact initiated messages.
   final SdkOptional<bool> redacted;
-
   /// Contains metadata if the message was sent as an email
   final SdkOptional<SourceEmailMessageMetadata> emailMessageMetadata;
 
-  const ConversationSource(
-      {this.type_ = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.deliveredAs = const SdkOmitted(),
-      this.recipients = const SdkOmitted(),
-      this.replyTo = const SdkOmitted(),
-      this.subject = const SdkOmitted(),
-      this.body = const SdkOmitted(),
-      this.author = const SdkOmitted(),
-      this.attachments = const SdkOmitted(),
-      this.url = const SdkOmitted(),
-      this.redacted = const SdkOmitted(),
-      this.emailMessageMetadata = const SdkOmitted()});
+  const ConversationSource({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.deliveredAs = const SdkOmitted(), this.recipients = const SdkOmitted(), this.replyTo = const SdkOmitted(), this.subject = const SdkOmitted(), this.body = const SdkOmitted(), this.author = const SdkOmitted(), this.attachments = const SdkOmitted(), this.url = const SdkOmitted(), this.redacted = const SdkOmitted(), this.emailMessageMetadata = const SdkOmitted()});
 
-  ConversationSource Function(
-          {SdkOptional<String> type_,
-          SdkOptional<String?> id,
-          SdkOptional<String> deliveredAs,
-          SdkOptional<List<ConversationSourceRecipientsItem>?> recipients,
-          SdkOptional<List<ConversationSourceReplyToItem>?> replyTo,
-          SdkOptional<String> subject,
-          SdkOptional<String> body,
-          SdkOptional<ConversationSourceAuthor> author,
-          SdkOptional<List<PartAttachment>> attachments,
-          SdkOptional<String?> url,
-          SdkOptional<bool> redacted,
-          SdkOptional<SourceEmailMessageMetadata> emailMessageMetadata})
-      get copyWith => _copyWith;
+  ConversationSource Function({SdkOptional<String> type_, SdkOptional<String?> id, SdkOptional<String> deliveredAs, SdkOptional<List<ConversationSourceRecipientsItem>?> recipients, SdkOptional<List<ConversationSourceReplyToItem>?> replyTo, SdkOptional<String> subject, SdkOptional<String> body, SdkOptional<ConversationSourceAuthor> author, SdkOptional<List<PartAttachment>> attachments, SdkOptional<String?> url, SdkOptional<bool> redacted, SdkOptional<SourceEmailMessageMetadata> emailMessageMetadata}) get copyWith => _copyWith;
 
-  ConversationSource _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? deliveredAs = sdkOmittedValue,
-          Object? recipients = sdkOmittedValue,
-          Object? replyTo = sdkOmittedValue,
-          Object? subject = sdkOmittedValue,
-          Object? body = sdkOmittedValue,
-          Object? author = sdkOmittedValue,
-          Object? attachments = sdkOmittedValue,
-          Object? url = sdkOmittedValue,
-          Object? redacted = sdkOmittedValue,
-          Object? emailMessageMetadata = sdkOmittedValue}) =>
-      ConversationSource(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String?>,
-        deliveredAs: identical(deliveredAs, sdkOmittedValue)
-            ? this.deliveredAs
-            : deliveredAs as SdkOptional<String>,
-        recipients: identical(recipients, sdkOmittedValue)
-            ? this.recipients
-            : recipients
-                as SdkOptional<List<ConversationSourceRecipientsItem>?>,
-        replyTo: identical(replyTo, sdkOmittedValue)
-            ? this.replyTo
-            : replyTo as SdkOptional<List<ConversationSourceReplyToItem>?>,
-        subject: identical(subject, sdkOmittedValue)
-            ? this.subject
-            : subject as SdkOptional<String>,
-        body: identical(body, sdkOmittedValue)
-            ? this.body
-            : body as SdkOptional<String>,
-        author: identical(author, sdkOmittedValue)
-            ? this.author
-            : author as SdkOptional<ConversationSourceAuthor>,
-        attachments: identical(attachments, sdkOmittedValue)
-            ? this.attachments
-            : attachments as SdkOptional<List<PartAttachment>>,
-        url: identical(url, sdkOmittedValue)
-            ? this.url
-            : url as SdkOptional<String?>,
-        redacted: identical(redacted, sdkOmittedValue)
-            ? this.redacted
-            : redacted as SdkOptional<bool>,
-        emailMessageMetadata: identical(emailMessageMetadata, sdkOmittedValue)
-            ? this.emailMessageMetadata
-            : emailMessageMetadata as SdkOptional<SourceEmailMessageMetadata>,
-      );
+  ConversationSource _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? deliveredAs = sdkOmittedValue, Object? recipients = sdkOmittedValue, Object? replyTo = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? body = sdkOmittedValue, Object? author = sdkOmittedValue, Object? attachments = sdkOmittedValue, Object? url = sdkOmittedValue, Object? redacted = sdkOmittedValue, Object? emailMessageMetadata = sdkOmittedValue}) => ConversationSource(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String?>,
+    deliveredAs: identical(deliveredAs, sdkOmittedValue) ? this.deliveredAs : deliveredAs as SdkOptional<String>,
+    recipients: identical(recipients, sdkOmittedValue) ? this.recipients : recipients as SdkOptional<List<ConversationSourceRecipientsItem>?>,
+    replyTo: identical(replyTo, sdkOmittedValue) ? this.replyTo : replyTo as SdkOptional<List<ConversationSourceReplyToItem>?>,
+    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as SdkOptional<String>,
+    body: identical(body, sdkOmittedValue) ? this.body : body as SdkOptional<String>,
+    author: identical(author, sdkOmittedValue) ? this.author : author as SdkOptional<ConversationSourceAuthor>,
+    attachments: identical(attachments, sdkOmittedValue) ? this.attachments : attachments as SdkOptional<List<PartAttachment>>,
+    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String?>,
+    redacted: identical(redacted, sdkOmittedValue) ? this.redacted : redacted as SdkOptional<bool>,
+    emailMessageMetadata: identical(emailMessageMetadata, sdkOmittedValue) ? this.emailMessageMetadata : emailMessageMetadata as SdkOptional<SourceEmailMessageMetadata>,
+  );
 
-  factory ConversationSource.fromJson(Map<String, dynamic> json) =>
-      ConversationSource(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        id: json.containsKey('id')
-            ? SdkPresent(json['id'] as String?)
-            : const SdkOmitted(),
-        deliveredAs: json['delivered_as'] != null
-            ? SdkPresent((json['delivered_as'] as String?)!)
-            : const SdkOmitted(),
-        recipients: json.containsKey('recipients')
-            ? SdkPresent((json['recipients'] as List?)
-                ?.map((e) => ConversationSourceRecipientsItem.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())
-            : const SdkOmitted(),
-        replyTo: json.containsKey('reply_to')
-            ? SdkPresent((json['reply_to'] as List?)
-                ?.map((e) => ConversationSourceReplyToItem.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())
-            : const SdkOmitted(),
-        subject: json['subject'] != null
-            ? SdkPresent((json['subject'] as String?)!)
-            : const SdkOmitted(),
-        body: json['body'] != null
-            ? SdkPresent((json['body'] as String?)!)
-            : const SdkOmitted(),
-        author: json['author'] != null
-            ? SdkPresent((json['author'] != null
-                ? ConversationSourceAuthor.fromJson(
-                    json['author'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        attachments: json['attachments'] != null
-            ? SdkPresent(((json['attachments'] as List?)
-                ?.map((e) => PartAttachment.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        url: json.containsKey('url')
-            ? SdkPresent(json['url'] as String?)
-            : const SdkOmitted(),
-        redacted: json['redacted'] != null
-            ? SdkPresent((json['redacted'] as bool?)!)
-            : const SdkOmitted(),
-        emailMessageMetadata: json['email_message_metadata'] != null
-            ? SdkPresent((json['email_message_metadata'] != null
-                ? SourceEmailMessageMetadata.fromJson(
-                    json['email_message_metadata'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ConversationSource.fromJson(Map<String, dynamic> json) => ConversationSource(
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    id: json.containsKey('id') ? SdkPresent(json['id'] as String?) : const SdkOmitted(),
+    deliveredAs: json['delivered_as'] != null ? SdkPresent((json['delivered_as'] as String?)!) : const SdkOmitted(),
+    recipients: json.containsKey('recipients') ? SdkPresent((json['recipients'] as List?)?.map((e) => ConversationSourceRecipientsItem.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
+    replyTo: json.containsKey('reply_to') ? SdkPresent((json['reply_to'] as List?)?.map((e) => ConversationSourceReplyToItem.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
+    subject: json['subject'] != null ? SdkPresent((json['subject'] as String?)!) : const SdkOmitted(),
+    body: json['body'] != null ? SdkPresent((json['body'] as String?)!) : const SdkOmitted(),
+    author: json['author'] != null ? SdkPresent((json['author'] != null ? ConversationSourceAuthor.fromJson(json['author'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    attachments: json['attachments'] != null ? SdkPresent(((json['attachments'] as List?)?.map((e) => PartAttachment.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    url: json.containsKey('url') ? SdkPresent(json['url'] as String?) : const SdkOmitted(),
+    redacted: json['redacted'] != null ? SdkPresent((json['redacted'] as bool?)!) : const SdkOmitted(),
+    emailMessageMetadata: json['email_message_metadata'] != null ? SdkPresent((json['email_message_metadata'] != null ? SourceEmailMessageMetadata.fromJson(json['email_message_metadata'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String?>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (deliveredAs) {
-          SdkPresent<String>(value: final value) => {
-              'delivered_as': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (recipients) {
-          SdkPresent<List<ConversationSourceRecipientsItem>?>(
-            value: final value
-          ) =>
-            {
-              'recipients': value?.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (replyTo) {
-          SdkPresent<List<ConversationSourceReplyToItem>?>(
-            value: final value
-          ) =>
-            {
-              'reply_to': value?.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (subject) {
-          SdkPresent<String>(value: final value) => {
-              'subject': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (body) {
-          SdkPresent<String>(value: final value) => {
-              'body': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (author) {
-          SdkPresent<ConversationSourceAuthor>(value: final value) => {
-              'author': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (attachments) {
-          SdkPresent<List<PartAttachment>>(value: final value) => {
-              'attachments': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (url) {
-          SdkPresent<String?>(value: final value) => {
-              'url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (redacted) {
-          SdkPresent<bool>(value: final value) => {
-              'redacted': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (emailMessageMetadata) {
-          SdkPresent<SourceEmailMessageMetadata>(value: final value) => {
-              'email_message_metadata': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String?>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (deliveredAs) {
+      SdkPresent<String>(value: final value) => {'delivered_as': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (recipients) {
+      SdkPresent<List<ConversationSourceRecipientsItem>?>(value: final value) => {'recipients': value?.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (replyTo) {
+      SdkPresent<List<ConversationSourceReplyToItem>?>(value: final value) => {'reply_to': value?.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (subject) {
+      SdkPresent<String>(value: final value) => {'subject': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (body) {
+      SdkPresent<String>(value: final value) => {'body': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (author) {
+      SdkPresent<ConversationSourceAuthor>(value: final value) => {'author': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (attachments) {
+      SdkPresent<List<PartAttachment>>(value: final value) => {'attachments': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (url) {
+      SdkPresent<String?>(value: final value) => {'url': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (redacted) {
+      SdkPresent<bool>(value: final value) => {'redacted': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (emailMessageMetadata) {
+      SdkPresent<SourceEmailMessageMetadata>(value: final value) => {'email_message_metadata': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

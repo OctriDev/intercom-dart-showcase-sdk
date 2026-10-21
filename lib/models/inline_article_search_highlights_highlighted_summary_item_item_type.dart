@@ -6,281 +6,237 @@ part of 'inline.dart';
 // Inline operation models
 /// The type of text - `highlight` or `plain`.
 final class ArticleSearchHighlightsHighlightedSummaryItemItemType {
+
   final String value;
 
   const ArticleSearchHighlightsHighlightedSummaryItemItemType._(this.value);
 
-  factory ArticleSearchHighlightsHighlightedSummaryItemItemType.fromJson(
-          String value) =>
-      ArticleSearchHighlightsHighlightedSummaryItemItemType._(value);
+  factory ArticleSearchHighlightsHighlightedSummaryItemItemType.fromJson(String value) => ArticleSearchHighlightsHighlightedSummaryItemItemType._(value);
 
-  static const highlight =
-      ArticleSearchHighlightsHighlightedSummaryItemItemType._('highlight');
-  static const plain =
-      ArticleSearchHighlightsHighlightedSummaryItemItemType._('plain');
+  static const highlight = ArticleSearchHighlightsHighlightedSummaryItemItemType._('highlight');
+  static const plain = ArticleSearchHighlightsHighlightedSummaryItemItemType._('plain');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ArticleSearchHighlightsHighlightedSummaryItemItemType &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is ArticleSearchHighlightsHighlightedSummaryItemItemType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of text - `highlight` or `plain`.
 final class ArticleSearchHighlightsHighlightedTitleItemType {
+
   final String value;
 
   const ArticleSearchHighlightsHighlightedTitleItemType._(this.value);
 
-  factory ArticleSearchHighlightsHighlightedTitleItemType.fromJson(
-          String value) =>
-      ArticleSearchHighlightsHighlightedTitleItemType._(value);
+  factory ArticleSearchHighlightsHighlightedTitleItemType.fromJson(String value) => ArticleSearchHighlightsHighlightedTitleItemType._(value);
 
-  static const highlight =
-      ArticleSearchHighlightsHighlightedTitleItemType._('highlight');
-  static const plain =
-      ArticleSearchHighlightsHighlightedTitleItemType._('plain');
+  static const highlight = ArticleSearchHighlightsHighlightedTitleItemType._('highlight');
+  static const plain = ArticleSearchHighlightsHighlightedTitleItemType._('plain');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ArticleSearchHighlightsHighlightedTitleItemType &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is ArticleSearchHighlightsHighlightedTitleItemType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the object - `list`.
 final class ArticleSearchResponseType {
+
   final String value;
 
   const ArticleSearchResponseType._(this.value);
 
-  factory ArticleSearchResponseType.fromJson(String value) =>
-      ArticleSearchResponseType._(value);
+  factory ArticleSearchResponseType.fromJson(String value) => ArticleSearchResponseType._(value);
 
   static const list = ArticleSearchResponseType._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ArticleSearchResponseType && other.value == value;
+  @override bool operator ==(Object other) => other is ArticleSearchResponseType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of object - `article_statistics`.
 final class ArticleStatisticsType {
+
   final String value;
 
   const ArticleStatisticsType._(this.value);
 
-  factory ArticleStatisticsType.fromJson(String value) =>
-      ArticleStatisticsType._(value);
+  factory ArticleStatisticsType.fromJson(String value) => ArticleStatisticsType._(value);
 
-  static const articleStatistics =
-      ArticleStatisticsType._('article_statistics');
+  static const articleStatistics = ArticleStatisticsType._('article_statistics');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ArticleStatisticsType && other.value == value;
+  @override bool operator ==(Object other) => other is ArticleStatisticsType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of object - article_translated_content.
 final class ArticleTranslatedContentType {
+
   final String value;
 
   const ArticleTranslatedContentType._(this.value);
 
-  factory ArticleTranslatedContentType.fromJson(String value) =>
-      ArticleTranslatedContentType._(value);
+  factory ArticleTranslatedContentType.fromJson(String value) => ArticleTranslatedContentType._(value);
 
-  static const articleTranslatedContent =
-      ArticleTranslatedContentType._('article_translated_content');
+  static const articleTranslatedContent = ArticleTranslatedContentType._('article_translated_content');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ArticleTranslatedContentType && other.value == value;
+  @override bool operator ==(Object other) => other is ArticleTranslatedContentType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of object - article_translated_content.
 final class ArticleTranslatedContentRequestType {
+
   final String value;
 
   const ArticleTranslatedContentRequestType._(this.value);
 
-  factory ArticleTranslatedContentRequestType.fromJson(String value) =>
-      ArticleTranslatedContentRequestType._(value);
+  factory ArticleTranslatedContentRequestType.fromJson(String value) => ArticleTranslatedContentRequestType._(value);
 
-  static const articleTranslatedContent =
-      ArticleTranslatedContentRequestType._('article_translated_content');
+  static const articleTranslatedContent = ArticleTranslatedContentRequestType._('article_translated_content');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ArticleTranslatedContentRequestType && other.value == value;
+  @override bool operator ==(Object other) => other is ArticleTranslatedContentRequestType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Whether this version is the currently published version of the article (`published`) or an earlier non-live version (`draft`).
 final class ArticleVersionState {
+
   final String value;
 
   const ArticleVersionState._(this.value);
 
-  factory ArticleVersionState.fromJson(String value) =>
-      ArticleVersionState._(value);
+  factory ArticleVersionState.fromJson(String value) => ArticleVersionState._(value);
 
   static const published = ArticleVersionState._('published');
   static const draft = ArticleVersionState._('draft');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ArticleVersionState && other.value == value;
+  @override bool operator ==(Object other) => other is ArticleVersionState && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// String representing the object's type. Always has the value `article_version`.
 final class ArticleVersionType {
+
   final String value;
 
   const ArticleVersionType._(this.value);
 
-  factory ArticleVersionType.fromJson(String value) =>
-      ArticleVersionType._(value);
+  factory ArticleVersionType.fromJson(String value) => ArticleVersionType._(value);
 
   static const articleVersion = ArticleVersionType._('article_version');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ArticleVersionType && other.value == value;
+  @override bool operator ==(Object other) => other is ArticleVersionType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the object - `list`.
 final class ArticleVersionListType {
+
   final String value;
 
   const ArticleVersionListType._(this.value);
 
-  factory ArticleVersionListType.fromJson(String value) =>
-      ArticleVersionListType._(value);
+  factory ArticleVersionListType.fromJson(String value) => ArticleVersionListType._(value);
 
   static const list = ArticleVersionListType._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ArticleVersionListType && other.value == value;
+  @override bool operator ==(Object other) => other is ArticleVersionListType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Whether this version is the currently published version of the article (`published`) or an earlier non-live version (`draft`).
 final class ArticleVersionSummaryState {
+
   final String value;
 
   const ArticleVersionSummaryState._(this.value);
 
-  factory ArticleVersionSummaryState.fromJson(String value) =>
-      ArticleVersionSummaryState._(value);
+  factory ArticleVersionSummaryState.fromJson(String value) => ArticleVersionSummaryState._(value);
 
   static const published = ArticleVersionSummaryState._('published');
   static const draft = ArticleVersionSummaryState._('draft');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ArticleVersionSummaryState && other.value == value;
+  @override bool operator ==(Object other) => other is ArticleVersionSummaryState && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// String representing the object's type. Always has the value `article_version`.
 final class ArticleVersionSummaryType {
+
   final String value;
 
   const ArticleVersionSummaryType._(this.value);
 
-  factory ArticleVersionSummaryType.fromJson(String value) =>
-      ArticleVersionSummaryType._(value);
+  factory ArticleVersionSummaryType.fromJson(String value) => ArticleVersionSummaryType._(value);
 
   static const articleVersion = ArticleVersionSummaryType._('article_version');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ArticleVersionSummaryType && other.value == value;
+  @override bool operator ==(Object other) => other is ArticleVersionSummaryType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `message_type` wire field.
@@ -289,18 +245,14 @@ enum AssignConversationRequestMessageType {
 
   static AssignConversationRequestMessageType fromJson(String value) {
     switch (value) {
-      case 'assignment':
-        return AssignConversationRequestMessageType.assignment;
-      default:
-        throw ArgumentError(
-            'Unknown AssignConversationRequestMessageType: $value');
+      case 'assignment': return AssignConversationRequestMessageType.assignment;
+      default: throw ArgumentError('Unknown AssignConversationRequestMessageType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case AssignConversationRequestMessageType.assignment:
-        return 'assignment';
+      case AssignConversationRequestMessageType.assignment: return 'assignment';
     }
   }
 
@@ -310,25 +262,22 @@ enum AssignConversationRequestMessageType {
 
 /// Required enumerated value serialized in the `type` wire field.
 final class AssignConversationRequestType {
+
   final String value;
 
   const AssignConversationRequestType._(this.value);
 
-  factory AssignConversationRequestType.fromJson(String value) =>
-      AssignConversationRequestType._(value);
+  factory AssignConversationRequestType.fromJson(String value) => AssignConversationRequestType._(value);
 
   static const admin = AssignConversationRequestType._('admin');
   static const team = AssignConversationRequestType._('team');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AssignConversationRequestType && other.value == value;
+  @override bool operator ==(Object other) => other is AssignConversationRequestType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

@@ -8,112 +8,57 @@ part of 'models.dart';
 class ConversationScorecardNote {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The id of the note.
   final SdkOptional<String> id;
-
   /// The time the note was created.
   final SdkOptional<int> createdAt;
-
   /// The time the note was last edited. Equal to `created_at` when the note has never been edited.
   final SdkOptional<int> updatedAt;
-
   /// Who wrote the note. Null when the teammate who wrote it has since been deleted.
   final SdkOptional<ConversationScorecardNoteAuthor?> author;
-
   /// The text of the note exactly as the teammate entered it. Plain text; it is not rendered as HTML.
   final SdkOptional<String> body;
 
-  const ConversationScorecardNote(
-      {this.id = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.updatedAt = const SdkOmitted(),
-      this.author = const SdkOmitted(),
-      this.body = const SdkOmitted()});
+  const ConversationScorecardNote({this.id = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.author = const SdkOmitted(), this.body = const SdkOmitted()});
 
-  ConversationScorecardNote Function(
-      {SdkOptional<String> id,
-      SdkOptional<int> createdAt,
-      SdkOptional<int> updatedAt,
-      SdkOptional<ConversationScorecardNoteAuthor?> author,
-      SdkOptional<String> body}) get copyWith => _copyWith;
+  ConversationScorecardNote Function({SdkOptional<String> id, SdkOptional<int> createdAt, SdkOptional<int> updatedAt, SdkOptional<ConversationScorecardNoteAuthor?> author, SdkOptional<String> body}) get copyWith => _copyWith;
 
-  ConversationScorecardNote _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue,
-          Object? author = sdkOmittedValue,
-          Object? body = sdkOmittedValue}) =>
-      ConversationScorecardNote(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<int>,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as SdkOptional<int>,
-        author: identical(author, sdkOmittedValue)
-            ? this.author
-            : author as SdkOptional<ConversationScorecardNoteAuthor?>,
-        body: identical(body, sdkOmittedValue)
-            ? this.body
-            : body as SdkOptional<String>,
-      );
+  ConversationScorecardNote _copyWith({Object? id = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? author = sdkOmittedValue, Object? body = sdkOmittedValue}) => ConversationScorecardNote(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<int>,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<int>,
+    author: identical(author, sdkOmittedValue) ? this.author : author as SdkOptional<ConversationScorecardNoteAuthor?>,
+    body: identical(body, sdkOmittedValue) ? this.body : body as SdkOptional<String>,
+  );
 
-  factory ConversationScorecardNote.fromJson(Map<String, dynamic> json) =>
-      ConversationScorecardNote(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent(((json['created_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        updatedAt: json['updated_at'] != null
-            ? SdkPresent(((json['updated_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        author: json.containsKey('author')
-            ? SdkPresent(json['author'] != null
-                ? ConversationScorecardNoteAuthor.fromJson(
-                    json['author'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        body: json['body'] != null
-            ? SdkPresent((json['body'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ConversationScorecardNote.fromJson(Map<String, dynamic> json) => ConversationScorecardNote(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent(((json['created_at'] as num?)?.toInt())!) : const SdkOmitted(),
+    updatedAt: json['updated_at'] != null ? SdkPresent(((json['updated_at'] as num?)?.toInt())!) : const SdkOmitted(),
+    author: json.containsKey('author') ? SdkPresent(json['author'] != null ? ConversationScorecardNoteAuthor.fromJson(json['author'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    body: json['body'] != null ? SdkPresent((json['body'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<int>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (updatedAt) {
-          SdkPresent<int>(value: final value) => {
-              'updated_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (author) {
-          SdkPresent<ConversationScorecardNoteAuthor?>(value: final value) => {
-              'author': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (body) {
-          SdkPresent<String>(value: final value) => {
-              'body': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<int>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (updatedAt) {
+      SdkPresent<int>(value: final value) => {'updated_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (author) {
+      SdkPresent<ConversationScorecardNoteAuthor?>(value: final value) => {'author': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (body) {
+      SdkPresent<String>(value: final value) => {'body': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

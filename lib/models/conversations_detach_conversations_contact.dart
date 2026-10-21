@@ -8,30 +8,22 @@ part of 'conversations.dart';
 class DetachContactFromConversationRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The `id` of the admin who is performing the action.
   final String adminId;
 
   const DetachContactFromConversationRequest({required this.adminId});
 
-  DetachContactFromConversationRequest Function({String adminId})
-      get copyWith => _copyWith;
+  DetachContactFromConversationRequest Function({String adminId}) get copyWith => _copyWith;
 
-  DetachContactFromConversationRequest _copyWith(
-          {Object? adminId = sdkOmittedValue}) =>
-      DetachContactFromConversationRequest(
-        adminId: identical(adminId, sdkOmittedValue)
-            ? this.adminId
-            : adminId as String,
-      );
+  DetachContactFromConversationRequest _copyWith({Object? adminId = sdkOmittedValue}) => DetachContactFromConversationRequest(
+    adminId: identical(adminId, sdkOmittedValue) ? this.adminId : adminId as String,
+  );
 
-  factory DetachContactFromConversationRequest.fromJson(
-          Map<String, dynamic> json) =>
-      DetachContactFromConversationRequest(
-        adminId: (json['admin_id'] as String?)!,
-      );
+  factory DetachContactFromConversationRequest.fromJson(Map<String, dynamic> json) => DetachContactFromConversationRequest(
+    adminId: (json['admin_id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'admin_id': adminId,
-      };
+    'admin_id': adminId,
+  };
 }

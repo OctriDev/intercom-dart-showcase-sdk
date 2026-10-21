@@ -8,75 +8,41 @@ part of 'conversations.dart';
 class ConversationDeleted {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique identifier for the conversation.
   final SdkOptional<String> id;
-
   /// always conversation
   final SdkOptional<ConversationDeletedObject> object;
-
   /// Whether the conversation is deleted or not.
   final SdkOptional<bool> deleted;
 
-  const ConversationDeleted(
-      {this.id = const SdkOmitted(),
-      this.object = const SdkOmitted(),
-      this.deleted = const SdkOmitted()});
+  const ConversationDeleted({this.id = const SdkOmitted(), this.object = const SdkOmitted(), this.deleted = const SdkOmitted()});
 
-  ConversationDeleted Function(
-      {SdkOptional<String> id,
-      SdkOptional<ConversationDeletedObject> object,
-      SdkOptional<bool> deleted}) get copyWith => _copyWith;
+  ConversationDeleted Function({SdkOptional<String> id, SdkOptional<ConversationDeletedObject> object, SdkOptional<bool> deleted}) get copyWith => _copyWith;
 
-  ConversationDeleted _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? object = sdkOmittedValue,
-          Object? deleted = sdkOmittedValue}) =>
-      ConversationDeleted(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<ConversationDeletedObject>,
-        deleted: identical(deleted, sdkOmittedValue)
-            ? this.deleted
-            : deleted as SdkOptional<bool>,
-      );
+  ConversationDeleted _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => ConversationDeleted(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<ConversationDeletedObject>,
+    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as SdkOptional<bool>,
+  );
 
-  factory ConversationDeleted.fromJson(Map<String, dynamic> json) =>
-      ConversationDeleted(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        object: json['object'] != null
-            ? SdkPresent((json['object'] != null
-                ? ConversationDeletedObject.fromJson(json['object'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        deleted: json['deleted'] != null
-            ? SdkPresent((json['deleted'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory ConversationDeleted.fromJson(Map<String, dynamic> json) => ConversationDeleted(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    object: json['object'] != null ? SdkPresent((json['object'] != null ? ConversationDeletedObject.fromJson(json['object'] as String) : null)!) : const SdkOmitted(),
+    deleted: json['deleted'] != null ? SdkPresent((json['deleted'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (object) {
-          SdkPresent<ConversationDeletedObject>(value: final value) => {
-              'object': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (deleted) {
-          SdkPresent<bool>(value: final value) => {
-              'deleted': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (object) {
+      SdkPresent<ConversationDeletedObject>(value: final value) => {'object': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (deleted) {
+      SdkPresent<bool>(value: final value) => {'deleted': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

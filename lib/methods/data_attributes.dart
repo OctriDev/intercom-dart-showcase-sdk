@@ -22,26 +22,18 @@ Future<DataAttributeList> listDataAttributes(ClientConfig config,
   return (await sdkRequest<DataAttributeList>('GET', '/data_attributes',
           config: config,
           query: {
-            'model': SdkQueryValue(SdkUtils.unwrapOptional(model),
-                style: 'form', explode: true),
-            'include_archived': SdkQueryValue(
-                SdkUtils.unwrapOptional(includeArchived),
-                style: 'form',
-                explode: true)
+            'model': SdkQueryValue(SdkUtils.unwrapOptional(model), style: 'form', explode: true),
+            'include_archived': SdkQueryValue(SdkUtils.unwrapOptional(includeArchived), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listDataAttributes',
-          fromJsonRaw: (value) =>
-              DataAttributeList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DataAttributeList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '422': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Creates a data attribute for a contact or company model. Provide `name`, `model`, and `data_type`; for a list attribute, also supply `options` with at least two entries.
 ///
@@ -67,18 +59,14 @@ Future<DataAttribute> createDataAttribute(ClientConfig config,
             'messenger_writable': SdkUtils.unwrapOptional(messengerWritable)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'createDataAttribute',
-          fromJsonRaw: (value) =>
-              DataAttribute.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DataAttribute.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Updates a data attribute's archived status, description, Messenger write access, or list options. You cannot change the attribute's data type through this API; use the UI to change it.
 ///
@@ -104,17 +92,10 @@ Future<DataAttribute> updateDataAttribute(ClientConfig config,
             'messenger_writable': SdkUtils.unwrapOptional(messengerWritable)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'updateDataAttribute',
-          fromJsonRaw: (value) =>
-              DataAttribute.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DataAttribute.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '422': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

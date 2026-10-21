@@ -8,114 +8,57 @@ part of 'companies.dart';
 class CompanyScroll {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of object - `list`
   final SdkOptional<CompanyScrollType> type_;
-
   /// Optional array value serialized in the `data` wire field.
   final SdkOptional<List<Company>> data;
-
   /// Cursor-based pagination is a technique used in the Intercom API to navigate through large amounts of data. A "cursor" or pointer is used to keep track of the current position in the result set, allowing the API to return the data in small chunks or "pages" as needed.
   final SdkOptional<CursorPages?> pages;
-
   /// The total number of companies
   final SdkOptional<int?> totalCount;
-
   /// The scroll parameter to use in the next request to fetch the next page of results.
   final SdkOptional<String> scrollParam;
 
-  const CompanyScroll(
-      {this.type_ = const SdkOmitted(),
-      this.data = const SdkOmitted(),
-      this.pages = const SdkOmitted(),
-      this.totalCount = const SdkOmitted(),
-      this.scrollParam = const SdkOmitted()});
+  const CompanyScroll({this.type_ = const SdkOmitted(), this.data = const SdkOmitted(), this.pages = const SdkOmitted(), this.totalCount = const SdkOmitted(), this.scrollParam = const SdkOmitted()});
 
-  CompanyScroll Function(
-      {SdkOptional<CompanyScrollType> type_,
-      SdkOptional<List<Company>> data,
-      SdkOptional<CursorPages?> pages,
-      SdkOptional<int?> totalCount,
-      SdkOptional<String> scrollParam}) get copyWith => _copyWith;
+  CompanyScroll Function({SdkOptional<CompanyScrollType> type_, SdkOptional<List<Company>> data, SdkOptional<CursorPages?> pages, SdkOptional<int?> totalCount, SdkOptional<String> scrollParam}) get copyWith => _copyWith;
 
-  CompanyScroll _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? data = sdkOmittedValue,
-          Object? pages = sdkOmittedValue,
-          Object? totalCount = sdkOmittedValue,
-          Object? scrollParam = sdkOmittedValue}) =>
-      CompanyScroll(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<CompanyScrollType>,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as SdkOptional<List<Company>>,
-        pages: identical(pages, sdkOmittedValue)
-            ? this.pages
-            : pages as SdkOptional<CursorPages?>,
-        totalCount: identical(totalCount, sdkOmittedValue)
-            ? this.totalCount
-            : totalCount as SdkOptional<int?>,
-        scrollParam: identical(scrollParam, sdkOmittedValue)
-            ? this.scrollParam
-            : scrollParam as SdkOptional<String>,
-      );
+  CompanyScroll _copyWith({Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue, Object? pages = sdkOmittedValue, Object? totalCount = sdkOmittedValue, Object? scrollParam = sdkOmittedValue}) => CompanyScroll(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<CompanyScrollType>,
+    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<Company>>,
+    pages: identical(pages, sdkOmittedValue) ? this.pages : pages as SdkOptional<CursorPages?>,
+    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as SdkOptional<int?>,
+    scrollParam: identical(scrollParam, sdkOmittedValue) ? this.scrollParam : scrollParam as SdkOptional<String>,
+  );
 
   factory CompanyScroll.fromJson(Map<String, dynamic> json) => CompanyScroll(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? CompanyScrollType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        data: json['data'] != null
-            ? SdkPresent(((json['data'] as List?)
-                ?.map((e) => Company.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        pages: json.containsKey('pages')
-            ? SdkPresent(json['pages'] != null
-                ? CursorPages.fromJson(json['pages'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        totalCount: json.containsKey('total_count')
-            ? SdkPresent((json['total_count'] as num?)?.toInt())
-            : const SdkOmitted(),
-        scrollParam: json['scroll_param'] != null
-            ? SdkPresent((json['scroll_param'] as String?)!)
-            : const SdkOmitted(),
-      );
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? CompanyScrollType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => Company.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    pages: json.containsKey('pages') ? SdkPresent(json['pages'] != null ? CursorPages.fromJson(json['pages'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    totalCount: json.containsKey('total_count') ? SdkPresent((json['total_count'] as num?)?.toInt()) : const SdkOmitted(),
+    scrollParam: json['scroll_param'] != null ? SdkPresent((json['scroll_param'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<CompanyScrollType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (data) {
-          SdkPresent<List<Company>>(value: final value) => {
-              'data': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (pages) {
-          SdkPresent<CursorPages?>(value: final value) => {
-              'pages': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (totalCount) {
-          SdkPresent<int?>(value: final value) => {
-              'total_count': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (scrollParam) {
-          SdkPresent<String>(value: final value) => {
-              'scroll_param': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<CompanyScrollType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (data) {
+      SdkPresent<List<Company>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (pages) {
+      SdkPresent<CursorPages?>(value: final value) => {'pages': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (totalCount) {
+      SdkPresent<int?>(value: final value) => {'total_count': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (scrollParam) {
+      SdkPresent<String>(value: final value) => {'scroll_param': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

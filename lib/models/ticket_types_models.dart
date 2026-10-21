@@ -8,293 +8,156 @@ part of 'ticket_types.dart';
 class CreateTicketTypeRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the ticket type.
   final String name;
-
   /// The description of the ticket type.
   final SdkOptional<String> description;
-
   /// Category of the Ticket Type.
   final SdkOptional<CreateTicketTypeRequestCategory> category;
-
   /// The icon of the ticket type.
   final SdkOptional<String> icon;
-
   /// Whether the tickets associated with this ticket type are intended for internal use only or will be shared with customers. This is currently a limited attribute.
   final SdkOptional<bool> isInternal;
 
-  const CreateTicketTypeRequest(
-      {required this.name,
-      this.description = const SdkOmitted(),
-      this.category = const SdkOmitted(),
-      this.icon = const SdkOmitted(),
-      this.isInternal = const SdkOmitted()});
+  const CreateTicketTypeRequest({required this.name, this.description = const SdkOmitted(), this.category = const SdkOmitted(), this.icon = const SdkOmitted(), this.isInternal = const SdkOmitted()});
 
-  CreateTicketTypeRequest Function(
-      {String name,
-      SdkOptional<String> description,
-      SdkOptional<CreateTicketTypeRequestCategory> category,
-      SdkOptional<String> icon,
-      SdkOptional<bool> isInternal}) get copyWith => _copyWith;
+  CreateTicketTypeRequest Function({String name, SdkOptional<String> description, SdkOptional<CreateTicketTypeRequestCategory> category, SdkOptional<String> icon, SdkOptional<bool> isInternal}) get copyWith => _copyWith;
 
-  CreateTicketTypeRequest _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? category = sdkOmittedValue,
-          Object? icon = sdkOmittedValue,
-          Object? isInternal = sdkOmittedValue}) =>
-      CreateTicketTypeRequest(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        category: identical(category, sdkOmittedValue)
-            ? this.category
-            : category as SdkOptional<CreateTicketTypeRequestCategory>,
-        icon: identical(icon, sdkOmittedValue)
-            ? this.icon
-            : icon as SdkOptional<String>,
-        isInternal: identical(isInternal, sdkOmittedValue)
-            ? this.isInternal
-            : isInternal as SdkOptional<bool>,
-      );
+  CreateTicketTypeRequest _copyWith({Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? category = sdkOmittedValue, Object? icon = sdkOmittedValue, Object? isInternal = sdkOmittedValue}) => CreateTicketTypeRequest(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    category: identical(category, sdkOmittedValue) ? this.category : category as SdkOptional<CreateTicketTypeRequestCategory>,
+    icon: identical(icon, sdkOmittedValue) ? this.icon : icon as SdkOptional<String>,
+    isInternal: identical(isInternal, sdkOmittedValue) ? this.isInternal : isInternal as SdkOptional<bool>,
+  );
 
-  factory CreateTicketTypeRequest.fromJson(Map<String, dynamic> json) =>
-      CreateTicketTypeRequest(
-        name: (json['name'] as String?)!,
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        category: json['category'] != null
-            ? SdkPresent((json['category'] != null
-                ? CreateTicketTypeRequestCategory.fromJson(
-                    json['category'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        icon: json['icon'] != null
-            ? SdkPresent((json['icon'] as String?)!)
-            : const SdkOmitted(),
-        isInternal: json['is_internal'] != null
-            ? SdkPresent((json['is_internal'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory CreateTicketTypeRequest.fromJson(Map<String, dynamic> json) => CreateTicketTypeRequest(
+    name: (json['name'] as String?)!,
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    category: json['category'] != null ? SdkPresent((json['category'] != null ? CreateTicketTypeRequestCategory.fromJson(json['category'] as String) : null)!) : const SdkOmitted(),
+    icon: json['icon'] != null ? SdkPresent((json['icon'] as String?)!) : const SdkOmitted(),
+    isInternal: json['is_internal'] != null ? SdkPresent((json['is_internal'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (category) {
-          SdkPresent<CreateTicketTypeRequestCategory>(value: final value) => {
-              'category': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (icon) {
-          SdkPresent<String>(value: final value) => {
-              'icon': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (isInternal) {
-          SdkPresent<bool>(value: final value) => {
-              'is_internal': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'name': name,
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (category) {
+      SdkPresent<CreateTicketTypeRequestCategory>(value: final value) => {'category': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (icon) {
+      SdkPresent<String>(value: final value) => {'icon': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (isInternal) {
+      SdkPresent<bool>(value: final value) => {'is_internal': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// A list of ticket types associated with a given workspace.
 class TicketTypeList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// String representing the object's type. Always has the value `list`.
   final SdkOptional<String> type_;
-
   /// A list of ticket_types associated with a given workspace.
   final SdkOptional<List<TicketType?>> data;
 
-  const TicketTypeList(
-      {this.type_ = const SdkOmitted(), this.data = const SdkOmitted()});
+  const TicketTypeList({this.type_ = const SdkOmitted(), this.data = const SdkOmitted()});
 
-  TicketTypeList Function(
-      {SdkOptional<String> type_,
-      SdkOptional<List<TicketType?>> data}) get copyWith => _copyWith;
+  TicketTypeList Function({SdkOptional<String> type_, SdkOptional<List<TicketType?>> data}) get copyWith => _copyWith;
 
-  TicketTypeList _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
-      TicketTypeList(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as SdkOptional<List<TicketType?>>,
-      );
+  TicketTypeList _copyWith({Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) => TicketTypeList(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<TicketType?>>,
+  );
 
   factory TicketTypeList.fromJson(Map<String, dynamic> json) => TicketTypeList(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        data: json['data'] != null
-            ? SdkPresent(((json['data'] as List?)
-                ?.map((e) => e == null
-                    ? null
-                    : TicketType.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => e == null ? null : TicketType.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (data) {
-          SdkPresent<List<TicketType?>>(value: final value) => {
-              'data': value.map((item) => item?.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (data) {
+      SdkPresent<List<TicketType?>>(value: final value) => {'data': value.map((item) => item?.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// The request payload for updating a ticket type. You can copy the `icon` property for your ticket type from [Twemoji Cheatsheet](https://twemoji-cheatsheet.vercel.app/)
 class UpdateTicketTypeRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the ticket type.
   final SdkOptional<String> name;
-
   /// The description of the ticket type.
   final SdkOptional<String> description;
-
   /// Category of the Ticket Type.
   final SdkOptional<UpdateTicketTypeRequestCategory> category;
-
   /// The icon of the ticket type.
   final SdkOptional<String> icon;
-
   /// The archived status of the ticket type.
   final SdkOptional<bool> archived;
-
   /// Whether the tickets associated with this ticket type are intended for internal use only or will be shared with customers. This is currently a limited attribute.
   final SdkOptional<bool> isInternal;
 
-  const UpdateTicketTypeRequest(
-      {this.name = const SdkOmitted(),
-      this.description = const SdkOmitted(),
-      this.category = const SdkOmitted(),
-      this.icon = const SdkOmitted(),
-      this.archived = const SdkOmitted(),
-      this.isInternal = const SdkOmitted()});
+  const UpdateTicketTypeRequest({this.name = const SdkOmitted(), this.description = const SdkOmitted(), this.category = const SdkOmitted(), this.icon = const SdkOmitted(), this.archived = const SdkOmitted(), this.isInternal = const SdkOmitted()});
 
-  UpdateTicketTypeRequest Function(
-      {SdkOptional<String> name,
-      SdkOptional<String> description,
-      SdkOptional<UpdateTicketTypeRequestCategory> category,
-      SdkOptional<String> icon,
-      SdkOptional<bool> archived,
-      SdkOptional<bool> isInternal}) get copyWith => _copyWith;
+  UpdateTicketTypeRequest Function({SdkOptional<String> name, SdkOptional<String> description, SdkOptional<UpdateTicketTypeRequestCategory> category, SdkOptional<String> icon, SdkOptional<bool> archived, SdkOptional<bool> isInternal}) get copyWith => _copyWith;
 
-  UpdateTicketTypeRequest _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? category = sdkOmittedValue,
-          Object? icon = sdkOmittedValue,
-          Object? archived = sdkOmittedValue,
-          Object? isInternal = sdkOmittedValue}) =>
-      UpdateTicketTypeRequest(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        category: identical(category, sdkOmittedValue)
-            ? this.category
-            : category as SdkOptional<UpdateTicketTypeRequestCategory>,
-        icon: identical(icon, sdkOmittedValue)
-            ? this.icon
-            : icon as SdkOptional<String>,
-        archived: identical(archived, sdkOmittedValue)
-            ? this.archived
-            : archived as SdkOptional<bool>,
-        isInternal: identical(isInternal, sdkOmittedValue)
-            ? this.isInternal
-            : isInternal as SdkOptional<bool>,
-      );
+  UpdateTicketTypeRequest _copyWith({Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? category = sdkOmittedValue, Object? icon = sdkOmittedValue, Object? archived = sdkOmittedValue, Object? isInternal = sdkOmittedValue}) => UpdateTicketTypeRequest(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    category: identical(category, sdkOmittedValue) ? this.category : category as SdkOptional<UpdateTicketTypeRequestCategory>,
+    icon: identical(icon, sdkOmittedValue) ? this.icon : icon as SdkOptional<String>,
+    archived: identical(archived, sdkOmittedValue) ? this.archived : archived as SdkOptional<bool>,
+    isInternal: identical(isInternal, sdkOmittedValue) ? this.isInternal : isInternal as SdkOptional<bool>,
+  );
 
-  factory UpdateTicketTypeRequest.fromJson(Map<String, dynamic> json) =>
-      UpdateTicketTypeRequest(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        category: json['category'] != null
-            ? SdkPresent((json['category'] != null
-                ? UpdateTicketTypeRequestCategory.fromJson(
-                    json['category'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        icon: json['icon'] != null
-            ? SdkPresent((json['icon'] as String?)!)
-            : const SdkOmitted(),
-        archived: json['archived'] != null
-            ? SdkPresent((json['archived'] as bool?)!)
-            : const SdkOmitted(),
-        isInternal: json['is_internal'] != null
-            ? SdkPresent((json['is_internal'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory UpdateTicketTypeRequest.fromJson(Map<String, dynamic> json) => UpdateTicketTypeRequest(
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    category: json['category'] != null ? SdkPresent((json['category'] != null ? UpdateTicketTypeRequestCategory.fromJson(json['category'] as String) : null)!) : const SdkOmitted(),
+    icon: json['icon'] != null ? SdkPresent((json['icon'] as String?)!) : const SdkOmitted(),
+    archived: json['archived'] != null ? SdkPresent((json['archived'] as bool?)!) : const SdkOmitted(),
+    isInternal: json['is_internal'] != null ? SdkPresent((json['is_internal'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (category) {
-          SdkPresent<UpdateTicketTypeRequestCategory>(value: final value) => {
-              'category': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (icon) {
-          SdkPresent<String>(value: final value) => {
-              'icon': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (archived) {
-          SdkPresent<bool>(value: final value) => {
-              'archived': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (isInternal) {
-          SdkPresent<bool>(value: final value) => {
-              'is_internal': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (category) {
+      SdkPresent<UpdateTicketTypeRequestCategory>(value: final value) => {'category': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (icon) {
+      SdkPresent<String>(value: final value) => {'icon': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (archived) {
+      SdkPresent<bool>(value: final value) => {'archived': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (isInternal) {
+      SdkPresent<bool>(value: final value) => {'is_internal': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

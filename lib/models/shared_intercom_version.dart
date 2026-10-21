@@ -6,6 +6,7 @@ part of 'shared.dart';
 // shared domain models
 /// Intercom API version.&lt;/br&gt;By default, it's equal to the version set in the app package.
 final class IntercomVersion {
+
   final String value;
 
   const IntercomVersion._(this.value);
@@ -38,13 +39,10 @@ final class IntercomVersion {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is IntercomVersion && other.value == value;
+  @override bool operator ==(Object other) => other is IntercomVersion && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

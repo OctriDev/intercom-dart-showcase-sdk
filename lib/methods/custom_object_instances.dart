@@ -39,18 +39,14 @@ Future<CustomObjectInstance> createCustomObjectInstances(ClientConfig config,
             'custom_attributes': SdkUtils.unwrapOptional(customAttributes)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'createCustomObjectInstances',
-          fromJsonRaw: (value) =>
-              CustomObjectInstance.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CustomObjectInstance.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Lists instances of a custom object type, optionally filtered by an associated contact or conversation. Use `references_contact_id` or `references_conversation_id` to filter the results, or provide `external_id` to retrieve a single matching instance instead of a list. Use `page` and `per_page` to paginate the results.
 ///
@@ -65,16 +61,16 @@ Future<CustomObjectInstance> createCustomObjectInstances(ClientConfig config,
 ///   provided, the response is a single object rather than a list.
 /// [page] Page number of results to fetch.
 /// [perPage] Number of results per page. Maximum 150.
-Future<CustomObjectInstancesPaginatedList> listCustomObjectInstances(
-    ClientConfig config,
-    {required String customObjectTypeIdentifier,
-    SdkOptional<String> referencesContactId = const SdkOmitted(),
-    SdkOptional<String> referencesConversationId = const SdkOmitted(),
-    SdkOptional<String> externalId = const SdkOmitted(),
-    SdkOptional<int> page = const SdkOmitted(),
-    SdkOptional<int> perPage = const SdkOmitted(),
-    SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<CustomObjectInstancesPaginatedList>
+    listCustomObjectInstances(ClientConfig config,
+        {required String customObjectTypeIdentifier,
+        SdkOptional<String> referencesContactId = const SdkOmitted(),
+        SdkOptional<String> referencesConversationId = const SdkOmitted(),
+        SdkOptional<String> externalId = const SdkOmitted(),
+        SdkOptional<int> page = const SdkOmitted(),
+        SdkOptional<int> perPage = const SdkOmitted(),
+        SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   if (perPage is SdkPresent<int>) {
     validateRange('per_page', perPage.value, max: 150);
   }
@@ -83,34 +79,21 @@ Future<CustomObjectInstancesPaginatedList> listCustomObjectInstances(
           '/custom_object_instances/${Uri.encodeComponent(customObjectTypeIdentifier.toString())}',
           config: config,
           query: {
-            'references_contact_id': SdkQueryValue(
-                SdkUtils.unwrapOptional(referencesContactId),
-                style: 'form',
-                explode: true),
-            'references_conversation_id': SdkQueryValue(
-                SdkUtils.unwrapOptional(referencesConversationId),
-                style: 'form',
-                explode: true),
-            'external_id': SdkQueryValue(SdkUtils.unwrapOptional(externalId),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true)
+            'references_contact_id': SdkQueryValue(SdkUtils.unwrapOptional(referencesContactId), style: 'form', explode: true),
+            'references_conversation_id': SdkQueryValue(SdkUtils.unwrapOptional(referencesConversationId), style: 'form', explode: true),
+            'external_id': SdkQueryValue(SdkUtils.unwrapOptional(externalId), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listCustomObjectInstances',
-          fromJsonRaw: (value) => CustomObjectInstancesPaginatedList.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CustomObjectInstancesPaginatedList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Deletes a custom object instance using its external ID. Supply the custom object type identifier and the instance's `external_id` to identify the instance to delete.
 ///
@@ -118,32 +101,27 @@ Future<CustomObjectInstancesPaginatedList> listCustomObjectInstances(
 ///
 /// [customObjectTypeIdentifier] The unique identifier of the custom object type
 ///   that defines the structure of the custom object instance.
-Future<CustomObjectInstanceDeleted> deleteCustomObjectInstancesById(
-    ClientConfig config,
-    {required String customObjectTypeIdentifier,
-    required String externalId,
-    SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<CustomObjectInstanceDeleted>
+    deleteCustomObjectInstancesById(ClientConfig config,
+        {required String customObjectTypeIdentifier,
+        required String externalId,
+        SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<CustomObjectInstanceDeleted>('DELETE',
           '/custom_object_instances/${Uri.encodeComponent(customObjectTypeIdentifier.toString())}',
           config: config,
           query: {
-            'external_id':
-                SdkQueryValue(externalId, style: 'form', explode: true)
+            'external_id': SdkQueryValue(externalId, style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'deleteCustomObjectInstancesById',
-          fromJsonRaw: (value) => CustomObjectInstanceDeleted.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CustomObjectInstanceDeleted.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves a custom object instance by its Intercom-defined ID or external ID. Use `custom_object_type_identifier` to specify the instance type and `custom_object_instance_id` to identify the instance.
 ///
@@ -161,18 +139,14 @@ Future<CustomObjectInstance> getCustomObjectInstancesById(ClientConfig config,
           '/custom_object_instances/${Uri.encodeComponent(customObjectTypeIdentifier.toString())}/${Uri.encodeComponent(customObjectInstanceId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'getCustomObjectInstancesById',
-          fromJsonRaw: (value) =>
-              CustomObjectInstance.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CustomObjectInstance.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Deletes a custom object instance using its Intercom-defined ID. Use `custom_object_type_identifier` and `custom_object_instance_id` to identify the type and instance to delete.
 ///
@@ -182,25 +156,20 @@ Future<CustomObjectInstance> getCustomObjectInstancesById(ClientConfig config,
 ///   that defines the structure of the custom object instance.
 /// [customObjectInstanceId] The Intercom defined id of the custom object
 ///   instance
-Future<CustomObjectInstanceDeleted> deleteCustomObjectInstancesByExternalId(
-    ClientConfig config,
-    {required String customObjectTypeIdentifier,
-    required String customObjectInstanceId,
-    SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<CustomObjectInstanceDeleted>
+    deleteCustomObjectInstancesByExternalId(ClientConfig config,
+        {required String customObjectTypeIdentifier,
+        required String customObjectInstanceId,
+        SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<CustomObjectInstanceDeleted>('DELETE',
           '/custom_object_instances/${Uri.encodeComponent(customObjectTypeIdentifier.toString())}/${Uri.encodeComponent(customObjectInstanceId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'deleteCustomObjectInstancesByExternalId',
-          fromJsonRaw: (value) => CustomObjectInstanceDeleted.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CustomObjectInstanceDeleted.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

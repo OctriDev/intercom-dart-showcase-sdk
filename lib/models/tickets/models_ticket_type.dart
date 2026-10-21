@@ -8,301 +8,148 @@ part of 'models.dart';
 class TicketTypeTicketStates {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// String representing the object's type. Always has the value `list`.
   final SdkOptional<String> type_;
-
   /// A list of ticket states associated with a given ticket type.
   final SdkOptional<List<TicketState?>> data;
 
-  const TicketTypeTicketStates(
-      {this.type_ = const SdkOmitted(), this.data = const SdkOmitted()});
+  const TicketTypeTicketStates({this.type_ = const SdkOmitted(), this.data = const SdkOmitted()});
 
-  TicketTypeTicketStates Function(
-      {SdkOptional<String> type_,
-      SdkOptional<List<TicketState?>> data}) get copyWith => _copyWith;
+  TicketTypeTicketStates Function({SdkOptional<String> type_, SdkOptional<List<TicketState?>> data}) get copyWith => _copyWith;
 
-  TicketTypeTicketStates _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
-      TicketTypeTicketStates(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as SdkOptional<List<TicketState?>>,
-      );
+  TicketTypeTicketStates _copyWith({Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) => TicketTypeTicketStates(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<TicketState?>>,
+  );
 
-  factory TicketTypeTicketStates.fromJson(Map<String, dynamic> json) =>
-      TicketTypeTicketStates(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        data: json['data'] != null
-            ? SdkPresent(((json['data'] as List?)
-                ?.map((e) => e == null
-                    ? null
-                    : TicketState.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory TicketTypeTicketStates.fromJson(Map<String, dynamic> json) => TicketTypeTicketStates(
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => e == null ? null : TicketState.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (data) {
-          SdkPresent<List<TicketState?>>(value: final value) => {
-              'data': value.map((item) => item?.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (data) {
+      SdkPresent<List<TicketState?>>(value: final value) => {'data': value.map((item) => item?.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// A ticket type, used to define the data fields to be captured in a ticket.
 class TicketType {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// String representing the object's type. Always has the value `ticket_type`.
   final SdkOptional<String> type_;
-
   /// The id representing the ticket type.
   final SdkOptional<String> id;
-
   /// Category of the Ticket Type.
   final SdkOptional<TicketTypeCategory> category;
-
   /// The name of the ticket type
   final SdkOptional<String> name;
-
   /// The description of the ticket type
   final SdkOptional<String> description;
-
   /// The icon of the ticket type
   final SdkOptional<String> icon;
-
   /// The id of the workspace that the ticket type belongs to.
   final SdkOptional<String> workspaceId;
-
   /// A list of attributes associated with a given ticket type.
   final SdkOptional<TicketTypeAttributeList> ticketTypeAttributes;
-
   /// A list of ticket states associated with a given ticket type.
   final SdkOptional<TicketTypeTicketStates> ticketStates;
-
   /// Whether the ticket type is archived or not.
   final SdkOptional<bool> archived;
-
   /// The date and time the ticket type was created.
   final SdkOptional<int> createdAt;
-
   /// The date and time the ticket type was last updated.
   final SdkOptional<int> updatedAt;
 
-  const TicketType(
-      {this.type_ = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.category = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.description = const SdkOmitted(),
-      this.icon = const SdkOmitted(),
-      this.workspaceId = const SdkOmitted(),
-      this.ticketTypeAttributes = const SdkOmitted(),
-      this.ticketStates = const SdkOmitted(),
-      this.archived = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.updatedAt = const SdkOmitted()});
+  const TicketType({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.category = const SdkOmitted(), this.name = const SdkOmitted(), this.description = const SdkOmitted(), this.icon = const SdkOmitted(), this.workspaceId = const SdkOmitted(), this.ticketTypeAttributes = const SdkOmitted(), this.ticketStates = const SdkOmitted(), this.archived = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.updatedAt = const SdkOmitted()});
 
-  TicketType Function(
-      {SdkOptional<String> type_,
-      SdkOptional<String> id,
-      SdkOptional<TicketTypeCategory> category,
-      SdkOptional<String> name,
-      SdkOptional<String> description,
-      SdkOptional<String> icon,
-      SdkOptional<String> workspaceId,
-      SdkOptional<TicketTypeAttributeList> ticketTypeAttributes,
-      SdkOptional<TicketTypeTicketStates> ticketStates,
-      SdkOptional<bool> archived,
-      SdkOptional<int> createdAt,
-      SdkOptional<int> updatedAt}) get copyWith => _copyWith;
+  TicketType Function({SdkOptional<String> type_, SdkOptional<String> id, SdkOptional<TicketTypeCategory> category, SdkOptional<String> name, SdkOptional<String> description, SdkOptional<String> icon, SdkOptional<String> workspaceId, SdkOptional<TicketTypeAttributeList> ticketTypeAttributes, SdkOptional<TicketTypeTicketStates> ticketStates, SdkOptional<bool> archived, SdkOptional<int> createdAt, SdkOptional<int> updatedAt}) get copyWith => _copyWith;
 
-  TicketType _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? category = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? icon = sdkOmittedValue,
-          Object? workspaceId = sdkOmittedValue,
-          Object? ticketTypeAttributes = sdkOmittedValue,
-          Object? ticketStates = sdkOmittedValue,
-          Object? archived = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue}) =>
-      TicketType(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        category: identical(category, sdkOmittedValue)
-            ? this.category
-            : category as SdkOptional<TicketTypeCategory>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        icon: identical(icon, sdkOmittedValue)
-            ? this.icon
-            : icon as SdkOptional<String>,
-        workspaceId: identical(workspaceId, sdkOmittedValue)
-            ? this.workspaceId
-            : workspaceId as SdkOptional<String>,
-        ticketTypeAttributes: identical(ticketTypeAttributes, sdkOmittedValue)
-            ? this.ticketTypeAttributes
-            : ticketTypeAttributes as SdkOptional<TicketTypeAttributeList>,
-        ticketStates: identical(ticketStates, sdkOmittedValue)
-            ? this.ticketStates
-            : ticketStates as SdkOptional<TicketTypeTicketStates>,
-        archived: identical(archived, sdkOmittedValue)
-            ? this.archived
-            : archived as SdkOptional<bool>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<int>,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as SdkOptional<int>,
-      );
+  TicketType _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? category = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? icon = sdkOmittedValue, Object? workspaceId = sdkOmittedValue, Object? ticketTypeAttributes = sdkOmittedValue, Object? ticketStates = sdkOmittedValue, Object? archived = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => TicketType(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    category: identical(category, sdkOmittedValue) ? this.category : category as SdkOptional<TicketTypeCategory>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    icon: identical(icon, sdkOmittedValue) ? this.icon : icon as SdkOptional<String>,
+    workspaceId: identical(workspaceId, sdkOmittedValue) ? this.workspaceId : workspaceId as SdkOptional<String>,
+    ticketTypeAttributes: identical(ticketTypeAttributes, sdkOmittedValue) ? this.ticketTypeAttributes : ticketTypeAttributes as SdkOptional<TicketTypeAttributeList>,
+    ticketStates: identical(ticketStates, sdkOmittedValue) ? this.ticketStates : ticketStates as SdkOptional<TicketTypeTicketStates>,
+    archived: identical(archived, sdkOmittedValue) ? this.archived : archived as SdkOptional<bool>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<int>,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<int>,
+  );
 
   factory TicketType.fromJson(Map<String, dynamic> json) => TicketType(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        category: json['category'] != null
-            ? SdkPresent((json['category'] != null
-                ? TicketTypeCategory.fromJson(json['category'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        icon: json['icon'] != null
-            ? SdkPresent((json['icon'] as String?)!)
-            : const SdkOmitted(),
-        workspaceId: json['workspace_id'] != null
-            ? SdkPresent((json['workspace_id'] as String?)!)
-            : const SdkOmitted(),
-        ticketTypeAttributes: json['ticket_type_attributes'] != null
-            ? SdkPresent((json['ticket_type_attributes'] != null
-                ? TicketTypeAttributeList.fromJson(
-                    json['ticket_type_attributes'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        ticketStates: json['ticket_states'] != null
-            ? SdkPresent((json['ticket_states'] != null
-                ? TicketTypeTicketStates.fromJson(
-                    json['ticket_states'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        archived: json['archived'] != null
-            ? SdkPresent((json['archived'] as bool?)!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent(((json['created_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        updatedAt: json['updated_at'] != null
-            ? SdkPresent(((json['updated_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    category: json['category'] != null ? SdkPresent((json['category'] != null ? TicketTypeCategory.fromJson(json['category'] as String) : null)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    icon: json['icon'] != null ? SdkPresent((json['icon'] as String?)!) : const SdkOmitted(),
+    workspaceId: json['workspace_id'] != null ? SdkPresent((json['workspace_id'] as String?)!) : const SdkOmitted(),
+    ticketTypeAttributes: json['ticket_type_attributes'] != null ? SdkPresent((json['ticket_type_attributes'] != null ? TicketTypeAttributeList.fromJson(json['ticket_type_attributes'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    ticketStates: json['ticket_states'] != null ? SdkPresent((json['ticket_states'] != null ? TicketTypeTicketStates.fromJson(json['ticket_states'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    archived: json['archived'] != null ? SdkPresent((json['archived'] as bool?)!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent(((json['created_at'] as num?)?.toInt())!) : const SdkOmitted(),
+    updatedAt: json['updated_at'] != null ? SdkPresent(((json['updated_at'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (category) {
-          SdkPresent<TicketTypeCategory>(value: final value) => {
-              'category': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (icon) {
-          SdkPresent<String>(value: final value) => {
-              'icon': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (workspaceId) {
-          SdkPresent<String>(value: final value) => {
-              'workspace_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ticketTypeAttributes) {
-          SdkPresent<TicketTypeAttributeList>(value: final value) => {
-              'ticket_type_attributes': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ticketStates) {
-          SdkPresent<TicketTypeTicketStates>(value: final value) => {
-              'ticket_states': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (archived) {
-          SdkPresent<bool>(value: final value) => {
-              'archived': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<int>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (updatedAt) {
-          SdkPresent<int>(value: final value) => {
-              'updated_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (category) {
+      SdkPresent<TicketTypeCategory>(value: final value) => {'category': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (icon) {
+      SdkPresent<String>(value: final value) => {'icon': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (workspaceId) {
+      SdkPresent<String>(value: final value) => {'workspace_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ticketTypeAttributes) {
+      SdkPresent<TicketTypeAttributeList>(value: final value) => {'ticket_type_attributes': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ticketStates) {
+      SdkPresent<TicketTypeTicketStates>(value: final value) => {'ticket_states': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (archived) {
+      SdkPresent<bool>(value: final value) => {'archived': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<int>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (updatedAt) {
+      SdkPresent<int>(value: final value) => {'updated_at': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

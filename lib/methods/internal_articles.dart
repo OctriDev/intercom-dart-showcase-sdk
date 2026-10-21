@@ -15,17 +15,14 @@ Future<InternalArticleList> listInternalArticles(ClientConfig config,
   return (await sdkRequest<InternalArticleList>('GET', '/internal_articles',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listInternalArticles',
-          fromJsonRaw: (value) =>
-              InternalArticleList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => InternalArticleList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Creates an internal article with the supplied content and ownership details. Supply `title`, `owner_id`, and `author_id`; provide content as either `body` in HTML or `body_markdown` in Markdown, not both.
 ///
@@ -73,26 +70,19 @@ Future<InternalArticle> createInternalArticle(ClientConfig config,
             'body_markdown': SdkUtils.unwrapOptional(bodyMarkdown),
             'folder_id': SdkUtils.unwrapOptional(folderId),
             'audience_ids': SdkUtils.unwrapOptional(audienceIds),
-            'ai_chatbot_availability':
-                SdkUtils.unwrapOptional(aiChatbotAvailability),
-            'ai_copilot_availability':
-                SdkUtils.unwrapOptional(aiCopilotAvailability),
-            'ai_sales_agent_availability':
-                SdkUtils.unwrapOptional(aiSalesAgentAvailability)
+            'ai_chatbot_availability': SdkUtils.unwrapOptional(aiChatbotAvailability),
+            'ai_copilot_availability': SdkUtils.unwrapOptional(aiCopilotAvailability),
+            'ai_sales_agent_availability': SdkUtils.unwrapOptional(aiSalesAgentAvailability)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'createInternalArticle',
-          fromJsonRaw: (value) =>
-              InternalArticle.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => InternalArticle.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves a single internal article by its unique identifier. Use `internal_article_id` to select the article whose details you need.
 ///
@@ -108,18 +98,14 @@ Future<InternalArticle> retrieveInternalArticle(ClientConfig config,
           '/internal_articles/${Uri.encodeComponent(internalArticleId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'retrieveInternalArticle',
-          fromJsonRaw: (value) =>
-              InternalArticle.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => InternalArticle.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Updates an existing internal article's details and configuration. Supply only the fields to change; provide content in either `body` or `body_markdown`, and pass an empty `audience_ids` array to clear existing audience memberships.
 ///
@@ -172,26 +158,19 @@ Future<InternalArticle> updateInternalArticle(ClientConfig config,
             'owner_id': SdkUtils.unwrapOptional(ownerId),
             'folder_id': SdkUtils.unwrapOptional(folderId),
             'audience_ids': SdkUtils.unwrapOptional(audienceIds),
-            'ai_chatbot_availability':
-                SdkUtils.unwrapOptional(aiChatbotAvailability),
-            'ai_copilot_availability':
-                SdkUtils.unwrapOptional(aiCopilotAvailability),
-            'ai_sales_agent_availability':
-                SdkUtils.unwrapOptional(aiSalesAgentAvailability)
+            'ai_chatbot_availability': SdkUtils.unwrapOptional(aiChatbotAvailability),
+            'ai_copilot_availability': SdkUtils.unwrapOptional(aiCopilotAvailability),
+            'ai_sales_agent_availability': SdkUtils.unwrapOptional(aiSalesAgentAvailability)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'updateInternalArticle',
-          fromJsonRaw: (value) =>
-              InternalArticle.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => InternalArticle.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Deletes a single internal article. Use `internal_article_id` to identify the article to remove.
 ///
@@ -207,18 +186,14 @@ Future<DeletedInternalArticleObject> deleteInternalArticle(ClientConfig config,
           '/internal_articles/${Uri.encodeComponent(internalArticleId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'deleteInternalArticle',
-          fromJsonRaw: (value) => DeletedInternalArticleObject.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeletedInternalArticleObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Attaches an existing tag to an internal article. Supply the tag's `id`; the authenticated user must have the `manage_knowledge_base_content` permission and the `read_write_articles_scope` OAuth scope.
 ///
@@ -240,18 +215,14 @@ Future<Tag> attachInternalArticlesTag(ClientConfig config,
           config: config,
           body: {'id': id, 'admin_id': SdkUtils.unwrapOptional(adminId)},
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'attachInternalArticlesTag',
           fromJsonRaw: (value) => Tag.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Removes a tag from an internal article. Use `internal_article_id` and `id` to identify the article and tag; the authenticated user must have the `manage_knowledge_base_content` permission and the `read_write_articles_scope` OAuth scope.
 ///
@@ -269,18 +240,14 @@ Future<Tag> detachInternalArticlesTag(ClientConfig config,
           '/internal_articles/${Uri.encodeComponent(internalArticleId.toString())}/tags/${Uri.encodeComponent(id.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'detachInternalArticlesTag',
           fromJsonRaw: (value) => Tag.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Searches internal articles and returns matching results. Use `folder_id` to limit results to a folder and its descendant folders; the response includes the matching article count and pagination metadata.
 ///
@@ -288,27 +255,22 @@ Future<Tag> detachInternalArticlesTag(ClientConfig config,
 ///
 /// [folderId] The ID of the folder to search in. Results will include articles
 ///   from this folder and all its descendant folders.
-Future<InternalArticleSearchResponse> searchInternalArticles(
-    ClientConfig config,
-    {SdkOptional<int> folderId = const SdkOmitted(),
-    SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<InternalArticleSearchResponse>
+    searchInternalArticles(ClientConfig config,
+        {SdkOptional<int> folderId = const SdkOmitted(),
+        SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<InternalArticleSearchResponse>(
           'GET', '/internal_articles/search',
           config: config,
           query: {
-            'folder_id': SdkQueryValue(SdkUtils.unwrapOptional(folderId),
-                style: 'form', explode: true)
+            'folder_id': SdkQueryValue(SdkUtils.unwrapOptional(folderId), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'searchInternalArticles',
-          fromJsonRaw: (value) => InternalArticleSearchResponse.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => InternalArticleSearchResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

@@ -10,17 +10,14 @@ enum NewsItemType {
 
   static NewsItemType fromJson(String value) {
     switch (value) {
-      case 'news-item':
-        return NewsItemType.newsItem;
-      default:
-        throw ArgumentError('Unknown NewsItemType: $value');
+      case 'news-item': return NewsItemType.newsItem;
+      default: throw ArgumentError('Unknown NewsItemType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case NewsItemType.newsItem:
-        return 'news-item';
+      case NewsItemType.newsItem: return 'news-item';
     }
   }
 
@@ -30,53 +27,46 @@ enum NewsItemType {
 
 /// News items will not be visible to your users in the assigned newsfeeds until they are set live.
 final class NewsItemRequestState {
+
   final String value;
 
   const NewsItemRequestState._(this.value);
 
-  factory NewsItemRequestState.fromJson(String value) =>
-      NewsItemRequestState._(value);
+  factory NewsItemRequestState.fromJson(String value) => NewsItemRequestState._(value);
 
   static const draft = NewsItemRequestState._('draft');
   static const live = NewsItemRequestState._('live');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is NewsItemRequestState && other.value == value;
+  @override bool operator ==(Object other) => other is NewsItemRequestState && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// `closed` means the workspace is closed all day; `custom_hours` replaces the regular hours with `time_intervals`.
 final class OfficeHoursExceptionExceptionType {
+
   final String value;
 
   const OfficeHoursExceptionExceptionType._(this.value);
 
-  factory OfficeHoursExceptionExceptionType.fromJson(String value) =>
-      OfficeHoursExceptionExceptionType._(value);
+  factory OfficeHoursExceptionExceptionType.fromJson(String value) => OfficeHoursExceptionExceptionType._(value);
 
   static const closed = OfficeHoursExceptionExceptionType._('closed');
-  static const customHours =
-      OfficeHoursExceptionExceptionType._('custom_hours');
+  static const customHours = OfficeHoursExceptionExceptionType._('custom_hours');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is OfficeHoursExceptionExceptionType && other.value == value;
+  @override bool operator ==(Object other) => other is OfficeHoursExceptionExceptionType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `message_type` wire field.
@@ -85,18 +75,14 @@ enum OpenConversationRequestMessageType {
 
   static OpenConversationRequestMessageType fromJson(String value) {
     switch (value) {
-      case 'open':
-        return OpenConversationRequestMessageType.open;
-      default:
-        throw ArgumentError(
-            'Unknown OpenConversationRequestMessageType: $value');
+      case 'open': return OpenConversationRequestMessageType.open;
+      default: throw ArgumentError('Unknown OpenConversationRequestMessageType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case OpenConversationRequestMessageType.open:
-        return 'open';
+      case OpenConversationRequestMessageType.open: return 'open';
     }
   }
 
@@ -106,6 +92,7 @@ enum OpenConversationRequestMessageType {
 
 /// Optional enumerated value serialized in the `type` wire field.
 final class PagesLinkType {
+
   final String value;
 
   const PagesLinkType._(this.value);
@@ -116,44 +103,39 @@ final class PagesLinkType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is PagesLinkType && other.value == value;
+  @override bool operator ==(Object other) => other is PagesLinkType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of object
 final class PaginatedResponseType {
+
   final String value;
 
   const PaginatedResponseType._(this.value);
 
-  factory PaginatedResponseType.fromJson(String value) =>
-      PaginatedResponseType._(value);
+  factory PaginatedResponseType.fromJson(String value) => PaginatedResponseType._(value);
 
   static const list = PaginatedResponseType._('list');
   static const conversationList = PaginatedResponseType._('conversation.list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is PaginatedResponseType && other.value == value;
+  @override bool operator ==(Object other) => other is PaginatedResponseType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Optional enumerated value serialized in the `type` wire field.
 final class PhoneSwitchType {
+
   final String value;
 
   const PhoneSwitchType._(this.value);
@@ -164,19 +146,17 @@ final class PhoneSwitchType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is PhoneSwitchType && other.value == value;
+  @override bool operator ==(Object other) => other is PhoneSwitchType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The role associated to the contact - `user` or `lead`.
 final class RecipientType {
+
   final String value;
 
   const RecipientType._(this.value);
@@ -188,15 +168,12 @@ final class RecipientType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RecipientType && other.value == value;
+  @override bool operator ==(Object other) => other is RecipientType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of resource being redacted.
@@ -205,18 +182,14 @@ enum RedactConversationRequestVariant0Type {
 
   static RedactConversationRequestVariant0Type fromJson(String value) {
     switch (value) {
-      case 'conversation_part':
-        return RedactConversationRequestVariant0Type.conversationPart;
-      default:
-        throw ArgumentError(
-            'Unknown RedactConversationRequestVariant0Type: $value');
+      case 'conversation_part': return RedactConversationRequestVariant0Type.conversationPart;
+      default: throw ArgumentError('Unknown RedactConversationRequestVariant0Type: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RedactConversationRequestVariant0Type.conversationPart:
-        return 'conversation_part';
+      case RedactConversationRequestVariant0Type.conversationPart: return 'conversation_part';
     }
   }
 
@@ -230,18 +203,14 @@ enum RedactConversationRequestVariant1Type {
 
   static RedactConversationRequestVariant1Type fromJson(String value) {
     switch (value) {
-      case 'source':
-        return RedactConversationRequestVariant1Type.source;
-      default:
-        throw ArgumentError(
-            'Unknown RedactConversationRequestVariant1Type: $value');
+      case 'source': return RedactConversationRequestVariant1Type.source;
+      default: throw ArgumentError('Unknown RedactConversationRequestVariant1Type: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RedactConversationRequestVariant1Type.source:
-        return 'source';
+      case RedactConversationRequestVariant1Type.source: return 'source';
     }
   }
 
@@ -251,12 +220,12 @@ enum RedactConversationRequestVariant1Type {
 
 /// Source of the call. Can be "five9", "zoom_phone", or defaults to "aws_connect"
 final class RegisterFinVoiceCallRequestSource {
+
   final String value;
 
   const RegisterFinVoiceCallRequestSource._(this.value);
 
-  factory RegisterFinVoiceCallRequestSource.fromJson(String value) =>
-      RegisterFinVoiceCallRequestSource._(value);
+  factory RegisterFinVoiceCallRequestSource.fromJson(String value) => RegisterFinVoiceCallRequestSource._(value);
 
   static const five9 = RegisterFinVoiceCallRequestSource._('five9');
   static const zoomPhone = RegisterFinVoiceCallRequestSource._('zoom_phone');
@@ -264,25 +233,22 @@ final class RegisterFinVoiceCallRequestSource {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RegisterFinVoiceCallRequestSource && other.value == value;
+  @override bool operator ==(Object other) => other is RegisterFinVoiceCallRequestSource && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The fixed outcome of the sales agent interaction, used for billing and tracking.
 final class SalesAgentOutcome {
+
   final String value;
 
   const SalesAgentOutcome._(this.value);
 
-  factory SalesAgentOutcome.fromJson(String value) =>
-      SalesAgentOutcome._(value);
+  factory SalesAgentOutcome.fromJson(String value) => SalesAgentOutcome._(value);
 
   static const qualified = SalesAgentOutcome._('qualified');
   static const disqualified = SalesAgentOutcome._('disqualified');
@@ -292,38 +258,32 @@ final class SalesAgentOutcome {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is SalesAgentOutcome && other.value == value;
+  @override bool operator ==(Object other) => other is SalesAgentOutcome && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Type of the contact: contact (lead) or user.
 final class SegmentPersonType {
+
   final String value;
 
   const SegmentPersonType._(this.value);
 
-  factory SegmentPersonType.fromJson(String value) =>
-      SegmentPersonType._(value);
+  factory SegmentPersonType.fromJson(String value) => SegmentPersonType._(value);
 
   static const contact = SegmentPersonType._('contact');
   static const user = SegmentPersonType._('user');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is SegmentPersonType && other.value == value;
+  @override bool operator ==(Object other) => other is SegmentPersonType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

@@ -6,30 +6,28 @@ part of 'inline.dart';
 // Inline operation models
 /// The type of pagination
 final class MacroListPagesType {
+
   final String value;
 
   const MacroListPagesType._(this.value);
 
-  factory MacroListPagesType.fromJson(String value) =>
-      MacroListPagesType._(value);
+  factory MacroListPagesType.fromJson(String value) => MacroListPagesType._(value);
 
   static const pages = MacroListPagesType._('pages');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is MacroListPagesType && other.value == value;
+  @override bool operator ==(Object other) => other is MacroListPagesType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Always list
 final class MacroListType {
+
   final String value;
 
   const MacroListType._(this.value);
@@ -40,98 +38,86 @@ final class MacroListType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is MacroListType && other.value == value;
+  @override bool operator ==(Object other) => other is MacroListType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The role of the contact that was merged in.
 final class MergeHistoryItemSourceContactRole {
+
   final String value;
 
   const MergeHistoryItemSourceContactRole._(this.value);
 
-  factory MergeHistoryItemSourceContactRole.fromJson(String value) =>
-      MergeHistoryItemSourceContactRole._(value);
+  factory MergeHistoryItemSourceContactRole.fromJson(String value) => MergeHistoryItemSourceContactRole._(value);
 
   static const lead = MergeHistoryItemSourceContactRole._('lead');
   static const user = MergeHistoryItemSourceContactRole._('user');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is MergeHistoryItemSourceContactRole && other.value == value;
+  @override bool operator ==(Object other) => other is MergeHistoryItemSourceContactRole && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of object.
 final class MergeHistoryListType {
+
   final String value;
 
   const MergeHistoryListType._(this.value);
 
-  factory MergeHistoryListType.fromJson(String value) =>
-      MergeHistoryListType._(value);
+  factory MergeHistoryListType.fromJson(String value) => MergeHistoryListType._(value);
 
   static const list = MergeHistoryListType._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is MergeHistoryListType && other.value == value;
+  @override bool operator ==(Object other) => other is MergeHistoryListType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Always true. The merge is allowed.
 final class MergePreviewAllowedAllowed {
+
   final bool value;
 
   const MergePreviewAllowedAllowed._(this.value);
 
-  factory MergePreviewAllowedAllowed.fromJson(bool value) =>
-      MergePreviewAllowedAllowed._(value);
+  factory MergePreviewAllowedAllowed.fromJson(bool value) => MergePreviewAllowedAllowed._(value);
 
   static const true_ = MergePreviewAllowedAllowed._(true);
 
   bool toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is MergePreviewAllowedAllowed && other.value == value;
+  @override bool operator ==(Object other) => other is MergePreviewAllowedAllowed && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// How the value is resolved. adopted = the source's value is taken; discarded = the source's value is dropped and the target's kept; merged = the two values are combined.
 final class MergePreviewAttributeChangeOutcome {
+
   final String value;
 
   const MergePreviewAttributeChangeOutcome._(this.value);
 
-  factory MergePreviewAttributeChangeOutcome.fromJson(String value) =>
-      MergePreviewAttributeChangeOutcome._(value);
+  factory MergePreviewAttributeChangeOutcome.fromJson(String value) => MergePreviewAttributeChangeOutcome._(value);
 
   static const adopted = MergePreviewAttributeChangeOutcome._('adopted');
   static const discarded = MergePreviewAttributeChangeOutcome._('discarded');
@@ -139,90 +125,73 @@ final class MergePreviewAttributeChangeOutcome {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is MergePreviewAttributeChangeOutcome && other.value == value;
+  @override bool operator ==(Object other) => other is MergePreviewAttributeChangeOutcome && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Always false. The merge is not allowed.
 final class MergePreviewBlockedAllowed {
+
   final bool value;
 
   const MergePreviewBlockedAllowed._(this.value);
 
-  factory MergePreviewBlockedAllowed.fromJson(bool value) =>
-      MergePreviewBlockedAllowed._(value);
+  factory MergePreviewBlockedAllowed.fromJson(bool value) => MergePreviewBlockedAllowed._(value);
 
   static const false_ = MergePreviewBlockedAllowed._(false);
 
   bool toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is MergePreviewBlockedAllowed && other.value == value;
+  @override bool operator ==(Object other) => other is MergePreviewBlockedAllowed && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// A stable code identifying the reason. Branch on this value.
 final class MergePreviewReasonCode {
+
   final String value;
 
   const MergePreviewReasonCode._(this.value);
 
-  factory MergePreviewReasonCode.fromJson(String value) =>
-      MergePreviewReasonCode._(value);
+  factory MergePreviewReasonCode.fromJson(String value) => MergePreviewReasonCode._(value);
 
-  static const sourceSameAsTarget =
-      MergePreviewReasonCode._('source_same_as_target');
-  static const invalidMergeRolePair =
-      MergePreviewReasonCode._('invalid_merge_role_pair');
-  static const noSharedIdentifier =
-      MergePreviewReasonCode._('no_shared_identifier');
+  static const sourceSameAsTarget = MergePreviewReasonCode._('source_same_as_target');
+  static const invalidMergeRolePair = MergePreviewReasonCode._('invalid_merge_role_pair');
+  static const noSharedIdentifier = MergePreviewReasonCode._('no_shared_identifier');
   static const facebookUser = MergePreviewReasonCode._('facebook_user');
-  static const externalLeadChannelNotAllowed =
-      MergePreviewReasonCode._('external_lead_channel_not_allowed');
+  static const externalLeadChannelNotAllowed = MergePreviewReasonCode._('external_lead_channel_not_allowed');
   static const mailingList = MergePreviewReasonCode._('mailing_list');
-  static const whatsappDataCannotBeMerged =
-      MergePreviewReasonCode._('whatsapp_data_cannot_be_merged');
-  static const telegramDataCannotBeMerged =
-      MergePreviewReasonCode._('telegram_data_cannot_be_merged');
-  static const msTeamsDataCannotBeMerged =
-      MergePreviewReasonCode._('ms_teams_data_cannot_be_merged');
-  static const phoneDataCannotBeMerged =
-      MergePreviewReasonCode._('phone_data_cannot_be_merged');
+  static const whatsappDataCannotBeMerged = MergePreviewReasonCode._('whatsapp_data_cannot_be_merged');
+  static const telegramDataCannotBeMerged = MergePreviewReasonCode._('telegram_data_cannot_be_merged');
+  static const msTeamsDataCannotBeMerged = MergePreviewReasonCode._('ms_teams_data_cannot_be_merged');
+  static const phoneDataCannotBeMerged = MergePreviewReasonCode._('phone_data_cannot_be_merged');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is MergePreviewReasonCode && other.value == value;
+  @override bool operator ==(Object other) => other is MergePreviewReasonCode && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of message that was sent. Can be email, inapp, facebook or twitter.
 final class MessageMessageType {
+
   final String value;
 
   const MessageMessageType._(this.value);
 
-  factory MessageMessageType.fromJson(String value) =>
-      MessageMessageType._(value);
+  factory MessageMessageType.fromJson(String value) => MessageMessageType._(value);
 
   static const email = MessageMessageType._('email');
   static const inapp = MessageMessageType._('inapp');
@@ -231,40 +200,34 @@ final class MessageMessageType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is MessageMessageType && other.value == value;
+  @override bool operator ==(Object other) => other is MessageMessageType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// An operator to allow boolean inspection between multiple fields.
 final class MultipleFilterSearchRequestOperator {
+
   final String value;
 
   const MultipleFilterSearchRequestOperator._(this.value);
 
-  factory MultipleFilterSearchRequestOperator.fromJson(String value) =>
-      MultipleFilterSearchRequestOperator._(value);
+  factory MultipleFilterSearchRequestOperator.fromJson(String value) => MultipleFilterSearchRequestOperator._(value);
 
   static const and = MultipleFilterSearchRequestOperator._('AND');
   static const or = MultipleFilterSearchRequestOperator._('OR');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is MultipleFilterSearchRequestOperator && other.value == value;
+  @override bool operator ==(Object other) => other is MultipleFilterSearchRequestOperator && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of object.
@@ -273,17 +236,14 @@ enum NewsfeedType {
 
   static NewsfeedType fromJson(String value) {
     switch (value) {
-      case 'newsfeed':
-        return NewsfeedType.newsfeed;
-      default:
-        throw ArgumentError('Unknown NewsfeedType: $value');
+      case 'newsfeed': return NewsfeedType.newsfeed;
+      default: throw ArgumentError('Unknown NewsfeedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case NewsfeedType.newsfeed:
-        return 'newsfeed';
+      case NewsfeedType.newsfeed: return 'newsfeed';
     }
   }
 
@@ -293,6 +253,7 @@ enum NewsfeedType {
 
 /// News items will not be visible to your users in the assigned newsfeeds until they are set live.
 final class NewsItemState {
+
   final String value;
 
   const NewsItemState._(this.value);
@@ -304,13 +265,10 @@ final class NewsItemState {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is NewsItemState && other.value == value;
+  @override bool operator ==(Object other) => other is NewsItemState && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

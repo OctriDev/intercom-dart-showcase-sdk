@@ -8,116 +8,68 @@ part of 'conversations.dart';
 class RedactConversationRequestVariant0 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of resource being redacted.
   final RedactConversationRequestVariant0Type type_;
-
   /// The id of the conversation.
   final String conversationId;
-
   /// The id of the conversation_part.
   final String conversationPartId;
 
-  const RedactConversationRequestVariant0(
-      {required this.type_,
-      required this.conversationId,
-      required this.conversationPartId});
+  const RedactConversationRequestVariant0({required this.type_, required this.conversationId, required this.conversationPartId});
 
-  RedactConversationRequestVariant0 Function(
-      {RedactConversationRequestVariant0Type type_,
-      String conversationId,
-      String conversationPartId}) get copyWith => _copyWith;
+  RedactConversationRequestVariant0 Function({RedactConversationRequestVariant0Type type_, String conversationId, String conversationPartId}) get copyWith => _copyWith;
 
-  RedactConversationRequestVariant0 _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? conversationId = sdkOmittedValue,
-          Object? conversationPartId = sdkOmittedValue}) =>
-      RedactConversationRequestVariant0(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RedactConversationRequestVariant0Type,
-        conversationId: identical(conversationId, sdkOmittedValue)
-            ? this.conversationId
-            : conversationId as String,
-        conversationPartId: identical(conversationPartId, sdkOmittedValue)
-            ? this.conversationPartId
-            : conversationPartId as String,
-      );
+  RedactConversationRequestVariant0 _copyWith({Object? type_ = sdkOmittedValue, Object? conversationId = sdkOmittedValue, Object? conversationPartId = sdkOmittedValue}) => RedactConversationRequestVariant0(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RedactConversationRequestVariant0Type,
+    conversationId: identical(conversationId, sdkOmittedValue) ? this.conversationId : conversationId as String,
+    conversationPartId: identical(conversationPartId, sdkOmittedValue) ? this.conversationPartId : conversationPartId as String,
+  );
 
-  factory RedactConversationRequestVariant0.fromJson(
-          Map<String, dynamic> json) =>
-      RedactConversationRequestVariant0(
-        type_: (json['type'] != null
-            ? RedactConversationRequestVariant0Type.fromJson(
-                json['type'] as String)
-            : null)!,
-        conversationId: (json['conversation_id'] as String?)!,
-        conversationPartId: (json['conversation_part_id'] as String?)!,
-      );
+  factory RedactConversationRequestVariant0.fromJson(Map<String, dynamic> json) => RedactConversationRequestVariant0(
+    type_: (json['type'] != null ? RedactConversationRequestVariant0Type.fromJson(json['type'] as String) : null)!,
+    conversationId: (json['conversation_id'] as String?)!,
+    conversationPartId: (json['conversation_part_id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'conversation_id': conversationId,
-        'conversation_part_id': conversationPartId,
-      };
+    'type': type_.toJson(),
+    'conversation_id': conversationId,
+    'conversation_part_id': conversationPartId,
+  };
 }
 
 /// Payload of the request to redact a conversation source
 class RedactConversationRequestVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of resource being redacted.
   final RedactConversationRequestVariant1Type type_;
-
   /// The id of the conversation.
   final String conversationId;
-
   /// The id of the source.
   final String sourceId;
 
-  const RedactConversationRequestVariant1(
-      {required this.type_,
-      required this.conversationId,
-      required this.sourceId});
+  const RedactConversationRequestVariant1({required this.type_, required this.conversationId, required this.sourceId});
 
-  RedactConversationRequestVariant1 Function(
-      {RedactConversationRequestVariant1Type type_,
-      String conversationId,
-      String sourceId}) get copyWith => _copyWith;
+  RedactConversationRequestVariant1 Function({RedactConversationRequestVariant1Type type_, String conversationId, String sourceId}) get copyWith => _copyWith;
 
-  RedactConversationRequestVariant1 _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? conversationId = sdkOmittedValue,
-          Object? sourceId = sdkOmittedValue}) =>
-      RedactConversationRequestVariant1(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as RedactConversationRequestVariant1Type,
-        conversationId: identical(conversationId, sdkOmittedValue)
-            ? this.conversationId
-            : conversationId as String,
-        sourceId: identical(sourceId, sdkOmittedValue)
-            ? this.sourceId
-            : sourceId as String,
-      );
+  RedactConversationRequestVariant1 _copyWith({Object? type_ = sdkOmittedValue, Object? conversationId = sdkOmittedValue, Object? sourceId = sdkOmittedValue}) => RedactConversationRequestVariant1(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RedactConversationRequestVariant1Type,
+    conversationId: identical(conversationId, sdkOmittedValue) ? this.conversationId : conversationId as String,
+    sourceId: identical(sourceId, sdkOmittedValue) ? this.sourceId : sourceId as String,
+  );
 
-  factory RedactConversationRequestVariant1.fromJson(
-          Map<String, dynamic> json) =>
-      RedactConversationRequestVariant1(
-        type_: (json['type'] != null
-            ? RedactConversationRequestVariant1Type.fromJson(
-                json['type'] as String)
-            : null)!,
-        conversationId: (json['conversation_id'] as String?)!,
-        sourceId: (json['source_id'] as String?)!,
-      );
+  factory RedactConversationRequestVariant1.fromJson(Map<String, dynamic> json) => RedactConversationRequestVariant1(
+    type_: (json['type'] != null ? RedactConversationRequestVariant1Type.fromJson(json['type'] as String) : null)!,
+    conversationId: (json['conversation_id'] as String?)!,
+    sourceId: (json['source_id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'conversation_id': conversationId,
-        'source_id': sourceId,
-      };
+    'type': type_.toJson(),
+    'conversation_id': conversationId,
+    'source_id': sourceId,
+  };
 }
 
 sealed class RedactConversationRequest {
@@ -126,48 +78,24 @@ sealed class RedactConversationRequest {
   const RedactConversationRequest();
   factory RedactConversationRequest.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = RedactConversationRequestVariant0.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return RedactConversationRequestRedactConversationRequestVariant0(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = RedactConversationRequestVariant1.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return RedactConversationRequestRedactConversationRequestVariant1(
-              value);
-        }
-      } catch (_) {}
+      try { final value = RedactConversationRequestVariant0.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RedactConversationRequestRedactConversationRequestVariant0(value); } } catch (_) {}
+      try { final value = RedactConversationRequestVariant1.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RedactConversationRequestRedactConversationRequestVariant1(value); } } catch (_) {}
     }
-    try {
-      return RedactConversationRequestRedactConversationRequestVariant0(
-          RedactConversationRequestVariant0.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return RedactConversationRequestRedactConversationRequestVariant1(
-          RedactConversationRequestVariant1.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
+    try { return RedactConversationRequestRedactConversationRequestVariant0(RedactConversationRequestVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return RedactConversationRequestRedactConversationRequestVariant1(RedactConversationRequestVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     throw FormatException("No variant matched for RedactConversationRequest");
   }
   Object? toJson();
 }
 
-final class RedactConversationRequestRedactConversationRequestVariant0
-    extends RedactConversationRequest {
+final class RedactConversationRequestRedactConversationRequestVariant0 extends RedactConversationRequest {
   final RedactConversationRequestVariant0 value;
   const RedactConversationRequestRedactConversationRequestVariant0(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class RedactConversationRequestRedactConversationRequestVariant1
-    extends RedactConversationRequest {
+final class RedactConversationRequestRedactConversationRequestVariant1 extends RedactConversationRequest {
   final RedactConversationRequestVariant1 value;
   const RedactConversationRequestRedactConversationRequestVariant1(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }

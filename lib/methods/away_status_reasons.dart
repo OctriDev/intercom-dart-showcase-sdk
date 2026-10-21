@@ -15,14 +15,10 @@ Future<AwayStatusReasonList> listAwayStatusReasons(ClientConfig config,
   return (await sdkRequest<AwayStatusReasonList>('GET', '/away_status_reasons',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listAwayStatusReasons',
-          fromJsonRaw: (value) =>
-              AwayStatusReasonList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AwayStatusReasonList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

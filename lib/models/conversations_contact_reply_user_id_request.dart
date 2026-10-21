@@ -8,188 +8,98 @@ part of 'conversations.dart';
 class ContactReplyUserIdRequestReplyOptionsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The text of the chosen reply option.
   final String text;
-
   /// The unique identifier for the quick reply option selected.
   final String uuid;
 
-  const ContactReplyUserIdRequestReplyOptionsItem(
-      {required this.text, required this.uuid});
+  const ContactReplyUserIdRequestReplyOptionsItem({required this.text, required this.uuid});
 
-  ContactReplyUserIdRequestReplyOptionsItem Function({String text, String uuid})
-      get copyWith => _copyWith;
+  ContactReplyUserIdRequestReplyOptionsItem Function({String text, String uuid}) get copyWith => _copyWith;
 
-  ContactReplyUserIdRequestReplyOptionsItem _copyWith(
-          {Object? text = sdkOmittedValue, Object? uuid = sdkOmittedValue}) =>
-      ContactReplyUserIdRequestReplyOptionsItem(
-        text: identical(text, sdkOmittedValue) ? this.text : text as String,
-        uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as String,
-      );
+  ContactReplyUserIdRequestReplyOptionsItem _copyWith({Object? text = sdkOmittedValue, Object? uuid = sdkOmittedValue}) => ContactReplyUserIdRequestReplyOptionsItem(
+    text: identical(text, sdkOmittedValue) ? this.text : text as String,
+    uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as String,
+  );
 
-  factory ContactReplyUserIdRequestReplyOptionsItem.fromJson(
-          Map<String, dynamic> json) =>
-      ContactReplyUserIdRequestReplyOptionsItem(
-        text: (json['text'] as String?)!,
-        uuid: (json['uuid'] as String?)!,
-      );
+  factory ContactReplyUserIdRequestReplyOptionsItem.fromJson(Map<String, dynamic> json) => ContactReplyUserIdRequestReplyOptionsItem(
+    text: (json['text'] as String?)!,
+    uuid: (json['uuid'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'text': text,
-        'uuid': uuid,
-      };
+    'text': text,
+    'uuid': uuid,
+  };
 }
 
 /// Payload of the request to reply on behalf of a contact using their `user_id`
 class ContactReplyUserIdRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `message_type` wire field.
   final ContactReplyUserIdRequestMessageType messageType;
-
   /// Required enumerated value serialized in the `type` wire field.
   final ContactReplyUserIdRequestType type_;
-
   /// The text body of the comment.
   final String body;
-
   /// The time the reply was created. If not provided, the current time will be used.
   final SdkOptional<int> createdAt;
-
   /// A list of image URLs that will be added as attachments. You can include up to 10 URLs.
   final SdkOptional<List<String>> attachmentUrls;
-
   /// The quick reply selection the contact wishes to respond with. These map to buttons displayed in the Messenger UI if sent by a bot, or the reply options sent by an Admin via the API.
-  final SdkOptional<List<ContactReplyUserIdRequestReplyOptionsItem>>
-      replyOptions;
-
+  final SdkOptional<List<ContactReplyUserIdRequestReplyOptionsItem>> replyOptions;
   /// The external_id you have defined for the contact.
   final String userId;
-
   /// A list of files that will be added as attachments. You can include up to 10 files.
   final SdkOptional<List<ConversationAttachmentFiles>> attachmentFiles;
 
-  const ContactReplyUserIdRequest(
-      {required this.messageType,
-      required this.type_,
-      required this.body,
-      this.createdAt = const SdkOmitted(),
-      this.attachmentUrls = const SdkOmitted(),
-      this.replyOptions = const SdkOmitted(),
-      required this.userId,
-      this.attachmentFiles = const SdkOmitted()});
+  const ContactReplyUserIdRequest({required this.messageType, required this.type_, required this.body, this.createdAt = const SdkOmitted(), this.attachmentUrls = const SdkOmitted(), this.replyOptions = const SdkOmitted(), required this.userId, this.attachmentFiles = const SdkOmitted()});
 
-  ContactReplyUserIdRequest Function(
-      {ContactReplyUserIdRequestMessageType messageType,
-      ContactReplyUserIdRequestType type_,
-      String body,
-      SdkOptional<int> createdAt,
-      SdkOptional<List<String>> attachmentUrls,
-      SdkOptional<List<ContactReplyUserIdRequestReplyOptionsItem>> replyOptions,
-      String userId,
-      SdkOptional<List<ConversationAttachmentFiles>>
-          attachmentFiles}) get copyWith => _copyWith;
+  ContactReplyUserIdRequest Function({ContactReplyUserIdRequestMessageType messageType, ContactReplyUserIdRequestType type_, String body, SdkOptional<int> createdAt, SdkOptional<List<String>> attachmentUrls, SdkOptional<List<ContactReplyUserIdRequestReplyOptionsItem>> replyOptions, String userId, SdkOptional<List<ConversationAttachmentFiles>> attachmentFiles}) get copyWith => _copyWith;
 
-  ContactReplyUserIdRequest _copyWith(
-          {Object? messageType = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? body = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? attachmentUrls = sdkOmittedValue,
-          Object? replyOptions = sdkOmittedValue,
-          Object? userId = sdkOmittedValue,
-          Object? attachmentFiles = sdkOmittedValue}) =>
-      ContactReplyUserIdRequest(
-        messageType: identical(messageType, sdkOmittedValue)
-            ? this.messageType
-            : messageType as ContactReplyUserIdRequestMessageType,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ContactReplyUserIdRequestType,
-        body: identical(body, sdkOmittedValue) ? this.body : body as String,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<int>,
-        attachmentUrls: identical(attachmentUrls, sdkOmittedValue)
-            ? this.attachmentUrls
-            : attachmentUrls as SdkOptional<List<String>>,
-        replyOptions: identical(replyOptions, sdkOmittedValue)
-            ? this.replyOptions
-            : replyOptions
-                as SdkOptional<List<ContactReplyUserIdRequestReplyOptionsItem>>,
-        userId:
-            identical(userId, sdkOmittedValue) ? this.userId : userId as String,
-        attachmentFiles: identical(attachmentFiles, sdkOmittedValue)
-            ? this.attachmentFiles
-            : attachmentFiles as SdkOptional<List<ConversationAttachmentFiles>>,
-      );
+  ContactReplyUserIdRequest _copyWith({Object? messageType = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? body = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? attachmentUrls = sdkOmittedValue, Object? replyOptions = sdkOmittedValue, Object? userId = sdkOmittedValue, Object? attachmentFiles = sdkOmittedValue}) => ContactReplyUserIdRequest(
+    messageType: identical(messageType, sdkOmittedValue) ? this.messageType : messageType as ContactReplyUserIdRequestMessageType,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ContactReplyUserIdRequestType,
+    body: identical(body, sdkOmittedValue) ? this.body : body as String,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<int>,
+    attachmentUrls: identical(attachmentUrls, sdkOmittedValue) ? this.attachmentUrls : attachmentUrls as SdkOptional<List<String>>,
+    replyOptions: identical(replyOptions, sdkOmittedValue) ? this.replyOptions : replyOptions as SdkOptional<List<ContactReplyUserIdRequestReplyOptionsItem>>,
+    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as String,
+    attachmentFiles: identical(attachmentFiles, sdkOmittedValue) ? this.attachmentFiles : attachmentFiles as SdkOptional<List<ConversationAttachmentFiles>>,
+  );
 
-  factory ContactReplyUserIdRequest.fromJson(Map<String, dynamic> json) =>
-      ContactReplyUserIdRequest(
-        messageType: (json['message_type'] != null
-            ? ContactReplyUserIdRequestMessageType.fromJson(
-                json['message_type'] as String)
-            : null)!,
-        type_: (json['type'] != null
-            ? ContactReplyUserIdRequestType.fromJson(json['type'] as String)
-            : null)!,
-        body: (json['body'] as String?)!,
-        createdAt: json['created_at'] != null
-            ? SdkPresent(((json['created_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        attachmentUrls: json['attachment_urls'] != null
-            ? SdkPresent(((json['attachment_urls'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        replyOptions: json['reply_options'] != null
-            ? SdkPresent(((json['reply_options'] as List?)
-                ?.map((e) => ContactReplyUserIdRequestReplyOptionsItem.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        userId: (json['user_id'] as String?)!,
-        attachmentFiles: json['attachment_files'] != null
-            ? SdkPresent(((json['attachment_files'] as List?)
-                ?.map((e) => ConversationAttachmentFiles.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ContactReplyUserIdRequest.fromJson(Map<String, dynamic> json) => ContactReplyUserIdRequest(
+    messageType: (json['message_type'] != null ? ContactReplyUserIdRequestMessageType.fromJson(json['message_type'] as String) : null)!,
+    type_: (json['type'] != null ? ContactReplyUserIdRequestType.fromJson(json['type'] as String) : null)!,
+    body: (json['body'] as String?)!,
+    createdAt: json['created_at'] != null ? SdkPresent(((json['created_at'] as num?)?.toInt())!) : const SdkOmitted(),
+    attachmentUrls: json['attachment_urls'] != null ? SdkPresent(((json['attachment_urls'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    replyOptions: json['reply_options'] != null ? SdkPresent(((json['reply_options'] as List?)?.map((e) => ContactReplyUserIdRequestReplyOptionsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    userId: (json['user_id'] as String?)!,
+    attachmentFiles: json['attachment_files'] != null ? SdkPresent(((json['attachment_files'] as List?)?.map((e) => ConversationAttachmentFiles.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'message_type': messageType.toJson(),
-        'type': type_.toJson(),
-        'body': body,
-        ...switch (createdAt) {
-          SdkPresent<int>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (attachmentUrls) {
-          SdkPresent<List<String>>(value: final value) => {
-              'attachment_urls': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (replyOptions) {
-          SdkPresent<List<ContactReplyUserIdRequestReplyOptionsItem>>(
-            value: final value
-          ) =>
-            {
-              'reply_options': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'user_id': userId,
-        ...switch (attachmentFiles) {
-          SdkPresent<List<ConversationAttachmentFiles>>(value: final value) => {
-              'attachment_files': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'message_type': messageType.toJson(),
+    'type': type_.toJson(),
+    'body': body,
+    ...switch (createdAt) {
+      SdkPresent<int>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (attachmentUrls) {
+      SdkPresent<List<String>>(value: final value) => {'attachment_urls': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (replyOptions) {
+      SdkPresent<List<ContactReplyUserIdRequestReplyOptionsItem>>(value: final value) => {'reply_options': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    'user_id': userId,
+    ...switch (attachmentFiles) {
+      SdkPresent<List<ConversationAttachmentFiles>>(value: final value) => {'attachment_files': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

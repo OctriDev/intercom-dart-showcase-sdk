@@ -8,93 +8,49 @@ part of 'conversations.dart';
 class UpdateConversationRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Mark a conversation as read within Intercom.
   final SdkOptional<bool> read;
-
   /// The title given to the conversation
   final SdkOptional<String> title;
-
   /// The custom attributes which are set on this object, as key-value pairs. For relationship attributes the value should be a list of custom object instance models. Only attributes a caller may set are accepted here — attributes Intercom generates are returned in responses only.
   final SdkOptional<Map<String, dynamic>> customAttributes;
-
   /// The ID of the company that the conversation is associated with. The unique identifier for the company which is given by Intercom. Set to nil to remove company.
   final SdkOptional<String> companyId;
 
-  const UpdateConversationRequest(
-      {this.read = const SdkOmitted(),
-      this.title = const SdkOmitted(),
-      this.customAttributes = const SdkOmitted(),
-      this.companyId = const SdkOmitted()});
+  const UpdateConversationRequest({this.read = const SdkOmitted(), this.title = const SdkOmitted(), this.customAttributes = const SdkOmitted(), this.companyId = const SdkOmitted()});
 
-  UpdateConversationRequest Function(
-      {SdkOptional<bool> read,
-      SdkOptional<String> title,
-      SdkOptional<Map<String, dynamic>> customAttributes,
-      SdkOptional<String> companyId}) get copyWith => _copyWith;
+  UpdateConversationRequest Function({SdkOptional<bool> read, SdkOptional<String> title, SdkOptional<Map<String, dynamic>> customAttributes, SdkOptional<String> companyId}) get copyWith => _copyWith;
 
-  UpdateConversationRequest _copyWith(
-          {Object? read = sdkOmittedValue,
-          Object? title = sdkOmittedValue,
-          Object? customAttributes = sdkOmittedValue,
-          Object? companyId = sdkOmittedValue}) =>
-      UpdateConversationRequest(
-        read: identical(read, sdkOmittedValue)
-            ? this.read
-            : read as SdkOptional<bool>,
-        title: identical(title, sdkOmittedValue)
-            ? this.title
-            : title as SdkOptional<String>,
-        customAttributes: identical(customAttributes, sdkOmittedValue)
-            ? this.customAttributes
-            : customAttributes as SdkOptional<Map<String, dynamic>>,
-        companyId: identical(companyId, sdkOmittedValue)
-            ? this.companyId
-            : companyId as SdkOptional<String>,
-      );
+  UpdateConversationRequest _copyWith({Object? read = sdkOmittedValue, Object? title = sdkOmittedValue, Object? customAttributes = sdkOmittedValue, Object? companyId = sdkOmittedValue}) => UpdateConversationRequest(
+    read: identical(read, sdkOmittedValue) ? this.read : read as SdkOptional<bool>,
+    title: identical(title, sdkOmittedValue) ? this.title : title as SdkOptional<String>,
+    customAttributes: identical(customAttributes, sdkOmittedValue) ? this.customAttributes : customAttributes as SdkOptional<Map<String, dynamic>>,
+    companyId: identical(companyId, sdkOmittedValue) ? this.companyId : companyId as SdkOptional<String>,
+  );
 
-  factory UpdateConversationRequest.fromJson(Map<String, dynamic> json) =>
-      UpdateConversationRequest(
-        read: json['read'] != null
-            ? SdkPresent((json['read'] as bool?)!)
-            : const SdkOmitted(),
-        title: json['title'] != null
-            ? SdkPresent((json['title'] as String?)!)
-            : const SdkOmitted(),
-        customAttributes: json['custom_attributes'] != null
-            ? SdkPresent((json['custom_attributes'] == null
-                ? null
-                : json['custom_attributes'] as Map<String, dynamic>)!)
-            : const SdkOmitted(),
-        companyId: json['company_id'] != null
-            ? SdkPresent((json['company_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory UpdateConversationRequest.fromJson(Map<String, dynamic> json) => UpdateConversationRequest(
+    read: json['read'] != null ? SdkPresent((json['read'] as bool?)!) : const SdkOmitted(),
+    title: json['title'] != null ? SdkPresent((json['title'] as String?)!) : const SdkOmitted(),
+    customAttributes: json['custom_attributes'] != null ? SdkPresent((json['custom_attributes'] == null ? null : json['custom_attributes'] as Map<String, dynamic>)!) : const SdkOmitted(),
+    companyId: json['company_id'] != null ? SdkPresent((json['company_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (read) {
-          SdkPresent<bool>(value: final value) => {
-              'read': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (title) {
-          SdkPresent<String>(value: final value) => {
-              'title': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (customAttributes) {
-          SdkPresent<Map<String, dynamic>>(value: final value) => {
-              'custom_attributes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (companyId) {
-          SdkPresent<String>(value: final value) => {
-              'company_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (read) {
+      SdkPresent<bool>(value: final value) => {'read': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (title) {
+      SdkPresent<String>(value: final value) => {'title': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (customAttributes) {
+      SdkPresent<Map<String, dynamic>>(value: final value) => {'custom_attributes': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (companyId) {
+      SdkPresent<String>(value: final value) => {'company_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

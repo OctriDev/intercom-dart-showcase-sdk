@@ -8,156 +8,88 @@ part of 'conversations.dart';
 class CreateConversationRequestFrom {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The role associated to the contact - user or lead.
   final CreateConversationRequestFromType type_;
-
   /// The identifier for the contact which is given by Intercom.
   final String id;
 
   const CreateConversationRequestFrom({required this.type_, required this.id});
 
-  CreateConversationRequestFrom Function(
-      {CreateConversationRequestFromType type_,
-      String id}) get copyWith => _copyWith;
+  CreateConversationRequestFrom Function({CreateConversationRequestFromType type_, String id}) get copyWith => _copyWith;
 
-  CreateConversationRequestFrom _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue}) =>
-      CreateConversationRequestFrom(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as CreateConversationRequestFromType,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-      );
+  CreateConversationRequestFrom _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue}) => CreateConversationRequestFrom(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateConversationRequestFromType,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+  );
 
-  factory CreateConversationRequestFrom.fromJson(Map<String, dynamic> json) =>
-      CreateConversationRequestFrom(
-        type_: (json['type'] != null
-            ? CreateConversationRequestFromType.fromJson(json['type'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-      );
+  factory CreateConversationRequestFrom.fromJson(Map<String, dynamic> json) => CreateConversationRequestFrom(
+    type_: (json['type'] != null ? CreateConversationRequestFromType.fromJson(json['type'] as String) : null)!,
+    id: (json['id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'id': id,
-      };
+    'type': type_.toJson(),
+    'id': id,
+  };
 }
 
 /// Conversations are how you can communicate with users in Intercom. They are created when a contact replies to an outbound message, or when one admin directly sends a message to a single contact.
 class CreateConversationRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required object value serialized in the `from` wire field.
   final CreateConversationRequestFrom from;
-
   /// The content of the message. HTML is not supported.
   final String body;
-
   /// The title of the email. Only applicable if the message type is email.
   final SdkOptional<String> subject;
-
   /// A list of image URLs that will be added as attachments. You can include up to 10 URLs.
   final SdkOptional<List<String>> attachmentUrls;
-
   /// The time the conversation was created as a UTC Unix timestamp. If not provided, the current time will be used. This field is only recommneded for migrating past conversations from another source into Intercom.
   final SdkOptional<int> createdAt;
-
   /// The unique identifier of the brand to associate with this conversation.
   final SdkOptional<String> brandId;
 
-  const CreateConversationRequest(
-      {required this.from,
-      required this.body,
-      this.subject = const SdkOmitted(),
-      this.attachmentUrls = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.brandId = const SdkOmitted()});
+  const CreateConversationRequest({required this.from, required this.body, this.subject = const SdkOmitted(), this.attachmentUrls = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.brandId = const SdkOmitted()});
 
-  CreateConversationRequest Function(
-      {CreateConversationRequestFrom from,
-      String body,
-      SdkOptional<String> subject,
-      SdkOptional<List<String>> attachmentUrls,
-      SdkOptional<int> createdAt,
-      SdkOptional<String> brandId}) get copyWith => _copyWith;
+  CreateConversationRequest Function({CreateConversationRequestFrom from, String body, SdkOptional<String> subject, SdkOptional<List<String>> attachmentUrls, SdkOptional<int> createdAt, SdkOptional<String> brandId}) get copyWith => _copyWith;
 
-  CreateConversationRequest _copyWith(
-          {Object? from = sdkOmittedValue,
-          Object? body = sdkOmittedValue,
-          Object? subject = sdkOmittedValue,
-          Object? attachmentUrls = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? brandId = sdkOmittedValue}) =>
-      CreateConversationRequest(
-        from: identical(from, sdkOmittedValue)
-            ? this.from
-            : from as CreateConversationRequestFrom,
-        body: identical(body, sdkOmittedValue) ? this.body : body as String,
-        subject: identical(subject, sdkOmittedValue)
-            ? this.subject
-            : subject as SdkOptional<String>,
-        attachmentUrls: identical(attachmentUrls, sdkOmittedValue)
-            ? this.attachmentUrls
-            : attachmentUrls as SdkOptional<List<String>>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<int>,
-        brandId: identical(brandId, sdkOmittedValue)
-            ? this.brandId
-            : brandId as SdkOptional<String>,
-      );
+  CreateConversationRequest _copyWith({Object? from = sdkOmittedValue, Object? body = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? attachmentUrls = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? brandId = sdkOmittedValue}) => CreateConversationRequest(
+    from: identical(from, sdkOmittedValue) ? this.from : from as CreateConversationRequestFrom,
+    body: identical(body, sdkOmittedValue) ? this.body : body as String,
+    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as SdkOptional<String>,
+    attachmentUrls: identical(attachmentUrls, sdkOmittedValue) ? this.attachmentUrls : attachmentUrls as SdkOptional<List<String>>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<int>,
+    brandId: identical(brandId, sdkOmittedValue) ? this.brandId : brandId as SdkOptional<String>,
+  );
 
-  factory CreateConversationRequest.fromJson(Map<String, dynamic> json) =>
-      CreateConversationRequest(
-        from: (json['from'] != null
-            ? CreateConversationRequestFrom.fromJson(
-                json['from'] as Map<String, dynamic>)
-            : null)!,
-        body: (json['body'] as String?)!,
-        subject: json['subject'] != null
-            ? SdkPresent((json['subject'] as String?)!)
-            : const SdkOmitted(),
-        attachmentUrls: json['attachment_urls'] != null
-            ? SdkPresent(((json['attachment_urls'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent(((json['created_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        brandId: json['brand_id'] != null
-            ? SdkPresent((json['brand_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory CreateConversationRequest.fromJson(Map<String, dynamic> json) => CreateConversationRequest(
+    from: (json['from'] != null ? CreateConversationRequestFrom.fromJson(json['from'] as Map<String, dynamic>) : null)!,
+    body: (json['body'] as String?)!,
+    subject: json['subject'] != null ? SdkPresent((json['subject'] as String?)!) : const SdkOmitted(),
+    attachmentUrls: json['attachment_urls'] != null ? SdkPresent(((json['attachment_urls'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent(((json['created_at'] as num?)?.toInt())!) : const SdkOmitted(),
+    brandId: json['brand_id'] != null ? SdkPresent((json['brand_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'from': from.toJson(),
-        'body': body,
-        ...switch (subject) {
-          SdkPresent<String>(value: final value) => {
-              'subject': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (attachmentUrls) {
-          SdkPresent<List<String>>(value: final value) => {
-              'attachment_urls': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<int>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (brandId) {
-          SdkPresent<String>(value: final value) => {
-              'brand_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'from': from.toJson(),
+    'body': body,
+    ...switch (subject) {
+      SdkPresent<String>(value: final value) => {'subject': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (attachmentUrls) {
+      SdkPresent<List<String>>(value: final value) => {'attachment_urls': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<int>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (brandId) {
+      SdkPresent<String>(value: final value) => {'brand_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

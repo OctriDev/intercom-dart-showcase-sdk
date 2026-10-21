@@ -8,37 +8,25 @@ part of 'models.dart';
 class ConversationScorecardEvaluatorReason {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the reason. Null if the reason's name could not be resolved.
   final SdkOptional<String?> name;
 
   const ConversationScorecardEvaluatorReason({this.name = const SdkOmitted()});
 
-  ConversationScorecardEvaluatorReason Function({SdkOptional<String?> name})
-      get copyWith => _copyWith;
+  ConversationScorecardEvaluatorReason Function({SdkOptional<String?> name}) get copyWith => _copyWith;
 
-  ConversationScorecardEvaluatorReason _copyWith(
-          {Object? name = sdkOmittedValue}) =>
-      ConversationScorecardEvaluatorReason(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String?>,
-      );
+  ConversationScorecardEvaluatorReason _copyWith({Object? name = sdkOmittedValue}) => ConversationScorecardEvaluatorReason(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String?>,
+  );
 
-  factory ConversationScorecardEvaluatorReason.fromJson(
-          Map<String, dynamic> json) =>
-      ConversationScorecardEvaluatorReason(
-        name: json.containsKey('name')
-            ? SdkPresent(json['name'] as String?)
-            : const SdkOmitted(),
-      );
+  factory ConversationScorecardEvaluatorReason.fromJson(Map<String, dynamic> json) => ConversationScorecardEvaluatorReason(
+    name: json.containsKey('name') ? SdkPresent(json['name'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String?>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String?>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

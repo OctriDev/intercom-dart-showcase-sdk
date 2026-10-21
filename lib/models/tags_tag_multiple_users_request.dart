@@ -8,77 +8,54 @@ part of 'tags.dart';
 class TagMultipleUsersRequestUsersItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The Intercom defined id representing the user.
   final SdkOptional<String> id;
 
   const TagMultipleUsersRequestUsersItem({this.id = const SdkOmitted()});
 
-  TagMultipleUsersRequestUsersItem Function({SdkOptional<String> id})
-      get copyWith => _copyWith;
+  TagMultipleUsersRequestUsersItem Function({SdkOptional<String> id}) get copyWith => _copyWith;
 
-  TagMultipleUsersRequestUsersItem _copyWith({Object? id = sdkOmittedValue}) =>
-      TagMultipleUsersRequestUsersItem(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-      );
+  TagMultipleUsersRequestUsersItem _copyWith({Object? id = sdkOmittedValue}) => TagMultipleUsersRequestUsersItem(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+  );
 
-  factory TagMultipleUsersRequestUsersItem.fromJson(
-          Map<String, dynamic> json) =>
-      TagMultipleUsersRequestUsersItem(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory TagMultipleUsersRequestUsersItem.fromJson(Map<String, dynamic> json) => TagMultipleUsersRequestUsersItem(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// You can tag a list of users.
 class TagMultipleUsersRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the tag, which will be created if not found.
   final String name;
-
   /// Required array value serialized in the `users` wire field.
   final List<TagMultipleUsersRequestUsersItem> users;
 
   const TagMultipleUsersRequest({required this.name, required this.users});
 
-  TagMultipleUsersRequest Function(
-      {String name,
-      List<TagMultipleUsersRequestUsersItem> users}) get copyWith => _copyWith;
+  TagMultipleUsersRequest Function({String name, List<TagMultipleUsersRequestUsersItem> users}) get copyWith => _copyWith;
 
-  TagMultipleUsersRequest _copyWith(
-          {Object? name = sdkOmittedValue, Object? users = sdkOmittedValue}) =>
-      TagMultipleUsersRequest(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        users: identical(users, sdkOmittedValue)
-            ? this.users
-            : users as List<TagMultipleUsersRequestUsersItem>,
-      );
+  TagMultipleUsersRequest _copyWith({Object? name = sdkOmittedValue, Object? users = sdkOmittedValue}) => TagMultipleUsersRequest(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    users: identical(users, sdkOmittedValue) ? this.users : users as List<TagMultipleUsersRequestUsersItem>,
+  );
 
-  factory TagMultipleUsersRequest.fromJson(Map<String, dynamic> json) =>
-      TagMultipleUsersRequest(
-        name: (json['name'] as String?)!,
-        users: ((json['users'] as List?)
-            ?.map((e) => TagMultipleUsersRequestUsersItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList())!,
-      );
+  factory TagMultipleUsersRequest.fromJson(Map<String, dynamic> json) => TagMultipleUsersRequest(
+    name: (json['name'] as String?)!,
+    users: ((json['users'] as List?)?.map((e) => TagMultipleUsersRequestUsersItem.fromJson(e as Map<String, dynamic>)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        'users': users.map((item) => item.toJson()).toList(),
-      };
+    'name': name,
+    'users': users.map((item) => item.toJson()).toList(),
+  };
 }

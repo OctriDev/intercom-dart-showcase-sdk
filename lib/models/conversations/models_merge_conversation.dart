@@ -8,31 +8,22 @@ part of 'models.dart';
 class MergeConversationsRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of the primary (target) conversation to merge into.
   final int mergeIntoConversationId;
 
   const MergeConversationsRequest({required this.mergeIntoConversationId});
 
-  MergeConversationsRequest Function({int mergeIntoConversationId})
-      get copyWith => _copyWith;
+  MergeConversationsRequest Function({int mergeIntoConversationId}) get copyWith => _copyWith;
 
-  MergeConversationsRequest _copyWith(
-          {Object? mergeIntoConversationId = sdkOmittedValue}) =>
-      MergeConversationsRequest(
-        mergeIntoConversationId:
-            identical(mergeIntoConversationId, sdkOmittedValue)
-                ? this.mergeIntoConversationId
-                : mergeIntoConversationId as int,
-      );
+  MergeConversationsRequest _copyWith({Object? mergeIntoConversationId = sdkOmittedValue}) => MergeConversationsRequest(
+    mergeIntoConversationId: identical(mergeIntoConversationId, sdkOmittedValue) ? this.mergeIntoConversationId : mergeIntoConversationId as int,
+  );
 
-  factory MergeConversationsRequest.fromJson(Map<String, dynamic> json) =>
-      MergeConversationsRequest(
-        mergeIntoConversationId:
-            ((json['merge_into_conversation_id'] as num?)?.toInt())!,
-      );
+  factory MergeConversationsRequest.fromJson(Map<String, dynamic> json) => MergeConversationsRequest(
+    mergeIntoConversationId: ((json['merge_into_conversation_id'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'merge_into_conversation_id': mergeIntoConversationId,
-      };
+    'merge_into_conversation_id': mergeIntoConversationId,
+  };
 }

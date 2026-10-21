@@ -21,23 +21,18 @@ Future<CallList> listCalls(ClientConfig config,
   return (await sdkRequest<CallList>('GET', '/calls',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listCalls',
-          fromJsonRaw: (value) =>
-              CallList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CallList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves a single call by its identifier. Use `call_id` to select the call whose details you need.
 ///
@@ -52,17 +47,14 @@ Future<Call> showCall(ClientConfig config,
           'GET', '/calls/${Uri.encodeComponent(callId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'showCall',
           fromJsonRaw: (value) => Call.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves a redirect to a signed URL for a call recording when one is available. Use `call_id` to identify the call whose recording you want to access.
 ///
@@ -77,16 +69,13 @@ Future<void> showCallRecording(ClientConfig config,
           'GET', '/calls/${Uri.encodeComponent(callId.toString())}/recording',
           config: config,
           decoder: SdkResponseDecoder.empty,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'showCallRecording',
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves the transcript for a call as a downloadable text file. Use `call_id` to identify the call whose transcript you need.
 ///
@@ -101,26 +90,24 @@ Future<String> showCallTranscript(ClientConfig config,
           'GET', '/calls/${Uri.encodeComponent(callId.toString())}/transcript',
           config: config,
           decoder: SdkResponseDecoder.text,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'showCallTranscript',
           options: requestOptions,
-          errors: {
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Lists calls associated with the specified conversation IDs and includes transcripts when available. Supply between 1 and 20 IDs in `conversation_ids` to retrieve the matching calls. Use this endpoint when you need call details and transcript availability for a set of conversations.
 ///
 /// Retrieve calls by a list of conversation ids and include transcripts when available. A maximum of 20 `conversation_ids` can be provided. If none are provided or more than 20 are provided, a 400 error is returned.
 ///
 /// [conversationIds] A list of conversation ids to fetch calls for. Maximum 20.
-Future<ListCallsWithTranscriptsResponse> listCallsWithTranscripts(
-    ClientConfig config,
-    {required List<String> conversationIds,
-    SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ListCallsWithTranscriptsResponse>
+    listCallsWithTranscripts(ClientConfig config,
+        {required List<String> conversationIds,
+        SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   validateItems('conversation_ids', conversationIds, min: 1, max: 20);
 
   return (await sdkRequest<ListCallsWithTranscriptsResponse>(
@@ -128,18 +115,14 @@ Future<ListCallsWithTranscriptsResponse> listCallsWithTranscripts(
           config: config,
           body: {'conversation_ids': conversationIds},
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listCallsWithTranscripts',
-          fromJsonRaw: (value) => ListCallsWithTranscriptsResponse.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListCallsWithTranscriptsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Register a Fin Voice call with Intercom. This endpoint creates an external reference that links an external call identifier to an Intercom call and conversation. The call can be from different sources: - AWS Connect (default) - Five9 - Zoom Phone
 ///
@@ -164,16 +147,12 @@ Future<AiCallResponse> registerFinVoiceCall(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'registerFinVoiceCall',
-          fromJsonRaw: (value) =>
-              AiCallResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AiCallResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '409': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieve information about a Fin Voice call using the external reference ID.
 ///
@@ -185,15 +164,12 @@ Future<AiCallResponse> collectFinVoiceCallById(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'collectFinVoiceCallById',
-          fromJsonRaw: (value) =>
-              AiCallResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AiCallResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'404': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieve information about a Fin Voice call using the external call identifier.
 ///
@@ -205,15 +181,12 @@ Future<AiCallResponse> collectFinVoiceCallByExternalId(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'collectFinVoiceCallByExternalId',
-          fromJsonRaw: (value) =>
-              AiCallResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AiCallResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'404': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieve information about a Fin Voice call using the phone number. Returns the most recent matched call for the given phone number, ordered by creation date.
 ///
@@ -225,37 +198,25 @@ Future<AiCallResponse> collectFinVoiceCallByPhoneNumber(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'collectFinVoiceCallByPhoneNumber',
-          fromJsonRaw: (value) =>
-              AiCallResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AiCallResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieve information about Fin Voice calls associated with a conversation. Returns all matched calls for the given conversation ID. A conversation may have multiple associated calls.
 ///
 /// [conversationId] The Intercom conversation identifier
-Future<List<AiCallResponse>> collectFinVoiceCallsByConversationId(
-    ClientConfig config,
-    {required String conversationId,
-    RequestOptions? requestOptions}) async {
+Future<List<AiCallResponse>> collectFinVoiceCallsByConversationId(ClientConfig config,
+    {required String conversationId, RequestOptions? requestOptions}) async {
   return (await sdkRequest<List<AiCallResponse>>('GET',
           '/fin_voice/conversation/${Uri.encodeComponent(conversationId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'collectFinVoiceCallsByConversationId',
-          fromJsonRaw: (value) => (value as List)
-              .map((item) =>
-                  AiCallResponse.fromJson(item as Map<String, dynamic>))
-              .toList(),
+          fromJsonRaw: (value) => (value as List).map((item) => AiCallResponse.fromJson(item as Map<String, dynamic>)).toList(),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

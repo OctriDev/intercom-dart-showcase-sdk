@@ -8,239 +8,113 @@ part of 'contacts.dart';
 class UpdateContactRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The role of the contact.
   final SdkOptional<String> role;
-
   /// A unique identifier for the contact which is given to Intercom
   final SdkOptional<String> externalId;
-
   /// The contacts email
   final SdkOptional<String> email;
-
   /// Whether the contact has proved they own this email address, for example through a confirmation link or one-time code you sent. Send it together with `email`. `email_verified` without `email` is rejected. Changing a contact's email resets it to not verified. Intercom reuses leads with a verified email when an inbound email, conversation or ticket matches the address.
   final SdkOptional<bool?> emailVerified;
-
   /// The contacts phone
   final SdkOptional<String?> phone;
-
   /// The contacts name
   final SdkOptional<String?> name;
-
   /// An image URL containing the avatar of a contact
   final SdkOptional<String?> avatar;
-
   /// (Unix timestamp in seconds) The time specified for when a contact signed up.
   final SdkOptional<int?> signedUpAt;
-
   /// (Unix timestamp in seconds) The time when the contact was last seen (either where the Intercom Messenger was installed or when specified manually).
   final SdkOptional<int?> lastSeenAt;
-
   /// The id of an admin that has been assigned account ownership of the contact
   final SdkOptional<String?> ownerId;
-
   /// Whether the contact is unsubscribed from emails
   final SdkOptional<bool?> unsubscribedFromEmails;
-
   /// The custom attributes which are set for the contact
   final SdkOptional<Map<String, dynamic>?> customAttributes;
 
-  const UpdateContactRequest(
-      {this.role = const SdkOmitted(),
-      this.externalId = const SdkOmitted(),
-      this.email = const SdkOmitted(),
-      this.emailVerified = const SdkOmitted(),
-      this.phone = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.avatar = const SdkOmitted(),
-      this.signedUpAt = const SdkOmitted(),
-      this.lastSeenAt = const SdkOmitted(),
-      this.ownerId = const SdkOmitted(),
-      this.unsubscribedFromEmails = const SdkOmitted(),
-      this.customAttributes = const SdkOmitted()});
+  const UpdateContactRequest({this.role = const SdkOmitted(), this.externalId = const SdkOmitted(), this.email = const SdkOmitted(), this.emailVerified = const SdkOmitted(), this.phone = const SdkOmitted(), this.name = const SdkOmitted(), this.avatar = const SdkOmitted(), this.signedUpAt = const SdkOmitted(), this.lastSeenAt = const SdkOmitted(), this.ownerId = const SdkOmitted(), this.unsubscribedFromEmails = const SdkOmitted(), this.customAttributes = const SdkOmitted()});
 
-  UpdateContactRequest Function(
-          {SdkOptional<String> role,
-          SdkOptional<String> externalId,
-          SdkOptional<String> email,
-          SdkOptional<bool?> emailVerified,
-          SdkOptional<String?> phone,
-          SdkOptional<String?> name,
-          SdkOptional<String?> avatar,
-          SdkOptional<int?> signedUpAt,
-          SdkOptional<int?> lastSeenAt,
-          SdkOptional<String?> ownerId,
-          SdkOptional<bool?> unsubscribedFromEmails,
-          SdkOptional<Map<String, dynamic>?> customAttributes})
-      get copyWith => _copyWith;
+  UpdateContactRequest Function({SdkOptional<String> role, SdkOptional<String> externalId, SdkOptional<String> email, SdkOptional<bool?> emailVerified, SdkOptional<String?> phone, SdkOptional<String?> name, SdkOptional<String?> avatar, SdkOptional<int?> signedUpAt, SdkOptional<int?> lastSeenAt, SdkOptional<String?> ownerId, SdkOptional<bool?> unsubscribedFromEmails, SdkOptional<Map<String, dynamic>?> customAttributes}) get copyWith => _copyWith;
 
-  UpdateContactRequest _copyWith(
-          {Object? role = sdkOmittedValue,
-          Object? externalId = sdkOmittedValue,
-          Object? email = sdkOmittedValue,
-          Object? emailVerified = sdkOmittedValue,
-          Object? phone = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? avatar = sdkOmittedValue,
-          Object? signedUpAt = sdkOmittedValue,
-          Object? lastSeenAt = sdkOmittedValue,
-          Object? ownerId = sdkOmittedValue,
-          Object? unsubscribedFromEmails = sdkOmittedValue,
-          Object? customAttributes = sdkOmittedValue}) =>
-      UpdateContactRequest(
-        role: identical(role, sdkOmittedValue)
-            ? this.role
-            : role as SdkOptional<String>,
-        externalId: identical(externalId, sdkOmittedValue)
-            ? this.externalId
-            : externalId as SdkOptional<String>,
-        email: identical(email, sdkOmittedValue)
-            ? this.email
-            : email as SdkOptional<String>,
-        emailVerified: identical(emailVerified, sdkOmittedValue)
-            ? this.emailVerified
-            : emailVerified as SdkOptional<bool?>,
-        phone: identical(phone, sdkOmittedValue)
-            ? this.phone
-            : phone as SdkOptional<String?>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String?>,
-        avatar: identical(avatar, sdkOmittedValue)
-            ? this.avatar
-            : avatar as SdkOptional<String?>,
-        signedUpAt: identical(signedUpAt, sdkOmittedValue)
-            ? this.signedUpAt
-            : signedUpAt as SdkOptional<int?>,
-        lastSeenAt: identical(lastSeenAt, sdkOmittedValue)
-            ? this.lastSeenAt
-            : lastSeenAt as SdkOptional<int?>,
-        ownerId: identical(ownerId, sdkOmittedValue)
-            ? this.ownerId
-            : ownerId as SdkOptional<String?>,
-        unsubscribedFromEmails:
-            identical(unsubscribedFromEmails, sdkOmittedValue)
-                ? this.unsubscribedFromEmails
-                : unsubscribedFromEmails as SdkOptional<bool?>,
-        customAttributes: identical(customAttributes, sdkOmittedValue)
-            ? this.customAttributes
-            : customAttributes as SdkOptional<Map<String, dynamic>?>,
-      );
+  UpdateContactRequest _copyWith({Object? role = sdkOmittedValue, Object? externalId = sdkOmittedValue, Object? email = sdkOmittedValue, Object? emailVerified = sdkOmittedValue, Object? phone = sdkOmittedValue, Object? name = sdkOmittedValue, Object? avatar = sdkOmittedValue, Object? signedUpAt = sdkOmittedValue, Object? lastSeenAt = sdkOmittedValue, Object? ownerId = sdkOmittedValue, Object? unsubscribedFromEmails = sdkOmittedValue, Object? customAttributes = sdkOmittedValue}) => UpdateContactRequest(
+    role: identical(role, sdkOmittedValue) ? this.role : role as SdkOptional<String>,
+    externalId: identical(externalId, sdkOmittedValue) ? this.externalId : externalId as SdkOptional<String>,
+    email: identical(email, sdkOmittedValue) ? this.email : email as SdkOptional<String>,
+    emailVerified: identical(emailVerified, sdkOmittedValue) ? this.emailVerified : emailVerified as SdkOptional<bool?>,
+    phone: identical(phone, sdkOmittedValue) ? this.phone : phone as SdkOptional<String?>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String?>,
+    avatar: identical(avatar, sdkOmittedValue) ? this.avatar : avatar as SdkOptional<String?>,
+    signedUpAt: identical(signedUpAt, sdkOmittedValue) ? this.signedUpAt : signedUpAt as SdkOptional<int?>,
+    lastSeenAt: identical(lastSeenAt, sdkOmittedValue) ? this.lastSeenAt : lastSeenAt as SdkOptional<int?>,
+    ownerId: identical(ownerId, sdkOmittedValue) ? this.ownerId : ownerId as SdkOptional<String?>,
+    unsubscribedFromEmails: identical(unsubscribedFromEmails, sdkOmittedValue) ? this.unsubscribedFromEmails : unsubscribedFromEmails as SdkOptional<bool?>,
+    customAttributes: identical(customAttributes, sdkOmittedValue) ? this.customAttributes : customAttributes as SdkOptional<Map<String, dynamic>?>,
+  );
 
-  factory UpdateContactRequest.fromJson(Map<String, dynamic> json) =>
-      UpdateContactRequest(
-        role: json['role'] != null
-            ? SdkPresent((json['role'] as String?)!)
-            : const SdkOmitted(),
-        externalId: json['external_id'] != null
-            ? SdkPresent((json['external_id'] as String?)!)
-            : const SdkOmitted(),
-        email: json['email'] != null
-            ? SdkPresent((json['email'] as String?)!)
-            : const SdkOmitted(),
-        emailVerified: json.containsKey('email_verified')
-            ? SdkPresent(json['email_verified'] as bool?)
-            : const SdkOmitted(),
-        phone: json.containsKey('phone')
-            ? SdkPresent(json['phone'] as String?)
-            : const SdkOmitted(),
-        name: json.containsKey('name')
-            ? SdkPresent(json['name'] as String?)
-            : const SdkOmitted(),
-        avatar: json.containsKey('avatar')
-            ? SdkPresent(json['avatar'] as String?)
-            : const SdkOmitted(),
-        signedUpAt: json.containsKey('signed_up_at')
-            ? SdkPresent((json['signed_up_at'] as num?)?.toInt())
-            : const SdkOmitted(),
-        lastSeenAt: json.containsKey('last_seen_at')
-            ? SdkPresent((json['last_seen_at'] as num?)?.toInt())
-            : const SdkOmitted(),
-        ownerId: json.containsKey('owner_id')
-            ? SdkPresent(json['owner_id'] as String?)
-            : const SdkOmitted(),
-        unsubscribedFromEmails: json.containsKey('unsubscribed_from_emails')
-            ? SdkPresent(json['unsubscribed_from_emails'] as bool?)
-            : const SdkOmitted(),
-        customAttributes: json.containsKey('custom_attributes')
-            ? SdkPresent(json['custom_attributes'] == null
-                ? null
-                : json['custom_attributes'] as Map<String, dynamic>)
-            : const SdkOmitted(),
-      );
+  factory UpdateContactRequest.fromJson(Map<String, dynamic> json) => UpdateContactRequest(
+    role: json['role'] != null ? SdkPresent((json['role'] as String?)!) : const SdkOmitted(),
+    externalId: json['external_id'] != null ? SdkPresent((json['external_id'] as String?)!) : const SdkOmitted(),
+    email: json['email'] != null ? SdkPresent((json['email'] as String?)!) : const SdkOmitted(),
+    emailVerified: json.containsKey('email_verified') ? SdkPresent(json['email_verified'] as bool?) : const SdkOmitted(),
+    phone: json.containsKey('phone') ? SdkPresent(json['phone'] as String?) : const SdkOmitted(),
+    name: json.containsKey('name') ? SdkPresent(json['name'] as String?) : const SdkOmitted(),
+    avatar: json.containsKey('avatar') ? SdkPresent(json['avatar'] as String?) : const SdkOmitted(),
+    signedUpAt: json.containsKey('signed_up_at') ? SdkPresent((json['signed_up_at'] as num?)?.toInt()) : const SdkOmitted(),
+    lastSeenAt: json.containsKey('last_seen_at') ? SdkPresent((json['last_seen_at'] as num?)?.toInt()) : const SdkOmitted(),
+    ownerId: json.containsKey('owner_id') ? SdkPresent(json['owner_id'] as String?) : const SdkOmitted(),
+    unsubscribedFromEmails: json.containsKey('unsubscribed_from_emails') ? SdkPresent(json['unsubscribed_from_emails'] as bool?) : const SdkOmitted(),
+    customAttributes: json.containsKey('custom_attributes') ? SdkPresent(json['custom_attributes'] == null ? null : json['custom_attributes'] as Map<String, dynamic>) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (role) {
-          SdkPresent<String>(value: final value) => {
-              'role': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (externalId) {
-          SdkPresent<String>(value: final value) => {
-              'external_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (email) {
-          SdkPresent<String>(value: final value) => {
-              'email': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (emailVerified) {
-          SdkPresent<bool?>(value: final value) => {
-              'email_verified': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (phone) {
-          SdkPresent<String?>(value: final value) => {
-              'phone': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String?>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (avatar) {
-          SdkPresent<String?>(value: final value) => {
-              'avatar': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (signedUpAt) {
-          SdkPresent<int?>(value: final value) => {
-              'signed_up_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (lastSeenAt) {
-          SdkPresent<int?>(value: final value) => {
-              'last_seen_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ownerId) {
-          SdkPresent<String?>(value: final value) => {
-              'owner_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (unsubscribedFromEmails) {
-          SdkPresent<bool?>(value: final value) => {
-              'unsubscribed_from_emails': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (customAttributes) {
-          SdkPresent<Map<String, dynamic>?>(value: final value) => {
-              'custom_attributes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (role) {
+      SdkPresent<String>(value: final value) => {'role': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (externalId) {
+      SdkPresent<String>(value: final value) => {'external_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (email) {
+      SdkPresent<String>(value: final value) => {'email': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (emailVerified) {
+      SdkPresent<bool?>(value: final value) => {'email_verified': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (phone) {
+      SdkPresent<String?>(value: final value) => {'phone': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String?>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (avatar) {
+      SdkPresent<String?>(value: final value) => {'avatar': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (signedUpAt) {
+      SdkPresent<int?>(value: final value) => {'signed_up_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (lastSeenAt) {
+      SdkPresent<int?>(value: final value) => {'last_seen_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ownerId) {
+      SdkPresent<String?>(value: final value) => {'owner_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (unsubscribedFromEmails) {
+      SdkPresent<bool?>(value: final value) => {'unsubscribed_from_emails': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (customAttributes) {
+      SdkPresent<Map<String, dynamic>?>(value: final value) => {'custom_attributes': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

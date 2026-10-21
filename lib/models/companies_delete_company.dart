@@ -8,75 +8,41 @@ part of 'companies.dart';
 class DeletedCompanyObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique identifier for the company which is given by Intercom.
   final SdkOptional<String> id;
-
   /// The type of object which was deleted. - `company`
   final SdkOptional<DeletedCompanyObjectObject> object;
-
   /// Whether the company was deleted successfully or not.
   final SdkOptional<bool> deleted;
 
-  const DeletedCompanyObject(
-      {this.id = const SdkOmitted(),
-      this.object = const SdkOmitted(),
-      this.deleted = const SdkOmitted()});
+  const DeletedCompanyObject({this.id = const SdkOmitted(), this.object = const SdkOmitted(), this.deleted = const SdkOmitted()});
 
-  DeletedCompanyObject Function(
-      {SdkOptional<String> id,
-      SdkOptional<DeletedCompanyObjectObject> object,
-      SdkOptional<bool> deleted}) get copyWith => _copyWith;
+  DeletedCompanyObject Function({SdkOptional<String> id, SdkOptional<DeletedCompanyObjectObject> object, SdkOptional<bool> deleted}) get copyWith => _copyWith;
 
-  DeletedCompanyObject _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? object = sdkOmittedValue,
-          Object? deleted = sdkOmittedValue}) =>
-      DeletedCompanyObject(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<DeletedCompanyObjectObject>,
-        deleted: identical(deleted, sdkOmittedValue)
-            ? this.deleted
-            : deleted as SdkOptional<bool>,
-      );
+  DeletedCompanyObject _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => DeletedCompanyObject(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<DeletedCompanyObjectObject>,
+    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as SdkOptional<bool>,
+  );
 
-  factory DeletedCompanyObject.fromJson(Map<String, dynamic> json) =>
-      DeletedCompanyObject(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        object: json['object'] != null
-            ? SdkPresent((json['object'] != null
-                ? DeletedCompanyObjectObject.fromJson(json['object'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        deleted: json['deleted'] != null
-            ? SdkPresent((json['deleted'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory DeletedCompanyObject.fromJson(Map<String, dynamic> json) => DeletedCompanyObject(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    object: json['object'] != null ? SdkPresent((json['object'] != null ? DeletedCompanyObjectObject.fromJson(json['object'] as String) : null)!) : const SdkOmitted(),
+    deleted: json['deleted'] != null ? SdkPresent((json['deleted'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (object) {
-          SdkPresent<DeletedCompanyObjectObject>(value: final value) => {
-              'object': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (deleted) {
-          SdkPresent<bool>(value: final value) => {
-              'deleted': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (object) {
+      SdkPresent<DeletedCompanyObjectObject>(value: final value) => {'object': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (deleted) {
+      SdkPresent<bool>(value: final value) => {'deleted': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

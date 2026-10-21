@@ -8,262 +8,123 @@ part of 'conversations_attributes.dart';
 class CreateConversationAttributeRelationshipRequestVariant1Reference {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The cardinality of the relationship: `one` or `many`.
-  final CreateConversationAttributeRelationshipRequestVariant1ReferenceType
-      type_;
-
+  final CreateConversationAttributeRelationshipRequestVariant1ReferenceType type_;
   /// The ID of the related custom object type.
   final SdkOptional<String> objectTypeId;
 
-  const CreateConversationAttributeRelationshipRequestVariant1Reference(
-      {required this.type_, this.objectTypeId = const SdkOmitted()});
+  const CreateConversationAttributeRelationshipRequestVariant1Reference({required this.type_, this.objectTypeId = const SdkOmitted()});
 
-  CreateConversationAttributeRelationshipRequestVariant1Reference Function(
-      {CreateConversationAttributeRelationshipRequestVariant1ReferenceType
-          type_,
-      SdkOptional<String> objectTypeId}) get copyWith => _copyWith;
+  CreateConversationAttributeRelationshipRequestVariant1Reference Function({CreateConversationAttributeRelationshipRequestVariant1ReferenceType type_, SdkOptional<String> objectTypeId}) get copyWith => _copyWith;
 
-  CreateConversationAttributeRelationshipRequestVariant1Reference _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? objectTypeId = sdkOmittedValue}) =>
-      CreateConversationAttributeRelationshipRequestVariant1Reference(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_
-                as CreateConversationAttributeRelationshipRequestVariant1ReferenceType,
-        objectTypeId: identical(objectTypeId, sdkOmittedValue)
-            ? this.objectTypeId
-            : objectTypeId as SdkOptional<String>,
-      );
+  CreateConversationAttributeRelationshipRequestVariant1Reference _copyWith({Object? type_ = sdkOmittedValue, Object? objectTypeId = sdkOmittedValue}) => CreateConversationAttributeRelationshipRequestVariant1Reference(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateConversationAttributeRelationshipRequestVariant1ReferenceType,
+    objectTypeId: identical(objectTypeId, sdkOmittedValue) ? this.objectTypeId : objectTypeId as SdkOptional<String>,
+  );
 
-  factory CreateConversationAttributeRelationshipRequestVariant1Reference.fromJson(
-          Map<String, dynamic> json) =>
-      CreateConversationAttributeRelationshipRequestVariant1Reference(
-        type_: (json['type'] != null
-            ? CreateConversationAttributeRelationshipRequestVariant1ReferenceType
-                .fromJson(json['type'] as String)
-            : null)!,
-        objectTypeId: json['object_type_id'] != null
-            ? SdkPresent((json['object_type_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory CreateConversationAttributeRelationshipRequestVariant1Reference.fromJson(Map<String, dynamic> json) => CreateConversationAttributeRelationshipRequestVariant1Reference(
+    type_: (json['type'] != null ? CreateConversationAttributeRelationshipRequestVariant1ReferenceType.fromJson(json['type'] as String) : null)!,
+    objectTypeId: json['object_type_id'] != null ? SdkPresent((json['object_type_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (objectTypeId) {
-          SdkPresent<String>(value: final value) => {
-              'object_type_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (objectTypeId) {
+      SdkPresent<String>(value: final value) => {'object_type_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class CreateConversationAttributeRelationshipRequestVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-  final SdkOptional<
-      CreateConversationAttributeRelationshipRequestVariant1DataType> dataType;
-
+  final SdkOptional<CreateConversationAttributeRelationshipRequestVariant1DataType> dataType;
   /// Reference configuration for related objects.
-  final SdkOptional<
-          CreateConversationAttributeRelationshipRequestVariant1Reference>
-      reference;
+  final SdkOptional<CreateConversationAttributeRelationshipRequestVariant1Reference> reference;
 
-  const CreateConversationAttributeRelationshipRequestVariant1(
-      {this.dataType = const SdkOmitted(),
-      this.reference = const SdkOmitted()});
+  const CreateConversationAttributeRelationshipRequestVariant1({this.dataType = const SdkOmitted(), this.reference = const SdkOmitted()});
 
-  CreateConversationAttributeRelationshipRequestVariant1 Function(
-      {SdkOptional<
-              CreateConversationAttributeRelationshipRequestVariant1DataType>
-          dataType,
-      SdkOptional<
-              CreateConversationAttributeRelationshipRequestVariant1Reference>
-          reference}) get copyWith => _copyWith;
+  CreateConversationAttributeRelationshipRequestVariant1 Function({SdkOptional<CreateConversationAttributeRelationshipRequestVariant1DataType> dataType, SdkOptional<CreateConversationAttributeRelationshipRequestVariant1Reference> reference}) get copyWith => _copyWith;
 
-  CreateConversationAttributeRelationshipRequestVariant1 _copyWith(
-          {Object? dataType = sdkOmittedValue,
-          Object? reference = sdkOmittedValue}) =>
-      CreateConversationAttributeRelationshipRequestVariant1(
-        dataType: identical(dataType, sdkOmittedValue)
-            ? this.dataType
-            : dataType as SdkOptional<
-                CreateConversationAttributeRelationshipRequestVariant1DataType>,
-        reference: identical(reference, sdkOmittedValue)
-            ? this.reference
-            : reference as SdkOptional<
-                CreateConversationAttributeRelationshipRequestVariant1Reference>,
-      );
+  CreateConversationAttributeRelationshipRequestVariant1 _copyWith({Object? dataType = sdkOmittedValue, Object? reference = sdkOmittedValue}) => CreateConversationAttributeRelationshipRequestVariant1(
+    dataType: identical(dataType, sdkOmittedValue) ? this.dataType : dataType as SdkOptional<CreateConversationAttributeRelationshipRequestVariant1DataType>,
+    reference: identical(reference, sdkOmittedValue) ? this.reference : reference as SdkOptional<CreateConversationAttributeRelationshipRequestVariant1Reference>,
+  );
 
-  factory CreateConversationAttributeRelationshipRequestVariant1.fromJson(
-          Map<String, dynamic> json) =>
-      CreateConversationAttributeRelationshipRequestVariant1(
-        dataType: json['data_type'] != null
-            ? SdkPresent((json['data_type'] != null
-                ? CreateConversationAttributeRelationshipRequestVariant1DataType
-                    .fromJson(json['data_type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        reference: json['reference'] != null
-            ? SdkPresent((json['reference'] != null
-                ? CreateConversationAttributeRelationshipRequestVariant1Reference
-                    .fromJson(json['reference'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory CreateConversationAttributeRelationshipRequestVariant1.fromJson(Map<String, dynamic> json) => CreateConversationAttributeRelationshipRequestVariant1(
+    dataType: json['data_type'] != null ? SdkPresent((json['data_type'] != null ? CreateConversationAttributeRelationshipRequestVariant1DataType.fromJson(json['data_type'] as String) : null)!) : const SdkOmitted(),
+    reference: json['reference'] != null ? SdkPresent((json['reference'] != null ? CreateConversationAttributeRelationshipRequestVariant1Reference.fromJson(json['reference'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (dataType) {
-          SdkPresent<
-                CreateConversationAttributeRelationshipRequestVariant1DataType>(
-            value: final value
-          ) =>
-            {
-              'data_type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (reference) {
-          SdkPresent<
-                CreateConversationAttributeRelationshipRequestVariant1Reference>(
-            value: final value
-          ) =>
-            {
-              'reference': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (dataType) {
+      SdkPresent<CreateConversationAttributeRelationshipRequestVariant1DataType>(value: final value) => {'data_type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (reference) {
+      SdkPresent<CreateConversationAttributeRelationshipRequestVariant1Reference>(value: final value) => {'reference': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `CreateConversationAttributeRelationshipRequest` API schema.
 class CreateConversationAttributeRelationshipRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Name of the attribute.
   final String name;
-
   /// Readable description of the attribute.
   final SdkOptional<String> description;
   final CreateConversationAttributeRelationshipRequestVariant1DataType dataType;
-
   /// Whether this attribute is required.
   final SdkOptional<bool> required_;
-
   /// Team IDs that can see this attribute. Empty array means all teams.
   final SdkOptional<List<String>> visibleToTeamIds;
-
   /// Reference configuration for related objects.
-  final SdkOptional<
-          CreateConversationAttributeRelationshipRequestVariant1Reference>
-      reference;
+  final SdkOptional<CreateConversationAttributeRelationshipRequestVariant1Reference> reference;
 
-  const CreateConversationAttributeRelationshipRequest(
-      {required this.name,
-      this.description = const SdkOmitted(),
-      required this.dataType,
-      this.required_ = const SdkOmitted(),
-      this.visibleToTeamIds = const SdkOmitted(),
-      this.reference = const SdkOmitted()});
+  const CreateConversationAttributeRelationshipRequest({required this.name, this.description = const SdkOmitted(), required this.dataType, this.required_ = const SdkOmitted(), this.visibleToTeamIds = const SdkOmitted(), this.reference = const SdkOmitted()});
 
-  CreateConversationAttributeRelationshipRequest Function(
-      {String name,
-      SdkOptional<String> description,
-      CreateConversationAttributeRelationshipRequestVariant1DataType dataType,
-      SdkOptional<bool> required_,
-      SdkOptional<List<String>> visibleToTeamIds,
-      SdkOptional<
-              CreateConversationAttributeRelationshipRequestVariant1Reference>
-          reference}) get copyWith => _copyWith;
+  CreateConversationAttributeRelationshipRequest Function({String name, SdkOptional<String> description, CreateConversationAttributeRelationshipRequestVariant1DataType dataType, SdkOptional<bool> required_, SdkOptional<List<String>> visibleToTeamIds, SdkOptional<CreateConversationAttributeRelationshipRequestVariant1Reference> reference}) get copyWith => _copyWith;
 
-  CreateConversationAttributeRelationshipRequest _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? dataType = sdkOmittedValue,
-          Object? required_ = sdkOmittedValue,
-          Object? visibleToTeamIds = sdkOmittedValue,
-          Object? reference = sdkOmittedValue}) =>
-      CreateConversationAttributeRelationshipRequest(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        dataType: identical(dataType, sdkOmittedValue)
-            ? this.dataType
-            : dataType
-                as CreateConversationAttributeRelationshipRequestVariant1DataType,
-        required_: identical(required_, sdkOmittedValue)
-            ? this.required_
-            : required_ as SdkOptional<bool>,
-        visibleToTeamIds: identical(visibleToTeamIds, sdkOmittedValue)
-            ? this.visibleToTeamIds
-            : visibleToTeamIds as SdkOptional<List<String>>,
-        reference: identical(reference, sdkOmittedValue)
-            ? this.reference
-            : reference as SdkOptional<
-                CreateConversationAttributeRelationshipRequestVariant1Reference>,
-      );
+  CreateConversationAttributeRelationshipRequest _copyWith({Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? dataType = sdkOmittedValue, Object? required_ = sdkOmittedValue, Object? visibleToTeamIds = sdkOmittedValue, Object? reference = sdkOmittedValue}) => CreateConversationAttributeRelationshipRequest(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    dataType: identical(dataType, sdkOmittedValue) ? this.dataType : dataType as CreateConversationAttributeRelationshipRequestVariant1DataType,
+    required_: identical(required_, sdkOmittedValue) ? this.required_ : required_ as SdkOptional<bool>,
+    visibleToTeamIds: identical(visibleToTeamIds, sdkOmittedValue) ? this.visibleToTeamIds : visibleToTeamIds as SdkOptional<List<String>>,
+    reference: identical(reference, sdkOmittedValue) ? this.reference : reference as SdkOptional<CreateConversationAttributeRelationshipRequestVariant1Reference>,
+  );
 
-  factory CreateConversationAttributeRelationshipRequest.fromJson(
-          Map<String, dynamic> json) =>
-      CreateConversationAttributeRelationshipRequest(
-        name: (json['name'] as String?)!,
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        dataType: (json['data_type'] != null
-            ? CreateConversationAttributeRelationshipRequestVariant1DataType
-                .fromJson(json['data_type'] as String)
-            : null)!,
-        required_: json['required'] != null
-            ? SdkPresent((json['required'] as bool?)!)
-            : const SdkOmitted(),
-        visibleToTeamIds: json['visible_to_team_ids'] != null
-            ? SdkPresent(((json['visible_to_team_ids'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        reference: json['reference'] != null
-            ? SdkPresent((json['reference'] != null
-                ? CreateConversationAttributeRelationshipRequestVariant1Reference
-                    .fromJson(json['reference'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory CreateConversationAttributeRelationshipRequest.fromJson(Map<String, dynamic> json) => CreateConversationAttributeRelationshipRequest(
+    name: (json['name'] as String?)!,
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    dataType: (json['data_type'] != null ? CreateConversationAttributeRelationshipRequestVariant1DataType.fromJson(json['data_type'] as String) : null)!,
+    required_: json['required'] != null ? SdkPresent((json['required'] as bool?)!) : const SdkOmitted(),
+    visibleToTeamIds: json['visible_to_team_ids'] != null ? SdkPresent(((json['visible_to_team_ids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    reference: json['reference'] != null ? SdkPresent((json['reference'] != null ? CreateConversationAttributeRelationshipRequestVariant1Reference.fromJson(json['reference'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'data_type': dataType.toJson(),
-        ...switch (required_) {
-          SdkPresent<bool>(value: final value) => {
-              'required': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (visibleToTeamIds) {
-          SdkPresent<List<String>>(value: final value) => {
-              'visible_to_team_ids': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (reference) {
-          SdkPresent<
-                CreateConversationAttributeRelationshipRequestVariant1Reference>(
-            value: final value
-          ) =>
-            {
-              'reference': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'name': name,
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    'data_type': dataType.toJson(),
+    ...switch (required_) {
+      SdkPresent<bool>(value: final value) => {'required': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (visibleToTeamIds) {
+      SdkPresent<List<String>>(value: final value) => {'visible_to_team_ids': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (reference) {
+      SdkPresent<CreateConversationAttributeRelationshipRequestVariant1Reference>(value: final value) => {'reference': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

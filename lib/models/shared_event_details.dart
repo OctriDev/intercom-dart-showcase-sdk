@@ -10,152 +10,72 @@ sealed class EventDetails {
   const EventDetails();
   factory EventDetails.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = ConversationAttributeUpdatedByWorkflow.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return EventDetailsConversationAttributeUpdatedByWorkflow(value);
-        }
-      } catch (_) {}
-      try {
-        final value = ConversationAttributeUpdatedByAdmin.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return EventDetailsConversationAttributeUpdatedByAdmin(value);
-        }
-      } catch (_) {}
-      try {
-        final value = ConversationAttributeUpdatedByUser.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return EventDetailsConversationAttributeUpdatedByUser(value);
-        }
-      } catch (_) {}
-      try {
-        final value = CustomActionStarted.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return EventDetailsCustomActionStarted(value);
-        }
-      } catch (_) {}
-      try {
-        final value = CustomActionFinished.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return EventDetailsCustomActionFinished(value);
-        }
-      } catch (_) {}
-      try {
-        final value = OperatorWorkflowEvent.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return EventDetailsOperatorWorkflowEvent(value);
-        }
-      } catch (_) {}
-      try {
-        final value = CallSummary.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return EventDetailsCallSummary(value);
-        }
-      } catch (_) {}
-      try {
-        final value = AiAgentEventOtpEmailVerificationFailed.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return EventDetailsAiAgentEventOtpEmailVerificationFailed(value);
-        }
-      } catch (_) {}
+      try { final value = ConversationAttributeUpdatedByWorkflow.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EventDetailsConversationAttributeUpdatedByWorkflow(value); } } catch (_) {}
+      try { final value = ConversationAttributeUpdatedByAdmin.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EventDetailsConversationAttributeUpdatedByAdmin(value); } } catch (_) {}
+      try { final value = ConversationAttributeUpdatedByUser.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EventDetailsConversationAttributeUpdatedByUser(value); } } catch (_) {}
+      try { final value = CustomActionStarted.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EventDetailsCustomActionStarted(value); } } catch (_) {}
+      try { final value = CustomActionFinished.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EventDetailsCustomActionFinished(value); } } catch (_) {}
+      try { final value = OperatorWorkflowEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EventDetailsOperatorWorkflowEvent(value); } } catch (_) {}
+      try { final value = CallSummary.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EventDetailsCallSummary(value); } } catch (_) {}
+      try { final value = AiAgentEventOtpEmailVerificationFailed.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EventDetailsAiAgentEventOtpEmailVerificationFailed(value); } } catch (_) {}
     }
-    try {
-      return EventDetailsConversationAttributeUpdatedByWorkflow(
-          ConversationAttributeUpdatedByWorkflow.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return EventDetailsConversationAttributeUpdatedByAdmin(
-          ConversationAttributeUpdatedByAdmin.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return EventDetailsConversationAttributeUpdatedByUser(
-          ConversationAttributeUpdatedByUser.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return EventDetailsCustomActionStarted(
-          CustomActionStarted.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return EventDetailsCustomActionFinished(
-          CustomActionFinished.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return EventDetailsOperatorWorkflowEvent(
-          OperatorWorkflowEvent.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return EventDetailsCallSummary(
-          CallSummary.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return EventDetailsAiAgentEventOtpEmailVerificationFailed(
-          AiAgentEventOtpEmailVerificationFailed.fromJson(
-              json as Map<String, dynamic>));
-    } catch (_) {}
+    try { return EventDetailsConversationAttributeUpdatedByWorkflow(ConversationAttributeUpdatedByWorkflow.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return EventDetailsConversationAttributeUpdatedByAdmin(ConversationAttributeUpdatedByAdmin.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return EventDetailsConversationAttributeUpdatedByUser(ConversationAttributeUpdatedByUser.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return EventDetailsCustomActionStarted(CustomActionStarted.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return EventDetailsCustomActionFinished(CustomActionFinished.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return EventDetailsOperatorWorkflowEvent(OperatorWorkflowEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return EventDetailsCallSummary(CallSummary.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return EventDetailsAiAgentEventOtpEmailVerificationFailed(AiAgentEventOtpEmailVerificationFailed.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     throw FormatException("No variant matched for EventDetails");
   }
   Object? toJson();
 }
 
-final class EventDetailsConversationAttributeUpdatedByWorkflow
-    extends EventDetails {
+final class EventDetailsConversationAttributeUpdatedByWorkflow extends EventDetails {
   final ConversationAttributeUpdatedByWorkflow value;
   const EventDetailsConversationAttributeUpdatedByWorkflow(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class EventDetailsConversationAttributeUpdatedByAdmin
-    extends EventDetails {
+final class EventDetailsConversationAttributeUpdatedByAdmin extends EventDetails {
   final ConversationAttributeUpdatedByAdmin value;
   const EventDetailsConversationAttributeUpdatedByAdmin(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class EventDetailsConversationAttributeUpdatedByUser
-    extends EventDetails {
+final class EventDetailsConversationAttributeUpdatedByUser extends EventDetails {
   final ConversationAttributeUpdatedByUser value;
   const EventDetailsConversationAttributeUpdatedByUser(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class EventDetailsCustomActionStarted extends EventDetails {
   final CustomActionStarted value;
   const EventDetailsCustomActionStarted(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class EventDetailsCustomActionFinished extends EventDetails {
   final CustomActionFinished value;
   const EventDetailsCustomActionFinished(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class EventDetailsOperatorWorkflowEvent extends EventDetails {
   final OperatorWorkflowEvent value;
   const EventDetailsOperatorWorkflowEvent(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class EventDetailsCallSummary extends EventDetails {
   final CallSummary value;
   const EventDetailsCallSummary(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class EventDetailsAiAgentEventOtpEmailVerificationFailed
-    extends EventDetails {
+final class EventDetailsAiAgentEventOtpEmailVerificationFailed extends EventDetails {
   final AiAgentEventOtpEmailVerificationFailed value;
   const EventDetailsAiAgentEventOtpEmailVerificationFailed(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }

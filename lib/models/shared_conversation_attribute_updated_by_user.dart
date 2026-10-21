@@ -8,166 +8,95 @@ part of 'shared_conversation.dart';
 class ConversationAttributeUpdatedByUserAttribute {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Name of the CDA updated
   final SdkOptional<String> name;
 
-  const ConversationAttributeUpdatedByUserAttribute(
-      {this.name = const SdkOmitted()});
+  const ConversationAttributeUpdatedByUserAttribute({this.name = const SdkOmitted()});
 
-  ConversationAttributeUpdatedByUserAttribute Function(
-      {SdkOptional<String> name}) get copyWith => _copyWith;
+  ConversationAttributeUpdatedByUserAttribute Function({SdkOptional<String> name}) get copyWith => _copyWith;
 
-  ConversationAttributeUpdatedByUserAttribute _copyWith(
-          {Object? name = sdkOmittedValue}) =>
-      ConversationAttributeUpdatedByUserAttribute(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-      );
+  ConversationAttributeUpdatedByUserAttribute _copyWith({Object? name = sdkOmittedValue}) => ConversationAttributeUpdatedByUserAttribute(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+  );
 
-  factory ConversationAttributeUpdatedByUserAttribute.fromJson(
-          Map<String, dynamic> json) =>
-      ConversationAttributeUpdatedByUserAttribute(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ConversationAttributeUpdatedByUserAttribute.fromJson(Map<String, dynamic> json) => ConversationAttributeUpdatedByUserAttribute(
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Optional object value serialized in the `value` wire field.
 class ConversationAttributeUpdatedByUserValue {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Current value of the CDA updated
   final SdkOptional<String> name;
-
   /// Previous value of the CDA (null for older events)
   final SdkOptional<String?> previous;
 
-  const ConversationAttributeUpdatedByUserValue(
-      {this.name = const SdkOmitted(), this.previous = const SdkOmitted()});
+  const ConversationAttributeUpdatedByUserValue({this.name = const SdkOmitted(), this.previous = const SdkOmitted()});
 
-  ConversationAttributeUpdatedByUserValue Function(
-      {SdkOptional<String> name,
-      SdkOptional<String?> previous}) get copyWith => _copyWith;
+  ConversationAttributeUpdatedByUserValue Function({SdkOptional<String> name, SdkOptional<String?> previous}) get copyWith => _copyWith;
 
-  ConversationAttributeUpdatedByUserValue _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? previous = sdkOmittedValue}) =>
-      ConversationAttributeUpdatedByUserValue(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        previous: identical(previous, sdkOmittedValue)
-            ? this.previous
-            : previous as SdkOptional<String?>,
-      );
+  ConversationAttributeUpdatedByUserValue _copyWith({Object? name = sdkOmittedValue, Object? previous = sdkOmittedValue}) => ConversationAttributeUpdatedByUserValue(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    previous: identical(previous, sdkOmittedValue) ? this.previous : previous as SdkOptional<String?>,
+  );
 
-  factory ConversationAttributeUpdatedByUserValue.fromJson(
-          Map<String, dynamic> json) =>
-      ConversationAttributeUpdatedByUserValue(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        previous: json.containsKey('previous')
-            ? SdkPresent(json['previous'] as String?)
-            : const SdkOmitted(),
-      );
+  factory ConversationAttributeUpdatedByUserValue.fromJson(Map<String, dynamic> json) => ConversationAttributeUpdatedByUserValue(
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    previous: json.containsKey('previous') ? SdkPresent(json['previous'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (previous) {
-          SdkPresent<String?>(value: final value) => {
-              'previous': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (previous) {
+      SdkPresent<String?>(value: final value) => {'previous': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Contains details about Custom Data Attributes (CDAs) that were modified by a user for conversation part type &lt;code&gt;conversation_attribute_updated_by_user&lt;/code&gt;.
 class ConversationAttributeUpdatedByUser {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `attribute` wire field.
   final SdkOptional<ConversationAttributeUpdatedByUserAttribute> attribute;
-
   /// Optional object value serialized in the `value` wire field.
   final SdkOptional<ConversationAttributeUpdatedByUserValue> value;
 
-  const ConversationAttributeUpdatedByUser(
-      {this.attribute = const SdkOmitted(), this.value = const SdkOmitted()});
+  const ConversationAttributeUpdatedByUser({this.attribute = const SdkOmitted(), this.value = const SdkOmitted()});
 
-  ConversationAttributeUpdatedByUser Function(
-          {SdkOptional<ConversationAttributeUpdatedByUserAttribute> attribute,
-          SdkOptional<ConversationAttributeUpdatedByUserValue> value})
-      get copyWith => _copyWith;
+  ConversationAttributeUpdatedByUser Function({SdkOptional<ConversationAttributeUpdatedByUserAttribute> attribute, SdkOptional<ConversationAttributeUpdatedByUserValue> value}) get copyWith => _copyWith;
 
-  ConversationAttributeUpdatedByUser _copyWith(
-          {Object? attribute = sdkOmittedValue,
-          Object? value = sdkOmittedValue}) =>
-      ConversationAttributeUpdatedByUser(
-        attribute: identical(attribute, sdkOmittedValue)
-            ? this.attribute
-            : attribute
-                as SdkOptional<ConversationAttributeUpdatedByUserAttribute>,
-        value: identical(value, sdkOmittedValue)
-            ? this.value
-            : value as SdkOptional<ConversationAttributeUpdatedByUserValue>,
-      );
+  ConversationAttributeUpdatedByUser _copyWith({Object? attribute = sdkOmittedValue, Object? value = sdkOmittedValue}) => ConversationAttributeUpdatedByUser(
+    attribute: identical(attribute, sdkOmittedValue) ? this.attribute : attribute as SdkOptional<ConversationAttributeUpdatedByUserAttribute>,
+    value: identical(value, sdkOmittedValue) ? this.value : value as SdkOptional<ConversationAttributeUpdatedByUserValue>,
+  );
 
-  factory ConversationAttributeUpdatedByUser.fromJson(
-          Map<String, dynamic> json) =>
-      ConversationAttributeUpdatedByUser(
-        attribute: json['attribute'] != null
-            ? SdkPresent((json['attribute'] != null
-                ? ConversationAttributeUpdatedByUserAttribute.fromJson(
-                    json['attribute'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        value: json['value'] != null
-            ? SdkPresent((json['value'] != null
-                ? ConversationAttributeUpdatedByUserValue.fromJson(
-                    json['value'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ConversationAttributeUpdatedByUser.fromJson(Map<String, dynamic> json) => ConversationAttributeUpdatedByUser(
+    attribute: json['attribute'] != null ? SdkPresent((json['attribute'] != null ? ConversationAttributeUpdatedByUserAttribute.fromJson(json['attribute'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    value: json['value'] != null ? SdkPresent((json['value'] != null ? ConversationAttributeUpdatedByUserValue.fromJson(json['value'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (attribute) {
-          SdkPresent<ConversationAttributeUpdatedByUserAttribute>(
-            value: final value
-          ) =>
-            {
-              'attribute': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (value) {
-          SdkPresent<ConversationAttributeUpdatedByUserValue>(
-            value: final value
-          ) =>
-            {
-              'value': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (attribute) {
+      SdkPresent<ConversationAttributeUpdatedByUserAttribute>(value: final value) => {'attribute': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (value) {
+      SdkPresent<ConversationAttributeUpdatedByUserValue>(value: final value) => {'value': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

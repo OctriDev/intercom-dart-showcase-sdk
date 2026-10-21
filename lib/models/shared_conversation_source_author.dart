@@ -8,91 +8,49 @@ part of 'shared_conversation.dart';
 class ConversationSourceAuthor {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the author.
   final SdkOptional<String> type_;
-
   /// The id of the author.
   final SdkOptional<String?> id;
-
   /// The name of the author.
   final SdkOptional<String?> name;
-
   /// The email of the author.
   final SdkOptional<String?> email;
 
-  const ConversationSourceAuthor(
-      {this.type_ = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.email = const SdkOmitted()});
+  const ConversationSourceAuthor({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.name = const SdkOmitted(), this.email = const SdkOmitted()});
 
-  ConversationSourceAuthor Function(
-      {SdkOptional<String> type_,
-      SdkOptional<String?> id,
-      SdkOptional<String?> name,
-      SdkOptional<String?> email}) get copyWith => _copyWith;
+  ConversationSourceAuthor Function({SdkOptional<String> type_, SdkOptional<String?> id, SdkOptional<String?> name, SdkOptional<String?> email}) get copyWith => _copyWith;
 
-  ConversationSourceAuthor _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? email = sdkOmittedValue}) =>
-      ConversationSourceAuthor(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String?>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String?>,
-        email: identical(email, sdkOmittedValue)
-            ? this.email
-            : email as SdkOptional<String?>,
-      );
+  ConversationSourceAuthor _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? email = sdkOmittedValue}) => ConversationSourceAuthor(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String?>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String?>,
+    email: identical(email, sdkOmittedValue) ? this.email : email as SdkOptional<String?>,
+  );
 
-  factory ConversationSourceAuthor.fromJson(Map<String, dynamic> json) =>
-      ConversationSourceAuthor(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        id: json.containsKey('id')
-            ? SdkPresent(json['id'] as String?)
-            : const SdkOmitted(),
-        name: json.containsKey('name')
-            ? SdkPresent(json['name'] as String?)
-            : const SdkOmitted(),
-        email: json.containsKey('email')
-            ? SdkPresent(json['email'] as String?)
-            : const SdkOmitted(),
-      );
+  factory ConversationSourceAuthor.fromJson(Map<String, dynamic> json) => ConversationSourceAuthor(
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    id: json.containsKey('id') ? SdkPresent(json['id'] as String?) : const SdkOmitted(),
+    name: json.containsKey('name') ? SdkPresent(json['name'] as String?) : const SdkOmitted(),
+    email: json.containsKey('email') ? SdkPresent(json['email'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String?>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String?>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (email) {
-          SdkPresent<String?>(value: final value) => {
-              'email': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String?>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String?>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (email) {
+      SdkPresent<String?>(value: final value) => {'email': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

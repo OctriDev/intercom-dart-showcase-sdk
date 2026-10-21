@@ -8,154 +8,73 @@ part of 'models.dart';
 class ConversationScorecardEvaluatorResult {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The evaluator's selected value (typically a label such as `pass`, `fail`, or a category identifier).
   final SdkOptional<String?> value;
-
   /// The label of the rating option matching `value` (for example `Needs improvement`). Omitted when the label could not be resolved.
   final SdkOptional<String> valueLabel;
-
   /// The origin of the result (for example, `ai` or `human`).
   final SdkOptional<String?> source;
-
   /// A free-text explanation of the result.
   final SdkOptional<String?> reasoning;
-
   /// Identifiers for structured reasons assigned to the result, if any.
   final SdkOptional<List<String>?> reasonIds;
-
   /// The structured reasons chosen for this result. Omitted when none were chosen.
   final SdkOptional<List<ConversationScorecardEvaluatorReason>> reasons;
-
   /// Free-text entered by the reviewer to supplement or stand in for the structured `reason_ids` — typically captured when the reviewer selects an "Other" option or adds a custom note. Null when not provided.
   final SdkOptional<String?> otherText;
 
-  const ConversationScorecardEvaluatorResult(
-      {this.value = const SdkOmitted(),
-      this.valueLabel = const SdkOmitted(),
-      this.source = const SdkOmitted(),
-      this.reasoning = const SdkOmitted(),
-      this.reasonIds = const SdkOmitted(),
-      this.reasons = const SdkOmitted(),
-      this.otherText = const SdkOmitted()});
+  const ConversationScorecardEvaluatorResult({this.value = const SdkOmitted(), this.valueLabel = const SdkOmitted(), this.source = const SdkOmitted(), this.reasoning = const SdkOmitted(), this.reasonIds = const SdkOmitted(), this.reasons = const SdkOmitted(), this.otherText = const SdkOmitted()});
 
-  ConversationScorecardEvaluatorResult Function(
-      {SdkOptional<String?> value,
-      SdkOptional<String> valueLabel,
-      SdkOptional<String?> source,
-      SdkOptional<String?> reasoning,
-      SdkOptional<List<String>?> reasonIds,
-      SdkOptional<List<ConversationScorecardEvaluatorReason>> reasons,
-      SdkOptional<String?> otherText}) get copyWith => _copyWith;
+  ConversationScorecardEvaluatorResult Function({SdkOptional<String?> value, SdkOptional<String> valueLabel, SdkOptional<String?> source, SdkOptional<String?> reasoning, SdkOptional<List<String>?> reasonIds, SdkOptional<List<ConversationScorecardEvaluatorReason>> reasons, SdkOptional<String?> otherText}) get copyWith => _copyWith;
 
-  ConversationScorecardEvaluatorResult _copyWith(
-          {Object? value = sdkOmittedValue,
-          Object? valueLabel = sdkOmittedValue,
-          Object? source = sdkOmittedValue,
-          Object? reasoning = sdkOmittedValue,
-          Object? reasonIds = sdkOmittedValue,
-          Object? reasons = sdkOmittedValue,
-          Object? otherText = sdkOmittedValue}) =>
-      ConversationScorecardEvaluatorResult(
-        value: identical(value, sdkOmittedValue)
-            ? this.value
-            : value as SdkOptional<String?>,
-        valueLabel: identical(valueLabel, sdkOmittedValue)
-            ? this.valueLabel
-            : valueLabel as SdkOptional<String>,
-        source: identical(source, sdkOmittedValue)
-            ? this.source
-            : source as SdkOptional<String?>,
-        reasoning: identical(reasoning, sdkOmittedValue)
-            ? this.reasoning
-            : reasoning as SdkOptional<String?>,
-        reasonIds: identical(reasonIds, sdkOmittedValue)
-            ? this.reasonIds
-            : reasonIds as SdkOptional<List<String>?>,
-        reasons: identical(reasons, sdkOmittedValue)
-            ? this.reasons
-            : reasons
-                as SdkOptional<List<ConversationScorecardEvaluatorReason>>,
-        otherText: identical(otherText, sdkOmittedValue)
-            ? this.otherText
-            : otherText as SdkOptional<String?>,
-      );
+  ConversationScorecardEvaluatorResult _copyWith({Object? value = sdkOmittedValue, Object? valueLabel = sdkOmittedValue, Object? source = sdkOmittedValue, Object? reasoning = sdkOmittedValue, Object? reasonIds = sdkOmittedValue, Object? reasons = sdkOmittedValue, Object? otherText = sdkOmittedValue}) => ConversationScorecardEvaluatorResult(
+    value: identical(value, sdkOmittedValue) ? this.value : value as SdkOptional<String?>,
+    valueLabel: identical(valueLabel, sdkOmittedValue) ? this.valueLabel : valueLabel as SdkOptional<String>,
+    source: identical(source, sdkOmittedValue) ? this.source : source as SdkOptional<String?>,
+    reasoning: identical(reasoning, sdkOmittedValue) ? this.reasoning : reasoning as SdkOptional<String?>,
+    reasonIds: identical(reasonIds, sdkOmittedValue) ? this.reasonIds : reasonIds as SdkOptional<List<String>?>,
+    reasons: identical(reasons, sdkOmittedValue) ? this.reasons : reasons as SdkOptional<List<ConversationScorecardEvaluatorReason>>,
+    otherText: identical(otherText, sdkOmittedValue) ? this.otherText : otherText as SdkOptional<String?>,
+  );
 
-  factory ConversationScorecardEvaluatorResult.fromJson(
-          Map<String, dynamic> json) =>
-      ConversationScorecardEvaluatorResult(
-        value: json.containsKey('value')
-            ? SdkPresent(json['value'] as String?)
-            : const SdkOmitted(),
-        valueLabel: json['value_label'] != null
-            ? SdkPresent((json['value_label'] as String?)!)
-            : const SdkOmitted(),
-        source: json.containsKey('source')
-            ? SdkPresent(json['source'] as String?)
-            : const SdkOmitted(),
-        reasoning: json.containsKey('reasoning')
-            ? SdkPresent(json['reasoning'] as String?)
-            : const SdkOmitted(),
-        reasonIds: json.containsKey('reason_ids')
-            ? SdkPresent(
-                (json['reason_ids'] as List?)?.map((e) => e as String).toList())
-            : const SdkOmitted(),
-        reasons: json['reasons'] != null
-            ? SdkPresent(((json['reasons'] as List?)
-                ?.map((e) => ConversationScorecardEvaluatorReason.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        otherText: json.containsKey('other_text')
-            ? SdkPresent(json['other_text'] as String?)
-            : const SdkOmitted(),
-      );
+  factory ConversationScorecardEvaluatorResult.fromJson(Map<String, dynamic> json) => ConversationScorecardEvaluatorResult(
+    value: json.containsKey('value') ? SdkPresent(json['value'] as String?) : const SdkOmitted(),
+    valueLabel: json['value_label'] != null ? SdkPresent((json['value_label'] as String?)!) : const SdkOmitted(),
+    source: json.containsKey('source') ? SdkPresent(json['source'] as String?) : const SdkOmitted(),
+    reasoning: json.containsKey('reasoning') ? SdkPresent(json['reasoning'] as String?) : const SdkOmitted(),
+    reasonIds: json.containsKey('reason_ids') ? SdkPresent((json['reason_ids'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
+    reasons: json['reasons'] != null ? SdkPresent(((json['reasons'] as List?)?.map((e) => ConversationScorecardEvaluatorReason.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    otherText: json.containsKey('other_text') ? SdkPresent(json['other_text'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (value) {
-          SdkPresent<String?>(value: final value) => {
-              'value': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (valueLabel) {
-          SdkPresent<String>(value: final value) => {
-              'value_label': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (source) {
-          SdkPresent<String?>(value: final value) => {
-              'source': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (reasoning) {
-          SdkPresent<String?>(value: final value) => {
-              'reasoning': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (reasonIds) {
-          SdkPresent<List<String>?>(value: final value) => {
-              'reason_ids': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (reasons) {
-          SdkPresent<List<ConversationScorecardEvaluatorReason>>(
-            value: final value
-          ) =>
-            {
-              'reasons': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (otherText) {
-          SdkPresent<String?>(value: final value) => {
-              'other_text': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (value) {
+      SdkPresent<String?>(value: final value) => {'value': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (valueLabel) {
+      SdkPresent<String>(value: final value) => {'value_label': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (source) {
+      SdkPresent<String?>(value: final value) => {'source': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (reasoning) {
+      SdkPresent<String?>(value: final value) => {'reasoning': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (reasonIds) {
+      SdkPresent<List<String>?>(value: final value) => {'reason_ids': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (reasons) {
+      SdkPresent<List<ConversationScorecardEvaluatorReason>>(value: final value) => {'reasons': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (otherText) {
+      SdkPresent<String?>(value: final value) => {'other_text': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -26,19 +26,14 @@ Future<CreateEnqueueResponse> createEnqueue(ClientConfig config,
             'end_time': endTime
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'createEnqueue',
-          fromJsonRaw: (value) =>
-              CreateEnqueueResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CreateEnqueueResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves the status and download details for a reporting data export job. Supply the workspace and client identifiers along with the job identifier to look up the export. Use the returned status to determine whether the job is ready to download.
 ///
@@ -60,21 +55,17 @@ Future<GetReportingDataResponse> getReportingData(ClientConfig config,
           query: {
             'app_id': SdkQueryValue(appId, style: 'form', explode: true),
             'client_id': SdkQueryValue(clientId, style: 'form', explode: true),
-            'job_identifier':
-                SdkQueryValue(jobIdentifier_2, style: 'form', explode: true)
+            'job_identifier': SdkQueryValue(jobIdentifier_2, style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'getReportingData',
-          fromJsonRaw: (value) =>
-              GetReportingDataResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => GetReportingDataResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Lists the datasets and attributes available for reporting data exports. Use the returned dataset identifiers and attribute details to determine which data you can include in an export.
 Future<ListGetDatasetsResponse> listGetDatasets(ClientConfig config,
@@ -84,14 +75,13 @@ Future<ListGetDatasetsResponse> listGetDatasets(ClientConfig config,
           'GET', '/export/reporting_data/get_datasets',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders(
-              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listGetDatasets',
-          fromJsonRaw: (value) =>
-              ListGetDatasetsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListGetDatasetsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Downloads the data file for a completed reporting data export job. Provide the job identifier and app ID, and send the required `Accept` header to receive the file as an octet stream.
 ///
@@ -112,18 +102,12 @@ Future<void> getReportingData2(ClientConfig config,
           config: config,
           query: {
             'app_id': SdkQueryValue(appId, style: 'form', explode: true),
-            'job_identifier':
-                SdkQueryValue(jobIdentifier_2, style: 'form', explode: true)
+            'job_identifier': SdkQueryValue(jobIdentifier_2, style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.empty,
-          extraHeaders: SdkUtils.serializeHeaders({
-            'Accept': accept,
-            'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)
-          }),
+          extraHeaders: SdkUtils.serializeHeaders({'Accept': accept, 'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'getReportingData2',
           options: requestOptions,
-          errors: {
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

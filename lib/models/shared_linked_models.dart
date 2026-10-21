@@ -8,173 +8,92 @@ part of 'shared_linked.dart';
 class LinkedObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// ticket or conversation
   final SdkOptional<LinkedObjectType> type_;
-
   /// The ID of the linked object
   final SdkOptional<String> id;
-
   /// Category of the Linked Ticket Object.
   final SdkOptional<LinkedObjectCategory?> category;
 
-  const LinkedObject(
-      {this.type_ = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.category = const SdkOmitted()});
+  const LinkedObject({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.category = const SdkOmitted()});
 
-  LinkedObject Function(
-      {SdkOptional<LinkedObjectType> type_,
-      SdkOptional<String> id,
-      SdkOptional<LinkedObjectCategory?> category}) get copyWith => _copyWith;
+  LinkedObject Function({SdkOptional<LinkedObjectType> type_, SdkOptional<String> id, SdkOptional<LinkedObjectCategory?> category}) get copyWith => _copyWith;
 
-  LinkedObject _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? category = sdkOmittedValue}) =>
-      LinkedObject(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<LinkedObjectType>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        category: identical(category, sdkOmittedValue)
-            ? this.category
-            : category as SdkOptional<LinkedObjectCategory?>,
-      );
+  LinkedObject _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? category = sdkOmittedValue}) => LinkedObject(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<LinkedObjectType>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    category: identical(category, sdkOmittedValue) ? this.category : category as SdkOptional<LinkedObjectCategory?>,
+  );
 
   factory LinkedObject.fromJson(Map<String, dynamic> json) => LinkedObject(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? LinkedObjectType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        category: json.containsKey('category')
-            ? SdkPresent(json['category'] != null
-                ? LinkedObjectCategory.fromJson(json['category'] as String)
-                : null)
-            : const SdkOmitted(),
-      );
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? LinkedObjectType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    category: json.containsKey('category') ? SdkPresent(json['category'] != null ? LinkedObjectCategory.fromJson(json['category'] as String) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<LinkedObjectType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (category) {
-          SdkPresent<LinkedObjectCategory?>(value: final value) => {
-              'category': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<LinkedObjectType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (category) {
+      SdkPresent<LinkedObjectCategory?>(value: final value) => {'category': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// An object containing metadata about linked conversations and linked tickets. Up to 1000 can be returned.
 class LinkedObjectList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Always list.
   final SdkOptional<LinkedObjectListType> type_;
-
   /// The total number of linked objects.
   final SdkOptional<int> totalCount;
-
   /// Whether or not there are more linked objects than returned.
   final SdkOptional<bool> hasMore;
-
   /// An array containing the linked conversations and linked tickets.
   final SdkOptional<List<LinkedObject>> data;
 
-  const LinkedObjectList(
-      {this.type_ = const SdkOmitted(),
-      this.totalCount = const SdkOmitted(),
-      this.hasMore = const SdkOmitted(),
-      this.data = const SdkOmitted()});
+  const LinkedObjectList({this.type_ = const SdkOmitted(), this.totalCount = const SdkOmitted(), this.hasMore = const SdkOmitted(), this.data = const SdkOmitted()});
 
-  LinkedObjectList Function(
-      {SdkOptional<LinkedObjectListType> type_,
-      SdkOptional<int> totalCount,
-      SdkOptional<bool> hasMore,
-      SdkOptional<List<LinkedObject>> data}) get copyWith => _copyWith;
+  LinkedObjectList Function({SdkOptional<LinkedObjectListType> type_, SdkOptional<int> totalCount, SdkOptional<bool> hasMore, SdkOptional<List<LinkedObject>> data}) get copyWith => _copyWith;
 
-  LinkedObjectList _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? totalCount = sdkOmittedValue,
-          Object? hasMore = sdkOmittedValue,
-          Object? data = sdkOmittedValue}) =>
-      LinkedObjectList(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<LinkedObjectListType>,
-        totalCount: identical(totalCount, sdkOmittedValue)
-            ? this.totalCount
-            : totalCount as SdkOptional<int>,
-        hasMore: identical(hasMore, sdkOmittedValue)
-            ? this.hasMore
-            : hasMore as SdkOptional<bool>,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as SdkOptional<List<LinkedObject>>,
-      );
+  LinkedObjectList _copyWith({Object? type_ = sdkOmittedValue, Object? totalCount = sdkOmittedValue, Object? hasMore = sdkOmittedValue, Object? data = sdkOmittedValue}) => LinkedObjectList(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<LinkedObjectListType>,
+    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as SdkOptional<int>,
+    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as SdkOptional<bool>,
+    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<LinkedObject>>,
+  );
 
-  factory LinkedObjectList.fromJson(Map<String, dynamic> json) =>
-      LinkedObjectList(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? LinkedObjectListType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        totalCount: json['total_count'] != null
-            ? SdkPresent(((json['total_count'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        hasMore: json['has_more'] != null
-            ? SdkPresent((json['has_more'] as bool?)!)
-            : const SdkOmitted(),
-        data: json['data'] != null
-            ? SdkPresent(((json['data'] as List?)
-                ?.map((e) => LinkedObject.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory LinkedObjectList.fromJson(Map<String, dynamic> json) => LinkedObjectList(
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? LinkedObjectListType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    totalCount: json['total_count'] != null ? SdkPresent(((json['total_count'] as num?)?.toInt())!) : const SdkOmitted(),
+    hasMore: json['has_more'] != null ? SdkPresent((json['has_more'] as bool?)!) : const SdkOmitted(),
+    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => LinkedObject.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<LinkedObjectListType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (totalCount) {
-          SdkPresent<int>(value: final value) => {
-              'total_count': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (hasMore) {
-          SdkPresent<bool>(value: final value) => {
-              'has_more': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (data) {
-          SdkPresent<List<LinkedObject>>(value: final value) => {
-              'data': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<LinkedObjectListType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (totalCount) {
+      SdkPresent<int>(value: final value) => {'total_count': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (hasMore) {
+      SdkPresent<bool>(value: final value) => {'has_more': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (data) {
+      SdkPresent<List<LinkedObject>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

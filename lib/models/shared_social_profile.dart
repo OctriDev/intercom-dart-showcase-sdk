@@ -8,72 +8,41 @@ part of 'shared.dart';
 class SocialProfile {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// value is "social_profile"
   final SdkOptional<String> type_;
-
   /// The name of the Social media profile
   final SdkOptional<String> name;
-
   /// The name of the Social media profile
   final SdkOptional<String> url;
 
-  const SocialProfile(
-      {this.type_ = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.url = const SdkOmitted()});
+  const SocialProfile({this.type_ = const SdkOmitted(), this.name = const SdkOmitted(), this.url = const SdkOmitted()});
 
-  SocialProfile Function(
-      {SdkOptional<String> type_,
-      SdkOptional<String> name,
-      SdkOptional<String> url}) get copyWith => _copyWith;
+  SocialProfile Function({SdkOptional<String> type_, SdkOptional<String> name, SdkOptional<String> url}) get copyWith => _copyWith;
 
-  SocialProfile _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? url = sdkOmittedValue}) =>
-      SocialProfile(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        url: identical(url, sdkOmittedValue)
-            ? this.url
-            : url as SdkOptional<String>,
-      );
+  SocialProfile _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? url = sdkOmittedValue}) => SocialProfile(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String>,
+  );
 
   factory SocialProfile.fromJson(Map<String, dynamic> json) => SocialProfile(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        url: json['url'] != null
-            ? SdkPresent((json['url'] as String?)!)
-            : const SdkOmitted(),
-      );
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    url: json['url'] != null ? SdkPresent((json['url'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (url) {
-          SdkPresent<String>(value: final value) => {
-              'url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (url) {
+      SdkPresent<String>(value: final value) => {'url': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

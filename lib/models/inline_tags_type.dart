@@ -6,6 +6,7 @@ part of 'inline.dart';
 // Inline operation models
 /// The type of the object
 final class TagsType {
+
   final String value;
 
   const TagsType._(this.value);
@@ -16,18 +17,17 @@ final class TagsType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) => other is TagsType && other.value == value;
+  @override bool operator ==(Object other) => other is TagsType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the object
 final class TeamListType {
+
   final String value;
 
   const TeamListType._(this.value);
@@ -38,25 +38,22 @@ final class TeamListType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is TeamListType && other.value == value;
+  @override bool operator ==(Object other) => other is TeamListType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of teammate
 final class TeammateReferenceType {
+
   final String value;
 
   const TeammateReferenceType._(this.value);
 
-  factory TeammateReferenceType.fromJson(String value) =>
-      TeammateReferenceType._(value);
+  factory TeammateReferenceType.fromJson(String value) => TeammateReferenceType._(value);
 
   static const admin = TeammateReferenceType._('admin');
   static const team = TeammateReferenceType._('team');
@@ -64,19 +61,17 @@ final class TeammateReferenceType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is TeammateReferenceType && other.value == value;
+  @override bool operator ==(Object other) => other is TeammateReferenceType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Category of the Ticket.
 final class TicketCategory {
+
   final String value;
 
   const TicketCategory._(this.value);
@@ -89,91 +84,80 @@ final class TicketCategory {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is TicketCategory && other.value == value;
+  @override bool operator ==(Object other) => other is TicketCategory && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Always ticket
 final class TicketType1bd0c454 {
+
   final String value;
 
   const TicketType1bd0c454._(this.value);
 
-  factory TicketType1bd0c454.fromJson(String value) =>
-      TicketType1bd0c454._(value);
+  factory TicketType1bd0c454.fromJson(String value) => TicketType1bd0c454._(value);
 
   static const ticket = TicketType1bd0c454._('ticket');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is TicketType1bd0c454 && other.value == value;
+  @override bool operator ==(Object other) => other is TicketType1bd0c454 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// always contact.list
 final class TicketContactsType {
+
   final String value;
 
   const TicketContactsType._(this.value);
 
-  factory TicketContactsType.fromJson(String value) =>
-      TicketContactsType._(value);
+  factory TicketContactsType.fromJson(String value) => TicketContactsType._(value);
 
   static const contactList = TicketContactsType._('contact.list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is TicketContactsType && other.value == value;
+  @override bool operator ==(Object other) => other is TicketContactsType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// always ticket
 final class TicketDeletedObject {
+
   final String value;
 
   const TicketDeletedObject._(this.value);
 
-  factory TicketDeletedObject.fromJson(String value) =>
-      TicketDeletedObject._(value);
+  factory TicketDeletedObject.fromJson(String value) => TicketDeletedObject._(value);
 
   static const ticket = TicketDeletedObject._('ticket');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is TicketDeletedObject && other.value == value;
+  @override bool operator ==(Object other) => other is TicketDeletedObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Always ticket.list
 final class TicketListType {
+
   final String value;
 
   const TicketListType._(this.value);
@@ -184,131 +168,112 @@ final class TicketListType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is TicketListType && other.value == value;
+  @override bool operator ==(Object other) => other is TicketListType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The previous state of the ticket.
 final class TicketPartPreviousTicketState {
+
   final String value;
 
   const TicketPartPreviousTicketState._(this.value);
 
-  factory TicketPartPreviousTicketState.fromJson(String value) =>
-      TicketPartPreviousTicketState._(value);
+  factory TicketPartPreviousTicketState.fromJson(String value) => TicketPartPreviousTicketState._(value);
 
   static const submitted = TicketPartPreviousTicketState._('submitted');
   static const inProgress = TicketPartPreviousTicketState._('in_progress');
-  static const waitingOnCustomer =
-      TicketPartPreviousTicketState._('waiting_on_customer');
+  static const waitingOnCustomer = TicketPartPreviousTicketState._('waiting_on_customer');
   static const resolved = TicketPartPreviousTicketState._('resolved');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is TicketPartPreviousTicketState && other.value == value;
+  @override bool operator ==(Object other) => other is TicketPartPreviousTicketState && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The state of the ticket.
 final class TicketPartTicketState {
+
   final String value;
 
   const TicketPartTicketState._(this.value);
 
-  factory TicketPartTicketState.fromJson(String value) =>
-      TicketPartTicketState._(value);
+  factory TicketPartTicketState.fromJson(String value) => TicketPartTicketState._(value);
 
   static const submitted = TicketPartTicketState._('submitted');
   static const inProgress = TicketPartTicketState._('in_progress');
-  static const waitingOnCustomer =
-      TicketPartTicketState._('waiting_on_customer');
+  static const waitingOnCustomer = TicketPartTicketState._('waiting_on_customer');
   static const resolved = TicketPartTicketState._('resolved');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is TicketPartTicketState && other.value == value;
+  @override bool operator ==(Object other) => other is TicketPartTicketState && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the object. Always 'attribute'.
 final class TicketPartUpdatedAttributeDataAttributeType {
+
   final String value;
 
   const TicketPartUpdatedAttributeDataAttributeType._(this.value);
 
-  factory TicketPartUpdatedAttributeDataAttributeType.fromJson(String value) =>
-      TicketPartUpdatedAttributeDataAttributeType._(value);
+  factory TicketPartUpdatedAttributeDataAttributeType.fromJson(String value) => TicketPartUpdatedAttributeDataAttributeType._(value);
 
-  static const attribute =
-      TicketPartUpdatedAttributeDataAttributeType._('attribute');
+  static const attribute = TicketPartUpdatedAttributeDataAttributeType._('attribute');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is TicketPartUpdatedAttributeDataAttributeType &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is TicketPartUpdatedAttributeDataAttributeType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the object. Always 'value'.
 final class TicketPartUpdatedAttributeDataValueType {
+
   final String value;
 
   const TicketPartUpdatedAttributeDataValueType._(this.value);
 
-  factory TicketPartUpdatedAttributeDataValueType.fromJson(String value) =>
-      TicketPartUpdatedAttributeDataValueType._(value);
+  factory TicketPartUpdatedAttributeDataValueType.fromJson(String value) => TicketPartUpdatedAttributeDataValueType._(value);
 
   static const value2 = TicketPartUpdatedAttributeDataValueType._('value');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is TicketPartUpdatedAttributeDataValueType && other.value == value;
+  @override bool operator ==(Object other) => other is TicketPartUpdatedAttributeDataValueType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the author
 final class TicketPartAuthorType {
+
   final String value;
 
   const TicketPartAuthorType._(this.value);
 
-  factory TicketPartAuthorType.fromJson(String value) =>
-      TicketPartAuthorType._(value);
+  factory TicketPartAuthorType.fromJson(String value) => TicketPartAuthorType._(value);
 
   static const admin = TicketPartAuthorType._('admin');
   static const bot = TicketPartAuthorType._('bot');
@@ -317,13 +282,10 @@ final class TicketPartAuthorType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is TicketPartAuthorType && other.value == value;
+  @override bool operator ==(Object other) => other is TicketPartAuthorType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

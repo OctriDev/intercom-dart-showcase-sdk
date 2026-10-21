@@ -8,51 +8,33 @@ part of 'shared.dart';
 class Reference {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `string` value serialized in the `type` wire field.
   final SdkOptional<String> type_;
-
   /// Optional `string` value serialized in the `id` wire field.
   final SdkOptional<String?> id;
 
-  const Reference(
-      {this.type_ = const SdkOmitted(), this.id = const SdkOmitted()});
+  const Reference({this.type_ = const SdkOmitted(), this.id = const SdkOmitted()});
 
-  Reference Function({SdkOptional<String> type_, SdkOptional<String?> id})
-      get copyWith => _copyWith;
+  Reference Function({SdkOptional<String> type_, SdkOptional<String?> id}) get copyWith => _copyWith;
 
-  Reference _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue}) =>
-      Reference(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String?>,
-      );
+  Reference _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue}) => Reference(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String?>,
+  );
 
   factory Reference.fromJson(Map<String, dynamic> json) => Reference(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        id: json.containsKey('id')
-            ? SdkPresent(json['id'] as String?)
-            : const SdkOmitted(),
-      );
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    id: json.containsKey('id') ? SdkPresent(json['id'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String?>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String?>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

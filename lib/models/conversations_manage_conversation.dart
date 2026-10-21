@@ -8,283 +8,158 @@ part of 'conversations.dart';
 class AssignConversationRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `message_type` wire field.
   final AssignConversationRequestMessageType messageType;
-
   /// Required enumerated value serialized in the `type` wire field.
   final AssignConversationRequestType type_;
-
   /// The id of the admin who is performing the action.
   final String adminId;
-
   /// The `id` of the `admin` or `team` which will be assigned the conversation. A conversation can be assigned both an admin and a team.\nSet `0` if you want this assign to no admin or team (ie. Unassigned).
   final String assigneeId;
-
   /// Optionally you can send a response in the conversation when it is assigned.
   final SdkOptional<String> body;
-
   /// When true, assigning a closed conversation leaves it closed instead of reopening it. No reopen event is recorded, so the conversation keeps its original close timestamp and the assignment does not count as a new closure in reporting.
   final SdkOptional<bool> skipReopen;
 
-  const AssignConversationRequest(
-      {required this.messageType,
-      required this.type_,
-      required this.adminId,
-      required this.assigneeId,
-      this.body = const SdkOmitted(),
-      this.skipReopen = const SdkOmitted()});
+  const AssignConversationRequest({required this.messageType, required this.type_, required this.adminId, required this.assigneeId, this.body = const SdkOmitted(), this.skipReopen = const SdkOmitted()});
 
-  AssignConversationRequest Function(
-      {AssignConversationRequestMessageType messageType,
-      AssignConversationRequestType type_,
-      String adminId,
-      String assigneeId,
-      SdkOptional<String> body,
-      SdkOptional<bool> skipReopen}) get copyWith => _copyWith;
+  AssignConversationRequest Function({AssignConversationRequestMessageType messageType, AssignConversationRequestType type_, String adminId, String assigneeId, SdkOptional<String> body, SdkOptional<bool> skipReopen}) get copyWith => _copyWith;
 
-  AssignConversationRequest _copyWith(
-          {Object? messageType = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? adminId = sdkOmittedValue,
-          Object? assigneeId = sdkOmittedValue,
-          Object? body = sdkOmittedValue,
-          Object? skipReopen = sdkOmittedValue}) =>
-      AssignConversationRequest(
-        messageType: identical(messageType, sdkOmittedValue)
-            ? this.messageType
-            : messageType as AssignConversationRequestMessageType,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as AssignConversationRequestType,
-        adminId: identical(adminId, sdkOmittedValue)
-            ? this.adminId
-            : adminId as String,
-        assigneeId: identical(assigneeId, sdkOmittedValue)
-            ? this.assigneeId
-            : assigneeId as String,
-        body: identical(body, sdkOmittedValue)
-            ? this.body
-            : body as SdkOptional<String>,
-        skipReopen: identical(skipReopen, sdkOmittedValue)
-            ? this.skipReopen
-            : skipReopen as SdkOptional<bool>,
-      );
+  AssignConversationRequest _copyWith({Object? messageType = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? adminId = sdkOmittedValue, Object? assigneeId = sdkOmittedValue, Object? body = sdkOmittedValue, Object? skipReopen = sdkOmittedValue}) => AssignConversationRequest(
+    messageType: identical(messageType, sdkOmittedValue) ? this.messageType : messageType as AssignConversationRequestMessageType,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as AssignConversationRequestType,
+    adminId: identical(adminId, sdkOmittedValue) ? this.adminId : adminId as String,
+    assigneeId: identical(assigneeId, sdkOmittedValue) ? this.assigneeId : assigneeId as String,
+    body: identical(body, sdkOmittedValue) ? this.body : body as SdkOptional<String>,
+    skipReopen: identical(skipReopen, sdkOmittedValue) ? this.skipReopen : skipReopen as SdkOptional<bool>,
+  );
 
-  factory AssignConversationRequest.fromJson(Map<String, dynamic> json) =>
-      AssignConversationRequest(
-        messageType: (json['message_type'] != null
-            ? AssignConversationRequestMessageType.fromJson(
-                json['message_type'] as String)
-            : null)!,
-        type_: (json['type'] != null
-            ? AssignConversationRequestType.fromJson(json['type'] as String)
-            : null)!,
-        adminId: (json['admin_id'] as String?)!,
-        assigneeId: (json['assignee_id'] as String?)!,
-        body: json['body'] != null
-            ? SdkPresent((json['body'] as String?)!)
-            : const SdkOmitted(),
-        skipReopen: json['skip_reopen'] != null
-            ? SdkPresent((json['skip_reopen'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory AssignConversationRequest.fromJson(Map<String, dynamic> json) => AssignConversationRequest(
+    messageType: (json['message_type'] != null ? AssignConversationRequestMessageType.fromJson(json['message_type'] as String) : null)!,
+    type_: (json['type'] != null ? AssignConversationRequestType.fromJson(json['type'] as String) : null)!,
+    adminId: (json['admin_id'] as String?)!,
+    assigneeId: (json['assignee_id'] as String?)!,
+    body: json['body'] != null ? SdkPresent((json['body'] as String?)!) : const SdkOmitted(),
+    skipReopen: json['skip_reopen'] != null ? SdkPresent((json['skip_reopen'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'message_type': messageType.toJson(),
-        'type': type_.toJson(),
-        'admin_id': adminId,
-        'assignee_id': assigneeId,
-        ...switch (body) {
-          SdkPresent<String>(value: final value) => {
-              'body': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (skipReopen) {
-          SdkPresent<bool>(value: final value) => {
-              'skip_reopen': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'message_type': messageType.toJson(),
+    'type': type_.toJson(),
+    'admin_id': adminId,
+    'assignee_id': assigneeId,
+    ...switch (body) {
+      SdkPresent<String>(value: final value) => {'body': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (skipReopen) {
+      SdkPresent<bool>(value: final value) => {'skip_reopen': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Payload of the request to close a conversation
 class CloseConversationRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `message_type` wire field.
   final CloseConversationRequestMessageType messageType;
-
   /// Required enumerated value serialized in the `type` wire field.
   final CloseConversationRequestType type_;
-
   /// The id of the admin who is performing the action.
   final String adminId;
-
   /// Optionally you can leave a message in the conversation to provide additional context to the user and other teammates.
   final SdkOptional<String> body;
 
-  const CloseConversationRequest(
-      {required this.messageType,
-      required this.type_,
-      required this.adminId,
-      this.body = const SdkOmitted()});
+  const CloseConversationRequest({required this.messageType, required this.type_, required this.adminId, this.body = const SdkOmitted()});
 
-  CloseConversationRequest Function(
-      {CloseConversationRequestMessageType messageType,
-      CloseConversationRequestType type_,
-      String adminId,
-      SdkOptional<String> body}) get copyWith => _copyWith;
+  CloseConversationRequest Function({CloseConversationRequestMessageType messageType, CloseConversationRequestType type_, String adminId, SdkOptional<String> body}) get copyWith => _copyWith;
 
-  CloseConversationRequest _copyWith(
-          {Object? messageType = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? adminId = sdkOmittedValue,
-          Object? body = sdkOmittedValue}) =>
-      CloseConversationRequest(
-        messageType: identical(messageType, sdkOmittedValue)
-            ? this.messageType
-            : messageType as CloseConversationRequestMessageType,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as CloseConversationRequestType,
-        adminId: identical(adminId, sdkOmittedValue)
-            ? this.adminId
-            : adminId as String,
-        body: identical(body, sdkOmittedValue)
-            ? this.body
-            : body as SdkOptional<String>,
-      );
+  CloseConversationRequest _copyWith({Object? messageType = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? adminId = sdkOmittedValue, Object? body = sdkOmittedValue}) => CloseConversationRequest(
+    messageType: identical(messageType, sdkOmittedValue) ? this.messageType : messageType as CloseConversationRequestMessageType,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CloseConversationRequestType,
+    adminId: identical(adminId, sdkOmittedValue) ? this.adminId : adminId as String,
+    body: identical(body, sdkOmittedValue) ? this.body : body as SdkOptional<String>,
+  );
 
-  factory CloseConversationRequest.fromJson(Map<String, dynamic> json) =>
-      CloseConversationRequest(
-        messageType: (json['message_type'] != null
-            ? CloseConversationRequestMessageType.fromJson(
-                json['message_type'] as String)
-            : null)!,
-        type_: (json['type'] != null
-            ? CloseConversationRequestType.fromJson(json['type'] as String)
-            : null)!,
-        adminId: (json['admin_id'] as String?)!,
-        body: json['body'] != null
-            ? SdkPresent((json['body'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory CloseConversationRequest.fromJson(Map<String, dynamic> json) => CloseConversationRequest(
+    messageType: (json['message_type'] != null ? CloseConversationRequestMessageType.fromJson(json['message_type'] as String) : null)!,
+    type_: (json['type'] != null ? CloseConversationRequestType.fromJson(json['type'] as String) : null)!,
+    adminId: (json['admin_id'] as String?)!,
+    body: json['body'] != null ? SdkPresent((json['body'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'message_type': messageType.toJson(),
-        'type': type_.toJson(),
-        'admin_id': adminId,
-        ...switch (body) {
-          SdkPresent<String>(value: final value) => {
-              'body': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'message_type': messageType.toJson(),
+    'type': type_.toJson(),
+    'admin_id': adminId,
+    ...switch (body) {
+      SdkPresent<String>(value: final value) => {'body': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Payload of the request to open a conversation
 class OpenConversationRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `message_type` wire field.
   final OpenConversationRequestMessageType messageType;
-
   /// The id of the admin who is performing the action.
   final String adminId;
 
-  const OpenConversationRequest(
-      {required this.messageType, required this.adminId});
+  const OpenConversationRequest({required this.messageType, required this.adminId});
 
-  OpenConversationRequest Function(
-      {OpenConversationRequestMessageType messageType,
-      String adminId}) get copyWith => _copyWith;
+  OpenConversationRequest Function({OpenConversationRequestMessageType messageType, String adminId}) get copyWith => _copyWith;
 
-  OpenConversationRequest _copyWith(
-          {Object? messageType = sdkOmittedValue,
-          Object? adminId = sdkOmittedValue}) =>
-      OpenConversationRequest(
-        messageType: identical(messageType, sdkOmittedValue)
-            ? this.messageType
-            : messageType as OpenConversationRequestMessageType,
-        adminId: identical(adminId, sdkOmittedValue)
-            ? this.adminId
-            : adminId as String,
-      );
+  OpenConversationRequest _copyWith({Object? messageType = sdkOmittedValue, Object? adminId = sdkOmittedValue}) => OpenConversationRequest(
+    messageType: identical(messageType, sdkOmittedValue) ? this.messageType : messageType as OpenConversationRequestMessageType,
+    adminId: identical(adminId, sdkOmittedValue) ? this.adminId : adminId as String,
+  );
 
-  factory OpenConversationRequest.fromJson(Map<String, dynamic> json) =>
-      OpenConversationRequest(
-        messageType: (json['message_type'] != null
-            ? OpenConversationRequestMessageType.fromJson(
-                json['message_type'] as String)
-            : null)!,
-        adminId: (json['admin_id'] as String?)!,
-      );
+  factory OpenConversationRequest.fromJson(Map<String, dynamic> json) => OpenConversationRequest(
+    messageType: (json['message_type'] != null ? OpenConversationRequestMessageType.fromJson(json['message_type'] as String) : null)!,
+    adminId: (json['admin_id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'message_type': messageType.toJson(),
-        'admin_id': adminId,
-      };
+    'message_type': messageType.toJson(),
+    'admin_id': adminId,
+  };
 }
 
 /// Payload of the request to snooze a conversation
 class SnoozeConversationRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `message_type` wire field.
   final SnoozeConversationRequestMessageType messageType;
-
   /// The id of the admin who is performing the action.
   final String adminId;
-
   /// The time you want the conversation to reopen.
   final int snoozedUntil;
 
-  const SnoozeConversationRequest(
-      {required this.messageType,
-      required this.adminId,
-      required this.snoozedUntil});
+  const SnoozeConversationRequest({required this.messageType, required this.adminId, required this.snoozedUntil});
 
-  SnoozeConversationRequest Function(
-      {SnoozeConversationRequestMessageType messageType,
-      String adminId,
-      int snoozedUntil}) get copyWith => _copyWith;
+  SnoozeConversationRequest Function({SnoozeConversationRequestMessageType messageType, String adminId, int snoozedUntil}) get copyWith => _copyWith;
 
-  SnoozeConversationRequest _copyWith(
-          {Object? messageType = sdkOmittedValue,
-          Object? adminId = sdkOmittedValue,
-          Object? snoozedUntil = sdkOmittedValue}) =>
-      SnoozeConversationRequest(
-        messageType: identical(messageType, sdkOmittedValue)
-            ? this.messageType
-            : messageType as SnoozeConversationRequestMessageType,
-        adminId: identical(adminId, sdkOmittedValue)
-            ? this.adminId
-            : adminId as String,
-        snoozedUntil: identical(snoozedUntil, sdkOmittedValue)
-            ? this.snoozedUntil
-            : snoozedUntil as int,
-      );
+  SnoozeConversationRequest _copyWith({Object? messageType = sdkOmittedValue, Object? adminId = sdkOmittedValue, Object? snoozedUntil = sdkOmittedValue}) => SnoozeConversationRequest(
+    messageType: identical(messageType, sdkOmittedValue) ? this.messageType : messageType as SnoozeConversationRequestMessageType,
+    adminId: identical(adminId, sdkOmittedValue) ? this.adminId : adminId as String,
+    snoozedUntil: identical(snoozedUntil, sdkOmittedValue) ? this.snoozedUntil : snoozedUntil as int,
+  );
 
-  factory SnoozeConversationRequest.fromJson(Map<String, dynamic> json) =>
-      SnoozeConversationRequest(
-        messageType: (json['message_type'] != null
-            ? SnoozeConversationRequestMessageType.fromJson(
-                json['message_type'] as String)
-            : null)!,
-        adminId: (json['admin_id'] as String?)!,
-        snoozedUntil: ((json['snoozed_until'] as num?)?.toInt())!,
-      );
+  factory SnoozeConversationRequest.fromJson(Map<String, dynamic> json) => SnoozeConversationRequest(
+    messageType: (json['message_type'] != null ? SnoozeConversationRequestMessageType.fromJson(json['message_type'] as String) : null)!,
+    adminId: (json['admin_id'] as String?)!,
+    snoozedUntil: ((json['snoozed_until'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'message_type': messageType.toJson(),
-        'admin_id': adminId,
-        'snoozed_until': snoozedUntil,
-      };
+    'message_type': messageType.toJson(),
+    'admin_id': adminId,
+    'snoozed_until': snoozedUntil,
+  };
 }

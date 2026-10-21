@@ -8,363 +8,183 @@ part of 'contacts.dart';
 class DeletedContact {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// always contact
   final SdkOptional<DeletedContactType> type_;
-
   /// The unique identifier for the contact which is given by Intercom.
   final SdkOptional<String> id;
-
   /// The unique identifier for the contact which is provided by the Client. `null` for permanently deleted contacts.
   final SdkOptional<String?> externalId;
-
   /// The contact's email address. `null` for permanently deleted contacts.
   final SdkOptional<String?> email;
-
   /// The role of the contact.
   final SdkOptional<DeletedContactRole> role;
-
   /// Why the contact is no longer active.
   final SdkOptional<DeletedContactStatus> status;
-
   /// The id of the contact this one was merged into. Present only when `status` is `merged`.
   final SdkOptional<String> mergedIntoId;
-
   /// The time the contact record was last updated as a UNIX timestamp. This is a last-modified time, not a deletion time.
   final SdkOptional<int> updatedAt;
 
-  const DeletedContact(
-      {this.type_ = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.externalId = const SdkOmitted(),
-      this.email = const SdkOmitted(),
-      this.role = const SdkOmitted(),
-      this.status = const SdkOmitted(),
-      this.mergedIntoId = const SdkOmitted(),
-      this.updatedAt = const SdkOmitted()});
+  const DeletedContact({this.type_ = const SdkOmitted(), this.id = const SdkOmitted(), this.externalId = const SdkOmitted(), this.email = const SdkOmitted(), this.role = const SdkOmitted(), this.status = const SdkOmitted(), this.mergedIntoId = const SdkOmitted(), this.updatedAt = const SdkOmitted()});
 
-  DeletedContact Function(
-      {SdkOptional<DeletedContactType> type_,
-      SdkOptional<String> id,
-      SdkOptional<String?> externalId,
-      SdkOptional<String?> email,
-      SdkOptional<DeletedContactRole> role,
-      SdkOptional<DeletedContactStatus> status,
-      SdkOptional<String> mergedIntoId,
-      SdkOptional<int> updatedAt}) get copyWith => _copyWith;
+  DeletedContact Function({SdkOptional<DeletedContactType> type_, SdkOptional<String> id, SdkOptional<String?> externalId, SdkOptional<String?> email, SdkOptional<DeletedContactRole> role, SdkOptional<DeletedContactStatus> status, SdkOptional<String> mergedIntoId, SdkOptional<int> updatedAt}) get copyWith => _copyWith;
 
-  DeletedContact _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? externalId = sdkOmittedValue,
-          Object? email = sdkOmittedValue,
-          Object? role = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? mergedIntoId = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue}) =>
-      DeletedContact(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<DeletedContactType>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        externalId: identical(externalId, sdkOmittedValue)
-            ? this.externalId
-            : externalId as SdkOptional<String?>,
-        email: identical(email, sdkOmittedValue)
-            ? this.email
-            : email as SdkOptional<String?>,
-        role: identical(role, sdkOmittedValue)
-            ? this.role
-            : role as SdkOptional<DeletedContactRole>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<DeletedContactStatus>,
-        mergedIntoId: identical(mergedIntoId, sdkOmittedValue)
-            ? this.mergedIntoId
-            : mergedIntoId as SdkOptional<String>,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as SdkOptional<int>,
-      );
+  DeletedContact _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? externalId = sdkOmittedValue, Object? email = sdkOmittedValue, Object? role = sdkOmittedValue, Object? status = sdkOmittedValue, Object? mergedIntoId = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => DeletedContact(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<DeletedContactType>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    externalId: identical(externalId, sdkOmittedValue) ? this.externalId : externalId as SdkOptional<String?>,
+    email: identical(email, sdkOmittedValue) ? this.email : email as SdkOptional<String?>,
+    role: identical(role, sdkOmittedValue) ? this.role : role as SdkOptional<DeletedContactRole>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<DeletedContactStatus>,
+    mergedIntoId: identical(mergedIntoId, sdkOmittedValue) ? this.mergedIntoId : mergedIntoId as SdkOptional<String>,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<int>,
+  );
 
   factory DeletedContact.fromJson(Map<String, dynamic> json) => DeletedContact(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? DeletedContactType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        externalId: json.containsKey('external_id')
-            ? SdkPresent(json['external_id'] as String?)
-            : const SdkOmitted(),
-        email: json.containsKey('email')
-            ? SdkPresent(json['email'] as String?)
-            : const SdkOmitted(),
-        role: json['role'] != null
-            ? SdkPresent((json['role'] != null
-                ? DeletedContactRole.fromJson(json['role'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] != null
-                ? DeletedContactStatus.fromJson(json['status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        mergedIntoId: json['merged_into_id'] != null
-            ? SdkPresent((json['merged_into_id'] as String?)!)
-            : const SdkOmitted(),
-        updatedAt: json['updated_at'] != null
-            ? SdkPresent(((json['updated_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? DeletedContactType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    externalId: json.containsKey('external_id') ? SdkPresent(json['external_id'] as String?) : const SdkOmitted(),
+    email: json.containsKey('email') ? SdkPresent(json['email'] as String?) : const SdkOmitted(),
+    role: json['role'] != null ? SdkPresent((json['role'] != null ? DeletedContactRole.fromJson(json['role'] as String) : null)!) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] != null ? DeletedContactStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
+    mergedIntoId: json['merged_into_id'] != null ? SdkPresent((json['merged_into_id'] as String?)!) : const SdkOmitted(),
+    updatedAt: json['updated_at'] != null ? SdkPresent(((json['updated_at'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<DeletedContactType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (externalId) {
-          SdkPresent<String?>(value: final value) => {
-              'external_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (email) {
-          SdkPresent<String?>(value: final value) => {
-              'email': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (role) {
-          SdkPresent<DeletedContactRole>(value: final value) => {
-              'role': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<DeletedContactStatus>(value: final value) => {
-              'status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (mergedIntoId) {
-          SdkPresent<String>(value: final value) => {
-              'merged_into_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (updatedAt) {
-          SdkPresent<int>(value: final value) => {
-              'updated_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<DeletedContactType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (externalId) {
+      SdkPresent<String?>(value: final value) => {'external_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (email) {
+      SdkPresent<String?>(value: final value) => {'email': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (role) {
+      SdkPresent<DeletedContactRole>(value: final value) => {'role': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<DeletedContactStatus>(value: final value) => {'status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (mergedIntoId) {
+      SdkPresent<String>(value: final value) => {'merged_into_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (updatedAt) {
+      SdkPresent<int>(value: final value) => {'updated_at': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Offset-based pagination metadata.
 class DeletedContactListPages {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional enumerated value serialized in the `type` wire field.
   final SdkOptional<DeletedContactListPagesType> type_;
-
   /// Optional `integer` value serialized in the `page` wire field.
   final SdkOptional<int> page;
-
   /// Optional `integer` value serialized in the `per_page` wire field.
   final SdkOptional<int> perPage;
-
   /// Optional `integer` value serialized in the `total_pages` wire field.
   final SdkOptional<int> totalPages;
 
-  const DeletedContactListPages(
-      {this.type_ = const SdkOmitted(),
-      this.page = const SdkOmitted(),
-      this.perPage = const SdkOmitted(),
-      this.totalPages = const SdkOmitted()});
+  const DeletedContactListPages({this.type_ = const SdkOmitted(), this.page = const SdkOmitted(), this.perPage = const SdkOmitted(), this.totalPages = const SdkOmitted()});
 
-  DeletedContactListPages Function(
-      {SdkOptional<DeletedContactListPagesType> type_,
-      SdkOptional<int> page,
-      SdkOptional<int> perPage,
-      SdkOptional<int> totalPages}) get copyWith => _copyWith;
+  DeletedContactListPages Function({SdkOptional<DeletedContactListPagesType> type_, SdkOptional<int> page, SdkOptional<int> perPage, SdkOptional<int> totalPages}) get copyWith => _copyWith;
 
-  DeletedContactListPages _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? page = sdkOmittedValue,
-          Object? perPage = sdkOmittedValue,
-          Object? totalPages = sdkOmittedValue}) =>
-      DeletedContactListPages(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<DeletedContactListPagesType>,
-        page: identical(page, sdkOmittedValue)
-            ? this.page
-            : page as SdkOptional<int>,
-        perPage: identical(perPage, sdkOmittedValue)
-            ? this.perPage
-            : perPage as SdkOptional<int>,
-        totalPages: identical(totalPages, sdkOmittedValue)
-            ? this.totalPages
-            : totalPages as SdkOptional<int>,
-      );
+  DeletedContactListPages _copyWith({Object? type_ = sdkOmittedValue, Object? page = sdkOmittedValue, Object? perPage = sdkOmittedValue, Object? totalPages = sdkOmittedValue}) => DeletedContactListPages(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<DeletedContactListPagesType>,
+    page: identical(page, sdkOmittedValue) ? this.page : page as SdkOptional<int>,
+    perPage: identical(perPage, sdkOmittedValue) ? this.perPage : perPage as SdkOptional<int>,
+    totalPages: identical(totalPages, sdkOmittedValue) ? this.totalPages : totalPages as SdkOptional<int>,
+  );
 
-  factory DeletedContactListPages.fromJson(Map<String, dynamic> json) =>
-      DeletedContactListPages(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? DeletedContactListPagesType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        page: json['page'] != null
-            ? SdkPresent(((json['page'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        perPage: json['per_page'] != null
-            ? SdkPresent(((json['per_page'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        totalPages: json['total_pages'] != null
-            ? SdkPresent(((json['total_pages'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory DeletedContactListPages.fromJson(Map<String, dynamic> json) => DeletedContactListPages(
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? DeletedContactListPagesType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    page: json['page'] != null ? SdkPresent(((json['page'] as num?)?.toInt())!) : const SdkOmitted(),
+    perPage: json['per_page'] != null ? SdkPresent(((json['per_page'] as num?)?.toInt())!) : const SdkOmitted(),
+    totalPages: json['total_pages'] != null ? SdkPresent(((json['total_pages'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<DeletedContactListPagesType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (page) {
-          SdkPresent<int>(value: final value) => {
-              'page': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (perPage) {
-          SdkPresent<int>(value: final value) => {
-              'per_page': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (totalPages) {
-          SdkPresent<int>(value: final value) => {
-              'total_pages': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<DeletedContactListPagesType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (page) {
+      SdkPresent<int>(value: final value) => {'page': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (perPage) {
+      SdkPresent<int>(value: final value) => {'per_page': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (totalPages) {
+      SdkPresent<int>(value: final value) => {'total_pages': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// A paginated list of deleted contacts.
 class DeletedContactList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Always list
   final SdkOptional<DeletedContactListType> type_;
-
   /// The list of deleted contact objects.
   final SdkOptional<List<DeletedContact>> data;
-
   /// A count of the total number of deleted contacts.
   final SdkOptional<int> totalCount;
-
   /// Offset-based pagination metadata.
   final SdkOptional<DeletedContactListPages> pages;
 
-  const DeletedContactList(
-      {this.type_ = const SdkOmitted(),
-      this.data = const SdkOmitted(),
-      this.totalCount = const SdkOmitted(),
-      this.pages = const SdkOmitted()});
+  const DeletedContactList({this.type_ = const SdkOmitted(), this.data = const SdkOmitted(), this.totalCount = const SdkOmitted(), this.pages = const SdkOmitted()});
 
-  DeletedContactList Function(
-      {SdkOptional<DeletedContactListType> type_,
-      SdkOptional<List<DeletedContact>> data,
-      SdkOptional<int> totalCount,
-      SdkOptional<DeletedContactListPages> pages}) get copyWith => _copyWith;
+  DeletedContactList Function({SdkOptional<DeletedContactListType> type_, SdkOptional<List<DeletedContact>> data, SdkOptional<int> totalCount, SdkOptional<DeletedContactListPages> pages}) get copyWith => _copyWith;
 
-  DeletedContactList _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? data = sdkOmittedValue,
-          Object? totalCount = sdkOmittedValue,
-          Object? pages = sdkOmittedValue}) =>
-      DeletedContactList(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<DeletedContactListType>,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as SdkOptional<List<DeletedContact>>,
-        totalCount: identical(totalCount, sdkOmittedValue)
-            ? this.totalCount
-            : totalCount as SdkOptional<int>,
-        pages: identical(pages, sdkOmittedValue)
-            ? this.pages
-            : pages as SdkOptional<DeletedContactListPages>,
-      );
+  DeletedContactList _copyWith({Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue, Object? totalCount = sdkOmittedValue, Object? pages = sdkOmittedValue}) => DeletedContactList(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<DeletedContactListType>,
+    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<DeletedContact>>,
+    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as SdkOptional<int>,
+    pages: identical(pages, sdkOmittedValue) ? this.pages : pages as SdkOptional<DeletedContactListPages>,
+  );
 
-  factory DeletedContactList.fromJson(Map<String, dynamic> json) =>
-      DeletedContactList(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? DeletedContactListType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        data: json['data'] != null
-            ? SdkPresent(((json['data'] as List?)
-                ?.map((e) => DeletedContact.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        totalCount: json['total_count'] != null
-            ? SdkPresent(((json['total_count'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        pages: json['pages'] != null
-            ? SdkPresent((json['pages'] != null
-                ? DeletedContactListPages.fromJson(
-                    json['pages'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory DeletedContactList.fromJson(Map<String, dynamic> json) => DeletedContactList(
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? DeletedContactListType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => DeletedContact.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    totalCount: json['total_count'] != null ? SdkPresent(((json['total_count'] as num?)?.toInt())!) : const SdkOmitted(),
+    pages: json['pages'] != null ? SdkPresent((json['pages'] != null ? DeletedContactListPages.fromJson(json['pages'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<DeletedContactListType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (data) {
-          SdkPresent<List<DeletedContact>>(value: final value) => {
-              'data': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (totalCount) {
-          SdkPresent<int>(value: final value) => {
-              'total_count': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (pages) {
-          SdkPresent<DeletedContactListPages>(value: final value) => {
-              'pages': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<DeletedContactListType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (data) {
+      SdkPresent<List<DeletedContact>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (totalCount) {
+      SdkPresent<int>(value: final value) => {'total_count': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (pages) {
+      SdkPresent<DeletedContactListPages>(value: final value) => {'pages': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

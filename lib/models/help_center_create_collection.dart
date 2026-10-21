@@ -8,103 +8,54 @@ part of 'help_center.dart';
 class CreateCollectionRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the collection. For multilingual collections, this will be the name of the default language's content.
   final String name;
-
   /// The description of the collection. For multilingual collections, this will be the description of the default language's content.
   final SdkOptional<String> description;
-
   /// The Translated Content of an Group. The keys are the locale codes and the values are the translated content of the Group.
   final SdkOptional<GroupTranslatedContent?> translatedContent;
-
   /// The id of the parent collection. If `null` then it will be created as the first level collection.
   final SdkOptional<String?> parentId;
-
   /// The id of the help center where the collection will be created. If `null` then it will be created in the default help center.
   final SdkOptional<int?> helpCenterId;
 
-  const CreateCollectionRequest(
-      {required this.name,
-      this.description = const SdkOmitted(),
-      this.translatedContent = const SdkOmitted(),
-      this.parentId = const SdkOmitted(),
-      this.helpCenterId = const SdkOmitted()});
+  const CreateCollectionRequest({required this.name, this.description = const SdkOmitted(), this.translatedContent = const SdkOmitted(), this.parentId = const SdkOmitted(), this.helpCenterId = const SdkOmitted()});
 
-  CreateCollectionRequest Function(
-      {String name,
-      SdkOptional<String> description,
-      SdkOptional<GroupTranslatedContent?> translatedContent,
-      SdkOptional<String?> parentId,
-      SdkOptional<int?> helpCenterId}) get copyWith => _copyWith;
+  CreateCollectionRequest Function({String name, SdkOptional<String> description, SdkOptional<GroupTranslatedContent?> translatedContent, SdkOptional<String?> parentId, SdkOptional<int?> helpCenterId}) get copyWith => _copyWith;
 
-  CreateCollectionRequest _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? translatedContent = sdkOmittedValue,
-          Object? parentId = sdkOmittedValue,
-          Object? helpCenterId = sdkOmittedValue}) =>
-      CreateCollectionRequest(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        translatedContent: identical(translatedContent, sdkOmittedValue)
-            ? this.translatedContent
-            : translatedContent as SdkOptional<GroupTranslatedContent?>,
-        parentId: identical(parentId, sdkOmittedValue)
-            ? this.parentId
-            : parentId as SdkOptional<String?>,
-        helpCenterId: identical(helpCenterId, sdkOmittedValue)
-            ? this.helpCenterId
-            : helpCenterId as SdkOptional<int?>,
-      );
+  CreateCollectionRequest _copyWith({Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? translatedContent = sdkOmittedValue, Object? parentId = sdkOmittedValue, Object? helpCenterId = sdkOmittedValue}) => CreateCollectionRequest(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    translatedContent: identical(translatedContent, sdkOmittedValue) ? this.translatedContent : translatedContent as SdkOptional<GroupTranslatedContent?>,
+    parentId: identical(parentId, sdkOmittedValue) ? this.parentId : parentId as SdkOptional<String?>,
+    helpCenterId: identical(helpCenterId, sdkOmittedValue) ? this.helpCenterId : helpCenterId as SdkOptional<int?>,
+  );
 
-  factory CreateCollectionRequest.fromJson(Map<String, dynamic> json) =>
-      CreateCollectionRequest(
-        name: (json['name'] as String?)!,
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        translatedContent: json.containsKey('translated_content')
-            ? SdkPresent(json['translated_content'] != null
-                ? GroupTranslatedContent.fromJson(
-                    json['translated_content'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        parentId: json.containsKey('parent_id')
-            ? SdkPresent(json['parent_id'] as String?)
-            : const SdkOmitted(),
-        helpCenterId: json.containsKey('help_center_id')
-            ? SdkPresent((json['help_center_id'] as num?)?.toInt())
-            : const SdkOmitted(),
-      );
+  factory CreateCollectionRequest.fromJson(Map<String, dynamic> json) => CreateCollectionRequest(
+    name: (json['name'] as String?)!,
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    translatedContent: json.containsKey('translated_content') ? SdkPresent(json['translated_content'] != null ? GroupTranslatedContent.fromJson(json['translated_content'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    parentId: json.containsKey('parent_id') ? SdkPresent(json['parent_id'] as String?) : const SdkOmitted(),
+    helpCenterId: json.containsKey('help_center_id') ? SdkPresent((json['help_center_id'] as num?)?.toInt()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (translatedContent) {
-          SdkPresent<GroupTranslatedContent?>(value: final value) => {
-              'translated_content': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (parentId) {
-          SdkPresent<String?>(value: final value) => {
-              'parent_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (helpCenterId) {
-          SdkPresent<int?>(value: final value) => {
-              'help_center_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'name': name,
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (translatedContent) {
+      SdkPresent<GroupTranslatedContent?>(value: final value) => {'translated_content': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (parentId) {
+      SdkPresent<String?>(value: final value) => {'parent_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (helpCenterId) {
+      SdkPresent<int?>(value: final value) => {'help_center_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

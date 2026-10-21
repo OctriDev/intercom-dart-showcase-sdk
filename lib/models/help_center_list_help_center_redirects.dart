@@ -8,98 +8,49 @@ part of 'help_center.dart';
 class HelpCenterRedirectList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the object - `list`.
   final SdkOptional<HelpCenterRedirectListType> type_;
-
   /// Cursor-based pagination is a technique used in the Intercom API to navigate through large amounts of data. A "cursor" or pointer is used to keep track of the current position in the result set, allowing the API to return the data in small chunks or "pages" as needed.
   final SdkOptional<CursorPages?> pages;
-
   /// A count of the total number of redirects.
   final SdkOptional<int> totalCount;
-
   /// An array of help center redirect objects.
   final SdkOptional<List<HelpCenterRedirect>> data;
 
-  const HelpCenterRedirectList(
-      {this.type_ = const SdkOmitted(),
-      this.pages = const SdkOmitted(),
-      this.totalCount = const SdkOmitted(),
-      this.data = const SdkOmitted()});
+  const HelpCenterRedirectList({this.type_ = const SdkOmitted(), this.pages = const SdkOmitted(), this.totalCount = const SdkOmitted(), this.data = const SdkOmitted()});
 
-  HelpCenterRedirectList Function(
-      {SdkOptional<HelpCenterRedirectListType> type_,
-      SdkOptional<CursorPages?> pages,
-      SdkOptional<int> totalCount,
-      SdkOptional<List<HelpCenterRedirect>> data}) get copyWith => _copyWith;
+  HelpCenterRedirectList Function({SdkOptional<HelpCenterRedirectListType> type_, SdkOptional<CursorPages?> pages, SdkOptional<int> totalCount, SdkOptional<List<HelpCenterRedirect>> data}) get copyWith => _copyWith;
 
-  HelpCenterRedirectList _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? pages = sdkOmittedValue,
-          Object? totalCount = sdkOmittedValue,
-          Object? data = sdkOmittedValue}) =>
-      HelpCenterRedirectList(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<HelpCenterRedirectListType>,
-        pages: identical(pages, sdkOmittedValue)
-            ? this.pages
-            : pages as SdkOptional<CursorPages?>,
-        totalCount: identical(totalCount, sdkOmittedValue)
-            ? this.totalCount
-            : totalCount as SdkOptional<int>,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as SdkOptional<List<HelpCenterRedirect>>,
-      );
+  HelpCenterRedirectList _copyWith({Object? type_ = sdkOmittedValue, Object? pages = sdkOmittedValue, Object? totalCount = sdkOmittedValue, Object? data = sdkOmittedValue}) => HelpCenterRedirectList(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<HelpCenterRedirectListType>,
+    pages: identical(pages, sdkOmittedValue) ? this.pages : pages as SdkOptional<CursorPages?>,
+    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as SdkOptional<int>,
+    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<HelpCenterRedirect>>,
+  );
 
-  factory HelpCenterRedirectList.fromJson(Map<String, dynamic> json) =>
-      HelpCenterRedirectList(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? HelpCenterRedirectListType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        pages: json.containsKey('pages')
-            ? SdkPresent(json['pages'] != null
-                ? CursorPages.fromJson(json['pages'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        totalCount: json['total_count'] != null
-            ? SdkPresent(((json['total_count'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        data: json['data'] != null
-            ? SdkPresent(((json['data'] as List?)
-                ?.map((e) =>
-                    HelpCenterRedirect.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory HelpCenterRedirectList.fromJson(Map<String, dynamic> json) => HelpCenterRedirectList(
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? HelpCenterRedirectListType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    pages: json.containsKey('pages') ? SdkPresent(json['pages'] != null ? CursorPages.fromJson(json['pages'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    totalCount: json['total_count'] != null ? SdkPresent(((json['total_count'] as num?)?.toInt())!) : const SdkOmitted(),
+    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => HelpCenterRedirect.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<HelpCenterRedirectListType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (pages) {
-          SdkPresent<CursorPages?>(value: final value) => {
-              'pages': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (totalCount) {
-          SdkPresent<int>(value: final value) => {
-              'total_count': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (data) {
-          SdkPresent<List<HelpCenterRedirect>>(value: final value) => {
-              'data': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<HelpCenterRedirectListType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (pages) {
+      SdkPresent<CursorPages?>(value: final value) => {'pages': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (totalCount) {
+      SdkPresent<int>(value: final value) => {'total_count': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (data) {
+      SdkPresent<List<HelpCenterRedirect>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

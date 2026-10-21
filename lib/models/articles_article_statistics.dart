@@ -8,206 +8,97 @@ part of 'articles.dart';
 class ArticleStatistics {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of object - `article_statistics`.
   final SdkOptional<ArticleStatisticsType> type_;
-
   /// The number of total views the article has received.
   final SdkOptional<int> views;
-
   /// The number of conversations started from the article.
   final SdkOptional<int> conversions;
-
   /// The number of total reactions the article has received.
   final SdkOptional<int> reactions;
-
   /// The percentage of happy reactions the article has received against other types of reaction.
   final SdkOptional<double> happyReactionPercentage;
-
   /// The percentage of neutral reactions the article has received against other types of reaction.
   final SdkOptional<double> neutralReactionPercentage;
-
   /// The percentage of sad reactions the article has received against
   final SdkOptional<double> sadReactionPercentage;
-
   /// The number of conversations in which Fin AI Agent used this article, summed across all of the article's locales.
   final SdkOptional<int> finInvolvements;
-
   /// The number of conversations Fin AI Agent resolved using this article, summed across all of the article's locales.
   final SdkOptional<int> finResolutions;
-
   /// The percentage of Fin AI Agent involvements that resulted in a resolution (fin_resolutions / fin_involvements * 100).
   final SdkOptional<double> finResolutionRate;
 
-  const ArticleStatistics(
-      {this.type_ = const SdkOmitted(),
-      this.views = const SdkOmitted(),
-      this.conversions = const SdkOmitted(),
-      this.reactions = const SdkOmitted(),
-      this.happyReactionPercentage = const SdkOmitted(),
-      this.neutralReactionPercentage = const SdkOmitted(),
-      this.sadReactionPercentage = const SdkOmitted(),
-      this.finInvolvements = const SdkOmitted(),
-      this.finResolutions = const SdkOmitted(),
-      this.finResolutionRate = const SdkOmitted()});
+  const ArticleStatistics({this.type_ = const SdkOmitted(), this.views = const SdkOmitted(), this.conversions = const SdkOmitted(), this.reactions = const SdkOmitted(), this.happyReactionPercentage = const SdkOmitted(), this.neutralReactionPercentage = const SdkOmitted(), this.sadReactionPercentage = const SdkOmitted(), this.finInvolvements = const SdkOmitted(), this.finResolutions = const SdkOmitted(), this.finResolutionRate = const SdkOmitted()});
 
-  ArticleStatistics Function(
-      {SdkOptional<ArticleStatisticsType> type_,
-      SdkOptional<int> views,
-      SdkOptional<int> conversions,
-      SdkOptional<int> reactions,
-      SdkOptional<double> happyReactionPercentage,
-      SdkOptional<double> neutralReactionPercentage,
-      SdkOptional<double> sadReactionPercentage,
-      SdkOptional<int> finInvolvements,
-      SdkOptional<int> finResolutions,
-      SdkOptional<double> finResolutionRate}) get copyWith => _copyWith;
+  ArticleStatistics Function({SdkOptional<ArticleStatisticsType> type_, SdkOptional<int> views, SdkOptional<int> conversions, SdkOptional<int> reactions, SdkOptional<double> happyReactionPercentage, SdkOptional<double> neutralReactionPercentage, SdkOptional<double> sadReactionPercentage, SdkOptional<int> finInvolvements, SdkOptional<int> finResolutions, SdkOptional<double> finResolutionRate}) get copyWith => _copyWith;
 
-  ArticleStatistics _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? views = sdkOmittedValue,
-          Object? conversions = sdkOmittedValue,
-          Object? reactions = sdkOmittedValue,
-          Object? happyReactionPercentage = sdkOmittedValue,
-          Object? neutralReactionPercentage = sdkOmittedValue,
-          Object? sadReactionPercentage = sdkOmittedValue,
-          Object? finInvolvements = sdkOmittedValue,
-          Object? finResolutions = sdkOmittedValue,
-          Object? finResolutionRate = sdkOmittedValue}) =>
-      ArticleStatistics(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<ArticleStatisticsType>,
-        views: identical(views, sdkOmittedValue)
-            ? this.views
-            : views as SdkOptional<int>,
-        conversions: identical(conversions, sdkOmittedValue)
-            ? this.conversions
-            : conversions as SdkOptional<int>,
-        reactions: identical(reactions, sdkOmittedValue)
-            ? this.reactions
-            : reactions as SdkOptional<int>,
-        happyReactionPercentage:
-            identical(happyReactionPercentage, sdkOmittedValue)
-                ? this.happyReactionPercentage
-                : happyReactionPercentage as SdkOptional<double>,
-        neutralReactionPercentage:
-            identical(neutralReactionPercentage, sdkOmittedValue)
-                ? this.neutralReactionPercentage
-                : neutralReactionPercentage as SdkOptional<double>,
-        sadReactionPercentage: identical(sadReactionPercentage, sdkOmittedValue)
-            ? this.sadReactionPercentage
-            : sadReactionPercentage as SdkOptional<double>,
-        finInvolvements: identical(finInvolvements, sdkOmittedValue)
-            ? this.finInvolvements
-            : finInvolvements as SdkOptional<int>,
-        finResolutions: identical(finResolutions, sdkOmittedValue)
-            ? this.finResolutions
-            : finResolutions as SdkOptional<int>,
-        finResolutionRate: identical(finResolutionRate, sdkOmittedValue)
-            ? this.finResolutionRate
-            : finResolutionRate as SdkOptional<double>,
-      );
+  ArticleStatistics _copyWith({Object? type_ = sdkOmittedValue, Object? views = sdkOmittedValue, Object? conversions = sdkOmittedValue, Object? reactions = sdkOmittedValue, Object? happyReactionPercentage = sdkOmittedValue, Object? neutralReactionPercentage = sdkOmittedValue, Object? sadReactionPercentage = sdkOmittedValue, Object? finInvolvements = sdkOmittedValue, Object? finResolutions = sdkOmittedValue, Object? finResolutionRate = sdkOmittedValue}) => ArticleStatistics(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ArticleStatisticsType>,
+    views: identical(views, sdkOmittedValue) ? this.views : views as SdkOptional<int>,
+    conversions: identical(conversions, sdkOmittedValue) ? this.conversions : conversions as SdkOptional<int>,
+    reactions: identical(reactions, sdkOmittedValue) ? this.reactions : reactions as SdkOptional<int>,
+    happyReactionPercentage: identical(happyReactionPercentage, sdkOmittedValue) ? this.happyReactionPercentage : happyReactionPercentage as SdkOptional<double>,
+    neutralReactionPercentage: identical(neutralReactionPercentage, sdkOmittedValue) ? this.neutralReactionPercentage : neutralReactionPercentage as SdkOptional<double>,
+    sadReactionPercentage: identical(sadReactionPercentage, sdkOmittedValue) ? this.sadReactionPercentage : sadReactionPercentage as SdkOptional<double>,
+    finInvolvements: identical(finInvolvements, sdkOmittedValue) ? this.finInvolvements : finInvolvements as SdkOptional<int>,
+    finResolutions: identical(finResolutions, sdkOmittedValue) ? this.finResolutions : finResolutions as SdkOptional<int>,
+    finResolutionRate: identical(finResolutionRate, sdkOmittedValue) ? this.finResolutionRate : finResolutionRate as SdkOptional<double>,
+  );
 
-  factory ArticleStatistics.fromJson(Map<String, dynamic> json) =>
-      ArticleStatistics(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? ArticleStatisticsType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        views: json['views'] != null
-            ? SdkPresent(((json['views'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        conversions: json['conversions'] != null
-            ? SdkPresent(((json['conversions'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        reactions: json['reactions'] != null
-            ? SdkPresent(((json['reactions'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        happyReactionPercentage: json['happy_reaction_percentage'] != null
-            ? SdkPresent(
-                ((json['happy_reaction_percentage'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-        neutralReactionPercentage: json['neutral_reaction_percentage'] != null
-            ? SdkPresent(
-                ((json['neutral_reaction_percentage'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-        sadReactionPercentage: json['sad_reaction_percentage'] != null
-            ? SdkPresent(
-                ((json['sad_reaction_percentage'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-        finInvolvements: json['fin_involvements'] != null
-            ? SdkPresent(((json['fin_involvements'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        finResolutions: json['fin_resolutions'] != null
-            ? SdkPresent(((json['fin_resolutions'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        finResolutionRate: json['fin_resolution_rate'] != null
-            ? SdkPresent(((json['fin_resolution_rate'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-      );
+  factory ArticleStatistics.fromJson(Map<String, dynamic> json) => ArticleStatistics(
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ArticleStatisticsType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    views: json['views'] != null ? SdkPresent(((json['views'] as num?)?.toInt())!) : const SdkOmitted(),
+    conversions: json['conversions'] != null ? SdkPresent(((json['conversions'] as num?)?.toInt())!) : const SdkOmitted(),
+    reactions: json['reactions'] != null ? SdkPresent(((json['reactions'] as num?)?.toInt())!) : const SdkOmitted(),
+    happyReactionPercentage: json['happy_reaction_percentage'] != null ? SdkPresent(((json['happy_reaction_percentage'] as num?)?.toDouble())!) : const SdkOmitted(),
+    neutralReactionPercentage: json['neutral_reaction_percentage'] != null ? SdkPresent(((json['neutral_reaction_percentage'] as num?)?.toDouble())!) : const SdkOmitted(),
+    sadReactionPercentage: json['sad_reaction_percentage'] != null ? SdkPresent(((json['sad_reaction_percentage'] as num?)?.toDouble())!) : const SdkOmitted(),
+    finInvolvements: json['fin_involvements'] != null ? SdkPresent(((json['fin_involvements'] as num?)?.toInt())!) : const SdkOmitted(),
+    finResolutions: json['fin_resolutions'] != null ? SdkPresent(((json['fin_resolutions'] as num?)?.toInt())!) : const SdkOmitted(),
+    finResolutionRate: json['fin_resolution_rate'] != null ? SdkPresent(((json['fin_resolution_rate'] as num?)?.toDouble())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<ArticleStatisticsType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (views) {
-          SdkPresent<int>(value: final value) => {
-              'views': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (conversions) {
-          SdkPresent<int>(value: final value) => {
-              'conversions': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (reactions) {
-          SdkPresent<int>(value: final value) => {
-              'reactions': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (happyReactionPercentage) {
-          SdkPresent<double>(value: final value) => {
-              'happy_reaction_percentage': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (neutralReactionPercentage) {
-          SdkPresent<double>(value: final value) => {
-              'neutral_reaction_percentage': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (sadReactionPercentage) {
-          SdkPresent<double>(value: final value) => {
-              'sad_reaction_percentage': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (finInvolvements) {
-          SdkPresent<int>(value: final value) => {
-              'fin_involvements': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (finResolutions) {
-          SdkPresent<int>(value: final value) => {
-              'fin_resolutions': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (finResolutionRate) {
-          SdkPresent<double>(value: final value) => {
-              'fin_resolution_rate': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<ArticleStatisticsType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (views) {
+      SdkPresent<int>(value: final value) => {'views': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (conversions) {
+      SdkPresent<int>(value: final value) => {'conversions': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (reactions) {
+      SdkPresent<int>(value: final value) => {'reactions': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (happyReactionPercentage) {
+      SdkPresent<double>(value: final value) => {'happy_reaction_percentage': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (neutralReactionPercentage) {
+      SdkPresent<double>(value: final value) => {'neutral_reaction_percentage': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (sadReactionPercentage) {
+      SdkPresent<double>(value: final value) => {'sad_reaction_percentage': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (finInvolvements) {
+      SdkPresent<int>(value: final value) => {'fin_involvements': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (finResolutions) {
+      SdkPresent<int>(value: final value) => {'fin_resolutions': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (finResolutionRate) {
+      SdkPresent<double>(value: final value) => {'fin_resolution_rate': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

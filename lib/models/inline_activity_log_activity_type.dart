@@ -6,292 +6,191 @@ part of 'inline.dart';
 // Inline operation models
 /// Optional enumerated value serialized in the `activity_type` wire field.
 final class ActivityLogActivityType {
+
   final String value;
 
   const ActivityLogActivityType._(this.value);
 
-  factory ActivityLogActivityType.fromJson(String value) =>
-      ActivityLogActivityType._(value);
+  factory ActivityLogActivityType.fromJson(String value) => ActivityLogActivityType._(value);
 
-  static const adminConversationAssignmentLimitChange =
-      ActivityLogActivityType._('admin_conversation_assignment_limit_change');
-  static const adminTicketAssignmentLimitChange =
-      ActivityLogActivityType._('admin_ticket_assignment_limit_change');
-  static const adminAvatarChange =
-      ActivityLogActivityType._('admin_avatar_change');
-  static const adminAwayModeChange =
-      ActivityLogActivityType._('admin_away_mode_change');
+  static const adminConversationAssignmentLimitChange = ActivityLogActivityType._('admin_conversation_assignment_limit_change');
+  static const adminTicketAssignmentLimitChange = ActivityLogActivityType._('admin_ticket_assignment_limit_change');
+  static const adminAvatarChange = ActivityLogActivityType._('admin_avatar_change');
+  static const adminAwayModeChange = ActivityLogActivityType._('admin_away_mode_change');
   static const adminDeletion = ActivityLogActivityType._('admin_deletion');
-  static const adminDeprovisioned =
-      ActivityLogActivityType._('admin_deprovisioned');
-  static const adminImpersonationEnd =
-      ActivityLogActivityType._('admin_impersonation_end');
-  static const adminImpersonationStart =
-      ActivityLogActivityType._('admin_impersonation_start');
-  static const adminImpersonationConsentApproved =
-      ActivityLogActivityType._('admin_impersonation_consent_approved');
-  static const adminImpersonationConsentRevoked =
-      ActivityLogActivityType._('admin_impersonation_consent_revoked');
-  static const adminInviteChange =
-      ActivityLogActivityType._('admin_invite_change');
-  static const adminInviteCreation =
-      ActivityLogActivityType._('admin_invite_creation');
-  static const adminInviteDeletion =
-      ActivityLogActivityType._('admin_invite_deletion');
-  static const adminLoginFailure =
-      ActivityLogActivityType._('admin_login_failure');
-  static const adminLoginSuccess =
-      ActivityLogActivityType._('admin_login_success');
+  static const adminDeprovisioned = ActivityLogActivityType._('admin_deprovisioned');
+  static const adminImpersonationEnd = ActivityLogActivityType._('admin_impersonation_end');
+  static const adminImpersonationStart = ActivityLogActivityType._('admin_impersonation_start');
+  static const adminImpersonationConsentApproved = ActivityLogActivityType._('admin_impersonation_consent_approved');
+  static const adminImpersonationConsentRevoked = ActivityLogActivityType._('admin_impersonation_consent_revoked');
+  static const adminInviteChange = ActivityLogActivityType._('admin_invite_change');
+  static const adminInviteCreation = ActivityLogActivityType._('admin_invite_creation');
+  static const adminInviteDeletion = ActivityLogActivityType._('admin_invite_deletion');
+  static const adminLoginFailure = ActivityLogActivityType._('admin_login_failure');
+  static const adminLoginSuccess = ActivityLogActivityType._('admin_login_success');
   static const adminLogout = ActivityLogActivityType._('admin_logout');
-  static const adminOccupancySettingChange =
-      ActivityLogActivityType._('admin_occupancy_setting_change');
-  static const adminOccupancyStateChange =
-      ActivityLogActivityType._('admin_occupancy_state_change');
-  static const adminPasswordResetRequest =
-      ActivityLogActivityType._('admin_password_reset_request');
-  static const adminPasswordResetSuccess =
-      ActivityLogActivityType._('admin_password_reset_success');
-  static const adminPermissionChange =
-      ActivityLogActivityType._('admin_permission_change');
-  static const adminProvisioned =
-      ActivityLogActivityType._('admin_provisioned');
-  static const adminTwoFactorAuthChange =
-      ActivityLogActivityType._('admin_two_factor_auth_change');
-  static const adminUnauthorizedSignInMethod =
-      ActivityLogActivityType._('admin_unauthorized_sign_in_method');
+  static const adminOccupancySettingChange = ActivityLogActivityType._('admin_occupancy_setting_change');
+  static const adminOccupancyStateChange = ActivityLogActivityType._('admin_occupancy_state_change');
+  static const adminPasswordResetRequest = ActivityLogActivityType._('admin_password_reset_request');
+  static const adminPasswordResetSuccess = ActivityLogActivityType._('admin_password_reset_success');
+  static const adminPermissionChange = ActivityLogActivityType._('admin_permission_change');
+  static const adminProvisioned = ActivityLogActivityType._('admin_provisioned');
+  static const adminTwoFactorAuthChange = ActivityLogActivityType._('admin_two_factor_auth_change');
+  static const adminUnauthorizedSignInMethod = ActivityLogActivityType._('admin_unauthorized_sign_in_method');
   static const appAdminJoin = ActivityLogActivityType._('app_admin_join');
-  static const appAuthenticationMethodChange =
-      ActivityLogActivityType._('app_authentication_method_change');
+  static const appAuthenticationMethodChange = ActivityLogActivityType._('app_authentication_method_change');
   static const appDataDeletion = ActivityLogActivityType._('app_data_deletion');
   static const appDataExport = ActivityLogActivityType._('app_data_export');
-  static const appGoogleSsoDomainChange =
-      ActivityLogActivityType._('app_google_sso_domain_change');
-  static const appIdentityVerificationChange =
-      ActivityLogActivityType._('app_identity_verification_change');
+  static const appGoogleSsoDomainChange = ActivityLogActivityType._('app_google_sso_domain_change');
+  static const appIdentityVerificationChange = ActivityLogActivityType._('app_identity_verification_change');
   static const appNameChange = ActivityLogActivityType._('app_name_change');
-  static const appOutboundAddressChange =
-      ActivityLogActivityType._('app_outbound_address_change');
-  static const appPackageInstallation =
-      ActivityLogActivityType._('app_package_installation');
-  static const appPackageTokenRegeneration =
-      ActivityLogActivityType._('app_package_token_regeneration');
-  static const appPackageUninstallation =
-      ActivityLogActivityType._('app_package_uninstallation');
+  static const appOutboundAddressChange = ActivityLogActivityType._('app_outbound_address_change');
+  static const appPackageInstallation = ActivityLogActivityType._('app_package_installation');
+  static const appPackageTokenRegeneration = ActivityLogActivityType._('app_package_token_regeneration');
+  static const appPackageUninstallation = ActivityLogActivityType._('app_package_uninstallation');
   static const appTeamCreation = ActivityLogActivityType._('app_team_creation');
   static const appTeamDeletion = ActivityLogActivityType._('app_team_deletion');
-  static const appTeamMembershipModification =
-      ActivityLogActivityType._('app_team_membership_modification');
-  static const appTimezoneChange =
-      ActivityLogActivityType._('app_timezone_change');
-  static const appWebhookCreation =
-      ActivityLogActivityType._('app_webhook_creation');
-  static const appWebhookDeletion =
-      ActivityLogActivityType._('app_webhook_deletion');
-  static const articlesInMessengerEnabledChange =
-      ActivityLogActivityType._('articles_in_messenger_enabled_change');
-  static const automaticAwayModeSettingChange =
-      ActivityLogActivityType._('automatic_away_mode_setting_change');
+  static const appTeamMembershipModification = ActivityLogActivityType._('app_team_membership_modification');
+  static const appTimezoneChange = ActivityLogActivityType._('app_timezone_change');
+  static const appWebhookCreation = ActivityLogActivityType._('app_webhook_creation');
+  static const appWebhookDeletion = ActivityLogActivityType._('app_webhook_deletion');
+  static const articlesInMessengerEnabledChange = ActivityLogActivityType._('articles_in_messenger_enabled_change');
+  static const automaticAwayModeSettingChange = ActivityLogActivityType._('automatic_away_mode_setting_change');
   static const bulkDelete = ActivityLogActivityType._('bulk_delete');
   static const bulkExport = ActivityLogActivityType._('bulk_export');
-  static const campaignDeletion =
-      ActivityLogActivityType._('campaign_deletion');
-  static const campaignStateChange =
-      ActivityLogActivityType._('campaign_state_change');
-  static const conversationDeletionScheduleCreation =
-      ActivityLogActivityType._('conversation_deletion_schedule_creation');
-  static const conversationDeletionScheduleDeletion =
-      ActivityLogActivityType._('conversation_deletion_schedule_deletion');
-  static const conversationDeletionScheduleStateChange =
-      ActivityLogActivityType._('conversation_deletion_schedule_state_change');
-  static const conversationDeletionScheduleUpdate =
-      ActivityLogActivityType._('conversation_deletion_schedule_update');
-  static const conversationPartDeletion =
-      ActivityLogActivityType._('conversation_part_deletion');
-  static const conversationPdfExport =
-      ActivityLogActivityType._('conversation_pdf_export');
-  static const conversationTopicChange =
-      ActivityLogActivityType._('conversation_topic_change');
-  static const conversationTopicCreation =
-      ActivityLogActivityType._('conversation_topic_creation');
-  static const conversationTopicDeletion =
-      ActivityLogActivityType._('conversation_topic_deletion');
-  static const contentRedactionRuleCreation =
-      ActivityLogActivityType._('content_redaction_rule_creation');
-  static const contentRedactionRuleDeletion =
-      ActivityLogActivityType._('content_redaction_rule_deletion');
-  static const contentRedactionRuleUpdate =
-      ActivityLogActivityType._('content_redaction_rule_update');
-  static const csvImportCompletion =
-      ActivityLogActivityType._('csv_import_completion');
-  static const csvImportCreation =
-      ActivityLogActivityType._('csv_import_creation');
-  static const customAuthenticationTokenCreation =
-      ActivityLogActivityType._('custom_authentication_token_creation');
-  static const helpCenterSettingsChange =
-      ActivityLogActivityType._('help_center_settings_change');
-  static const inboundConversationsChange =
-      ActivityLogActivityType._('inbound_conversations_change');
-  static const inboxAccessChange =
-      ActivityLogActivityType._('inbox_access_change');
+  static const campaignDeletion = ActivityLogActivityType._('campaign_deletion');
+  static const campaignStateChange = ActivityLogActivityType._('campaign_state_change');
+  static const conversationDeletionScheduleCreation = ActivityLogActivityType._('conversation_deletion_schedule_creation');
+  static const conversationDeletionScheduleDeletion = ActivityLogActivityType._('conversation_deletion_schedule_deletion');
+  static const conversationDeletionScheduleStateChange = ActivityLogActivityType._('conversation_deletion_schedule_state_change');
+  static const conversationDeletionScheduleUpdate = ActivityLogActivityType._('conversation_deletion_schedule_update');
+  static const conversationPartDeletion = ActivityLogActivityType._('conversation_part_deletion');
+  static const conversationPdfExport = ActivityLogActivityType._('conversation_pdf_export');
+  static const conversationTopicChange = ActivityLogActivityType._('conversation_topic_change');
+  static const conversationTopicCreation = ActivityLogActivityType._('conversation_topic_creation');
+  static const conversationTopicDeletion = ActivityLogActivityType._('conversation_topic_deletion');
+  static const contentRedactionRuleCreation = ActivityLogActivityType._('content_redaction_rule_creation');
+  static const contentRedactionRuleDeletion = ActivityLogActivityType._('content_redaction_rule_deletion');
+  static const contentRedactionRuleUpdate = ActivityLogActivityType._('content_redaction_rule_update');
+  static const csvImportCompletion = ActivityLogActivityType._('csv_import_completion');
+  static const csvImportCreation = ActivityLogActivityType._('csv_import_creation');
+  static const customAuthenticationTokenCreation = ActivityLogActivityType._('custom_authentication_token_creation');
+  static const helpCenterSettingsChange = ActivityLogActivityType._('help_center_settings_change');
+  static const inboundConversationsChange = ActivityLogActivityType._('inbound_conversations_change');
+  static const inboxAccessChange = ActivityLogActivityType._('inbox_access_change');
   static const inboxBulkAction = ActivityLogActivityType._('inbox_bulk_action');
   static const macroCreation = ActivityLogActivityType._('macro_creation');
   static const macroDeletion = ActivityLogActivityType._('macro_deletion');
   static const macroUpdate = ActivityLogActivityType._('macro_update');
-  static const macroUsageExport =
-      ActivityLogActivityType._('macro_usage_export');
-  static const maliciousDomainsSettingChange =
-      ActivityLogActivityType._('malicious_domains_setting_change');
+  static const macroUsageExport = ActivityLogActivityType._('macro_usage_export');
+  static const maliciousDomainsSettingChange = ActivityLogActivityType._('malicious_domains_setting_change');
   static const messageDeletion = ActivityLogActivityType._('message_deletion');
-  static const messageStateChange =
-      ActivityLogActivityType._('message_state_change');
-  static const messengerApiSecretCreation =
-      ActivityLogActivityType._('messenger_api_secret_creation');
-  static const messengerApiSecretDeletion =
-      ActivityLogActivityType._('messenger_api_secret_deletion');
-  static const messengerLookAndFeelChange =
-      ActivityLogActivityType._('messenger_look_and_feel_change');
-  static const messengerSearchRequiredChange =
-      ActivityLogActivityType._('messenger_search_required_change');
-  static const messengerSpacesChange =
-      ActivityLogActivityType._('messenger_spaces_change');
-  static const oauthTokenRevocation =
-      ActivityLogActivityType._('oauth_token_revocation');
-  static const officeHoursChange =
-      ActivityLogActivityType._('office_hours_change');
+  static const messageStateChange = ActivityLogActivityType._('message_state_change');
+  static const messengerApiSecretCreation = ActivityLogActivityType._('messenger_api_secret_creation');
+  static const messengerApiSecretDeletion = ActivityLogActivityType._('messenger_api_secret_deletion');
+  static const messengerLookAndFeelChange = ActivityLogActivityType._('messenger_look_and_feel_change');
+  static const messengerSearchRequiredChange = ActivityLogActivityType._('messenger_search_required_change');
+  static const messengerSpacesChange = ActivityLogActivityType._('messenger_spaces_change');
+  static const oauthTokenRevocation = ActivityLogActivityType._('oauth_token_revocation');
+  static const officeHoursChange = ActivityLogActivityType._('office_hours_change');
   static const roleChange = ActivityLogActivityType._('role_change');
   static const roleCreation = ActivityLogActivityType._('role_creation');
   static const roleDeletion = ActivityLogActivityType._('role_deletion');
-  static const rulesetActivationTitlePreview =
-      ActivityLogActivityType._('ruleset_activation_title_preview');
+  static const rulesetActivationTitlePreview = ActivityLogActivityType._('ruleset_activation_title_preview');
   static const rulesetCreation = ActivityLogActivityType._('ruleset_creation');
   static const rulesetDeletion = ActivityLogActivityType._('ruleset_deletion');
-  static const searchBrowseEnabledChange =
-      ActivityLogActivityType._('search_browse_enabled_change');
-  static const searchBrowseRequiredChange =
-      ActivityLogActivityType._('search_browse_required_change');
+  static const searchBrowseEnabledChange = ActivityLogActivityType._('search_browse_enabled_change');
+  static const searchBrowseRequiredChange = ActivityLogActivityType._('search_browse_required_change');
   static const seatChange = ActivityLogActivityType._('seat_change');
   static const seatRevoke = ActivityLogActivityType._('seat_revoke');
-  static const securitySettingsChange =
-      ActivityLogActivityType._('security_settings_change');
+  static const securitySettingsChange = ActivityLogActivityType._('security_settings_change');
   static const seriesCreation = ActivityLogActivityType._('series_creation');
   static const seriesDeletion = ActivityLogActivityType._('series_deletion');
-  static const seriesSettingsUpdate =
-      ActivityLogActivityType._('series_settings_update');
-  static const seriesStatusChange =
-      ActivityLogActivityType._('series_status_change');
+  static const seriesSettingsUpdate = ActivityLogActivityType._('series_settings_update');
+  static const seriesStatusChange = ActivityLogActivityType._('series_status_change');
   static const seriesUpdate = ActivityLogActivityType._('series_update');
-  static const stripInboundEmailLinksChange =
-      ActivityLogActivityType._('strip_inbound_email_links_change');
-  static const temporaryExpectationChange =
-      ActivityLogActivityType._('temporary_expectation_change');
-  static const teamAssignmentLimitChange =
-      ActivityLogActivityType._('team_assignment_limit_change');
-  static const trustedDomainsSettingChange =
-      ActivityLogActivityType._('trusted_domains_setting_change');
-  static const unassignUnsnoozedAtCapacitySettingChange =
-      ActivityLogActivityType._(
-          'unassign_unsnoozed_at_capacity_setting_change');
-  static const unassignUnsnoozedWhenAwaySettingChange =
-      ActivityLogActivityType._('unassign_unsnoozed_when_away_setting_change');
-  static const upfrontEmailCollectionChange =
-      ActivityLogActivityType._('upfront_email_collection_change');
-  static const allowedAttachmentFiletypesSettingChange =
-      ActivityLogActivityType._('allowed_attachment_filetypes_setting_change');
-  static const attachUploadsInlineSettingChange =
-      ActivityLogActivityType._('attach_uploads_inline_setting_change');
-  static const teammateGifsSettingChange =
-      ActivityLogActivityType._('teammate_gifs_setting_change');
-  static const userCameraAttachmentsSettingChange =
-      ActivityLogActivityType._('user_camera_attachments_setting_change');
-  static const userConversationAttachmentsSettingChange =
-      ActivityLogActivityType._('user_conversation_attachments_setting_change');
-  static const userFileAttachmentsSettingChange =
-      ActivityLogActivityType._('user_file_attachments_setting_change');
-  static const userGifsSettingChange =
-      ActivityLogActivityType._('user_gifs_setting_change');
-  static const userMediaAttachmentsSettingChange =
-      ActivityLogActivityType._('user_media_attachments_setting_change');
-  static const userVoiceNotesSettingChange =
-      ActivityLogActivityType._('user_voice_notes_setting_change');
-  static const welcomeMessageChange =
-      ActivityLogActivityType._('welcome_message_change');
-  static const workspaceDeletionRequest =
-      ActivityLogActivityType._('workspace_deletion_request');
-  static const hideCsatFromAgentsSettingChange =
-      ActivityLogActivityType._('hide_csat_from_agents_setting_change');
+  static const stripInboundEmailLinksChange = ActivityLogActivityType._('strip_inbound_email_links_change');
+  static const temporaryExpectationChange = ActivityLogActivityType._('temporary_expectation_change');
+  static const teamAssignmentLimitChange = ActivityLogActivityType._('team_assignment_limit_change');
+  static const trustedDomainsSettingChange = ActivityLogActivityType._('trusted_domains_setting_change');
+  static const unassignUnsnoozedAtCapacitySettingChange = ActivityLogActivityType._('unassign_unsnoozed_at_capacity_setting_change');
+  static const unassignUnsnoozedWhenAwaySettingChange = ActivityLogActivityType._('unassign_unsnoozed_when_away_setting_change');
+  static const upfrontEmailCollectionChange = ActivityLogActivityType._('upfront_email_collection_change');
+  static const allowedAttachmentFiletypesSettingChange = ActivityLogActivityType._('allowed_attachment_filetypes_setting_change');
+  static const attachUploadsInlineSettingChange = ActivityLogActivityType._('attach_uploads_inline_setting_change');
+  static const teammateGifsSettingChange = ActivityLogActivityType._('teammate_gifs_setting_change');
+  static const userCameraAttachmentsSettingChange = ActivityLogActivityType._('user_camera_attachments_setting_change');
+  static const userConversationAttachmentsSettingChange = ActivityLogActivityType._('user_conversation_attachments_setting_change');
+  static const userFileAttachmentsSettingChange = ActivityLogActivityType._('user_file_attachments_setting_change');
+  static const userGifsSettingChange = ActivityLogActivityType._('user_gifs_setting_change');
+  static const userMediaAttachmentsSettingChange = ActivityLogActivityType._('user_media_attachments_setting_change');
+  static const userVoiceNotesSettingChange = ActivityLogActivityType._('user_voice_notes_setting_change');
+  static const welcomeMessageChange = ActivityLogActivityType._('welcome_message_change');
+  static const workspaceDeletionRequest = ActivityLogActivityType._('workspace_deletion_request');
+  static const hideCsatFromAgentsSettingChange = ActivityLogActivityType._('hide_csat_from_agents_setting_change');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ActivityLogActivityType && other.value == value;
+  @override bool operator ==(Object other) => other is ActivityLogActivityType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `message_type` wire field.
 final class AdminReplyConversationRequestMessageType {
+
   final String value;
 
   const AdminReplyConversationRequestMessageType._(this.value);
 
-  factory AdminReplyConversationRequestMessageType.fromJson(String value) =>
-      AdminReplyConversationRequestMessageType._(value);
+  factory AdminReplyConversationRequestMessageType.fromJson(String value) => AdminReplyConversationRequestMessageType._(value);
 
   static const comment = AdminReplyConversationRequestMessageType._('comment');
   static const note = AdminReplyConversationRequestMessageType._('note');
-  static const quickReply =
-      AdminReplyConversationRequestMessageType._('quick_reply');
+  static const quickReply = AdminReplyConversationRequestMessageType._('quick_reply');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AdminReplyConversationRequestMessageType && other.value == value;
+  @override bool operator ==(Object other) => other is AdminReplyConversationRequestMessageType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `type` wire field.
 final class AdminReplyConversationRequestType {
+
   final String value;
 
   const AdminReplyConversationRequestType._(this.value);
 
-  factory AdminReplyConversationRequestType.fromJson(String value) =>
-      AdminReplyConversationRequestType._(value);
+  factory AdminReplyConversationRequestType.fromJson(String value) => AdminReplyConversationRequestType._(value);
 
   static const admin = AdminReplyConversationRequestType._('admin');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AdminReplyConversationRequestType && other.value == value;
+  @override bool operator ==(Object other) => other is AdminReplyConversationRequestType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of reply. Tracker tickets and back-office tickets that are not shared with the customer do not support `comment`; use `note` instead.
 final class AdminReplyTicketRequestMessageType {
+
   final String value;
 
   const AdminReplyTicketRequestMessageType._(this.value);
 
-  factory AdminReplyTicketRequestMessageType.fromJson(String value) =>
-      AdminReplyTicketRequestMessageType._(value);
+  factory AdminReplyTicketRequestMessageType.fromJson(String value) => AdminReplyTicketRequestMessageType._(value);
 
   static const comment = AdminReplyTicketRequestMessageType._('comment');
   static const note = AdminReplyTicketRequestMessageType._('note');
@@ -299,92 +198,78 @@ final class AdminReplyTicketRequestMessageType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AdminReplyTicketRequestMessageType && other.value == value;
+  @override bool operator ==(Object other) => other is AdminReplyTicketRequestMessageType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `type` wire field.
 final class AdminReplyTicketRequestType {
+
   final String value;
 
   const AdminReplyTicketRequestType._(this.value);
 
-  factory AdminReplyTicketRequestType.fromJson(String value) =>
-      AdminReplyTicketRequestType._(value);
+  factory AdminReplyTicketRequestType.fromJson(String value) => AdminReplyTicketRequestType._(value);
 
   static const admin = AdminReplyTicketRequestType._('admin');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AdminReplyTicketRequestType && other.value == value;
+  @override bool operator ==(Object other) => other is AdminReplyTicketRequestType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the last answer delivered by AI Agent. If no answer was delivered then this will return `null`
 final class AiAgentLastAnswerType {
+
   final String value;
 
   const AiAgentLastAnswerType._(this.value);
 
-  factory AiAgentLastAnswerType.fromJson(String value) =>
-      AiAgentLastAnswerType._(value);
+  factory AiAgentLastAnswerType.fromJson(String value) => AiAgentLastAnswerType._(value);
 
   static const aiAnswer = AiAgentLastAnswerType._('ai_answer');
   static const customAnswer = AiAgentLastAnswerType._('custom_answer');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AiAgentLastAnswerType && other.value == value;
+  @override bool operator ==(Object other) => other is AiAgentLastAnswerType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The resolution state of AI Agent. If no AI or custom answer has been delivered then this will return `null`.
 final class AiAgentResolutionState {
+
   final String value;
 
   const AiAgentResolutionState._(this.value);
 
-  factory AiAgentResolutionState.fromJson(String value) =>
-      AiAgentResolutionState._(value);
+  factory AiAgentResolutionState.fromJson(String value) => AiAgentResolutionState._(value);
 
-  static const assumedResolution =
-      AiAgentResolutionState._('assumed_resolution');
-  static const confirmedResolution =
-      AiAgentResolutionState._('confirmed_resolution');
+  static const assumedResolution = AiAgentResolutionState._('assumed_resolution');
+  static const confirmedResolution = AiAgentResolutionState._('confirmed_resolution');
   static const escalated = AiAgentResolutionState._('escalated');
   static const negativeFeedback = AiAgentResolutionState._('negative_feedback');
   static const procedureHandoff = AiAgentResolutionState._('procedure_handoff');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AiAgentResolutionState && other.value == value;
+  @override bool operator ==(Object other) => other is AiAgentResolutionState && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

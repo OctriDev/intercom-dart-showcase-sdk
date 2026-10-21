@@ -7,145 +7,76 @@ part of 'conversations_attributes.dart';
 class CreateConversationAttributeIntegerRequestVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-  final SdkOptional<CreateConversationAttributeIntegerRequestVariant1DataType>
-      dataType;
+  final SdkOptional<CreateConversationAttributeIntegerRequestVariant1DataType> dataType;
 
-  const CreateConversationAttributeIntegerRequestVariant1(
-      {this.dataType = const SdkOmitted()});
+  const CreateConversationAttributeIntegerRequestVariant1({this.dataType = const SdkOmitted()});
 
-  CreateConversationAttributeIntegerRequestVariant1 Function(
-      {SdkOptional<CreateConversationAttributeIntegerRequestVariant1DataType>
-          dataType}) get copyWith => _copyWith;
+  CreateConversationAttributeIntegerRequestVariant1 Function({SdkOptional<CreateConversationAttributeIntegerRequestVariant1DataType> dataType}) get copyWith => _copyWith;
 
-  CreateConversationAttributeIntegerRequestVariant1 _copyWith(
-          {Object? dataType = sdkOmittedValue}) =>
-      CreateConversationAttributeIntegerRequestVariant1(
-        dataType: identical(dataType, sdkOmittedValue)
-            ? this.dataType
-            : dataType as SdkOptional<
-                CreateConversationAttributeIntegerRequestVariant1DataType>,
-      );
+  CreateConversationAttributeIntegerRequestVariant1 _copyWith({Object? dataType = sdkOmittedValue}) => CreateConversationAttributeIntegerRequestVariant1(
+    dataType: identical(dataType, sdkOmittedValue) ? this.dataType : dataType as SdkOptional<CreateConversationAttributeIntegerRequestVariant1DataType>,
+  );
 
-  factory CreateConversationAttributeIntegerRequestVariant1.fromJson(
-          Map<String, dynamic> json) =>
-      CreateConversationAttributeIntegerRequestVariant1(
-        dataType: json['data_type'] != null
-            ? SdkPresent((json['data_type'] != null
-                ? CreateConversationAttributeIntegerRequestVariant1DataType
-                    .fromJson(json['data_type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory CreateConversationAttributeIntegerRequestVariant1.fromJson(Map<String, dynamic> json) => CreateConversationAttributeIntegerRequestVariant1(
+    dataType: json['data_type'] != null ? SdkPresent((json['data_type'] != null ? CreateConversationAttributeIntegerRequestVariant1DataType.fromJson(json['data_type'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (dataType) {
-          SdkPresent<CreateConversationAttributeIntegerRequestVariant1DataType>(
-            value: final value
-          ) =>
-            {
-              'data_type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (dataType) {
+      SdkPresent<CreateConversationAttributeIntegerRequestVariant1DataType>(value: final value) => {'data_type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `CreateConversationAttributeIntegerRequest` API schema.
 class CreateConversationAttributeIntegerRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Name of the attribute.
   final String name;
-
   /// Readable description of the attribute.
   final SdkOptional<String> description;
   final CreateConversationAttributeIntegerRequestVariant1DataType dataType;
-
   /// Whether this attribute is required.
   final SdkOptional<bool> required_;
-
   /// Team IDs that can see this attribute. Empty array means all teams.
   final SdkOptional<List<String>> visibleToTeamIds;
 
-  const CreateConversationAttributeIntegerRequest(
-      {required this.name,
-      this.description = const SdkOmitted(),
-      required this.dataType,
-      this.required_ = const SdkOmitted(),
-      this.visibleToTeamIds = const SdkOmitted()});
+  const CreateConversationAttributeIntegerRequest({required this.name, this.description = const SdkOmitted(), required this.dataType, this.required_ = const SdkOmitted(), this.visibleToTeamIds = const SdkOmitted()});
 
-  CreateConversationAttributeIntegerRequest Function(
-      {String name,
-      SdkOptional<String> description,
-      CreateConversationAttributeIntegerRequestVariant1DataType dataType,
-      SdkOptional<bool> required_,
-      SdkOptional<List<String>> visibleToTeamIds}) get copyWith => _copyWith;
+  CreateConversationAttributeIntegerRequest Function({String name, SdkOptional<String> description, CreateConversationAttributeIntegerRequestVariant1DataType dataType, SdkOptional<bool> required_, SdkOptional<List<String>> visibleToTeamIds}) get copyWith => _copyWith;
 
-  CreateConversationAttributeIntegerRequest _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? dataType = sdkOmittedValue,
-          Object? required_ = sdkOmittedValue,
-          Object? visibleToTeamIds = sdkOmittedValue}) =>
-      CreateConversationAttributeIntegerRequest(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        dataType: identical(dataType, sdkOmittedValue)
-            ? this.dataType
-            : dataType
-                as CreateConversationAttributeIntegerRequestVariant1DataType,
-        required_: identical(required_, sdkOmittedValue)
-            ? this.required_
-            : required_ as SdkOptional<bool>,
-        visibleToTeamIds: identical(visibleToTeamIds, sdkOmittedValue)
-            ? this.visibleToTeamIds
-            : visibleToTeamIds as SdkOptional<List<String>>,
-      );
+  CreateConversationAttributeIntegerRequest _copyWith({Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? dataType = sdkOmittedValue, Object? required_ = sdkOmittedValue, Object? visibleToTeamIds = sdkOmittedValue}) => CreateConversationAttributeIntegerRequest(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    dataType: identical(dataType, sdkOmittedValue) ? this.dataType : dataType as CreateConversationAttributeIntegerRequestVariant1DataType,
+    required_: identical(required_, sdkOmittedValue) ? this.required_ : required_ as SdkOptional<bool>,
+    visibleToTeamIds: identical(visibleToTeamIds, sdkOmittedValue) ? this.visibleToTeamIds : visibleToTeamIds as SdkOptional<List<String>>,
+  );
 
-  factory CreateConversationAttributeIntegerRequest.fromJson(
-          Map<String, dynamic> json) =>
-      CreateConversationAttributeIntegerRequest(
-        name: (json['name'] as String?)!,
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        dataType: (json['data_type'] != null
-            ? CreateConversationAttributeIntegerRequestVariant1DataType
-                .fromJson(json['data_type'] as String)
-            : null)!,
-        required_: json['required'] != null
-            ? SdkPresent((json['required'] as bool?)!)
-            : const SdkOmitted(),
-        visibleToTeamIds: json['visible_to_team_ids'] != null
-            ? SdkPresent(((json['visible_to_team_ids'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory CreateConversationAttributeIntegerRequest.fromJson(Map<String, dynamic> json) => CreateConversationAttributeIntegerRequest(
+    name: (json['name'] as String?)!,
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    dataType: (json['data_type'] != null ? CreateConversationAttributeIntegerRequestVariant1DataType.fromJson(json['data_type'] as String) : null)!,
+    required_: json['required'] != null ? SdkPresent((json['required'] as bool?)!) : const SdkOmitted(),
+    visibleToTeamIds: json['visible_to_team_ids'] != null ? SdkPresent(((json['visible_to_team_ids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'data_type': dataType.toJson(),
-        ...switch (required_) {
-          SdkPresent<bool>(value: final value) => {
-              'required': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (visibleToTeamIds) {
-          SdkPresent<List<String>>(value: final value) => {
-              'visible_to_team_ids': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'name': name,
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    'data_type': dataType.toJson(),
+    ...switch (required_) {
+      SdkPresent<bool>(value: final value) => {'required': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (visibleToTeamIds) {
+      SdkPresent<List<String>>(value: final value) => {'visible_to_team_ids': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

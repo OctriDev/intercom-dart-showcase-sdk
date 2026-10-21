@@ -8,96 +8,49 @@ part of 'contacts.dart';
 class MergeHistoryList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of object.
   final SdkOptional<MergeHistoryListType> type_;
-
   /// An array of merge history entries.
   final SdkOptional<List<MergeHistoryItem>> data;
-
   /// A cursor to pass as the `cursor` query parameter to fetch the next page of results. Absent when there are no more pages.
   final SdkOptional<String?> nextCursor;
-
   /// Whether there are more results to fetch.
   final SdkOptional<bool> hasMore;
 
-  const MergeHistoryList(
-      {this.type_ = const SdkOmitted(),
-      this.data = const SdkOmitted(),
-      this.nextCursor = const SdkOmitted(),
-      this.hasMore = const SdkOmitted()});
+  const MergeHistoryList({this.type_ = const SdkOmitted(), this.data = const SdkOmitted(), this.nextCursor = const SdkOmitted(), this.hasMore = const SdkOmitted()});
 
-  MergeHistoryList Function(
-      {SdkOptional<MergeHistoryListType> type_,
-      SdkOptional<List<MergeHistoryItem>> data,
-      SdkOptional<String?> nextCursor,
-      SdkOptional<bool> hasMore}) get copyWith => _copyWith;
+  MergeHistoryList Function({SdkOptional<MergeHistoryListType> type_, SdkOptional<List<MergeHistoryItem>> data, SdkOptional<String?> nextCursor, SdkOptional<bool> hasMore}) get copyWith => _copyWith;
 
-  MergeHistoryList _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? data = sdkOmittedValue,
-          Object? nextCursor = sdkOmittedValue,
-          Object? hasMore = sdkOmittedValue}) =>
-      MergeHistoryList(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<MergeHistoryListType>,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as SdkOptional<List<MergeHistoryItem>>,
-        nextCursor: identical(nextCursor, sdkOmittedValue)
-            ? this.nextCursor
-            : nextCursor as SdkOptional<String?>,
-        hasMore: identical(hasMore, sdkOmittedValue)
-            ? this.hasMore
-            : hasMore as SdkOptional<bool>,
-      );
+  MergeHistoryList _copyWith({Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue, Object? nextCursor = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => MergeHistoryList(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<MergeHistoryListType>,
+    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<MergeHistoryItem>>,
+    nextCursor: identical(nextCursor, sdkOmittedValue) ? this.nextCursor : nextCursor as SdkOptional<String?>,
+    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as SdkOptional<bool>,
+  );
 
-  factory MergeHistoryList.fromJson(Map<String, dynamic> json) =>
-      MergeHistoryList(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? MergeHistoryListType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        data: json['data'] != null
-            ? SdkPresent(((json['data'] as List?)
-                ?.map(
-                    (e) => MergeHistoryItem.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        nextCursor: json.containsKey('next_cursor')
-            ? SdkPresent(json['next_cursor'] as String?)
-            : const SdkOmitted(),
-        hasMore: json['has_more'] != null
-            ? SdkPresent((json['has_more'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory MergeHistoryList.fromJson(Map<String, dynamic> json) => MergeHistoryList(
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? MergeHistoryListType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => MergeHistoryItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    nextCursor: json.containsKey('next_cursor') ? SdkPresent(json['next_cursor'] as String?) : const SdkOmitted(),
+    hasMore: json['has_more'] != null ? SdkPresent((json['has_more'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<MergeHistoryListType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (data) {
-          SdkPresent<List<MergeHistoryItem>>(value: final value) => {
-              'data': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (nextCursor) {
-          SdkPresent<String?>(value: final value) => {
-              'next_cursor': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (hasMore) {
-          SdkPresent<bool>(value: final value) => {
-              'has_more': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<MergeHistoryListType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (data) {
+      SdkPresent<List<MergeHistoryItem>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (nextCursor) {
+      SdkPresent<String?>(value: final value) => {'next_cursor': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (hasMore) {
+      SdkPresent<bool>(value: final value) => {'has_more': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

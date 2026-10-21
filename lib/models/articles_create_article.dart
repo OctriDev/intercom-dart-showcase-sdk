@@ -8,301 +8,139 @@ part of 'articles.dart';
 class CreateArticleRequestRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The title of the article.For multilingual articles, this will be the title of the default language's content.
   final String title;
-
   /// The description of the article. For multilingual articles, this will be the description of the default language's content.
   final SdkOptional<String> description;
-
   /// The content of the article in HTML. For multilingual articles, this will be the body of the default language's content. Mutually exclusive with `body_markdown`.
   final SdkOptional<String> body;
-
   /// The content of the article in markdown. For multilingual articles, this will be the body of the default language's content. An alternative to `body` — you can provide content as markdown instead of HTML. Mutually exclusive with `body`.
   final SdkOptional<String> bodyMarkdown;
-
   /// The id of the author of the article. For multilingual articles, this will be the id of the author of the default language's content. Must be a teammate on the help center's workspace.
   final int authorId;
-
   /// Whether the article will be `published` or will be a `draft`. Defaults to draft. For multilingual articles, this will be the state of the default language's content.
   final SdkOptional<CreateArticleRequestRequestState> state;
-
   /// The id of the article's parent collection or section. An article without this field stands alone.
   final SdkOptional<int> parentId;
-
   /// The type of parent, which can either be a `collection` or `section`.
   final SdkOptional<String> parentType;
-
   /// The Translated Content of an Article. The keys are the locale codes and the values are the translated content of the article.
   final SdkOptional<ArticleTranslatedContentRequest?> translatedContent;
-
   /// The ID of the folder to place this article in, or null to leave it without a folder.
   final SdkOptional<int?> folderId;
-
   /// The list of audience IDs to assign to this article for Fin AI Agent targeting. Sending a top-level `audience_ids` broadcasts the same set to every locale. For per-locale targeting, use `translated_content.&lt;locale&gt;.audience_ids` instead. Sending both top-level and per-locale in the same request causes top-level to win. Unknown audience IDs return a 404 error. No partial commit occurs.
   final SdkOptional<List<int>?> audienceIds;
-
   /// Whether the article should be available for AI Chatbot (Fin). For multilingual articles, this sets the default language's availability.
   final SdkOptional<bool> aiChatbotAvailability;
-
   /// Whether the article should be available for AI Copilot. For multilingual articles, this sets the default language's availability.
   final SdkOptional<bool> aiCopilotAvailability;
-
   /// Whether the article should be available for AI Sales Agent. For multilingual articles, this sets the default language's availability.
   final SdkOptional<bool> aiSalesAgentAvailability;
-
   /// ISO 8601 timestamp at which to schedule a future publish of the article. When set together with `state: "published"`, the article is scheduled instead of published immediately. Setting `null` cancels a pending publish schedule. Timestamps in the past or equal to the current time are rejected with 400 `parameter_invalid` — the value must be strictly in the future. Combining with `state: "draft"` returns 400 `parameter_invalid`. Sending in the same request as `scheduled_unpublish_at` returns 400 — only one pending schedule per article. Empty string returns 400 `parameter_invalid`.
   final SdkOptional<String?> scheduledPublishAt;
-
   /// ISO 8601 timestamp at which to schedule a future unpublish of the article. Setting `null` cancels a pending unpublish schedule. Timestamps in the past or equal to the current time are rejected with 400 `parameter_invalid` — the value must be strictly in the future. Rejected with 400 `parameter_invalid` if the article has never been published. Sending in the same request as `scheduled_publish_at` returns 400 — only one pending schedule per article. Empty string returns 400 `parameter_invalid`.
   final SdkOptional<String?> scheduledUnpublishAt;
 
-  const CreateArticleRequestRequest(
-      {required this.title,
-      this.description = const SdkOmitted(),
-      this.body = const SdkOmitted(),
-      this.bodyMarkdown = const SdkOmitted(),
-      required this.authorId,
-      this.state = const SdkOmitted(),
-      this.parentId = const SdkOmitted(),
-      this.parentType = const SdkOmitted(),
-      this.translatedContent = const SdkOmitted(),
-      this.folderId = const SdkOmitted(),
-      this.audienceIds = const SdkOmitted(),
-      this.aiChatbotAvailability = const SdkOmitted(),
-      this.aiCopilotAvailability = const SdkOmitted(),
-      this.aiSalesAgentAvailability = const SdkOmitted(),
-      this.scheduledPublishAt = const SdkOmitted(),
-      this.scheduledUnpublishAt = const SdkOmitted()});
+  const CreateArticleRequestRequest({required this.title, this.description = const SdkOmitted(), this.body = const SdkOmitted(), this.bodyMarkdown = const SdkOmitted(), required this.authorId, this.state = const SdkOmitted(), this.parentId = const SdkOmitted(), this.parentType = const SdkOmitted(), this.translatedContent = const SdkOmitted(), this.folderId = const SdkOmitted(), this.audienceIds = const SdkOmitted(), this.aiChatbotAvailability = const SdkOmitted(), this.aiCopilotAvailability = const SdkOmitted(), this.aiSalesAgentAvailability = const SdkOmitted(), this.scheduledPublishAt = const SdkOmitted(), this.scheduledUnpublishAt = const SdkOmitted()});
 
-  CreateArticleRequestRequest Function(
-      {String title,
-      SdkOptional<String> description,
-      SdkOptional<String> body,
-      SdkOptional<String> bodyMarkdown,
-      int authorId,
-      SdkOptional<CreateArticleRequestRequestState> state,
-      SdkOptional<int> parentId,
-      SdkOptional<String> parentType,
-      SdkOptional<ArticleTranslatedContentRequest?> translatedContent,
-      SdkOptional<int?> folderId,
-      SdkOptional<List<int>?> audienceIds,
-      SdkOptional<bool> aiChatbotAvailability,
-      SdkOptional<bool> aiCopilotAvailability,
-      SdkOptional<bool> aiSalesAgentAvailability,
-      SdkOptional<String?> scheduledPublishAt,
-      SdkOptional<String?> scheduledUnpublishAt}) get copyWith => _copyWith;
+  CreateArticleRequestRequest Function({String title, SdkOptional<String> description, SdkOptional<String> body, SdkOptional<String> bodyMarkdown, int authorId, SdkOptional<CreateArticleRequestRequestState> state, SdkOptional<int> parentId, SdkOptional<String> parentType, SdkOptional<ArticleTranslatedContentRequest?> translatedContent, SdkOptional<int?> folderId, SdkOptional<List<int>?> audienceIds, SdkOptional<bool> aiChatbotAvailability, SdkOptional<bool> aiCopilotAvailability, SdkOptional<bool> aiSalesAgentAvailability, SdkOptional<String?> scheduledPublishAt, SdkOptional<String?> scheduledUnpublishAt}) get copyWith => _copyWith;
 
-  CreateArticleRequestRequest _copyWith(
-          {Object? title = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? body = sdkOmittedValue,
-          Object? bodyMarkdown = sdkOmittedValue,
-          Object? authorId = sdkOmittedValue,
-          Object? state = sdkOmittedValue,
-          Object? parentId = sdkOmittedValue,
-          Object? parentType = sdkOmittedValue,
-          Object? translatedContent = sdkOmittedValue,
-          Object? folderId = sdkOmittedValue,
-          Object? audienceIds = sdkOmittedValue,
-          Object? aiChatbotAvailability = sdkOmittedValue,
-          Object? aiCopilotAvailability = sdkOmittedValue,
-          Object? aiSalesAgentAvailability = sdkOmittedValue,
-          Object? scheduledPublishAt = sdkOmittedValue,
-          Object? scheduledUnpublishAt = sdkOmittedValue}) =>
-      CreateArticleRequestRequest(
-        title: identical(title, sdkOmittedValue) ? this.title : title as String,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        body: identical(body, sdkOmittedValue)
-            ? this.body
-            : body as SdkOptional<String>,
-        bodyMarkdown: identical(bodyMarkdown, sdkOmittedValue)
-            ? this.bodyMarkdown
-            : bodyMarkdown as SdkOptional<String>,
-        authorId: identical(authorId, sdkOmittedValue)
-            ? this.authorId
-            : authorId as int,
-        state: identical(state, sdkOmittedValue)
-            ? this.state
-            : state as SdkOptional<CreateArticleRequestRequestState>,
-        parentId: identical(parentId, sdkOmittedValue)
-            ? this.parentId
-            : parentId as SdkOptional<int>,
-        parentType: identical(parentType, sdkOmittedValue)
-            ? this.parentType
-            : parentType as SdkOptional<String>,
-        translatedContent: identical(translatedContent, sdkOmittedValue)
-            ? this.translatedContent
-            : translatedContent
-                as SdkOptional<ArticleTranslatedContentRequest?>,
-        folderId: identical(folderId, sdkOmittedValue)
-            ? this.folderId
-            : folderId as SdkOptional<int?>,
-        audienceIds: identical(audienceIds, sdkOmittedValue)
-            ? this.audienceIds
-            : audienceIds as SdkOptional<List<int>?>,
-        aiChatbotAvailability: identical(aiChatbotAvailability, sdkOmittedValue)
-            ? this.aiChatbotAvailability
-            : aiChatbotAvailability as SdkOptional<bool>,
-        aiCopilotAvailability: identical(aiCopilotAvailability, sdkOmittedValue)
-            ? this.aiCopilotAvailability
-            : aiCopilotAvailability as SdkOptional<bool>,
-        aiSalesAgentAvailability:
-            identical(aiSalesAgentAvailability, sdkOmittedValue)
-                ? this.aiSalesAgentAvailability
-                : aiSalesAgentAvailability as SdkOptional<bool>,
-        scheduledPublishAt: identical(scheduledPublishAt, sdkOmittedValue)
-            ? this.scheduledPublishAt
-            : scheduledPublishAt as SdkOptional<String?>,
-        scheduledUnpublishAt: identical(scheduledUnpublishAt, sdkOmittedValue)
-            ? this.scheduledUnpublishAt
-            : scheduledUnpublishAt as SdkOptional<String?>,
-      );
+  CreateArticleRequestRequest _copyWith({Object? title = sdkOmittedValue, Object? description = sdkOmittedValue, Object? body = sdkOmittedValue, Object? bodyMarkdown = sdkOmittedValue, Object? authorId = sdkOmittedValue, Object? state = sdkOmittedValue, Object? parentId = sdkOmittedValue, Object? parentType = sdkOmittedValue, Object? translatedContent = sdkOmittedValue, Object? folderId = sdkOmittedValue, Object? audienceIds = sdkOmittedValue, Object? aiChatbotAvailability = sdkOmittedValue, Object? aiCopilotAvailability = sdkOmittedValue, Object? aiSalesAgentAvailability = sdkOmittedValue, Object? scheduledPublishAt = sdkOmittedValue, Object? scheduledUnpublishAt = sdkOmittedValue}) => CreateArticleRequestRequest(
+    title: identical(title, sdkOmittedValue) ? this.title : title as String,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    body: identical(body, sdkOmittedValue) ? this.body : body as SdkOptional<String>,
+    bodyMarkdown: identical(bodyMarkdown, sdkOmittedValue) ? this.bodyMarkdown : bodyMarkdown as SdkOptional<String>,
+    authorId: identical(authorId, sdkOmittedValue) ? this.authorId : authorId as int,
+    state: identical(state, sdkOmittedValue) ? this.state : state as SdkOptional<CreateArticleRequestRequestState>,
+    parentId: identical(parentId, sdkOmittedValue) ? this.parentId : parentId as SdkOptional<int>,
+    parentType: identical(parentType, sdkOmittedValue) ? this.parentType : parentType as SdkOptional<String>,
+    translatedContent: identical(translatedContent, sdkOmittedValue) ? this.translatedContent : translatedContent as SdkOptional<ArticleTranslatedContentRequest?>,
+    folderId: identical(folderId, sdkOmittedValue) ? this.folderId : folderId as SdkOptional<int?>,
+    audienceIds: identical(audienceIds, sdkOmittedValue) ? this.audienceIds : audienceIds as SdkOptional<List<int>?>,
+    aiChatbotAvailability: identical(aiChatbotAvailability, sdkOmittedValue) ? this.aiChatbotAvailability : aiChatbotAvailability as SdkOptional<bool>,
+    aiCopilotAvailability: identical(aiCopilotAvailability, sdkOmittedValue) ? this.aiCopilotAvailability : aiCopilotAvailability as SdkOptional<bool>,
+    aiSalesAgentAvailability: identical(aiSalesAgentAvailability, sdkOmittedValue) ? this.aiSalesAgentAvailability : aiSalesAgentAvailability as SdkOptional<bool>,
+    scheduledPublishAt: identical(scheduledPublishAt, sdkOmittedValue) ? this.scheduledPublishAt : scheduledPublishAt as SdkOptional<String?>,
+    scheduledUnpublishAt: identical(scheduledUnpublishAt, sdkOmittedValue) ? this.scheduledUnpublishAt : scheduledUnpublishAt as SdkOptional<String?>,
+  );
 
-  factory CreateArticleRequestRequest.fromJson(Map<String, dynamic> json) =>
-      CreateArticleRequestRequest(
-        title: (json['title'] as String?)!,
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        body: json['body'] != null
-            ? SdkPresent((json['body'] as String?)!)
-            : const SdkOmitted(),
-        bodyMarkdown: json['body_markdown'] != null
-            ? SdkPresent((json['body_markdown'] as String?)!)
-            : const SdkOmitted(),
-        authorId: ((json['author_id'] as num?)?.toInt())!,
-        state: json['state'] != null
-            ? SdkPresent((json['state'] != null
-                ? CreateArticleRequestRequestState.fromJson(
-                    json['state'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        parentId: json['parent_id'] != null
-            ? SdkPresent(((json['parent_id'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        parentType: json['parent_type'] != null
-            ? SdkPresent((json['parent_type'] as String?)!)
-            : const SdkOmitted(),
-        translatedContent: json.containsKey('translated_content')
-            ? SdkPresent(json['translated_content'] != null
-                ? ArticleTranslatedContentRequest.fromJson(
-                    json['translated_content'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        folderId: json.containsKey('folder_id')
-            ? SdkPresent((json['folder_id'] as num?)?.toInt())
-            : const SdkOmitted(),
-        audienceIds: json.containsKey('audience_ids')
-            ? SdkPresent((json['audience_ids'] as List?)
-                ?.map((e) => (e as num).toInt())
-                .toList())
-            : const SdkOmitted(),
-        aiChatbotAvailability: json['ai_chatbot_availability'] != null
-            ? SdkPresent((json['ai_chatbot_availability'] as bool?)!)
-            : const SdkOmitted(),
-        aiCopilotAvailability: json['ai_copilot_availability'] != null
-            ? SdkPresent((json['ai_copilot_availability'] as bool?)!)
-            : const SdkOmitted(),
-        aiSalesAgentAvailability: json['ai_sales_agent_availability'] != null
-            ? SdkPresent((json['ai_sales_agent_availability'] as bool?)!)
-            : const SdkOmitted(),
-        scheduledPublishAt: json.containsKey('scheduled_publish_at')
-            ? SdkPresent(json['scheduled_publish_at'] as String?)
-            : const SdkOmitted(),
-        scheduledUnpublishAt: json.containsKey('scheduled_unpublish_at')
-            ? SdkPresent(json['scheduled_unpublish_at'] as String?)
-            : const SdkOmitted(),
-      );
+  factory CreateArticleRequestRequest.fromJson(Map<String, dynamic> json) => CreateArticleRequestRequest(
+    title: (json['title'] as String?)!,
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    body: json['body'] != null ? SdkPresent((json['body'] as String?)!) : const SdkOmitted(),
+    bodyMarkdown: json['body_markdown'] != null ? SdkPresent((json['body_markdown'] as String?)!) : const SdkOmitted(),
+    authorId: ((json['author_id'] as num?)?.toInt())!,
+    state: json['state'] != null ? SdkPresent((json['state'] != null ? CreateArticleRequestRequestState.fromJson(json['state'] as String) : null)!) : const SdkOmitted(),
+    parentId: json['parent_id'] != null ? SdkPresent(((json['parent_id'] as num?)?.toInt())!) : const SdkOmitted(),
+    parentType: json['parent_type'] != null ? SdkPresent((json['parent_type'] as String?)!) : const SdkOmitted(),
+    translatedContent: json.containsKey('translated_content') ? SdkPresent(json['translated_content'] != null ? ArticleTranslatedContentRequest.fromJson(json['translated_content'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    folderId: json.containsKey('folder_id') ? SdkPresent((json['folder_id'] as num?)?.toInt()) : const SdkOmitted(),
+    audienceIds: json.containsKey('audience_ids') ? SdkPresent((json['audience_ids'] as List?)?.map((e) => (e as num).toInt()).toList()) : const SdkOmitted(),
+    aiChatbotAvailability: json['ai_chatbot_availability'] != null ? SdkPresent((json['ai_chatbot_availability'] as bool?)!) : const SdkOmitted(),
+    aiCopilotAvailability: json['ai_copilot_availability'] != null ? SdkPresent((json['ai_copilot_availability'] as bool?)!) : const SdkOmitted(),
+    aiSalesAgentAvailability: json['ai_sales_agent_availability'] != null ? SdkPresent((json['ai_sales_agent_availability'] as bool?)!) : const SdkOmitted(),
+    scheduledPublishAt: json.containsKey('scheduled_publish_at') ? SdkPresent(json['scheduled_publish_at'] as String?) : const SdkOmitted(),
+    scheduledUnpublishAt: json.containsKey('scheduled_unpublish_at') ? SdkPresent(json['scheduled_unpublish_at'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'title': title,
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (body) {
-          SdkPresent<String>(value: final value) => {
-              'body': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (bodyMarkdown) {
-          SdkPresent<String>(value: final value) => {
-              'body_markdown': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'author_id': authorId,
-        ...switch (state) {
-          SdkPresent<CreateArticleRequestRequestState>(value: final value) => {
-              'state': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (parentId) {
-          SdkPresent<int>(value: final value) => {
-              'parent_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (parentType) {
-          SdkPresent<String>(value: final value) => {
-              'parent_type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (translatedContent) {
-          SdkPresent<ArticleTranslatedContentRequest?>(value: final value) => {
-              'translated_content': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (folderId) {
-          SdkPresent<int?>(value: final value) => {
-              'folder_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (audienceIds) {
-          SdkPresent<List<int>?>(value: final value) => {
-              'audience_ids': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (aiChatbotAvailability) {
-          SdkPresent<bool>(value: final value) => {
-              'ai_chatbot_availability': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (aiCopilotAvailability) {
-          SdkPresent<bool>(value: final value) => {
-              'ai_copilot_availability': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (aiSalesAgentAvailability) {
-          SdkPresent<bool>(value: final value) => {
-              'ai_sales_agent_availability': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (scheduledPublishAt) {
-          SdkPresent<String?>(value: final value) => {
-              'scheduled_publish_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (scheduledUnpublishAt) {
-          SdkPresent<String?>(value: final value) => {
-              'scheduled_unpublish_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'title': title,
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (body) {
+      SdkPresent<String>(value: final value) => {'body': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (bodyMarkdown) {
+      SdkPresent<String>(value: final value) => {'body_markdown': value,},
+      _ => const <String, dynamic>{},
+    },
+    'author_id': authorId,
+    ...switch (state) {
+      SdkPresent<CreateArticleRequestRequestState>(value: final value) => {'state': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (parentId) {
+      SdkPresent<int>(value: final value) => {'parent_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (parentType) {
+      SdkPresent<String>(value: final value) => {'parent_type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (translatedContent) {
+      SdkPresent<ArticleTranslatedContentRequest?>(value: final value) => {'translated_content': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (folderId) {
+      SdkPresent<int?>(value: final value) => {'folder_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (audienceIds) {
+      SdkPresent<List<int>?>(value: final value) => {'audience_ids': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (aiChatbotAvailability) {
+      SdkPresent<bool>(value: final value) => {'ai_chatbot_availability': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (aiCopilotAvailability) {
+      SdkPresent<bool>(value: final value) => {'ai_copilot_availability': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (aiSalesAgentAvailability) {
+      SdkPresent<bool>(value: final value) => {'ai_sales_agent_availability': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (scheduledPublishAt) {
+      SdkPresent<String?>(value: final value) => {'scheduled_publish_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (scheduledUnpublishAt) {
+      SdkPresent<String?>(value: final value) => {'scheduled_unpublish_at': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -15,14 +15,17 @@ Future<EmailList> listEmails(ClientConfig config,
   return (await sdkRequest<EmailList>('GET', '/emails',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listEmails',
-          fromJsonRaw: (value) => EmailList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              EmailList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Retrieves a sender email setting by its unique identifier. Use the `id` path parameter to inspect its configured sender address, domain, verification state, forwarding settings, and associated brand.
 ///
@@ -37,10 +40,15 @@ Future<EmailSetting> retrieveEmail(ClientConfig config,
           'GET', '/emails/${Uri.encodeComponent(id.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'retrieveEmail',
-          fromJsonRaw: (value) => EmailSetting.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              EmailSetting.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

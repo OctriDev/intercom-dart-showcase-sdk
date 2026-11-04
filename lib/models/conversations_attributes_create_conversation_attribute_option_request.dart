@@ -8,23 +8,31 @@ part of 'conversations_attributes.dart';
 class CreateConversationAttributeOptionRequest implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The label for the new option.
   final String label;
 
   const CreateConversationAttributeOptionRequest({required this.label});
 
-  CreateConversationAttributeOptionRequest Function({String label}) get copyWith => _copyWith;
+  CreateConversationAttributeOptionRequest Function({String label})
+      get copyWith => _copyWith;
 
-  CreateConversationAttributeOptionRequest _copyWith({Object? label = sdkOmittedValue}) => CreateConversationAttributeOptionRequest(
-    label: identical(label, sdkOmittedValue) ? this.label : label as String,
-  );
+  CreateConversationAttributeOptionRequest _copyWith(
+          {Object? label = sdkOmittedValue}) =>
+      CreateConversationAttributeOptionRequest(
+        label: identical(label, sdkOmittedValue) ? this.label : label as String,
+      );
 
-  factory CreateConversationAttributeOptionRequest.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(CreateConversationAttributeOptionRequest(
-    label: (json['label'] as String?)!,
-  ), json);
+  factory CreateConversationAttributeOptionRequest.fromJson(
+          Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          CreateConversationAttributeOptionRequest(
+            label: (json['label'] as String?)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'label': label,
-  };
+        'label': label,
+      };
 }

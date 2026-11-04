@@ -26,19 +26,23 @@ Future<AudienceList> listAudiences(ClientConfig config,
   return (await sdkRequest<AudienceList>('GET', '/audiences',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listAudiences',
-          fromJsonRaw: (value) => AudienceList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AudienceList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Lists audiences configured for the workspace. Use `page` and `per_page` to paginate the results; each audience represents a group of contacts that can be targeted by Fin.
 ///
@@ -47,34 +51,63 @@ Future<AudienceList> listAudiences(ClientConfig config,
 /// [page] The page of results to fetch. Defaults to first page.
 /// [perPage] The number of results to return per page. Defaults to 50. Maximum
 ///   is 50.
-Stream<Audience> listAudiencesPaginated(ClientConfig config, {int? page, int? perPage, IntercomVersion? intercomVersion, RequestOptions? requestOptions}) async* {
+Stream<Audience> listAudiencesPaginated(ClientConfig config,
+    {int? page,
+    int? perPage,
+    IntercomVersion? intercomVersion,
+    RequestOptions? requestOptions}) async* {
   var sdkPageNumber = page ?? 1;
   while (true) {
-    final sdkPage = await listAudiences(config, page: SdkPresent<int>(sdkPageNumber), perPage: perPage == null ? const SdkOmitted<int>() : SdkPresent<int>(perPage), intercomVersion: intercomVersion == null ? const SdkOmitted<IntercomVersion>() : SdkPresent<IntercomVersion>(intercomVersion), requestOptions: requestOptions);
+    final sdkPage = await listAudiences(config,
+        page: SdkPresent<int>(sdkPageNumber),
+        perPage: perPage == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(perPage),
+        intercomVersion: intercomVersion == null
+            ? const SdkOmitted<IntercomVersion>()
+            : SdkPresent<IntercomVersion>(intercomVersion),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
-    if (sdkPage.totalPages.valueOrNull != null && sdkPageNumber >= sdkPage.totalPages.valueOrNull!) {
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
+    if (sdkPage.totalPages.valueOrNull != null &&
+        sdkPageNumber >= sdkPage.totalPages.valueOrNull!) {
       return;
     }
     sdkPageNumber += 1;
   }
 }
 
-Stream<SdkPage<AudienceList, Audience>> listAudiencesPages(ClientConfig config, {int? page, int? perPage, IntercomVersion? intercomVersion, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<AudienceList, Audience>> listAudiencesPages(ClientConfig config,
+    {int? page,
+    int? perPage,
+    IntercomVersion? intercomVersion,
+    RequestOptions? requestOptions}) async* {
   var sdkPageNumber = page ?? 1;
   while (true) {
-    final sdkPage = await listAudiences(config, page: SdkPresent<int>(sdkPageNumber), perPage: perPage == null ? const SdkOmitted<int>() : SdkPresent<int>(perPage), intercomVersion: intercomVersion == null ? const SdkOmitted<IntercomVersion>() : SdkPresent<IntercomVersion>(intercomVersion), requestOptions: requestOptions);
+    final sdkPage = await listAudiences(config,
+        page: SdkPresent<int>(sdkPageNumber),
+        perPage: perPage == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(perPage),
+        intercomVersion: intercomVersion == null
+            ? const SdkOmitted<IntercomVersion>()
+            : SdkPresent<IntercomVersion>(intercomVersion),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPageNumber + 1;
-    final sdkHasMore = true && sdkNext != sdkPageNumber && (sdkPage.totalPages.valueOrNull == null || sdkNext <= sdkPage.totalPages.valueOrNull!);
+    final sdkHasMore = true &&
+        sdkNext != sdkPageNumber &&
+        (sdkPage.totalPages.valueOrNull == null ||
+            sdkNext <= sdkPage.totalPages.valueOrNull!);
     yield SdkPage(data: sdkPage, items: sdkItems, hasMore: sdkHasMore);
     if (!sdkHasMore) return;
     sdkPageNumber = sdkNext;
   }
 }
-
 
 /// Creates an audience for targeting contacts. Supply `name` and, optionally, predicates that define audience membership and role-based predicates that further filter membership. The response includes the created audience and its generated identifier.
 ///
@@ -99,14 +132,18 @@ Future<Audience> createAudience(ClientConfig config,
             'role_predicates': SdkUtils.unwrapOptional(rolePredicates)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'createAudience',
-          fromJsonRaw: (value) => Audience.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Audience.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '422': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves the details of a single audience. Use `id` to select the audience and inspect its name, membership predicates, and timestamps.
 ///
@@ -121,14 +158,18 @@ Future<Audience> retrieveAudience(ClientConfig config,
           'GET', '/audiences/${Uri.encodeComponent(id.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'retrieveAudience',
-          fromJsonRaw: (value) => Audience.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Audience.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Replaces the supplied details of an existing audience while leaving omitted fields unchanged. Use `id` to select the audience, and provide any combination of `name`, `predicates`, and `role_predicates` to update.
 ///
@@ -156,14 +197,19 @@ Future<Audience> updateAudience(ClientConfig config,
             'role_predicates': SdkUtils.unwrapOptional(rolePredicates)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'updateAudience',
-          fromJsonRaw: (value) => Audience.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Audience.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '422': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes a single audience from the workspace. Use `id` to select the audience to remove. The operation does not return an audience representation.
 ///
@@ -178,9 +224,13 @@ Future<void> deleteAudience(ClientConfig config,
           'DELETE', '/audiences/${Uri.encodeComponent(id.toString())}',
           config: config,
           decoder: SdkResponseDecoder.empty,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'deleteAudience',
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

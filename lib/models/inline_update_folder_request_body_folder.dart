@@ -7,52 +7,96 @@ part of 'inline.dart';
 class UpdateFolderRequestBodyFolder implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the folder
   final SdkOptional<String> name;
+
   /// The description of the folder
   final SdkOptional<String> description;
+
   /// An emoji for the folder
   final SdkOptional<String> emoji;
+
   /// The ID of the parent folder
   final SdkOptional<int?> parentFolderId;
 
-  const UpdateFolderRequestBodyFolder({this.name = const SdkOmitted(), this.description = const SdkOmitted(), this.emoji = const SdkOmitted(), this.parentFolderId = const SdkOmitted()});
+  const UpdateFolderRequestBodyFolder(
+      {this.name = const SdkOmitted(),
+      this.description = const SdkOmitted(),
+      this.emoji = const SdkOmitted(),
+      this.parentFolderId = const SdkOmitted()});
 
-  UpdateFolderRequestBodyFolder Function({SdkOptional<String> name, SdkOptional<String> description, SdkOptional<String> emoji, SdkOptional<int?> parentFolderId}) get copyWith => _copyWith;
+  UpdateFolderRequestBodyFolder Function(
+      {SdkOptional<String> name,
+      SdkOptional<String> description,
+      SdkOptional<String> emoji,
+      SdkOptional<int?> parentFolderId}) get copyWith => _copyWith;
 
-  UpdateFolderRequestBodyFolder _copyWith({Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? emoji = sdkOmittedValue, Object? parentFolderId = sdkOmittedValue}) => UpdateFolderRequestBodyFolder(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
-    emoji: identical(emoji, sdkOmittedValue) ? this.emoji : emoji as SdkOptional<String>,
-    parentFolderId: identical(parentFolderId, sdkOmittedValue) ? this.parentFolderId : parentFolderId as SdkOptional<int?>,
-  );
+  UpdateFolderRequestBodyFolder _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? emoji = sdkOmittedValue,
+          Object? parentFolderId = sdkOmittedValue}) =>
+      UpdateFolderRequestBodyFolder(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String>,
+        emoji: identical(emoji, sdkOmittedValue)
+            ? this.emoji
+            : emoji as SdkOptional<String>,
+        parentFolderId: identical(parentFolderId, sdkOmittedValue)
+            ? this.parentFolderId
+            : parentFolderId as SdkOptional<int?>,
+      );
 
-  factory UpdateFolderRequestBodyFolder.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(UpdateFolderRequestBodyFolder(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
-    emoji: json['emoji'] != null ? SdkPresent((json['emoji'] as String?)!) : const SdkOmitted(),
-    parentFolderId: json.containsKey('parent_folder_id') ? SdkPresent((json['parent_folder_id'] as num?)?.toInt()) : const SdkOmitted(),
-  ), json);
+  factory UpdateFolderRequestBodyFolder.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          UpdateFolderRequestBodyFolder(
+            name: json['name'] != null
+                ? SdkPresent((json['name'] as String?)!)
+                : const SdkOmitted(),
+            description: json['description'] != null
+                ? SdkPresent((json['description'] as String?)!)
+                : const SdkOmitted(),
+            emoji: json['emoji'] != null
+                ? SdkPresent((json['emoji'] as String?)!)
+                : const SdkOmitted(),
+            parentFolderId: json.containsKey('parent_folder_id')
+                ? SdkPresent((json['parent_folder_id'] as num?)?.toInt())
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (description) {
-      SdkPresent<String>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (emoji) {
-      SdkPresent<String>(value: final value) => {'emoji': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (parentFolderId) {
-      SdkPresent<int?>(value: final value) => {'parent_folder_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (description) {
+          SdkPresent<String>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (emoji) {
+          SdkPresent<String>(value: final value) => {
+              'emoji': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (parentFolderId) {
+          SdkPresent<int?>(value: final value) => {
+              'parent_folder_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class UpdateFolderRequestBody implements SdkJsonModel {
@@ -62,142 +106,214 @@ class UpdateFolderRequestBody implements SdkJsonModel {
 
   const UpdateFolderRequestBody({required this.folder});
 
-  UpdateFolderRequestBody Function({UpdateFolderRequestBodyFolder folder}) get copyWith => _copyWith;
+  UpdateFolderRequestBody Function({UpdateFolderRequestBodyFolder folder})
+      get copyWith => _copyWith;
 
-  UpdateFolderRequestBody _copyWith({Object? folder = sdkOmittedValue}) => UpdateFolderRequestBody(
-    folder: identical(folder, sdkOmittedValue) ? this.folder : folder as UpdateFolderRequestBodyFolder,
-  );
+  UpdateFolderRequestBody _copyWith({Object? folder = sdkOmittedValue}) =>
+      UpdateFolderRequestBody(
+        folder: identical(folder, sdkOmittedValue)
+            ? this.folder
+            : folder as UpdateFolderRequestBodyFolder,
+      );
 
-  factory UpdateFolderRequestBody.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(UpdateFolderRequestBody(
-    folder: (json['folder'] != null ? UpdateFolderRequestBodyFolder.fromJson(json['folder'] as Map<String, dynamic>) : null)!,
-  ), json);
+  factory UpdateFolderRequestBody.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          UpdateFolderRequestBody(
+            folder: (json['folder'] != null
+                ? UpdateFolderRequestBodyFolder.fromJson(
+                    json['folder'] as Map<String, dynamic>)
+                : null)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'folder': folder.toJson(),
-  };
+        'folder': folder.toJson(),
+      };
 }
 
 class AttachCompaniesContactRequestBody implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique identifier for the company which is given by Intercom
   final String id;
 
   const AttachCompaniesContactRequestBody({required this.id});
 
-  AttachCompaniesContactRequestBody Function({String id}) get copyWith => _copyWith;
+  AttachCompaniesContactRequestBody Function({String id}) get copyWith =>
+      _copyWith;
 
-  AttachCompaniesContactRequestBody _copyWith({Object? id = sdkOmittedValue}) => AttachCompaniesContactRequestBody(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-  );
+  AttachCompaniesContactRequestBody _copyWith({Object? id = sdkOmittedValue}) =>
+      AttachCompaniesContactRequestBody(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+      );
 
-  factory AttachCompaniesContactRequestBody.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(AttachCompaniesContactRequestBody(
-    id: (json['id'] as String?)!,
-  ), json);
+  factory AttachCompaniesContactRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          AttachCompaniesContactRequestBody(
+            id: (json['id'] as String?)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'id': id,
-  };
+        'id': id,
+      };
 }
 
 class CreateCompanyNoteRequestBody implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The text of the note.
   final String body;
+
   /// The unique identifier of the admin creating the note. If not provided, defaults to the admin associated with the access token.
   final SdkOptional<String> adminId;
 
-  const CreateCompanyNoteRequestBody({required this.body, this.adminId = const SdkOmitted()});
+  const CreateCompanyNoteRequestBody(
+      {required this.body, this.adminId = const SdkOmitted()});
 
-  CreateCompanyNoteRequestBody Function({String body, SdkOptional<String> adminId}) get copyWith => _copyWith;
+  CreateCompanyNoteRequestBody Function(
+      {String body, SdkOptional<String> adminId}) get copyWith => _copyWith;
 
-  CreateCompanyNoteRequestBody _copyWith({Object? body = sdkOmittedValue, Object? adminId = sdkOmittedValue}) => CreateCompanyNoteRequestBody(
-    body: identical(body, sdkOmittedValue) ? this.body : body as String,
-    adminId: identical(adminId, sdkOmittedValue) ? this.adminId : adminId as SdkOptional<String>,
-  );
+  CreateCompanyNoteRequestBody _copyWith(
+          {Object? body = sdkOmittedValue,
+          Object? adminId = sdkOmittedValue}) =>
+      CreateCompanyNoteRequestBody(
+        body: identical(body, sdkOmittedValue) ? this.body : body as String,
+        adminId: identical(adminId, sdkOmittedValue)
+            ? this.adminId
+            : adminId as SdkOptional<String>,
+      );
 
-  factory CreateCompanyNoteRequestBody.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(CreateCompanyNoteRequestBody(
-    body: (json['body'] as String?)!,
-    adminId: json['admin_id'] != null ? SdkPresent((json['admin_id'] as String?)!) : const SdkOmitted(),
-  ), json);
+  factory CreateCompanyNoteRequestBody.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          CreateCompanyNoteRequestBody(
+            body: (json['body'] as String?)!,
+            adminId: json['admin_id'] != null
+                ? SdkPresent((json['admin_id'] as String?)!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'body': body,
-    ...switch (adminId) {
-      SdkPresent<String>(value: final value) => {'admin_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'body': body,
+        ...switch (adminId) {
+          SdkPresent<String>(value: final value) => {
+              'admin_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class CreateNoteRequestBody implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The text of the note.
   final String body;
+
   /// The unique identifier of a given admin.
   final SdkOptional<String> adminId;
 
-  const CreateNoteRequestBody({required this.body, this.adminId = const SdkOmitted()});
+  const CreateNoteRequestBody(
+      {required this.body, this.adminId = const SdkOmitted()});
 
-  CreateNoteRequestBody Function({String body, SdkOptional<String> adminId}) get copyWith => _copyWith;
+  CreateNoteRequestBody Function({String body, SdkOptional<String> adminId})
+      get copyWith => _copyWith;
 
-  CreateNoteRequestBody _copyWith({Object? body = sdkOmittedValue, Object? adminId = sdkOmittedValue}) => CreateNoteRequestBody(
-    body: identical(body, sdkOmittedValue) ? this.body : body as String,
-    adminId: identical(adminId, sdkOmittedValue) ? this.adminId : adminId as SdkOptional<String>,
-  );
+  CreateNoteRequestBody _copyWith(
+          {Object? body = sdkOmittedValue,
+          Object? adminId = sdkOmittedValue}) =>
+      CreateNoteRequestBody(
+        body: identical(body, sdkOmittedValue) ? this.body : body as String,
+        adminId: identical(adminId, sdkOmittedValue)
+            ? this.adminId
+            : adminId as SdkOptional<String>,
+      );
 
-  factory CreateNoteRequestBody.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(CreateNoteRequestBody(
-    body: (json['body'] as String?)!,
-    adminId: json['admin_id'] != null ? SdkPresent((json['admin_id'] as String?)!) : const SdkOmitted(),
-  ), json);
+  factory CreateNoteRequestBody.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          CreateNoteRequestBody(
+            body: (json['body'] as String?)!,
+            adminId: json['admin_id'] != null
+                ? SdkPresent((json['admin_id'] as String?)!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'body': body,
-    ...switch (adminId) {
-      SdkPresent<String>(value: final value) => {'admin_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'body': body,
+        ...switch (adminId) {
+          SdkPresent<String>(value: final value) => {
+              'admin_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Optional object value serialized in the `avatar` wire field.
 class UpdateContactResponseAvatar implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of object
   final SdkOptional<String> type_;
+
   /// An image URL containing the avatar of a contact.
   final SdkOptional<String?> imageUrl;
 
-  const UpdateContactResponseAvatar({this.type_ = const SdkOmitted(), this.imageUrl = const SdkOmitted()});
+  const UpdateContactResponseAvatar(
+      {this.type_ = const SdkOmitted(), this.imageUrl = const SdkOmitted()});
 
-  UpdateContactResponseAvatar Function({SdkOptional<String> type_, SdkOptional<String?> imageUrl}) get copyWith => _copyWith;
+  UpdateContactResponseAvatar Function(
+      {SdkOptional<String> type_,
+      SdkOptional<String?> imageUrl}) get copyWith => _copyWith;
 
-  UpdateContactResponseAvatar _copyWith({Object? type_ = sdkOmittedValue, Object? imageUrl = sdkOmittedValue}) => UpdateContactResponseAvatar(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
-    imageUrl: identical(imageUrl, sdkOmittedValue) ? this.imageUrl : imageUrl as SdkOptional<String?>,
-  );
+  UpdateContactResponseAvatar _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? imageUrl = sdkOmittedValue}) =>
+      UpdateContactResponseAvatar(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<String>,
+        imageUrl: identical(imageUrl, sdkOmittedValue)
+            ? this.imageUrl
+            : imageUrl as SdkOptional<String?>,
+      );
 
-  factory UpdateContactResponseAvatar.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(UpdateContactResponseAvatar(
-    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
-    imageUrl: json.containsKey('image_url') ? SdkPresent(json['image_url'] as String?) : const SdkOmitted(),
-  ), json);
+  factory UpdateContactResponseAvatar.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          UpdateContactResponseAvatar(
+            type_: json['type'] != null
+                ? SdkPresent((json['type'] as String?)!)
+                : const SdkOmitted(),
+            imageUrl: json.containsKey('image_url')
+                ? SdkPresent(json['image_url'] as String?)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<String>(value: final value) => {'type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (imageUrl) {
-      SdkPresent<String?>(value: final value) => {'image_url': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<String>(value: final value) => {
+              'type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (imageUrl) {
+          SdkPresent<String?>(value: final value) => {
+              'image_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

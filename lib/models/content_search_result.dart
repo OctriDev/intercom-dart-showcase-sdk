@@ -10,32 +10,63 @@ sealed class ContentSearchResult {
   const ContentSearchResult();
   factory ContentSearchResult.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = ContentSearchDefaultItem.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ContentSearchResultContentSearchDefaultItem(value); } } catch (_) {}
-      try { final value = ContentSearchArticleItem.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ContentSearchResultContentSearchArticleItem(value); } } catch (_) {}
+      try {
+        final value = ContentSearchDefaultItem.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ContentSearchResultContentSearchDefaultItem(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ContentSearchArticleItem.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ContentSearchResultContentSearchArticleItem(value);
+        }
+      } catch (_) {}
     }
-    try { return ContentSearchResultContentSearchDefaultItem(ContentSearchDefaultItem.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ContentSearchResultContentSearchArticleItem(ContentSearchArticleItem.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"content_snippet", "external_content", "file_source_content", "internal_article", "article"}.contains(json["type"])) { return UnknownContentSearchResult(json); }
+    try {
+      return ContentSearchResultContentSearchDefaultItem(
+          ContentSearchDefaultItem.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ContentSearchResultContentSearchArticleItem(
+          ContentSearchArticleItem.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {
+          "content_snippet",
+          "external_content",
+          "file_source_content",
+          "internal_article",
+          "article"
+        }.contains(json["type"])) {
+      return UnknownContentSearchResult(json);
+    }
     throw FormatException("No variant matched for ContentSearchResult");
   }
   Object? toJson();
 }
 
-final class ContentSearchResultContentSearchDefaultItem extends ContentSearchResult {
+final class ContentSearchResultContentSearchDefaultItem
+    extends ContentSearchResult {
   final ContentSearchDefaultItem value;
   const ContentSearchResultContentSearchDefaultItem(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ContentSearchResultContentSearchArticleItem extends ContentSearchResult {
+final class ContentSearchResultContentSearchArticleItem
+    extends ContentSearchResult {
   final ContentSearchArticleItem value;
   const ContentSearchResultContentSearchArticleItem(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [ContentSearchResult] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownContentSearchResult extends ContentSearchResult {
   final Map<String, dynamic> raw;
   const UnknownContentSearchResult(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

@@ -17,28 +17,46 @@ enum ConversationAttributeBaseDataType {
 
   static ConversationAttributeBaseDataType fromJson(String value) {
     switch (value) {
-      case 'string': return ConversationAttributeBaseDataType.string;
-      case 'integer': return ConversationAttributeBaseDataType.integer;
-      case 'list': return ConversationAttributeBaseDataType.list;
-      case 'decimal': return ConversationAttributeBaseDataType.decimal;
-      case 'boolean': return ConversationAttributeBaseDataType.boolean;
-      case 'datetime': return ConversationAttributeBaseDataType.datetime;
-      case 'relationship': return ConversationAttributeBaseDataType.relationship;
-      case 'files': return ConversationAttributeBaseDataType.files;
-      default: throw ArgumentError('Unknown ConversationAttributeBaseDataType: $value');
+      case 'string':
+        return ConversationAttributeBaseDataType.string;
+      case 'integer':
+        return ConversationAttributeBaseDataType.integer;
+      case 'list':
+        return ConversationAttributeBaseDataType.list;
+      case 'decimal':
+        return ConversationAttributeBaseDataType.decimal;
+      case 'boolean':
+        return ConversationAttributeBaseDataType.boolean;
+      case 'datetime':
+        return ConversationAttributeBaseDataType.datetime;
+      case 'relationship':
+        return ConversationAttributeBaseDataType.relationship;
+      case 'files':
+        return ConversationAttributeBaseDataType.files;
+      default:
+        throw ArgumentError(
+            'Unknown ConversationAttributeBaseDataType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ConversationAttributeBaseDataType.string: return 'string';
-      case ConversationAttributeBaseDataType.integer: return 'integer';
-      case ConversationAttributeBaseDataType.list: return 'list';
-      case ConversationAttributeBaseDataType.decimal: return 'decimal';
-      case ConversationAttributeBaseDataType.boolean: return 'boolean';
-      case ConversationAttributeBaseDataType.datetime: return 'datetime';
-      case ConversationAttributeBaseDataType.relationship: return 'relationship';
-      case ConversationAttributeBaseDataType.files: return 'files';
+      case ConversationAttributeBaseDataType.string:
+        return 'string';
+      case ConversationAttributeBaseDataType.integer:
+        return 'integer';
+      case ConversationAttributeBaseDataType.list:
+        return 'list';
+      case ConversationAttributeBaseDataType.decimal:
+        return 'decimal';
+      case ConversationAttributeBaseDataType.boolean:
+        return 'boolean';
+      case ConversationAttributeBaseDataType.datetime:
+        return 'datetime';
+      case ConversationAttributeBaseDataType.relationship:
+        return 'relationship';
+      case ConversationAttributeBaseDataType.files:
+        return 'files';
     }
   }
 
@@ -48,39 +66,48 @@ enum ConversationAttributeBaseDataType {
 
 /// Value is `conversation_attribute`.
 final class ConversationAttributeBaseType {
-
   final String value;
 
   const ConversationAttributeBaseType._(this.value);
 
-  factory ConversationAttributeBaseType.fromJson(String value) => ConversationAttributeBaseType._(value);
+  factory ConversationAttributeBaseType.fromJson(String value) =>
+      ConversationAttributeBaseType._(value);
 
-  static const conversationAttribute = ConversationAttributeBaseType._('conversation_attribute');
+  static const conversationAttribute =
+      ConversationAttributeBaseType._('conversation_attribute');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ConversationAttributeBaseType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ConversationAttributeBaseType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional enumerated value serialized in the `data_type` wire field.
 enum ConversationAttributeBooleanTypeVariant1DataType {
   boolean;
 
-  static ConversationAttributeBooleanTypeVariant1DataType fromJson(String value) {
+  static ConversationAttributeBooleanTypeVariant1DataType fromJson(
+      String value) {
     switch (value) {
-      case 'boolean': return ConversationAttributeBooleanTypeVariant1DataType.boolean;
-      default: throw ArgumentError('Unknown ConversationAttributeBooleanTypeVariant1DataType: $value');
+      case 'boolean':
+        return ConversationAttributeBooleanTypeVariant1DataType.boolean;
+      default:
+        throw ArgumentError(
+            'Unknown ConversationAttributeBooleanTypeVariant1DataType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ConversationAttributeBooleanTypeVariant1DataType.boolean: return 'boolean';
+      case ConversationAttributeBooleanTypeVariant1DataType.boolean:
+        return 'boolean';
     }
   }
 
@@ -92,16 +119,21 @@ enum ConversationAttributeBooleanTypeVariant1DataType {
 enum ConversationAttributeDatetimeTypeVariant1DataType {
   datetime;
 
-  static ConversationAttributeDatetimeTypeVariant1DataType fromJson(String value) {
+  static ConversationAttributeDatetimeTypeVariant1DataType fromJson(
+      String value) {
     switch (value) {
-      case 'datetime': return ConversationAttributeDatetimeTypeVariant1DataType.datetime;
-      default: throw ArgumentError('Unknown ConversationAttributeDatetimeTypeVariant1DataType: $value');
+      case 'datetime':
+        return ConversationAttributeDatetimeTypeVariant1DataType.datetime;
+      default:
+        throw ArgumentError(
+            'Unknown ConversationAttributeDatetimeTypeVariant1DataType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ConversationAttributeDatetimeTypeVariant1DataType.datetime: return 'datetime';
+      case ConversationAttributeDatetimeTypeVariant1DataType.datetime:
+        return 'datetime';
     }
   }
 
@@ -113,16 +145,21 @@ enum ConversationAttributeDatetimeTypeVariant1DataType {
 enum ConversationAttributeDecimalTypeVariant1DataType {
   decimal;
 
-  static ConversationAttributeDecimalTypeVariant1DataType fromJson(String value) {
+  static ConversationAttributeDecimalTypeVariant1DataType fromJson(
+      String value) {
     switch (value) {
-      case 'decimal': return ConversationAttributeDecimalTypeVariant1DataType.decimal;
-      default: throw ArgumentError('Unknown ConversationAttributeDecimalTypeVariant1DataType: $value');
+      case 'decimal':
+        return ConversationAttributeDecimalTypeVariant1DataType.decimal;
+      default:
+        throw ArgumentError(
+            'Unknown ConversationAttributeDecimalTypeVariant1DataType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ConversationAttributeDecimalTypeVariant1DataType.decimal: return 'decimal';
+      case ConversationAttributeDecimalTypeVariant1DataType.decimal:
+        return 'decimal';
     }
   }
 
@@ -136,14 +173,18 @@ enum ConversationAttributeFilesTypeVariant1DataType {
 
   static ConversationAttributeFilesTypeVariant1DataType fromJson(String value) {
     switch (value) {
-      case 'files': return ConversationAttributeFilesTypeVariant1DataType.files;
-      default: throw ArgumentError('Unknown ConversationAttributeFilesTypeVariant1DataType: $value');
+      case 'files':
+        return ConversationAttributeFilesTypeVariant1DataType.files;
+      default:
+        throw ArgumentError(
+            'Unknown ConversationAttributeFilesTypeVariant1DataType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ConversationAttributeFilesTypeVariant1DataType.files: return 'files';
+      case ConversationAttributeFilesTypeVariant1DataType.files:
+        return 'files';
     }
   }
 
@@ -155,16 +196,21 @@ enum ConversationAttributeFilesTypeVariant1DataType {
 enum ConversationAttributeIntegerTypeVariant1DataType {
   integer;
 
-  static ConversationAttributeIntegerTypeVariant1DataType fromJson(String value) {
+  static ConversationAttributeIntegerTypeVariant1DataType fromJson(
+      String value) {
     switch (value) {
-      case 'integer': return ConversationAttributeIntegerTypeVariant1DataType.integer;
-      default: throw ArgumentError('Unknown ConversationAttributeIntegerTypeVariant1DataType: $value');
+      case 'integer':
+        return ConversationAttributeIntegerTypeVariant1DataType.integer;
+      default:
+        throw ArgumentError(
+            'Unknown ConversationAttributeIntegerTypeVariant1DataType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ConversationAttributeIntegerTypeVariant1DataType.integer: return 'integer';
+      case ConversationAttributeIntegerTypeVariant1DataType.integer:
+        return 'integer';
     }
   }
 
@@ -174,23 +220,26 @@ enum ConversationAttributeIntegerTypeVariant1DataType {
 
 /// The type of the object.
 final class ConversationAttributeListTypeb488f16f {
-
   final String value;
 
   const ConversationAttributeListTypeb488f16f._(this.value);
 
-  factory ConversationAttributeListTypeb488f16f.fromJson(String value) => ConversationAttributeListTypeb488f16f._(value);
+  factory ConversationAttributeListTypeb488f16f.fromJson(String value) =>
+      ConversationAttributeListTypeb488f16f._(value);
 
   static const list = ConversationAttributeListTypeb488f16f._('list');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ConversationAttributeListTypeb488f16f && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ConversationAttributeListTypeb488f16f && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional enumerated value serialized in the `data_type` wire field.
@@ -199,14 +248,18 @@ enum ConversationAttributeListTypeVariant1DataType {
 
   static ConversationAttributeListTypeVariant1DataType fromJson(String value) {
     switch (value) {
-      case 'list': return ConversationAttributeListTypeVariant1DataType.list;
-      default: throw ArgumentError('Unknown ConversationAttributeListTypeVariant1DataType: $value');
+      case 'list':
+        return ConversationAttributeListTypeVariant1DataType.list;
+      default:
+        throw ArgumentError(
+            'Unknown ConversationAttributeListTypeVariant1DataType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ConversationAttributeListTypeVariant1DataType.list: return 'list';
+      case ConversationAttributeListTypeVariant1DataType.list:
+        return 'list';
     }
   }
 
@@ -218,16 +271,22 @@ enum ConversationAttributeListTypeVariant1DataType {
 enum ConversationAttributeRelationshipTypeVariant1DataType {
   relationship;
 
-  static ConversationAttributeRelationshipTypeVariant1DataType fromJson(String value) {
+  static ConversationAttributeRelationshipTypeVariant1DataType fromJson(
+      String value) {
     switch (value) {
-      case 'relationship': return ConversationAttributeRelationshipTypeVariant1DataType.relationship;
-      default: throw ArgumentError('Unknown ConversationAttributeRelationshipTypeVariant1DataType: $value');
+      case 'relationship':
+        return ConversationAttributeRelationshipTypeVariant1DataType
+            .relationship;
+      default:
+        throw ArgumentError(
+            'Unknown ConversationAttributeRelationshipTypeVariant1DataType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ConversationAttributeRelationshipTypeVariant1DataType.relationship: return 'relationship';
+      case ConversationAttributeRelationshipTypeVariant1DataType.relationship:
+        return 'relationship';
     }
   }
 
@@ -237,40 +296,53 @@ enum ConversationAttributeRelationshipTypeVariant1DataType {
 
 /// The cardinality of the relationship: `one` or `many`.
 final class ConversationAttributeRelationshipTypeVariant1ReferenceType {
-
   final String value;
 
-  const ConversationAttributeRelationshipTypeVariant1ReferenceType._(this.value);
+  const ConversationAttributeRelationshipTypeVariant1ReferenceType._(
+      this.value);
 
-  factory ConversationAttributeRelationshipTypeVariant1ReferenceType.fromJson(String value) => ConversationAttributeRelationshipTypeVariant1ReferenceType._(value);
+  factory ConversationAttributeRelationshipTypeVariant1ReferenceType.fromJson(
+          String value) =>
+      ConversationAttributeRelationshipTypeVariant1ReferenceType._(value);
 
-  static const one = ConversationAttributeRelationshipTypeVariant1ReferenceType._('one');
-  static const many = ConversationAttributeRelationshipTypeVariant1ReferenceType._('many');
+  static const one =
+      ConversationAttributeRelationshipTypeVariant1ReferenceType._('one');
+  static const many =
+      ConversationAttributeRelationshipTypeVariant1ReferenceType._('many');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ConversationAttributeRelationshipTypeVariant1ReferenceType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ConversationAttributeRelationshipTypeVariant1ReferenceType &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional enumerated value serialized in the `data_type` wire field.
 enum ConversationAttributeStringTypeVariant1DataType {
   string;
 
-  static ConversationAttributeStringTypeVariant1DataType fromJson(String value) {
+  static ConversationAttributeStringTypeVariant1DataType fromJson(
+      String value) {
     switch (value) {
-      case 'string': return ConversationAttributeStringTypeVariant1DataType.string;
-      default: throw ArgumentError('Unknown ConversationAttributeStringTypeVariant1DataType: $value');
+      case 'string':
+        return ConversationAttributeStringTypeVariant1DataType.string;
+      default:
+        throw ArgumentError(
+            'Unknown ConversationAttributeStringTypeVariant1DataType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ConversationAttributeStringTypeVariant1DataType.string: return 'string';
+      case ConversationAttributeStringTypeVariant1DataType.string:
+        return 'string';
     }
   }
 

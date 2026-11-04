@@ -20,14 +20,18 @@ Future<ContactAttachedCompanies> listContactsCompanies(ClientConfig config,
           '/contacts/${Uri.encodeComponent(contactId.toString())}/companies',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listContactsCompanies',
-          fromJsonRaw: (value) => ContactAttachedCompanies.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ContactAttachedCompanies.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Lists the segments associated with a specific contact. Use the `contact_id` path parameter to identify the contact whose segments you want to retrieve.
 ///
@@ -42,14 +46,18 @@ Future<ContactSegments> listContactsSegments(ClientConfig config,
           '/contacts/${Uri.encodeComponent(contactId.toString())}/segments',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listContactsSegments',
-          fromJsonRaw: (value) => ContactSegments.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ContactSegments.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Lists the subscription types whose preferences a contact has explicitly set. Use the `contact_id` path parameter to retrieve the contact's opt-in and opt-out subscriptions; subscriptions left in their default state are not included.
 ///
@@ -64,14 +72,18 @@ Future<SubscriptionTypeList> listContactsSubscriptions(ClientConfig config,
           '/contacts/${Uri.encodeComponent(contactId.toString())}/subscriptions',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listContactsSubscriptions',
-          fromJsonRaw: (value) => SubscriptionTypeList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              SubscriptionTypeList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Lists the tags attached to a specific contact. Use the `contact_id` path parameter to retrieve the tags associated with that contact.
 ///
@@ -86,14 +98,18 @@ Future<TagList> listContactsTags(ClientConfig config,
           'GET', '/contacts/${Uri.encodeComponent(contactId.toString())}/tags',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listContactsTags',
-          fromJsonRaw: (value) => TagList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              TagList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Lists contacts in the workspace that are no longer active, with pagination. Use the `page` and `per_page` parameters to retrieve results in pages and locate contacts by their identifiers or contact details. Each result includes a status explaining why the contact is inactive, and merged contacts include `merged_into_id`.
 ///
@@ -117,18 +133,24 @@ Future<DeletedContactList> listDeletedContacts(ClientConfig config,
   return (await sdkRequest<DeletedContactList>('GET', '/contacts/deleted',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listDeletedContacts',
-          fromJsonRaw: (value) => DeletedContactList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeletedContactList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Updates an existing contact, including its attributes and associations with custom object instances. Supply only the contact properties or associations you want to change; if you set `email_verified`, include `email` in the same request. Use `include_merge_history` to request merge history for contacts with a `user` role.
 ///
@@ -147,18 +169,24 @@ Future<UpdateContactResponse> updateContact(ClientConfig config,
           'PUT', '/contacts/${Uri.encodeComponent(contactId.toString())}',
           config: config,
           query: {
-            'include_merge_history': SdkQueryValue(SdkUtils.unwrapOptional(includeMergeHistory), style: 'form', explode: true)
+            'include_merge_history': SdkQueryValue(
+                SdkUtils.unwrapOptional(includeMergeHistory),
+                style: 'form',
+                explode: true)
           },
           body: SdkUtils.unwrapOptional(body),
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'updateContact',
-          fromJsonRaw: (value) => UpdateContactResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              UpdateContactResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves a contact by its unique identifier. Use `include_merge_history` to request merge history for contacts with a `user` role. If the contact was merged, the response includes a `Link` header pointing to the canonical contact.
 ///
@@ -176,17 +204,24 @@ Future<ShowContactResponse> showContact(ClientConfig config,
           'GET', '/contacts/${Uri.encodeComponent(contactId.toString())}',
           config: config,
           query: {
-            'include_merge_history': SdkQueryValue(SdkUtils.unwrapOptional(includeMergeHistory), style: 'form', explode: true)
+            'include_merge_history': SdkQueryValue(
+                SdkUtils.unwrapOptional(includeMergeHistory),
+                style: 'form',
+                explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'showContact',
-          fromJsonRaw: (value) => ShowContactResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ShowContactResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '410': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '410': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes a single contact from the workspace. Use the contact's ID to identify the record to remove. The response includes a contact reference and indicates whether the contact was deleted.
 ///
@@ -201,14 +236,17 @@ Future<ContactDeleted> deleteContact(ClientConfig config,
           'DELETE', '/contacts/${Uri.encodeComponent(contactId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'deleteContact',
-          fromJsonRaw: (value) => ContactDeleted.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ContactDeleted.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Merges a lead contact into a user contact. Supply the source contact in `from` and the destination contact in `into`; set `skip_duplicate_validation` to true only when merging contacts that do not share a matching email or phone. After the merge, use the target contact's identifier because the source contact is removed from the active contact list.
 ///
@@ -232,22 +270,30 @@ Future<MergeContactResponse> mergeContact(ClientConfig config,
   return (await sdkRequest<MergeContactResponse>('POST', '/contacts/merge',
           config: config,
           query: {
-            'include_merge_history': SdkQueryValue(SdkUtils.unwrapOptional(includeMergeHistory), style: 'form', explode: true)
+            'include_merge_history': SdkQueryValue(
+                SdkUtils.unwrapOptional(includeMergeHistory),
+                style: 'form',
+                explode: true)
           },
           body: {
             'from': from,
             'into': into,
-            'skip_duplicate_validation': SdkUtils.unwrapOptional(skipDuplicateValidation)
+            'skip_duplicate_validation':
+                SdkUtils.unwrapOptional(skipDuplicateValidation)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'mergeContact',
-          fromJsonRaw: (value) => MergeContactResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              MergeContactResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Previews a contact merge without changing any contact data. Supply the source and destination IDs in `from` and `into`, and optionally set `custom_attribute_names` to include selected custom attributes in the preview. The result reports whether the merge is allowed and provides either a summary of changes or reasons it is not allowed.
 ///
@@ -275,18 +321,22 @@ Future<MergePreviewResponse> previewMergeContact(ClientConfig config,
           body: {
             'from': from,
             'into': into,
-            'skip_duplicate_validation': SdkUtils.unwrapOptional(skipDuplicateValidation),
-            'custom_attribute_names': SdkUtils.unwrapOptional(customAttributeNames)
+            'skip_duplicate_validation':
+                SdkUtils.unwrapOptional(skipDuplicateValidation),
+            'custom_attribute_names':
+                SdkUtils.unwrapOptional(customAttributeNames)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'previewMergeContact',
           fromJsonRaw: (value) => MergePreviewResponse.fromJson(value),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Searches contacts by applying filters to contact attributes. Provide a `query` with one or more filters, and use `pagination` to retrieve subsequent result pages or `sort` to order the matches. Search results exclude merged contacts, and recently created contacts may take a few minutes to become searchable.
 ///
@@ -308,7 +358,10 @@ Future<ContactList> searchContacts(ClientConfig config,
   return (await sdkRequest<ContactList>('POST', '/contacts/search',
           config: config,
           query: {
-            'include_merge_history': SdkQueryValue(SdkUtils.unwrapOptional(includeMergeHistory), style: 'form', explode: true)
+            'include_merge_history': SdkQueryValue(
+                SdkUtils.unwrapOptional(includeMergeHistory),
+                style: 'form',
+                explode: true)
           },
           body: {
             'query': query,
@@ -316,14 +369,18 @@ Future<ContactList> searchContacts(ClientConfig config,
             'sort': SdkUtils.unwrapOptional(sort)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'searchContacts',
-          fromJsonRaw: (value) => ContactList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ContactList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Lists contact activity events for the workspace, including contact creation, role updates, merges, and deletions. Results are ordered from oldest to newest. Use `starting_after` to continue from a previous page and `per_page` to control the page size, from 1 to 150.
 ///
@@ -345,18 +402,25 @@ Future<ContactActivityList> listContactActivities(ClientConfig config,
   return (await sdkRequest<ContactActivityList>('GET', '/contacts/activities',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'starting_after': SdkQueryValue(SdkUtils.unwrapOptional(startingAfter), style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'starting_after': SdkQueryValue(
+                SdkUtils.unwrapOptional(startingAfter),
+                style: 'form',
+                explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listContactActivities',
-          fromJsonRaw: (value) => ContactActivityList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ContactActivityList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Lists contacts in your workspace, including users and leads. Use `include_merge_history` to request merge history for contacts with a `user` role. Results exclude contacts that have been merged, and you can paginate through the list with the `starting_after` cursor.
 ///
@@ -371,17 +435,23 @@ Future<ContactList> listContacts(ClientConfig config,
   return (await sdkRequest<ContactList>('GET', '/contacts',
           config: config,
           query: {
-            'include_merge_history': SdkQueryValue(SdkUtils.unwrapOptional(includeMergeHistory), style: 'form', explode: true)
+            'include_merge_history': SdkQueryValue(
+                SdkUtils.unwrapOptional(includeMergeHistory),
+                style: 'form',
+                explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listContacts',
-          fromJsonRaw: (value) => ContactList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ContactList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Creates a contact in your workspace as a user or lead. Provide at least one of `email`, `external_id`, or `role` to identify the type of contact to create; include `email` when setting `email_verified`. The response contains the created contact and its available details.
 ///
@@ -394,14 +464,17 @@ Future<CreateContactResponse> createContact(ClientConfig config,
           config: config,
           body: SdkUtils.unwrapOptional(body),
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'createContact',
-          fromJsonRaw: (value) => CreateContactResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              CreateContactResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Retrieves a user contact by its external identifier; this endpoint does not retrieve leads. Use `include_merge_history` to request merge history for the contact. If the user has been merged, the response includes a `Link` header pointing to the canonical contact.
 ///
@@ -410,27 +483,34 @@ Future<CreateContactResponse> createContact(ClientConfig config,
 /// [externalId] The external ID of the user that you want to retrieve
 /// [includeMergeHistory] Pass `true` to include the contact's merge history in
 ///   the response. Only returned for contacts with a `user` role.
-Future<ShowContactByExternalIdResponse>
-    showContactByExternalId(ClientConfig config,
-        {required String externalId,
-        SdkOptional<bool> includeMergeHistory = const SdkOmitted(),
-        SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<ShowContactByExternalIdResponse> showContactByExternalId(
+    ClientConfig config,
+    {required String externalId,
+    SdkOptional<bool> includeMergeHistory = const SdkOmitted(),
+    SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<ShowContactByExternalIdResponse>('GET',
           '/contacts/find_by_external_id/${Uri.encodeComponent(externalId.toString())}',
           config: config,
           query: {
-            'include_merge_history': SdkQueryValue(SdkUtils.unwrapOptional(includeMergeHistory), style: 'form', explode: true)
+            'include_merge_history': SdkQueryValue(
+                SdkUtils.unwrapOptional(includeMergeHistory),
+                style: 'form',
+                explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'showContactByExternalId',
-          fromJsonRaw: (value) => ShowContactByExternalIdResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ShowContactByExternalIdResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '410': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '410': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Archives a single contact. Supply the `contact_id` of the contact to archive. The response includes the contact reference and an `archived` flag.
 ///
@@ -445,13 +525,14 @@ Future<ContactArchived> archiveContact(ClientConfig config,
           '/contacts/${Uri.encodeComponent(contactId.toString())}/archive',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'archiveContact',
-          fromJsonRaw: (value) => ContactArchived.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ContactArchived.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Unarchives a single contact. Supply the `contact_id` of the contact to restore from the archived state. The response includes the contact reference and an `archived` flag.
 ///
@@ -466,13 +547,14 @@ Future<ContactUnarchived> unarchiveContact(ClientConfig config,
           '/contacts/${Uri.encodeComponent(contactId.toString())}/unarchive',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'unarchiveContact',
-          fromJsonRaw: (value) => ContactUnarchived.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ContactUnarchived.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Blocks a single contact. Supply the `contact_id` of the contact to block. Blocking the contact also archives the contact's conversations.
 ///
@@ -487,13 +569,14 @@ Future<ContactBlocked> blockContact(ClientConfig config,
           '/contacts/${Uri.encodeComponent(contactId.toString())}/block',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'blockContact',
-          fromJsonRaw: (value) => ContactBlocked.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ContactBlocked.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Lists the merge-history entries for a contact, showing contacts merged into that contact. Use `cursor` to fetch subsequent pages and `per_page` to set the page size; only contacts with a `user` role have merge history.
 ///
@@ -519,20 +602,26 @@ Future<MergeHistoryList> listContactMergeHistory(ClientConfig config,
           '/contacts/${Uri.encodeComponent(id.toString())}/merge_history',
           config: config,
           query: {
-            'cursor': SdkQueryValue(SdkUtils.unwrapOptional(cursor), style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true)
+            'cursor': SdkQueryValue(SdkUtils.unwrapOptional(cursor),
+                style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listContactMergeHistory',
-          fromJsonRaw: (value) => MergeHistoryList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              MergeHistoryList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Lists the merge-history entries for a contact, showing contacts merged into that contact. Use `cursor` to fetch subsequent pages and `per_page` to set the page size; only contacts with a `user` role have merge history.
 ///
@@ -543,13 +632,35 @@ Future<MergeHistoryList> listContactMergeHistory(ClientConfig config,
 ///   previous response to fetch the next page.
 /// [perPage] The number of results to return per page (default 50, max 150).
 /// [order] The order to return results in. Defaults to descending.
-Stream<MergeHistoryItem> listContactMergeHistoryPaginated(ClientConfig config, {required String id, String? cursor, int? perPage, ListContactMergeHistoryOrder? order, IntercomVersion? intercomVersion, RequestOptions? requestOptions}) async* {
+Stream<MergeHistoryItem> listContactMergeHistoryPaginated(ClientConfig config,
+    {required String id,
+    String? cursor,
+    int? perPage,
+    ListContactMergeHistoryOrder? order,
+    IntercomVersion? intercomVersion,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = cursor;
   while (true) {
-    final sdkPage = await listContactMergeHistory(config, id: id, cursor: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), perPage: perPage == null ? const SdkOmitted<int>() : SdkPresent<int>(perPage), order: order == null ? const SdkOmitted<ListContactMergeHistoryOrder>() : SdkPresent<ListContactMergeHistoryOrder>(order), intercomVersion: intercomVersion == null ? const SdkOmitted<IntercomVersion>() : SdkPresent<IntercomVersion>(intercomVersion), requestOptions: requestOptions);
+    final sdkPage = await listContactMergeHistory(config,
+        id: id,
+        cursor: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        perPage: perPage == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(perPage),
+        order: order == null
+            ? const SdkOmitted<ListContactMergeHistoryOrder>()
+            : SdkPresent<ListContactMergeHistoryOrder>(order),
+        intercomVersion: intercomVersion == null
+            ? const SdkOmitted<IntercomVersion>()
+            : SdkPresent<IntercomVersion>(intercomVersion),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     if (sdkPage.hasMore.valueOrNull != true) return;
     final sdkNext = sdkPage.nextCursor.valueOrNull;
     if (sdkNext == null) return;
@@ -557,10 +668,31 @@ Stream<MergeHistoryItem> listContactMergeHistoryPaginated(ClientConfig config, {
   }
 }
 
-Stream<SdkPage<MergeHistoryList, MergeHistoryItem>> listContactMergeHistoryPages(ClientConfig config, {required String id, String? cursor, int? perPage, ListContactMergeHistoryOrder? order, IntercomVersion? intercomVersion, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<MergeHistoryList, MergeHistoryItem>>
+    listContactMergeHistoryPages(ClientConfig config,
+        {required String id,
+        String? cursor,
+        int? perPage,
+        ListContactMergeHistoryOrder? order,
+        IntercomVersion? intercomVersion,
+        RequestOptions? requestOptions}) async* {
   var sdkCursor = cursor;
   while (true) {
-    final sdkPage = await listContactMergeHistory(config, id: id, cursor: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), perPage: perPage == null ? const SdkOmitted<int>() : SdkPresent<int>(perPage), order: order == null ? const SdkOmitted<ListContactMergeHistoryOrder>() : SdkPresent<ListContactMergeHistoryOrder>(order), intercomVersion: intercomVersion == null ? const SdkOmitted<IntercomVersion>() : SdkPresent<IntercomVersion>(intercomVersion), requestOptions: requestOptions);
+    final sdkPage = await listContactMergeHistory(config,
+        id: id,
+        cursor: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        perPage: perPage == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(perPage),
+        order: order == null
+            ? const SdkOmitted<ListContactMergeHistoryOrder>()
+            : SdkPresent<ListContactMergeHistoryOrder>(order),
+        intercomVersion: intercomVersion == null
+            ? const SdkOmitted<IntercomVersion>()
+            : SdkPresent<IntercomVersion>(intercomVersion),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.nextCursor.valueOrNull;
@@ -570,7 +702,6 @@ Stream<SdkPage<MergeHistoryList, MergeHistoryItem>> listContactMergeHistoryPages
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Creates multiple contacts without updating contacts that already exist. Submit up to 100 contact objects in `contacts`; duplicate `email` or `external_id` values cause those items to be rejected while other contacts in the batch can still be created. Poll `GET /contacts/bulk/{id}` with the returned job ID to check asynchronous processing; created contact IDs are not included in the job response.
 ///
@@ -590,14 +721,20 @@ Future<ContactsBulkJob> bulkCreateContacts(ClientConfig config,
           config: config,
           body: {'contacts': contacts, 'job': SdkUtils.unwrapOptional(job)},
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'bulkCreateContacts',
-          fromJsonRaw: (value) => ContactsBulkJob.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ContactsBulkJob.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '422': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Updates multiple contacts in one asynchronous bulk job. Include each contact's `id` and the fields to change in `contacts`, with no more than 100 contacts per request; tag changes are best-effort, and unknown tag IDs are skipped. Poll `GET /contacts/bulk/{id}` with the returned job ID to check the job status.
 ///
@@ -617,14 +754,20 @@ Future<ContactsBulkJob> bulkUpdateContacts(ClientConfig config,
           config: config,
           body: {'contacts': contacts, 'job': SdkUtils.unwrapOptional(job)},
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'bulkUpdateContacts',
-          fromJsonRaw: (value) => ContactsBulkJob.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ContactsBulkJob.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '422': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes contacts permanently in a background bulk job. Include up to 100 contact IDs in `contacts`; an item for a contact that does not exist or cannot be deleted fails without stopping the rest of the batch. Poll `GET /contacts/bulk/{id}` with the returned job ID to check the job status. &lt;Callout type="warning"&gt;Bulk deletion is permanent.&lt;/Callout&gt;
 ///
@@ -644,14 +787,20 @@ Future<ContactsBulkJob> bulkDeleteContacts(ClientConfig config,
           config: config,
           body: {'contacts': contacts, 'job': SdkUtils.unwrapOptional(job)},
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'bulkDeleteContacts',
-          fromJsonRaw: (value) => ContactsBulkJob.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ContactsBulkJob.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '422': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves the status of an asynchronous bulk contact job. Supply the job's `id` to view its overall state, task details, and timestamps. Use the state to determine whether processing is pending, running, completed, or completed with errors.
 ///
@@ -666,10 +815,14 @@ Future<ContactsBulkJob> showBulkUpdateContactsJob(ClientConfig config,
           'GET', '/contacts/bulk/${Uri.encodeComponent(id.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'showBulkUpdateContactsJob',
-          fromJsonRaw: (value) => ContactsBulkJob.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ContactsBulkJob.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

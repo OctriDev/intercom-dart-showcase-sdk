@@ -12,13 +12,14 @@ class TicketRequestCustomAttributes {
 
   const TicketRequestCustomAttributes({this.value = const <String, dynamic>{}});
 
-  factory TicketRequestCustomAttributes.fromJson(Map<String, dynamic> json) => TicketRequestCustomAttributes(
-    value: json.map((key, value) => MapEntry(key, value)),
-  );
+  factory TicketRequestCustomAttributes.fromJson(Map<String, dynamic> json) =>
+      TicketRequestCustomAttributes(
+        value: json.map((key, value) => MapEntry(key, value)),
+      );
 
   Map<String, dynamic> toJson() => value.map(
-    (key, value) => MapEntry(key, value),
-  );
+        (key, value) => MapEntry(key, value),
+      );
 
   dynamic operator [](String key) => value[key];
   Iterable<String> get keys => value.keys;

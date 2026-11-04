@@ -51,18 +51,23 @@ Future<Company> createOrUpdateCompany(ClientConfig config,
             'industry': SdkUtils.unwrapOptional(industry),
             'custom_attributes': SdkUtils.unwrapOptional(customAttributes),
             'remote_created_at': SdkUtils.unwrapOptional(remoteCreatedAt),
-            'update_last_request_at': SdkUtils.unwrapOptional(updateLastRequestAt),
+            'update_last_request_at':
+                SdkUtils.unwrapOptional(updateLastRequestAt),
             'monthly_spend': SdkUtils.unwrapOptional(monthlySpend)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'createOrUpdateCompany',
-          fromJsonRaw: (value) => Company.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Company.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Lists companies or retrieves a company matching the supplied filters. Use `company_id` or `name` to look up a single company, or use `tag_id` or `segment_id` to filter the company list. Use `page` and `per_page` to paginate the results.
 ///
@@ -86,22 +91,32 @@ Future<CompanyList> retrieveCompany(ClientConfig config,
   return (await sdkRequest<CompanyList>('GET', '/companies',
           config: config,
           query: {
-            'name': SdkQueryValue(SdkUtils.unwrapOptional(name), style: 'form', explode: true),
-            'company_id': SdkQueryValue(SdkUtils.unwrapOptional(companyId), style: 'form', explode: true),
-            'tag_id': SdkQueryValue(SdkUtils.unwrapOptional(tagId), style: 'form', explode: true),
-            'segment_id': SdkQueryValue(SdkUtils.unwrapOptional(segmentId), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
+            'name': SdkQueryValue(SdkUtils.unwrapOptional(name),
+                style: 'form', explode: true),
+            'company_id': SdkQueryValue(SdkUtils.unwrapOptional(companyId),
+                style: 'form', explode: true),
+            'tag_id': SdkQueryValue(SdkUtils.unwrapOptional(tagId),
+                style: 'form', explode: true),
+            'segment_id': SdkQueryValue(SdkUtils.unwrapOptional(segmentId),
+                style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'retrieveCompany',
-          fromJsonRaw: (value) => CompanyList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              CompanyList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves a company by its Intercom-provisioned identifier. Use `company_id` to identify the company whose details you need. The response includes company information such as its name, custom attributes, plan, and associated segments.
 ///
@@ -116,14 +131,18 @@ Future<Company> retrieveCompaniesById(ClientConfig config,
           'GET', '/companies/${Uri.encodeComponent(companyId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'retrieveCompaniesById',
-          fromJsonRaw: (value) => Company.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Company.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Replaces the submitted properties on a company identified by its Intercom-provisioned ID. Supply only the company fields you want to update; `company_id` cannot be changed after creation. The response contains the updated company object.
 ///
@@ -166,14 +185,18 @@ Future<Company> updateCompany(ClientConfig config,
             'monthly_spend': SdkUtils.unwrapOptional(monthlySpend)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'updateCompany',
-          fromJsonRaw: (value) => Company.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Company.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes a company while keeping its record in the workspace and detaching all of its contacts. Contact detachment is permanent, and the contacts themselves are not deleted. Remove or filter the company from any syncing third-party integration before deletion if you want to prevent it from being recreated.
 ///
@@ -188,14 +211,18 @@ Future<DeletedCompanyObject> deleteCompany(ClientConfig config,
           'DELETE', '/companies/${Uri.encodeComponent(companyId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'deleteCompany',
-          fromJsonRaw: (value) => DeletedCompanyObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeletedCompanyObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Lists the contacts associated with a company identified by `company_id`. Use this endpoint to retrieve the company's attached contacts; the response includes contact records and cursor-based page metadata.
 ///
@@ -210,37 +237,45 @@ Future<CompanyAttachedContacts> listAttachedContacts(ClientConfig config,
           '/companies/${Uri.encodeComponent(companyId.toString())}/contacts',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listAttachedContacts',
-          fromJsonRaw: (value) => CompanyAttachedContacts.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              CompanyAttachedContacts.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Lists the segments associated with a company identified by `company_id`. Use this endpoint to inspect the company's attached segments; the response includes segment records.
 ///
 /// You can fetch a list of all segments that belong to a company.
 ///
 /// [companyId] The unique identifier for the company which is given by Intercom
-Future<CompanyAttachedSegments>
-    listCompaniesAttachedSegments(ClientConfig config,
-        {required String companyId,
-        SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<CompanyAttachedSegments> listCompaniesAttachedSegments(
+    ClientConfig config,
+    {required String companyId,
+    SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<CompanyAttachedSegments>('GET',
           '/companies/${Uri.encodeComponent(companyId.toString())}/segments',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listCompaniesAttachedSegments',
-          fromJsonRaw: (value) => CompanyAttachedSegments.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              CompanyAttachedSegments.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Searches companies by their attributes using filters in the request body. Use `query` to combine filters, `sort` to order results, and `pagination` to retrieve subsequent pages; filter groups support up to two nested levels and 15 filters per AND or OR group. Search results exclude companies without associated users.
 ///
@@ -264,14 +299,18 @@ Future<CompanyList> searchCompanies(ClientConfig config,
             'sort': SdkUtils.unwrapOptional(sort)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'searchCompanies',
-          fromJsonRaw: (value) => CompanyList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              CompanyList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Lists companies, ordered by `last_request_at` and descending by default. Use the pagination parameters to retrieve results in pages; companies without associated users are excluded, and this endpoint can return at most 10,000 companies.
 ///
@@ -290,19 +329,25 @@ Future<CompanyList> listAllCompanies(ClientConfig config,
   return (await sdkRequest<CompanyList>('POST', '/companies/list',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listAllCompanies',
-          fromJsonRaw: (value) => CompanyList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              CompanyList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Lists companies by using a cursor-based scroll to iterate through a large dataset. Omit `scroll_param` to start a scroll, then pass the returned value on subsequent requests; only one scroll can be open per app at a time, and an unused scroll expires after one minute.
 ///
@@ -314,17 +359,21 @@ Future<CompanyScroll> scrollOverAllCompanies(ClientConfig config,
   return (await sdkRequest<CompanyScroll>('GET', '/companies/scroll',
           config: config,
           query: {
-            'scroll_param': SdkQueryValue(SdkUtils.unwrapOptional(scrollParam), style: 'form', explode: true)
+            'scroll_param': SdkQueryValue(SdkUtils.unwrapOptional(scrollParam),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'scrollOverAllCompanies',
-          fromJsonRaw: (value) => CompanyScroll.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              CompanyScroll.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Attaches a company to a contact identified by `contact_id`. Supply the company's Intercom identifier in the body field `id`. The response returns the attached company object.
 ///
@@ -342,14 +391,19 @@ Future<Company> attachCompaniesContact(ClientConfig config,
           config: config,
           body: {'id': id},
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'attachCompaniesContact',
-          fromJsonRaw: (value) => Company.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Company.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Removes the association between a contact and a company. Identify both records with `contact_id` and `company_id` to detach the company from the contact. The response returns the company object.
 ///
@@ -366,10 +420,15 @@ Future<Company> detachCompaniesContact(ClientConfig config,
           '/contacts/${Uri.encodeComponent(contactId.toString())}/companies/${Uri.encodeComponent(companyId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'detachCompaniesContact',
-          fromJsonRaw: (value) => Company.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Company.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

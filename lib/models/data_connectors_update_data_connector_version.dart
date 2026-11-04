@@ -8,23 +8,34 @@ part of 'data_connectors.dart';
 class UpdateDataConnectorVersionRequest implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The new note for the version. Sending `null`, an empty string, or a whitespace-only string clears the note.
   final String? note;
 
   const UpdateDataConnectorVersionRequest({required this.note});
 
-  UpdateDataConnectorVersionRequest Function({String? note}) get copyWith => _copyWith;
+  UpdateDataConnectorVersionRequest Function({String? note}) get copyWith =>
+      _copyWith;
 
-  UpdateDataConnectorVersionRequest _copyWith({Object? note = sdkOmittedValue}) => UpdateDataConnectorVersionRequest(
-    note: identical(note, sdkOmittedValue) ? this.note : note as String?,
-  );
+  UpdateDataConnectorVersionRequest _copyWith(
+          {Object? note = sdkOmittedValue}) =>
+      UpdateDataConnectorVersionRequest(
+        note: identical(note, sdkOmittedValue) ? this.note : note as String?,
+      );
 
-  factory UpdateDataConnectorVersionRequest.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(UpdateDataConnectorVersionRequest(
-    note: json.containsKey('note') ? json['note'] as String? : throw ArgumentError.value(null, 'note', 'Required property is missing'),
-  ), json);
+  factory UpdateDataConnectorVersionRequest.fromJson(
+          Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          UpdateDataConnectorVersionRequest(
+            note: json.containsKey('note')
+                ? json['note'] as String?
+                : throw ArgumentError.value(
+                    null, 'note', 'Required property is missing'),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'note': note,
-  };
+        'note': note,
+      };
 }

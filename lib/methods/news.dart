@@ -15,14 +15,17 @@ Future<PaginatedResponse> listNewsItems(ClientConfig config,
   return (await sdkRequest<PaginatedResponse>('GET', '/news/news_items',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listNewsItems',
-          fromJsonRaw: (value) => PaginatedResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              PaginatedResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Creates a news item for announcing product updates, company news, promotions, events, or other content to customers. Supply `title` and `sender_id`; set `state` to `live` for visibility in assigned newsfeeds, or leave it as `draft`. You can assign the item to newsfeeds and configure labels, reactions, and silent delivery.
 ///
@@ -50,7 +53,8 @@ Future<NewsItem> createNewsItem(ClientConfig config,
     SdkOptional<bool> deliverSilently = const SdkOmitted(),
     SdkOptional<List<String>> labels = const SdkOmitted(),
     SdkOptional<List<String?>> reactions = const SdkOmitted(),
-    SdkOptional<List<NewsfeedAssignment>> newsfeedAssignments = const SdkOmitted(),
+    SdkOptional<List<NewsfeedAssignment>> newsfeedAssignments =
+        const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<NewsItem>('POST', '/news/news_items',
           config: config,
@@ -65,14 +69,17 @@ Future<NewsItem> createNewsItem(ClientConfig config,
             'newsfeed_assignments': SdkUtils.unwrapOptional(newsfeedAssignments)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'createNewsItem',
-          fromJsonRaw: (value) => NewsItem.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              NewsItem.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves the details of a single news item by its unique identifier. Use this operation to fetch the item's content, state, and newsfeed assignments. The response includes the item's metadata and timestamps.
 ///
@@ -88,14 +95,18 @@ Future<NewsItem> retrieveNewsItem(ClientConfig config,
           '/news/news_items/${Uri.encodeComponent(newsItemId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'retrieveNewsItem',
-          fromJsonRaw: (value) => NewsItem.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              NewsItem.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates a news item identified by its unique identifier. Supply `title` and `sender_id`, and include any other fields you want to set, such as `body`, `state`, or newsfeed assignments. Set `state` to `live` for visibility in assigned newsfeeds.
 ///
@@ -124,7 +135,8 @@ Future<NewsItem> updateNewsItem(ClientConfig config,
     SdkOptional<bool> deliverSilently = const SdkOmitted(),
     SdkOptional<List<String>> labels = const SdkOmitted(),
     SdkOptional<List<String?>> reactions = const SdkOmitted(),
-    SdkOptional<List<NewsfeedAssignment>> newsfeedAssignments = const SdkOmitted(),
+    SdkOptional<List<NewsfeedAssignment>> newsfeedAssignments =
+        const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<NewsItem>('PUT',
           '/news/news_items/${Uri.encodeComponent(newsItemId.toString())}',
@@ -140,14 +152,18 @@ Future<NewsItem> updateNewsItem(ClientConfig config,
             'newsfeed_assignments': SdkUtils.unwrapOptional(newsfeedAssignments)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'updateNewsItem',
-          fromJsonRaw: (value) => NewsItem.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              NewsItem.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes a single news item by its unique identifier. Use this operation when you want to remove a news item from the workspace. The response indicates whether deletion succeeded and includes the identifier of the deleted item.
 ///
@@ -163,14 +179,18 @@ Future<DeletedObject> deleteNewsItem(ClientConfig config,
           '/news/news_items/${Uri.encodeComponent(newsItemId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'deleteNewsItem',
-          fromJsonRaw: (value) => DeletedObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeletedObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Lists the live news items assigned to a specific newsfeed. Supply `newsfeed_id` to select the feed whose items you want to retrieve. The response includes cursor-based page metadata and a total count.
 ///
@@ -186,14 +206,17 @@ Future<PaginatedResponse> listLiveNewsfeedItems(ClientConfig config,
           '/news/newsfeeds/${Uri.encodeComponent(newsfeedId.toString())}/items',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listLiveNewsfeedItems',
-          fromJsonRaw: (value) => PaginatedResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              PaginatedResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Lists the newsfeeds available in the workspace. Use the cursor-based page metadata to navigate through the results. The response includes a total count and an array of newsfeed objects.
 ///
@@ -204,14 +227,17 @@ Future<PaginatedResponse> listNewsfeeds(ClientConfig config,
   return (await sdkRequest<PaginatedResponse>('GET', '/news/newsfeeds',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listNewsfeeds',
-          fromJsonRaw: (value) => PaginatedResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              PaginatedResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Retrieves the details of a single newsfeed. Use `newsfeed_id` to identify the feed. Newsfeeds cannot be edited through the API.
 ///
@@ -227,10 +253,14 @@ Future<Newsfeed> retrieveNewsfeed(ClientConfig config,
           '/news/newsfeeds/${Uri.encodeComponent(newsfeedId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'retrieveNewsfeed',
-          fromJsonRaw: (value) => Newsfeed.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Newsfeed.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

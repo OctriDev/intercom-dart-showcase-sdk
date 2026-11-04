@@ -5,34 +5,37 @@ part of 'inline.dart';
 
 // Inline operation models
 final class SearchContentTagOperator {
-
   final String value;
 
   const SearchContentTagOperator._(this.value);
 
-  factory SearchContentTagOperator.fromJson(String value) => SearchContentTagOperator._(value);
+  factory SearchContentTagOperator.fromJson(String value) =>
+      SearchContentTagOperator._(value);
 
   static const in_ = SearchContentTagOperator._('IN');
   static const nin = SearchContentTagOperator._('NIN');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SearchContentTagOperator && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SearchContentTagOperator && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of message that was sent. Can be email, inapp, facebook or twitter.
 final class CreateConversationResponseMessageType {
-
   final String value;
 
   const CreateConversationResponseMessageType._(this.value);
 
-  factory CreateConversationResponseMessageType.fromJson(String value) => CreateConversationResponseMessageType._(value);
+  factory CreateConversationResponseMessageType.fromJson(String value) =>
+      CreateConversationResponseMessageType._(value);
 
   static const email = CreateConversationResponseMessageType._('email');
   static const inapp = CreateConversationResponseMessageType._('inapp');
@@ -41,156 +44,197 @@ final class CreateConversationResponseMessageType {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateConversationResponseMessageType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateConversationResponseMessageType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class ListDataAttributesModel {
-
   final String value;
 
   const ListDataAttributesModel._(this.value);
 
-  factory ListDataAttributesModel.fromJson(String value) => ListDataAttributesModel._(value);
+  factory ListDataAttributesModel.fromJson(String value) =>
+      ListDataAttributesModel._(value);
 
   static const contact = ListDataAttributesModel._('contact');
   static const company = ListDataAttributesModel._('company');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ListDataAttributesModel && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ListDataAttributesModel && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class ListDataConnectorExecutionResultsSuccess {
-
   final String value;
 
   const ListDataConnectorExecutionResultsSuccess._(this.value);
 
-  factory ListDataConnectorExecutionResultsSuccess.fromJson(String value) => ListDataConnectorExecutionResultsSuccess._(value);
+  factory ListDataConnectorExecutionResultsSuccess.fromJson(String value) =>
+      ListDataConnectorExecutionResultsSuccess._(value);
 
   static const true_ = ListDataConnectorExecutionResultsSuccess._('true');
   static const false_ = ListDataConnectorExecutionResultsSuccess._('false');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ListDataConnectorExecutionResultsSuccess && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ListDataConnectorExecutionResultsSuccess && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class ListDataConnectorExecutionResultsErrorType {
-
   final String value;
 
   const ListDataConnectorExecutionResultsErrorType._(this.value);
 
-  factory ListDataConnectorExecutionResultsErrorType.fromJson(String value) => ListDataConnectorExecutionResultsErrorType._(value);
+  factory ListDataConnectorExecutionResultsErrorType.fromJson(String value) =>
+      ListDataConnectorExecutionResultsErrorType._(value);
 
-  static const requestConfigurationError = ListDataConnectorExecutionResultsErrorType._('request_configuration_error');
-  static const faradayError = ListDataConnectorExecutionResultsErrorType._('faraday_error');
-  static const v3rdPartyError = ListDataConnectorExecutionResultsErrorType._('3rd_party_error');
-  static const responseMappingError = ListDataConnectorExecutionResultsErrorType._('response_mapping_error');
-  static const tokenRefreshError = ListDataConnectorExecutionResultsErrorType._('token_refresh_error');
-  static const finActionResponseFormattingError = ListDataConnectorExecutionResultsErrorType._('fin_action_response_formatting_error');
-  static const finActionIdentityVerificationError = ListDataConnectorExecutionResultsErrorType._('fin_action_identity_verification_error');
-  static const emailVerificationError = ListDataConnectorExecutionResultsErrorType._('email_verification_error');
-  static const nonFinStandaloneActionIdentityVerificationError = ListDataConnectorExecutionResultsErrorType._('non_fin_standalone_action_identity_verification_error');
-  static const requestValidationError = ListDataConnectorExecutionResultsErrorType._('request_validation_error');
-  static const clientSideActionError = ListDataConnectorExecutionResultsErrorType._('client_side_action_error');
+  static const requestConfigurationError =
+      ListDataConnectorExecutionResultsErrorType._(
+          'request_configuration_error');
+  static const faradayError =
+      ListDataConnectorExecutionResultsErrorType._('faraday_error');
+  static const v3rdPartyError =
+      ListDataConnectorExecutionResultsErrorType._('3rd_party_error');
+  static const responseMappingError =
+      ListDataConnectorExecutionResultsErrorType._('response_mapping_error');
+  static const tokenRefreshError =
+      ListDataConnectorExecutionResultsErrorType._('token_refresh_error');
+  static const finActionResponseFormattingError =
+      ListDataConnectorExecutionResultsErrorType._(
+          'fin_action_response_formatting_error');
+  static const finActionIdentityVerificationError =
+      ListDataConnectorExecutionResultsErrorType._(
+          'fin_action_identity_verification_error');
+  static const emailVerificationError =
+      ListDataConnectorExecutionResultsErrorType._('email_verification_error');
+  static const nonFinStandaloneActionIdentityVerificationError =
+      ListDataConnectorExecutionResultsErrorType._(
+          'non_fin_standalone_action_identity_verification_error');
+  static const requestValidationError =
+      ListDataConnectorExecutionResultsErrorType._('request_validation_error');
+  static const clientSideActionError =
+      ListDataConnectorExecutionResultsErrorType._('client_side_action_error');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ListDataConnectorExecutionResultsErrorType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ListDataConnectorExecutionResultsErrorType &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class ListDataConnectorExecutionResultsIncludeBodies {
-
   final String value;
 
   const ListDataConnectorExecutionResultsIncludeBodies._(this.value);
 
-  factory ListDataConnectorExecutionResultsIncludeBodies.fromJson(String value) => ListDataConnectorExecutionResultsIncludeBodies._(value);
+  factory ListDataConnectorExecutionResultsIncludeBodies.fromJson(
+          String value) =>
+      ListDataConnectorExecutionResultsIncludeBodies._(value);
 
   static const true_ = ListDataConnectorExecutionResultsIncludeBodies._('true');
-  static const false_ = ListDataConnectorExecutionResultsIncludeBodies._('false');
+  static const false_ =
+      ListDataConnectorExecutionResultsIncludeBodies._('false');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ListDataConnectorExecutionResultsIncludeBodies && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ListDataConnectorExecutionResultsIncludeBodies &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class RetrieveDataConnectorStateVersion {
-
   final String value;
 
   const RetrieveDataConnectorStateVersion._(this.value);
 
-  factory RetrieveDataConnectorStateVersion.fromJson(String value) => RetrieveDataConnectorStateVersion._(value);
+  factory RetrieveDataConnectorStateVersion.fromJson(String value) =>
+      RetrieveDataConnectorStateVersion._(value);
 
   static const draft = RetrieveDataConnectorStateVersion._('draft');
   static const live = RetrieveDataConnectorStateVersion._('live');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RetrieveDataConnectorStateVersion && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RetrieveDataConnectorStateVersion && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class GetReportingData2Accept {
-
   final String value;
 
   const GetReportingData2Accept._(this.value);
 
-  factory GetReportingData2Accept.fromJson(String value) => GetReportingData2Accept._(value);
+  factory GetReportingData2Accept.fromJson(String value) =>
+      GetReportingData2Accept._(value);
 
-  static const applicationOctetStream = GetReportingData2Accept._('application/octet-stream');
+  static const applicationOctetStream =
+      GetReportingData2Accept._('application/octet-stream');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is GetReportingData2Accept && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is GetReportingData2Accept && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Fin's current status in the conversation workflow.
 final class AskFinResponseStatus {
-
   final String value;
 
   const AskFinResponseStatus._(this.value);
 
-  factory AskFinResponseStatus.fromJson(String value) => AskFinResponseStatus._(value);
+  factory AskFinResponseStatus.fromJson(String value) =>
+      AskFinResponseStatus._(value);
 
   static const thinking = AskFinResponseStatus._('thinking');
   static const replying = AskFinResponseStatus._('replying');
@@ -199,22 +243,25 @@ final class AskFinResponseStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AskFinResponseStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AskFinResponseStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The rating the user selected — one of the `key` values from the `csat_requested` event's options.
 final class SubmitFinCsatRequestBodyRating {
-
   final String value;
 
   const SubmitFinCsatRequestBodyRating._(this.value);
 
-  factory SubmitFinCsatRequestBodyRating.fromJson(String value) => SubmitFinCsatRequestBodyRating._(value);
+  factory SubmitFinCsatRequestBodyRating.fromJson(String value) =>
+      SubmitFinCsatRequestBodyRating._(value);
 
   static const terrible = SubmitFinCsatRequestBodyRating._('terrible');
   static const bad = SubmitFinCsatRequestBodyRating._('bad');
@@ -224,22 +271,25 @@ final class SubmitFinCsatRequestBodyRating {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SubmitFinCsatRequestBodyRating && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SubmitFinCsatRequestBodyRating && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The rating now recorded on the conversation.
 final class SubmitFinCsatResponseRating {
-
   final String value;
 
   const SubmitFinCsatResponseRating._(this.value);
 
-  factory SubmitFinCsatResponseRating.fromJson(String value) => SubmitFinCsatResponseRating._(value);
+  factory SubmitFinCsatResponseRating.fromJson(String value) =>
+      SubmitFinCsatResponseRating._(value);
 
   static const terrible = SubmitFinCsatResponseRating._('terrible');
   static const bad = SubmitFinCsatResponseRating._('bad');
@@ -249,31 +299,37 @@ final class SubmitFinCsatResponseRating {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SubmitFinCsatResponseRating && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SubmitFinCsatResponseRating && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The result of the submission.
 final class SubmitFinCsatResponseStatus {
-
   final String value;
 
   const SubmitFinCsatResponseStatus._(this.value);
 
-  factory SubmitFinCsatResponseStatus.fromJson(String value) => SubmitFinCsatResponseStatus._(value);
+  factory SubmitFinCsatResponseStatus.fromJson(String value) =>
+      SubmitFinCsatResponseStatus._(value);
 
   static const rated = SubmitFinCsatResponseStatus._('rated');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SubmitFinCsatResponseStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SubmitFinCsatResponseStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

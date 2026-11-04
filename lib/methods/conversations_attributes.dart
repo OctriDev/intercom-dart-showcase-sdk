@@ -11,26 +11,32 @@ import '../types.dart';
 /// You can fetch a list of all conversation attributes for your workspace.
 ///
 /// [includeArchived] Include archived attributes in the list. Default `false`.
-Future<ConversationAttributeList>
-    listConversationAttributes(ClientConfig config,
-        {SdkOptional<bool> includeArchived = const SdkOmitted(),
-        SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<ConversationAttributeList> listConversationAttributes(
+    ClientConfig config,
+    {SdkOptional<bool> includeArchived = const SdkOmitted(),
+    SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<ConversationAttributeList>(
           'GET', '/conversations/attributes',
           config: config,
           query: {
-            'include_archived': SdkQueryValue(SdkUtils.unwrapOptional(includeArchived), style: 'form', explode: true)
+            'include_archived': SdkQueryValue(
+                SdkUtils.unwrapOptional(includeArchived),
+                style: 'form',
+                explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listConversationAttributes',
-          fromJsonRaw: (value) => ConversationAttributeList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ConversationAttributeList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Creates a conversation attribute for the workspace. Provide the required `name` and `data_type`; the payload can also include attribute details such as its description, team visibility, and type-specific configuration.
 ///
@@ -44,14 +50,17 @@ Future<ConversationAttribute> createConversationAttribute(ClientConfig config,
           config: config,
           body: body,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'createConversationAttribute',
           fromJsonRaw: (value) => ConversationAttribute.fromJson(value),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '422': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Retrieves a conversation attribute by ID. Use this operation to fetch one attribute from the workspace.
 ///
@@ -66,14 +75,17 @@ Future<ConversationAttribute> getConversationAttribute(ClientConfig config,
           '/conversations/attributes/${Uri.encodeComponent(id.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'getConversationAttribute',
           fromJsonRaw: (value) => ConversationAttribute.fromJson(value),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates an existing conversation attribute. Provide the fields to change, including type-specific settings when applicable; for relationship configuration, `reference.type` must be `one` or `many`.
 ///
@@ -97,7 +109,8 @@ Future<ConversationAttribute> updateConversationAttribute(ClientConfig config,
     SdkOptional<bool> multiline = const SdkOmitted(),
     SdkOptional<bool> required_ = const SdkOmitted(),
     SdkOptional<List<String>> visibleToTeamIds = const SdkOmitted(),
-    SdkOptional<UpdateConversationAttributeRequestReference> reference = const SdkOmitted(),
+    SdkOptional<UpdateConversationAttributeRequestReference> reference =
+        const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<ConversationAttribute>('PUT',
           '/conversations/attributes/${Uri.encodeComponent(id.toString())}',
@@ -111,14 +124,17 @@ Future<ConversationAttribute> updateConversationAttribute(ClientConfig config,
             'reference': SdkUtils.unwrapOptional(reference)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'updateConversationAttribute',
           fromJsonRaw: (value) => ConversationAttribute.fromJson(value),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Archives a conversation attribute without permanently deleting it. Supply the attribute's `id` to select the attribute to archive.
 ///
@@ -133,14 +149,17 @@ Future<ConversationAttribute> deleteConversationAttribute(ClientConfig config,
           '/conversations/attributes/${Uri.encodeComponent(id.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'deleteConversationAttribute',
           fromJsonRaw: (value) => ConversationAttribute.fromJson(value),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Adds an option to a list-type conversation attribute and returns the attribute with its updated options. Supply `label` for the new option.
 ///
@@ -148,25 +167,29 @@ Future<ConversationAttribute> deleteConversationAttribute(ClientConfig config,
 ///
 /// [id] The conversation attribute id
 /// [label] The label for the new option.
-Future<ConversationAttribute>
-    createConversationAttributeOption(ClientConfig config,
-        {required int id,
-        required String label,
-        SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<ConversationAttribute> createConversationAttributeOption(
+    ClientConfig config,
+    {required int id,
+    required String label,
+    SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<ConversationAttribute>('POST',
           '/conversations/attributes/${Uri.encodeComponent(id.toString())}/options',
           config: config,
           body: {'label': label},
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'createConversationAttributeOption',
           fromJsonRaw: (value) => ConversationAttribute.fromJson(value),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '422': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Updates the label of one option on a list-type conversation attribute. Supply the new `label`; the response includes the full attribute and its updated options array. Use the attribute and option identifiers to target the option to change.
 ///
@@ -176,26 +199,30 @@ Future<ConversationAttribute>
 /// [optionId] The UUID of the list option to update (from the `id` field in the
 ///   options array)
 /// [label] The updated label for the option.
-Future<ConversationAttribute>
-    updateConversationAttributeOption(ClientConfig config,
-        {required int id,
-        required String optionId,
-        required String label,
-        SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<ConversationAttribute> updateConversationAttributeOption(
+    ClientConfig config,
+    {required int id,
+    required String optionId,
+    required String label,
+    SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<ConversationAttribute>('PUT',
           '/conversations/attributes/${Uri.encodeComponent(id.toString())}/options/${Uri.encodeComponent(optionId.toString())}',
           config: config,
           body: {'label': label},
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'updateConversationAttributeOption',
           fromJsonRaw: (value) => ConversationAttribute.fromJson(value),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '422': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Archives an option on a list-type conversation attribute without permanently deleting it. The option remains in the attribute response with `archived` set to true, and the response includes the updated options array.
 ///
@@ -204,20 +231,25 @@ Future<ConversationAttribute>
 /// [id] The conversation attribute id
 /// [optionId] The UUID of the list option to archive (from the `id` field in
 ///   the options array)
-Future<ConversationAttribute>
-    deleteConversationAttributeOption(ClientConfig config,
-        {required int id,
-        required String optionId,
-        SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<ConversationAttribute> deleteConversationAttributeOption(
+    ClientConfig config,
+    {required int id,
+    required String optionId,
+    SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<ConversationAttribute>('DELETE',
           '/conversations/attributes/${Uri.encodeComponent(id.toString())}/options/${Uri.encodeComponent(optionId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'deleteConversationAttributeOption',
           fromJsonRaw: (value) => ConversationAttribute.fromJson(value),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '422': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

@@ -15,14 +15,17 @@ Future<TicketTypeList> listTicketTypes(ClientConfig config,
   return (await sdkRequest<TicketTypeList>('GET', '/ticket_types',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listTicketTypes',
-          fromJsonRaw: (value) => TicketTypeList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              TicketTypeList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Creates a new ticket type with its name, description, category, icon, and internal-use setting. Supply `name`; `category` accepts Customer, Back-office, or Tracker, and omitted `icon` and `is_internal` values default to 🎟️ and false. The created ticket type includes the default `_default_title_` and `_default_description_` attributes.
 ///
@@ -53,14 +56,17 @@ Future<TicketType> createTicketType(ClientConfig config,
             'is_internal': SdkUtils.unwrapOptional(isInternal)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'createTicketType',
-          fromJsonRaw: (value) => TicketType.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              TicketType.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves a ticket type by its unique identifier. Supply `ticket_type_id` to identify the ticket type and an API version if you need to override the default version.
 ///
@@ -76,14 +82,17 @@ Future<TicketType> getTicketType(ClientConfig config,
           '/ticket_types/${Uri.encodeComponent(ticketTypeId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'getTicketType',
-          fromJsonRaw: (value) => TicketType.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              TicketType.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Replaces the configurable details of an existing ticket type. Supply only the fields you want to change; `category` accepts Customer, Back-office, or Tracker, and omitted `icon` and `is_internal` values use their defined defaults when provided. The updated response includes the ticket type's current details.
 ///
@@ -121,10 +130,14 @@ Future<TicketType> updateTicketType(ClientConfig config,
             'is_internal': SdkUtils.unwrapOptional(isInternal)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'updateTicketType',
-          fromJsonRaw: (value) => TicketType.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              TicketType.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }

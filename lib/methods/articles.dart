@@ -16,14 +16,17 @@ Future<ArticleList> listArticles(ClientConfig config,
   return (await sdkRequest<ArticleList>('GET', '/articles',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listArticles',
-          fromJsonRaw: (value) => ArticleList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ArticleList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Creates a new article in the help center. Supply `title` and `author_id`; choose either `body` or `body_markdown` for the article content, and set `state` to control whether the article is published or saved as a draft.
 ///
@@ -96,7 +99,8 @@ Future<Article> createArticle(ClientConfig config,
     SdkOptional<CreateArticleRequestRequestState> state = const SdkOmitted(),
     SdkOptional<int> parentId = const SdkOmitted(),
     SdkOptional<String> parentType = const SdkOmitted(),
-    SdkOptional<ArticleTranslatedContentRequest?> translatedContent = const SdkOmitted(),
+    SdkOptional<ArticleTranslatedContentRequest?> translatedContent =
+        const SdkOmitted(),
     SdkOptional<int?> folderId = const SdkOmitted(),
     SdkOptional<List<int>?> audienceIds = const SdkOmitted(),
     SdkOptional<bool> aiChatbotAvailability = const SdkOmitted(),
@@ -132,21 +136,29 @@ Future<Article> createArticle(ClientConfig config,
             'translated_content': SdkUtils.unwrapOptional(translatedContent),
             'folder_id': SdkUtils.unwrapOptional(folderId),
             'audience_ids': SdkUtils.unwrapOptional(audienceIds),
-            'ai_chatbot_availability': SdkUtils.unwrapOptional(aiChatbotAvailability),
-            'ai_copilot_availability': SdkUtils.unwrapOptional(aiCopilotAvailability),
-            'ai_sales_agent_availability': SdkUtils.unwrapOptional(aiSalesAgentAvailability),
+            'ai_chatbot_availability':
+                SdkUtils.unwrapOptional(aiChatbotAvailability),
+            'ai_copilot_availability':
+                SdkUtils.unwrapOptional(aiCopilotAvailability),
+            'ai_sales_agent_availability':
+                SdkUtils.unwrapOptional(aiSalesAgentAvailability),
             'scheduled_publish_at': SdkUtils.unwrapOptional(scheduledPublishAt),
-            'scheduled_unpublish_at': SdkUtils.unwrapOptional(scheduledUnpublishAt)
+            'scheduled_unpublish_at':
+                SdkUtils.unwrapOptional(scheduledUnpublishAt)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'createArticle',
-          fromJsonRaw: (value) => Article.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Article.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves a single article from the help center. Use `article_id` to identify the article whose details you need. The response includes article data and its statistics.
 ///
@@ -162,14 +174,18 @@ Future<Article> retrieveArticle(ClientConfig config,
           'GET', '/articles/${Uri.encodeComponent(articleId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'retrieveArticle',
-          fromJsonRaw: (value) => Article.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Article.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates the details of a specific article in the help center. Identify the article with `article_id` and provide the fields to change; `state` can be used to set the article to `published` or `draft`. Article tags are read-only through this operation.
 ///
@@ -250,7 +266,8 @@ Future<Article> updateArticle(ClientConfig config,
     SdkOptional<UpdateArticleRequestRequestState> state = const SdkOmitted(),
     SdkOptional<String> parentId = const SdkOmitted(),
     SdkOptional<String> parentType = const SdkOmitted(),
-    SdkOptional<ArticleTranslatedContentRequest?> translatedContent = const SdkOmitted(),
+    SdkOptional<ArticleTranslatedContentRequest?> translatedContent =
+        const SdkOmitted(),
     SdkOptional<int?> folderId = const SdkOmitted(),
     SdkOptional<List<int>?> audienceIds = const SdkOmitted(),
     SdkOptional<bool> aiChatbotAvailability = const SdkOmitted(),
@@ -287,21 +304,29 @@ Future<Article> updateArticle(ClientConfig config,
             'translated_content': SdkUtils.unwrapOptional(translatedContent),
             'folder_id': SdkUtils.unwrapOptional(folderId),
             'audience_ids': SdkUtils.unwrapOptional(audienceIds),
-            'ai_chatbot_availability': SdkUtils.unwrapOptional(aiChatbotAvailability),
-            'ai_copilot_availability': SdkUtils.unwrapOptional(aiCopilotAvailability),
-            'ai_sales_agent_availability': SdkUtils.unwrapOptional(aiSalesAgentAvailability),
+            'ai_chatbot_availability':
+                SdkUtils.unwrapOptional(aiChatbotAvailability),
+            'ai_copilot_availability':
+                SdkUtils.unwrapOptional(aiCopilotAvailability),
+            'ai_sales_agent_availability':
+                SdkUtils.unwrapOptional(aiSalesAgentAvailability),
             'scheduled_publish_at': SdkUtils.unwrapOptional(scheduledPublishAt),
-            'scheduled_unpublish_at': SdkUtils.unwrapOptional(scheduledUnpublishAt)
+            'scheduled_unpublish_at':
+                SdkUtils.unwrapOptional(scheduledUnpublishAt)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'updateArticle',
-          fromJsonRaw: (value) => Article.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Article.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes a specific article from the help center. Use the article's unique `article_id` to identify the article to remove. A successful response confirms whether the article was deleted.
 ///
@@ -317,14 +342,18 @@ Future<DeletedArticleObject> deleteArticle(ClientConfig config,
           'DELETE', '/articles/${Uri.encodeComponent(articleId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'deleteArticle',
-          fromJsonRaw: (value) => DeletedArticleObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeletedArticleObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Retrieves the staged draft content for a published article without changing the live article. Use this operation to inspect unpublished changes before publishing them. A staged draft exists only when unpublished changes have been saved for a published article.
 ///
@@ -339,14 +368,18 @@ Future<Article> retrieveArticleDraft(ClientConfig config,
           'GET', '/articles/${Uri.encodeComponent(id.toString())}/draft',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'retrieveArticleDraft',
-          fromJsonRaw: (value) => Article.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Article.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Stages changes to a published article as a draft, leaving the live article unchanged until publication. Supply versioned content such as `title` or `body`; non-versioned fields, including AI availability settings, are ignored. The article must already be published.
 ///
@@ -426,7 +459,8 @@ Future<Article> stageArticleDraft(ClientConfig config,
     SdkOptional<UpdateArticleRequestRequestState> state = const SdkOmitted(),
     SdkOptional<String> parentId = const SdkOmitted(),
     SdkOptional<String> parentType = const SdkOmitted(),
-    SdkOptional<ArticleTranslatedContentRequest?> translatedContent = const SdkOmitted(),
+    SdkOptional<ArticleTranslatedContentRequest?> translatedContent =
+        const SdkOmitted(),
     SdkOptional<int?> folderId = const SdkOmitted(),
     SdkOptional<List<int>?> audienceIds = const SdkOmitted(),
     SdkOptional<bool> aiChatbotAvailability = const SdkOmitted(),
@@ -463,21 +497,30 @@ Future<Article> stageArticleDraft(ClientConfig config,
             'translated_content': SdkUtils.unwrapOptional(translatedContent),
             'folder_id': SdkUtils.unwrapOptional(folderId),
             'audience_ids': SdkUtils.unwrapOptional(audienceIds),
-            'ai_chatbot_availability': SdkUtils.unwrapOptional(aiChatbotAvailability),
-            'ai_copilot_availability': SdkUtils.unwrapOptional(aiCopilotAvailability),
-            'ai_sales_agent_availability': SdkUtils.unwrapOptional(aiSalesAgentAvailability),
+            'ai_chatbot_availability':
+                SdkUtils.unwrapOptional(aiChatbotAvailability),
+            'ai_copilot_availability':
+                SdkUtils.unwrapOptional(aiCopilotAvailability),
+            'ai_sales_agent_availability':
+                SdkUtils.unwrapOptional(aiSalesAgentAvailability),
             'scheduled_publish_at': SdkUtils.unwrapOptional(scheduledPublishAt),
-            'scheduled_unpublish_at': SdkUtils.unwrapOptional(scheduledUnpublishAt)
+            'scheduled_unpublish_at':
+                SdkUtils.unwrapOptional(scheduledUnpublishAt)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'stageArticleDraft',
-          fromJsonRaw: (value) => Article.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Article.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '422': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Publishes the staged draft for an article, promoting its draft content to live. On a single-language workspace, you can omit the request body; on a multilingual workspace, specify the locales to publish in `locales`. Each requested locale must have pending changes.
 ///
@@ -496,14 +539,19 @@ Future<Article> publishArticleDraft(ClientConfig config,
           config: config,
           body: {'locales': SdkUtils.unwrapOptional(locales)},
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'publishArticleDraft',
-          fromJsonRaw: (value) => Article.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Article.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '422': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Applies an existing tag to an article. Supply the tag ID in the request body, and the authenticating teammate must have the `manage_knowledge_base_content` permission. The operation requires the `read_write_articles_scope` OAuth scope.
 ///
@@ -525,14 +573,18 @@ Future<Tag> attachArticlesTag(ClientConfig config,
           config: config,
           body: {'id': id, 'admin_id': SdkUtils.unwrapOptional(adminId)},
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'attachArticlesTag',
           fromJsonRaw: (value) => Tag.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Removes a tag from an article. Use `article_id` and `id` to identify the article and tag to detach. The authenticating teammate must have the `manage_knowledge_base_content` permission, and the operation requires the `read_write_articles_scope` OAuth scope.
 ///
@@ -550,14 +602,18 @@ Future<Tag> detachArticlesTag(ClientConfig config,
           '/articles/${Uri.encodeComponent(articleId.toString())}/tags/${Uri.encodeComponent(id.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'detachArticlesTag',
           fromJsonRaw: (value) => Tag.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Lists version history for an article as paginated metadata, with the newest versions first. Use `locale` to filter the history to a workspace locale, and `page` and `per_page` to navigate the results. Retrieve an individual version to access its full content.
 ///
@@ -581,19 +637,27 @@ Future<ArticleVersionList> listArticleVersions(ClientConfig config,
           '/articles/${Uri.encodeComponent(articleId.toString())}/versions',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'locale': SdkQueryValue(SdkUtils.unwrapOptional(locale), style: 'form', explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'locale': SdkQueryValue(SdkUtils.unwrapOptional(locale),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listArticleVersions',
-          fromJsonRaw: (value) => ArticleVersionList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ArticleVersionList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves a prior version of an article, including the content saved in that version. Use `article_id` and `id` to select the article and version, and `locale` to request content for a specific locale. The live article remains unchanged, and access requires the `read_articles_scope` OAuth scope.
 ///
@@ -613,17 +677,23 @@ Future<ArticleVersion> retrieveArticleVersion(ClientConfig config,
           '/articles/${Uri.encodeComponent(articleId.toString())}/versions/${Uri.encodeComponent(id.toString())}',
           config: config,
           query: {
-            'locale': SdkQueryValue(SdkUtils.unwrapOptional(locale), style: 'form', explode: true)
+            'locale': SdkQueryValue(SdkUtils.unwrapOptional(locale),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'retrieveArticleVersion',
-          fromJsonRaw: (value) => ArticleVersion.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ArticleVersion.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Searches articles by phrase, with optional filters for article state and Help Center. Use `highlight` to request highlighted matching content; results include pagination details and the total number of matching articles.
 ///
@@ -645,16 +715,26 @@ Future<ArticleSearchResponse> searchArticles(ClientConfig config,
   return (await sdkRequest<ArticleSearchResponse>('GET', '/articles/search',
           config: config,
           query: {
-            'phrase': SdkQueryValue(SdkUtils.unwrapOptional(phrase), style: 'form', explode: true),
-            'state': SdkQueryValue(SdkUtils.unwrapOptional(state), style: 'form', explode: true),
-            'help_center_id': SdkQueryValue(SdkUtils.unwrapOptional(helpCenterId), style: 'form', explode: true),
-            'highlight': SdkQueryValue(SdkUtils.unwrapOptional(highlight), style: 'form', explode: true)
+            'phrase': SdkQueryValue(SdkUtils.unwrapOptional(phrase),
+                style: 'form', explode: true),
+            'state': SdkQueryValue(SdkUtils.unwrapOptional(state),
+                style: 'form', explode: true),
+            'help_center_id': SdkQueryValue(
+                SdkUtils.unwrapOptional(helpCenterId),
+                style: 'form',
+                explode: true),
+            'highlight': SdkQueryValue(SdkUtils.unwrapOptional(highlight),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'searchArticles',
-          fromJsonRaw: (value) => ArticleSearchResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ArticleSearchResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }

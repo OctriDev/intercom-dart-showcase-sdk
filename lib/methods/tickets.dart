@@ -24,14 +24,19 @@ Future<TicketReply> replyTicket(ClientConfig config,
             'skip_notifications': SdkUtils.unwrapOptional(skipNotifications)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'replyTicket',
-          fromJsonRaw: (value) => TicketReply.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              TicketReply.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Links a conversation or customer ticket to an existing tracker ticket. Use this when a related conversation surfaces after the tracker ticket has been created, and provide its identifier in `conversation_id`. A tracker ticket can have up to 2,500 linked conversations, and the request requires the `write_tickets` OAuth scope.
 ///
@@ -51,14 +56,19 @@ Future<Conversation> linkTicketsConversation(ClientConfig config,
           config: config,
           body: {'conversation_id': conversationId},
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'linkTicketsConversation',
-          fromJsonRaw: (value) => Conversation.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Conversation.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Unlinks a conversation or converted customer ticket from the tracker ticket it is currently linked to. Use the identifiers in the path to select the tracker ticket and linked item. The request requires the `write_tickets` OAuth scope.
 ///
@@ -77,14 +87,19 @@ Future<Conversation> unlinkTicketConversation(ClientConfig config,
           '/tickets/${Uri.encodeComponent(ticketId.toString())}/linked_conversations/${Uri.encodeComponent(id.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'unlinkTicketConversation',
-          fromJsonRaw: (value) => Conversation.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Conversation.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Creates a ticket using a ticket type and one or more affected contacts. Provide `ticket_type_id` and `contacts`, and optionally set assignment, ticket attributes, or a conversation to link. The channel is available only for customer ticket types and defaults to messenger when omitted.
 ///
@@ -124,7 +139,8 @@ Future<Ticket> createTicket(ClientConfig config,
     SdkOptional<String> companyId = const SdkOmitted(),
     SdkOptional<int> createdAt = const SdkOmitted(),
     SdkOptional<Map<String, dynamic>> ticketAttributes = const SdkOmitted(),
-    SdkOptional<CreateTicketRequestBodyAssignment> assignment = const SdkOmitted(),
+    SdkOptional<CreateTicketRequestBodyAssignment> assignment =
+        const SdkOmitted(),
     SdkOptional<CreateTicketRequestBodyChannel> channel = const SdkOmitted(),
     SdkOptional<bool> skipNotifications = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
@@ -133,7 +149,8 @@ Future<Ticket> createTicket(ClientConfig config,
           body: {
             'ticket_type_id': ticketTypeId,
             'contacts': contacts,
-            'conversation_to_link_id': SdkUtils.unwrapOptional(conversationToLinkId),
+            'conversation_to_link_id':
+                SdkUtils.unwrapOptional(conversationToLinkId),
             'company_id': SdkUtils.unwrapOptional(companyId),
             'created_at': SdkUtils.unwrapOptional(createdAt),
             'ticket_attributes': SdkUtils.unwrapOptional(ticketAttributes),
@@ -142,14 +159,17 @@ Future<Ticket> createTicket(ClientConfig config,
             'skip_notifications': SdkUtils.unwrapOptional(skipNotifications)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'createTicket',
-          fromJsonRaw: (value) => Ticket.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Ticket.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Submits a ticket creation job for asynchronous processing. Provide `ticket_type_id` and `contacts`; the API validates inputs on a best-effort basis and does not enqueue the job when they are incorrect. Use the returned job details to check processing status and retrieve the created ticket.
 ///
@@ -189,8 +209,10 @@ Future<Jobs> enqueueCreateTicket(ClientConfig config,
     SdkOptional<String> companyId = const SdkOmitted(),
     SdkOptional<int> createdAt = const SdkOmitted(),
     SdkOptional<Map<String, dynamic>> ticketAttributes = const SdkOmitted(),
-    SdkOptional<EnqueueCreateTicketRequestBodyAssignment> assignment = const SdkOmitted(),
-    SdkOptional<EnqueueCreateTicketRequestBodyChannel> channel = const SdkOmitted(),
+    SdkOptional<EnqueueCreateTicketRequestBodyAssignment> assignment =
+        const SdkOmitted(),
+    SdkOptional<EnqueueCreateTicketRequestBodyChannel> channel =
+        const SdkOmitted(),
     SdkOptional<bool> skipNotifications = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<Jobs>('POST', '/tickets/enqueue',
@@ -198,7 +220,8 @@ Future<Jobs> enqueueCreateTicket(ClientConfig config,
           body: {
             'ticket_type_id': ticketTypeId,
             'contacts': contacts,
-            'conversation_to_link_id': SdkUtils.unwrapOptional(conversationToLinkId),
+            'conversation_to_link_id':
+                SdkUtils.unwrapOptional(conversationToLinkId),
             'company_id': SdkUtils.unwrapOptional(companyId),
             'created_at': SdkUtils.unwrapOptional(createdAt),
             'ticket_attributes': SdkUtils.unwrapOptional(ticketAttributes),
@@ -207,14 +230,17 @@ Future<Jobs> enqueueCreateTicket(ClientConfig config,
             'skip_notifications': SdkUtils.unwrapOptional(skipNotifications)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'enqueueCreateTicket',
           fromJsonRaw: (value) => Jobs.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Replaces the supplied fields on an existing ticket. Send the fields you want to change, such as `open`, `assignee_id`, or `ticket_attributes`; setting `open` to false also unsnoozes the ticket. Use `skip_notifications` to disable notifications for the update.
 ///
@@ -268,14 +294,17 @@ Future<Ticket> updateTicket(ClientConfig config,
             'skip_notifications': SdkUtils.unwrapOptional(skipNotifications)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'updateTicket',
-          fromJsonRaw: (value) => Ticket.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Ticket.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves the details of a single ticket. Use `ticket_id` to look up a ticket by its internal API ID, rather than the ticket number displayed in the Inbox. The response includes ticket status, assignments, attributes, and ticket parts.
 ///
@@ -294,14 +323,17 @@ Future<Ticket> getTicket(ClientConfig config,
           'GET', '/tickets/${Uri.encodeComponent(ticketId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'getTicket',
-          fromJsonRaw: (value) => Ticket.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Ticket.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Deletes a ticket permanently from the inbox, including its replies, attributes, uploads, and related content. Use `ticket_id` to identify the ticket by its internal API ID, not the number displayed in the Inbox. Deletion cannot be reversed, and the ticket may still appear in reporting with incomplete data.
 ///
@@ -320,14 +352,19 @@ Future<TicketDeleted> deleteTicket(ClientConfig config,
           'DELETE', '/tickets/${Uri.encodeComponent(ticketId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'deleteTicket',
-          fromJsonRaw: (value) => TicketDeleted.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              TicketDeleted.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Changes the type of a ticket and sets its state for the new type. Supply `ticket_type_id` and `ticket_state_id`; the new type must be in the same category as the current type. Attributes with matching names and types transfer automatically, and supplied `ticket_attributes` override transferred values.
 ///
@@ -356,14 +393,19 @@ Future<Ticket> changeTicketType(ClientConfig config,
             'ticket_attributes': SdkUtils.unwrapOptional(ticketAttributes)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'changeTicketType',
-          fromJsonRaw: (value) => Ticket.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Ticket.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Searches tickets by their attributes and other searchable fields. Supply a `query` filter using values and operators compatible with the selected field, and combine filters with `AND` or `OR` within the documented nesting and group limits. Use `pagination.starting_after` to retrieve subsequent result pages; the default page size is 20.
 ///
@@ -384,9 +426,11 @@ Future<TicketList> searchTickets(ClientConfig config,
             'pagination': SdkUtils.unwrapOptional(pagination)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'searchTickets',
-          fromJsonRaw: (value) => TicketList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              TicketList.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }

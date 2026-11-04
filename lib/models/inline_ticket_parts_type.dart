@@ -6,7 +6,6 @@ part of 'inline.dart';
 // Inline operation models
 /// Optional enumerated value serialized in the `type` wire field.
 final class TicketPartsType {
-
   final String value;
 
   const TicketPartsType._(this.value);
@@ -17,22 +16,25 @@ final class TicketPartsType {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is TicketPartsType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is TicketPartsType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Type of the part
 final class TicketReplyPartType {
-
   final String value;
 
   const TicketReplyPartType._(this.value);
 
-  factory TicketReplyPartType.fromJson(String value) => TicketReplyPartType._(value);
+  factory TicketReplyPartType.fromJson(String value) =>
+      TicketReplyPartType._(value);
 
   static const note = TicketReplyPartType._('note');
   static const comment = TicketReplyPartType._('comment');
@@ -40,17 +42,19 @@ final class TicketReplyPartType {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is TicketReplyPartType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is TicketReplyPartType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Always ticket_part
 final class TicketReplyType {
-
   final String value;
 
   const TicketReplyType._(this.value);
@@ -61,22 +65,25 @@ final class TicketReplyType {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is TicketReplyType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is TicketReplyType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The category of the ticket state
 final class TicketStateCategory {
-
   final String value;
 
   const TicketStateCategory._(this.value);
 
-  factory TicketStateCategory.fromJson(String value) => TicketStateCategory._(value);
+  factory TicketStateCategory.fromJson(String value) =>
+      TicketStateCategory._(value);
 
   static const submitted = TicketStateCategory._('submitted');
   static const inProgress = TicketStateCategory._('in_progress');
@@ -85,46 +92,53 @@ final class TicketStateCategory {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is TicketStateCategory && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is TicketStateCategory && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The category of the ticket state
 final class TicketStateDetailedCategory {
-
   final String value;
 
   const TicketStateDetailedCategory._(this.value);
 
-  factory TicketStateDetailedCategory.fromJson(String value) => TicketStateDetailedCategory._(value);
+  factory TicketStateDetailedCategory.fromJson(String value) =>
+      TicketStateDetailedCategory._(value);
 
   static const submitted = TicketStateDetailedCategory._('submitted');
   static const inProgress = TicketStateDetailedCategory._('in_progress');
-  static const waitingOnCustomer = TicketStateDetailedCategory._('waiting_on_customer');
+  static const waitingOnCustomer =
+      TicketStateDetailedCategory._('waiting_on_customer');
   static const resolved = TicketStateDetailedCategory._('resolved');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is TicketStateDetailedCategory && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is TicketStateDetailedCategory && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Category of the Ticket Type.
 final class TicketTypeCategory {
-
   final String value;
 
   const TicketTypeCategory._(this.value);
 
-  factory TicketTypeCategory.fromJson(String value) => TicketTypeCategory._(value);
+  factory TicketTypeCategory.fromJson(String value) =>
+      TicketTypeCategory._(value);
 
   static const customer = TicketTypeCategory._('Customer');
   static const backOffice = TicketTypeCategory._('Back-office');
@@ -132,133 +146,157 @@ final class TicketTypeCategory {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is TicketTypeCategory && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is TicketTypeCategory && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Whether the article will be `published` or will be a `draft`. Omitting this field leaves the publish state unchanged, so a draft stays a draft and an edit to a published article goes live immediately unless that article already has a pending draft or a scheduled publish time is set in the same request. The `PUT /articles/{id}/draft` endpoint ignores this field and always stages a draft. For multilingual articles, this will be the state of the default language's content.
 final class UpdateArticleRequestState {
-
   final String value;
 
   const UpdateArticleRequestState._(this.value);
 
-  factory UpdateArticleRequestState.fromJson(String value) => UpdateArticleRequestState._(value);
+  factory UpdateArticleRequestState.fromJson(String value) =>
+      UpdateArticleRequestState._(value);
 
   static const published = UpdateArticleRequestState._('published');
   static const draft = UpdateArticleRequestState._('draft');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UpdateArticleRequestState && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UpdateArticleRequestState && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Whether the article will be `published` or will be a `draft`. Omitting this field leaves the publish state unchanged, so a draft stays a draft and an edit to a published article goes live immediately unless that article already has a pending draft or a scheduled publish time is set in the same request. The `PUT /articles/{id}/draft` endpoint ignores this field and always stages a draft. For multilingual articles, this will be the state of the default language's content.
 final class UpdateArticleRequestRequestState {
-
   final String value;
 
   const UpdateArticleRequestRequestState._(this.value);
 
-  factory UpdateArticleRequestRequestState.fromJson(String value) => UpdateArticleRequestRequestState._(value);
+  factory UpdateArticleRequestRequestState.fromJson(String value) =>
+      UpdateArticleRequestRequestState._(value);
 
   static const published = UpdateArticleRequestRequestState._('published');
   static const draft = UpdateArticleRequestRequestState._('draft');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UpdateArticleRequestRequestState && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UpdateArticleRequestRequestState && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The status of the content import source.
 final class UpdateContentImportSourceRequestStatus {
-
   final String value;
 
   const UpdateContentImportSourceRequestStatus._(this.value);
 
-  factory UpdateContentImportSourceRequestStatus.fromJson(String value) => UpdateContentImportSourceRequestStatus._(value);
+  factory UpdateContentImportSourceRequestStatus.fromJson(String value) =>
+      UpdateContentImportSourceRequestStatus._(value);
 
   static const active = UpdateContentImportSourceRequestStatus._('active');
-  static const deactivated = UpdateContentImportSourceRequestStatus._('deactivated');
+  static const deactivated =
+      UpdateContentImportSourceRequestStatus._('deactivated');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UpdateContentImportSourceRequestStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UpdateContentImportSourceRequestStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// If you intend to create or update External Pages via the API, this should be set to `api`. You can not change the value to or from api.
 final class UpdateContentImportSourceRequestSyncBehavior {
-
   final String value;
 
   const UpdateContentImportSourceRequestSyncBehavior._(this.value);
 
-  factory UpdateContentImportSourceRequestSyncBehavior.fromJson(String value) => UpdateContentImportSourceRequestSyncBehavior._(value);
+  factory UpdateContentImportSourceRequestSyncBehavior.fromJson(String value) =>
+      UpdateContentImportSourceRequestSyncBehavior._(value);
 
   static const api = UpdateContentImportSourceRequestSyncBehavior._('api');
-  static const automated = UpdateContentImportSourceRequestSyncBehavior._('automated');
-  static const manual = UpdateContentImportSourceRequestSyncBehavior._('manual');
+  static const automated =
+      UpdateContentImportSourceRequestSyncBehavior._('automated');
+  static const manual =
+      UpdateContentImportSourceRequestSyncBehavior._('manual');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UpdateContentImportSourceRequestSyncBehavior && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UpdateContentImportSourceRequestSyncBehavior &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The cardinality of the relationship: `one` or `many`.
 final class UpdateConversationAttributeRequestReferenceType {
-
   final String value;
 
   const UpdateConversationAttributeRequestReferenceType._(this.value);
 
-  factory UpdateConversationAttributeRequestReferenceType.fromJson(String value) => UpdateConversationAttributeRequestReferenceType._(value);
+  factory UpdateConversationAttributeRequestReferenceType.fromJson(
+          String value) =>
+      UpdateConversationAttributeRequestReferenceType._(value);
 
   static const one = UpdateConversationAttributeRequestReferenceType._('one');
   static const many = UpdateConversationAttributeRequestReferenceType._('many');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UpdateConversationAttributeRequestReferenceType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UpdateConversationAttributeRequestReferenceType &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `audiences[]` wire field.
 final class UpdateDataConnectorRequestAudiencesItem {
-
   final String value;
 
   const UpdateDataConnectorRequestAudiencesItem._(this.value);
 
-  factory UpdateDataConnectorRequestAudiencesItem.fromJson(String value) => UpdateDataConnectorRequestAudiencesItem._(value);
+  factory UpdateDataConnectorRequestAudiencesItem.fromJson(String value) =>
+      UpdateDataConnectorRequestAudiencesItem._(value);
 
   static const leads = UpdateDataConnectorRequestAudiencesItem._('leads');
   static const users = UpdateDataConnectorRequestAudiencesItem._('users');
@@ -266,10 +304,13 @@ final class UpdateDataConnectorRequestAudiencesItem {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UpdateDataConnectorRequestAudiencesItem && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UpdateDataConnectorRequestAudiencesItem && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

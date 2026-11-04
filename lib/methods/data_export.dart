@@ -26,13 +26,14 @@ Future<DataExport> createDataExport(ClientConfig config,
             'created_at_before': createdAtBefore
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'createDataExport',
-          fromJsonRaw: (value) => DataExport.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DataExport.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Retrieves the status and download details for a content data export job. Use the `job_identifier` returned when you created the job to check its progress. Completed export data is available for two days after processing finishes.
 ///
@@ -47,13 +48,14 @@ Future<DataExport> getDataExport(ClientConfig config,
           '/export/content/data/${Uri.encodeComponent(jobIdentifier.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'getDataExport',
-          fromJsonRaw: (value) => DataExport.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DataExport.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Cancels a content data export job. Use the `job_identifier` returned when you created the job to identify which export to cancel. You can check the job's status afterward to see its current state.
 ///
@@ -68,13 +70,14 @@ Future<DataExport> cancelDataExport(ClientConfig config,
           '/export/cancel/${Uri.encodeComponent(jobIdentifier.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'cancelDataExport',
-          fromJsonRaw: (value) => DataExport.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DataExport.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Downloads the data for a completed content export job as a continuously streamed, gzipped CSV file. Use the `job_identifier` for a job with a completed status and send the `Accept: application/octet-stream` header. Download the file within two days of the job completing.
 ///
@@ -89,7 +92,8 @@ Future<void> downloadDataExport(ClientConfig config,
           '/download/content/data/${Uri.encodeComponent(jobIdentifier.toString())}',
           config: config,
           decoder: SdkResponseDecoder.empty,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'downloadDataExport',
           options: requestOptions))
       .data;

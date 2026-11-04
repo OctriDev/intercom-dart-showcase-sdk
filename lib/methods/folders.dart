@@ -23,19 +23,27 @@ Future<ListFoldersResponse> listFolders(ClientConfig config,
   return (await sdkRequest<ListFoldersResponse>('GET', '/folders',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'parent_folder_id': SdkQueryValue(SdkUtils.unwrapOptional(parentFolderId), style: 'form', explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'parent_folder_id': SdkQueryValue(
+                SdkUtils.unwrapOptional(parentFolderId),
+                style: 'form',
+                explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listFolders',
-          fromJsonRaw: (value) => ListFoldersResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ListFoldersResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Creates a folder for organizing content. Supply a `folder` object with a `name`, and optionally include its description, emoji, or parent folder ID. The response includes the new folder's identifier and content count.
 ///
@@ -48,14 +56,18 @@ Future<Folder> createFolder(ClientConfig config,
           config: config,
           body: {'folder': folder},
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'createFolder',
-          fromJsonRaw: (value) => Folder.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Folder.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves the details of a folder used to organize content. Use the folder's unique `id` to identify the folder. The response includes its name, description, parent folder, content count, and timestamps.
 ///
@@ -70,14 +82,18 @@ Future<Folder> retrieveFolder(ClientConfig config,
           'GET', '/folders/${Uri.encodeComponent(id.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'retrieveFolder',
-          fromJsonRaw: (value) => Folder.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Folder.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates a folder's name, description, emoji, or parent folder. Supply the `folder` object with the properties you want to change; `company_id` is not applicable to folders. The response contains the updated folder details.
 ///
@@ -94,14 +110,19 @@ Future<Folder> updateFolder(ClientConfig config,
           config: config,
           body: {'folder': folder},
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'updateFolder',
-          fromJsonRaw: (value) => Folder.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Folder.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes a folder that contains no content. Use the folder's unique `id` to identify the folder to remove. The response confirms whether deletion succeeded.
 ///
@@ -116,10 +137,16 @@ Future<DeletedFolderObject> deleteFolder(ClientConfig config,
           'DELETE', '/folders/${Uri.encodeComponent(id.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'deleteFolder',
-          fromJsonRaw: (value) => DeletedFolderObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeletedFolderObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '422': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

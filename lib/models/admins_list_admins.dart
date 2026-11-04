@@ -8,34 +8,60 @@ part of 'admins.dart';
 class AdminList implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// String representing the object's type. Always has the value `admin.list`.
   final SdkOptional<String> type_;
+
   /// A list of admins associated with a given workspace.
   final SdkOptional<List<Admin?>> admins;
 
-  const AdminList({this.type_ = const SdkOmitted(), this.admins = const SdkOmitted()});
+  const AdminList(
+      {this.type_ = const SdkOmitted(), this.admins = const SdkOmitted()});
 
-  AdminList Function({SdkOptional<String> type_, SdkOptional<List<Admin?>> admins}) get copyWith => _copyWith;
+  AdminList Function(
+      {SdkOptional<String> type_,
+      SdkOptional<List<Admin?>> admins}) get copyWith => _copyWith;
 
-  AdminList _copyWith({Object? type_ = sdkOmittedValue, Object? admins = sdkOmittedValue}) => AdminList(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
-    admins: identical(admins, sdkOmittedValue) ? this.admins : admins as SdkOptional<List<Admin?>>,
-  );
+  AdminList _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? admins = sdkOmittedValue}) =>
+      AdminList(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<String>,
+        admins: identical(admins, sdkOmittedValue)
+            ? this.admins
+            : admins as SdkOptional<List<Admin?>>,
+      );
 
-  factory AdminList.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(AdminList(
-    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
-    admins: json['admins'] != null ? SdkPresent(((json['admins'] as List?)?.map((e) => e == null ? null : Admin.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  ), json);
+  factory AdminList.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(
+      AdminList(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] as String?)!)
+            : const SdkOmitted(),
+        admins: json['admins'] != null
+            ? SdkPresent(((json['admins'] as List?)
+                ?.map((e) => e == null
+                    ? null
+                    : Admin.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      ),
+      json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<String>(value: final value) => {'type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (admins) {
-      SdkPresent<List<Admin?>>(value: final value) => {'admins': value.map((item) => item?.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<String>(value: final value) => {
+              'type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (admins) {
+          SdkPresent<List<Admin?>>(value: final value) => {
+              'admins': value.map((item) => item?.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

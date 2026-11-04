@@ -16,14 +16,17 @@ Future<ContentImportSourcesList> listContentImportSources(ClientConfig config,
           'GET', '/ai/content_import_sources',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listContentImportSources',
-          fromJsonRaw: (value) => ContentImportSourcesList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ContentImportSourcesList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Creates a content import source for external pages in your Fin Content Library. Supply `sync_behavior` as `api` and provide the source `url`; you can also set its status and associate audiences.
 ///
@@ -39,7 +42,8 @@ Future<ContentImportSource> createContentImportSource(ClientConfig config,
     {required CreateContentImportSourceRequestSyncBehavior syncBehavior,
     required String url,
     SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
-    SdkOptional<CreateContentImportSourceRequestStatus> status = const SdkOmitted(),
+    SdkOptional<CreateContentImportSourceRequestStatus> status =
+        const SdkOmitted(),
     SdkOptional<List<int>?> audienceIds = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<ContentImportSource>(
@@ -52,14 +56,17 @@ Future<ContentImportSource> createContentImportSource(ClientConfig config,
             'audience_ids': SdkUtils.unwrapOptional(audienceIds)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'createContentImportSource',
-          fromJsonRaw: (value) => ContentImportSource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ContentImportSource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes a content import source from your Fin Content Library. Deleting the source also deletes all external pages imported from it, so consider the effect on those pages before proceeding.
 ///
@@ -78,10 +85,11 @@ Future<void> deleteContentImportSource(ClientConfig config,
           extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'deleteContentImportSource',
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Retrieves a content import source from your Fin Content Library by its identifier. Use the source ID to inspect its URL, status, sync behavior, and associated audiences.
 ///
@@ -99,10 +107,11 @@ Future<ContentImportSource> getContentImportSource(ClientConfig config,
           operationId: 'getContentImportSource',
           fromJsonRaw: (value) => ContentImportSource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Replaces the settings for a content import source in your Fin Content Library. Provide `sync_behavior` and `url`; you can also change its status, update its audiences, and apply an audience to existing external pages.
 ///
@@ -125,7 +134,8 @@ Future<ContentImportSource> updateContentImportSource(ClientConfig config,
     required UpdateContentImportSourceRequestSyncBehavior syncBehavior,
     required String url,
     SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
-    SdkOptional<UpdateContentImportSourceRequestStatus> status = const SdkOmitted(),
+    SdkOptional<UpdateContentImportSourceRequestStatus> status =
+        const SdkOmitted(),
     SdkOptional<List<int>?> audienceIds = const SdkOmitted(),
     SdkOptional<bool> applyAudienceToExistingContent = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
@@ -137,17 +147,21 @@ Future<ContentImportSource> updateContentImportSource(ClientConfig config,
             'url': url,
             'status': SdkUtils.unwrapOptional(status),
             'audience_ids': SdkUtils.unwrapOptional(audienceIds),
-            'apply_audience_to_existing_content': SdkUtils.unwrapOptional(applyAudienceToExistingContent)
+            'apply_audience_to_existing_content':
+                SdkUtils.unwrapOptional(applyAudienceToExistingContent)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'updateContentImportSource',
-          fromJsonRaw: (value) => ContentImportSource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ContentImportSource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Lists external pages in your workspace's Fin Content Library. Use the returned page data to review each page and its source, while the pagination object provides links and details for navigating the results.
 ///
@@ -158,14 +172,17 @@ Future<ExternalPagesList> listExternalPages(ClientConfig config,
   return (await sdkRequest<ExternalPagesList>('GET', '/ai/external_pages',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listExternalPages',
-          fromJsonRaw: (value) => ExternalPagesList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ExternalPagesList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Creates an external page in your Fin Content Library, or updates the existing page with the same source and external identifiers. Provide the page title, HTML body, locale, source ID, and source-assigned external ID.
 ///
@@ -218,19 +235,24 @@ Future<ExternalPage> createExternalPage(ClientConfig config,
             'source_id': sourceId,
             'external_id': externalId,
             'url': SdkUtils.unwrapOptional(url),
-            'ai_agent_availability': SdkUtils.unwrapOptional(aiAgentAvailability),
-            'ai_copilot_availability': SdkUtils.unwrapOptional(aiCopilotAvailability),
+            'ai_agent_availability':
+                SdkUtils.unwrapOptional(aiAgentAvailability),
+            'ai_copilot_availability':
+                SdkUtils.unwrapOptional(aiCopilotAvailability),
             'audience_ids': SdkUtils.unwrapOptional(audienceIds)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'createExternalPage',
-          fromJsonRaw: (value) => ExternalPage.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ExternalPage.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes an external page from your Fin Content Library and removes it from use in AI answers. Use the page identifier to select the external page to remove.
 ///
@@ -246,14 +268,17 @@ Future<ExternalPage> deleteExternalPage(ClientConfig config,
           '/ai/external_pages/${Uri.encodeComponent(pageId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'deleteExternalPage',
-          fromJsonRaw: (value) => ExternalPage.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ExternalPage.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Retrieves an external page from your Fin Content Library by its page identifier. Use this operation to inspect the page content, source association, availability settings, and audience targeting.
 ///
@@ -269,14 +294,17 @@ Future<ExternalPage> getExternalPage(ClientConfig config,
           'GET', '/ai/external_pages/${Uri.encodeComponent(pageId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'getExternalPage',
-          fromJsonRaw: (value) => ExternalPage.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ExternalPage.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Replaces the specified external page's details in your Fin Content Library; this operation applies to pages created through the API. Provide `title`, `html`, `url`, `locale`, and `source_id`, and include `audience_ids` to replace the existing audience memberships.
 ///
@@ -329,10 +357,14 @@ Future<ExternalPage> updateExternalPage(ClientConfig config,
             'audience_ids': SdkUtils.unwrapOptional(audienceIds)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'updateExternalPage',
-          fromJsonRaw: (value) => ExternalPage.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ExternalPage.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }

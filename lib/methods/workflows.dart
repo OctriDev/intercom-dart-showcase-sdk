@@ -19,10 +19,15 @@ Future<WorkflowExport> exportWorkflow(ClientConfig config,
           'GET', '/export/workflows/${Uri.encodeComponent(id.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'exportWorkflow',
-          fromJsonRaw: (value) => WorkflowExport.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              WorkflowExport.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

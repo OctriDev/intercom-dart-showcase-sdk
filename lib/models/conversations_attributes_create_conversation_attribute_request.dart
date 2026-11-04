@@ -10,80 +10,201 @@ sealed class CreateConversationAttributeRequest {
   const CreateConversationAttributeRequest();
   factory CreateConversationAttributeRequest.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = CreateConversationAttributeStringRequest.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateConversationAttributeRequestCreateConversationAttributeStringRequest(value); } } catch (_) {}
-      try { final value = CreateConversationAttributeIntegerRequest.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateConversationAttributeRequestCreateConversationAttributeIntegerRequest(value); } } catch (_) {}
-      try { final value = CreateConversationAttributeListRequest.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateConversationAttributeRequestCreateConversationAttributeListRequest(value); } } catch (_) {}
-      try { final value = CreateConversationAttributeDecimalRequest.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateConversationAttributeRequestCreateConversationAttributeDecimalRequest(value); } } catch (_) {}
-      try { final value = CreateConversationAttributeBooleanRequest.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateConversationAttributeRequestCreateConversationAttributeBooleanRequest(value); } } catch (_) {}
-      try { final value = CreateConversationAttributeDatetimeRequest.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateConversationAttributeRequestCreateConversationAttributeDatetimeRequest(value); } } catch (_) {}
-      try { final value = CreateConversationAttributeRelationshipRequest.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateConversationAttributeRequestCreateConversationAttributeRelationshipRequest(value); } } catch (_) {}
-      try { final value = CreateConversationAttributeFilesRequest.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateConversationAttributeRequestCreateConversationAttributeFilesRequest(value); } } catch (_) {}
+      try {
+        final value = CreateConversationAttributeStringRequest.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateConversationAttributeRequestCreateConversationAttributeStringRequest(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = CreateConversationAttributeIntegerRequest.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateConversationAttributeRequestCreateConversationAttributeIntegerRequest(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = CreateConversationAttributeListRequest.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateConversationAttributeRequestCreateConversationAttributeListRequest(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = CreateConversationAttributeDecimalRequest.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateConversationAttributeRequestCreateConversationAttributeDecimalRequest(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = CreateConversationAttributeBooleanRequest.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateConversationAttributeRequestCreateConversationAttributeBooleanRequest(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = CreateConversationAttributeDatetimeRequest.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateConversationAttributeRequestCreateConversationAttributeDatetimeRequest(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            CreateConversationAttributeRelationshipRequest.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateConversationAttributeRequestCreateConversationAttributeRelationshipRequest(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = CreateConversationAttributeFilesRequest.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateConversationAttributeRequestCreateConversationAttributeFilesRequest(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return CreateConversationAttributeRequestCreateConversationAttributeStringRequest(CreateConversationAttributeStringRequest.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateConversationAttributeRequestCreateConversationAttributeIntegerRequest(CreateConversationAttributeIntegerRequest.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateConversationAttributeRequestCreateConversationAttributeListRequest(CreateConversationAttributeListRequest.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateConversationAttributeRequestCreateConversationAttributeDecimalRequest(CreateConversationAttributeDecimalRequest.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateConversationAttributeRequestCreateConversationAttributeBooleanRequest(CreateConversationAttributeBooleanRequest.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateConversationAttributeRequestCreateConversationAttributeDatetimeRequest(CreateConversationAttributeDatetimeRequest.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateConversationAttributeRequestCreateConversationAttributeRelationshipRequest(CreateConversationAttributeRelationshipRequest.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateConversationAttributeRequestCreateConversationAttributeFilesRequest(CreateConversationAttributeFilesRequest.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["data_type"] is String && !const {"string", "integer", "list", "decimal", "boolean", "datetime", "relationship", "files"}.contains(json["data_type"])) { return UnknownCreateConversationAttributeRequest(json); }
-    throw FormatException("No variant matched for CreateConversationAttributeRequest");
+    try {
+      return CreateConversationAttributeRequestCreateConversationAttributeStringRequest(
+          CreateConversationAttributeStringRequest.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateConversationAttributeRequestCreateConversationAttributeIntegerRequest(
+          CreateConversationAttributeIntegerRequest.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateConversationAttributeRequestCreateConversationAttributeListRequest(
+          CreateConversationAttributeListRequest.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateConversationAttributeRequestCreateConversationAttributeDecimalRequest(
+          CreateConversationAttributeDecimalRequest.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateConversationAttributeRequestCreateConversationAttributeBooleanRequest(
+          CreateConversationAttributeBooleanRequest.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateConversationAttributeRequestCreateConversationAttributeDatetimeRequest(
+          CreateConversationAttributeDatetimeRequest.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateConversationAttributeRequestCreateConversationAttributeRelationshipRequest(
+          CreateConversationAttributeRelationshipRequest.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateConversationAttributeRequestCreateConversationAttributeFilesRequest(
+          CreateConversationAttributeFilesRequest.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["data_type"] is String &&
+        !const {
+          "string",
+          "integer",
+          "list",
+          "decimal",
+          "boolean",
+          "datetime",
+          "relationship",
+          "files"
+        }.contains(json["data_type"])) {
+      return UnknownCreateConversationAttributeRequest(json);
+    }
+    throw FormatException(
+        "No variant matched for CreateConversationAttributeRequest");
   }
   Object? toJson();
 }
 
-final class CreateConversationAttributeRequestCreateConversationAttributeStringRequest extends CreateConversationAttributeRequest {
+final class CreateConversationAttributeRequestCreateConversationAttributeStringRequest
+    extends CreateConversationAttributeRequest {
   final CreateConversationAttributeStringRequest value;
-  const CreateConversationAttributeRequestCreateConversationAttributeStringRequest(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateConversationAttributeRequestCreateConversationAttributeStringRequest(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateConversationAttributeRequestCreateConversationAttributeIntegerRequest extends CreateConversationAttributeRequest {
+final class CreateConversationAttributeRequestCreateConversationAttributeIntegerRequest
+    extends CreateConversationAttributeRequest {
   final CreateConversationAttributeIntegerRequest value;
-  const CreateConversationAttributeRequestCreateConversationAttributeIntegerRequest(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateConversationAttributeRequestCreateConversationAttributeIntegerRequest(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateConversationAttributeRequestCreateConversationAttributeListRequest extends CreateConversationAttributeRequest {
+final class CreateConversationAttributeRequestCreateConversationAttributeListRequest
+    extends CreateConversationAttributeRequest {
   final CreateConversationAttributeListRequest value;
-  const CreateConversationAttributeRequestCreateConversationAttributeListRequest(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateConversationAttributeRequestCreateConversationAttributeListRequest(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateConversationAttributeRequestCreateConversationAttributeDecimalRequest extends CreateConversationAttributeRequest {
+final class CreateConversationAttributeRequestCreateConversationAttributeDecimalRequest
+    extends CreateConversationAttributeRequest {
   final CreateConversationAttributeDecimalRequest value;
-  const CreateConversationAttributeRequestCreateConversationAttributeDecimalRequest(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateConversationAttributeRequestCreateConversationAttributeDecimalRequest(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateConversationAttributeRequestCreateConversationAttributeBooleanRequest extends CreateConversationAttributeRequest {
+final class CreateConversationAttributeRequestCreateConversationAttributeBooleanRequest
+    extends CreateConversationAttributeRequest {
   final CreateConversationAttributeBooleanRequest value;
-  const CreateConversationAttributeRequestCreateConversationAttributeBooleanRequest(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateConversationAttributeRequestCreateConversationAttributeBooleanRequest(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateConversationAttributeRequestCreateConversationAttributeDatetimeRequest extends CreateConversationAttributeRequest {
+final class CreateConversationAttributeRequestCreateConversationAttributeDatetimeRequest
+    extends CreateConversationAttributeRequest {
   final CreateConversationAttributeDatetimeRequest value;
-  const CreateConversationAttributeRequestCreateConversationAttributeDatetimeRequest(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateConversationAttributeRequestCreateConversationAttributeDatetimeRequest(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateConversationAttributeRequestCreateConversationAttributeRelationshipRequest extends CreateConversationAttributeRequest {
+final class CreateConversationAttributeRequestCreateConversationAttributeRelationshipRequest
+    extends CreateConversationAttributeRequest {
   final CreateConversationAttributeRelationshipRequest value;
-  const CreateConversationAttributeRequestCreateConversationAttributeRelationshipRequest(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateConversationAttributeRequestCreateConversationAttributeRelationshipRequest(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateConversationAttributeRequestCreateConversationAttributeFilesRequest extends CreateConversationAttributeRequest {
+final class CreateConversationAttributeRequestCreateConversationAttributeFilesRequest
+    extends CreateConversationAttributeRequest {
   final CreateConversationAttributeFilesRequest value;
-  const CreateConversationAttributeRequestCreateConversationAttributeFilesRequest(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateConversationAttributeRequestCreateConversationAttributeFilesRequest(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [CreateConversationAttributeRequest] whose `data_type` names no branch this SDK knows, kept as received.
-final class UnknownCreateConversationAttributeRequest extends CreateConversationAttributeRequest {
+final class UnknownCreateConversationAttributeRequest
+    extends CreateConversationAttributeRequest {
   final Map<String, dynamic> raw;
   const UnknownCreateConversationAttributeRequest(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

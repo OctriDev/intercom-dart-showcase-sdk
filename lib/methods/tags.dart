@@ -22,14 +22,17 @@ Future<Tag> attachTagToContact(ClientConfig config,
           config: config,
           body: {'id': id},
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'attachTagToContact',
           fromJsonRaw: (value) => Tag.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Removes a tag from a specific contact. Use `contact_id` and `tag_id` to identify the contact and the tag to detach. The response contains the tag that was removed.
 ///
@@ -46,14 +49,17 @@ Future<Tag> detachTagFromContact(ClientConfig config,
           '/contacts/${Uri.encodeComponent(contactId.toString())}/tags/${Uri.encodeComponent(tagId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'detachTagFromContact',
           fromJsonRaw: (value) => Tag.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Attaches a tag to a conversation and returns the tag that was added. Provide the tag identifier and the identifier of the admin performing the operation in the request body.
 ///
@@ -73,14 +79,17 @@ Future<Tag> attachTagToConversation(ClientConfig config,
           config: config,
           body: {'id': id, 'admin_id': adminId},
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'attachTagToConversation',
           fromJsonRaw: (value) => Tag.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Removes a tag from a specific conversation and returns the tag that was removed. Provide the conversation and tag identifiers, and include the admin identifier in the request body when sending one.
 ///
@@ -100,14 +109,17 @@ Future<Tag> detachTagFromConversation(ClientConfig config,
           config: config,
           body: {'admin_id': adminId},
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'detachTagFromConversation',
           fromJsonRaw: (value) => Tag.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Lists tags in the workspace. Use this endpoint to retrieve the tags available for labeling contacts, companies, and conversations.
 ///
@@ -118,14 +130,17 @@ Future<TagList> listTags(ClientConfig config,
   return (await sdkRequest<TagList>('GET', '/tags',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'listTags',
-          fromJsonRaw: (value) => TagList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              TagList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Creates or updates a tag, or applies or removes tags from companies and users. Supply `name` to create or update a tag, and include the relevant company details to tag or untag companies. Each operation returns a tag object with the affected entities when applicable.
 ///
@@ -138,14 +153,18 @@ Future<TagCreateResponse> createTag(ClientConfig config,
           config: config,
           body: SdkUtils.unwrapOptional(body),
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'createTag',
-          fromJsonRaw: (value) => TagCreateResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              TagCreateResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Retrieves a tag from the workspace by its identifier. Use this operation to fetch the tag's details, including its name and identifier.
 ///
@@ -160,14 +179,18 @@ Future<TagBasic> findTag(ClientConfig config,
           'GET', '/tags/${Uri.encodeComponent(tagId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'findTag',
-          fromJsonRaw: (value) => TagBasic.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              TagBasic.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Deletes a tag from the workspace using its identifier. Use this operation to remove a tag that is no longer needed; tags with dependent objects cannot be deleted.
 ///
@@ -182,13 +205,17 @@ Future<void> deleteTag(ClientConfig config,
           'DELETE', '/tags/${Uri.encodeComponent(tagId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.empty,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'deleteTag',
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Adds a tag to a specific ticket and returns the tag that was applied. Supply the tag and admin identifiers in the body, and use the ticket's internal API identifier in the path.
 ///
@@ -208,14 +235,17 @@ Future<Tag> attachTagToTicket(ClientConfig config,
           config: config,
           body: {'id': id, 'admin_id': adminId},
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'attachTagToTicket',
           fromJsonRaw: (value) => Tag.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Removes a tag from a specific ticket and returns the tag that was removed. Provide the ticket and tag identifiers in the path, and identify the admin performing the removal in the body.
 ///
@@ -235,10 +265,14 @@ Future<Tag> detachTagFromTicket(ClientConfig config,
           config: config,
           body: {'admin_id': adminId},
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Intercom-Version': SdkUtils.unwrapOptional(intercomVersion)}),
           operationId: 'detachTagFromTicket',
           fromJsonRaw: (value) => Tag.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }

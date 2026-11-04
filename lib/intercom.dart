@@ -27,8 +27,10 @@ import 'methods/content.dart' as content_methods;
 import 'methods/content_snippets.dart' as content_snippets_methods;
 import 'methods/dynamic_content.dart' as dynamic_content_methods;
 import 'methods/conversations.dart' as conversations_methods;
-import 'methods/conversations_attributes.dart' as conversations_attributes_methods;
-import 'methods/custom_object_instances.dart' as custom_object_instances_methods;
+import 'methods/conversations_attributes.dart'
+    as conversations_attributes_methods;
+import 'methods/custom_object_instances.dart'
+    as custom_object_instances_methods;
 import 'methods/data_attributes.dart' as data_attributes_methods;
 import 'methods/data_connectors.dart' as data_connectors_methods;
 import 'methods/data_events.dart' as data_events_methods;
@@ -52,13 +54,15 @@ import 'methods/workflows.dart' as workflows_methods;
 class AdminsNamespace {
   final ClientConfig _config;
   AdminsNamespace(ClientConfig config) : _config = config;
+
   /// Retrieves details for the authenticated user and the embedded app workspace. Use this endpoint to identify the admin associated with the active API authorization; the response includes `email_verified` for custom sign-in flows. &lt;Callout type="warning"&gt;Do not accept sign-ins from admins whose email address is unverified, because this can create an impersonation risk.&lt;/Callout&gt;
   ///
   /// You can view the currently authorised admin along with the embedded app object (a "workspace" in legacy terminology). &gt; 🚧 Single Sign On &gt; &gt; If you are building a custom "Log in with Intercom" flow for your site, and you call the `/me` endpoint to identify the logged-in user, you should not accept any sign-ins from users with unverified email addresses as it poses a potential impersonation security risk.
   Future<AdminWithApp> identify(
       {SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return admins_methods.identifyAdmin(_config, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return admins_methods.identifyAdmin(_config,
+        intercomVersion: intercomVersion, requestOptions: requestOptions);
   }
 
   /// Sets an admin's away status for the Inbox. Provide `away_mode_enabled` and `away_mode_reassign` to control the admin's status and how new conversation replies are handled; `away_status_reason_id` can identify an away status reason.
@@ -71,7 +75,13 @@ class AdminsNamespace {
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<int> awayStatusReasonId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return admins_methods.setAwayAdmin(_config, adminId: adminId, awayModeEnabled: awayModeEnabled, awayModeReassign: awayModeReassign, intercomVersion: intercomVersion, awayStatusReasonId: awayStatusReasonId, requestOptions: requestOptions);
+    return admins_methods.setAwayAdmin(_config,
+        adminId: adminId,
+        awayModeEnabled: awayModeEnabled,
+        awayModeReassign: awayModeReassign,
+        intercomVersion: intercomVersion,
+        awayStatusReasonId: awayStatusReasonId,
+        requestOptions: requestOptions);
   }
 
   /// Lists activity logs for admins in the app within a requested time range. Provide `created_at_after` as the start of the range and optionally use `created_at_before` to set its end. Results are paginated.
@@ -82,7 +92,11 @@ class AdminsNamespace {
       SdkOptional<String> createdAtBefore = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return admins_methods.listActivityLogs(_config, createdAtAfter: createdAtAfter, createdAtBefore: createdAtBefore, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return admins_methods.listActivityLogs(_config,
+        createdAtAfter: createdAtAfter,
+        createdAtBefore: createdAtBefore,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Searches admin activity logs by time range and optional event type filters. Supply `created_at_after` and use `event_types` to restrict results to selected event types; retrieve valid event types from the activity log event types endpoint. Use `page` and `per_page` to paginate the results.
@@ -96,7 +110,14 @@ class AdminsNamespace {
       SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return admins_methods.searchActivityLogs(_config, createdAtAfter: createdAtAfter, intercomVersion: intercomVersion, createdAtBefore: createdAtBefore, eventTypes: eventTypes, page: page, perPage: perPage, requestOptions: requestOptions);
+    return admins_methods.searchActivityLogs(_config,
+        createdAtAfter: createdAtAfter,
+        intercomVersion: intercomVersion,
+        createdAtBefore: createdAtBefore,
+        eventTypes: eventTypes,
+        page: page,
+        perPage: perPage,
+        requestOptions: requestOptions);
   }
 
   /// Lists the event type values available for filtering admin activity logs. Use the returned values with the `event_types` filter when searching activity logs.
@@ -105,7 +126,8 @@ class AdminsNamespace {
   Future<ActivityLogEventTypeList> listActivityLogEventTypes(
       {SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return admins_methods.listActivityLogEventTypes(_config, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return admins_methods.listActivityLogEventTypes(_config,
+        intercomVersion: intercomVersion, requestOptions: requestOptions);
   }
 
   /// Lists the admins associated with the workspace. Set `display_avatar` to `true` to include each admin's avatar object and image URL; it defaults to `false` when omitted.
@@ -115,7 +137,10 @@ class AdminsNamespace {
       {SdkOptional<bool> displayAvatar = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return admins_methods.listAdmins(_config, displayAvatar: displayAvatar, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return admins_methods.listAdmins(_config,
+        displayAvatar: displayAvatar,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves the details of a single admin account. Use this endpoint to inspect the admin's contact details, role, team assignments, and away-mode settings. The response may include role details only when a role is assigned.
@@ -125,14 +150,17 @@ class AdminsNamespace {
       {required int adminId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return admins_methods.retrieveAdmin(_config, adminId: adminId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return admins_methods.retrieveAdmin(_config,
+        adminId: adminId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
-
 }
 
 class MacrosNamespace {
   final ClientConfig _config;
   MacrosNamespace(ClientConfig config) : _config = config;
+
   /// Retrieves a macro (saved reply) by its ID. The macro is visible only when its `visible_to` setting permits access to the authenticated user, and placeholders in `body` are transformed to an XML-like format.
   ///
   /// You can fetch a single macro (saved reply) by its ID. The macro will only be returned if it is visible to the authenticated user based on its visibility settings. **Visibility Rules** A macro is returned based on its `visible_to` setting: - `everyone`: Always visible to all team members - `specific_teams`: Only visible if the authenticated user belongs to one of the teams specified in `visible_to_team_ids` If a macro exists but is not visible to the authenticated user, a 404 error is returned. **Placeholder Transformation** The API transforms Intercom placeholders to a more standard XML-like format in the `body` field: - From: `{{user.name | fallback: 'there'}}` - To: `&lt;attribute key="user.name" default="there"/&gt;` Default values in placeholders are HTML-escaped for security.
@@ -140,7 +168,10 @@ class MacrosNamespace {
       {required String id,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return macros_methods.getMacro(_config, id: id, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return macros_methods.getMacro(_config,
+        id: id,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Lists macros (saved replies) in the workspace, ordered by `updated_at` from newest to oldest. Use `starting_after` with the cursor from the previous page to continue through the results, and use `updated_since` to filter by update time.
@@ -152,14 +183,19 @@ class MacrosNamespace {
       SdkOptional<int> updatedSince = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return macros_methods.listMacros(_config, perPage: perPage, startingAfter: startingAfter, updatedSince: updatedSince, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return macros_methods.listMacros(_config,
+        perPage: perPage,
+        startingAfter: startingAfter,
+        updatedSince: updatedSince,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
-
 }
 
 class OfficeHoursNamespace {
   final ClientConfig _config;
   OfficeHoursNamespace(ClientConfig config) : _config = config;
+
   /// Retrieves a specific office hours exception from an office hours schedule. Use `office_hours_schedule_id` and `id` to identify the schedule and exception. The response includes the exception date, type, and any replacement time intervals.
   ///
   /// You can fetch the details of a single office hours exception.
@@ -168,7 +204,11 @@ class OfficeHoursNamespace {
       required String id,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return office_hours_methods.getOfficeHoursException(_config, officeHoursScheduleId: officeHoursScheduleId, id: id, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return office_hours_methods.getOfficeHoursException(_config,
+        officeHoursScheduleId: officeHoursScheduleId,
+        id: id,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Updates an existing office hours exception for a schedule. Supply only the fields you want to change; `exception_type` must be `closed` or `custom_hours`, and `time_intervals` is required for `custom_hours` but omitted for `closed`. Use `exception_date` in `YYYY-MM-DD` format to set the date the exception applies to.
@@ -179,12 +219,23 @@ class OfficeHoursNamespace {
       required String id,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<String> exceptionDate = const SdkOmitted(),
-      SdkOptional<UpdateOfficeHoursExceptionRequestRequestExceptionType> exceptionType = const SdkOmitted(),
+      SdkOptional<UpdateOfficeHoursExceptionRequestRequestExceptionType>
+          exceptionType = const SdkOmitted(),
       SdkOptional<String> name = const SdkOmitted(),
-      SdkOptional<List<OfficeHoursTimeIntervalRequest>?> timeIntervals = const SdkOmitted(),
+      SdkOptional<List<OfficeHoursTimeIntervalRequest>?> timeIntervals =
+          const SdkOmitted(),
       SdkOptional<bool> recurringAnnually = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return office_hours_methods.updateOfficeHoursException(_config, officeHoursScheduleId: officeHoursScheduleId, id: id, intercomVersion: intercomVersion, exceptionDate: exceptionDate, exceptionType: exceptionType, name: name, timeIntervals: timeIntervals, recurringAnnually: recurringAnnually, requestOptions: requestOptions);
+    return office_hours_methods.updateOfficeHoursException(_config,
+        officeHoursScheduleId: officeHoursScheduleId,
+        id: id,
+        intercomVersion: intercomVersion,
+        exceptionDate: exceptionDate,
+        exceptionType: exceptionType,
+        name: name,
+        timeIntervals: timeIntervals,
+        recurringAnnually: recurringAnnually,
+        requestOptions: requestOptions);
   }
 
   /// Deletes a specific office hours exception from an office hours schedule. Use `office_hours_schedule_id` and `id` to identify the schedule and exception to remove. The response confirms whether the exception was deleted.
@@ -195,7 +246,11 @@ class OfficeHoursNamespace {
       required String id,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return office_hours_methods.deleteOfficeHoursException(_config, officeHoursScheduleId: officeHoursScheduleId, id: id, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return office_hours_methods.deleteOfficeHoursException(_config,
+        officeHoursScheduleId: officeHoursScheduleId,
+        id: id,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Lists the exceptions for an office hours schedule. Use this endpoint to retrieve the dates and exception settings that override the schedule's regular hours. The response includes the exception records in a `data` array.
@@ -205,7 +260,10 @@ class OfficeHoursNamespace {
       {required String officeHoursScheduleId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return office_hours_methods.listOfficeHoursExceptions(_config, officeHoursScheduleId: officeHoursScheduleId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return office_hours_methods.listOfficeHoursExceptions(_config,
+        officeHoursScheduleId: officeHoursScheduleId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Creates an exception for an office hours schedule that overrides its regular hours on a specific date. Provide `exception_date` and choose `closed` or `custom_hours`; supply `time_intervals` for `custom_hours` and omit it for `closed`. Set `recurring_annually` to repeat the exception on the same date each year.
@@ -214,13 +272,23 @@ class OfficeHoursNamespace {
   Future<OfficeHoursException> createException(
       {required String officeHoursScheduleId,
       required String exceptionDate,
-      required CreateOfficeHoursExceptionRequestRequestExceptionType exceptionType,
+      required CreateOfficeHoursExceptionRequestRequestExceptionType
+          exceptionType,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<String> name = const SdkOmitted(),
-      SdkOptional<List<OfficeHoursTimeIntervalRequest>?> timeIntervals = const SdkOmitted(),
+      SdkOptional<List<OfficeHoursTimeIntervalRequest>?> timeIntervals =
+          const SdkOmitted(),
       SdkOptional<bool> recurringAnnually = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return office_hours_methods.createOfficeHoursException(_config, officeHoursScheduleId: officeHoursScheduleId, exceptionDate: exceptionDate, exceptionType: exceptionType, intercomVersion: intercomVersion, name: name, timeIntervals: timeIntervals, recurringAnnually: recurringAnnually, requestOptions: requestOptions);
+    return office_hours_methods.createOfficeHoursException(_config,
+        officeHoursScheduleId: officeHoursScheduleId,
+        exceptionDate: exceptionDate,
+        exceptionType: exceptionType,
+        intercomVersion: intercomVersion,
+        name: name,
+        timeIntervals: timeIntervals,
+        recurringAnnually: recurringAnnually,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves a single office hours schedule and its recurring weekly hours. Use this endpoint to inspect the schedule's name, time zone, and open intervals. The response also indicates whether the schedule is open 24/7.
@@ -230,7 +298,10 @@ class OfficeHoursNamespace {
       {required String id,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return office_hours_methods.getOfficeHoursSchedule(_config, id: id, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return office_hours_methods.getOfficeHoursSchedule(_config,
+        id: id,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Updates an existing office hours schedule. Provide only the schedule fields you want to change, such as its name, time zone, or weekly intervals. For each interval, `start_minute` and `end_minute` must fall on a 15-minute boundary.
@@ -241,9 +312,16 @@ class OfficeHoursNamespace {
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<String> name = const SdkOmitted(),
       SdkOptional<String> timeZoneName = const SdkOmitted(),
-      SdkOptional<List<OfficeHoursTimeIntervalRequest>> timeIntervals = const SdkOmitted(),
+      SdkOptional<List<OfficeHoursTimeIntervalRequest>> timeIntervals =
+          const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return office_hours_methods.updateOfficeHoursSchedule(_config, id: id, intercomVersion: intercomVersion, name: name, timeZoneName: timeZoneName, timeIntervals: timeIntervals, requestOptions: requestOptions);
+    return office_hours_methods.updateOfficeHoursSchedule(_config,
+        id: id,
+        intercomVersion: intercomVersion,
+        name: name,
+        timeZoneName: timeZoneName,
+        timeIntervals: timeIntervals,
+        requestOptions: requestOptions);
   }
 
   /// Deletes an office hours schedule. Use this operation when the schedule is no longer needed for the workspace. The response indicates whether the schedule was deleted and identifies the deleted object.
@@ -253,7 +331,10 @@ class OfficeHoursNamespace {
       {required String id,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return office_hours_methods.deleteOfficeHoursSchedule(_config, id: id, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return office_hours_methods.deleteOfficeHoursSchedule(_config,
+        id: id,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Lists the office hours schedules configured for the workspace. Use this endpoint to view the recurring schedules and their weekly hours.
@@ -262,7 +343,8 @@ class OfficeHoursNamespace {
   Future<OfficeHoursScheduleList> listSchedules(
       {SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return office_hours_methods.listOfficeHoursSchedules(_config, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return office_hours_methods.listOfficeHoursSchedules(_config,
+        intercomVersion: intercomVersion, requestOptions: requestOptions);
   }
 
   /// Creates a new office hours schedule for the workspace. Provide its `name`, `time_zone_name`, and weekly `time_intervals`; interval start and end values must fall on 15-minute boundaries. The response contains the created schedule and its generated identifier.
@@ -274,21 +356,27 @@ class OfficeHoursNamespace {
       required List<OfficeHoursTimeIntervalRequest> timeIntervals,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return office_hours_methods.createOfficeHoursSchedule(_config, name: name, timeZoneName: timeZoneName, timeIntervals: timeIntervals, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return office_hours_methods.createOfficeHoursSchedule(_config,
+        name: name,
+        timeZoneName: timeZoneName,
+        timeIntervals: timeIntervals,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
-
 }
 
 class AiContentNamespace {
   final ClientConfig _config;
   AiContentNamespace(ClientConfig config) : _config = config;
+
   /// Lists the content import sources configured for the workspace. Use the pagination links in the response to navigate through the source list. Each source represents an external source added to the Fin Content Library.
   ///
   /// You can retrieve a list of all content import sources for a workspace.
   Future<ContentImportSourcesList> listContentImportSources(
       {SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return ai_content_methods.listContentImportSources(_config, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return ai_content_methods.listContentImportSources(_config,
+        intercomVersion: intercomVersion, requestOptions: requestOptions);
   }
 
   /// Creates a content import source for external pages in your Fin Content Library. Supply `sync_behavior` as `api` and provide the source `url`; you can also set its status and associate audiences.
@@ -298,10 +386,17 @@ class AiContentNamespace {
       {required CreateContentImportSourceRequestSyncBehavior syncBehavior,
       required String url,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
-      SdkOptional<CreateContentImportSourceRequestStatus> status = const SdkOmitted(),
+      SdkOptional<CreateContentImportSourceRequestStatus> status =
+          const SdkOmitted(),
       SdkOptional<List<int>?> audienceIds = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return ai_content_methods.createContentImportSource(_config, syncBehavior: syncBehavior, url: url, intercomVersion: intercomVersion, status: status, audienceIds: audienceIds, requestOptions: requestOptions);
+    return ai_content_methods.createContentImportSource(_config,
+        syncBehavior: syncBehavior,
+        url: url,
+        intercomVersion: intercomVersion,
+        status: status,
+        audienceIds: audienceIds,
+        requestOptions: requestOptions);
   }
 
   /// Deletes a content import source from your Fin Content Library. Deleting the source also deletes all external pages imported from it, so consider the effect on those pages before proceeding.
@@ -311,7 +406,10 @@ class AiContentNamespace {
       {required String sourceId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return ai_content_methods.deleteContentImportSource(_config, sourceId: sourceId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return ai_content_methods.deleteContentImportSource(_config,
+        sourceId: sourceId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves a content import source from your Fin Content Library by its identifier. Use the source ID to inspect its URL, status, sync behavior, and associated audiences.
@@ -319,7 +417,10 @@ class AiContentNamespace {
       {required String sourceId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return ai_content_methods.getContentImportSource(_config, sourceId: sourceId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return ai_content_methods.getContentImportSource(_config,
+        sourceId: sourceId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Replaces the settings for a content import source in your Fin Content Library. Provide `sync_behavior` and `url`; you can also change its status, update its audiences, and apply an audience to existing external pages.
@@ -330,11 +431,20 @@ class AiContentNamespace {
       required UpdateContentImportSourceRequestSyncBehavior syncBehavior,
       required String url,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
-      SdkOptional<UpdateContentImportSourceRequestStatus> status = const SdkOmitted(),
+      SdkOptional<UpdateContentImportSourceRequestStatus> status =
+          const SdkOmitted(),
       SdkOptional<List<int>?> audienceIds = const SdkOmitted(),
       SdkOptional<bool> applyAudienceToExistingContent = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return ai_content_methods.updateContentImportSource(_config, sourceId: sourceId, syncBehavior: syncBehavior, url: url, intercomVersion: intercomVersion, status: status, audienceIds: audienceIds, applyAudienceToExistingContent: applyAudienceToExistingContent, requestOptions: requestOptions);
+    return ai_content_methods.updateContentImportSource(_config,
+        sourceId: sourceId,
+        syncBehavior: syncBehavior,
+        url: url,
+        intercomVersion: intercomVersion,
+        status: status,
+        audienceIds: audienceIds,
+        applyAudienceToExistingContent: applyAudienceToExistingContent,
+        requestOptions: requestOptions);
   }
 
   /// Lists external pages in your workspace's Fin Content Library. Use the returned page data to review each page and its source, while the pagination object provides links and details for navigating the results.
@@ -343,7 +453,8 @@ class AiContentNamespace {
   Future<ExternalPagesList> listExternalPages(
       {SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return ai_content_methods.listExternalPages(_config, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return ai_content_methods.listExternalPages(_config,
+        intercomVersion: intercomVersion, requestOptions: requestOptions);
   }
 
   /// Creates an external page in your Fin Content Library, or updates the existing page with the same source and external identifiers. Provide the page title, HTML body, locale, source ID, and source-assigned external ID.
@@ -361,7 +472,18 @@ class AiContentNamespace {
       SdkOptional<bool> aiCopilotAvailability = const SdkOmitted(),
       SdkOptional<List<int>?> audienceIds = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return ai_content_methods.createExternalPage(_config, title: title, html: html, locale: locale, sourceId: sourceId, externalId: externalId, intercomVersion: intercomVersion, url: url, aiAgentAvailability: aiAgentAvailability, aiCopilotAvailability: aiCopilotAvailability, audienceIds: audienceIds, requestOptions: requestOptions);
+    return ai_content_methods.createExternalPage(_config,
+        title: title,
+        html: html,
+        locale: locale,
+        sourceId: sourceId,
+        externalId: externalId,
+        intercomVersion: intercomVersion,
+        url: url,
+        aiAgentAvailability: aiAgentAvailability,
+        aiCopilotAvailability: aiCopilotAvailability,
+        audienceIds: audienceIds,
+        requestOptions: requestOptions);
   }
 
   /// Deletes an external page from your Fin Content Library and removes it from use in AI answers. Use the page identifier to select the external page to remove.
@@ -371,7 +493,10 @@ class AiContentNamespace {
       {required String pageId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return ai_content_methods.deleteExternalPage(_config, pageId: pageId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return ai_content_methods.deleteExternalPage(_config,
+        pageId: pageId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves an external page from your Fin Content Library by its page identifier. Use this operation to inspect the page content, source association, availability settings, and audience targeting.
@@ -381,7 +506,10 @@ class AiContentNamespace {
       {required String pageId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return ai_content_methods.getExternalPage(_config, pageId: pageId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return ai_content_methods.getExternalPage(_config,
+        pageId: pageId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Replaces the specified external page's details in your Fin Content Library; this operation applies to pages created through the API. Provide `title`, `html`, `url`, `locale`, and `source_id`, and include `audience_ids` to replace the existing audience memberships.
@@ -399,21 +527,33 @@ class AiContentNamespace {
       SdkOptional<String> externalId = const SdkOmitted(),
       SdkOptional<List<int>?> audienceIds = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return ai_content_methods.updateExternalPage(_config, pageId: pageId, title: title, html: html, url: url, locale: locale, sourceId: sourceId, intercomVersion: intercomVersion, finAvailability: finAvailability, externalId: externalId, audienceIds: audienceIds, requestOptions: requestOptions);
+    return ai_content_methods.updateExternalPage(_config,
+        pageId: pageId,
+        title: title,
+        html: html,
+        url: url,
+        locale: locale,
+        sourceId: sourceId,
+        intercomVersion: intercomVersion,
+        finAvailability: finAvailability,
+        externalId: externalId,
+        audienceIds: audienceIds,
+        requestOptions: requestOptions);
   }
-
 }
 
 class ArticlesNamespace {
   final ClientConfig _config;
   ArticlesNamespace(ClientConfig config) : _config = config;
+
   /// Lists articles, ordered by `updated_at` with the most recently updated articles first. Use cursor-based pagination to retrieve additional pages of results.
   ///
   /// You can fetch a list of all articles by making a GET request to `https://api.intercom.io/articles`. &gt; 📘 How are the articles sorted and ordered? &gt; &gt; Articles will be returned in descending order on the `updated_at` attribute. This means if you need to iterate through results then we'll show the most recently updated articles first.
   Future<ArticleList> list(
       {SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return articles_methods.listArticles(_config, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return articles_methods.listArticles(_config,
+        intercomVersion: intercomVersion, requestOptions: requestOptions);
   }
 
   /// Creates a new article in the help center. Supply `title` and `author_id`; choose either `body` or `body_markdown` for the article content, and set `state` to control whether the article is published or saved as a draft.
@@ -429,7 +569,8 @@ class ArticlesNamespace {
       SdkOptional<CreateArticleRequestRequestState> state = const SdkOmitted(),
       SdkOptional<int> parentId = const SdkOmitted(),
       SdkOptional<String> parentType = const SdkOmitted(),
-      SdkOptional<ArticleTranslatedContentRequest?> translatedContent = const SdkOmitted(),
+      SdkOptional<ArticleTranslatedContentRequest?> translatedContent =
+          const SdkOmitted(),
       SdkOptional<int?> folderId = const SdkOmitted(),
       SdkOptional<List<int>?> audienceIds = const SdkOmitted(),
       SdkOptional<bool> aiChatbotAvailability = const SdkOmitted(),
@@ -438,7 +579,25 @@ class ArticlesNamespace {
       SdkOptional<String?> scheduledPublishAt = const SdkOmitted(),
       SdkOptional<String?> scheduledUnpublishAt = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return articles_methods.createArticle(_config, title: title, authorId: authorId, intercomVersion: intercomVersion, description: description, body: body, bodyMarkdown: bodyMarkdown, state: state, parentId: parentId, parentType: parentType, translatedContent: translatedContent, folderId: folderId, audienceIds: audienceIds, aiChatbotAvailability: aiChatbotAvailability, aiCopilotAvailability: aiCopilotAvailability, aiSalesAgentAvailability: aiSalesAgentAvailability, scheduledPublishAt: scheduledPublishAt, scheduledUnpublishAt: scheduledUnpublishAt, requestOptions: requestOptions);
+    return articles_methods.createArticle(_config,
+        title: title,
+        authorId: authorId,
+        intercomVersion: intercomVersion,
+        description: description,
+        body: body,
+        bodyMarkdown: bodyMarkdown,
+        state: state,
+        parentId: parentId,
+        parentType: parentType,
+        translatedContent: translatedContent,
+        folderId: folderId,
+        audienceIds: audienceIds,
+        aiChatbotAvailability: aiChatbotAvailability,
+        aiCopilotAvailability: aiCopilotAvailability,
+        aiSalesAgentAvailability: aiSalesAgentAvailability,
+        scheduledPublishAt: scheduledPublishAt,
+        scheduledUnpublishAt: scheduledUnpublishAt,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves a single article from the help center. Use `article_id` to identify the article whose details you need. The response includes article data and its statistics.
@@ -448,7 +607,10 @@ class ArticlesNamespace {
       {required int articleId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return articles_methods.retrieveArticle(_config, articleId: articleId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return articles_methods.retrieveArticle(_config,
+        articleId: articleId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Updates the details of a specific article in the help center. Identify the article with `article_id` and provide the fields to change; `state` can be used to set the article to `published` or `draft`. Article tags are read-only through this operation.
@@ -465,7 +627,8 @@ class ArticlesNamespace {
       SdkOptional<UpdateArticleRequestRequestState> state = const SdkOmitted(),
       SdkOptional<String> parentId = const SdkOmitted(),
       SdkOptional<String> parentType = const SdkOmitted(),
-      SdkOptional<ArticleTranslatedContentRequest?> translatedContent = const SdkOmitted(),
+      SdkOptional<ArticleTranslatedContentRequest?> translatedContent =
+          const SdkOmitted(),
       SdkOptional<int?> folderId = const SdkOmitted(),
       SdkOptional<List<int>?> audienceIds = const SdkOmitted(),
       SdkOptional<bool> aiChatbotAvailability = const SdkOmitted(),
@@ -474,7 +637,26 @@ class ArticlesNamespace {
       SdkOptional<String?> scheduledPublishAt = const SdkOmitted(),
       SdkOptional<String?> scheduledUnpublishAt = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return articles_methods.updateArticle(_config, articleId: articleId, intercomVersion: intercomVersion, title: title, description: description, body: body, bodyMarkdown: bodyMarkdown, authorId: authorId, state: state, parentId: parentId, parentType: parentType, translatedContent: translatedContent, folderId: folderId, audienceIds: audienceIds, aiChatbotAvailability: aiChatbotAvailability, aiCopilotAvailability: aiCopilotAvailability, aiSalesAgentAvailability: aiSalesAgentAvailability, scheduledPublishAt: scheduledPublishAt, scheduledUnpublishAt: scheduledUnpublishAt, requestOptions: requestOptions);
+    return articles_methods.updateArticle(_config,
+        articleId: articleId,
+        intercomVersion: intercomVersion,
+        title: title,
+        description: description,
+        body: body,
+        bodyMarkdown: bodyMarkdown,
+        authorId: authorId,
+        state: state,
+        parentId: parentId,
+        parentType: parentType,
+        translatedContent: translatedContent,
+        folderId: folderId,
+        audienceIds: audienceIds,
+        aiChatbotAvailability: aiChatbotAvailability,
+        aiCopilotAvailability: aiCopilotAvailability,
+        aiSalesAgentAvailability: aiSalesAgentAvailability,
+        scheduledPublishAt: scheduledPublishAt,
+        scheduledUnpublishAt: scheduledUnpublishAt,
+        requestOptions: requestOptions);
   }
 
   /// Deletes a specific article from the help center. Use the article's unique `article_id` to identify the article to remove. A successful response confirms whether the article was deleted.
@@ -484,7 +666,10 @@ class ArticlesNamespace {
       {required int articleId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return articles_methods.deleteArticle(_config, articleId: articleId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return articles_methods.deleteArticle(_config,
+        articleId: articleId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves the staged draft content for a published article without changing the live article. Use this operation to inspect unpublished changes before publishing them. A staged draft exists only when unpublished changes have been saved for a published article.
@@ -494,7 +679,10 @@ class ArticlesNamespace {
       {required int id,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return articles_methods.retrieveArticleDraft(_config, id: id, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return articles_methods.retrieveArticleDraft(_config,
+        id: id,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Stages changes to a published article as a draft, leaving the live article unchanged until publication. Supply versioned content such as `title` or `body`; non-versioned fields, including AI availability settings, are ignored. The article must already be published.
@@ -511,7 +699,8 @@ class ArticlesNamespace {
       SdkOptional<UpdateArticleRequestRequestState> state = const SdkOmitted(),
       SdkOptional<String> parentId = const SdkOmitted(),
       SdkOptional<String> parentType = const SdkOmitted(),
-      SdkOptional<ArticleTranslatedContentRequest?> translatedContent = const SdkOmitted(),
+      SdkOptional<ArticleTranslatedContentRequest?> translatedContent =
+          const SdkOmitted(),
       SdkOptional<int?> folderId = const SdkOmitted(),
       SdkOptional<List<int>?> audienceIds = const SdkOmitted(),
       SdkOptional<bool> aiChatbotAvailability = const SdkOmitted(),
@@ -520,7 +709,26 @@ class ArticlesNamespace {
       SdkOptional<String?> scheduledPublishAt = const SdkOmitted(),
       SdkOptional<String?> scheduledUnpublishAt = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return articles_methods.stageArticleDraft(_config, id: id, intercomVersion: intercomVersion, title: title, description: description, body: body, bodyMarkdown: bodyMarkdown, authorId: authorId, state: state, parentId: parentId, parentType: parentType, translatedContent: translatedContent, folderId: folderId, audienceIds: audienceIds, aiChatbotAvailability: aiChatbotAvailability, aiCopilotAvailability: aiCopilotAvailability, aiSalesAgentAvailability: aiSalesAgentAvailability, scheduledPublishAt: scheduledPublishAt, scheduledUnpublishAt: scheduledUnpublishAt, requestOptions: requestOptions);
+    return articles_methods.stageArticleDraft(_config,
+        id: id,
+        intercomVersion: intercomVersion,
+        title: title,
+        description: description,
+        body: body,
+        bodyMarkdown: bodyMarkdown,
+        authorId: authorId,
+        state: state,
+        parentId: parentId,
+        parentType: parentType,
+        translatedContent: translatedContent,
+        folderId: folderId,
+        audienceIds: audienceIds,
+        aiChatbotAvailability: aiChatbotAvailability,
+        aiCopilotAvailability: aiCopilotAvailability,
+        aiSalesAgentAvailability: aiSalesAgentAvailability,
+        scheduledPublishAt: scheduledPublishAt,
+        scheduledUnpublishAt: scheduledUnpublishAt,
+        requestOptions: requestOptions);
   }
 
   /// Publishes the staged draft for an article, promoting its draft content to live. On a single-language workspace, you can omit the request body; on a multilingual workspace, specify the locales to publish in `locales`. Each requested locale must have pending changes.
@@ -531,7 +739,11 @@ class ArticlesNamespace {
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<List<String>> locales = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return articles_methods.publishArticleDraft(_config, id: id, intercomVersion: intercomVersion, locales: locales, requestOptions: requestOptions);
+    return articles_methods.publishArticleDraft(_config,
+        id: id,
+        intercomVersion: intercomVersion,
+        locales: locales,
+        requestOptions: requestOptions);
   }
 
   /// Applies an existing tag to an article. Supply the tag ID in the request body, and the authenticating teammate must have the `manage_knowledge_base_content` permission. The operation requires the `read_write_articles_scope` OAuth scope.
@@ -543,7 +755,12 @@ class ArticlesNamespace {
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<String?> adminId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return articles_methods.attachArticlesTag(_config, articleId: articleId, id: id, intercomVersion: intercomVersion, adminId: adminId, requestOptions: requestOptions);
+    return articles_methods.attachArticlesTag(_config,
+        articleId: articleId,
+        id: id,
+        intercomVersion: intercomVersion,
+        adminId: adminId,
+        requestOptions: requestOptions);
   }
 
   /// Removes a tag from an article. Use `article_id` and `id` to identify the article and tag to detach. The authenticating teammate must have the `manage_knowledge_base_content` permission, and the operation requires the `read_write_articles_scope` OAuth scope.
@@ -554,7 +771,11 @@ class ArticlesNamespace {
       required String id,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return articles_methods.detachArticlesTag(_config, articleId: articleId, id: id, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return articles_methods.detachArticlesTag(_config,
+        articleId: articleId,
+        id: id,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Lists version history for an article as paginated metadata, with the newest versions first. Use `locale` to filter the history to a workspace locale, and `page` and `per_page` to navigate the results. Retrieve an individual version to access its full content.
@@ -567,7 +788,13 @@ class ArticlesNamespace {
       SdkOptional<String> locale = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return articles_methods.listArticleVersions(_config, articleId: articleId, page: page, perPage: perPage, locale: locale, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return articles_methods.listArticleVersions(_config,
+        articleId: articleId,
+        page: page,
+        perPage: perPage,
+        locale: locale,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves a prior version of an article, including the content saved in that version. Use `article_id` and `id` to select the article and version, and `locale` to request content for a specific locale. The live article remains unchanged, and access requires the `read_articles_scope` OAuth scope.
@@ -579,7 +806,12 @@ class ArticlesNamespace {
       SdkOptional<String> locale = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return articles_methods.retrieveArticleVersion(_config, articleId: articleId, id: id, locale: locale, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return articles_methods.retrieveArticleVersion(_config,
+        articleId: articleId,
+        id: id,
+        locale: locale,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Searches articles by phrase, with optional filters for article state and Help Center. Use `highlight` to request highlighted matching content; results include pagination details and the total number of matching articles.
@@ -592,28 +824,35 @@ class ArticlesNamespace {
       SdkOptional<bool> highlight = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return articles_methods.searchArticles(_config, phrase: phrase, state: state, helpCenterId: helpCenterId, highlight: highlight, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return articles_methods.searchArticles(_config,
+        phrase: phrase,
+        state: state,
+        helpCenterId: helpCenterId,
+        highlight: highlight,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
-
 }
 
 class AwayStatusReasonsNamespace {
   final ClientConfig _config;
   AwayStatusReasonsNamespace(ClientConfig config) : _config = config;
+
   /// Lists the away status reasons configured for the workspace, including reasons marked as deleted. Use this endpoint to retrieve reason labels and their associated identifiers, ordering, and status information.
   ///
   /// Returns a list of all away status reasons configured for the workspace, including deleted ones.
   Future<AwayStatusReasonList> list(
       {SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return away_status_reasons_methods.listAwayStatusReasons(_config, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return away_status_reasons_methods.listAwayStatusReasons(_config,
+        intercomVersion: intercomVersion, requestOptions: requestOptions);
   }
-
 }
 
 class AudiencesNamespace {
   final ClientConfig _config;
   AudiencesNamespace(ClientConfig config) : _config = config;
+
   /// Lists audiences configured for the workspace. Use `page` and `per_page` to paginate the results; each audience represents a group of contacts that can be targeted by Fin.
   ///
   /// You can fetch a list of all audiences for the workspace.
@@ -622,14 +861,26 @@ class AudiencesNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return audiences_methods.listAudiences(_config, page: page, perPage: perPage, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return audiences_methods.listAudiences(_config,
+        page: page,
+        perPage: perPage,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Lists audiences configured for the workspace. Use `page` and `per_page` to paginate the results; each audience represents a group of contacts that can be targeted by Fin.
   ///
   /// You can fetch a list of all audiences for the workspace.
-  Stream<Audience> listPaginated({int? page, int? perPage, IntercomVersion? intercomVersion, RequestOptions? requestOptions}) async* {
-    yield* audiences_methods.listAudiencesPaginated(_config, page: page, perPage: perPage, intercomVersion: intercomVersion, requestOptions: requestOptions);
+  Stream<Audience> listPaginated(
+      {int? page,
+      int? perPage,
+      IntercomVersion? intercomVersion,
+      RequestOptions? requestOptions}) async* {
+    yield* audiences_methods.listAudiencesPaginated(_config,
+        page: page,
+        perPage: perPage,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Creates an audience for targeting contacts. Supply `name` and, optionally, predicates that define audience membership and role-based predicates that further filter membership. The response includes the created audience and its generated identifier.
@@ -641,7 +892,12 @@ class AudiencesNamespace {
       SdkOptional<List<Predicate>> predicates = const SdkOmitted(),
       SdkOptional<List<Predicate>> rolePredicates = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return audiences_methods.createAudience(_config, name: name, intercomVersion: intercomVersion, predicates: predicates, rolePredicates: rolePredicates, requestOptions: requestOptions);
+    return audiences_methods.createAudience(_config,
+        name: name,
+        intercomVersion: intercomVersion,
+        predicates: predicates,
+        rolePredicates: rolePredicates,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves the details of a single audience. Use `id` to select the audience and inspect its name, membership predicates, and timestamps.
@@ -651,7 +907,10 @@ class AudiencesNamespace {
       {required String id,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return audiences_methods.retrieveAudience(_config, id: id, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return audiences_methods.retrieveAudience(_config,
+        id: id,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Replaces the supplied details of an existing audience while leaving omitted fields unchanged. Use `id` to select the audience, and provide any combination of `name`, `predicates`, and `role_predicates` to update.
@@ -664,7 +923,13 @@ class AudiencesNamespace {
       SdkOptional<List<Predicate>> predicates = const SdkOmitted(),
       SdkOptional<List<Predicate>> rolePredicates = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return audiences_methods.updateAudience(_config, id: id, intercomVersion: intercomVersion, name: name, predicates: predicates, rolePredicates: rolePredicates, requestOptions: requestOptions);
+    return audiences_methods.updateAudience(_config,
+        id: id,
+        intercomVersion: intercomVersion,
+        name: name,
+        predicates: predicates,
+        rolePredicates: rolePredicates,
+        requestOptions: requestOptions);
   }
 
   /// Deletes a single audience from the workspace. Use `id` to select the audience to remove. The operation does not return an audience representation.
@@ -674,14 +939,17 @@ class AudiencesNamespace {
       {required String id,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return audiences_methods.deleteAudience(_config, id: id, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return audiences_methods.deleteAudience(_config,
+        id: id,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
-
 }
 
 class ReportingDataExportNamespace {
   final ClientConfig _config;
   ReportingDataExportNamespace(ClientConfig config) : _config = config;
+
   /// Enqueues a reporting data export job for a selected dataset and time range. Supply `dataset_id`, `attribute_ids`, `start_time`, and `end_time` to define the export. For the conversation dataset, this API version includes conversations that never received a user reply.
   ///
   /// For the conversation dataset, from this version onward this export returns all conversations, including those that never received a user reply. Earlier versions return only conversations that received at least one user reply. Other datasets are unaffected.
@@ -692,7 +960,13 @@ class ReportingDataExportNamespace {
       required int endTime,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return reporting_data_export_methods.createEnqueue(_config, datasetId: datasetId, attributeIds: attributeIds, startTime: startTime, endTime: endTime, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return reporting_data_export_methods.createEnqueue(_config,
+        datasetId: datasetId,
+        attributeIds: attributeIds,
+        startTime: startTime,
+        endTime: endTime,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves the status and download details for a reporting data export job. Supply `app_id` and `client_id` to identify the workspace context, and `job_identifier` to select the job.
@@ -702,14 +976,20 @@ class ReportingDataExportNamespace {
       required String clientId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return reporting_data_export_methods.getReportingData(_config, jobIdentifier: jobIdentifier, appId: appId, clientId: clientId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return reporting_data_export_methods.getReportingData(_config,
+        jobIdentifier: jobIdentifier,
+        appId: appId,
+        clientId: clientId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Lists the datasets and attributes available for reporting data exports. Use the returned dataset identifiers and attribute details to determine which data you can include in an export.
   Future<ListGetDatasetsResponse> listGetDatasets(
       {SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return reporting_data_export_methods.listGetDatasets(_config, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return reporting_data_export_methods.listGetDatasets(_config,
+        intercomVersion: intercomVersion, requestOptions: requestOptions);
   }
 
   /// Downloads the data file for a completed reporting data export job. Supply `app_id` and `job_identifier`, and send the required `Accept` header with the value `application/octet-stream`. Use the job status endpoint to check that the export is complete before downloading.
@@ -721,14 +1001,19 @@ class ReportingDataExportNamespace {
       required GetReportingData2Accept accept,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return reporting_data_export_methods.getReportingData2(_config, jobIdentifier: jobIdentifier, appId: appId, accept: accept, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return reporting_data_export_methods.getReportingData2(_config,
+        jobIdentifier: jobIdentifier,
+        appId: appId,
+        accept: accept,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
-
 }
 
 class FinAgentNamespace {
   final ClientConfig _config;
   FinAgentNamespace(ClientConfig config) : _config = config;
+
   /// Starts a Fin conversation with a user's message and optional conversation history, metadata, attachments, and user details. Supply `conversation_id`, `message`, and `user`; Fin then processes the conversation asynchronously and sends status updates through the configured webhook or event channel. Wait for the `complete` status before taking control of the conversation.
   ///
   /// Initialize Fin by passing it the user's message along with conversation history and user details. These additional pieces of context will be used by Fin to provide a better and more contextual answer to the user. {% admonition type="warning" %} To request access to the Fin Agent API, go to **Settings &gt; Integrations &gt; Fin Agent API** in your workspace and tell us about your use case. Once access is granted, **Fin Agent API** appears under **Fin AI Agent &gt; Deploy**. {% /admonition %} Once Fin is initialized, it progresses through a series of statuses such as *thinking*, *replying*, *awaiting_user_reply*, or *resolved* before ending with a status of *complete*. During this workflow, the client should allow Fin to continue uninterrupted until a final *complete* status is returned via webhook, at which point control of the conversation passes back to the client.
@@ -738,10 +1023,19 @@ class FinAgentNamespace {
       required FinAgentUser user,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<List<FinAgentAttachment>> attachments = const SdkOmitted(),
-      SdkOptional<FinAgentConversationMetadata> conversationMetadata = const SdkOmitted(),
+      SdkOptional<FinAgentConversationMetadata> conversationMetadata =
+          const SdkOmitted(),
       SdkOptional<String> environment = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return fin_agent_methods.startFinConversation(_config, conversationId: conversationId, message: message, user: user, intercomVersion: intercomVersion, attachments: attachments, conversationMetadata: conversationMetadata, environment: environment, requestOptions: requestOptions);
+    return fin_agent_methods.startFinConversation(_config,
+        conversationId: conversationId,
+        message: message,
+        user: user,
+        intercomVersion: intercomVersion,
+        attachments: attachments,
+        conversationMetadata: conversationMetadata,
+        environment: environment,
+        requestOptions: requestOptions);
   }
 
   /// Sends a user's reply to an existing Fin conversation after Fin has returned a response and the conversation is awaiting a user reply. Supply the conversation ID, the new message, and the user details, with optional attachments for additional context. Fin continues the conversation and reports its status through the configured event channel.
@@ -754,7 +1048,13 @@ class FinAgentNamespace {
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<List<FinAgentAttachment>> attachments = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return fin_agent_methods.replyToFin(_config, conversationId: conversationId, message: message, user: user, intercomVersion: intercomVersion, attachments: attachments, requestOptions: requestOptions);
+    return fin_agent_methods.replyToFin(_config,
+        conversationId: conversationId,
+        message: message,
+        user: user,
+        intercomVersion: intercomVersion,
+        attachments: attachments,
+        requestOptions: requestOptions);
   }
 
   /// Submits a customer's satisfaction rating for a conversation, with an optional free-text remark. Use the rating option provided in Fin's `csat_requested` event; submitting a remark locks the rating against further changes.
@@ -766,7 +1066,12 @@ class FinAgentNamespace {
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<String> remark = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return fin_agent_methods.submitFinCsat(_config, conversationId: conversationId, rating: rating, intercomVersion: intercomVersion, remark: remark, requestOptions: requestOptions);
+    return fin_agent_methods.submitFinCsat(_config,
+        conversationId: conversationId,
+        rating: rating,
+        intercomVersion: intercomVersion,
+        remark: remark,
+        requestOptions: requestOptions);
   }
 
   /// Lists the Fin capabilities available to a specific user so an orchestrating agent can choose which Fin action to call. Supply the user object with its required `id`; Fin matches available procedures to that user and creates or updates the user record using the supplied details. Use the returned capabilities to select an appropriate endpoint for the next action.
@@ -776,7 +1081,10 @@ class FinAgentNamespace {
       {required FinAgentUser user,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return fin_agent_methods.listFinCapabilities(_config, user: user, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return fin_agent_methods.listFinCapabilities(_config,
+        user: user,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Submits a single, self-contained question to Fin and starts a one-shot, non-conversational interaction. Provide `conversation_id`, `message`, and `user`; Fin does not ask follow-up questions or run procedures, and the answer is delivered asynchronously through the `fin_replied` event. The conversation ends with a `complete` status, with no awaiting-user-reply cycle.
@@ -787,11 +1095,20 @@ class FinAgentNamespace {
       required FinAgentMessage message,
       required FinAgentUser user,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
-      SdkOptional<FinAgentConversationMetadata> conversationMetadata = const SdkOmitted(),
+      SdkOptional<FinAgentConversationMetadata> conversationMetadata =
+          const SdkOmitted(),
       SdkOptional<List<FinAgentAttachment>> attachments = const SdkOmitted(),
       SdkOptional<String> environment = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return fin_agent_methods.askFin(_config, conversationId: conversationId, message: message, user: user, intercomVersion: intercomVersion, conversationMetadata: conversationMetadata, attachments: attachments, environment: environment, requestOptions: requestOptions);
+    return fin_agent_methods.askFin(_config,
+        conversationId: conversationId,
+        message: message,
+        user: user,
+        intercomVersion: intercomVersion,
+        conversationMetadata: conversationMetadata,
+        attachments: attachments,
+        environment: environment,
+        requestOptions: requestOptions);
   }
 
   /// Triggers a specified Fin procedure on a new conversation, guaranteeing that Fin runs the named procedure rather than routing the request among procedures. Provide `procedure_id`, `conversation_id`, and `user`; the message is optional. Fin reports progress asynchronously through events or Server-Sent Events, and you can send a user's reply through `/fin/reply` if the procedure pauses for input.
@@ -803,10 +1120,19 @@ class FinAgentNamespace {
       required FinAgentUser user,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<FinAgentMessage> message = const SdkOmitted(),
-      SdkOptional<RunFinProcedureRequestBodyConversationMetadata> conversationMetadata = const SdkOmitted(),
+      SdkOptional<RunFinProcedureRequestBodyConversationMetadata>
+          conversationMetadata = const SdkOmitted(),
       SdkOptional<String> environment = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return fin_agent_methods.runFinProcedure(_config, procedureId: procedureId, conversationId: conversationId, user: user, intercomVersion: intercomVersion, message: message, conversationMetadata: conversationMetadata, environment: environment, requestOptions: requestOptions);
+    return fin_agent_methods.runFinProcedure(_config,
+        procedureId: procedureId,
+        conversationId: conversationId,
+        user: user,
+        intercomVersion: intercomVersion,
+        message: message,
+        conversationMetadata: conversationMetadata,
+        environment: environment,
+        requestOptions: requestOptions);
   }
 
   /// Escalates an existing Fin conversation or requests a handoff on behalf of a user to a human teammate. Supply either `conversation_id` or `user`, and optionally provide `context` for the receiving teammate; on Fin for Platforms, use `conversation_id` because `user` is not supported. Fin reports the escalation asynchronously with an `escalated` status followed by `complete`.
@@ -818,14 +1144,19 @@ class FinAgentNamespace {
       SdkOptional<FinAgentUser> user = const SdkOmitted(),
       SdkOptional<String> context = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return fin_agent_methods.escalateFinConversation(_config, intercomVersion: intercomVersion, conversationId: conversationId, user: user, context: context, requestOptions: requestOptions);
+    return fin_agent_methods.escalateFinConversation(_config,
+        intercomVersion: intercomVersion,
+        conversationId: conversationId,
+        user: user,
+        context: context,
+        requestOptions: requestOptions);
   }
-
 }
 
 class HelpCenterNamespace {
   final ClientConfig _config;
   HelpCenterNamespace(ClientConfig config) : _config = config;
+
   /// Lists URL redirects configured for a help center, ordered by the `updated_at` attribute in descending order. Use `page` and `per_page` to paginate the results. Access requires the `read_help_center_redirects_scope` OAuth scope.
   ///
   /// You can fetch a list of all URL redirects for a help center by making a GET request to `https://api.intercom.io/help_center/help_centers/{help_center_id}/redirects`. Redirects are returned in descending order on the `updated_at` attribute. Requires the `read_help_center_redirects_scope` OAuth scope.
@@ -835,7 +1166,12 @@ class HelpCenterNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return help_center_methods.listHelpCenterRedirects(_config, helpCenterId: helpCenterId, page: page, perPage: perPage, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return help_center_methods.listHelpCenterRedirects(_config,
+        helpCenterId: helpCenterId,
+        page: page,
+        perPage: perPage,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Creates a redirect that maps a source URL to an article or collection in a help center. Supply `from_url`, `locale`, `target_type`, and `target_id`; the target must belong to the help center. The operation requires the `read_write_help_center_redirects_scope` OAuth scope.
@@ -849,7 +1185,14 @@ class HelpCenterNamespace {
       required String targetId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return help_center_methods.createHelpCenterRedirect(_config, helpCenterId: helpCenterId, fromUrl: fromUrl, locale: locale, targetType: targetType, targetId: targetId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return help_center_methods.createHelpCenterRedirect(_config,
+        helpCenterId: helpCenterId,
+        fromUrl: fromUrl,
+        locale: locale,
+        targetType: targetType,
+        targetId: targetId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves a single redirect from a help center. Use `help_center_id` and `id` to identify the help center and redirect whose details you need. The operation requires the `read_help_center_redirects_scope` OAuth scope.
@@ -860,7 +1203,11 @@ class HelpCenterNamespace {
       required String id,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return help_center_methods.retrieveHelpCenterRedirect(_config, helpCenterId: helpCenterId, id: id, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return help_center_methods.retrieveHelpCenterRedirect(_config,
+        helpCenterId: helpCenterId,
+        id: id,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Deletes a specific redirect from a help center. Identify the help center and redirect with `help_center_id` and `id`. The operation requires the `read_write_help_center_redirects_scope` OAuth scope.
@@ -871,7 +1218,11 @@ class HelpCenterNamespace {
       required String id,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return help_center_methods.deleteHelpCenterRedirect(_config, helpCenterId: helpCenterId, id: id, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return help_center_methods.deleteHelpCenterRedirect(_config,
+        helpCenterId: helpCenterId,
+        id: id,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Lists collections available in the Help Center. Results are ordered by `updated_at` in descending order, with the most recently updated collections first. The response includes pagination metadata for navigating the results.
@@ -880,7 +1231,8 @@ class HelpCenterNamespace {
   Future<CollectionList> listAllCollections(
       {SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return help_center_methods.listAllCollections(_config, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return help_center_methods.listAllCollections(_config,
+        intercomVersion: intercomVersion, requestOptions: requestOptions);
   }
 
   /// Creates a collection in a Help Center. Supply `name`; you can also set its description, parent collection, Help Center, and translated content. If `help_center_id` is null, the collection is created in the default Help Center, and if `parent_id` is null, it is created at the top level.
@@ -890,11 +1242,19 @@ class HelpCenterNamespace {
       {required String name,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<String> description = const SdkOmitted(),
-      SdkOptional<GroupTranslatedContent?> translatedContent = const SdkOmitted(),
+      SdkOptional<GroupTranslatedContent?> translatedContent =
+          const SdkOmitted(),
       SdkOptional<String?> parentId = const SdkOmitted(),
       SdkOptional<int?> helpCenterId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return help_center_methods.createCollection(_config, name: name, intercomVersion: intercomVersion, description: description, translatedContent: translatedContent, parentId: parentId, helpCenterId: helpCenterId, requestOptions: requestOptions);
+    return help_center_methods.createCollection(_config,
+        name: name,
+        intercomVersion: intercomVersion,
+        description: description,
+        translatedContent: translatedContent,
+        parentId: parentId,
+        helpCenterId: helpCenterId,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves a collection from the Help Center. Use `collection_id` to identify the collection whose details you need. The response includes collection details such as its name, description, parent, translations, and URL.
@@ -904,7 +1264,10 @@ class HelpCenterNamespace {
       {required int collectionId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return help_center_methods.retrieveCollection(_config, collectionId: collectionId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return help_center_methods.retrieveCollection(_config,
+        collectionId: collectionId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Replaces collection details in the Help Center. Use `collection_id` to select the collection, and provide the fields you want to change, such as its name, description, parent, or translated content. The operation requires authorization to update the collection.
@@ -915,10 +1278,18 @@ class HelpCenterNamespace {
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<String> name = const SdkOmitted(),
       SdkOptional<String> description = const SdkOmitted(),
-      SdkOptional<GroupTranslatedContent?> translatedContent = const SdkOmitted(),
+      SdkOptional<GroupTranslatedContent?> translatedContent =
+          const SdkOmitted(),
       SdkOptional<String?> parentId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return help_center_methods.updateCollection(_config, collectionId: collectionId, intercomVersion: intercomVersion, name: name, description: description, translatedContent: translatedContent, parentId: parentId, requestOptions: requestOptions);
+    return help_center_methods.updateCollection(_config,
+        collectionId: collectionId,
+        intercomVersion: intercomVersion,
+        name: name,
+        description: description,
+        translatedContent: translatedContent,
+        parentId: parentId,
+        requestOptions: requestOptions);
   }
 
   /// Deletes a collection from the Help Center. Identify the collection with `collection_id`. Use this operation when you need to remove the collection rather than change its details.
@@ -928,7 +1299,10 @@ class HelpCenterNamespace {
       {required int collectionId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return help_center_methods.deleteCollection(_config, collectionId: collectionId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return help_center_methods.deleteCollection(_config,
+        collectionId: collectionId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves details for a Help Center. Use `help_center_id` to select the Help Center whose settings and public-facing details you need. The response includes its identifier, locales, URL, custom domain, and whether it is enabled.
@@ -938,7 +1312,10 @@ class HelpCenterNamespace {
       {required int helpCenterId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return help_center_methods.retrieveHelpCenter(_config, helpCenterId: helpCenterId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return help_center_methods.retrieveHelpCenter(_config,
+        helpCenterId: helpCenterId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Lists the help centers belonging to the app. Use the results to review each help center's identifier, URL, display name, configured locales, and availability. The response contains a list of help center objects.
@@ -947,21 +1324,23 @@ class HelpCenterNamespace {
   Future<HelpCenterList> list(
       {SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return help_center_methods.listHelpCenters(_config, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return help_center_methods.listHelpCenters(_config,
+        intercomVersion: intercomVersion, requestOptions: requestOptions);
   }
-
 }
 
 class InternalArticlesNamespace {
   final ClientConfig _config;
   InternalArticlesNamespace(ClientConfig config) : _config = config;
+
   /// Lists internal articles available to the authenticated user. Use the `pages` metadata to navigate the cursor-based results and `total_count` to see the number of articles.
   ///
   /// You can fetch a list of all internal articles by making a GET request to `https://api.intercom.io/internal_articles`.
   Future<InternalArticleList> list(
       {SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return internal_articles_methods.listInternalArticles(_config, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return internal_articles_methods.listInternalArticles(_config,
+        intercomVersion: intercomVersion, requestOptions: requestOptions);
   }
 
   /// Creates a new internal article with its title, ownership, authorship, and optional content or AI availability settings. Supply `title`, `owner_id`, and `author_id`; provide article content as either HTML in `body` or Markdown in `body_markdown`, but not both. You can target the article to specific audiences with `audience_ids`.
@@ -980,7 +1359,19 @@ class InternalArticlesNamespace {
       SdkOptional<bool> aiCopilotAvailability = const SdkOmitted(),
       SdkOptional<bool> aiSalesAgentAvailability = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return internal_articles_methods.createInternalArticle(_config, title: title, authorId: authorId, ownerId: ownerId, intercomVersion: intercomVersion, body: body, bodyMarkdown: bodyMarkdown, folderId: folderId, audienceIds: audienceIds, aiChatbotAvailability: aiChatbotAvailability, aiCopilotAvailability: aiCopilotAvailability, aiSalesAgentAvailability: aiSalesAgentAvailability, requestOptions: requestOptions);
+    return internal_articles_methods.createInternalArticle(_config,
+        title: title,
+        authorId: authorId,
+        ownerId: ownerId,
+        intercomVersion: intercomVersion,
+        body: body,
+        bodyMarkdown: bodyMarkdown,
+        folderId: folderId,
+        audienceIds: audienceIds,
+        aiChatbotAvailability: aiChatbotAvailability,
+        aiCopilotAvailability: aiCopilotAvailability,
+        aiSalesAgentAvailability: aiSalesAgentAvailability,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves the details of a specific internal article. Use `internal_article_id` to identify the article whose details you need.
@@ -990,7 +1381,10 @@ class InternalArticlesNamespace {
       {required int internalArticleId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return internal_articles_methods.retrieveInternalArticle(_config, internalArticleId: internalArticleId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return internal_articles_methods.retrieveInternalArticle(_config,
+        internalArticleId: internalArticleId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Updates the details of a specific internal article. Supply the fields you want to change, using either `body` or `body_markdown` for article content. Omit `audience_ids` to keep existing audience memberships, or pass an empty array to clear them.
@@ -1010,7 +1404,20 @@ class InternalArticlesNamespace {
       SdkOptional<bool> aiCopilotAvailability = const SdkOmitted(),
       SdkOptional<bool> aiSalesAgentAvailability = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return internal_articles_methods.updateInternalArticle(_config, internalArticleId: internalArticleId, intercomVersion: intercomVersion, title: title, body: body, bodyMarkdown: bodyMarkdown, authorId: authorId, ownerId: ownerId, folderId: folderId, audienceIds: audienceIds, aiChatbotAvailability: aiChatbotAvailability, aiCopilotAvailability: aiCopilotAvailability, aiSalesAgentAvailability: aiSalesAgentAvailability, requestOptions: requestOptions);
+    return internal_articles_methods.updateInternalArticle(_config,
+        internalArticleId: internalArticleId,
+        intercomVersion: intercomVersion,
+        title: title,
+        body: body,
+        bodyMarkdown: bodyMarkdown,
+        authorId: authorId,
+        ownerId: ownerId,
+        folderId: folderId,
+        audienceIds: audienceIds,
+        aiChatbotAvailability: aiChatbotAvailability,
+        aiCopilotAvailability: aiCopilotAvailability,
+        aiSalesAgentAvailability: aiSalesAgentAvailability,
+        requestOptions: requestOptions);
   }
 
   /// Deletes a specific internal article. Use `internal_article_id` to identify the article to remove. The response confirms whether the article was deleted.
@@ -1020,7 +1427,10 @@ class InternalArticlesNamespace {
       {required int internalArticleId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return internal_articles_methods.deleteInternalArticle(_config, internalArticleId: internalArticleId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return internal_articles_methods.deleteInternalArticle(_config,
+        internalArticleId: internalArticleId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Applies an existing tag to an internal article. Supply the tag's `id` in the request body and use `internal_article_id` to select the article. The authenticated teammate must have the `manage_knowledge_base_content` permission, and the token must include the `read_write_articles_scope` OAuth scope.
@@ -1032,7 +1442,12 @@ class InternalArticlesNamespace {
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<String?> adminId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return internal_articles_methods.attachInternalArticlesTag(_config, internalArticleId: internalArticleId, id: id, intercomVersion: intercomVersion, adminId: adminId, requestOptions: requestOptions);
+    return internal_articles_methods.attachInternalArticlesTag(_config,
+        internalArticleId: internalArticleId,
+        id: id,
+        intercomVersion: intercomVersion,
+        adminId: adminId,
+        requestOptions: requestOptions);
   }
 
   /// Removes a tag from a specific internal article. Use `internal_article_id` to identify the article and `id` to identify the tag to remove. The authenticated teammate must have the `manage_knowledge_base_content` permission, and the token must include the `read_write_articles_scope` OAuth scope.
@@ -1043,7 +1458,11 @@ class InternalArticlesNamespace {
       required String id,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return internal_articles_methods.detachInternalArticlesTag(_config, internalArticleId: internalArticleId, id: id, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return internal_articles_methods.detachInternalArticlesTag(_config,
+        internalArticleId: internalArticleId,
+        id: id,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Searches internal articles and returns matching results. Use `folder_id` to limit results to a folder and its descendant folders; the response includes the matching article count and pagination metadata.
@@ -1053,14 +1472,17 @@ class InternalArticlesNamespace {
       {SdkOptional<int> folderId = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return internal_articles_methods.searchInternalArticles(_config, folderId: folderId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return internal_articles_methods.searchInternalArticles(_config,
+        folderId: folderId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
-
 }
 
 class FoldersNamespace {
   final ClientConfig _config;
   FoldersNamespace(ClientConfig config) : _config = config;
+
   /// Lists folders used to organize content. Use `parent_folder_id` to list only the direct children of a specific folder, and use `page` and `per_page` to paginate the results.
   ///
   /// You can fetch a list of all folders for organizing content by making a GET request to `https://api.intercom.io/folders`.
@@ -1070,7 +1492,12 @@ class FoldersNamespace {
       SdkOptional<int> parentFolderId = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return folders_methods.listFolders(_config, page: page, perPage: perPage, parentFolderId: parentFolderId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return folders_methods.listFolders(_config,
+        page: page,
+        perPage: perPage,
+        parentFolderId: parentFolderId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Creates a folder for organizing content. Supply a `folder` object with a `name`, and optionally include its description, emoji, or parent folder ID. The response includes the new folder's identifier and content count.
@@ -1080,7 +1507,10 @@ class FoldersNamespace {
       {required CreateFolderRequestBodyFolder folder,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return folders_methods.createFolder(_config, folder: folder, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return folders_methods.createFolder(_config,
+        folder: folder,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves the details of a folder used to organize content. Use the folder's unique `id` to identify the folder. The response includes its name, description, parent folder, content count, and timestamps.
@@ -1090,7 +1520,10 @@ class FoldersNamespace {
       {required int id,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return folders_methods.retrieveFolder(_config, id: id, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return folders_methods.retrieveFolder(_config,
+        id: id,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Updates a folder's name, description, emoji, or parent folder. Supply the `folder` object with the properties you want to change; `company_id` is not applicable to folders. The response contains the updated folder details.
@@ -1101,7 +1534,11 @@ class FoldersNamespace {
       required UpdateFolderRequestBodyFolder folder,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return folders_methods.updateFolder(_config, id: id, folder: folder, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return folders_methods.updateFolder(_config,
+        id: id,
+        folder: folder,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Deletes a folder that contains no content. Use the folder's unique `id` to identify the folder to remove. The response confirms whether deletion succeeded.
@@ -1111,21 +1548,25 @@ class FoldersNamespace {
       {required int id,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return folders_methods.deleteFolder(_config, id: id, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return folders_methods.deleteFolder(_config,
+        id: id,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
-
 }
 
 class IpAllowlistNamespace {
   final ClientConfig _config;
   IpAllowlistNamespace(ClientConfig config) : _config = config;
+
   /// Retrieves the current IP allowlist configuration for the workspace. Use the returned `enabled` value and `ip_allowlist` entries to inspect whether the allowlist is active and which IP addresses or ranges are allowed.
   ///
   /// Retrieve the current IP allowlist configuration for the workspace.
   Future<IpAllowlist> get_(
       {SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return ip_allowlist_methods.getIpAllowlist(_config, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return ip_allowlist_methods.getIpAllowlist(_config,
+        intercomVersion: intercomVersion, requestOptions: requestOptions);
   }
 
   /// Updates the workspace's IP allowlist configuration. Set `enabled` to control whether the allowlist is active and provide allowed addresses or ranges in `ip_allowlist` using CIDR notation where needed. Include the caller's current IP address before enabling the feature to avoid being locked out.
@@ -1137,14 +1578,19 @@ class IpAllowlistNamespace {
       SdkOptional<bool> enabled = const SdkOmitted(),
       SdkOptional<List<String>> ipAllowlist = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return ip_allowlist_methods.updateIpAllowlist(_config, intercomVersion: intercomVersion, type_: type_, enabled: enabled, ipAllowlist: ipAllowlist, requestOptions: requestOptions);
+    return ip_allowlist_methods.updateIpAllowlist(_config,
+        intercomVersion: intercomVersion,
+        type_: type_,
+        enabled: enabled,
+        ipAllowlist: ipAllowlist,
+        requestOptions: requestOptions);
   }
-
 }
 
 class CompaniesNamespace {
   final ClientConfig _config;
   CompaniesNamespace(ClientConfig config) : _config = config;
+
   /// Creates a company or updates the company matched by `company_id`. Set `company_id` when creating a company because it cannot be changed after creation; a company is visible in the workspace only when it has at least one associated user. The response contains the created or updated company object.
   ///
   /// You can create or update a company. Companies will be only visible in Intercom when there is at least one associated user. Companies are looked up via `company_id` in a `POST` request, if not found via `company_id`, the new company will be created, if found, that company will be updated. {% admonition type="warning" name="Using `company_id`" %} You can set a unique `company_id` value when creating a company. However, it is not possible to update `company_id`. Be sure to set a unique value once upon creation of the company. {% /admonition %}
@@ -1161,7 +1607,19 @@ class CompaniesNamespace {
       SdkOptional<bool> updateLastRequestAt = const SdkOmitted(),
       SdkOptional<int> monthlySpend = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return companies_methods.createOrUpdateCompany(_config, intercomVersion: intercomVersion, name: name, companyId: companyId, plan: plan, size: size, website: website, industry: industry, customAttributes: customAttributes, remoteCreatedAt: remoteCreatedAt, updateLastRequestAt: updateLastRequestAt, monthlySpend: monthlySpend, requestOptions: requestOptions);
+    return companies_methods.createOrUpdateCompany(_config,
+        intercomVersion: intercomVersion,
+        name: name,
+        companyId: companyId,
+        plan: plan,
+        size: size,
+        website: website,
+        industry: industry,
+        customAttributes: customAttributes,
+        remoteCreatedAt: remoteCreatedAt,
+        updateLastRequestAt: updateLastRequestAt,
+        monthlySpend: monthlySpend,
+        requestOptions: requestOptions);
   }
 
   /// Lists companies or retrieves a company matching the supplied filters. Use `company_id` or `name` to look up a single company, or use `tag_id` or `segment_id` to filter the company list. Use `page` and `per_page` to paginate the results.
@@ -1176,7 +1634,15 @@ class CompaniesNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return companies_methods.retrieveCompany(_config, name: name, companyId: companyId, tagId: tagId, segmentId: segmentId, page: page, perPage: perPage, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return companies_methods.retrieveCompany(_config,
+        name: name,
+        companyId: companyId,
+        tagId: tagId,
+        segmentId: segmentId,
+        page: page,
+        perPage: perPage,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves a company by its Intercom-provisioned identifier. Use `company_id` to identify the company whose details you need. The response includes company information such as its name, custom attributes, plan, and associated segments.
@@ -1186,7 +1652,10 @@ class CompaniesNamespace {
       {required String companyId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return companies_methods.retrieveCompaniesById(_config, companyId: companyId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return companies_methods.retrieveCompaniesById(_config,
+        companyId: companyId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Replaces the submitted properties on a company identified by its Intercom-provisioned ID. Supply only the company fields you want to update; `company_id` cannot be changed after creation. The response contains the updated company object.
@@ -1203,7 +1672,17 @@ class CompaniesNamespace {
       SdkOptional<Map<String, String>> customAttributes = const SdkOmitted(),
       SdkOptional<int> monthlySpend = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return companies_methods.updateCompany(_config, companyId: companyId, intercomVersion: intercomVersion, name: name, plan: plan, size: size, website: website, industry: industry, customAttributes: customAttributes, monthlySpend: monthlySpend, requestOptions: requestOptions);
+    return companies_methods.updateCompany(_config,
+        companyId: companyId,
+        intercomVersion: intercomVersion,
+        name: name,
+        plan: plan,
+        size: size,
+        website: website,
+        industry: industry,
+        customAttributes: customAttributes,
+        monthlySpend: monthlySpend,
+        requestOptions: requestOptions);
   }
 
   /// Deletes a company while keeping its record in the workspace and detaching all of its contacts. Contact detachment is permanent, and the contacts themselves are not deleted. Remove or filter the company from any syncing third-party integration before deletion if you want to prevent it from being recreated.
@@ -1213,7 +1692,10 @@ class CompaniesNamespace {
       {required String companyId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return companies_methods.deleteCompany(_config, companyId: companyId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return companies_methods.deleteCompany(_config,
+        companyId: companyId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Lists the contacts associated with a company identified by `company_id`. Use this endpoint to retrieve the company's attached contacts; the response includes contact records and cursor-based page metadata.
@@ -1223,7 +1705,10 @@ class CompaniesNamespace {
       {required String companyId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return companies_methods.listAttachedContacts(_config, companyId: companyId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return companies_methods.listAttachedContacts(_config,
+        companyId: companyId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Lists the segments associated with a company identified by `company_id`. Use this endpoint to inspect the company's attached segments; the response includes segment records.
@@ -1233,7 +1718,10 @@ class CompaniesNamespace {
       {required String companyId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return companies_methods.listCompaniesAttachedSegments(_config, companyId: companyId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return companies_methods.listCompaniesAttachedSegments(_config,
+        companyId: companyId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Searches companies by their attributes using filters in the request body. Use `query` to combine filters, `sort` to order results, and `pagination` to retrieve subsequent pages; filter groups support up to two nested levels and 15 filters per AND or OR group. Search results exclude companies without associated users.
@@ -1245,7 +1733,12 @@ class CompaniesNamespace {
       SdkOptional<StartingAfterPaging?> pagination = const SdkOmitted(),
       SdkOptional<CompanySearchRequestSort> sort = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return companies_methods.searchCompanies(_config, query: query, intercomVersion: intercomVersion, pagination: pagination, sort: sort, requestOptions: requestOptions);
+    return companies_methods.searchCompanies(_config,
+        query: query,
+        intercomVersion: intercomVersion,
+        pagination: pagination,
+        sort: sort,
+        requestOptions: requestOptions);
   }
 
   /// Lists companies, ordered by `last_request_at` and descending by default. Use the pagination parameters to retrieve results in pages; companies without associated users are excluded, and this endpoint can return at most 10,000 companies.
@@ -1257,7 +1750,12 @@ class CompaniesNamespace {
       SdkOptional<String> order = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return companies_methods.listAllCompanies(_config, page: page, perPage: perPage, order: order, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return companies_methods.listAllCompanies(_config,
+        page: page,
+        perPage: perPage,
+        order: order,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Lists companies by using a cursor-based scroll to iterate through a large dataset. Omit `scroll_param` to start a scroll, then pass the returned value on subsequent requests; only one scroll can be open per app at a time, and an unused scroll expires after one minute.
@@ -1267,7 +1765,10 @@ class CompaniesNamespace {
       {SdkOptional<String> scrollParam = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return companies_methods.scrollOverAllCompanies(_config, scrollParam: scrollParam, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return companies_methods.scrollOverAllCompanies(_config,
+        scrollParam: scrollParam,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Attaches a company to a contact identified by `contact_id`. Supply the company's Intercom identifier in the body field `id`. The response returns the attached company object.
@@ -1278,7 +1779,11 @@ class CompaniesNamespace {
       required String id,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return companies_methods.attachCompaniesContact(_config, contactId: contactId, id: id, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return companies_methods.attachCompaniesContact(_config,
+        contactId: contactId,
+        id: id,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Removes the association between a contact and a company. Identify both records with `contact_id` and `company_id` to detach the company from the contact. The response returns the company object.
@@ -1289,14 +1794,18 @@ class CompaniesNamespace {
       required String companyId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return companies_methods.detachCompaniesContact(_config, contactId: contactId, companyId: companyId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return companies_methods.detachCompaniesContact(_config,
+        contactId: contactId,
+        companyId: companyId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
-
 }
 
 class NotesNamespace {
   final ClientConfig _config;
   NotesNamespace(ClientConfig config) : _config = config;
+
   /// Lists the notes associated with a specific company. Use the company identifier to retrieve its notes; the response includes cursor-based pagination metadata.
   ///
   /// You can fetch a list of notes that are associated to a company.
@@ -1304,7 +1813,10 @@ class NotesNamespace {
       {required String companyId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return notes_methods.listCompanyNotes(_config, companyId: companyId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return notes_methods.listCompanyNotes(_config,
+        companyId: companyId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Creates a note attached to a company. Supply the note text in `body`; optionally set `admin_id` to choose the note's author, otherwise the admin associated with the access token is used. The response includes the created note and its author and company references.
@@ -1316,7 +1828,12 @@ class NotesNamespace {
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<String> adminId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return notes_methods.createCompanyNote(_config, companyId: companyId, body: body, intercomVersion: intercomVersion, adminId: adminId, requestOptions: requestOptions);
+    return notes_methods.createCompanyNote(_config,
+        companyId: companyId,
+        body: body,
+        intercomVersion: intercomVersion,
+        adminId: adminId,
+        requestOptions: requestOptions);
   }
 
   /// Lists notes associated with a contact. Use the `contact_id` path parameter to identify the contact; the response includes cursor-based pagination metadata and the total note count.
@@ -1326,7 +1843,10 @@ class NotesNamespace {
       {required String contactId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return notes_methods.listNotes(_config, contactId: contactId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return notes_methods.listNotes(_config,
+        contactId: contactId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Creates a note for a contact. Supply the required `body` text and optionally specify the `admin_id` of the admin associated with the note. The response includes the created note and its contact and author details.
@@ -1338,7 +1858,12 @@ class NotesNamespace {
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<String> adminId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return notes_methods.createNote(_config, contactId: contactId, body: body, intercomVersion: intercomVersion, adminId: adminId, requestOptions: requestOptions);
+    return notes_methods.createNote(_config,
+        contactId: contactId,
+        body: body,
+        intercomVersion: intercomVersion,
+        adminId: adminId,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves the details of a single note by its unique identifier. Use this operation to inspect the note body, its author, and whether it is attached to a contact or company. A note is attached to either a contact or a company, never both.
@@ -1348,7 +1873,10 @@ class NotesNamespace {
       {required int noteId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return notes_methods.retrieveNote(_config, noteId: noteId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return notes_methods.retrieveNote(_config,
+        noteId: noteId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Deletes a single note attached to a contact or company. Use this operation to remove a note that is no longer needed. Notes of other kinds cannot be deleted through the API.
@@ -1358,14 +1886,17 @@ class NotesNamespace {
       {required int noteId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return notes_methods.deleteNote(_config, noteId: noteId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return notes_methods.deleteNote(_config,
+        noteId: noteId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
-
 }
 
 class ContactsNamespace {
   final ClientConfig _config;
   ContactsNamespace(ClientConfig config) : _config = config;
+
   /// Lists the companies associated with a contact identified by `contact_id`. Use this endpoint to inspect the contact's company associations; the response includes company records and pagination metadata.
   ///
   /// You can fetch a list of companies that are associated to a contact.
@@ -1373,7 +1904,10 @@ class ContactsNamespace {
       {required String contactId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return contacts_methods.listContactsCompanies(_config, contactId: contactId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return contacts_methods.listContactsCompanies(_config,
+        contactId: contactId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Lists the segments associated with a specific contact. Use the `contact_id` path parameter to identify the contact whose segments you want to retrieve.
@@ -1383,7 +1917,10 @@ class ContactsNamespace {
       {required String contactId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return contacts_methods.listContactsSegments(_config, contactId: contactId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return contacts_methods.listContactsSegments(_config,
+        contactId: contactId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Lists the subscription types whose preferences a contact has explicitly set. Use the `contact_id` path parameter to retrieve the contact's opt-in and opt-out subscriptions; subscriptions left in their default state are not included.
@@ -1393,7 +1930,10 @@ class ContactsNamespace {
       {required String contactId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return contacts_methods.listContactsSubscriptions(_config, contactId: contactId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return contacts_methods.listContactsSubscriptions(_config,
+        contactId: contactId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Lists the tags attached to a specific contact. Use the `contact_id` path parameter to retrieve the tags associated with that contact.
@@ -1403,7 +1943,10 @@ class ContactsNamespace {
       {required String contactId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return contacts_methods.listContactsTags(_config, contactId: contactId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return contacts_methods.listContactsTags(_config,
+        contactId: contactId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Lists contacts in the workspace that are no longer active, with pagination. Use the `page` and `per_page` parameters to retrieve results in pages and locate contacts by their identifiers or contact details. Each result includes a status explaining why the contact is inactive, and merged contacts include `merged_into_id`.
@@ -1414,7 +1957,11 @@ class ContactsNamespace {
       SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return contacts_methods.listDeletedContacts(_config, perPage: perPage, page: page, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return contacts_methods.listDeletedContacts(_config,
+        perPage: perPage,
+        page: page,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Updates an existing contact, including its attributes and associations with custom object instances. Supply only the contact properties or associations you want to change; if you set `email_verified`, include `email` in the same request. Use `include_merge_history` to request merge history for contacts with a `user` role.
@@ -1426,7 +1973,12 @@ class ContactsNamespace {
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<UpdateContactRequest> body = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return contacts_methods.updateContact(_config, contactId: contactId, includeMergeHistory: includeMergeHistory, intercomVersion: intercomVersion, body: body, requestOptions: requestOptions);
+    return contacts_methods.updateContact(_config,
+        contactId: contactId,
+        includeMergeHistory: includeMergeHistory,
+        intercomVersion: intercomVersion,
+        body: body,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves a contact by its unique identifier. Use `include_merge_history` to request merge history for contacts with a `user` role. If the contact was merged, the response includes a `Link` header pointing to the canonical contact.
@@ -1437,7 +1989,11 @@ class ContactsNamespace {
       SdkOptional<bool> includeMergeHistory = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return contacts_methods.showContact(_config, contactId: contactId, includeMergeHistory: includeMergeHistory, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return contacts_methods.showContact(_config,
+        contactId: contactId,
+        includeMergeHistory: includeMergeHistory,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Deletes a single contact from the workspace. Use the contact's ID to identify the record to remove. The response includes a contact reference and indicates whether the contact was deleted.
@@ -1447,7 +2003,10 @@ class ContactsNamespace {
       {required String contactId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return contacts_methods.deleteContact(_config, contactId: contactId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return contacts_methods.deleteContact(_config,
+        contactId: contactId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Merges a lead contact into a user contact. Supply the source contact in `from` and the destination contact in `into`; set `skip_duplicate_validation` to true only when merging contacts that do not share a matching email or phone. After the merge, use the target contact's identifier because the source contact is removed from the active contact list.
@@ -1460,7 +2019,13 @@ class ContactsNamespace {
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<bool> skipDuplicateValidation = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return contacts_methods.mergeContact(_config, from: from, into: into, includeMergeHistory: includeMergeHistory, intercomVersion: intercomVersion, skipDuplicateValidation: skipDuplicateValidation, requestOptions: requestOptions);
+    return contacts_methods.mergeContact(_config,
+        from: from,
+        into: into,
+        includeMergeHistory: includeMergeHistory,
+        intercomVersion: intercomVersion,
+        skipDuplicateValidation: skipDuplicateValidation,
+        requestOptions: requestOptions);
   }
 
   /// Previews a contact merge without changing any contact data. Supply the source and destination IDs in `from` and `into`, and optionally set `custom_attribute_names` to include selected custom attributes in the preview. The result reports whether the merge is allowed and provides either a summary of changes or reasons it is not allowed.
@@ -1473,7 +2038,13 @@ class ContactsNamespace {
       SdkOptional<bool> skipDuplicateValidation = const SdkOmitted(),
       SdkOptional<List<String>> customAttributeNames = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return contacts_methods.previewMergeContact(_config, from: from, into: into, intercomVersion: intercomVersion, skipDuplicateValidation: skipDuplicateValidation, customAttributeNames: customAttributeNames, requestOptions: requestOptions);
+    return contacts_methods.previewMergeContact(_config,
+        from: from,
+        into: into,
+        intercomVersion: intercomVersion,
+        skipDuplicateValidation: skipDuplicateValidation,
+        customAttributeNames: customAttributeNames,
+        requestOptions: requestOptions);
   }
 
   /// Searches contacts by applying filters to contact attributes. Provide a `query` with one or more filters, and use `pagination` to retrieve subsequent result pages or `sort` to order the matches. Search results exclude merged contacts, and recently created contacts may take a few minutes to become searchable.
@@ -1486,7 +2057,13 @@ class ContactsNamespace {
       SdkOptional<StartingAfterPaging?> pagination = const SdkOmitted(),
       SdkOptional<ContactSearchRequestSort> sort = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return contacts_methods.searchContacts(_config, query: query, includeMergeHistory: includeMergeHistory, intercomVersion: intercomVersion, pagination: pagination, sort: sort, requestOptions: requestOptions);
+    return contacts_methods.searchContacts(_config,
+        query: query,
+        includeMergeHistory: includeMergeHistory,
+        intercomVersion: intercomVersion,
+        pagination: pagination,
+        sort: sort,
+        requestOptions: requestOptions);
   }
 
   /// Lists contact activity events for the workspace, including contact creation, role updates, merges, and deletions. Results are ordered from oldest to newest. Use `starting_after` to continue from a previous page and `per_page` to control the page size, from 1 to 150.
@@ -1497,7 +2074,11 @@ class ContactsNamespace {
       SdkOptional<String> startingAfter = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return contacts_methods.listContactActivities(_config, perPage: perPage, startingAfter: startingAfter, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return contacts_methods.listContactActivities(_config,
+        perPage: perPage,
+        startingAfter: startingAfter,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Lists contacts in your workspace, including users and leads. Use `include_merge_history` to request merge history for contacts with a `user` role. Results exclude contacts that have been merged, and you can paginate through the list with the `starting_after` cursor.
@@ -1507,7 +2088,10 @@ class ContactsNamespace {
       {SdkOptional<bool> includeMergeHistory = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return contacts_methods.listContacts(_config, includeMergeHistory: includeMergeHistory, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return contacts_methods.listContacts(_config,
+        includeMergeHistory: includeMergeHistory,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Creates a contact in your workspace as a user or lead. Provide at least one of `email`, `external_id`, or `role` to identify the type of contact to create; include `email` when setting `email_verified`. The response contains the created contact and its available details.
@@ -1517,7 +2101,10 @@ class ContactsNamespace {
       {SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<CreateContactRequest> body = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return contacts_methods.createContact(_config, intercomVersion: intercomVersion, body: body, requestOptions: requestOptions);
+    return contacts_methods.createContact(_config,
+        intercomVersion: intercomVersion,
+        body: body,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves a user contact by its external identifier; this endpoint does not retrieve leads. Use `include_merge_history` to request merge history for the contact. If the user has been merged, the response includes a `Link` header pointing to the canonical contact.
@@ -1528,7 +2115,11 @@ class ContactsNamespace {
       SdkOptional<bool> includeMergeHistory = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return contacts_methods.showContactByExternalId(_config, externalId: externalId, includeMergeHistory: includeMergeHistory, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return contacts_methods.showContactByExternalId(_config,
+        externalId: externalId,
+        includeMergeHistory: includeMergeHistory,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Archives a single contact. Supply the `contact_id` of the contact to archive. The response includes the contact reference and an `archived` flag.
@@ -1538,7 +2129,10 @@ class ContactsNamespace {
       {required String contactId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return contacts_methods.archiveContact(_config, contactId: contactId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return contacts_methods.archiveContact(_config,
+        contactId: contactId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Unarchives a single contact. Supply the `contact_id` of the contact to restore from the archived state. The response includes the contact reference and an `archived` flag.
@@ -1548,7 +2142,10 @@ class ContactsNamespace {
       {required String contactId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return contacts_methods.unarchiveContact(_config, contactId: contactId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return contacts_methods.unarchiveContact(_config,
+        contactId: contactId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Blocks a single contact. Supply the `contact_id` of the contact to block. Blocking the contact also archives the contact's conversations.
@@ -1558,7 +2155,10 @@ class ContactsNamespace {
       {required String contactId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return contacts_methods.blockContact(_config, contactId: contactId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return contacts_methods.blockContact(_config,
+        contactId: contactId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Lists the merge-history entries for a contact, showing contacts merged into that contact. Use `cursor` to fetch subsequent pages and `per_page` to set the page size; only contacts with a `user` role have merge history.
@@ -1571,14 +2171,32 @@ class ContactsNamespace {
       SdkOptional<ListContactMergeHistoryOrder> order = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return contacts_methods.listContactMergeHistory(_config, id: id, cursor: cursor, perPage: perPage, order: order, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return contacts_methods.listContactMergeHistory(_config,
+        id: id,
+        cursor: cursor,
+        perPage: perPage,
+        order: order,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Lists the merge-history entries for a contact, showing contacts merged into that contact. Use `cursor` to fetch subsequent pages and `per_page` to set the page size; only contacts with a `user` role have merge history.
   ///
   /// Retrieve the paginated list of contacts that have been merged into a given contact. Only available for contacts with a `user` role. Returns a `404` if the contact is not found or has a `lead` role.
-  Stream<MergeHistoryItem> listMergeHistoryPaginated({required String id, String? cursor, int? perPage, ListContactMergeHistoryOrder? order, IntercomVersion? intercomVersion, RequestOptions? requestOptions}) async* {
-    yield* contacts_methods.listContactMergeHistoryPaginated(_config, id: id, cursor: cursor, perPage: perPage, order: order, intercomVersion: intercomVersion, requestOptions: requestOptions);
+  Stream<MergeHistoryItem> listMergeHistoryPaginated(
+      {required String id,
+      String? cursor,
+      int? perPage,
+      ListContactMergeHistoryOrder? order,
+      IntercomVersion? intercomVersion,
+      RequestOptions? requestOptions}) async* {
+    yield* contacts_methods.listContactMergeHistoryPaginated(_config,
+        id: id,
+        cursor: cursor,
+        perPage: perPage,
+        order: order,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Creates multiple contacts without updating contacts that already exist. Submit up to 100 contact objects in `contacts`; duplicate `email` or `external_id` values cause those items to be rejected while other contacts in the batch can still be created. Poll `GET /contacts/bulk/{id}` with the returned job ID to check asynchronous processing; created contact IDs are not included in the job response.
@@ -1589,7 +2207,11 @@ class ContactsNamespace {
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<BulkCreateContactsRequestJob> job = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return contacts_methods.bulkCreateContacts(_config, contacts: contacts, intercomVersion: intercomVersion, job: job, requestOptions: requestOptions);
+    return contacts_methods.bulkCreateContacts(_config,
+        contacts: contacts,
+        intercomVersion: intercomVersion,
+        job: job,
+        requestOptions: requestOptions);
   }
 
   /// Updates multiple contacts in one asynchronous bulk job. Include each contact's `id` and the fields to change in `contacts`, with no more than 100 contacts per request; tag changes are best-effort, and unknown tag IDs are skipped. Poll `GET /contacts/bulk/{id}` with the returned job ID to check the job status.
@@ -1600,7 +2222,11 @@ class ContactsNamespace {
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<BulkUpdateContactsRequestJob> job = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return contacts_methods.bulkUpdateContacts(_config, contacts: contacts, intercomVersion: intercomVersion, job: job, requestOptions: requestOptions);
+    return contacts_methods.bulkUpdateContacts(_config,
+        contacts: contacts,
+        intercomVersion: intercomVersion,
+        job: job,
+        requestOptions: requestOptions);
   }
 
   /// Deletes contacts permanently in a background bulk job. Include up to 100 contact IDs in `contacts`; an item for a contact that does not exist or cannot be deleted fails without stopping the rest of the batch. Poll `GET /contacts/bulk/{id}` with the returned job ID to check the job status. &lt;Callout type="warning"&gt;Bulk deletion is permanent.&lt;/Callout&gt;
@@ -1611,7 +2237,11 @@ class ContactsNamespace {
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<BulkDeleteContactsRequestJob> job = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return contacts_methods.bulkDeleteContacts(_config, contacts: contacts, intercomVersion: intercomVersion, job: job, requestOptions: requestOptions);
+    return contacts_methods.bulkDeleteContacts(_config,
+        contacts: contacts,
+        intercomVersion: intercomVersion,
+        job: job,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves the status of an asynchronous bulk contact job. Supply the job's `id` to view its overall state, task details, and timestamps. Use the state to determine whether processing is pending, running, completed, or completed with errors.
@@ -1621,14 +2251,17 @@ class ContactsNamespace {
       {required String id,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return contacts_methods.showBulkUpdateContactsJob(_config, id: id, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return contacts_methods.showBulkUpdateContactsJob(_config,
+        id: id,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
-
 }
 
 class SubscriptionTypesNamespace {
   final ClientConfig _config;
   SubscriptionTypesNamespace(ClientConfig config) : _config = config;
+
   /// Adds a subscription type preference to a contact. Provide the subscription type `id` and `consent_type` to opt the contact in or out of messages for that subscription. The response contains the subscription type added to the contact.
   ///
   /// You can add a specific subscription to a contact. In Intercom, we have two different subscription types based on user consent - opt-out and opt-in: 1.Attaching a contact to an opt-out subscription type will opt that user out from receiving messages related to that subscription type. 2.Attaching a contact to an opt-in subscription type will opt that user in to receiving messages related to that subscription type. This will return a subscription type model for the subscription type that was added to the contact.
@@ -1638,7 +2271,12 @@ class SubscriptionTypesNamespace {
       required String consentType,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return subscription_types_methods.attachSubscriptionTypeToContact(_config, contactId: contactId, id: id, consentType: consentType, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return subscription_types_methods.attachSubscriptionTypeToContact(_config,
+        contactId: contactId,
+        id: id,
+        consentType: consentType,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Removes a subscription type preference from a contact. Use `contact_id` and `subscription_id` to identify the contact and subscription to detach. The response contains the subscription type that was removed.
@@ -1649,7 +2287,11 @@ class SubscriptionTypesNamespace {
       required String subscriptionId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return subscription_types_methods.detachSubscriptionTypeToContact(_config, contactId: contactId, subscriptionId: subscriptionId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return subscription_types_methods.detachSubscriptionTypeToContact(_config,
+        contactId: contactId,
+        subscriptionId: subscriptionId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Lists the subscription types associated with your workspace. Use this endpoint to retrieve the available communication consent types and their translations.
@@ -1658,14 +2300,15 @@ class SubscriptionTypesNamespace {
   Future<SubscriptionTypeList> list(
       {SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return subscription_types_methods.listSubscriptionTypes(_config, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return subscription_types_methods.listSubscriptionTypes(_config,
+        intercomVersion: intercomVersion, requestOptions: requestOptions);
   }
-
 }
 
 class TagsNamespace {
   final ClientConfig _config;
   TagsNamespace(ClientConfig config) : _config = config;
+
   /// Attaches a tag to a specific contact. Provide the tag's `id` in the request body and use `contact_id` to identify the contact. The response contains the tag that was added.
   ///
   /// You can tag a specific contact. This will return a tag object for the tag that was added to the contact.
@@ -1674,7 +2317,11 @@ class TagsNamespace {
       required String id,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return tags_methods.attachTagToContact(_config, contactId: contactId, id: id, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return tags_methods.attachTagToContact(_config,
+        contactId: contactId,
+        id: id,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Removes a tag from a specific contact. Use `contact_id` and `tag_id` to identify the contact and the tag to detach. The response contains the tag that was removed.
@@ -1685,7 +2332,11 @@ class TagsNamespace {
       required String tagId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return tags_methods.detachTagFromContact(_config, contactId: contactId, tagId: tagId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return tags_methods.detachTagFromContact(_config,
+        contactId: contactId,
+        tagId: tagId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Attaches a tag to a conversation and returns the tag that was added. Provide the tag identifier and the identifier of the admin performing the operation in the request body.
@@ -1697,7 +2348,12 @@ class TagsNamespace {
       required String adminId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return tags_methods.attachTagToConversation(_config, conversationId: conversationId, id: id, adminId: adminId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return tags_methods.attachTagToConversation(_config,
+        conversationId: conversationId,
+        id: id,
+        adminId: adminId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Removes a tag from a specific conversation and returns the tag that was removed. Provide the conversation and tag identifiers, and include the admin identifier in the request body when sending one.
@@ -1709,7 +2365,12 @@ class TagsNamespace {
       required String adminId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return tags_methods.detachTagFromConversation(_config, conversationId: conversationId, tagId: tagId, adminId: adminId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return tags_methods.detachTagFromConversation(_config,
+        conversationId: conversationId,
+        tagId: tagId,
+        adminId: adminId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Lists tags in the workspace. Use this endpoint to retrieve the tags available for labeling contacts, companies, and conversations.
@@ -1718,7 +2379,8 @@ class TagsNamespace {
   Future<TagList> list(
       {SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return tags_methods.listTags(_config, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return tags_methods.listTags(_config,
+        intercomVersion: intercomVersion, requestOptions: requestOptions);
   }
 
   /// Creates or updates a tag, or applies or removes tags from companies and users. Supply `name` to create or update a tag, and include the relevant company details to tag or untag companies. Each operation returns a tag object with the affected entities when applicable.
@@ -1728,7 +2390,10 @@ class TagsNamespace {
       {SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<dynamic> body = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return tags_methods.createTag(_config, intercomVersion: intercomVersion, body: body, requestOptions: requestOptions);
+    return tags_methods.createTag(_config,
+        intercomVersion: intercomVersion,
+        body: body,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves a tag from the workspace by its identifier. Use this operation to fetch the tag's details, including its name and identifier.
@@ -1738,7 +2403,10 @@ class TagsNamespace {
       {required String tagId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return tags_methods.findTag(_config, tagId: tagId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return tags_methods.findTag(_config,
+        tagId: tagId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Deletes a tag from the workspace using its identifier. Use this operation to remove a tag that is no longer needed; tags with dependent objects cannot be deleted.
@@ -1748,7 +2416,10 @@ class TagsNamespace {
       {required String tagId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return tags_methods.deleteTag(_config, tagId: tagId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return tags_methods.deleteTag(_config,
+        tagId: tagId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Adds a tag to a specific ticket and returns the tag that was applied. Supply the tag and admin identifiers in the body, and use the ticket's internal API identifier in the path.
@@ -1760,7 +2431,12 @@ class TagsNamespace {
       required String adminId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return tags_methods.attachTagToTicket(_config, ticketId: ticketId, id: id, adminId: adminId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return tags_methods.attachTagToTicket(_config,
+        ticketId: ticketId,
+        id: id,
+        adminId: adminId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Removes a tag from a specific ticket and returns the tag that was removed. Provide the ticket and tag identifiers in the path, and identify the admin performing the removal in the body.
@@ -1772,14 +2448,19 @@ class TagsNamespace {
       required String adminId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return tags_methods.detachTagFromTicket(_config, ticketId: ticketId, tagId: tagId, adminId: adminId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return tags_methods.detachTagFromTicket(_config,
+        ticketId: ticketId,
+        tagId: tagId,
+        adminId: adminId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
-
 }
 
 class BannersNamespace {
   final ClientConfig _config;
   BannersNamespace(ClientConfig config) : _config = config;
+
   /// Lists the banners that a contact currently matches so you can display them outside the Messenger. Call this endpoint when you are about to show the banners, because requesting them records an impression for each returned banner. Use each banner's `view_id` with the dismiss endpoint to record a dismissal.
   ///
   /// Returns the banners a contact currently matches, so you can display them on surfaces outside the Messenger (native mobile apps, kiosks, embedded tools). Each banner in the response includes a `view_id`. Use it to record a dismissal with the dismiss endpoint. A returned banner is treated as shown: requesting this endpoint records an impression for each banner returned, so call it at the point you are about to display the banners, not speculatively.
@@ -1787,7 +2468,10 @@ class BannersNamespace {
       {required String id,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return banners_methods.listContactBanners(_config, id: id, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return banners_methods.listContactBanners(_config,
+        id: id,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Records that a contact has dismissed a banner, with dismissals shared across surfaces for that contact. Supply the banner's `view_id` from the list banners response. Dismissing a banner that is already dismissed succeeds and returns the same response.
@@ -1798,14 +2482,18 @@ class BannersNamespace {
       required String viewId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return banners_methods.dismissContactBanner(_config, id: id, viewId: viewId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return banners_methods.dismissContactBanner(_config,
+        id: id,
+        viewId: viewId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
-
 }
 
 class ContentNamespace {
   final ClientConfig _config;
   ContentNamespace(ClientConfig config) : _config = config;
+
   /// Triggers a bulk action on up to 1,000 Knowledge Hub content items, including publishing, deleting, changing availability or audiences, and updating tags. Supply `action` and `content_ids`; include the action-specific `audience`, `availability`, or `tags` object when required. Work is enqueued asynchronously, and the 202 response contains a placeholder envelope rather than per-item results.
   ///
   /// Asynchronously run a bulk action over up to 1,000 Knowledge Hub content items. Six actions are supported: * `publish` and `unpublish` — apply to `article_content` only. * `delete` — permanently delete content (excludes synced sources and `external_content`). * `set_availability` — toggle Fin AI Agent, Copilot, and Sales Agent availability flags. * `set_audience` — manage segment membership on content. * `update_tags` — apply and/or remove existing tags on content. Unlike the other actions, `update_tags` addresses articles by the parent `article` id, not `article_content`. Tags must already exist and not be archived; supply at least one of `add_tag_ids` / `remove_tag_ids`. The endpoint validates the request, enqueues background work, and returns 202 with a placeholder envelope. Items whose `type` is not in the action's allowlist are silently dropped before processing. Articles imported from synced sources (Confluence, Notion, Zendesk, Salesforce Knowledge, etc.) are silently skipped on `delete` — they can only be removed by disconnecting the underlying import source. Requires the `write_content` OAuth scope.
@@ -1813,11 +2501,20 @@ class ContentNamespace {
       {required ContentBulkActionRequestAction action,
       required List<ContentBulkActionRequestContentIdsItem> contentIds,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
-      SdkOptional<ContentBulkActionRequestAvailability> availability = const SdkOmitted(),
-      SdkOptional<ContentBulkActionRequestAudience> audience = const SdkOmitted(),
+      SdkOptional<ContentBulkActionRequestAvailability> availability =
+          const SdkOmitted(),
+      SdkOptional<ContentBulkActionRequestAudience> audience =
+          const SdkOmitted(),
       SdkOptional<ContentBulkActionRequestTags> tags = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return content_methods.bulkContentActions(_config, action: action, contentIds: contentIds, intercomVersion: intercomVersion, availability: availability, audience: audience, tags: tags, requestOptions: requestOptions);
+    return content_methods.bulkContentActions(_config,
+        action: action,
+        contentIds: contentIds,
+        intercomVersion: intercomVersion,
+        availability: availability,
+        audience: audience,
+        tags: tags,
+        requestOptions: requestOptions);
   }
 
   /// Searches Knowledge Hub content, including articles, snippets, external pages, uploaded files, and internal articles. Use `query` to match content text and the available filters to narrow results; when `query` is omitted, the most recent content items are returned.
@@ -1833,11 +2530,15 @@ class ContentNamespace {
       SdkOptional<SearchContentTagOperator> tagOperator = const SdkOmitted(),
       SdkOptional<List<int>> anyTagIds = const SdkOmitted(),
       SdkOptional<List<int>> folderIds = const SdkOmitted(),
-      SdkOptional<SearchContentFolderEntityType> folderEntityType = const SdkOmitted(),
-      SdkOptional<List<SearchContentContentTypesItem>> contentTypes = const SdkOmitted(),
+      SdkOptional<SearchContentFolderEntityType> folderEntityType =
+          const SdkOmitted(),
+      SdkOptional<List<SearchContentContentTypesItem>> contentTypes =
+          const SdkOmitted(),
       SdkOptional<SearchContentCopilotState> copilotState = const SdkOmitted(),
-      SdkOptional<SearchContentFinServiceState> finServiceState = const SdkOmitted(),
-      SdkOptional<SearchContentFinSalesState> finSalesState = const SdkOmitted(),
+      SdkOptional<SearchContentFinServiceState> finServiceState =
+          const SdkOmitted(),
+      SdkOptional<SearchContentFinSalesState> finSalesState =
+          const SdkOmitted(),
       SdkOptional<List<int>> createdByIds = const SdkOmitted(),
       SdkOptional<List<int>> lastUpdatedByIds = const SdkOmitted(),
       SdkOptional<int> createdAtAfter = const SdkOmitted(),
@@ -1846,14 +2547,36 @@ class ContentNamespace {
       SdkOptional<int> updatedAtBefore = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return content_methods.searchContent(_config, query: query, page: page, perPage: perPage, states: states, locales: locales, tagIds: tagIds, tagOperator: tagOperator, anyTagIds: anyTagIds, folderIds: folderIds, folderEntityType: folderEntityType, contentTypes: contentTypes, copilotState: copilotState, finServiceState: finServiceState, finSalesState: finSalesState, createdByIds: createdByIds, lastUpdatedByIds: lastUpdatedByIds, createdAtAfter: createdAtAfter, createdAtBefore: createdAtBefore, updatedAtAfter: updatedAtAfter, updatedAtBefore: updatedAtBefore, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return content_methods.searchContent(_config,
+        query: query,
+        page: page,
+        perPage: perPage,
+        states: states,
+        locales: locales,
+        tagIds: tagIds,
+        tagOperator: tagOperator,
+        anyTagIds: anyTagIds,
+        folderIds: folderIds,
+        folderEntityType: folderEntityType,
+        contentTypes: contentTypes,
+        copilotState: copilotState,
+        finServiceState: finServiceState,
+        finSalesState: finSalesState,
+        createdByIds: createdByIds,
+        lastUpdatedByIds: lastUpdatedByIds,
+        createdAtAfter: createdAtAfter,
+        createdAtBefore: createdAtBefore,
+        updatedAtAfter: updatedAtAfter,
+        updatedAtBefore: updatedAtBefore,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
-
 }
 
 class ContentSnippetsNamespace {
   final ClientConfig _config;
   ContentSnippetsNamespace(ClientConfig config) : _config = config;
+
   /// Lists content snippets in a workspace. Use `page` and `per_page` to paginate the results; each page includes snippet objects and pagination metadata.
   ///
   /// You can fetch a list of all content snippets for a workspace.
@@ -1862,14 +2585,26 @@ class ContentSnippetsNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return content_snippets_methods.listContentSnippets(_config, page: page, perPage: perPage, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return content_snippets_methods.listContentSnippets(_config,
+        page: page,
+        perPage: perPage,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Lists content snippets in a workspace. Use `page` and `per_page` to paginate the results; each page includes snippet objects and pagination metadata.
   ///
   /// You can fetch a list of all content snippets for a workspace.
-  Stream<ContentSnippet> listPaginated({int? page, int? perPage, IntercomVersion? intercomVersion, RequestOptions? requestOptions}) async* {
-    yield* content_snippets_methods.listContentSnippetsPaginated(_config, page: page, perPage: perPage, intercomVersion: intercomVersion, requestOptions: requestOptions);
+  Stream<ContentSnippet> listPaginated(
+      {int? page,
+      int? perPage,
+      IntercomVersion? intercomVersion,
+      RequestOptions? requestOptions}) async* {
+    yield* content_snippets_methods.listContentSnippetsPaginated(_config,
+        page: page,
+        perPage: perPage,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Creates a reusable content snippet for AI agents and Copilot. Provide a `title` and either `json_blocks` or `body_markdown` for the snippet content; those content fields are mutually exclusive. You can optionally set the snippet's locale, availability, and audience targeting.
@@ -1886,7 +2621,17 @@ class ContentSnippetsNamespace {
       SdkOptional<bool> aiCopilotAvailability = const SdkOmitted(),
       SdkOptional<bool> aiSalesAgentAvailability = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return content_snippets_methods.createContentSnippet(_config, title: title, intercomVersion: intercomVersion, jsonBlocks: jsonBlocks, bodyMarkdown: bodyMarkdown, locale: locale, audienceIds: audienceIds, aiChatbotAvailability: aiChatbotAvailability, aiCopilotAvailability: aiCopilotAvailability, aiSalesAgentAvailability: aiSalesAgentAvailability, requestOptions: requestOptions);
+    return content_snippets_methods.createContentSnippet(_config,
+        title: title,
+        intercomVersion: intercomVersion,
+        jsonBlocks: jsonBlocks,
+        bodyMarkdown: bodyMarkdown,
+        locale: locale,
+        audienceIds: audienceIds,
+        aiChatbotAvailability: aiChatbotAvailability,
+        aiCopilotAvailability: aiCopilotAvailability,
+        aiSalesAgentAvailability: aiSalesAgentAvailability,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves a content snippet by its unique identifier. Use this operation when you need the snippet's content, locale, availability settings, or audience targeting.
@@ -1896,7 +2641,10 @@ class ContentSnippetsNamespace {
       {required String id,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return content_snippets_methods.getContentSnippet(_config, id: id, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return content_snippets_methods.getContentSnippet(_config,
+        id: id,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Replaces the specified fields on an existing content snippet. Send only the fields you want to change; omitted fields remain unchanged. Provide either `json_blocks` or `body_markdown` to change the content, but not both.
@@ -1914,7 +2662,18 @@ class ContentSnippetsNamespace {
       SdkOptional<bool> aiCopilotAvailability = const SdkOmitted(),
       SdkOptional<bool> aiSalesAgentAvailability = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return content_snippets_methods.updateContentSnippet(_config, id: id, intercomVersion: intercomVersion, title: title, jsonBlocks: jsonBlocks, bodyMarkdown: bodyMarkdown, locale: locale, audienceIds: audienceIds, aiChatbotAvailability: aiChatbotAvailability, aiCopilotAvailability: aiCopilotAvailability, aiSalesAgentAvailability: aiSalesAgentAvailability, requestOptions: requestOptions);
+    return content_snippets_methods.updateContentSnippet(_config,
+        id: id,
+        intercomVersion: intercomVersion,
+        title: title,
+        jsonBlocks: jsonBlocks,
+        bodyMarkdown: bodyMarkdown,
+        locale: locale,
+        audienceIds: audienceIds,
+        aiChatbotAvailability: aiChatbotAvailability,
+        aiCopilotAvailability: aiCopilotAvailability,
+        aiSalesAgentAvailability: aiSalesAgentAvailability,
+        requestOptions: requestOptions);
   }
 
   /// Deletes a content snippet by its unique identifier. Use this operation when you no longer need the snippet; deletion is blocked if the snippet has procedure dependencies.
@@ -1924,7 +2683,10 @@ class ContentSnippetsNamespace {
       {required String id,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return content_snippets_methods.deleteContentSnippet(_config, id: id, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return content_snippets_methods.deleteContentSnippet(_config,
+        id: id,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Applies an existing tag to a content snippet and returns the tag. The tag must already exist in the workspace, and the authenticated user must have the `manage_knowledge_base_content` permission and `read_write_content_snippets` OAuth scope.
@@ -1936,7 +2698,12 @@ class ContentSnippetsNamespace {
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<String?> adminId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return content_snippets_methods.attachContentSnippetsTag(_config, contentSnippetId: contentSnippetId, id: id, intercomVersion: intercomVersion, adminId: adminId, requestOptions: requestOptions);
+    return content_snippets_methods.attachContentSnippetsTag(_config,
+        contentSnippetId: contentSnippetId,
+        id: id,
+        intercomVersion: intercomVersion,
+        adminId: adminId,
+        requestOptions: requestOptions);
   }
 
   /// Removes a tag from a content snippet and returns the removed tag. The authenticated user must have the `manage_knowledge_base_content` permission and `read_write_content_snippets` OAuth scope.
@@ -1947,14 +2714,18 @@ class ContentSnippetsNamespace {
       required String id,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return content_snippets_methods.detachContentSnippetsTag(_config, contentSnippetId: contentSnippetId, id: id, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return content_snippets_methods.detachContentSnippetsTag(_config,
+        contentSnippetId: contentSnippetId,
+        id: id,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
-
 }
 
 class DynamicContentNamespace {
   final ClientConfig _config;
   DynamicContentNamespace(ClientConfig config) : _config = config;
+
   /// Lists dynamic content in the workspace, ordered from most recently updated to least recently updated. Use `page` and `per_page` to paginate the results.
   ///
   /// You can fetch a list of all dynamic content for a workspace, most recently updated first. Requires the `read_dynamic_content` scope.
@@ -1963,14 +2734,26 @@ class DynamicContentNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return dynamic_content_methods.listDynamicContents(_config, page: page, perPage: perPage, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return dynamic_content_methods.listDynamicContents(_config,
+        page: page,
+        perPage: perPage,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Lists dynamic content in the workspace, ordered from most recently updated to least recently updated. Use `page` and `per_page` to paginate the results.
   ///
   /// You can fetch a list of all dynamic content for a workspace, most recently updated first. Requires the `read_dynamic_content` scope.
-  Stream<DynamicContent> listPaginated({int? page, int? perPage, IntercomVersion? intercomVersion, RequestOptions? requestOptions}) async* {
-    yield* dynamic_content_methods.listDynamicContentsPaginated(_config, page: page, perPage: perPage, intercomVersion: intercomVersion, requestOptions: requestOptions);
+  Stream<DynamicContent> listPaginated(
+      {int? page,
+      int? perPage,
+      IntercomVersion? intercomVersion,
+      RequestOptions? requestOptions}) async* {
+    yield* dynamic_content_methods.listDynamicContentsPaginated(_config,
+        page: page,
+        perPage: perPage,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Creates reusable dynamic content that you can insert into Help Center articles. Provide a unique `name`, choose `inline` or `block` for `content_type`, and include at least one variation with a locale that matches `default_locale` and applies to all brands.
@@ -1983,7 +2766,13 @@ class DynamicContentNamespace {
       required List<DynamicContentVariationRequest> variations,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return dynamic_content_methods.createDynamicContent(_config, name: name, contentType: contentType, defaultLocale: defaultLocale, variations: variations, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return dynamic_content_methods.createDynamicContent(_config,
+        name: name,
+        contentType: contentType,
+        defaultLocale: defaultLocale,
+        variations: variations,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves one dynamic content item by its identifier. Use this operation to inspect its name, content type, default locale, and locale- and brand-specific variations.
@@ -1993,7 +2782,10 @@ class DynamicContentNamespace {
       {required String id,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return dynamic_content_methods.getDynamicContent(_config, id: id, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return dynamic_content_methods.getDynamicContent(_config,
+        id: id,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Updates an existing dynamic content item; only the fields you provide are changed. Supply `name`, `default_locale`, or the full set of `variations` to update, noting that omitted existing variations are deleted when you provide `variations`.
@@ -2004,9 +2796,16 @@ class DynamicContentNamespace {
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<String> name = const SdkOmitted(),
       SdkOptional<String> defaultLocale = const SdkOmitted(),
-      SdkOptional<List<DynamicContentVariationRequest>> variations = const SdkOmitted(),
+      SdkOptional<List<DynamicContentVariationRequest>> variations =
+          const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return dynamic_content_methods.updateDynamicContent(_config, id: id, intercomVersion: intercomVersion, name: name, defaultLocale: defaultLocale, variations: variations, requestOptions: requestOptions);
+    return dynamic_content_methods.updateDynamicContent(_config,
+        id: id,
+        intercomVersion: intercomVersion,
+        name: name,
+        defaultLocale: defaultLocale,
+        variations: variations,
+        requestOptions: requestOptions);
   }
 
   /// Deletes one dynamic content item by its identifier. You cannot delete dynamic content that is still used in an article, and the operation requires the `read_write_dynamic_content` scope.
@@ -2016,14 +2815,17 @@ class DynamicContentNamespace {
       {required String id,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return dynamic_content_methods.deleteDynamicContent(_config, id: id, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return dynamic_content_methods.deleteDynamicContent(_config,
+        id: id,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
-
 }
 
 class ConversationsNamespace {
   final ClientConfig _config;
   ConversationsNamespace(ClientConfig config) : _config = config;
+
   /// Lists conversations with cursor-based pagination. Use `per_page` to set the page size and `starting_after` to continue from a cursor; you can also request QA monitor evaluations or scorecards for each conversation.
   ///
   /// You can fetch a list of all conversations. You can optionally request the result page size and the cursor to start after to fetch the result. {% admonition type="warning" name="Pagination" %} You can use pagination to limit the number of results returned. The default is `20` results per page. See the [pagination section](https://developers.intercom.com/docs/build-an-integration/learn-more/rest-apis/pagination/#pagination-for-list-apis) for more details on how to use the `starting_after` param. {% /admonition %}
@@ -2034,7 +2836,13 @@ class ConversationsNamespace {
       SdkOptional<bool> includeScorecards = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return conversations_methods.listConversations(_config, perPage: perPage, startingAfter: startingAfter, includeMonitors: includeMonitors, includeScorecards: includeScorecards, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return conversations_methods.listConversations(_config,
+        perPage: perPage,
+        startingAfter: startingAfter,
+        includeMonitors: includeMonitors,
+        includeScorecards: includeScorecards,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Creates a conversation initiated by a contact and returns the message created for it. Provide `from` and `body`; the message can be an in-app message, and using a visitor identifier in `from` converts that visitor to a lead contact.
@@ -2049,7 +2857,15 @@ class ConversationsNamespace {
       SdkOptional<int> createdAt = const SdkOmitted(),
       SdkOptional<String> brandId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return conversations_methods.createConversation(_config, from: from, body: body, intercomVersion: intercomVersion, subject: subject, attachmentUrls: attachmentUrls, createdAt: createdAt, brandId: brandId, requestOptions: requestOptions);
+    return conversations_methods.createConversation(_config,
+        from: from,
+        body: body,
+        intercomVersion: intercomVersion,
+        subject: subject,
+        attachmentUrls: attachmentUrls,
+        createdAt: createdAt,
+        brandId: brandId,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves a conversation and its conversation parts. The response includes at most the 500 most recent parts; use the optional query parameters to request plaintext, translations, QA monitor evaluations, or scorecards.
@@ -2063,7 +2879,14 @@ class ConversationsNamespace {
       SdkOptional<bool> includeScorecards = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return conversations_methods.retrieveConversation(_config, conversationId: conversationId, displayAs: displayAs, includeTranslations: includeTranslations, includeMonitors: includeMonitors, includeScorecards: includeScorecards, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return conversations_methods.retrieveConversation(_config,
+        conversationId: conversationId,
+        displayAs: displayAs,
+        includeTranslations: includeTranslations,
+        includeMonitors: includeMonitors,
+        includeScorecards: includeScorecards,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Updates an existing conversation, including its title, read state, company association, and writable custom attributes. Supply only the fields you want to change; set `company_id` to null to remove the company association. Use the reply or manage conversation endpoints to send messages or change assignment and conversation state.
@@ -2078,7 +2901,15 @@ class ConversationsNamespace {
       SdkOptional<Map<String, dynamic>> customAttributes = const SdkOmitted(),
       SdkOptional<String> companyId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return conversations_methods.updateConversation(_config, conversationId: conversationId, displayAs: displayAs, intercomVersion: intercomVersion, read: read, title: title, customAttributes: customAttributes, companyId: companyId, requestOptions: requestOptions);
+    return conversations_methods.updateConversation(_config,
+        conversationId: conversationId,
+        displayAs: displayAs,
+        intercomVersion: intercomVersion,
+        read: read,
+        title: title,
+        customAttributes: customAttributes,
+        companyId: companyId,
+        requestOptions: requestOptions);
   }
 
   /// Deletes a conversation permanently, with reporting-data retention controlled by `retain_metrics`. When `retain_metrics` is `false`, the authenticated user must have the `delete_conversations_and_metrics` OAuth scope; this also deletes the conversation's associated reporting data.
@@ -2089,7 +2920,11 @@ class ConversationsNamespace {
       SdkOptional<bool> retainMetrics = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return conversations_methods.deleteConversation(_config, conversationId: conversationId, retainMetrics: retainMetrics, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return conversations_methods.deleteConversation(_config,
+        conversationId: conversationId,
+        retainMetrics: retainMetrics,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Searches conversations using filters on searchable conversation attributes. Provide a `query` with a filter or a group of filters, and use `pagination` to control the result page. You can combine filters with AND and OR operators, nest up to two filter levels, and include up to 15 filters in each group.
@@ -2102,7 +2937,13 @@ class ConversationsNamespace {
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<StartingAfterPaging?> pagination = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return conversations_methods.searchConversations(_config, query: query, includeMonitors: includeMonitors, includeScorecards: includeScorecards, intercomVersion: intercomVersion, pagination: pagination, requestOptions: requestOptions);
+    return conversations_methods.searchConversations(_config,
+        query: query,
+        includeMonitors: includeMonitors,
+        includeScorecards: includeScorecards,
+        intercomVersion: intercomVersion,
+        pagination: pagination,
+        requestOptions: requestOptions);
   }
 
   /// Submits a reply to a conversation as an admin or on behalf of a contact, or adds an admin note. Choose a contact identifier or provide the admin reply fields, including `message_type` and `admin_id` for an admin reply. Bot replies to inbound email conversations are not sent to customers by default; contact your accounts team to enable the email-reply feature.
@@ -2113,7 +2954,11 @@ class ConversationsNamespace {
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<ReplyConversationRequest> body = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return conversations_methods.replyConversation(_config, conversationId: conversationId, intercomVersion: intercomVersion, body: body, requestOptions: requestOptions);
+    return conversations_methods.replyConversation(_config,
+        conversationId: conversationId,
+        intercomVersion: intercomVersion,
+        body: body,
+        requestOptions: requestOptions);
   }
 
   /// Triggers an action to close, snooze, open, or assign a conversation. Provide the action-specific fields, including `admin_id` and the appropriate `message_type`; snoozing also requires `snoozed_until`. Use the reply endpoint to send a comment, note, or quick reply.
@@ -2124,7 +2969,11 @@ class ConversationsNamespace {
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<dynamic> body = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return conversations_methods.manageConversation(_config, conversationId: conversationId, intercomVersion: intercomVersion, body: body, requestOptions: requestOptions);
+    return conversations_methods.manageConversation(_config,
+        conversationId: conversationId,
+        intercomVersion: intercomVersion,
+        body: body,
+        requestOptions: requestOptions);
   }
 
   /// Adds a contact as a participant in a conversation on behalf of an admin or another contact. Provide a contact identifier in `customer` to select the participant; if you identify the contact by email and no matching user or lead exists, the API creates a lead. The response lists the conversation participants after the change.
@@ -2134,9 +2983,15 @@ class ConversationsNamespace {
       {required String conversationId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<String> adminId = const SdkOmitted(),
-      SdkOptional<AttachContactToConversationRequestCustomer> customer = const SdkOmitted(),
+      SdkOptional<AttachContactToConversationRequestCustomer> customer =
+          const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return conversations_methods.attachConversationsContact(_config, conversationId: conversationId, intercomVersion: intercomVersion, adminId: adminId, customer: customer, requestOptions: requestOptions);
+    return conversations_methods.attachConversationsContact(_config,
+        conversationId: conversationId,
+        intercomVersion: intercomVersion,
+        adminId: adminId,
+        customer: customer,
+        requestOptions: requestOptions);
   }
 
   /// Removes a contact from a group conversation on behalf of an admin. Provide the conversation and contact identifiers, along with the `admin_id` in the request body. You cannot remove the last remaining contact from a conversation.
@@ -2148,7 +3003,12 @@ class ConversationsNamespace {
       required String adminId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return conversations_methods.detachConversationsContact(_config, conversationId: conversationId, contactId: contactId, adminId: adminId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return conversations_methods.detachConversationsContact(_config,
+        conversationId: conversationId,
+        contactId: contactId,
+        adminId: adminId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Lists pause and resume events recorded for a conversation, showing when teammates paused or resumed handling it. Use this operation when you need the handling history for a conversation. Your access token must include the `read_conversations` OAuth scope.
@@ -2158,7 +3018,10 @@ class ConversationsNamespace {
       {required String id,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return conversations_methods.listHandlingEvents(_config, id: id, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return conversations_methods.listHandlingEvents(_config,
+        id: id,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Lists human-in-the-loop events from Fin consultations on a conversation, ordered from oldest to newest. Use the event type to interpret the fields in each event's `data`; consultations appear only after they have ended, and redacting a conversation removes or nulls this event data. Your access token must include the `read_conversations` OAuth scope, and you must be able to access the conversation.
@@ -2168,7 +3031,10 @@ class ConversationsNamespace {
       {required String id,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return conversations_methods.listHitlEvents(_config, id: id, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return conversations_methods.listHitlEvents(_config,
+        id: id,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Lists the internal side conversations created by teammates within a conversation, including their conversation parts. Use `page` and `per_page` to paginate the results. Your access token must include the `read_conversations` OAuth scope.
@@ -2180,7 +3046,12 @@ class ConversationsNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return conversations_methods.listSideConversations(_config, id: id, page: page, perPage: perPage, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return conversations_methods.listSideConversations(_config,
+        id: id,
+        page: page,
+        perPage: perPage,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Redacts a conversation part or the source message of a conversation. Choose the resource with `type` and provide the corresponding conversation and resource identifiers. A conversation part must have a body to be redactable, and a source message must have been created by a contact.
@@ -2190,7 +3061,10 @@ class ConversationsNamespace {
       {SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<RedactConversationRequest> body = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return conversations_methods.redactConversation(_config, intercomVersion: intercomVersion, body: body, requestOptions: requestOptions);
+    return conversations_methods.redactConversation(_config,
+        intercomVersion: intercomVersion,
+        body: body,
+        requestOptions: requestOptions);
   }
 
   /// Merges a secondary conversation into a primary conversation, closing and linking the secondary while the primary remains the surviving thread. Supply `merge_into_conversation_id` to identify the primary conversation; the authenticated user needs the `write_conversations` OAuth scope, and also needs `write_tickets` when the secondary conversation is a ticket.
@@ -2201,7 +3075,11 @@ class ConversationsNamespace {
       required int mergeIntoConversationId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return conversations_methods.mergeConversation(_config, id: id, mergeIntoConversationId: mergeIntoConversationId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return conversations_methods.mergeConversation(_config,
+        id: id,
+        mergeIntoConversationId: mergeIntoConversationId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Converts a conversation into a ticket. Supply `ticket_type_id` to select the ticket type, and optionally provide ticket attributes or a ticket state.
@@ -2214,7 +3092,13 @@ class ConversationsNamespace {
       SdkOptional<String> ticketStateId = const SdkOmitted(),
       SdkOptional<Map<String, dynamic>> attributes = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return conversations_methods.convertConversationToTicket(_config, conversationId: conversationId, ticketTypeId: ticketTypeId, intercomVersion: intercomVersion, ticketStateId: ticketStateId, attributes: attributes, requestOptions: requestOptions);
+    return conversations_methods.convertConversationToTicket(_config,
+        conversationId: conversationId,
+        ticketTypeId: ticketTypeId,
+        intercomVersion: intercomVersion,
+        ticketStateId: ticketStateId,
+        attributes: attributes,
+        requestOptions: requestOptions);
   }
 
   /// Lists deleted conversation IDs, with deletion timestamps and whether metrics were retained. Use `page` and `per_page` to paginate the results; `order` controls the sort direction and defaults to descending.
@@ -2226,14 +3110,19 @@ class ConversationsNamespace {
       SdkOptional<String> order = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return conversations_methods.listDeletedConversationIds(_config, page: page, perPage: perPage, order: order, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return conversations_methods.listDeletedConversationIds(_config,
+        page: page,
+        perPage: perPage,
+        order: order,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
-
 }
 
 class ConversationsAttributesNamespace {
   final ClientConfig _config;
   ConversationsAttributesNamespace(ClientConfig config) : _config = config;
+
   /// Lists conversation attributes belonging to the workspace. Set `include_archived` to include archived attributes; it defaults to false when omitted.
   ///
   /// You can fetch a list of all conversation attributes for your workspace.
@@ -2241,7 +3130,10 @@ class ConversationsAttributesNamespace {
       {SdkOptional<bool> includeArchived = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return conversations_attributes_methods.listConversationAttributes(_config, includeArchived: includeArchived, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return conversations_attributes_methods.listConversationAttributes(_config,
+        includeArchived: includeArchived,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Creates a conversation attribute for the workspace. Provide the required `name` and `data_type`; the payload can also include attribute details such as its description, team visibility, and type-specific configuration.
@@ -2251,7 +3143,10 @@ class ConversationsAttributesNamespace {
       {required CreateConversationAttributeRequest body,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return conversations_attributes_methods.createConversationAttribute(_config, body: body, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return conversations_attributes_methods.createConversationAttribute(_config,
+        body: body,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves a conversation attribute by ID. Use this operation to fetch one attribute from the workspace.
@@ -2261,7 +3156,10 @@ class ConversationsAttributesNamespace {
       {required int id,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return conversations_attributes_methods.getConversationAttribute(_config, id: id, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return conversations_attributes_methods.getConversationAttribute(_config,
+        id: id,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Updates an existing conversation attribute. Provide the fields to change, including type-specific settings when applicable; for relationship configuration, `reference.type` must be `one` or `many`.
@@ -2275,9 +3173,19 @@ class ConversationsAttributesNamespace {
       SdkOptional<bool> multiline = const SdkOmitted(),
       SdkOptional<bool> required_ = const SdkOmitted(),
       SdkOptional<List<String>> visibleToTeamIds = const SdkOmitted(),
-      SdkOptional<UpdateConversationAttributeRequestReference> reference = const SdkOmitted(),
+      SdkOptional<UpdateConversationAttributeRequestReference> reference =
+          const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return conversations_attributes_methods.updateConversationAttribute(_config, id: id, intercomVersion: intercomVersion, name: name, description: description, multiline: multiline, required_: required_, visibleToTeamIds: visibleToTeamIds, reference: reference, requestOptions: requestOptions);
+    return conversations_attributes_methods.updateConversationAttribute(_config,
+        id: id,
+        intercomVersion: intercomVersion,
+        name: name,
+        description: description,
+        multiline: multiline,
+        required_: required_,
+        visibleToTeamIds: visibleToTeamIds,
+        reference: reference,
+        requestOptions: requestOptions);
   }
 
   /// Archives a conversation attribute without permanently deleting it. Supply the attribute's `id` to select the attribute to archive.
@@ -2287,7 +3195,10 @@ class ConversationsAttributesNamespace {
       {required int id,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return conversations_attributes_methods.deleteConversationAttribute(_config, id: id, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return conversations_attributes_methods.deleteConversationAttribute(_config,
+        id: id,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Adds an option to a list-type conversation attribute and returns the attribute with its updated options. Supply `label` for the new option.
@@ -2298,7 +3209,12 @@ class ConversationsAttributesNamespace {
       required String label,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return conversations_attributes_methods.createConversationAttributeOption(_config, id: id, label: label, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return conversations_attributes_methods.createConversationAttributeOption(
+        _config,
+        id: id,
+        label: label,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Updates the label of one option on a list-type conversation attribute. Supply the new `label`; the response includes the full attribute and its updated options array. Use the attribute and option identifiers to target the option to change.
@@ -2310,7 +3226,13 @@ class ConversationsAttributesNamespace {
       required String label,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return conversations_attributes_methods.updateConversationAttributeOption(_config, id: id, optionId: optionId, label: label, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return conversations_attributes_methods.updateConversationAttributeOption(
+        _config,
+        id: id,
+        optionId: optionId,
+        label: label,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Archives an option on a list-type conversation attribute without permanently deleting it. The option remains in the attribute response with `archived` set to true, and the response includes the updated options array.
@@ -2321,14 +3243,19 @@ class ConversationsAttributesNamespace {
       required String optionId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return conversations_attributes_methods.deleteConversationAttributeOption(_config, id: id, optionId: optionId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return conversations_attributes_methods.deleteConversationAttributeOption(
+        _config,
+        id: id,
+        optionId: optionId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
-
 }
 
 class CustomObjectInstancesNamespace {
   final ClientConfig _config;
   CustomObjectInstancesNamespace(ClientConfig config) : _config = config;
+
   /// Creates or updates an instance of a custom object type. Supply `custom_attributes` and, when available, the instance's external identifier and external-system timestamps. The response contains the instance's Intercom-defined identifier and its custom attributes.
   ///
   /// Create or update a custom object instance
@@ -2340,7 +3267,14 @@ class CustomObjectInstancesNamespace {
       SdkOptional<int?> externalUpdatedAt = const SdkOmitted(),
       SdkOptional<Map<String, String>?> customAttributes = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return custom_object_instances_methods.createCustomObjectInstances(_config, customObjectTypeIdentifier: customObjectTypeIdentifier, intercomVersion: intercomVersion, externalId: externalId, externalCreatedAt: externalCreatedAt, externalUpdatedAt: externalUpdatedAt, customAttributes: customAttributes, requestOptions: requestOptions);
+    return custom_object_instances_methods.createCustomObjectInstances(_config,
+        customObjectTypeIdentifier: customObjectTypeIdentifier,
+        intercomVersion: intercomVersion,
+        externalId: externalId,
+        externalCreatedAt: externalCreatedAt,
+        externalUpdatedAt: externalUpdatedAt,
+        customAttributes: customAttributes,
+        requestOptions: requestOptions);
   }
 
   /// Lists instances of a custom object type, with optional filtering by contact or conversation. Supply `references_contact_id` or `references_conversation_id` to return associated instances, or `external_id` to retrieve one matching instance instead of a list. Use `page` and `per_page` to paginate the results.
@@ -2355,7 +3289,15 @@ class CustomObjectInstancesNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return custom_object_instances_methods.listCustomObjectInstances(_config, customObjectTypeIdentifier: customObjectTypeIdentifier, referencesContactId: referencesContactId, referencesConversationId: referencesConversationId, externalId: externalId, page: page, perPage: perPage, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return custom_object_instances_methods.listCustomObjectInstances(_config,
+        customObjectTypeIdentifier: customObjectTypeIdentifier,
+        referencesContactId: referencesContactId,
+        referencesConversationId: referencesConversationId,
+        externalId: externalId,
+        page: page,
+        perPage: perPage,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Deletes a custom object instance using its external identifier. Supply the custom object type identifier and the instance's `external_id` to select the instance. The response confirms whether the instance was deleted.
@@ -2366,7 +3308,12 @@ class CustomObjectInstancesNamespace {
       required String externalId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return custom_object_instances_methods.deleteCustomObjectInstancesById(_config, customObjectTypeIdentifier: customObjectTypeIdentifier, externalId: externalId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return custom_object_instances_methods.deleteCustomObjectInstancesById(
+        _config,
+        customObjectTypeIdentifier: customObjectTypeIdentifier,
+        externalId: externalId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves a custom object instance by ID. Supply the custom object type identifier and an instance identifier to select the record. The instance identifier can be either the Intercom-defined ID or the external ID.
@@ -2377,7 +3324,11 @@ class CustomObjectInstancesNamespace {
       required String customObjectInstanceId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return custom_object_instances_methods.getCustomObjectInstancesById(_config, customObjectTypeIdentifier: customObjectTypeIdentifier, customObjectInstanceId: customObjectInstanceId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return custom_object_instances_methods.getCustomObjectInstancesById(_config,
+        customObjectTypeIdentifier: customObjectTypeIdentifier,
+        customObjectInstanceId: customObjectInstanceId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Deletes a custom object instance by its Intercom-defined ID. Supply the custom object type identifier and instance ID to identify the record to remove. The response confirms whether the instance was deleted.
@@ -2388,14 +3339,19 @@ class CustomObjectInstancesNamespace {
       required String customObjectInstanceId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return custom_object_instances_methods.deleteCustomObjectInstancesByExternalId(_config, customObjectTypeIdentifier: customObjectTypeIdentifier, customObjectInstanceId: customObjectInstanceId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return custom_object_instances_methods
+        .deleteCustomObjectInstancesByExternalId(_config,
+            customObjectTypeIdentifier: customObjectTypeIdentifier,
+            customObjectInstanceId: customObjectInstanceId,
+            intercomVersion: intercomVersion,
+            requestOptions: requestOptions);
   }
-
 }
 
 class DataAttributesNamespace {
   final ClientConfig _config;
   DataAttributesNamespace(ClientConfig config) : _config = config;
+
   /// Lists data attributes belonging to the workspace for contacts or companies. Use `model` to select one of those models and `include_archived` to include archived attributes. Conversation attributes are not returned here; retrieve them from `GET /conversations/attributes` instead.
   ///
   /// You can fetch a list of all data attributes belonging to a workspace for contacts or companies. {% admonition type="warning" %} Conversation attributes are no longer returned by this endpoint. Calling without a `model` parameter no longer includes them, and `model=conversation` returns a `422` error. Use `GET /conversations/attributes` instead. {% /admonition %}
@@ -2404,7 +3360,11 @@ class DataAttributesNamespace {
       SdkOptional<bool> includeArchived = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return data_attributes_methods.listDataAttributes(_config, model: model, includeArchived: includeArchived, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return data_attributes_methods.listDataAttributes(_config,
+        model: model,
+        includeArchived: includeArchived,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Creates a data attribute for a contact or company model. Supply `name`, `model`, and `data_type`, and include `options` when creating a list attribute. List attributes require at least two options.
@@ -2417,7 +3377,13 @@ class DataAttributesNamespace {
       SdkOptional<String> description = const SdkOmitted(),
       SdkOptional<bool> messengerWritable = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return data_attributes_methods.createDataAttribute(_config, name: name, model: model, intercomVersion: intercomVersion, description: description, messengerWritable: messengerWritable, requestOptions: requestOptions);
+    return data_attributes_methods.createDataAttribute(_config,
+        name: name,
+        model: model,
+        intercomVersion: intercomVersion,
+        description: description,
+        messengerWritable: messengerWritable,
+        requestOptions: requestOptions);
   }
 
   /// Updates a data attribute's description, archive state, Messenger write access, or list options. Supply only the properties you want to change; list attributes require at least two options when options are provided. Changing an attribute's data type through this API is not supported; change it in the UI.
@@ -2430,14 +3396,20 @@ class DataAttributesNamespace {
       SdkOptional<String> description = const SdkOmitted(),
       SdkOptional<bool> messengerWritable = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return data_attributes_methods.updateDataAttribute(_config, dataAttributeId: dataAttributeId, intercomVersion: intercomVersion, archived: archived, description: description, messengerWritable: messengerWritable, requestOptions: requestOptions);
+    return data_attributes_methods.updateDataAttribute(_config,
+        dataAttributeId: dataAttributeId,
+        intercomVersion: intercomVersion,
+        archived: archived,
+        description: description,
+        messengerWritable: messengerWritable,
+        requestOptions: requestOptions);
   }
-
 }
 
 class DataConnectorsNamespace {
   final ClientConfig _config;
   DataConnectorsNamespace(ClientConfig config) : _config = config;
+
   /// Lists the workspace's data connectors, ordered by most recently updated first. Use `per_page` to control the page size and `starting_after` to continue from a previous response's pagination cursor. Data connectors let workflows and AI agents make HTTP requests to external APIs.
   ///
   /// Returns a paginated list of all data connectors for the workspace, ordered by most recently updated first. Data connectors allow workflows and AI agents to make HTTP requests to external APIs.
@@ -2446,7 +3418,11 @@ class DataConnectorsNamespace {
       SdkOptional<String> startingAfter = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return data_connectors_methods.listDataConnectors(_config, perPage: perPage, startingAfter: startingAfter, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return data_connectors_methods.listDataConnectors(_config,
+        perPage: perPage,
+        startingAfter: startingAfter,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Creates a new data connector in `draft` state. Provide its `name` and configure fields such as `url`, `http_method`, `headers`, and `data_inputs` as needed. Set the connector to `live` after you finish configuring it.
@@ -2456,20 +3432,40 @@ class DataConnectorsNamespace {
       {required String name,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<String> description = const SdkOmitted(),
-      SdkOptional<CreateDataConnectorRequestHttpMethod> httpMethod = const SdkOmitted(),
+      SdkOptional<CreateDataConnectorRequestHttpMethod> httpMethod =
+          const SdkOmitted(),
       SdkOptional<String> url = const SdkOmitted(),
       SdkOptional<String> body = const SdkOmitted(),
       SdkOptional<bool> directFinUsage = const SdkOmitted(),
-      SdkOptional<List<CreateDataConnectorRequestAudiencesItem>> audiences = const SdkOmitted(),
-      SdkOptional<List<CreateDataConnectorRequestHeadersItem>> headers = const SdkOmitted(),
-      SdkOptional<List<CreateDataConnectorRequestDataInputsItem>> dataInputs = const SdkOmitted(),
+      SdkOptional<List<CreateDataConnectorRequestAudiencesItem>> audiences =
+          const SdkOmitted(),
+      SdkOptional<List<CreateDataConnectorRequestHeadersItem>> headers =
+          const SdkOmitted(),
+      SdkOptional<List<CreateDataConnectorRequestDataInputsItem>> dataInputs =
+          const SdkOmitted(),
       SdkOptional<bool> customerAuthentication = const SdkOmitted(),
       SdkOptional<bool> bypassAuthentication = const SdkOmitted(),
       SdkOptional<bool> validateMissingAttributes = const SdkOmitted(),
       SdkOptional<Map<String, dynamic>> mockResponse = const SdkOmitted(),
       SdkOptional<List<String>> tokenIds = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return data_connectors_methods.createDataConnector(_config, name: name, intercomVersion: intercomVersion, description: description, httpMethod: httpMethod, url: url, body: body, directFinUsage: directFinUsage, audiences: audiences, headers: headers, dataInputs: dataInputs, customerAuthentication: customerAuthentication, bypassAuthentication: bypassAuthentication, validateMissingAttributes: validateMissingAttributes, mockResponse: mockResponse, tokenIds: tokenIds, requestOptions: requestOptions);
+    return data_connectors_methods.createDataConnector(_config,
+        name: name,
+        intercomVersion: intercomVersion,
+        description: description,
+        httpMethod: httpMethod,
+        url: url,
+        body: body,
+        directFinUsage: directFinUsage,
+        audiences: audiences,
+        headers: headers,
+        dataInputs: dataInputs,
+        customerAuthentication: customerAuthentication,
+        bypassAuthentication: bypassAuthentication,
+        validateMissingAttributes: validateMissingAttributes,
+        mockResponse: mockResponse,
+        tokenIds: tokenIds,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves the full details of a data connector by its identifier. Use `state_version` to select the `draft` or `live` configuration; it defaults to `live` when omitted. The response includes configuration, data inputs, response fields, and object mappings.
@@ -2477,10 +3473,15 @@ class DataConnectorsNamespace {
   /// You can retrieve the full detail of a single data connector by its ID. The response includes configuration, data inputs, response fields, and object mappings.
   Future<DataConnectorDetail> retrieve(
       {required String id,
-      SdkOptional<RetrieveDataConnectorStateVersion> stateVersion = const SdkOmitted(),
+      SdkOptional<RetrieveDataConnectorStateVersion> stateVersion =
+          const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return data_connectors_methods.retrieveDataConnector(_config, id: id, stateVersion: stateVersion, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return data_connectors_methods.retrieveDataConnector(_config,
+        id: id,
+        stateVersion: stateVersion,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Deletes an existing data connector. The connector must be in `draft` state and must not be used by any workflows or AI agents. Use the returned `deleted` value to confirm the deletion.
@@ -2490,7 +3491,10 @@ class DataConnectorsNamespace {
       {required String id,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return data_connectors_methods.deleteDataConnector(_config, id: id, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return data_connectors_methods.deleteDataConnector(_config,
+        id: id,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Updates an existing data connector, changing only the fields you provide. Use `state` to set the connector to `draft` or `live`; fields such as `data_inputs` and `token_ids` update their associated configuration. An empty `token_ids` array removes all attached tokens.
@@ -2502,20 +3506,42 @@ class DataConnectorsNamespace {
       SdkOptional<String> name = const SdkOmitted(),
       SdkOptional<String> description = const SdkOmitted(),
       SdkOptional<UpdateDataConnectorRequestState> state = const SdkOmitted(),
-      SdkOptional<UpdateDataConnectorRequestHttpMethod> httpMethod = const SdkOmitted(),
+      SdkOptional<UpdateDataConnectorRequestHttpMethod> httpMethod =
+          const SdkOmitted(),
       SdkOptional<String> url = const SdkOmitted(),
       SdkOptional<String> body = const SdkOmitted(),
       SdkOptional<bool> directFinUsage = const SdkOmitted(),
-      SdkOptional<List<UpdateDataConnectorRequestAudiencesItem>> audiences = const SdkOmitted(),
-      SdkOptional<List<UpdateDataConnectorRequestHeadersItem>> headers = const SdkOmitted(),
-      SdkOptional<List<UpdateDataConnectorRequestDataInputsItem>> dataInputs = const SdkOmitted(),
+      SdkOptional<List<UpdateDataConnectorRequestAudiencesItem>> audiences =
+          const SdkOmitted(),
+      SdkOptional<List<UpdateDataConnectorRequestHeadersItem>> headers =
+          const SdkOmitted(),
+      SdkOptional<List<UpdateDataConnectorRequestDataInputsItem>> dataInputs =
+          const SdkOmitted(),
       SdkOptional<bool> customerAuthentication = const SdkOmitted(),
       SdkOptional<bool> bypassAuthentication = const SdkOmitted(),
       SdkOptional<bool> validateMissingAttributes = const SdkOmitted(),
       SdkOptional<Map<String, dynamic>> mockResponse = const SdkOmitted(),
       SdkOptional<List<String>> tokenIds = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return data_connectors_methods.updateDataConnector(_config, id: id, intercomVersion: intercomVersion, name: name, description: description, state: state, httpMethod: httpMethod, url: url, body: body, directFinUsage: directFinUsage, audiences: audiences, headers: headers, dataInputs: dataInputs, customerAuthentication: customerAuthentication, bypassAuthentication: bypassAuthentication, validateMissingAttributes: validateMissingAttributes, mockResponse: mockResponse, tokenIds: tokenIds, requestOptions: requestOptions);
+    return data_connectors_methods.updateDataConnector(_config,
+        id: id,
+        intercomVersion: intercomVersion,
+        name: name,
+        description: description,
+        state: state,
+        httpMethod: httpMethod,
+        url: url,
+        body: body,
+        directFinUsage: directFinUsage,
+        audiences: audiences,
+        headers: headers,
+        dataInputs: dataInputs,
+        customerAuthentication: customerAuthentication,
+        bypassAuthentication: bypassAuthentication,
+        validateMissingAttributes: validateMissingAttributes,
+        mockResponse: mockResponse,
+        tokenIds: tokenIds,
+        requestOptions: requestOptions);
   }
 
   /// Lists paginated execution results for a data connector. Results cover the last hour by default; use `start_ts` and `end_ts` to set another time range, and `include_bodies` to include request and response bodies. Use `starting_after` to continue from a previous page.
@@ -2525,14 +3551,27 @@ class DataConnectorsNamespace {
       {required String dataConnectorId,
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<String> startingAfter = const SdkOmitted(),
-      SdkOptional<ListDataConnectorExecutionResultsSuccess> success = const SdkOmitted(),
-      SdkOptional<ListDataConnectorExecutionResultsErrorType> errorType = const SdkOmitted(),
+      SdkOptional<ListDataConnectorExecutionResultsSuccess> success =
+          const SdkOmitted(),
+      SdkOptional<ListDataConnectorExecutionResultsErrorType> errorType =
+          const SdkOmitted(),
       SdkOptional<int> startTs = const SdkOmitted(),
       SdkOptional<int> endTs = const SdkOmitted(),
-      SdkOptional<ListDataConnectorExecutionResultsIncludeBodies> includeBodies = const SdkOmitted(),
+      SdkOptional<ListDataConnectorExecutionResultsIncludeBodies>
+          includeBodies = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return data_connectors_methods.listDataConnectorExecutionResults(_config, dataConnectorId: dataConnectorId, perPage: perPage, startingAfter: startingAfter, success: success, errorType: errorType, startTs: startTs, endTs: endTs, includeBodies: includeBodies, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return data_connectors_methods.listDataConnectorExecutionResults(_config,
+        dataConnectorId: dataConnectorId,
+        perPage: perPage,
+        startingAfter: startingAfter,
+        success: success,
+        errorType: errorType,
+        startTs: startTs,
+        endTs: endTs,
+        includeBodies: includeBodies,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves details for one execution result belonging to a data connector. The response always includes request and response bodies, along with the sanitized request URL. Use the two identifiers to select the connector and its execution result.
@@ -2543,7 +3582,11 @@ class DataConnectorsNamespace {
       required String id,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return data_connectors_methods.showDataConnectorExecutionResult(_config, dataConnectorId: dataConnectorId, id: id, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return data_connectors_methods.showDataConnectorExecutionResult(_config,
+        dataConnectorId: dataConnectorId,
+        id: id,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Lists a data connector's version history, with the newest snapshots first. Use `starting_after` to continue through the paginated results; a connector that has never been published returns an empty `data` list. You need the `read_data_connector_versions` or `read_write_data_connector_versions` OAuth scope to access this operation.
@@ -2555,7 +3598,12 @@ class DataConnectorsNamespace {
       SdkOptional<String> startingAfter = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return data_connectors_methods.listDataConnectorVersions(_config, id: id, perPage: perPage, startingAfter: startingAfter, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return data_connectors_methods.listDataConnectorVersions(_config,
+        id: id,
+        perPage: perPage,
+        startingAfter: startingAfter,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves a point-in-time snapshot of a data connector's configuration, including the version's current status and optional note. Use `version_id` from the connector's version history to select the snapshot. You need the `read_data_connector_versions` or `read_write_data_connector_versions` OAuth scope to access this operation.
@@ -2566,7 +3614,11 @@ class DataConnectorsNamespace {
       required int versionId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return data_connectors_methods.retrieveDataConnectorVersion(_config, id: id, versionId: versionId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return data_connectors_methods.retrieveDataConnectorVersion(_config,
+        id: id,
+        versionId: versionId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Updates the note on a data connector version; the note is the only field you can change. Send an empty or whitespace-only string to clear the note, which does not publish the version or roll the connector back. You need the `read_write_data_connector_versions` OAuth scope to use this operation.
@@ -2578,14 +3630,19 @@ class DataConnectorsNamespace {
       required String? note,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return data_connectors_methods.updateDataConnectorVersion(_config, id: id, versionId: versionId, note: note, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return data_connectors_methods.updateDataConnectorVersion(_config,
+        id: id,
+        versionId: versionId,
+        note: note,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
-
 }
 
 class DataEventsNamespace {
   final ClientConfig _config;
   DataEventsNamespace(ClientConfig config) : _config = config;
+
   /// Submits an event associated with a user, lead, or visitor for tracking. Include `event_name`, `created_at`, and one contact identifier: `id`, `user_id`, or `email`; event metadata supports up to 10 flat keys. Use an access token with write permissions and send the request as JSON.
   ///
   /// You will need an Access Token that has write permissions to send Events. Once you have a key you can submit events via POST to the Events resource, which is located at https://api.intercom.io/events, or you can send events using one of the client libraries. When working with the HTTP API directly a client should send the event with a `Content-Type` of `application/json`. When using the JavaScript API, [adding the code to your app](http://docs.intercom.io/configuring-Intercom/tracking-user-events-in-your-app) makes the Events API available. Once added, you can submit an event using the `trackEvent` method. This will associate the event with the Lead or currently logged-in user or logged-out visitor/lead and send it to Intercom. The final parameter is a map that can be used to send optional metadata about the event. With the Ruby client you pass a hash describing the event to `Intercom::Event.create`, or call the `track_user` method directly on the current user object (e.g. `user.track_event`). **NB: For the JSON object types, please note that we do not currently support nested JSON structure.** | Type | Description | Example | | :-------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------- | | String | The value is a JSON String | `"source":"desktop"` | | Number | The value is a JSON Number | `"load": 3.67` | | Date | The key ends with the String `_date` and the value is a [Unix timestamp](http://en.wikipedia.org/wiki/Unix_time), assumed to be in the [UTC](http://en.wikipedia.org/wiki/Coordinated_Universal_Time) timezone. | `"contact_date": 1392036272` | | Link | The value is a HTTP or HTTPS URI. | `"article": "https://example.org/ab1de.html"` | | Rich Link | The value is a JSON object that contains `url` and `value` keys.…
@@ -2598,7 +3655,15 @@ class DataEventsNamespace {
       SdkOptional<String> email = const SdkOmitted(),
       SdkOptional<Map<String, String>> metadata = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return data_events_methods.createDataEvent(_config, intercomVersion: intercomVersion, eventName: eventName, createdAt: createdAt, userId: userId, id: id, email: email, metadata: metadata, requestOptions: requestOptions);
+    return data_events_methods.createDataEvent(_config,
+        intercomVersion: intercomVersion,
+        eventName: eventName,
+        createdAt: createdAt,
+        userId: userId,
+        id: id,
+        email: email,
+        metadata: metadata,
+        requestOptions: requestOptions);
   }
 
   /// Lists data events associated with a user or lead, identified by `user_id`, `email`, or `intercom_user_id`. Set `type` to `user` and use `summary` to request a summary response. You can list individual events only when they are less than 90 days old; summaries can include older events.
@@ -2610,7 +3675,12 @@ class DataEventsNamespace {
       SdkOptional<bool> summary = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return data_events_methods.listDataEvents(_config, filter: filter, type_: type_, summary: summary, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return data_events_methods.listDataEvents(_config,
+        filter: filter,
+        type_: type_,
+        summary: summary,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Creates event summaries that track how often an event occurred and when it first and last occurred for a user. Supply the user's `user_id` and an `event_summaries` object containing event names, counts, and timestamps. Use past-tense verb-noun event names, such as `updated-plan`.
@@ -2619,16 +3689,21 @@ class DataEventsNamespace {
   Future<void> summaries(
       {SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<String> userId = const SdkOmitted(),
-      SdkOptional<CreateDataEventSummariesRequestEventSummaries> eventSummaries = const SdkOmitted(),
+      SdkOptional<CreateDataEventSummariesRequestEventSummaries>
+          eventSummaries = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return data_events_methods.dataEventSummaries(_config, intercomVersion: intercomVersion, userId: userId, eventSummaries: eventSummaries, requestOptions: requestOptions);
+    return data_events_methods.dataEventSummaries(_config,
+        intercomVersion: intercomVersion,
+        userId: userId,
+        eventSummaries: eventSummaries,
+        requestOptions: requestOptions);
   }
-
 }
 
 class DataExportNamespace {
   final ClientConfig _config;
   DataExportNamespace(ClientConfig config) : _config = config;
+
   /// Creates an asynchronous export job for message delivery and engagement data about outbound content. Provide `created_at_after` and `created_at_before` as Unix timestamps; the inclusive date range selects messages by when they were sent, not when they were updated. Only one export job can be active per workspace.
   ///
   /// To create your export job, you need to send a `POST` request to the export endpoint `https://api.intercom.io/export/content/data`. This endpoint exports **message delivery and engagement data** for outbound content (Emails, Posts, Custom Bots, Surveys, Tours, Series, and more). The exported data includes who received each message, when they received it, and how they engaged with it (opens, clicks, replies, completions, dismissals, unsubscribes, and bounces). It does not export raw message or conversation content. The only parameters you need to provide are the range of dates that you want exported. &gt;🚧 Limit of one active job &gt; &gt; You can only have one active job per workspace. You will receive a HTTP status code of 429 with the message Exceeded rate limit of 1 pending message data export jobs if you attempt to create a second concurrent job. &gt;❗️ Updated_at not included &gt; &gt; It should be noted that the timeframe only includes messages sent during the time period and not messages that were only updated during this period. For example, if a message was updated yesterday but sent two days ago, you would need to set the created_at_after date before the message was sent to include that in your retrieval job. &gt;📘 Date ranges are inclusive &gt; &gt; Requesting data for 2018-06-01 until 2018-06-30 will get all data for those days including those specified - e.g. 2018-06-01 00:00:00 until 2018-06-30 23:59:99.
@@ -2637,7 +3712,11 @@ class DataExportNamespace {
       required int createdAtBefore,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return data_export_methods.createDataExport(_config, createdAtAfter: createdAtAfter, createdAtBefore: createdAtBefore, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return data_export_methods.createDataExport(_config,
+        createdAtAfter: createdAtAfter,
+        createdAtBefore: createdAtBefore,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves the status and download details for a content data export job. Use the `job_identifier` returned when you created the job to check its progress. Completed export data is available for two days after processing finishes.
@@ -2647,7 +3726,10 @@ class DataExportNamespace {
       {required String jobIdentifier,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return data_export_methods.getDataExport(_config, jobIdentifier: jobIdentifier, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return data_export_methods.getDataExport(_config,
+        jobIdentifier: jobIdentifier,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Cancels a content data export job. Use the `job_identifier` returned when you created the job to identify which export to cancel. You can check the job's status afterward to see its current state.
@@ -2657,7 +3739,10 @@ class DataExportNamespace {
       {required String jobIdentifier,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return data_export_methods.cancelDataExport(_config, jobIdentifier: jobIdentifier, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return data_export_methods.cancelDataExport(_config,
+        jobIdentifier: jobIdentifier,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Downloads the data for a completed content export job as a continuously streamed, gzipped CSV file. Use the `job_identifier` for a job with a completed status and send the `Accept: application/octet-stream` header. Download the file within two days of the job completing.
@@ -2667,14 +3752,17 @@ class DataExportNamespace {
       {required String jobIdentifier,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return data_export_methods.downloadDataExport(_config, jobIdentifier: jobIdentifier, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return data_export_methods.downloadDataExport(_config,
+        jobIdentifier: jobIdentifier,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
-
 }
 
 class JobsNamespace {
   final ClientConfig _config;
   JobsNamespace(ClientConfig config) : _config = config;
+
   /// Retrieves the execution status of a specific job. Use `job_id` to identify the job and check whether it is pending, successful, or failed.
   ///
   /// Retrieve the status of job execution.
@@ -2682,20 +3770,24 @@ class JobsNamespace {
       {required String jobId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return jobs_methods.jobsStatus(_config, jobId: jobId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return jobs_methods.jobsStatus(_config,
+        jobId: jobId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
-
 }
 
 class MessagesNamespace {
   final ClientConfig _config;
   MessagesNamespace(ClientConfig config) : _config = config;
+
   /// Creates an admin-initiated message for a recipient by email, in-app messaging, or WhatsApp. Supply the fields required for the selected `message_type`, including `body` for email and in-app messages. Use an admin in `from`; to create a contact-initiated conversation, use POST /conversations.
   ///
   /// You can create a message that has been initiated by an admin. The conversation can be either an in-app message, an email or whatsapp. &gt; 🚧 Sending for visitors &gt; &gt; There can be a short delay between when a contact is created and when a contact becomes available to be messaged through the API. A 404 Not Found error will be returned in this case. This will return the Message model that has been created. &gt; 🚧 Retrieving Associated Conversations &gt; &gt; As this is a message, there will be no conversation present until the contact responds. Once they do, you will have to search for a contact's conversations with the id of the message. {% admonition type="warning" name="Messages from contacts" %} `from` should be an admin. A request with a user or lead as `from` is not rejected: it creates a conversation initiated by that contact, as the Create a conversation endpoint (`POST /conversations`) does, and the `to`, `cc` and `bcc` fields are ignored. To create a conversation initiated by a contact, use `POST /conversations`. {% /admonition %}
   Future<Message> create(
       {SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
-      SdkOptional<CreateMessageRequestMessageType> messageType = const SdkOmitted(),
+      SdkOptional<CreateMessageRequestMessageType> messageType =
+          const SdkOmitted(),
       SdkOptional<String> subject = const SdkOmitted(),
       SdkOptional<String> body = const SdkOmitted(),
       SdkOptional<String> template = const SdkOmitted(),
@@ -2704,9 +3796,23 @@ class MessagesNamespace {
       SdkOptional<dynamic> cc = const SdkOmitted(),
       SdkOptional<dynamic> bcc = const SdkOmitted(),
       SdkOptional<int> createdAt = const SdkOmitted(),
-      SdkOptional<bool> createConversationWithoutContactReply = const SdkOmitted(),
+      SdkOptional<bool> createConversationWithoutContactReply =
+          const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return messages_methods.createMessage(_config, intercomVersion: intercomVersion, messageType: messageType, subject: subject, body: body, template: template, from: from, to: to, cc: cc, bcc: bcc, createdAt: createdAt, createConversationWithoutContactReply: createConversationWithoutContactReply, requestOptions: requestOptions);
+    return messages_methods.createMessage(_config,
+        intercomVersion: intercomVersion,
+        messageType: messageType,
+        subject: subject,
+        body: body,
+        template: template,
+        from: from,
+        to: to,
+        cc: cc,
+        bcc: bcc,
+        createdAt: createdAt,
+        createConversationWithoutContactReply:
+            createConversationWithoutContactReply,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves the delivery status and related details for a specific WhatsApp message. Use `message_id` to identify the message; failed deliveries include error information.
@@ -2716,7 +3822,10 @@ class MessagesNamespace {
       {required String messageId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return messages_methods.retrieveWhatsAppMessageStatus(_config, messageId: messageId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return messages_methods.retrieveWhatsAppMessageStatus(_config,
+        messageId: messageId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Lists paginated status events for WhatsApp messages sent from the Outbound module. Use `ruleset_id` to select the messages and `starting_after` to continue from a pagination cursor.
@@ -2728,21 +3837,27 @@ class MessagesNamespace {
       SdkOptional<String> startingAfter = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return messages_methods.getWhatsAppMessageStatus(_config, rulesetId: rulesetId, perPage: perPage, startingAfter: startingAfter, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return messages_methods.getWhatsAppMessageStatus(_config,
+        rulesetId: rulesetId,
+        perPage: perPage,
+        startingAfter: startingAfter,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
-
 }
 
 class NewsNamespace {
   final ClientConfig _config;
   NewsNamespace(ClientConfig config) : _config = config;
+
   /// Lists news items across the workspace in a paginated response. Use the cursor-based page metadata to navigate through the results. Each response includes a total count and an array of news item objects.
   ///
   /// You can fetch a list of all news items
   Future<PaginatedResponse> listItems(
       {SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return news_methods.listNewsItems(_config, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return news_methods.listNewsItems(_config,
+        intercomVersion: intercomVersion, requestOptions: requestOptions);
   }
 
   /// Creates a news item for announcing product updates, company news, promotions, events, or other content to customers. Supply `title` and `sender_id`; set `state` to `live` for visibility in assigned newsfeeds, or leave it as `draft`. You can assign the item to newsfeeds and configure labels, reactions, and silent delivery.
@@ -2757,9 +3872,20 @@ class NewsNamespace {
       SdkOptional<bool> deliverSilently = const SdkOmitted(),
       SdkOptional<List<String>> labels = const SdkOmitted(),
       SdkOptional<List<String?>> reactions = const SdkOmitted(),
-      SdkOptional<List<NewsfeedAssignment>> newsfeedAssignments = const SdkOmitted(),
+      SdkOptional<List<NewsfeedAssignment>> newsfeedAssignments =
+          const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return news_methods.createNewsItem(_config, title: title, senderId: senderId, intercomVersion: intercomVersion, body: body, state: state, deliverSilently: deliverSilently, labels: labels, reactions: reactions, newsfeedAssignments: newsfeedAssignments, requestOptions: requestOptions);
+    return news_methods.createNewsItem(_config,
+        title: title,
+        senderId: senderId,
+        intercomVersion: intercomVersion,
+        body: body,
+        state: state,
+        deliverSilently: deliverSilently,
+        labels: labels,
+        reactions: reactions,
+        newsfeedAssignments: newsfeedAssignments,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves the details of a single news item by its unique identifier. Use this operation to fetch the item's content, state, and newsfeed assignments. The response includes the item's metadata and timestamps.
@@ -2769,7 +3895,10 @@ class NewsNamespace {
       {required int newsItemId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return news_methods.retrieveNewsItem(_config, newsItemId: newsItemId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return news_methods.retrieveNewsItem(_config,
+        newsItemId: newsItemId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Updates a news item identified by its unique identifier. Supply `title` and `sender_id`, and include any other fields you want to set, such as `body`, `state`, or newsfeed assignments. Set `state` to `live` for visibility in assigned newsfeeds.
@@ -2783,9 +3912,21 @@ class NewsNamespace {
       SdkOptional<bool> deliverSilently = const SdkOmitted(),
       SdkOptional<List<String>> labels = const SdkOmitted(),
       SdkOptional<List<String?>> reactions = const SdkOmitted(),
-      SdkOptional<List<NewsfeedAssignment>> newsfeedAssignments = const SdkOmitted(),
+      SdkOptional<List<NewsfeedAssignment>> newsfeedAssignments =
+          const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return news_methods.updateNewsItem(_config, newsItemId: newsItemId, title: title, senderId: senderId, intercomVersion: intercomVersion, body: body, state: state, deliverSilently: deliverSilently, labels: labels, reactions: reactions, newsfeedAssignments: newsfeedAssignments, requestOptions: requestOptions);
+    return news_methods.updateNewsItem(_config,
+        newsItemId: newsItemId,
+        title: title,
+        senderId: senderId,
+        intercomVersion: intercomVersion,
+        body: body,
+        state: state,
+        deliverSilently: deliverSilently,
+        labels: labels,
+        reactions: reactions,
+        newsfeedAssignments: newsfeedAssignments,
+        requestOptions: requestOptions);
   }
 
   /// Deletes a single news item by its unique identifier. Use this operation when you want to remove a news item from the workspace. The response indicates whether deletion succeeded and includes the identifier of the deleted item.
@@ -2795,7 +3936,10 @@ class NewsNamespace {
       {required int newsItemId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return news_methods.deleteNewsItem(_config, newsItemId: newsItemId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return news_methods.deleteNewsItem(_config,
+        newsItemId: newsItemId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Lists the live news items assigned to a specific newsfeed. Supply `newsfeed_id` to select the feed whose items you want to retrieve. The response includes cursor-based page metadata and a total count.
@@ -2805,7 +3949,10 @@ class NewsNamespace {
       {required String newsfeedId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return news_methods.listLiveNewsfeedItems(_config, newsfeedId: newsfeedId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return news_methods.listLiveNewsfeedItems(_config,
+        newsfeedId: newsfeedId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Lists the newsfeeds available in the workspace. Use the cursor-based page metadata to navigate through the results. The response includes a total count and an array of newsfeed objects.
@@ -2814,7 +3961,8 @@ class NewsNamespace {
   Future<PaginatedResponse> listNewsfeeds(
       {SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return news_methods.listNewsfeeds(_config, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return news_methods.listNewsfeeds(_config,
+        intercomVersion: intercomVersion, requestOptions: requestOptions);
   }
 
   /// Retrieves the details of a single newsfeed. Use `newsfeed_id` to identify the feed. Newsfeeds cannot be edited through the API.
@@ -2824,14 +3972,17 @@ class NewsNamespace {
       {required String newsfeedId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return news_methods.retrieveNewsfeed(_config, newsfeedId: newsfeedId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return news_methods.retrieveNewsfeed(_config,
+        newsfeedId: newsfeedId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
-
 }
 
 class SegmentsNamespace {
   final ClientConfig _config;
   SegmentsNamespace(ClientConfig config) : _config = config;
+
   /// Lists segments in the workspace, which group contacts according to configured rules. Set `include_count` to include the number of contacts in each segment. Use `page` and `per_page` to paginate the results.
   ///
   /// You can fetch a list of all segments.
@@ -2839,7 +3990,10 @@ class SegmentsNamespace {
       {SdkOptional<bool> includeCount = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return segments_methods.listSegments(_config, includeCount: includeCount, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return segments_methods.listSegments(_config,
+        includeCount: includeCount,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves the details of a single contact segment. Use the `segment_id` path parameter to identify the segment you want to inspect.
@@ -2849,14 +4003,17 @@ class SegmentsNamespace {
       {required String segmentId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return segments_methods.retrieveSegment(_config, segmentId: segmentId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return segments_methods.retrieveSegment(_config,
+        segmentId: segmentId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
-
 }
 
 class SwitchNamespace {
   final ClientConfig _config;
   SwitchNamespace(ClientConfig config) : _config = config;
+
   /// Triggers a phone call redirect by sending an SMS with a Messenger link to the specified phone number. Supply `phone` in E.164 format; you can also include `custom_attributes` to add caller-set attributes to the contact or lead. The SMS directs the recipient to continue the conversation in Messenger.
   ///
   /// You can use the API to deflect phone calls to the Intercom Messenger. Calling this endpoint will send an SMS with a link to the Messenger to the phone number specified. If custom attributes are specified, they will be added to the user or lead's custom data attributes.
@@ -2865,14 +4022,18 @@ class SwitchNamespace {
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<Map<String, dynamic>> customAttributes = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return switch_methods.createPhoneSwitch(_config, phone: phone, intercomVersion: intercomVersion, customAttributes: customAttributes, requestOptions: requestOptions);
+    return switch_methods.createPhoneSwitch(_config,
+        phone: phone,
+        intercomVersion: intercomVersion,
+        customAttributes: customAttributes,
+        requestOptions: requestOptions);
   }
-
 }
 
 class CallsNamespace {
   final ClientConfig _config;
   CallsNamespace(ClientConfig config) : _config = config;
+
   /// Lists calls in a paginated result set. Use `page` and `per_page` to paginate the results; `per_page` defaults to 25 and cannot exceed 25.
   ///
   /// Retrieve a paginated list of calls.
@@ -2881,7 +4042,11 @@ class CallsNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return calls_methods.listCalls(_config, page: page, perPage: perPage, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return calls_methods.listCalls(_config,
+        page: page,
+        perPage: perPage,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves a single call by its identifier. Use the `call_id` path parameter to select the call you want to inspect.
@@ -2891,7 +4056,10 @@ class CallsNamespace {
       {required String callId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return calls_methods.showCall(_config, callId: callId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return calls_methods.showCall(_config,
+        callId: callId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves a call recording when one is available. Use the `call_id` path parameter to identify the call; the response redirects to a signed recording URL.
@@ -2901,7 +4069,10 @@ class CallsNamespace {
       {required String callId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return calls_methods.showCallRecording(_config, callId: callId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return calls_methods.showCallRecording(_config,
+        callId: callId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves the transcript for a call as a downloadable text file. Use `call_id` to identify the call whose transcript you need.
@@ -2911,7 +4082,10 @@ class CallsNamespace {
       {required String callId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return calls_methods.showCallTranscript(_config, callId: callId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return calls_methods.showCallTranscript(_config,
+        callId: callId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Lists calls associated with the supplied conversation identifiers and includes transcripts when available. Provide between 1 and 20 identifiers in `conversation_ids`; the response can include calls without transcripts when none are available.
@@ -2921,55 +4095,69 @@ class CallsNamespace {
       {required List<String> conversationIds,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return calls_methods.listCallsWithTranscripts(_config, conversationIds: conversationIds, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return calls_methods.listCallsWithTranscripts(_config,
+        conversationIds: conversationIds,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Register a Fin Voice call with Intercom. This endpoint creates an external reference that links an external call identifier to an Intercom call and conversation. The call can be from different sources: - AWS Connect (default) - Five9 - Zoom Phone
   Future<AiCallResponse> registerFinVoice(
       {required String phoneNumber,
       required String callId,
-      SdkOptional<RegisterFinVoiceCallRequestSource> source = const SdkOmitted(),
+      SdkOptional<RegisterFinVoiceCallRequestSource> source =
+          const SdkOmitted(),
       SdkOptional<Map<String, dynamic>?> data = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return calls_methods.registerFinVoiceCall(_config, phoneNumber: phoneNumber, callId: callId, source: source, data: data, requestOptions: requestOptions);
+    return calls_methods.registerFinVoiceCall(_config,
+        phoneNumber: phoneNumber,
+        callId: callId,
+        source: source,
+        data: data,
+        requestOptions: requestOptions);
   }
 
   /// Retrieve information about a Fin Voice call using the external reference ID.
   Future<AiCallResponse> collectFinVoiceById(
       {required int id, RequestOptions? requestOptions}) async {
-    return calls_methods.collectFinVoiceCallById(_config, id: id, requestOptions: requestOptions);
+    return calls_methods.collectFinVoiceCallById(_config,
+        id: id, requestOptions: requestOptions);
   }
 
   /// Retrieve information about a Fin Voice call using the external call identifier.
   Future<AiCallResponse> collectFinVoiceByExternalId(
       {required String externalId, RequestOptions? requestOptions}) async {
-    return calls_methods.collectFinVoiceCallByExternalId(_config, externalId: externalId, requestOptions: requestOptions);
+    return calls_methods.collectFinVoiceCallByExternalId(_config,
+        externalId: externalId, requestOptions: requestOptions);
   }
 
   /// Retrieve information about a Fin Voice call using the phone number. Returns the most recent matched call for the given phone number, ordered by creation date.
   Future<AiCallResponse> collectFinVoiceByPhoneNumber(
       {required String phoneNumber, RequestOptions? requestOptions}) async {
-    return calls_methods.collectFinVoiceCallByPhoneNumber(_config, phoneNumber: phoneNumber, requestOptions: requestOptions);
+    return calls_methods.collectFinVoiceCallByPhoneNumber(_config,
+        phoneNumber: phoneNumber, requestOptions: requestOptions);
   }
 
   /// Retrieve information about Fin Voice calls associated with a conversation. Returns all matched calls for the given conversation ID. A conversation may have multiple associated calls.
   Future<List<AiCallResponse>> collectFinVoiceByConversationId(
       {required String conversationId, RequestOptions? requestOptions}) async {
-    return calls_methods.collectFinVoiceCallsByConversationId(_config, conversationId: conversationId, requestOptions: requestOptions);
+    return calls_methods.collectFinVoiceCallsByConversationId(_config,
+        conversationId: conversationId, requestOptions: requestOptions);
   }
-
 }
 
 class TeamsNamespace {
   final ClientConfig _config;
   TeamsNamespace(ClientConfig config) : _config = config;
+
   /// Lists the teams in the workspace. Use this endpoint to retrieve team objects and their available team details.
   ///
   /// This will return a list of team objects for the App.
   Future<TeamList> list(
       {SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return teams_methods.listTeams(_config, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return teams_methods.listTeams(_config,
+        intercomVersion: intercomVersion, requestOptions: requestOptions);
   }
 
   /// Retrieves a team and the admins who belong to it. Use the `team_id` to identify the team whose details you need.
@@ -2979,7 +4167,10 @@ class TeamsNamespace {
       {required String teamId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return teams_methods.retrieveTeam(_config, teamId: teamId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return teams_methods.retrieveTeam(_config,
+        teamId: teamId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Lists real-time activity metrics for admins in a specified team, including counts of open, idle, and snoozed conversations. Use `idle_threshold` to set how many seconds must pass before an open conversation is considered idle; this feature requires `realtime_monitoring` to be enabled for the workspace.
@@ -2990,28 +4181,33 @@ class TeamsNamespace {
       SdkOptional<int> idleThreshold = const SdkOmitted(),
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return teams_methods.getTeamMetrics(_config, teamId: teamId, idleThreshold: idleThreshold, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return teams_methods.getTeamMetrics(_config,
+        teamId: teamId,
+        idleThreshold: idleThreshold,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
-
 }
 
 class TicketStatesNamespace {
   final ClientConfig _config;
   TicketStatesNamespace(ClientConfig config) : _config = config;
+
   /// Lists the ticket states associated with ticket types in the workspace. Use the returned state details to see their labels, categories, and ticket type associations.
   ///
   /// You can get a list of all ticket states for a workspace.
   Future<TicketStateList> list(
       {SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return ticket_states_methods.listTicketStates(_config, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return ticket_states_methods.listTicketStates(_config,
+        intercomVersion: intercomVersion, requestOptions: requestOptions);
   }
-
 }
 
 class TicketTypeAttributesNamespace {
   final ClientConfig _config;
   TicketTypeAttributesNamespace(ClientConfig config) : _config = config;
+
   /// Creates an attribute for a ticket type to define a data field captured on tickets. Supply `name`, `description`, and `data_type`; `data_type` must be one of the supported values. Use the remaining fields to configure the attribute's visibility and input options.
   ///
   /// You can create a new attribute for a ticket type.
@@ -3029,7 +4225,20 @@ class TicketTypeAttributesNamespace {
       SdkOptional<String> listItems = const SdkOmitted(),
       SdkOptional<bool> allowMultipleValues = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return ticket_type_attributes_methods.createTicketTypeAttribute(_config, ticketTypeId: ticketTypeId, name: name, description: description, dataType: dataType, intercomVersion: intercomVersion, requiredToCreate: requiredToCreate, requiredToCreateForContacts: requiredToCreateForContacts, visibleOnCreate: visibleOnCreate, visibleToContacts: visibleToContacts, multiline: multiline, listItems: listItems, allowMultipleValues: allowMultipleValues, requestOptions: requestOptions);
+    return ticket_type_attributes_methods.createTicketTypeAttribute(_config,
+        ticketTypeId: ticketTypeId,
+        name: name,
+        description: description,
+        dataType: dataType,
+        intercomVersion: intercomVersion,
+        requiredToCreate: requiredToCreate,
+        requiredToCreateForContacts: requiredToCreateForContacts,
+        visibleOnCreate: visibleOnCreate,
+        visibleToContacts: visibleToContacts,
+        multiline: multiline,
+        listItems: listItems,
+        allowMultipleValues: allowMultipleValues,
+        requestOptions: requestOptions);
   }
 
   /// Updates the configuration of an existing ticket type attribute. Use the `ticket_type_id` and `attribute_id` path parameters to identify the attribute; provide only the fields you want to change.
@@ -3050,21 +4259,36 @@ class TicketTypeAttributesNamespace {
       SdkOptional<bool> allowMultipleValues = const SdkOmitted(),
       SdkOptional<bool> archived = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return ticket_type_attributes_methods.updateTicketTypeAttribute(_config, ticketTypeId: ticketTypeId, attributeId: attributeId, intercomVersion: intercomVersion, name: name, description: description, requiredToCreate: requiredToCreate, requiredToCreateForContacts: requiredToCreateForContacts, visibleOnCreate: visibleOnCreate, visibleToContacts: visibleToContacts, multiline: multiline, listItems: listItems, allowMultipleValues: allowMultipleValues, archived: archived, requestOptions: requestOptions);
+    return ticket_type_attributes_methods.updateTicketTypeAttribute(_config,
+        ticketTypeId: ticketTypeId,
+        attributeId: attributeId,
+        intercomVersion: intercomVersion,
+        name: name,
+        description: description,
+        requiredToCreate: requiredToCreate,
+        requiredToCreateForContacts: requiredToCreateForContacts,
+        visibleOnCreate: visibleOnCreate,
+        visibleToContacts: visibleToContacts,
+        multiline: multiline,
+        listItems: listItems,
+        allowMultipleValues: allowMultipleValues,
+        archived: archived,
+        requestOptions: requestOptions);
   }
-
 }
 
 class TicketTypesNamespace {
   final ClientConfig _config;
   TicketTypesNamespace(ClientConfig config) : _config = config;
+
   /// Lists the ticket types associated with the workspace. Use the returned ticket type details to review their attributes, states, and archive status.
   ///
   /// You can get a list of all ticket types for a workspace.
   Future<TicketTypeList> list(
       {SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return ticket_types_methods.listTicketTypes(_config, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return ticket_types_methods.listTicketTypes(_config,
+        intercomVersion: intercomVersion, requestOptions: requestOptions);
   }
 
   /// Creates a new ticket type with its name, description, category, icon, and internal-use setting. Supply `name`; `category` accepts Customer, Back-office, or Tracker, and omitted `icon` and `is_internal` values default to 🎟️ and false. The created ticket type includes the default `_default_title_` and `_default_description_` attributes.
@@ -3074,11 +4298,19 @@ class TicketTypesNamespace {
       {required String name,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<String> description = const SdkOmitted(),
-      SdkOptional<CreateTicketTypeRequestCategory> category = const SdkOmitted(),
+      SdkOptional<CreateTicketTypeRequestCategory> category =
+          const SdkOmitted(),
       SdkOptional<String> icon = const SdkOmitted(),
       SdkOptional<bool> isInternal = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return ticket_types_methods.createTicketType(_config, name: name, intercomVersion: intercomVersion, description: description, category: category, icon: icon, isInternal: isInternal, requestOptions: requestOptions);
+    return ticket_types_methods.createTicketType(_config,
+        name: name,
+        intercomVersion: intercomVersion,
+        description: description,
+        category: category,
+        icon: icon,
+        isInternal: isInternal,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves a ticket type by its unique identifier. Supply `ticket_type_id` to identify the ticket type and an API version if you need to override the default version.
@@ -3088,7 +4320,10 @@ class TicketTypesNamespace {
       {required String ticketTypeId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return ticket_types_methods.getTicketType(_config, ticketTypeId: ticketTypeId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return ticket_types_methods.getTicketType(_config,
+        ticketTypeId: ticketTypeId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Replaces the configurable details of an existing ticket type. Supply only the fields you want to change; `category` accepts Customer, Back-office, or Tracker, and omitted `icon` and `is_internal` values use their defined defaults when provided. The updated response includes the ticket type's current details.
@@ -3099,19 +4334,29 @@ class TicketTypesNamespace {
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<String> name = const SdkOmitted(),
       SdkOptional<String> description = const SdkOmitted(),
-      SdkOptional<UpdateTicketTypeRequestCategory> category = const SdkOmitted(),
+      SdkOptional<UpdateTicketTypeRequestCategory> category =
+          const SdkOmitted(),
       SdkOptional<String> icon = const SdkOmitted(),
       SdkOptional<bool> archived = const SdkOmitted(),
       SdkOptional<bool> isInternal = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return ticket_types_methods.updateTicketType(_config, ticketTypeId: ticketTypeId, intercomVersion: intercomVersion, name: name, description: description, category: category, icon: icon, archived: archived, isInternal: isInternal, requestOptions: requestOptions);
+    return ticket_types_methods.updateTicketType(_config,
+        ticketTypeId: ticketTypeId,
+        intercomVersion: intercomVersion,
+        name: name,
+        description: description,
+        category: category,
+        icon: icon,
+        archived: archived,
+        isInternal: isInternal,
+        requestOptions: requestOptions);
   }
-
 }
 
 class TicketsNamespace {
   final ClientConfig _config;
   TicketsNamespace(ClientConfig config) : _config = config;
+
   /// Submits a reply to a ticket as an admin or on behalf of a contact, or adds an admin note. Choose a supported `message_type` and provide the author details for the corresponding reply type. Include `body` for comments and notes, or `reply_options` for quick replies.
   ///
   /// You can reply to a ticket with a message from an admin or on behalf of a contact, or with a note for admins.
@@ -3120,7 +4365,11 @@ class TicketsNamespace {
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<bool> skipNotifications = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return tickets_methods.replyTicket(_config, ticketId: ticketId, intercomVersion: intercomVersion, skipNotifications: skipNotifications, requestOptions: requestOptions);
+    return tickets_methods.replyTicket(_config,
+        ticketId: ticketId,
+        intercomVersion: intercomVersion,
+        skipNotifications: skipNotifications,
+        requestOptions: requestOptions);
   }
 
   /// Links a conversation or customer ticket to an existing tracker ticket. Use this when a related conversation surfaces after the tracker ticket has been created, and provide its identifier in `conversation_id`. A tracker ticket can have up to 2,500 linked conversations, and the request requires the `write_tickets` OAuth scope.
@@ -3131,7 +4380,11 @@ class TicketsNamespace {
       required String conversationId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return tickets_methods.linkTicketsConversation(_config, ticketId: ticketId, conversationId: conversationId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return tickets_methods.linkTicketsConversation(_config,
+        ticketId: ticketId,
+        conversationId: conversationId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Unlinks a conversation or converted customer ticket from the tracker ticket it is currently linked to. Use the identifiers in the path to select the tracker ticket and linked item. The request requires the `write_tickets` OAuth scope.
@@ -3142,7 +4395,11 @@ class TicketsNamespace {
       required String id,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return tickets_methods.unlinkTicketConversation(_config, ticketId: ticketId, id: id, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return tickets_methods.unlinkTicketConversation(_config,
+        ticketId: ticketId,
+        id: id,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Creates a ticket using a ticket type and one or more affected contacts. Provide `ticket_type_id` and `contacts`, and optionally set assignment, ticket attributes, or a conversation to link. The channel is available only for customer ticket types and defaults to messenger when omitted.
@@ -3156,11 +4413,23 @@ class TicketsNamespace {
       SdkOptional<String> companyId = const SdkOmitted(),
       SdkOptional<int> createdAt = const SdkOmitted(),
       SdkOptional<Map<String, dynamic>> ticketAttributes = const SdkOmitted(),
-      SdkOptional<CreateTicketRequestBodyAssignment> assignment = const SdkOmitted(),
+      SdkOptional<CreateTicketRequestBodyAssignment> assignment =
+          const SdkOmitted(),
       SdkOptional<CreateTicketRequestBodyChannel> channel = const SdkOmitted(),
       SdkOptional<bool> skipNotifications = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return tickets_methods.createTicket(_config, ticketTypeId: ticketTypeId, contacts: contacts, intercomVersion: intercomVersion, conversationToLinkId: conversationToLinkId, companyId: companyId, createdAt: createdAt, ticketAttributes: ticketAttributes, assignment: assignment, channel: channel, skipNotifications: skipNotifications, requestOptions: requestOptions);
+    return tickets_methods.createTicket(_config,
+        ticketTypeId: ticketTypeId,
+        contacts: contacts,
+        intercomVersion: intercomVersion,
+        conversationToLinkId: conversationToLinkId,
+        companyId: companyId,
+        createdAt: createdAt,
+        ticketAttributes: ticketAttributes,
+        assignment: assignment,
+        channel: channel,
+        skipNotifications: skipNotifications,
+        requestOptions: requestOptions);
   }
 
   /// Submits a ticket creation job for asynchronous processing. Provide `ticket_type_id` and `contacts`; the API validates inputs on a best-effort basis and does not enqueue the job when they are incorrect. Use the returned job details to check processing status and retrieve the created ticket.
@@ -3174,11 +4443,24 @@ class TicketsNamespace {
       SdkOptional<String> companyId = const SdkOmitted(),
       SdkOptional<int> createdAt = const SdkOmitted(),
       SdkOptional<Map<String, dynamic>> ticketAttributes = const SdkOmitted(),
-      SdkOptional<EnqueueCreateTicketRequestBodyAssignment> assignment = const SdkOmitted(),
-      SdkOptional<EnqueueCreateTicketRequestBodyChannel> channel = const SdkOmitted(),
+      SdkOptional<EnqueueCreateTicketRequestBodyAssignment> assignment =
+          const SdkOmitted(),
+      SdkOptional<EnqueueCreateTicketRequestBodyChannel> channel =
+          const SdkOmitted(),
       SdkOptional<bool> skipNotifications = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return tickets_methods.enqueueCreateTicket(_config, ticketTypeId: ticketTypeId, contacts: contacts, intercomVersion: intercomVersion, conversationToLinkId: conversationToLinkId, companyId: companyId, createdAt: createdAt, ticketAttributes: ticketAttributes, assignment: assignment, channel: channel, skipNotifications: skipNotifications, requestOptions: requestOptions);
+    return tickets_methods.enqueueCreateTicket(_config,
+        ticketTypeId: ticketTypeId,
+        contacts: contacts,
+        intercomVersion: intercomVersion,
+        conversationToLinkId: conversationToLinkId,
+        companyId: companyId,
+        createdAt: createdAt,
+        ticketAttributes: ticketAttributes,
+        assignment: assignment,
+        channel: channel,
+        skipNotifications: skipNotifications,
+        requestOptions: requestOptions);
   }
 
   /// Replaces the supplied fields on an existing ticket. Send the fields you want to change, such as `open`, `assignee_id`, or `ticket_attributes`; setting `open` to false also unsnoozes the ticket. Use `skip_notifications` to disable notifications for the update.
@@ -3197,7 +4479,19 @@ class TicketsNamespace {
       SdkOptional<String> assigneeId = const SdkOmitted(),
       SdkOptional<bool> skipNotifications = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return tickets_methods.updateTicket(_config, ticketId: ticketId, intercomVersion: intercomVersion, ticketAttributes: ticketAttributes, ticketStateId: ticketStateId, companyId: companyId, open: open, isShared: isShared, snoozedUntil: snoozedUntil, adminId: adminId, assigneeId: assigneeId, skipNotifications: skipNotifications, requestOptions: requestOptions);
+    return tickets_methods.updateTicket(_config,
+        ticketId: ticketId,
+        intercomVersion: intercomVersion,
+        ticketAttributes: ticketAttributes,
+        ticketStateId: ticketStateId,
+        companyId: companyId,
+        open: open,
+        isShared: isShared,
+        snoozedUntil: snoozedUntil,
+        adminId: adminId,
+        assigneeId: assigneeId,
+        skipNotifications: skipNotifications,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves the details of a single ticket. Use `ticket_id` to look up a ticket by its internal API ID, rather than the ticket number displayed in the Inbox. The response includes ticket status, assignments, attributes, and ticket parts.
@@ -3207,7 +4501,10 @@ class TicketsNamespace {
       {required String ticketId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return tickets_methods.getTicket(_config, ticketId: ticketId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return tickets_methods.getTicket(_config,
+        ticketId: ticketId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Deletes a ticket permanently from the inbox, including its replies, attributes, uploads, and related content. Use `ticket_id` to identify the ticket by its internal API ID, not the number displayed in the Inbox. Deletion cannot be reversed, and the ticket may still appear in reporting with incomplete data.
@@ -3217,7 +4514,10 @@ class TicketsNamespace {
       {required String ticketId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return tickets_methods.deleteTicket(_config, ticketId: ticketId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return tickets_methods.deleteTicket(_config,
+        ticketId: ticketId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Changes the type of a ticket and sets its state for the new type. Supply `ticket_type_id` and `ticket_state_id`; the new type must be in the same category as the current type. Attributes with matching names and types transfer automatically, and supplied `ticket_attributes` override transferred values.
@@ -3230,7 +4530,13 @@ class TicketsNamespace {
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<Map<String, dynamic>> ticketAttributes = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return tickets_methods.changeTicketType(_config, ticketId: ticketId, ticketTypeId: ticketTypeId, ticketStateId: ticketStateId, intercomVersion: intercomVersion, ticketAttributes: ticketAttributes, requestOptions: requestOptions);
+    return tickets_methods.changeTicketType(_config,
+        ticketId: ticketId,
+        ticketTypeId: ticketTypeId,
+        ticketStateId: ticketStateId,
+        intercomVersion: intercomVersion,
+        ticketAttributes: ticketAttributes,
+        requestOptions: requestOptions);
   }
 
   /// Searches tickets by their attributes and other searchable fields. Supply a `query` filter using values and operators compatible with the selected field, and combine filters with `AND` or `OR` within the documented nesting and group limits. Use `pagination.starting_after` to retrieve subsequent result pages; the default page size is 20.
@@ -3241,14 +4547,18 @@ class TicketsNamespace {
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       SdkOptional<StartingAfterPaging?> pagination = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return tickets_methods.searchTickets(_config, query: query, intercomVersion: intercomVersion, pagination: pagination, requestOptions: requestOptions);
+    return tickets_methods.searchTickets(_config,
+        query: query,
+        intercomVersion: intercomVersion,
+        pagination: pagination,
+        requestOptions: requestOptions);
   }
-
 }
 
 class VisitorsNamespace {
   final ClientConfig _config;
   VisitorsNamespace(ClientConfig config) : _config = config;
+
   /// Updates an existing visitor's name or custom attributes. Identify the visitor with `id` or `user_id` in the request body, and provide only the fields you want to update. The response returns the updated visitor.
   ///
   /// Sending a PUT request to `/visitors` will result in an update of an existing Visitor. **Option 1.** You can update a visitor by passing in the `user_id` of the visitor in the Request body. **Option 2.** You can update a visitor by passing in the `id` of the visitor in the Request body.
@@ -3259,7 +4569,13 @@ class VisitorsNamespace {
       SdkOptional<String> name = const SdkOmitted(),
       SdkOptional<Map<String, String>> customAttributes = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return visitors_methods.updateVisitor(_config, intercomVersion: intercomVersion, id: id, userId: userId, name: name, customAttributes: customAttributes, requestOptions: requestOptions);
+    return visitors_methods.updateVisitor(_config,
+        intercomVersion: intercomVersion,
+        id: id,
+        userId: userId,
+        name: name,
+        customAttributes: customAttributes,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves a visitor by the user identifier you provide. Use `user_id` to look up the visitor; the response includes visitor identity, custom attributes, and associated metadata.
@@ -3269,7 +4585,10 @@ class VisitorsNamespace {
       {required String userId,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return visitors_methods.retrieveVisitorWithUserId(_config, userId: userId, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return visitors_methods.retrieveVisitorWithUserId(_config,
+        userId: userId,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
 
   /// Converts a visitor into a contact with the `lead` or `user` role. Provide the visitor's identifier and the identifiers to retain for the resulting contact; if the contact already exists, the visitor is merged into it and deleted. If the contact does not exist, the visitor is converted into a contact.
@@ -3281,21 +4600,27 @@ class VisitorsNamespace {
       required ConvertVisitorRequestVisitor visitor,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return visitors_methods.convertVisitor(_config, type_: type_, user: user, visitor: visitor, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return visitors_methods.convertVisitor(_config,
+        type_: type_,
+        user: user,
+        visitor: visitor,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
-
 }
 
 class BrandsNamespace {
   final ClientConfig _config;
   BrandsNamespace(ClientConfig config) : _config = config;
+
   /// Lists all brands configured for the workspace, including the default brand. Use this operation to retrieve brand identifiers and configuration details. The default brand's ID matches the workspace ID.
   ///
   /// Retrieves all brands for the workspace, including the default brand. The default brand id always matches the workspace
   Future<BrandList> list(
       {SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return brands_methods.listBrands(_config, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return brands_methods.listBrands(_config,
+        intercomVersion: intercomVersion, requestOptions: requestOptions);
   }
 
   /// Retrieves a brand by its unique identifier. Use `id` to select the brand; the response includes its display name, default status, and associated help center and email settings identifiers.
@@ -3305,21 +4630,25 @@ class BrandsNamespace {
       {required String id,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return brands_methods.retrieveBrand(_config, id: id, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return brands_methods.retrieveBrand(_config,
+        id: id,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
-
 }
 
 class EmailsNamespace {
   final ClientConfig _config;
   EmailsNamespace(ClientConfig config) : _config = config;
+
   /// Lists sender email address settings for the workspace. Use this operation to review configured sender addresses and their verification, domain, and forwarding details.
   ///
   /// Lists all sender email address settings for the workspace
   Future<EmailList> list(
       {SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return emails_methods.listEmails(_config, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return emails_methods.listEmails(_config,
+        intercomVersion: intercomVersion, requestOptions: requestOptions);
   }
 
   /// Retrieves a sender email setting by its unique identifier. Use the `id` path parameter to inspect its configured sender address, domain, verification state, forwarding settings, and associated brand.
@@ -3329,14 +4658,17 @@ class EmailsNamespace {
       {required String id,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return emails_methods.retrieveEmail(_config, id: id, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return emails_methods.retrieveEmail(_config,
+        id: id,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
-
 }
 
 class WorkflowsNamespace {
   final ClientConfig _config;
   WorkflowsNamespace(ClientConfig config) : _config = config;
+
   /// Retrieves a workflow configuration by its unique identifier. Use the `id` path parameter to export the complete workflow definition, including its steps, targeting rules, and attributes. Use this export for EU Data Act compliance.
   ///
   /// Export a workflow configuration by its ID. This endpoint returns the complete workflow definition including its steps, targeting rules, and attributes. This endpoint is designed for EU Data Act compliance, allowing customers to export their workflow configurations.
@@ -3344,9 +4676,11 @@ class WorkflowsNamespace {
       {required String id,
       SdkOptional<IntercomVersion> intercomVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return workflows_methods.exportWorkflow(_config, id: id, intercomVersion: intercomVersion, requestOptions: requestOptions);
+    return workflows_methods.exportWorkflow(_config,
+        id: id,
+        intercomVersion: intercomVersion,
+        requestOptions: requestOptions);
   }
-
 }
 
 class Intercom {
@@ -3468,5 +4802,4 @@ class Intercom {
     logging.enabled = enabled ?? true;
     return logging;
   }
-
 }

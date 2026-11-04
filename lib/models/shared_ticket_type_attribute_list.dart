@@ -8,34 +8,65 @@ part of 'shared_ticket.dart';
 class TicketTypeAttributeList implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// String representing the object's type. Always has the value `ticket_type_attributes.list`.
   final SdkOptional<String> type_;
+
   /// A list of ticket type attributes associated with a given ticket type.
   final SdkOptional<List<TicketTypeAttribute?>> ticketTypeAttributes;
 
-  const TicketTypeAttributeList({this.type_ = const SdkOmitted(), this.ticketTypeAttributes = const SdkOmitted()});
+  const TicketTypeAttributeList(
+      {this.type_ = const SdkOmitted(),
+      this.ticketTypeAttributes = const SdkOmitted()});
 
-  TicketTypeAttributeList Function({SdkOptional<String> type_, SdkOptional<List<TicketTypeAttribute?>> ticketTypeAttributes}) get copyWith => _copyWith;
+  TicketTypeAttributeList Function(
+          {SdkOptional<String> type_,
+          SdkOptional<List<TicketTypeAttribute?>> ticketTypeAttributes})
+      get copyWith => _copyWith;
 
-  TicketTypeAttributeList _copyWith({Object? type_ = sdkOmittedValue, Object? ticketTypeAttributes = sdkOmittedValue}) => TicketTypeAttributeList(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
-    ticketTypeAttributes: identical(ticketTypeAttributes, sdkOmittedValue) ? this.ticketTypeAttributes : ticketTypeAttributes as SdkOptional<List<TicketTypeAttribute?>>,
-  );
+  TicketTypeAttributeList _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? ticketTypeAttributes = sdkOmittedValue}) =>
+      TicketTypeAttributeList(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<String>,
+        ticketTypeAttributes: identical(ticketTypeAttributes, sdkOmittedValue)
+            ? this.ticketTypeAttributes
+            : ticketTypeAttributes as SdkOptional<List<TicketTypeAttribute?>>,
+      );
 
-  factory TicketTypeAttributeList.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(TicketTypeAttributeList(
-    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
-    ticketTypeAttributes: json['ticket_type_attributes'] != null ? SdkPresent(((json['ticket_type_attributes'] as List?)?.map((e) => e == null ? null : TicketTypeAttribute.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  ), json);
+  factory TicketTypeAttributeList.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          TicketTypeAttributeList(
+            type_: json['type'] != null
+                ? SdkPresent((json['type'] as String?)!)
+                : const SdkOmitted(),
+            ticketTypeAttributes: json['ticket_type_attributes'] != null
+                ? SdkPresent(((json['ticket_type_attributes'] as List?)
+                    ?.map((e) => e == null
+                        ? null
+                        : TicketTypeAttribute.fromJson(
+                            e as Map<String, dynamic>))
+                    .toList())!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<String>(value: final value) => {'type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (ticketTypeAttributes) {
-      SdkPresent<List<TicketTypeAttribute?>>(value: final value) => {'ticket_type_attributes': value.map((item) => item?.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<String>(value: final value) => {
+              'type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (ticketTypeAttributes) {
+          SdkPresent<List<TicketTypeAttribute?>>(value: final value) => {
+              'ticket_type_attributes':
+                  value.map((item) => item?.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
